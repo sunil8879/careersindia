@@ -1,0 +1,49 @@
+{
+  "country_wise_data": [
+    {
+      "country": "Australia",
+      "data": [
+        {
+          "year": 2015,
+          "no_of_students": 53000
+        },
+        {
+          "year": 2016,
+          "no_of_students": 60013
+        },
+        {
+          "year": 2017,
+          "no_of_students": 68227
+        },
+        {
+          "year": 2018,
+          "no_of_students": 100000
+        },
+        {
+          "year": 2019,
+          "no_of_students": 115107
+        },
+        {
+          "year": 2020,
+          "no_of_students": 115000
+        },
+        {
+          "year": 2021,
+          "no_of_students": 92383
+        },
+        {
+          "year": 2022,
+          "no_of_students": 99374
+        },
+        {
+          "year": 2023,
+          "no_of_students": 126487
+        },
+        {
+          "year": 2024,
+          "no_of_students": 118109
+        }
+      ]
+    }
+  ]
+}

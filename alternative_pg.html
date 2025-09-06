@@ -1,0 +1,818 @@
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alternative Career Explorer - After Post Graduation</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧭</text></svg>">
+
+<style>
+    :root {
+        --primary-color: #4FFFB0; /* Main Aquamarine Color */
+        --dark-accent: #00b894;   /* Darker Aquamarine for contrast */
+        --light-gray: #ecf0f1;
+        --text-dark: #2c3e50;
+        --bg-white: #ffffff;
+    }
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: var(--light-gray);
+        color: var(--text-dark);
+        margin: 0;
+        padding: 20px;
+    }
+    .container {
+        max-width: 900px;
+        margin: 20px auto;
+        padding: 40px;
+        background: var(--bg-white);
+        border-radius: 15px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1), 0 6px 6px rgba(0,0,0,0.15);
+        border: 1px solid #ddd;
+    }
+    .header h1 {
+        text-align: center;
+        font-size: 3rem;
+        font-weight: 800;
+        color: var(--primary-color); /* Changed */
+        text-shadow: 
+            -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff,
+             3px 3px 0px var(--dark-accent); /* Changed */
+        margin-bottom: 10px;
+    }
+    .header p {
+        text-align: center;
+        font-size: 1.1rem;
+        color: #7f8c8d;
+        margin-bottom: 40px;
+    }
+    .input-section { margin-bottom: 40px; }
+    .input-section label {
+        display: block;
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--primary-color); /* Changed */
+    }
+    #career-choice {
+        width: 100%;
+        padding: 15px;
+        font-size: 1.1rem;
+        font-family: 'Poppins', sans-serif;
+        border: 2px solid #bdc3c7;
+        border-radius: 8px;
+        background-color: #fff;
+        cursor: pointer;
+        appearance: none;
+        background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%234FFFB0%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'); /* Changed */
+        background-repeat: no-repeat;
+        background-position: right 15px top 50%;
+        background-size: 14px;
+    }
+    #results-container {
+        display: none;
+        border-top: 2px dashed var(--primary-color); /* Changed */
+        padding-top: 30px;
+    }
+    #results-container h2 {
+        color: var(--primary-color); /* Changed */
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .primary-choice-display {
+        background: #e4fff5; /* Light aquamarine background */
+        border-left: 5px solid var(--primary-color); /* Changed */
+        padding: 20px;
+        margin-bottom: 30px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+    .primary-choice-display h3 { margin: 0 0 10px 0; color: var(--dark-accent); font-size: 1.4rem; } /* Changed */
+    .primary-stats { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 15px; font-size: 0.95rem; }
+    .stat { text-align: center; }
+    .stat .value { font-weight: 700; font-size: 1.2rem; color: var(--text-dark); }
+    .alternatives-grid { display: grid; gap: 25px; }
+    .alternative-card {
+        background: var(--bg-white);
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 25px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .alternative-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.12); }
+    .alternative-card h4 { margin: 0 0 20px 0; font-size: 1.3rem; color: var(--primary-color); } /* Changed */
+    .comparison { margin-bottom: 15px; }
+    .comparison-label { display: flex; justify-content: space-between; font-weight: 600; margin-bottom: 8px; font-size: 0.9rem; }
+    .original-value { color: #7f8c8d; }
+    .alternative-value { color: var(--dark-accent); } /* Changed */
+    .bar-container { background-color: var(--light-gray); border-radius: 20px; height: 12px; margin-bottom: 5px; overflow: hidden; }
+    .bar { height: 100%; border-radius: 20px; transition: width 0.5s ease-in-out; }
+    .original-bar .bar { background-color: #7f8c8d; }
+    .alternative-bar .bar { background-color: var(--primary-color); } /* Changed */
+    .bar-legend { display: flex; align-items: center; font-size: 0.8rem; color: #555; }
+    .legend-dot { width: 10px; height: 10px; border-radius: 50%; margin-right: 5px; }
+    .dot-original { background-color: #7f8c8d; }
+    .dot-alternative { background-color: var(--primary-color); } /* Changed */
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>Alternative Career Explorer</h1>
+        <p>Can't pursue your dream Doctoral course? Discover high-value alternative paths!</p>
+    </div>
+    <div class="input-section">
+        <label for="career-choice">1. Select Your Primary Career Choice</label>
+        <select id="career-choice">
+            <option value="">-- Select a Course --</option>
+        </select>
+    </div>
+    <div id="results-container">
+        <div id="primary-choice-display-area"></div>
+        <h2>Top Alternative Career Paths</h2>
+        <div class="alternatives-grid" id="alternatives-grid-area"></div>
+    </div>
+</div>
+
+<script>
+/**
+ * ===================================================================
+ * METHOD F: The Expert Mapping Model (Final Version for PG)
+ * ===================================================================
+ */
+function findAlternatives(selectedCourse) {
+    return selectedCourse.alternatives || []; // Return the hard-coded list
+}
+
+const courseData = [
+    // --- Ph.D. (Arts & Humanities) ---
+    { id: 'pg-phd-literature', name: 'Ph.D. in Literature', growthRate: 5, avgFee: 40000, avgSalary: 700000, alternatives: [
+        { name: 'Assistant Professor (University)', growthRate: 5, avgFee: 0, avgSalary: 800000 },
+        { name: 'Senior Editor / Publishing Head', growthRate: 6, avgFee: 0, avgSalary: 900000 },
+        { name: 'Content Strategist / Head of Content', growthRate: 15, avgFee: 0, avgSalary: 1200000 }
+    ]},
+    { id: 'pg-phd-history', name: 'Ph.D. in History', growthRate: 4, avgFee: 40000, avgSalary: 650000, alternatives: [
+        { name: 'Archivist / Head of Archives', growthRate: 5, avgFee: 0, avgSalary: 700000 },
+        { name: 'Museum Director / Senior Curator', growthRate: 4, avgFee: 0, avgSalary: 800000 },
+        { name: 'Civil Services (IAS/IPS)', growthRate: 2, avgFee: 150000, avgSalary: 1000000 }
+    ]},
+    { id: 'pg-phd-philosophy', name: 'Ph.D. in Philosophy', growthRate: 4, avgFee: 35000, avgSalary: 680000, alternatives: [
+        { name: 'Professor of Philosophy', growthRate: 4, avgFee: 0, avgSalary: 800000 },
+        { name: 'Ethics & Policy Consultant', growthRate: 7, avgFee: 0, avgSalary: 900000 },
+        { name: 'Author / Public Intellectual', growthRate: 3, avgFee: 0, avgSalary: 700000 }
+    ]},
+    { id: 'pg-phd-sociology', name: 'Ph.D. in Sociology', growthRate: 6, avgFee: 45000, avgSalary: 700000, alternatives: [
+        { name: 'Social Scientist / Researcher (Govt.)', growthRate: 5, avgFee: 0, avgSalary: 850000 },
+        { name: 'Policy Advisor for NGOs/UN', growthRate: 7, avgFee: 0, avgSalary: 900000 },
+        { name: 'Market Research Head (Qualitative)', growthRate: 9, avgFee: 0, avgSalary: 1200000 }
+    ]},
+    { id: 'pg-phd-economics', name: 'Ph.D. in Economics', growthRate: 8, avgFee: 50000, avgSalary: 1200000, alternatives: [
+        { name: 'Economist at RBI / World Bank / IMF', growthRate: 6, avgFee: 0, avgSalary: 2000000 },
+        { name: 'Quantitative Analyst (Quant)', growthRate: 12, avgFee: 0, avgSalary: 2500000 },
+        { name: 'Indian Economic Service (IES)', growthRate: 3, avgFee: 100000, avgSalary: 1100000 }
+    ]},
+    { id: 'pg-phd-political-science', name: 'Ph.D. in Political Science', growthRate: 5, avgFee: 40000, avgSalary: 750000, alternatives: [
+        { name: 'Political Strategist / Campaign Manager', growthRate: 7, avgFee: 0, avgSalary: 1000000 },
+        { name: 'Foreign Service Officer (IFS)', growthRate: 2, avgFee: 150000, avgSalary: 1200000 },
+        { name: 'Senior Policy Analyst (Think Tank)', growthRate: 6, avgFee: 0, avgSalary: 900000 }
+    ]},
+    { id: 'pg-phd-psychology', name: 'Ph.D. in Psychology', growthRate: 9, avgFee: 80000, avgSalary: 800000, alternatives: [
+        { name: 'Licensed Clinical Psychologist (after M.Phil)', growthRate: 10, avgFee: 150000, avgSalary: 700000 },
+        { name: 'Organizational Development Consultant', growthRate: 9, avgFee: 0, avgSalary: 1200000 },
+        { name: 'University Professor of Psychology', growthRate: 6, avgFee: 0, avgSalary: 900000 }
+    ]},
+    { id: 'pg-phd-anthropology', name: 'Ph.D. in Anthropology', growthRate: 5, avgFee: 45000, avgSalary: 700000, alternatives: [
+        { name: 'User Experience (UX) Research Lead', growthRate: 15, avgFee: 0, avgSalary: 1400000 },
+        { name: 'International Development Consultant', growthRate: 7, avgFee: 0, avgSalary: 900000 },
+        { name: 'Cultural Resource Manager', growthRate: 4, avgFee: 0, avgSalary: 650000 }
+    ]},
+    { id: 'pg-phd-journalism', name: 'Ph.D. in Journalism', growthRate: 6, avgFee: 100000, avgSalary: 750000, alternatives: [
+        { name: 'Editor-in-Chief / Senior Editor', growthRate: 4, avgFee: 0, avgSalary: 1200000 },
+        { name: 'Professor of Journalism', growthRate: 5, avgFee: 0, avgSalary: 850000 },
+        { name: 'Head of Corporate Communications', growthRate: 9, avgFee: 0, avgSalary: 1500000 }
+    ]},
+    { id: 'pg-phd-mass-communication', name: 'Ph.D. in Mass Communication', growthRate: 6, avgFee: 90000, avgSalary: 780000, alternatives: [
+        { name: 'Media Strategist / Consultant', growthRate: 8, avgFee: 0, avgSalary: 1000000 },
+        { name: 'Public Relations Director', growthRate: 8, avgFee: 0, avgSalary: 1400000 },
+        { name: 'Professor of Mass Communication', growthRate: 5, avgFee: 0, avgSalary: 850000 }
+    ]},
+    { id: 'pg-phd-library-science', name: 'Ph.D. in Library Science', growthRate: 4, avgFee: 35000, avgSalary: 600000, alternatives: [
+        { name: 'Chief Librarian (University)', growthRate: 3, avgFee: 0, avgSalary: 900000 },
+        { name: 'Information Architect / Data Curator', growthRate: 12, avgFee: 0, avgSalary: 800000 },
+        { name: 'Knowledge Management Specialist', growthRate: 10, avgFee: 0, avgSalary: 750000 }
+    ]},
+    { id: 'pg-phd-education', name: 'Ph.D. in Education', growthRate: 6, avgFee: 50000, avgSalary: 800000, alternatives: [
+        { name: 'Dean / Director of an Educational Institution', growthRate: 4, avgFee: 0, avgSalary: 1500000 },
+        { name: 'Education Policy Advisor (Govt.)', growthRate: 5, avgFee: 0, avgSalary: 1000000 },
+        { name: 'Head of Learning & Development (Corporate)', growthRate: 9, avgFee: 0, avgSalary: 1400000 }
+    ]},
+    { id: 'pg-phd-linguistics', name: 'Ph.D. in Linguistics', growthRate: 6, avgFee: 40000, avgSalary: 700000, alternatives: [
+        { name: 'Computational Linguist / NLP Scientist', growthRate: 18, avgFee: 0, avgSalary: 1500000 },
+        { name: 'Professor of Linguistics', growthRate: 5, avgFee: 0, avgSalary: 800000 },
+        { name: 'Lexicographer', growthRate: 3, avgFee: 0, avgSalary: 600000 }
+    ]},
+    { id: 'pg-phd-theatre-arts', name: 'Ph.D. in Theatre Arts', growthRate: 5, avgFee: 70000, avgSalary: 600000, alternatives: [
+        { name: 'Artistic Director of a Theatre Company', growthRate: 4, avgFee: 0, avgSalary: 750000 },
+        { name: 'Professor of Dramatic Arts', growthRate: 5, avgFee: 0, avgSalary: 800000 },
+        { name: 'Film/Theatre Critic', growthRate: 6, avgFee: 0, avgSalary: 550000 }
+    ]},
+// --- Ph.D. (Science) ---
+    { id: 'pg-phd-physics', name: 'Ph.D. in Physics', growthRate: 6, avgFee: 50000, avgSalary: 900000, alternatives: [
+        { name: 'Scientist at BARC/ISRO/DRDO', growthRate: 5, avgFee: 0, avgSalary: 1200000 },
+        { name: 'Post-Doctoral Fellowship (PDF)', growthRate: 6, avgFee: 0, avgSalary: 800000 },
+        { name: 'Quantitative Analyst (with coding skills)', growthRate: 12, avgFee: 0, avgSalary: 2500000 }
+    ]},
+    { id: 'pg-phd-chemistry', name: 'Ph.D. in Chemistry', growthRate: 6, avgFee: 50000, avgSalary: 850000, alternatives: [
+        { name: 'Senior R&D Scientist (Pharma/Chemicals)', growthRate: 7, avgFee: 0, avgSalary: 1200000 },
+        { name: 'Post-Doctoral Fellowship (PDF)', growthRate: 6, avgFee: 0, avgSalary: 800000 },
+        { name: 'Patent Attorney/Analyst', growthRate: 10, avgFee: 100000, avgSalary: 1000000 }
+    ]},
+    { id: 'pg-phd-mathematics', name: 'Ph.D. in Mathematics', growthRate: 7, avgFee: 40000, avgSalary: 950000, alternatives: [
+        { name: 'Data Scientist / Quantitative Researcher', growthRate: 20, avgFee: 0, avgSalary: 1500000 },
+        { name: 'Professor of Mathematics', growthRate: 5, avgFee: 0, avgSalary: 1000000 },
+        { name: 'Cryptographer', growthRate: 15, avgFee: 0, avgSalary: 1400000 }
+    ]},
+    { id: 'pg-phd-biology', name: 'Ph.D. in Biology', growthRate: 7, avgFee: 60000, avgSalary: 800000, alternatives: [
+        { name: 'Research Scientist (Life Sciences)', growthRate: 8, avgFee: 0, avgSalary: 900000 },
+        { name: 'Post-Doctoral Fellowship', growthRate: 6, avgFee: 0, avgSalary: 800000 },
+        { name: 'Senior Scientific Writer/Editor', growthRate: 10, avgFee: 0, avgSalary: 700000 }
+    ]},
+    { id: 'pg-phd-biotechnology', name: 'Ph.D. in Biotechnology', growthRate: 9, avgFee: 80000, avgSalary: 950000, alternatives: [
+        { name: 'Lead Scientist in a Biopharma R&D Lab', growthRate: 9, avgFee: 0, avgSalary: 1500000 },
+        { name: 'Post-Doctoral Fellowship (DBT-RA)', growthRate: 8, avgFee: 0, avgSalary: 850000 },
+        { name: 'Product Manager (Biotech)', growthRate: 10, avgFee: 0, avgSalary: 1200000 }
+    ]},
+    { id: 'pg-phd-computer-science-science', name: 'Ph.D. in Computer Science (Science Stream)', growthRate: 18, avgFee: 80000, avgSalary: 1500000, alternatives: [
+        { name: 'Research Scientist (Google, Microsoft Research)', growthRate: 15, avgFee: 0, avgSalary: 3000000 },
+        { name: 'AI/ML Research Lead', growthRate: 22, avgFee: 0, avgSalary: 2500000 },
+        { name: 'University Professor (CS)', growthRate: 8, avgFee: 0, avgSalary: 1200000 }
+    ]},
+    { id: 'pg-phd-environmental-science', name: 'Ph.D. in Environmental Science', growthRate: 9, avgFee: 60000, avgSalary: 800000, alternatives: [
+        { name: 'Lead Environmental Consultant', growthRate: 8, avgFee: 0, avgSalary: 1000000 },
+        { name: 'Scientist in Govt. Pollution Control Boards', growthRate: 6, avgFee: 0, avgSalary: 900000 },
+        { name: 'Head of Sustainability (Corporate)', growthRate: 12, avgFee: 0, avgSalary: 1400000 }
+    ]},
+    { id: 'pg-phd-forensic-science', name: 'Ph.D. in Forensic Science', growthRate: 10, avgFee: 90000, avgSalary: 750000, alternatives: [
+        { name: 'Director of Forensic Laboratory', growthRate: 8, avgFee: 0, avgSalary: 1200000 },
+        { name: 'Forensic Consultant', growthRate: 9, avgFee: 0, avgSalary: 900000 },
+        { name: 'Professor of Forensic Science', growthRate: 7, avgFee: 0, avgSalary: 850000 }
+    ]},
+    { id: 'pg-phd-geology', name: 'Ph.D. in Geology', growthRate: 6, avgFee: 70000, avgSalary: 900000, alternatives: [
+        { name: 'Senior Geoscientist (ONGC/GSI)', growthRate: 5, avgFee: 0, avgSalary: 1400000 },
+        { name: 'Exploration Manager (Mining/Oil)', growthRate: 5, avgFee: 0, avgSalary: 1500000 },
+        { name: 'Post-Doctoral Research in Earth Sciences', growthRate: 5, avgFee: 0, avgSalary: 800000 }
+    ]},
+    { id: 'pg-phd-statistics', name: 'Ph.D. in Statistics', growthRate: 10, avgFee: 40000, avgSalary: 1400000, alternatives: [
+        { name: 'Lead Data Scientist', growthRate: 20, avgFee: 0, avgSalary: 2000000 },
+        { name: 'Quantitative Strategist (Hedge Funds)', growthRate: 12, avgFee: 0, avgSalary: 3000000 },
+        { name: 'Professor at ISI / Top Universities', growthRate: 6, avgFee: 0, avgSalary: 1500000 }
+    ]},
+    { id: 'pg-phd-astronomy', name: 'Ph.D. in Astronomy', growthRate: 6, avgFee: 60000, avgSalary: 1000000, alternatives: [
+        { name: 'Scientist at ISRO / TIFR / IIA', growthRate: 5, avgFee: 0, avgSalary: 1200000 },
+        { name: 'Post-Doctoral Fellowship (International)', growthRate: 6, avgFee: 0, avgSalary: 900000 },
+        { name: 'Data Scientist (Big Data Analytics)', growthRate: 20, avgFee: 90000, avgSalary: 900000 }
+    ]},
+    { id: 'pg-phd-biomedical-science', name: 'Ph.D. in Biomedical Science', growthRate: 9, avgFee: 100000, avgSalary: 950000, alternatives: [
+        { name: 'Senior Research Scientist (Medical R&D)', growthRate: 8, avgFee: 0, avgSalary: 1200000 },
+        { name: 'Post-Doctoral Fellowship (ICMR)', growthRate: 8, avgFee: 0, avgSalary: 850000 },
+        { name: 'Medical Science Liaison', growthRate: 10, avgFee: 0, avgSalary: 1400000 }
+    ]},
+    { id: 'pg-phd-nanoscience', name: 'Ph.D. in Nanoscience', growthRate: 14, avgFee: 100000, avgSalary: 1100000, alternatives: [
+        { name: 'R&D Lead (Semiconductors/Materials)', growthRate: 12, avgFee: 0, avgSalary: 1600000 },
+        { name: 'Post-Doctoral Fellow (Nanomaterials)', growthRate: 10, avgFee: 0, avgSalary: 900000 },
+        { name: 'Professor of Materials Science', growthRate: 7, avgFee: 0, avgSalary: 1000000 }
+    ]},
+    { id: 'pg-phd-neuroscience', name: 'Ph.D. in Neuroscience', growthRate: 9, avgFee: 120000, avgSalary: 1000000, alternatives: [
+        { name: 'Neuroscientist (Research Institute)', growthRate: 8, avgFee: 0, avgSalary: 1200000 },
+        { name: 'Post-Doctoral Fellow (Cognitive Science)', growthRate: 8, avgFee: 0, avgSalary: 900000 },
+        { name: 'Data Scientist (Neuro-informatics)', growthRate: 18, avgFee: 0, avgSalary: 1400000 }
+    ]},
+    { id: 'pg-phd-marine-biology', name: 'Ph.D. in Marine Biology', growthRate: 6, avgFee: 80000, avgSalary: 750000, alternatives: [
+        { name: 'Marine Scientist (NIO/Govt.)', growthRate: 5, avgFee: 0, avgSalary: 900000 },
+        { name: 'Coastal and Marine Policy Advisor', growthRate: 6, avgFee: 0, avgSalary: 800000 },
+        { name: 'Professor of Marine Sciences', growthRate: 5, avgFee: 0, avgSalary: 850000 }
+    ]},
+
+    // --- Ph.D. (Engineering & Technology) ---
+    { id: 'pg-phd-mechanical-engineering', name: 'Ph.D. in Mechanical Engineering', growthRate: 8, avgFee: 60000, avgSalary: 1100000, alternatives: [
+        { name: 'Principal R&D Engineer (Automotive/Aero)', growthRate: 8, avgFee: 0, avgSalary: 1800000 },
+        { name: 'Post-Doctoral Fellowship', growthRate: 6, avgFee: 0, avgSalary: 900000 },
+        { name: 'Professor at IIT/NIT', growthRate: 6, avgFee: 0, avgSalary: 1400000 }
+    ]},
+    { id: 'pg-phd-electrical-engineering', name: 'Ph.D. in Electrical Engineering', growthRate: 9, avgFee: 60000, avgSalary: 1200000, alternatives: [
+        { name: 'R&D Lead (Power Systems/Electronics)', growthRate: 8, avgFee: 0, avgSalary: 1700000 },
+        { name: 'Post-Doctoral Fellowship', growthRate: 6, avgFee: 0, avgSalary: 900000 },
+        { name: 'Professor at IIT/NIT', growthRate: 6, avgFee: 0, avgSalary: 1400000 }
+    ]},
+    { id: 'pg-phd-civil-engineering', name: 'Ph.D. in Civil Engineering', growthRate: 8, avgFee: 60000, avgSalary: 1000000, alternatives: [
+        { name: 'Senior Geotechnical/Structural Consultant', growthRate: 7, avgFee: 0, avgSalary: 1500000 },
+        { name: 'Head of R&D (Construction Materials)', growthRate: 7, avgFee: 0, avgSalary: 1400000 },
+        { name: 'Professor at IIT/NIT', growthRate: 6, avgFee: 0, avgSalary: 1400000 }
+    ]},
+    { id: 'pg-phd-computer-science-engineering', name: 'Ph.D. in Computer Science & Engineering', growthRate: 18, avgFee: 80000, avgSalary: 1800000, alternatives: [
+        { name: 'Research Scientist at FAANG Companies', growthRate: 15, avgFee: 0, avgSalary: 4000000 },
+        { name: 'Professor at IIT/IIIT', growthRate: 8, avgFee: 0, avgSalary: 1500000 },
+        { name: 'AI/ML Research Director', growthRate: 22, avgFee: 0, avgSalary: 3000000 }
+    ]},
+    { id: 'pg-phd-electronics-communication-engineering', name: 'Ph.D. in Electronics & Communication Engineering', growthRate: 12, avgFee: 70000, avgSalary: 1300000, alternatives: [
+        { name: 'R&D Lead (Telecom/Semiconductors)', growthRate: 10, avgFee: 0, avgSalary: 2000000 },
+        { name: 'Post-Doctoral Fellow (VLSI/Communications)', growthRate: 8, avgFee: 0, avgSalary: 950000 },
+        { name: 'Professor at IIT/NIT', growthRate: 6, avgFee: 0, avgSalary: 1400000 }
+    ]},
+    { id: 'pg-phd-information-technology-engg', name: 'Ph.D. in Information Technology (Engg.)', growthRate: 17, avgFee: 80000, avgSalary: 1600000, alternatives: [
+        { name: 'Chief Technology Officer (CTO)', growthRate: 12, avgFee: 0, avgSalary: 3500000 },
+        { name: 'Senior Research Scientist (IT)', growthRate: 15, avgFee: 0, avgSalary: 2500000 },
+        { name: 'Professor of Information Systems', growthRate: 8, avgFee: 0, avgSalary: 1500000 }
+    ]},
+    { id: 'pg-phd-architecture', name: 'Ph.D. in Architecture', growthRate: 8, avgFee: 90000, avgSalary: 900000, alternatives: [
+        { name: 'Principal Architect / Head of Design Firm', growthRate: 7, avgFee: 0, avgSalary: 1500000 },
+        { name: 'Professor at SPA/IIT', growthRate: 6, avgFee: 0, avgSalary: 1200000 },
+        { name: 'Urban Design & Policy Consultant', growthRate: 8, avgFee: 0, avgSalary: 1000000 }
+    ]},
+    { id: 'pg-phd-planning', name: 'Ph.D. in Planning', growthRate: 7, avgFee: 80000, avgSalary: 950000, alternatives: [
+        { name: 'Chief Town Planner (Govt.)', growthRate: 5, avgFee: 0, avgSalary: 1400000 },
+        { name: 'Senior Urban Policy Advisor', growthRate: 7, avgFee: 0, avgSalary: 1200000 },
+        { name: 'Professor of Urban Planning', growthRate: 6, avgFee: 0, avgSalary: 1100000 }
+    ]},
+    { id: 'pg-phd-robotics', name: 'Ph.D. in Robotics', growthRate: 18, avgFee: 120000, avgSalary: 1600000, alternatives: [
+        { name: 'Robotics Research Scientist (Industry)', growthRate: 18, avgFee: 0, avgSalary: 2500000 },
+        { name: 'Professor of Robotics/Mechatronics', growthRate: 10, avgFee: 0, avgSalary: 1500000 },
+        { name: 'Lead Automation Architect', growthRate: 15, avgFee: 0, avgSalary: 2000000 }
+    ]},
+    { id: 'pg-phd-artificial-intelligence-engg', name: 'Ph.D. in Artificial Intelligence (Engg.)', growthRate: 22, avgFee: 150000, avgSalary: 2000000, alternatives: [
+        { name: 'AI Research Scientist (FAANG)', growthRate: 20, avgFee: 0, avgSalary: 4500000 },
+        { name: 'Lead Machine Learning Engineer', growthRate: 22, avgFee: 0, avgSalary: 3000000 },
+        { name: 'Professor of AI', growthRate: 15, avgFee: 0, avgSalary: 1800000 }
+    ]},
+    { id: 'pg-phd-machine-learning-engg', name: 'Ph.D. in Machine Learning (Engg.)', growthRate: 22, avgFee: 150000, avgSalary: 2200000, alternatives: [
+        { name: 'AI Research Scientist (FAANG)', growthRate: 20, avgFee: 0, avgSalary: 4500000 },
+        { name: 'Quantitative Researcher (Hedge Funds)', growthRate: 15, avgFee: 0, avgSalary: 5000000 },
+        { name: 'Professor of Machine Learning', growthRate: 15, avgFee: 0, avgSalary: 1800000 }
+    ]},
+    { id: 'pg-phd-data-science-engg', name: 'Ph.D. in Data Science (Engg.)', growthRate: 20, avgFee: 140000, avgSalary: 1900000, alternatives: [
+        { name: 'Principal Data Scientist', growthRate: 18, avgFee: 0, avgSalary: 2800000 },
+        { name: 'Director of Analytics', growthRate: 15, avgFee: 0, avgSalary: 3500000 },
+        { name: 'Professor of Data Science', growthRate: 15, avgFee: 0, avgSalary: 1700000 }
+    ]},
+    { id: 'pg-phd-cybersecurity-engg', name: 'Ph.D. in Cybersecurity (Engg.)', growthRate: 20, avgFee: 130000, avgSalary: 1600000, alternatives: [
+        { name: 'Chief Information Security Officer (CISO)', growthRate: 18, avgFee: 0, avgSalary: 4000000 },
+        { name: 'Cybersecurity Researcher', growthRate: 18, avgFee: 0, avgSalary: 2000000 },
+        { name: 'Professor of Cybersecurity', growthRate: 15, avgFee: 0, avgSalary: 1500000 }
+    ]},
+    { id: 'pg-phd-materials-science-engg', name: 'Ph.D. in Materials Science (Engg.)', growthRate: 7, avgFee: 80000, avgSalary: 1000000, alternatives: [
+        { name: 'Lead Materials Scientist (R&D)', growthRate: 7, avgFee: 0, avgSalary: 1500000 },
+        { name: 'Post-Doctoral Fellowship', growthRate: 6, avgFee: 0, avgSalary: 900000 },
+        { name: 'Professor of Materials Engineering', growthRate: 6, avgFee: 0, avgSalary: 1200000 }
+    ]},
+    { id: 'pg-phd-energy-engineering', name: 'Ph.D. in Energy Engineering', growthRate: 12, avgFee: 90000, avgSalary: 1100000, alternatives: [
+        { name: 'Lead Engineer (Renewable Energy)', growthRate: 15, avgFee: 0, avgSalary: 1600000 },
+        { name: 'Energy Policy Advisor', growthRate: 10, avgFee: 0, avgSalary: 1200000 },
+        { name: 'Professor of Energy Systems', growthRate: 8, avgFee: 0, avgSalary: 1300000 }
+    ]},
+
+    // --- Ph.D. (Management) ---
+    { id: 'pg-phd-finance', name: 'Ph.D. in Finance', growthRate: 9, avgFee: 100000, avgSalary: 1800000, alternatives: [
+        { name: 'Professor of Finance (IIMs/ISB)', growthRate: 7, avgFee: 0, avgSalary: 2500000 },
+        { name: 'Quantitative Research Head', growthRate: 12, avgFee: 0, avgSalary: 4000000 },
+        { name: 'Chief Financial Officer (CFO)', growthRate: 6, avgFee: 0, avgSalary: 5000000 }
+    ]},
+    { id: 'pg-phd-marketing', name: 'Ph.D. in Marketing', growthRate: 9, avgFee: 100000, avgSalary: 1600000, alternatives: [
+        { name: 'Professor of Marketing (IIMs)', growthRate: 7, avgFee: 0, avgSalary: 2400000 },
+        { name: 'Head of Market Research', growthRate: 8, avgFee: 0, avgSalary: 2000000 },
+        { name: 'Chief Marketing Officer (CMO)', growthRate: 7, avgFee: 0, avgSalary: 4500000 }
+    ]},
+    { id: 'pg-phd-human-resource-management-hrm', name: 'Ph.D. in Human Resource Management (HRM)', growthRate: 8, avgFee: 90000, avgSalary: 1400000, alternatives: [
+        { name: 'Professor of HRM/OB (IIMs)', growthRate: 7, avgFee: 0, avgSalary: 2200000 },
+        { name: 'Chief Human Resources Officer (CHRO)', growthRate: 7, avgFee: 0, avgSalary: 4000000 },
+        { name: 'Organizational Development Consultant', growthRate: 9, avgFee: 0, avgSalary: 1800000 }
+    ]},
+    { id: 'pg-phd-operations-management', name: 'Ph.D. in Operations Management', growthRate: 9, avgFee: 100000, avgSalary: 1700000, alternatives: [
+        { name: 'Professor of Operations (IIMs)', growthRate: 7, avgFee: 0, avgSalary: 2400000 },
+        { name: 'Chief Operating Officer (COO)', growthRate: 6, avgFee: 0, avgSalary: 5000000 },
+        { name: 'Head of Supply Chain Strategy', growthRate: 10, avgFee: 0, avgSalary: 2500000 }
+    ]},
+    { id: 'pg-phd-business-analytics', name: 'Ph.D. in Business Analytics', growthRate: 15, avgFee: 120000, avgSalary: 1800000, alternatives: [
+        { name: 'Professor of Analytics/Data Science', growthRate: 15, avgFee: 0, avgSalary: 2000000 },
+        { name: 'Head of Analytics / Chief Data Officer', growthRate: 18, avgFee: 0, avgSalary: 3500000 },
+        { name: 'Management Consultant (Data Strategy)', growthRate: 12, avgFee: 0, avgSalary: 2200000 }
+    ]},
+    { id: 'pg-phd-international-business', name: 'Ph.D. in International Business', growthRate: 9, avgFee: 110000, avgSalary: 1500000, alternatives: [
+        { name: 'Professor of International Business', growthRate: 7, avgFee: 0, avgSalary: 2000000 },
+        { name: 'Global Strategy Consultant', growthRate: 8, avgFee: 0, avgSalary: 2200000 },
+        { name: 'Head of International Expansion', growthRate: 8, avgFee: 0, avgSalary: 3000000 }
+    ]},
+    { id: 'pg-phd-healthcare-management', name: 'Ph.D. in Healthcare Management', growthRate: 11, avgFee: 120000, avgSalary: 1300000, alternatives: [
+        { name: 'Hospital CEO', growthRate: 9, avgFee: 0, avgSalary: 3500000 },
+        { name: 'Professor of Hospital Administration', growthRate: 8, avgFee: 0, avgSalary: 1200000 },
+        { name: 'Public Health Policy Advisor', growthRate: 9, avgFee: 0, avgSalary: 1500000 }
+    ]},
+    { id: 'pg-phd-agri-business-management', name: 'Ph.D. in Agri-Business Management', growthRate: 9, avgFee: 100000, avgSalary: 1200000, alternatives: [
+        { name: 'Professor at IIM-A/IRMA', growthRate: 7, avgFee: 0, avgSalary: 2000000 },
+        { name: 'Agri-Business Strategy Head', growthRate: 8, avgFee: 0, avgSalary: 1800000 },
+        { name: 'Commodity Trading Analyst', growthRate: 9, avgFee: 0, avgSalary: 1500000 }
+    ]},
+  // --- Ph.D. (Law) ---
+    { id: 'pg-phd-constitutional-law', name: 'Ph.D. in Constitutional Law', growthRate: 5, avgFee: 70000, avgSalary: 1000000, alternatives: [
+        { name: 'Professor of Law at NLUs', growthRate: 5, avgFee: 0, avgSalary: 1500000 },
+        { name: 'Legal Advisor to Govt./Constitutional Bodies', growthRate: 4, avgFee: 0, avgSalary: 1200000 },
+        { name: 'Senior Advocate (Constitutional Matters)', growthRate: 6, avgFee: 0, avgSalary: 2500000 }
+    ]},
+    { id: 'pg-phd-corporate-law', name: 'Ph.D. in Corporate Law', growthRate: 8, avgFee: 80000, avgSalary: 1200000, alternatives: [
+        { name: 'Partner at a Corporate Law Firm', growthRate: 7, avgFee: 0, avgSalary: 3000000 },
+        { name: 'General Counsel of a Corporation', growthRate: 7, avgFee: 0, avgSalary: 4000000 },
+        { name: 'Professor of Corporate Law', growthRate: 6, avgFee: 0, avgSalary: 1600000 }
+    ]},
+    { id: 'pg-phd-criminal-law', name: 'Ph.D. in Criminal Law', growthRate: 6, avgFee: 70000, avgSalary: 900000, alternatives: [
+        { name: 'Senior Criminal Advocate', growthRate: 5, avgFee: 0, avgSalary: 1500000 },
+        { name: 'Professor of Criminal Law', growthRate: 5, avgFee: 0, avgSalary: 1200000 },
+        { name: 'Judicial Officer (Higher Judiciary)', growthRate: 4, avgFee: 50000, avgSalary: 1500000 }
+    ]},
+    { id: 'pg-phd-environmental-law', name: 'Ph.D. in Environmental Law', growthRate: 9, avgFee: 75000, avgSalary: 950000, alternatives: [
+        { name: 'Legal Head (Environmental Regulator)', growthRate: 7, avgFee: 0, avgSalary: 1200000 },
+        { name: 'Senior Counsel for Environmental Law Firms', growthRate: 8, avgFee: 0, avgSalary: 1400000 },
+        { name: 'Professor of Environmental Law', growthRate: 6, avgFee: 0, avgSalary: 1100000 }
+    ]},
+    { id: 'pg-phd-human-rights-law', name: 'Ph.D. in Human Rights Law', growthRate: 7, avgFee: 70000, avgSalary: 850000, alternatives: [
+        { name: 'Legal Advisor to UN/Human Rights Commission', growthRate: 6, avgFee: 0, avgSalary: 1200000 },
+        { name: 'Director of an International NGO', growthRate: 7, avgFee: 0, avgSalary: 1000000 },
+        { name: 'Professor of Human Rights Law', growthRate: 5, avgFee: 0, avgSalary: 1000000 }
+    ]},
+    { id: 'pg-phd-intellectual-property-law-ipr', name: 'Ph.D. in Intellectual Property Law (IPR)', growthRate: 10, avgFee: 90000, avgSalary: 1100000, alternatives: [
+        { name: 'IP Portfolio Manager/Strategist', growthRate: 11, avgFee: 0, avgSalary: 1800000 },
+        { name: 'Partner at an IP Law Firm', growthRate: 9, avgFee: 0, avgSalary: 2500000 },
+        { name: 'Professor of IPR', growthRate: 7, avgFee: 0, avgSalary: 1400000 }
+    ]},
+    { id: 'pg-phd-international-law', name: 'Ph.D. in International Law', growthRate: 7, avgFee: 100000, avgSalary: 1300000, alternatives: [
+        { name: 'Legal Officer at UN / International Court of Justice', growthRate: 5, avgFee: 0, avgSalary: 2000000 },
+        { name: 'Indian Foreign Service (IFS)', growthRate: 2, avgFee: 150000, avgSalary: 1200000 },
+        { name: 'International Arbitration Lawyer', growthRate: 8, avgFee: 0, avgSalary: 1800000 }
+    ]},
+    { id: 'pg-phd-tax-law', name: 'Ph.D. in Tax Law', growthRate: 8, avgFee: 85000, avgSalary: 1100000, alternatives: [
+        { name: 'Senior Tax Counsel', growthRate: 8, avgFee: 0, avgSalary: 2000000 },
+        { name: 'Partner in a Tax Consultancy Firm', growthRate: 7, avgFee: 0, avgSalary: 2500000 },
+        { name: 'Professor of Taxation Law', growthRate: 6, avgFee: 0, avgSalary: 1400000 }
+    ]},
+
+    // --- MD Degrees ---
+    { id: 'pg-md-general-medicine', name: 'MD in General Medicine', growthRate: 8, avgFee: 2000000, avgSalary: 2500000, alternatives: [
+        { name: 'DM (Super Speciality) e.g., Cardiology, Neurology', growthRate: 9, avgFee: 3000000, avgSalary: 4000000 },
+        { name: 'Consultant Physician in Corporate Hospital', growthRate: 7, avgFee: 0, avgSalary: 3000000 },
+        { name: 'Start own Clinic/Hospital', growthRate: 10, avgFee: 5000000, avgSalary: 5000000 }
+    ]},
+    { id: 'pg-md-pediatrics', name: 'MD in Pediatrics', growthRate: 8, avgFee: 2200000, avgSalary: 2400000, alternatives: [
+        { name: 'DM in Neonatology / Pediatric Cardiology', growthRate: 9, avgFee: 3000000, avgSalary: 4000000 },
+        { name: 'Consultant Pediatrician', growthRate: 7, avgFee: 0, avgSalary: 2800000 },
+        { name: 'Academic position in a Medical College', growthRate: 6, avgFee: 0, avgSalary: 2000000 }
+    ]},
+    { id: 'pg-md-dermatology', name: 'MD in Dermatology', growthRate: 10, avgFee: 3000000, avgSalary: 3000000, alternatives: [
+        { name: 'Cosmetologist / Aesthetic Dermatologist', growthRate: 12, avgFee: 500000, avgSalary: 4000000 },
+        { name: 'Consultant Dermatologist', growthRate: 9, avgFee: 0, avgSalary: 3500000 },
+        { name: 'Own a Skin Clinic', growthRate: 12, avgFee: 6000000, avgSalary: 6000000 }
+    ]},
+    { id: 'pg-md-pathology', name: 'MD in Pathology', growthRate: 7, avgFee: 1500000, avgSalary: 2000000, alternatives: [
+        { name: 'Consultant Pathologist', growthRate: 6, avgFee: 0, avgSalary: 2500000 },
+        { name: 'Head of a Diagnostic Laboratory', growthRate: 8, avgFee: 2000000, avgSalary: 3500000 },
+        { name: 'DM in Histopathology/Oncopathology', growthRate: 8, avgFee: 2500000, avgSalary: 3000000 }
+    ]},
+    { id: 'pg-md-microbiology', name: 'MD in Microbiology', growthRate: 8, avgFee: 1200000, avgSalary: 1800000, alternatives: [
+        { name: 'Clinical Microbiologist / Infection Control Officer', growthRate: 8, avgFee: 0, avgSalary: 2200000 },
+        { name: 'Research Scientist (Infectious Diseases)', growthRate: 9, avgFee: 0, avgSalary: 2000000 },
+        { name: 'Virologist', growthRate: 10, avgFee: 0, avgSalary: 2500000 }
+    ]},
+    { id: 'pg-md-anesthesiology', name: 'MD in Anesthesiology', growthRate: 8, avgFee: 1800000, avgSalary: 2800000, alternatives: [
+        { name: 'DM in Cardiac or Neuro Anesthesia', growthRate: 9, avgFee: 2500000, avgSalary: 4000000 },
+        { name: 'Pain Management Specialist', growthRate: 10, avgFee: 500000, avgSalary: 3500000 },
+        { name: 'Critical Care Specialist', growthRate: 10, avgFee: 0, avgSalary: 3800000 }
+    ]},
+    { id: 'pg-md-radiology', name: 'MD in Radiology', growthRate: 9, avgFee: 3500000, avgSalary: 4000000, alternatives: [
+        { name: 'DM in Interventional Radiology', growthRate: 10, avgFee: 4000000, avgSalary: 5000000 },
+        { name: 'Consultant Radiologist', growthRate: 8, avgFee: 0, avgSalary: 4500000 },
+        { name: 'Own a Diagnostic Imaging Center', growthRate: 10, avgFee: 10000000, avgSalary: 8000000 }
+    ]},
+    { id: 'pg-md-psychiatry', name: 'MD in Psychiatry', growthRate: 9, avgFee: 1600000, avgSalary: 2200000, alternatives: [
+        { name: 'DM in Child Psychiatry / Geriatric Psychiatry', growthRate: 9, avgFee: 2000000, avgSalary: 3000000 },
+        { name: 'Private Practice as a Psychiatrist', growthRate: 10, avgFee: 1000000, avgSalary: 3500000 },
+        { name: 'De-addiction Specialist', growthRate: 10, avgFee: 300000, avgSalary: 2800000 }
+    ]},
+    { id: 'pg-md-community-medicine', name: 'MD in Community Medicine', growthRate: 7, avgFee: 1000000, avgSalary: 1500000, alternatives: [
+        { name: 'Master of Public Health (MPH)', growthRate: 9, avgFee: 150000, avgSalary: 800000 },
+        { name: 'Public Health Officer (Govt. / WHO)', growthRate: 6, avgFee: 0, avgSalary: 1800000 },
+        { name: 'Professor in Medical College', growthRate: 6, avgFee: 0, avgSalary: 2000000 }
+    ]},
+    { id: 'pg-md-ayurveda', name: 'MD (Ayurveda)', growthRate: 7, avgFee: 400000, avgSalary: 800000, alternatives: [
+        { name: 'Ayurvedic Consultant / Practitioner', growthRate: 7, avgFee: 0, avgSalary: 900000 },
+        { name: 'Research Officer (AYUSH)', growthRate: 6, avgFee: 0, avgSalary: 1000000 },
+        { name: 'Professor in an Ayurvedic College', growthRate: 6, avgFee: 0, avgSalary: 1200000 }
+    ]},
+    { id: 'pg-md-homeopathy', name: 'MD (Homeopathy)', growthRate: 7, avgFee: 350000, avgSalary: 700000, alternatives: [
+        { name: 'Homeopathic Consultant', growthRate: 7, avgFee: 0, avgSalary: 800000 },
+        { name: 'Research Officer (AYUSH)', growthRate: 6, avgFee: 0, avgSalary: 1000000 },
+        { name: 'Professor in a Homeopathic College', growthRate: 6, avgFee: 0, avgSalary: 1100000 }
+    ]},
+    { id: 'pg-md-unani', name: 'MD (Unani)', growthRate: 6, avgFee: 300000, avgSalary: 650000, alternatives: [
+        { name: 'Unani Physician / Hakim', growthRate: 6, avgFee: 0, avgSalary: 750000 },
+        { name: 'Research Officer (AYUSH)', growthRate: 6, avgFee: 0, avgSalary: 1000000 },
+        { name: 'Professor in a Unani College', growthRate: 5, avgFee: 0, avgSalary: 1000000 }
+    ]},
+
+    // --- MS Degrees ---
+    { id: 'pg-ms-general-surgery', name: 'MS in General Surgery', growthRate: 8, avgFee: 2500000, avgSalary: 3000000, alternatives: [
+        { name: 'M.Ch (Super Speciality) e.g., Cardio-thoracic, Urology', growthRate: 9, avgFee: 3500000, avgSalary: 5000000 },
+        { name: 'Consultant Surgeon', growthRate: 7, avgFee: 0, avgSalary: 3500000 },
+        { name: 'Laparoscopic Surgeon', growthRate: 10, avgFee: 500000, avgSalary: 4000000 }
+    ]},
+    { id: 'pg-ms-orthopaedics', name: 'MS in Orthopaedics', growthRate: 9, avgFee: 2800000, avgSalary: 3200000, alternatives: [
+        { name: 'M.Ch in Spine Surgery / Joint Replacement', growthRate: 10, avgFee: 3500000, avgSalary: 5000000 },
+        { name: 'Sports Injury Specialist', growthRate: 11, avgFee: 400000, avgSalary: 4000000 },
+        { name: 'Consultant Orthopedic Surgeon', growthRate: 8, avgFee: 0, avgSalary: 3800000 }
+    ]},
+    { id: 'pg-ms-ophthalmology', name: 'MS in Ophthalmology', growthRate: 9, avgFee: 2600000, avgSalary: 2800000, alternatives: [
+        { name: 'Retina / Cornea Specialist (Fellowship)', growthRate: 10, avgFee: 1000000, avgSalary: 4000000 },
+        { name: 'Cataract & Refractive Surgeon', growthRate: 10, avgFee: 0, avgSalary: 3500000 },
+        { name: 'Own an Eye Hospital', growthRate: 9, avgFee: 8000000, avgSalary: 6000000 }
+    ]},
+    { id: 'pg-ms-ent', name: 'MS in ENT', growthRate: 8, avgFee: 2400000, avgSalary: 2600000, alternatives: [
+        { name: 'Head and Neck Onco-surgeon', growthRate: 9, avgFee: 3000000, avgSalary: 4000000 },
+        { name: 'Cochlear Implant Surgeon', growthRate: 10, avgFee: 500000, avgSalary: 3500000 },
+        { name: 'Consultant ENT Surgeon', growthRate: 7, avgFee: 0, avgSalary: 3000000 }
+    ]},
+    { id: 'pg-ms-obstetrics-gynaecology', name: 'MS in Obstetrics & Gynaecology', growthRate: 8, avgFee: 2700000, avgSalary: 2900000, alternatives: [
+        { name: 'Infertility (IVF) Specialist', growthRate: 12, avgFee: 1000000, avgSalary: 4500000 },
+        { name: 'M.Ch in Gynae-Oncology', growthRate: 9, avgFee: 3000000, avgSalary: 4000000 },
+        { name: 'Consultant Gynaecologist', growthRate: 7, avgFee: 0, avgSalary: 3500000 }
+    ]},
+    
+    // --- MDS Degrees ---
+    { id: 'pg-mds-orthodontics', name: 'MDS in Orthodontics', growthRate: 8, avgFee: 1500000, avgSalary: 1200000, alternatives: [
+        { name: 'Private Practice as an Orthodontist', growthRate: 9, avgFee: 1000000, avgSalary: 1800000 },
+        { name: 'Consultant in a Dental Chain', growthRate: 8, avgFee: 0, avgSalary: 1400000 },
+        { name: 'Professor of Orthodontics', growthRate: 6, avgFee: 0, avgSalary: 1500000 }
+    ]},
+    { id: 'pg-mds-oral-maxillofacial-surgery', name: 'MDS in Oral and Maxillofacial Surgery', growthRate: 9, avgFee: 1800000, avgSalary: 1500000, alternatives: [
+        { name: 'Consultant Maxillofacial Surgeon', growthRate: 8, avgFee: 0, avgSalary: 2000000 },
+        { name: 'Facial Trauma Surgeon', growthRate: 9, avgFee: 0, avgSalary: 2200000 },
+        { name: 'Dental Implantologist', growthRate: 12, avgFee: 500000, avgSalary: 1800000 }
+    ]},
+    { id: 'pg-mds-periodontics', name: 'MDS in Periodontics', growthRate: 7, avgFee: 1200000, avgSalary: 1000000, alternatives: [
+        { name: 'Gum Specialist / Periodontist', growthRate: 7, avgFee: 0, avgSalary: 1200000 },
+        { name: 'Dental Implantologist', growthRate: 12, avgFee: 500000, avgSalary: 1800000 },
+        { name: 'Professor of Periodontics', growthRate: 6, avgFee: 0, avgSalary: 1300000 }
+    ]},
+    { id: 'pg-mds-prosthodontics', name: 'MDS in Prosthodontics', growthRate: 8, avgFee: 1400000, avgSalary: 1100000, alternatives: [
+        { name: 'Crown & Bridge Specialist', growthRate: 8, avgFee: 0, avgSalary: 1400000 },
+        { name: 'Dental Implantologist', growthRate: 12, avgFee: 500000, avgSalary: 1800000 },
+        { name: 'Cosmetic Dentist', growthRate: 10, avgFee: 300000, avgSalary: 1500000 }
+    ]},
+    { id: 'pg-mds-pedodontics', name: 'MDS in Pedodontics', growthRate: 8, avgFee: 1300000, avgSalary: 1000000, alternatives: [
+        { name: 'Pediatric Dentist', growthRate: 8, avgFee: 0, avgSalary: 1200000 },
+        { name: 'Special Needs Dentistry', growthRate: 9, avgFee: 0, avgSalary: 1300000 },
+        { name: 'Professor of Pedodontics', growthRate: 6, avgFee: 0, avgSalary: 1300000 }
+    ]},
+    { id: 'pg-mds-oral-pathology-microbiology', name: 'MDS in Oral Pathology and Microbiology', growthRate: 6, avgFee: 1000000, avgSalary: 900000, alternatives: [
+        { name: 'Oral Pathologist in Diagnostic Lab', growthRate: 6, avgFee: 0, avgSalary: 1000000 },
+        { name: 'Professor of Oral Pathology', growthRate: 5, avgFee: 0, avgSalary: 1200000 },
+        { name: 'Forensic Odontologist', growthRate: 7, avgFee: 200000, avgSalary: 1100000 }
+    ]},
+  // --- Other Doctoral & Masters ---
+    { id: 'pg-pharmd-post-baccalaureate', name: 'Doctor of Pharmacy (Pharm.D.) - Post Baccalaureate', growthRate: 10, avgFee: 250000, avgSalary: 600000, alternatives: [
+        { name: 'Clinical Pharmacist in Hospital', growthRate: 10, avgFee: 0, avgSalary: 700000 },
+        { name: 'Drug Safety Associate', growthRate: 11, avgFee: 0, avgSalary: 650000 },
+        { name: 'Medical Science Liaison', growthRate: 10, avgFee: 0, avgSalary: 1400000 }
+    ]},
+    { id: 'pg-mvsc', name: 'Master of Veterinary Science (MVSc)', growthRate: 7, avgFee: 100000, avgSalary: 800000, alternatives: [
+        { name: 'Veterinary Surgeon / Specialist', growthRate: 7, avgFee: 0, avgSalary: 900000 },
+        { name: 'Scientist in Veterinary Research Institute (IVRI)', growthRate: 6, avgFee: 0, avgSalary: 1000000 },
+        { name: 'Professor in Veterinary College', growthRate: 6, avgFee: 0, avgSalary: 1100000 }
+    ]},
+    { id: 'pg-dm-super-speciality', name: 'DM - Doctorate of Medicine (Super Speciality)', growthRate: 9, avgFee: 3000000, avgSalary: 4000000, alternatives: [
+        { name: 'Senior Consultant in Corporate Hospital', growthRate: 8, avgFee: 0, avgSalary: 5000000 },
+        { name: 'Head of Department in Medical College', growthRate: 7, avgFee: 0, avgSalary: 4500000 },
+        { name: 'Private Practice in Super Speciality', growthRate: 10, avgFee: 10000000, avgSalary: 8000000 }
+    ]},
+    { id: 'pg-mch-super-speciality', name: 'M.Ch - Master of Chirurgiae (Super Speciality)', growthRate: 9, avgFee: 3500000, avgSalary: 5000000, alternatives: [
+        { name: 'Senior Consultant Surgeon', growthRate: 8, avgFee: 0, avgSalary: 6000000 },
+        { name: 'Head of Surgical Department', growthRate: 7, avgFee: 0, avgSalary: 5500000 },
+        { name: 'Private Super-Speciality Hospital', growthRate: 10, avgFee: 15000000, avgSalary: 10000000 }
+    ]},
+    
+    // --- Ph.D. (Design, Social Work, Pharma) ---
+    { id: 'pg-phd-product-design', name: 'Ph.D. in Product Design', growthRate: 9, avgFee: 120000, avgSalary: 1300000, alternatives: [
+        { name: 'Head of Design / R&D', growthRate: 8, avgFee: 0, avgSalary: 2000000 },
+        { name: 'Professor at NID/IIT', growthRate: 7, avgFee: 0, avgSalary: 1500000 },
+        { name: 'Design Innovation Consultant', growthRate: 12, avgFee: 0, avgSalary: 1800000 }
+    ]},
+    { id: 'pg-phd-graphic-design', name: 'Ph.D. in Graphic Design', growthRate: 10, avgFee: 100000, avgSalary: 1000000, alternatives: [
+        { name: 'Creative Director', growthRate: 9, avgFee: 0, avgSalary: 1800000 },
+        { name: 'Professor of Design', growthRate: 7, avgFee: 0, avgSalary: 1200000 },
+        { name: 'Brand Strategy Consultant', growthRate: 10, avgFee: 0, avgSalary: 1500000 }
+    ]},
+    { id: 'pg-phd-fashion-design', name: 'Ph.D. in Fashion Design', growthRate: 7, avgFee: 150000, avgSalary: 1100000, alternatives: [
+        { name: 'Head of Design for a Fashion House', growthRate: 6, avgFee: 0, avgSalary: 2000000 },
+        { name: 'Professor at NIFT', growthRate: 6, avgFee: 0, avgSalary: 1400000 },
+        { name: 'Fashion Trend Forecaster', growthRate: 8, avgFee: 0, avgSalary: 1200000 }
+    ]},
+    { id: 'pg-phd-industrial-design', name: 'Ph.D. in Industrial Design', growthRate: 9, avgFee: 120000, avgSalary: 1300000, alternatives: [
+        { name: 'Ph.D. in Product Design', growthRate: 9, avgFee: 120000, avgSalary: 1300000 },
+        { name: 'Head of Industrial Design', growthRate: 8, avgFee: 0, avgSalary: 2000000 },
+        { name: 'Professor at IDC, IIT Bombay', growthRate: 7, avgFee: 0, avgSalary: 1500000 }
+    ]},
+    { id: 'pg-phd-social-work', name: 'Ph.D. in Social Work', growthRate: 7, avgFee: 40000, avgSalary: 700000, alternatives: [
+        { name: 'Director of a National/International NGO', growthRate: 7, avgFee: 0, avgSalary: 1200000 },
+        { name: 'Professor of Social Work (TISS)', growthRate: 6, avgFee: 0, avgSalary: 1000000 },
+        { name: 'Lead CSR Strategist', growthRate: 9, avgFee: 0, avgSalary: 1500000 }
+    ]},
+    { id: 'pg-phd-public-health', name: 'Ph.D. in Public Health', growthRate: 9, avgFee: 100000, avgSalary: 1200000, alternatives: [
+        { name: 'Senior Policy Advisor (WHO, UNICEF)', growthRate: 8, avgFee: 0, avgSalary: 2000000 },
+        { name: 'Director of Public Health Programs', growthRate: 8, avgFee: 0, avgSalary: 1800000 },
+        { name: 'Professor of Community Medicine', growthRate: 7, avgFee: 0, avgSalary: 1500000 }
+    ]},
+    { id: 'pg-phd-physical-education', name: 'Ph.D. in Physical Education', growthRate: 7, avgFee: 50000, avgSalary: 750000, alternatives: [
+        { name: 'Director of Sports Authority', growthRate: 6, avgFee: 0, avgSalary: 1200000 },
+        { name: 'Professor of Physical Education', growthRate: 6, avgFee: 0, avgSalary: 900000 },
+        { name: 'High-Performance Director (Sports)', growthRate: 8, avgFee: 0, avgSalary: 1000000 }
+    ]},
+    { id: 'pg-phd-pharmaceutics', name: 'Ph.D. in Pharmaceutics', growthRate: 9, avgFee: 120000, avgSalary: 1000000, alternatives: [
+        { name: 'Principal Scientist (Formulation & Development)', growthRate: 8, avgFee: 0, avgSalary: 1600000 },
+        { name: 'Post-Doctoral Fellow (Drug Delivery)', growthRate: 8, avgFee: 0, avgSalary: 900000 },
+        { name: 'Professor of Pharmaceutics (NIPER)', growthRate: 7, avgFee: 0, avgSalary: 1400000 }
+    ]},
+    { id: 'pg-phd-pharmacology-pharma', name: 'Ph.D. in Pharmacology (Pharma)', growthRate: 9, avgFee: 120000, avgSalary: 1100000, alternatives: [
+        { name: 'Principal Scientist (Drug Discovery)', growthRate: 8, avgFee: 0, avgSalary: 1700000 },
+        { name: 'Head of Clinical Research', growthRate: 10, avgFee: 0, avgSalary: 2000000 },
+        { name: 'Professor of Pharmacology', growthRate: 7, avgFee: 0, avgSalary: 1400000 }
+    ]},
+    { id: 'pg-phd-pharmaceutical-analysis', name: 'Ph.D. in Pharmaceutical Analysis', growthRate: 8, avgFee: 110000, avgSalary: 950000, alternatives: [
+        { name: 'Head of Quality Control / Analytical R&D', growthRate: 8, avgFee: 0, avgSalary: 1500000 },
+        { name: 'Regulatory Affairs Director', growthRate: 8, avgFee: 0, avgSalary: 1800000 },
+        { name: 'Professor of Pharmaceutical Chemistry', growthRate: 7, avgFee: 0, avgSalary: 1300000 }
+    ]},
+    { id: 'pg-phd-pharmacognosy', name: 'Ph.D. in Pharmacognosy', growthRate: 7, avgFee: 100000, avgSalary: 850000, alternatives: [
+        { name: 'Lead Scientist (Natural Products R&D)', growthRate: 7, avgFee: 0, avgSalary: 1200000 },
+        { name: 'Head of Herbal Drug Formulation', growthRate: 7, avgFee: 0, avgSalary: 1000000 },
+        { name: 'Professor of Pharmacognosy', growthRate: 6, avgFee: 0, avgSalary: 1100000 }
+    ]},
+    { id: 'pg-phd-pharmacy-practice', name: 'Ph.D. in Pharmacy Practice', growthRate: 9, avgFee: 130000, avgSalary: 900000, alternatives: [
+        { name: 'Director of Clinical Pharmacy Services', growthRate: 9, avgFee: 0, avgSalary: 1400000 },
+        { name: 'Head of Pharmacovigilance', growthRate: 11, avgFee: 0, avgSalary: 1600000 },
+        { name: 'Professor of Pharmacy Practice', growthRate: 7, avgFee: 0, avgSalary: 1200000 }
+    ]},
+
+    // --- Post-Doctoral Fellowships ---
+    { id: 'pg-post-doctoral-fellowships-overview', name: 'Post-Doctoral Fellowships Overview', growthRate: 7, avgFee: 0, avgSalary: 800000, alternatives: [
+        { name: 'Assistant Professor at a University/Institute', growthRate: 6, avgFee: 0, avgSalary: 1000000 },
+        { name: 'Research Scientist in Corporate R&D', growthRate: 8, avgFee: 0, avgSalary: 1200000 },
+        { name: 'Independent Research Consultant', growthRate: 7, avgFee: 0, avgSalary: 900000 }
+    ]},
+    { id: 'pg-fellowship-serb-npdf', name: 'SERB National Post-Doctoral Fellowship (N-PDF)', growthRate: 7, avgFee: 0, avgSalary: 800000, alternatives: [
+        { name: 'UGC D. S. Kothari Fellowship', growthRate: 7, avgFee: 0, avgSalary: 750000 },
+        { name: 'Faculty Position (Assistant Professor)', growthRate: 6, avgFee: 0, avgSalary: 1000000 },
+        { name: 'Industry R&D Scientist', growthRate: 8, avgFee: 0, avgSalary: 1200000 }
+    ]},
+    { id: 'pg-fellowship-icssr', name: 'ICSSR Post-Doctoral Fellowship', growthRate: 5, avgFee: 0, avgSalary: 600000, alternatives: [
+        { name: 'Assistant Professor (Social Sciences)', growthRate: 5, avgFee: 0, avgSalary: 800000 },
+        { name: 'Policy Analyst / Researcher', growthRate: 7, avgFee: 0, avgSalary: 700000 },
+        { name: 'Consultant for NGOs/Think Tanks', growthRate: 7, avgFee: 0, avgSalary: 650000 }
+    ]},
+    { id: 'pg-fellowship-ugc-dskothari', name: 'UGC D. S. Kothari Postdoctoral Fellowship', growthRate: 7, avgFee: 0, avgSalary: 750000, alternatives: [
+        { name: 'SERB National Post-Doctoral Fellowship', growthRate: 7, avgFee: 0, avgSalary: 800000 },
+        { name: 'Assistant Professor Position', growthRate: 6, avgFee: 0, avgSalary: 1000000 },
+        { name: 'Industry R&D Scientist', growthRate: 8, avgFee: 0, avgSalary: 1200000 }
+    ]},
+    { id: 'pg-fellowship-csir-ra', name: 'CSIR Research Associateship (CSIR-RA)', growthRate: 7, avgFee: 0, avgSalary: 700000, alternatives: [
+        { name: 'Scientist in a CSIR Laboratory', growthRate: 6, avgFee: 0, avgSalary: 1000000 },
+        { name: 'Post-Doctoral Fellowship Abroad', growthRate: 8, avgFee: 0, avgSalary: 1500000 },
+        { name: 'R&D role in a Core Science Company', growthRate: 8, avgFee: 0, avgSalary: 1100000 }
+    ]},
+    { id: 'pg-fellowship-dbt-ra', name: 'DBT Research Associateship (DBT-RA)', growthRate: 8, avgFee: 0, avgSalary: 750000, alternatives: [
+        { name: 'Scientist in DBT/ICMR Labs', growthRate: 7, avgFee: 0, avgSalary: 1000000 },
+        { name: 'R&D Scientist in a Biopharma company', growthRate: 9, avgFee: 0, avgSalary: 1300000 },
+        { name: 'Post-Doctoral Fellowship Abroad', growthRate: 8, avgFee: 0, avgSalary: 1500000 }
+    ]},
+    { id: 'pg-fellowship-icmr', name: 'ICMR Postdoctoral Fellowship', growthRate: 8, avgFee: 0, avgSalary: 780000, alternatives: [
+        { name: 'Scientist in ICMR/Medical Research Labs', growthRate: 7, avgFee: 0, avgSalary: 1100000 },
+        { name: 'Lead for Clinical Research Organization', growthRate: 10, avgFee: 0, avgSalary: 1400000 },
+        { name: 'Post-Doctoral Fellowship Abroad', growthRate: 8, avgFee: 0, avgSalary: 1500000 }
+    ]},
+    { id: 'pg-fellowship-ramanujan', name: 'Ramanujan Fellowship', growthRate: 8, avgFee: 0, avgSalary: 1500000, alternatives: [
+        { name: 'Tenure-Track Faculty Position', growthRate: 7, avgFee: 0, avgSalary: 1800000 },
+        { name: 'Starting an Independent Research Lab', growthRate: 7, avgFee: 0, avgSalary: 1600000 },
+        { name: 'Senior Scientist in National Labs', growthRate: 6, avgFee: 0, avgSalary: 1400000 }
+    ]},
+    { id: 'pg-fellowship-tata-innovation', name: 'Tata Innovation Fellowship', growthRate: 9, avgFee: 0, avgSalary: 1000000, alternatives: [
+        { name: 'Lead Scientist in a Biotech Startup', growthRate: 12, avgFee: 0, avgSalary: 1500000 },
+        { name: 'Technology Transfer Officer', growthRate: 9, avgFee: 0, avgSalary: 1200000 },
+        { name: 'Entrepreneur (Biotech)', growthRate: 15, avgFee: 1000000, avgSalary: 1000000 }
+    ]},
+    { id: 'pg-fellowship-fulbright-nehru', name: 'Fulbright-Nehru Postdoctoral Research Fellowships (USA)', growthRate: 8, avgFee: 0, avgSalary: 2500000, alternatives: [
+        { name: 'Faculty position in India (with international experience)', growthRate: 7, avgFee: 0, avgSalary: 2000000 },
+        { name: 'R&D positions in global MNCs', growthRate: 8, avgFee: 0, avgSalary: 3000000 },
+        { name: 'International Policy / Research Consultant', growthRate: 8, avgFee: 0, avgSalary: 2200000 }
+    ]},
+    { id: 'pg-fellowship-university-specific', name: 'University-Specific Fellowships', growthRate: 7, avgFee: 0, avgSalary: 700000, alternatives: [
+        { name: 'Transition to a permanent faculty role', growthRate: 6, avgFee: 0, avgSalary: 900000 },
+        { name: 'Apply for National Level Fellowships', growthRate: 7, avgFee: 0, avgSalary: 800000 },
+        { name: 'Move to an industry R&D role', growthRate: 8, avgFee: 0, avgSalary: 1100000 }
+    ]},
+    { id: 'pg-fellowship-industry-sponsored', name: 'Industry-Sponsored Postdoctoral Research', growthRate: 9, avgFee: 0, avgSalary: 1200000, alternatives: [
+        { name: 'Absorbed as a Senior Scientist in the same company', growthRate: 10, avgFee: 0, avgSalary: 1800000 },
+        { name: 'Product Development Lead', growthRate: 10, avgFee: 0, avgSalary: 1600000 },
+        { name: 'Technology Specialist', growthRate: 9, avgFee: 0, avgSalary: 1500000 }
+    ]}
+];
+
+
+// --- UI LOGIC (UNCHANGED, BUT REQUIRED FOR COMPLETENESS) ---
+
+document.addEventListener('DOMContentLoaded', () => {
+    const careerSelect = document.getElementById('career-choice');
+    
+    let courseList = courseData.map(course => ({id: course.id, name: course.name}));
+    courseList.sort((a, b) => a.name.localeCompare(b.name));
+    
+    courseList.forEach(course => {
+        const option = document.createElement('option');
+        option.value = course.id;
+        option.textContent = course.name;
+        careerSelect.appendChild(option);
+    });
+    
+    careerSelect.addEventListener('change', handleCareerSelection);
+});
+
+function handleCareerSelection(event) {
+    const selectedCourseId = event.target.value;
+    const resultsContainer = document.getElementById('results-container');
+    if (!selectedCourseId) {
+        resultsContainer.style.display = 'none';
+        return;
+    }
+    const selectedCourse = courseData.find(c => c.id === selectedCourseId);
+    const alternatives = findAlternatives(selectedCourse);
+    displayResults(selectedCourse, alternatives); 
+}
+
+function displayResults(selectedCourse, alternatives) {
+    const resultsContainer = document.getElementById('results-container');
+    const primaryDisplayArea = document.getElementById('primary-choice-display-area');
+    const alternativesGrid = document.getElementById('alternatives-grid-area');
+    primaryDisplayArea.innerHTML = '';
+    alternativesGrid.innerHTML = '';
+
+    const primaryHTML = `
+        <div class="primary-choice-display">
+            <h3>Your Primary Choice: ${selectedCourse.name}</h3>
+            <div class="primary-stats">
+                <div class="stat">Est. Growth Rate<br><span class="value">${selectedCourse.growthRate}% / year</span></div>
+                <div class="stat">Avg. Course Fee<br><span class="value">₹${selectedCourse.avgFee.toLocaleString('en-IN')}</span></div>
+                <div class="stat">Est. Starting Salary<br><span class="value">₹${selectedCourse.avgSalary.toLocaleString('en-IN')} / year</span></div>
+            </div>
+        </div>
+    `;
+    primaryDisplayArea.innerHTML = primaryHTML;
+
+    if (alternatives.length === 0) {
+        alternativesGrid.innerHTML = '<p style="text-align:center;">As this is a terminal degree, common alternatives involve direct entry into high-level industry or academic roles.</p>';
+    } else {
+        alternatives.forEach(alt => {
+            const maxGrowth = Math.max(selectedCourse.growthRate, alt.growthRate, 1);
+            const maxFee = Math.max(selectedCourse.avgFee, alt.avgFee, 1);
+            const maxSalary = Math.max(selectedCourse.avgSalary, alt.avgSalary, 1);
+            const cardHTML = `
+                <div class="alternative-card">
+                    <h4>${alt.name}</h4>
+                    <div class="comparison">
+                        <div class="comparison-label"><span>Est. Growth Rate</span><div><span class="original-value">${selectedCourse.growthRate}%</span> vs <span class="alternative-value">${alt.growthRate}%</span></div></div>
+                        <div class="bar-legend"><div class="legend-dot dot-original"></div> Your Choice</div>
+                        <div class="bar-container original-bar"><div class="bar" style="width: ${(selectedCourse.growthRate / maxGrowth) * 100}%"></div></div>
+                        <div class="bar-legend"><div class="legend-dot dot-alternative"></div> Alternative</div>
+                        <div class="bar-container alternative-bar"><div class="bar" style="width: ${(alt.growthRate / maxGrowth) * 100}%"></div></div>
+                    </div>
+                    <div class="comparison">
+                        <div class="comparison-label"><span>Avg. Course Fee</span><div><span class="original-value">₹${selectedCourse.avgFee.toLocaleString('en-IN')}</span> vs <span class="alternative-value">₹${alt.avgFee.toLocaleString('en-IN')}</span></div></div>
+                        <div class="bar-container original-bar"><div class="bar" style="width: ${selectedCourse.avgFee === 0 ? 0.5 : (selectedCourse.avgFee / maxFee) * 100}%"></div></div>
+                        <div class="bar-container alternative-bar"><div class="bar" style="width: ${alt.avgFee === 0 ? 0.5 : (alt.avgFee / maxFee) * 100}%"></div></div>
+                    </div>
+                    <div class="comparison">
+                        <div class="comparison-label"><span>Est. Starting Salary</span><div><span class="original-value">₹${selectedCourse.avgSalary.toLocaleString('en-IN')}</span> vs <span class="alternative-value">₹${alt.avgSalary.toLocaleString('en-IN')}</span></div></div>
+                        <div class="bar-container original-bar"><div class="bar" style="width: ${(selectedCourse.avgSalary / maxSalary) * 100}%"></div></div>
+                        <div class="bar-container alternative-bar"><div class="bar" style="width: ${(alt.avgSalary / maxSalary) * 100}%"></div></div>
+                    </div>
+                </div>`;
+            alternativesGrid.innerHTML += cardHTML;
+        });
+    }
+    resultsContainer.style.display = 'block';
+    resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+</script>
+
+</body>
+</html>
+  

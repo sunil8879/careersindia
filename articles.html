@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Grammar: Articles (A, An, The)</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            /* Blue and white gridline background */
+            background-color: #f0f8ff; 
+            background-image: 
+                repeating-linear-gradient(to right, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 30px),
+                repeating-linear-gradient(to bottom, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 30px);
+            background-size: 30px 30px;
+        }
+
+        /* Header Styling */
+        header {
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        header h1 {
+            display: inline-block;
+            background-color: #0056b3;
+            color: white;
+            padding: 20px 40px;
+            border: 3px solid white;
+            border-radius: 15px;
+            /* 3D Box Effect */
+            box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.4), inset 2px 2px 5px rgba(255, 255, 255, 0.3);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-size: 2.2em;
+            margin: 0;
+        }
+
+        /* Main Container for Two-Column Layout */
+        .container {
+            display: flex;
+            max-width: 1300px;
+            margin: 20px auto;
+            background: #ffffff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.15);
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        /* Left Navigation Column */
+        .nav-column {
+            flex: 1;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+            background-color: #f8f9fa;
+        }
+
+        .nav-column ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            position: sticky;
+            top: 20px; /* Makes the nav stick on scroll */
+        }
+
+        .nav-column li a {
+            display: block;
+            padding: 12px 15px;
+            text-decoration: none;
+            color: #0056b3;
+            border-radius: 5px;
+            margin-bottom: 8px;
+            font-weight: bold;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .nav-column li a:hover,
+        .nav-column li a.active {
+            background-color: #0056b3;
+            color: #fff;
+        }
+
+        /* Right Content Column */
+        .content-column {
+            flex: 3;
+            padding: 25px 35px;
+            height: 80vh; /* Set a height to enable scrolling */
+            overflow-y: auto; /* Enable vertical scrollbar */
+        }
+
+        .content-section {
+            display: none;
+        }
+        
+        .content-section.active {
+            display: block;
+        }
+        
+        h2 {
+            font-size: 1.8em;
+            color: #0056b3;
+            border-bottom: 3px solid #0056b3;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        
+        h3 {
+            font-size: 1.4em;
+            color: #333;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        
+        .example-list {
+            list-style-type: decimal;
+            padding-left: 20px;
+        }
+
+        .example-list li {
+            margin-bottom: 10px;
+        }
+        
+        .note {
+            font-style: italic;
+            color: #555;
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-left: 4px solid #0056b3;
+            margin-top: 10px;
+        }
+        
+        code {
+            background-color: #e3e3e3;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #0056b3;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>ENGLISH GRAMMAR: ARTICLES (A, AN, THE)</h1>
+    </header>
+
+    <div class="container">
+        <nav class="nav-column">
+            <ul>
+                <li><a href="#definition" class="nav-link active">What is an Article?</a></li>
+                <li><a href="#indefinite-article" class="nav-link">Indefinite Article (A / An)</a></li>
+                <li><a href="#definite-article" class="nav-link">Definite Article (The)</a></li>
+                <li><a href="#omission-article" class="nav-link">Omission of Articles</a></li>
+                <li><a href="#identification-guide" class="nav-link">Quick Identification Guide</a></li>
+            </ul>
+        </nav>
+
+        <main class="content-column">
+            <section id="definition" class="content-section active">
+                <h2>What is an Article?</h2>
+                <p>Articles are a type of determiner that function like adjectives. They are used before nouns to specify whether the noun is general or specific.</p>
+                <ul>
+                    <li><strong>Indefinite Articles (<code>a</code>, <code>an</code>):</strong> Used for general or non-specific nouns.</li>
+                    <li><strong>Definite Article (<code>the</code>):</strong> Used for specific, particular, or unique nouns.</li>
+                </ul>
+                <h3>10 Examples Showing Usage:</h3>
+                <ol class="example-list">
+                    <li>I saw <code>a</code> dog in the park. (Any dog, not a specific one)</li>
+                    <li>She ate <code>an</code> apple for breakfast. (Any apple)</li>
+                    <li><code>The</code> dog I saw yesterday was very friendly. (A specific dog that was mentioned before)</li>
+                    <li>He is reading <code>a</code> book. (Any book)</li>
+                    <li>Can you pass me <code>the</code> book on the table? (A specific book)</li>
+                    <li>She wants to be -<code>an</code> engineer. (A profession)</li>
+                    <li><code>The</code> sun is shining brightly today. (A unique object)</li>
+                    <li>It was <code>an</code> honor to meet him. (A word starting with a vowel sound)</li>
+                    <li>He is <code>a</code> university student. (A word starting with a consonant sound)</li>
+                    <li><code>The</code> Himalayas are a famous mountain range. (A specific geographical feature)</li>
+                </ol>
+            </section>
+            
+            <section id="indefinite-article" class="content-section">
+                <h2>The Indefinite Article (A / An)</h2>
+                <p>Used for singular, countable nouns when the noun is general, non-specific, or being mentioned for the first time. The choice between `a` and `an` depends on the **sound** of the first letter of the word that follows.</p>
+                
+                <h3>When and How to Use 'A'</h3>
+                <p>Use `a` before words that begin with a **consonant sound**.</p>
+                <ol class="example-list">
+                    <li>I need to buy <code>a</code> new pen.</li>
+                    <li>She is <code>a</code> doctor at the local hospital.</li>
+                    <li>He saw <code>a</code> cat chasing a mouse.</li>
+                    <li>What <code>a</code> beautiful painting!</li>
+                    <li>He is studying at <code>a</code> university in Europe. (Starts with a 'y' sound)</li>
+                    <li>I have <code>a</code> one-rupee note. (Starts with a 'w' sound)</li>
+                    <li><code>A</code> dog is a faithful animal. (Represents the whole class of dogs)</li>
+                    <li>She has <code>a</code> headache.</li>
+                    <li>He is <code>a</code> European citizen. (Starts with a 'y' sound)</li>
+                    <li>I will be back in <code>a</code> little while.</li>
+                </ol>
+
+                <h3>When and How to Use 'An'</h3>
+                <p>Use `an` before words that begin with a **vowel sound** (a, e, i, o, u sounds).</p>
+                <ol class="example-list">
+                    <li>She ate <code>an</code> apple for a snack.</li>
+                    <li>He is <code>an</code> honest man. (The 'h' is silent)</li>
+                    <li>I will be there in <code>an</code> hour. (The 'h' is silent)</li>
+                    <li>My brother is <code>an</code> MBA graduate. (Starts with an 'em' sound)</li>
+                    <li>We saw <code>an</code> eagle soaring in the sky.</li>
+                    <li>It is <code>an</code> honor to be here.</li>
+                    <li>She filed <code>an</code> FIR against the thief. (Starts with an 'ef' sound)</li>
+                    <li>This is <code>an</code> old and valuable painting.</li>
+                    <li>He wants to be <code>an</code> astronaut when he grows up.</li>
+                    <li>I have <code>an</code> umbrella in my bag.</li>
+                </ol>
+            </section>
+
+            <section id="definite-article" class="content-section">
+                <h2>The Definite Article (The)</h2>
+                <p>Use `the` to refer to specific, particular, or unique nouns that are understood by both the speaker and the listener.</p>
+                <div class="note"><strong>Identification Question:</strong> Are we talking about a general thing or a specific one? If it's specific, use <code>the</code>.</div>
+                <h3>When and How to Use 'The'</h3>
+                <ol class="example-list">
+                    <li>I saw a dog. <strong><code>The</code> dog</strong> was barking. (Refers to a noun already mentioned)</li>
+                    <li><strong><code>The</code> sun</strong> rises in the east. (Refers to a unique object)</li>
+                    <li>He is <strong><code>the</code> tallest</strong> boy in the class. (Used with superlative adjectives)</li>
+                    <li>This is <strong><code>the</code> first</strong> time I have visited this place. (Used with ordinal numbers)</li>
+                    <li><strong><code>The</code> Ganga</strong> is a holy river. (Used for names of rivers)</li>
+                    <li>We are planning a trip to <strong><code>the</code> Himalayas</strong>. (Used for mountain ranges)</li>
+                    <li>He reads <strong><code>the</code> Bible</strong> every day. (Used for holy books)</li>
+                    <li>She is a famous actress in <strong><code>the</code> United States</strong>. (Used for countries with plural names or 'republic', 'kingdom')</li>
+                    <li>He is <strong><code>the</code> Shakespeare</strong> of our time. (Used when a proper noun is compared)</li>
+                    <li>We must help <strong><code>the</code> poor</strong> and <strong><code>the</code> needy</strong>. (Used to refer to a whole class of people)</li>
+                </ol>
+            </section>
+            
+            <section id="omission-article" class="content-section">
+                <h2>Omission of Articles (Zero Article)</h2>
+                <p>In some cases, no article is used before a noun. This is also known as the "zero article".</p>
+                <div class="note"><strong>How to Identify:</strong> Look for general plural nouns, proper nouns, abstract nouns, and material nouns used in a general sense.</div>
+                <h3>When and How to Omit Articles</h3>
+                <ol class="example-list">
+                    <li><strong><code>Honesty</code></strong> is the best policy. (Abstract noun used in a general sense)</li>
+                    <li><strong><code>Gold</code></strong> is a precious metal. (Material noun used in a general sense)</li>
+                    <li>She speaks <strong><code>French</code></strong> fluently. (Name of a language)</li>
+                    <li>We play <strong><code>cricket</code></strong> on weekends. (Name of a sport)</li>
+                    <li>He is suffering from <strong><code>malaria</code></strong>. (Name of a disease)</li>
+                    <li>I have <strong><code>dinner</code></strong> at 8 PM. (Name of a meal)</li>
+                    <li><strong><code>Man</code></strong> is a social animal. (Noun used in its widest sense)</li>
+                    <li><strong><code>Books</code></strong> are my best friends. (Plural countable noun used in a general sense)</li>
+                    <li>My father is coming home. (Relationships like Father, Mother, Aunt)</li>
+                    <li>We are going to <strong><code>Delhi</code></strong> next month. (Name of a city/most countries)</li>
+                </ol>
+            </section>
+            
+            <section id="identification-guide" class="content-section">
+                <h2>Quick Identification Guide</h2>
+                <p>Use this table as a quick reference to identify which article to use.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Article</th>
+                            <th>Type</th>
+                            <th>Key Usage (Where and How)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>A</code></td>
+                            <td>Indefinite</td>
+                            <td>Before singular, countable nouns that start with a **consonant sound**. (e.g., a book, a university)</td>
+                        </tr>
+                        <tr>
+                            <td><code>An</code></td>
+                            <td>Indefinite</td>
+                            <td>Before singular, countable nouns that start with a **vowel sound**. (e.g., an apple, an hour)</td>
+                        </tr>
+                        <tr>
+                            <td><code>The</code></td>
+                            <td>Definite</td>
+                            <td>Before specific, unique, or previously mentioned nouns. (e.g., the sun, the boy I met)</td>
+                        </tr>
+                        <tr>
+                            <td><code>(No Article)</code></td>
+                            <td>Zero Article</td>
+                            <td>Before proper nouns, languages, sports, and abstract/plural nouns in a general sense. (e.g., Honesty, books)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const contentSections = document.querySelectorAll('.content-section');
+            const contentColumn = document.querySelector('.content-column');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+
+                    navLinks.forEach(nav => nav.classList.remove('active'));
+                    contentSections.forEach(section => section.classList.remove('active'));
+
+                    this.classList.add('active');
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        targetSection.classList.add('active');
+                        contentColumn.scrollTop = 0; // Scroll to top of content area on click
+                    }
+                });
+            });
+            // Auto-activate the first link on page load
+            document.querySelector('.nav-link').classList.add('active');
+            document.querySelector('.content-section').classList.add('active');
+        });
+    </script>
+
+</body>
+</html>

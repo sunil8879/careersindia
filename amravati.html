@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schools in Amravati</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Open+Sans&display=swap');
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #eef3f6;
+            margin: 0;
+            padding: 25px;
+        }
+
+        #amravati-container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .amravati-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .amravati-header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8em;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        
+        .amravati-header h1 span {
+             color: #2980b9;
+        }
+
+        .amravati-school-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .amravati-school-card {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .amravati-school-card:hover {
+            transform: scale(1.03);
+        }
+
+        .amravati-card-header {
+            background-color: #2980b9;
+            color: white;
+            padding: 15px;
+        }
+        
+        .amravati-card-header h2 {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.25em;
+            font-weight: 600;
+        }
+        
+        .amravati-card-body {
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .amravati-card-body p {
+            margin: 0 0 10px 0;
+            line-height: 1.5;
+            font-size: 0.9em;
+        }
+        
+        .amravati-card-body strong {
+            color: #34495e;
+        }
+        
+        .amravati-card-footer {
+            background-color: #f8f9fa;
+            padding: 15px 20px;
+            border-top: 1px solid #e9ecef;
+            text-align: center;
+        }
+
+        .amravati-card-footer a {
+            color: #2980b9;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .amravati-card-footer a:hover {
+            text-decoration: underline;
+        }
+        
+        .amravati-card-footer .website-na {
+            color: #888;
+            font-style: italic;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="amravati-container">
+        <div class="amravati-header">
+            <h1>Schools in <span>Amravati</span></h1>
+        </div>
+        <div class="amravati-school-grid">
+
+            <div class="amravati-school-card">
+                <div class="amravati-card-header"><h2>School of Scholars</h2></div>
+                <div class="amravati-card-body">
+                    <p><strong>Board:</strong> CBSE</p>
+                    <p><strong>Location:</strong> Amravati</p>
+                </div>
+                <div class="amravati-card-footer"><a href="https://www.schoolofscholars.edu.in/amravati" target="_blank">Visit Website</a></div>
+            </div>
+
+            <div class="amravati-school-card">
+                <div class="amravati-card-header"><h2>Podar International School, Amravati</h2></div>
+                <div class="amravati-card-body">
+                    <p><strong>Board:</strong> CBSE</p>
+                    <p><strong>Location:</strong> Amravati</p>
+                </div>
+                <div class="amravati-card-footer"><a href="https://www.podareducation.org/school/amravati" target="_blank">Visit Website</a></div>
+            </div>
+
+            <div class="amravati-school-card">
+                <div class="amravati-card-header"><h2>Delhi Public School, Amravati</h2></div>
+                <div class="amravati-card-body">
+                    <p><strong>Board:</strong> CBSE</p>
+                    <p><strong>Location:</strong> Amravati</p>
+                </div>
+                <div class="amravati-card-footer"><a href="https://www.dpsamravati.com" target="_blank">Visit Website</a></div>
+            </div>
+
+            <div class="amravati-school-card">
+                <div class="amravati-card-header"><h2>Bharti Krishna Vidya Vihar</h2></div>
+                <div class="amravati-card-body">
+                    <p><strong>Board:</strong> CBSE</p>
+                    <p><strong>Location:</strong> Amravati</p>
+                </div>
+                <div class="amravati-card-footer"><span class="website-na">N/A</span></div>
+            </div>
+
+            <div class="amravati-school-card">
+                <div class="amravati-card-header"><h2>St. Francis' High School</h2></div>
+                <div class="amravati-card-body">
+                    <p><strong>Board:</strong> STATE BOARD</p>
+                    <p><strong>Location:</strong> Amravati</p>
+                </div>
+                <div class="amravati-card-footer"><span class="website-na">N/A</span></div>
+            </div>
+
+            <div class="amravati-school-card">
+                <div class="amravati-card-header"><h2>Manibai Gujrati High School</h2></div>
+                <div class="amravati-card-body">
+                    <p><strong>Board:</strong> STATE BOARD</p>
+                    <p><strong>Location:</strong> Amravati</p>
+                </div>
+                <div class="amravati-card-footer"><span class="website-na">N/A</span></div>
+            </div>
+
+            <div class="amravati-school-card">
+                <div class="amravati-card-header"><h2>Ryan International School, Amravati</h2></div>
+                <div class="amravati-card-body">
+                    <p><strong>Board:</strong> CBSE</p>
+                    <p><strong>Location:</strong> Amravati</p>
+                </div>
+                <div class="amravati-card-footer"><a href="https://www.ryangroup.org" target="_blank">Visit Website</a></div>
+            </div>
+
+            <div class="amravati-school-card">
+                <div class="amravati-card-header"><h2>Golden Kids English High School</h2></div>
+                <div class="amravati-card-body">
+                    <p><strong>Board:</strong> CBSE</p>
+                    <p><strong>Location:</strong> Amravati</p>
+                </div>
+                <div class="amravati-card-footer"><a href="https://www.goldenkids.ac.in" target="_blank">Visit Website</a></div>
+            </div>
+
+            <div class="amravati-school-card">
+                <div class="amravati-card-header"><h2>Narayanrao Bahuddeshiya Sanstha's School of Scholars</h2></div>
+                <div class="amravati-card-body">
+                    <p><strong>Board:</strong> CBSE</p>
+                    <p><strong>Location:</strong> Amravati</p>
+                </div>
+                <div class="amravati-card-footer"><span class="website-na">N/A</span></div>
+            </div>
+
+            <div class="amravati-school-card">
+                <div class="amravati-card-header"><h2>Kendriya Vidyalaya, Amravati</h2></div>
+                <div class="amravati-card-body">
+                    <p><strong>Board:</strong> CBSE</p>
+                    <p><strong>Location:</strong> Amravati</p>
+                </div>
+                <div class="amravati-card-footer"><a href="https://amravati.kvs.ac.in" target="_blank">Visit Website</a></div>
+            </div>
+
+            <div class="amravati-school-card">
+                <div class="amravati-card-header"><h2>Mount Litera Zee School</h2></div>
+                <div class="amravati-card-body">
+                    <p><strong>Board:</strong> CBSE</p>
+                    <p><strong>Location:</strong> Amravati</p>
+                </div>
+                <div class="amravati-card-footer"><a href="https://www.mlzsamravati.com" target="_blank">Visit Website</a></div>
+            </div>
+            
+            <div class="amravati-school-card">
+                <div class="amravati-card-header"><h2>Holy Cross English High School</h2></div>
+                <div class="amravati-card-body">
+                    <p><strong>Board:</strong> STATE BOARD</p>
+                    <p><strong>Location:</strong> Amravati</p>
+                </div>
+                <div class="amravati-card-footer"><span class="website-na">N/A</span></div>
+            </div>
+            
+            <div class="amravati-school-card">
+                <div class="amravati-card-header"><h2>Indo Public School</h2></div>
+                <div class="amravati-card-body">
+                    <p><strong>Board:</strong> CBSE</p>
+                    <p><strong>Location:</strong> Amravati</p>
+                </div>
+                <div class="amravati-card-footer"><span class="website-na">N/A</span></div>
+            </div>
+            
+            <div class="amravati-school-card">
+                <div class="amravati-card-header"><h2>Savitribai Phule D.Ed. College</h2></div>
+                <div class="amravati-card-body">
+                    <p><strong>Board:</strong> D.Ed.</p>
+                    <p><strong>Location:</strong> Amravati</p>
+                </div>
+                <div class="amravati-card-footer"><span class="website-na">N/A</span></div>
+            </div>
+            
+            <div class="amravati-school-card">
+                <div class="amravati-card-header"><h2>Adarsh High School</h2></div>
+                <div class="amravati-card-body">
+                    <p><strong>Board:</strong> STATE BOARD</p>
+                    <p><strong>Location:</strong> Amravati</p>
+                </div>
+                <div class="amravati-card-footer"><span class="website-na">N/A</span></div>
+            </div>
+            
+            <div class="amravati-school-card">
+                <div class="amravati-card-header"><h2>Prerna Convent</h2></div>
+                <div class="amravati-card-body">
+                    <p><strong>Board:</strong> CBSE</p>
+                    <p><strong>Location:</strong> Amravati</p>
+                </div>
+                <div class="amravati-card-footer"><span class="website-na">N/A</span></div>
+            </div>
+            
+            <div class="amravati-school-card">
+                <div class="amravati-card-header"><h2>Shri Shivaji High School</h2></div>
+                <div class="amravati-card-body">
+                    <p><strong>Board:</strong> STATE BOARD</p>
+                    <p><strong>Location:</strong> Amravati</p>
+                </div>
+                <div class="amravati-card-footer"><span class="website-na">N/A</span></div>
+            </div>
+            
+            <div class="amravati-school-card">
+                <div class="amravati-card-header"><h2>Jawahar Navodaya Vidyalaya, Amravati</h2></div>
+                <div class="amravati-card-body">
+                    <p><strong>Board:</strong> CBSE</p>
+                    <p><strong>Location:</strong> Amravati</p>
+                </div>
+                <div class="amravati-card-footer"><a href="https://navodaya.gov.in/nvs/nvs-school/AMRAVATI/en/home/" target="_blank">Visit Website</a></div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

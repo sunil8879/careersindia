@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Grammar Concepts</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            /* Blue and white gridline background */
+            background-color: #f0f8ff; 
+            background-image: 
+                repeating-linear-gradient(to right, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 30px),
+                repeating-linear-gradient(to bottom, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 30px);
+            background-size: 30px 30px;
+        }
+
+        /* Header Styling */
+        header {
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        header h1 {
+            display: inline-block;
+            background-color: #0056b3;
+            color: white;
+            padding: 20px 40px;
+            border: 3px solid white;
+            border-radius: 15px;
+            /* 3D Box Effect */
+            box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.4), inset 2px 2px 5px rgba(255, 255, 255, 0.3);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-size: 2.2em;
+            margin: 0;
+        }
+
+        /* Main Container for Two-Column Layout */
+        .container {
+            display: flex;
+            max-width: 1400px;
+            margin: 20px auto;
+            background: #ffffff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.15);
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        /* Left Navigation Column */
+        .nav-column {
+            flex: 1;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+            background-color: #f8f9fa;
+            height: 80vh;
+            overflow-y: auto;
+        }
+
+        .nav-column ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            position: sticky;
+            top: 20px;
+        }
+
+        .nav-column li a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: #0056b3;
+            border-radius: 5px;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 0.95em;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .nav-column li a:hover,
+        .nav-column li a.active {
+            background-color: #0056b3;
+            color: #fff;
+        }
+
+        /* Right Content Column */
+        .content-column {
+            flex: 3;
+            padding: 25px 35px;
+            height: 80vh; /* Set a height to enable scrolling */
+            overflow-y: auto; /* Enable vertical scrollbar */
+        }
+
+        .content-section {
+            display: none;
+        }
+        
+        .content-section.active {
+            display: block;
+        }
+        
+        h2 {
+            font-size: 1.8em;
+            color: #0056b3;
+            border-bottom: 3px solid #0056b3;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        
+        h3 {
+            font-size: 1.4em;
+            color: #333;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        
+        .rule {
+            background-color: #e7f3fe;
+            border: 1px solid #b3d7f7;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 5px;
+        }
+
+        .example-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .example-list li {
+            margin-bottom: 20px;
+            border-left: 4px solid #0056b3;
+            padding-left: 15px;
+        }
+        
+        .explanation {
+            font-style: italic;
+            color: #555;
+            margin-top: 5px;
+        }
+        
+        .correct {
+            color: green;
+            font-weight: bold;
+        }
+
+        .incorrect {
+            color: red;
+            font-weight: bold;
+        }
+        
+        code {
+            background-color: #e3e3e3;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>ADVANCED GRAMMAR CONCEPTS</h1>
+    </header>
+
+    <div class="container">
+        <nav class="nav-column">
+            <ul>
+                <li><a href="#collocation" class="nav-link active">Collocation</a></li>
+                <li><a href="#subjunctive" class="nav-link">Subjunctive Mood</a></li>
+                <li><a href="#predicate-nominative" class="nav-link">Predicate Nominative</a></li>
+                <li><a href="#dangling-modifier" class="nav-link">Dangling Modifier</a></li>
+            </ul>
+        </nav>
+
+        <main class="content-column">
+            <section id="collocation" class="content-section active">
+                <h2>Collocation</h2>
+                <div class="rule">
+                    <strong>Explanation:</strong> A collocation is a combination of two or more words that are commonly used together, so they sound natural. Think of them as "word friends." Using the wrong word combination sounds awkward and incorrect to a native speaker.
+                </div>
+                <h3>How to Identify Collocations</h3>
+                <p>There is no specific "Wh-" question to identify collocations. Identification comes from reading experience and recognizing that certain words naturally partner with others. For exams, they are often tested in "fill in the blanks" or "sentence correction" questions.</p>
+                <h3>5 Examples:</h3>
+                <ul class="example-list">
+                    <li>
+                        <strong>Make a mistake</strong><br>
+                        <span class="correct">Correct:</span> He tends to <strong>make a mistake</strong> when he is nervous.<br>
+                        <span class="incorrect">Incorrect:</span> He tends to <strong>do a mistake</strong> when he is nervous.<br>
+                        <div class="explanation"><strong>Explanation:</strong> The verb that naturally partners with 'mistake' is 'make', not 'do'.</div>
+                    </li>
+                    <li>
+                        <strong>Heavy rain</strong><br>
+                        <span class="correct">Correct:</span> We cancelled the picnic because of the <strong>heavy rain</strong>.<br>
+                        <span class="incorrect">Incorrect:</span> We cancelled the picnic because of the <strong>strong rain</strong>.<br>
+                        <div class="explanation"><strong>Explanation:</strong> While rain can be strong, the standard adjective used to describe intense rain is 'heavy'.</div>
+                    </li>
+                    <li>
+                        <strong>Fast food</strong><br>
+                        <span class="correct">Correct:</span> Eating too much <strong>fast food</strong> is unhealthy.<br>
+                        <span class="incorrect">Incorrect:</span> Eating too much <strong>quick food</strong> is unhealthy.<br>
+                        <div class="explanation"><strong>Explanation:</strong> 'Fast food' is the fixed term for this type of cuisine. 'Quick' is a synonym for 'fast', but it does not collocate with 'food' in this context.</div>
+                    </li>
+                    <li>
+                        <strong>Catch a cold</strong><br>
+                        <span class="correct">Correct:</span> If you go out in the rain, you might <strong>catch a cold</strong>.<br>
+                        <span class="incorrect">Incorrect:</span> If you go out in the rain, you might <strong>get a cold</strong>.<br>
+                        <div class="explanation"><strong>Explanation:</strong> The standard idiomatic verb used for becoming ill with a cold is 'catch'.</div>
+                    </li>
+                    <li>
+                        <strong>Strong coffee</strong><br>
+                        <span class="correct">Correct:</span> I need a cup of <strong>strong coffee</strong> this morning.<br>
+                        <span class="incorrect">Incorrect:</span> I need a cup of <strong>powerful coffee</strong> this morning.<br>
+                        <div class="explanation"><strong>Explanation:</strong> 'Strong' is the adjective that collocates with 'coffee' to describe its intensity. 'Powerful' sounds unnatural here.</div>
+                    </li>
+                </ul>
+            </section>
+            
+            <section id="subjunctive" class="content-section">
+                <h2>Subjunctive Mood</h2>
+                <div class="rule">
+                    <strong>Explanation:</strong> The subjunctive mood is a verb form used to express things that are not facts: wishes, suggestions, demands, or hypothetical situations. It's about what *could be*, *should be*, or *is wished for*, not what *is*.
+                </div>
+                <h3>How to Identify the Subjunctive Mood</h3>
+                <p>There are two main forms to look for:</p>
+                <ul>
+                    <li><strong>Present Subjunctive:</strong> Uses the base form of the verb (e.g., `be`, `attend`, `go`) even for singular subjects. It often follows verbs like `insist`, `recommend`, `suggest`, or phrases like `it is essential that...`.</li>
+                    <li><strong>Past Subjunctive:</strong> Uses the simple past tense form. For the verb 'to be', it uses <code>were</code> for all subjects (`I`, `he`, `she`, `it`). It is used in hypothetical 'if' clauses and with the verb 'wish'.</li>
+                </ul>
+                <h3>5 Examples:</h3>
+                <ul class="example-list">
+                    <li>The manager insists that every employee <strong>attend</strong> the meeting.
+                        <div class="explanation"><strong>Explanation:</strong> This is the <strong>present subjunctive</strong>. After the verb 'insists that...', the base form of the verb 'attend' is used, not 'attends', even though 'employee' is singular. It expresses a demand.</div>
+                    </li>
+                    <li>If I <strong>were</strong> a millionaire, I would travel the world.
+                        <div class="explanation"><strong>Explanation:</strong> This is the <strong>past subjunctive</strong>. It expresses a hypothetical situation. The verb 'were' is used with the subject 'I' instead of 'was' to show that it is contrary to fact.</div>
+                    </li>
+                    <li>I wish he <strong>were</strong> here with us.
+                        <div class="explanation"><strong>Explanation:</strong> This is the <strong>past subjunctive</strong> used to express a wish. 'were' is used instead of 'was' to indicate a situation that is not currently true.</div>
+                    </li>
+                    <li>It is crucial that she <strong>be</strong> on time for the interview.
+                        <div class="explanation"><strong>Explanation:</strong> This is the <strong>present subjunctive</strong>. The phrase 'it is crucial that...' triggers the use of the base verb 'be', not 'is'.</div>
+                    </li>
+                    <li>He talks as if he <strong>knew</strong> everything.
+                        <div class="explanation"><strong>Explanation:</strong> This is the <strong>past subjunctive</strong> used after 'as if'. It implies that he does not, in fact, know everything.</div>
+                    </li>
+                </ul>
+            </section>
+            
+            <section id="predicate-nominative" class="content-section">
+                <h2>Predicate Nominative (Predicate Noun)</h2>
+                <div class="rule">
+                    <strong>Explanation:</strong> A predicate nominative is a noun or pronoun that follows a **linking verb** (e.g., `is`, `are`, `was`, `were`, `become`, `seem`) and renames or identifies the subject. It acts like an "equals sign" for the subject.
+                </div>
+                <h3>How to Identify a Predicate Nominative</h3>
+                <p>Ask: <strong>Subject + Linking Verb = What or Who?</strong> The noun or pronoun that answers the question is the predicate nominative.</p>
+                <h3>5 Examples:</h3>
+                <ul class="example-list">
+                    <li>He is a brilliant <strong>doctor</strong>.
+                        <div class="explanation"><strong>Explanation:</strong> The linking verb is 'is'. The noun 'doctor' follows it and renames the subject 'He'. (He = doctor).</div>
+                    </li>
+                    <li>The winner of the competition was <strong>she</strong>.
+                        <div class="explanation"><strong>Explanation:</strong> The linking verb is 'was'. The pronoun 'she' renames the subject 'The winner'. (winner = she). Note the use of the subject pronoun 'she', not the object pronoun 'her'.</div>
+                    </li>
+                    <li>My favorite pet is a golden <strong>retriever</strong>.
+                        <div class="explanation"><strong>Explanation:</strong> The linking verb is 'is'. The noun 'retriever' renames the subject 'pet'. (pet = retriever).</div>
+                    </li>
+                    <li>After years of hard work, she became a successful <strong>entrepreneur</strong>.
+                        <div class="explanation"><strong>Explanation:</strong> The linking verb is 'became'. The noun 'entrepreneur' renames the subject 'she'. (she = entrepreneur).</div>
+                    </li>
+                    <li>The biggest problem remains a lack of <strong>funding</strong>.
+                        <div class="explanation"><strong>Explanation:</strong> The linking verb is 'remains'. The noun phrase 'a lack of funding' identifies the subject 'The biggest problem'. (problem = a lack of funding).</div>
+                    </li>
+                </ul>
+            </section>
+            
+            <section id="dangling-modifier" class="content-section">
+                <h2>Dangling Modifier</h2>
+                <div class="rule">
+                    <strong>Explanation:</strong> A dangling modifier is a grammatical error. It is a phrase or clause that modifies a word that is not clearly stated in the sentence. It is "dangling" because the word it should describe is missing, leading to confusing or illogical sentences.
+                </div>
+                <h3>How to Identify a Dangling Modifier</h3>
+                <p>Look for an introductory phrase (often starting with an -ing verb, a 'to' verb, or a past participle). Check if the subject of the main clause immediately following the comma is the one performing the action of that introductory phrase. If not, the modifier is dangling.</p>
+                <h3>5 Examples:</h3>
+                <ul class="example-list">
+                    <li>
+                        <span class="incorrect">Dangling:</span> Having finished the assignment, the TV was turned on.<br>
+                        <span class="correct">Correct:</span> Having finished the assignment, <strong>he</strong> turned on the TV.<br>
+                        <div class="explanation"><strong>Explanation:</strong> The TV did not finish the assignment. The corrected sentence provides a logical subject ('he') who performed the action.</div>
+                    </li>
+                    <li>
+                        <span class="incorrect">Dangling:</span> Walking to the store, the rain started to fall.<br>
+                        <span class="correct">Correct:</span> While <strong>I</strong> was walking to the store, the rain started to fall.<br>
+                        <div class="explanation"><strong>Explanation:</strong> The rain was not walking to the store. The corrected version clarifies who was walking.</div>
+                    </li>
+                    <li>
+                        <span class="incorrect">Dangling:</span> To improve his writing, several books were read.<br>
+                        <span class="correct">Correct:</span> To improve his writing, <strong>he</strong> read several books.<br>
+                        <div class="explanation"><strong>Explanation:</strong> The books were not trying to improve their writing. The corrected sentence adds the subject ('he') who performed the action for that purpose.</div>
+                    </li>
+                    <li>
+                        <span class="incorrect">Dangling:</span> After rotting in the cellar for weeks, my brother brought up the potatoes.<br>
+                        <span class="correct">Correct:</span> My brother brought up the potatoes <strong>that had been rotting in the cellar for weeks</strong>.<br>
+                        <div class="explanation"><strong>Explanation:</strong> The original sentence implies the brother was rotting. The corrected version places the modifying phrase right next to the word it describes ('potatoes').</div>
+                    </li>
+                    <li>
+                        <span class="incorrect">Dangling:</span> Frustrated, the keyboard was pounded on.<br>
+                        <span class="correct">Correct:</span> Frustrated, <strong>the programmer</strong> pounded on the keyboard.<br>
+                        <div class="explanation"><strong>Explanation:</strong> The keyboard cannot feel frustrated. The corrected sentence supplies a logical subject ('the programmer') for the modifier.</div>
+                    </li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const contentSections = document.querySelectorAll('.content-section');
+            const contentColumn = document.querySelector('.content-column');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+
+                    navLinks.forEach(nav => nav.classList.remove('active'));
+                    contentSections.forEach(section => section.classList.remove('active'));
+
+                    this.classList.add('active');
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        targetSection.classList.add('active');
+                        contentColumn.scrollTop = 0; // Scroll to top of content area on click
+                    }
+                });
+            });
+            // Auto-activate the first link on page load
+            document.querySelector('.nav-link').classList.add('active');
+            document.querySelector('.content-section').classList.add('active');
+        });
+    </script>
+
+</body>
+</html>

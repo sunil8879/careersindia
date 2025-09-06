@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>After HSC (12th) - Salary Dashboard</title>
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📊</text></svg>">
+
+<style>
+    :root {
+        --primary-color: #27ae60; /* Green theme */
+        --secondary-color: #2ecc71;
+        --text-dark: #333;
+        --text-light: #666;
+        --bg-light: #f4f7f9;
+        --bg-white: #ffffff;
+        --border-color: #e0e0e0;
+        --shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: var(--bg-light);
+        color: var(--text-dark);
+        line-height: 1.6;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 30px 20px;
+    }
+    .header {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    .header h1 {
+        font-size: 2.8rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        margin-bottom: 10px;
+    }
+    .header p {
+        font-size: 1.1rem;
+        color: var(--text-light);
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    .chart-container {
+        background-color: var(--bg-white);
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+        padding: 25px;
+    }
+    .chart-placeholder {
+        width: 100%;
+        min-height: 60vh;
+        background-color: #f9f9f9;
+        border: 1px dashed var(--border-color);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text-light);
+        font-size: 1.2rem;
+        font-weight: 500;
+    }
+    .footer {
+        text-align: center;
+        margin-top: 50px;
+        padding-top: 20px;
+        border-top: 1px solid var(--border-color);
+        color: var(--text-light);
+    }
+</style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="header">
+            <h1>Salary Landscape After HSC (12th)</h1>
+            <p>Explore the starting salaries for various Bachelor's degrees in Science, Commerce, Arts, and Engineering fields available after the 12th grade.</p>
+        </header>
+
+        <main>
+            <div class="chart-container">
+                <!-- PASTE YOUR LOOKER STUDIO IFRAME CODE HERE -->
+               <iframe width="600" height="450" src="https://lookerstudio.google.com/embed/reporting/d86a82fd-8440-42cc-bf1a-e04b2ef45568/page/RS8UF" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+            </div>
+        </main>
+        
+        <footer class="footer">
+            <p>&copy; 2024 Career Pathways India. All data is for representational purposes.</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grammar Rules: Active & Passive Voice</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            /* Blue and white gridline background */
+            background-color: #f0f8ff; 
+            background-image: 
+                repeating-linear-gradient(to right, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 30px),
+                repeating-linear-gradient(to bottom, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 30px);
+            background-size: 30px 30px;
+        }
+
+        /* Header Styling */
+        header {
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        header h1 {
+            display: inline-block;
+            background-color: #0056b3;
+            color: white;
+            padding: 20px 40px;
+            border: 3px solid white;
+            border-radius: 15px;
+            /* 3D Box Effect */
+            box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.4), inset 2px 2px 5px rgba(255, 255, 255, 0.3);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-size: 2.2em;
+            margin: 0;
+        }
+
+        /* Main Container for Two-Column Layout */
+        .container {
+            display: flex;
+            max-width: 1400px;
+            margin: 20px auto;
+            background: #ffffff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.15);
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        /* Left Navigation Column */
+        .nav-column {
+            flex: 1;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+            background-color: #f8f9fa;
+            height: 80vh;
+            overflow-y: auto;
+        }
+
+        .nav-column ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            position: sticky;
+            top: 20px;
+        }
+
+        .nav-column li a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: #0056b3;
+            border-radius: 5px;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 0.95em;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .nav-column li a:hover,
+        .nav-column li a.active {
+            background-color: #0056b3;
+            color: #fff;
+        }
+
+        /* Right Content Column */
+        .content-column {
+            flex: 3;
+            padding: 25px 35px;
+            height: 80vh; /* Set a height to enable scrolling */
+            overflow-y: auto; /* Enable vertical scrollbar */
+        }
+
+        .content-section {
+            display: none;
+        }
+        
+        .content-section.active {
+            display: block;
+        }
+        
+        h2 {
+            font-size: 1.8em;
+            color: #0056b3;
+            border-bottom: 3px solid #0056b3;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        
+        h3 {
+            font-size: 1.4em;
+            color: #333;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        
+        .rule {
+            background-color: #e7f3fe;
+            border: 1px solid #b3d7f7;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 5px;
+        }
+
+        .example-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .example-list li {
+            margin-bottom: 20px;
+            border-left: 4px solid #0056b3;
+            padding-left: 15px;
+        }
+        
+        .explanation {
+            font-style: italic;
+            color: #555;
+            margin-top: 5px;
+        }
+        
+        code {
+            background-color: #e3e3e3;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .voice-label {
+            font-weight: bold;
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .active-voice { color: #28a745; } /* Green */
+        .passive-voice { color: #dc3545; } /* Red */
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>GRAMMAR RULES: ACTIVE & PASSIVE VOICE</h1>
+    </header>
+
+    <div class="container">
+        <nav class="nav-column">
+            <ul>
+                <li><a href="#definition" class="nav-link active">What is Voice?</a></li>
+                <li><a href="#active-voice" class="nav-link">The Active Voice</a></li>
+                <li><a href="#passive-voice" class="nav-link">The Passive Voice</a></li>
+                <li><a href="#conversion-rules" class="nav-link">Rules for Conversion</a></li>
+                <li><a href="#active-to-passive" class="nav-link">Active to Passive Examples</a></li>
+                <li><a href="#passive-to-active" class="nav-link">Passive to Active Examples</a></li>
+            </ul>
+        </nav>
+
+        <main class="content-column">
+            <section id="definition" class="content-section active">
+                <h2>What is Voice?</h2>
+                <p>In grammar, **voice** refers to the form of a verb that shows whether the subject of a sentence **performs the action** (active voice) or **receives the action** (passive voice).</p>
+                <div class="rule">
+                    <ul>
+                        <li><strong>Active Voice:</strong> The subject **DOES** the action.<br><em>Example: The cat chased the mouse.</em> (The subject 'cat' is doing the chasing).</li>
+                        <li><strong>Passive Voice:</strong> The subject **RECEIVES** the action.<br><em>Example: The mouse was chased by the cat.</em> (The subject 'mouse' is receiving the action).</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section id="active-voice" class="content-section">
+                <h2>The Active Voice</h2>
+                <p>In the active voice, the subject of the sentence is the one performing the action expressed by the verb.</p>
+                <h3>Structure</h3>
+                <p>The standard structure is: <code>Subject + Verb + Object</code></p>
+                <h3>When to Use the Active Voice</h3>
+                <ul class="example-list">
+                    <li>For clear, direct, and strong writing. This is the most common and generally preferred voice in English.</li>
+                    <li>When you want to emphasize the person or thing performing the action.</li>
+                    <li>To make your writing more concise and engaging.</li>
+                </ul>
+            </section>
+            
+            <section id="passive-voice" class="content-section">
+                <h2>The Passive Voice</h2>
+                <p>In the passive voice, the subject of the sentence receives the action. The person or thing performing the action (the agent) may be introduced with the preposition 'by' or omitted entirely.</p>
+                <h3>Structure</h3>
+                <p>The standard structure is: <code>Subject (Receiver) + Form of 'be' + Past Participle (V3) + [by Agent (Doer)]</code></p>
+                 <h3>When to Use the Passive Voice</h3>
+                <ul class="example-list">
+                    <li>When the doer of the action is unknown.<br><em>Example: My wallet <strong>was stolen</strong> yesterday. (We don't know who stole it).</em></li>
+                    <li>When the doer of the action is unimportant or irrelevant.<br><em>Example: The bridge <strong>was built</strong> in 1995. (Who built it is less important than the bridge itself).</em></li>
+                    <li>When the receiver of the action is more important and needs to be emphasized.<br><em>Example: The Nobel Prize <strong>was won</strong> by a brilliant scientist. (The focus is on the prize).</em></li>
+                    <li>In scientific or formal writing to sound objective.<br><em>Example: The solution <strong>was heated</strong> to 100 degrees Celsius.</em></li>
+                    <li>To avoid assigning blame.<br><em>Example: Unfortunately, a mistake <strong>was made</strong>.</em></li>
+                </ul>
+            </section>
+            
+            <section id="conversion-rules" class="content-section">
+                <h2>Rules for Conversion (Active to Passive)</h2>
+                <div class="rule">
+                    <ol>
+                        <li>The **object** of the active sentence becomes the **subject** of the passive sentence.</li>
+                        <li>The **verb** is changed into the passive form: a suitable form of the verb **'to be' + the Past Participle (V3)** of the main verb. The tense of 'be' must match the tense of the original active verb.</li>
+                        <li>The **subject** of the active sentence becomes the **object** of the preposition 'by' (or is omitted if unimportant).</li>
+                    </ol>
+                </div>
+            </section>
+            
+            <section id="active-to-passive" class="content-section">
+                <h2>10 Examples: Active to Passive Voice</h2>
+                <ul class="example-list">
+                    <li>
+                        <span class="voice-label active-voice">Active:</span> The boy kicks the ball.<br>
+                        <span class="voice-label passive-voice">Passive:</span> The ball is kicked by the boy.<br>
+                        <div class="explanation"><strong>Explanation:</strong> The object 'ball' becomes the subject. The simple present verb 'kicks' becomes 'is' (present tense of 'be') + 'kicked' (V3). The subject 'boy' becomes the object of 'by'.</div>
+                    </li>
+                    <li>
+                        <span class="voice-label active-voice">Active:</span> She is singing a song.<br>
+                        <span class="voice-label passive-voice">Passive:</span> A song is being sung by her.<br>
+                        <div class="explanation"><strong>Explanation:</strong> The object 'song' becomes the subject. The present continuous 'is singing' becomes 'is being' (present continuous of 'be') + 'sung' (V3).</div>
+                    </li>
+                    <li>
+                        <span class="voice-label active-voice">Active:</span> They have finished the work.<br>
+                        <span class="voice-label passive-voice">Passive:</span> The work has been finished by them.<br>
+                        <div class="explanation"><strong>Explanation:</strong> 'work' becomes the subject. The present perfect 'have finished' becomes 'has been' (present perfect of 'be') + 'finished' (V3).</div>
+                    </li>
+                    <li>
+                        <span class="voice-label active-voice">Active:</span> The teacher taught the students.<br>
+                        <span class="voice-label passive-voice">Passive:</span> The students were taught by the teacher.<br>
+                        <div class="explanation"><strong>Explanation:</strong> 'students' becomes the subject. The simple past 'taught' becomes 'were' (past tense of 'be') + 'taught' (V3).</div>
+                    </li>
+                    <li>
+                        <span class="voice-label active-voice">Active:</span> He was driving the car.<br>
+                        <span class="voice-label passive-voice">Passive:</span> The car was being driven by him.<br>
+                        <div class="explanation"><strong>Explanation:</strong> 'car' becomes the subject. The past continuous 'was driving' becomes 'was being' (past continuous of 'be') + 'driven' (V3).</div>
+                    </li>
+                    <li>
+                        <span class="voice-label active-voice">Active:</span> She had written the letter.<br>
+                        <span class="voice-label passive-voice">Passive:</span> The letter had been written by her.<br>
+                        <div class="explanation"><strong>Explanation:</strong> 'letter' becomes the subject. The past perfect 'had written' becomes 'had been' (past perfect of 'be') + 'written' (V3).</div>
+                    </li>
+                    <li>
+                        <span class="voice-label active-voice">Active:</span> I will send the package.<br>
+                        <span class="voice-label passive-voice">Passive:</span> The package will be sent by me.<br>
+                        <div class="explanation"><strong>Explanation:</strong> 'package' becomes the subject. The simple future 'will send' becomes 'will be' (future of 'be') + 'sent' (V3).</div>
+                    </li>
+                    <li>
+                        <span class="voice-label active-voice">Active:</span> You must obey the rules.<br>
+                        <span class="voice-label passive-voice">Passive:</span> The rules must be obeyed by you.<br>
+                        <div class="explanation"><strong>Explanation:</strong> 'rules' becomes the subject. When a modal (must, can, should) is used, the form is `modal + be + V3`.</div>
+                    </li>
+                    <li>
+                        <span class="voice-label active-voice">Active:</span> Did the police catch the thief?<br>
+                        <span class="voice-label passive-voice">Passive:</span> Was the thief caught by the police?<br>
+                        <div class="explanation"><strong>Explanation:</strong> In questions, the form of 'be' moves to the beginning. The tense is simple past ('Did'), so we use 'Was'.</div>
+                    </li>
+                     <li>
+                        <span class="voice-label active-voice">Active:</span> The company is launching a new product.<br>
+                        <span class="voice-label passive-voice">Passive:</span> A new product is being launched by the company.<br>
+                        <div class="explanation"><strong>Explanation:</strong> The object 'a new product' becomes the subject. The verb 'is launching' (present continuous) becomes 'is being launched'.</div>
+                    </li>
+                </ul>
+            </section>
+            
+            <section id="passive-to-active" class="content-section">
+                <h2>10 Examples: Passive to Active Voice</h2>
+                <ul class="example-list">
+                    <li>
+                        <span class="voice-label passive-voice">Passive:</span> The book was read by the student.<br>
+                        <span class="voice-label active-voice">Active:</span> The student read the book.<br>
+                        <div class="explanation"><strong>Explanation:</strong> The object of 'by' ('the student') becomes the new subject. The verb 'was read' (simple past passive) becomes 'read' (simple past active). The passive subject 'The book' becomes the object.</div>
+                    </li>
+                    <li>
+                        <span class="voice-label passive-voice">Passive:</span> A beautiful song is being sung by her.<br>
+                        <span class="voice-label active-voice">Active:</span> She is singing a beautiful song.<br>
+                        <div class="explanation"><strong>Explanation:</strong> 'her' becomes the subject 'She'. The verb 'is being sung' (present continuous passive) becomes 'is singing'.</div>
+                    </li>
+                    <li>
+                        <span class="voice-label passive-voice">Passive:</span> The project has been completed by the team.<br>
+                        <span class="voice-label active-voice">Active:</span> The team has completed the project.<br>
+                        <div class="explanation"><strong>Explanation:</strong> 'the team' becomes the subject. The verb 'has been completed' (present perfect passive) becomes 'has completed'.</div>
+                    </li>
+                    <li>
+                        <span class="voice-label passive-voice">Passive:</span> The window was broken by John.<br>
+                        <span class="voice-label active-voice">Active:</span> John broke the window.<br>
+                        <div class="explanation"><strong>Explanation:</strong> 'John' becomes the subject. The verb 'was broken' (simple past passive) becomes 'broke'.</div>
+                    </li>
+                    <li>
+                        <span class="voice-label passive-voice">Passive:</span> The problem had been solved by them.<br>
+                        <span class="voice-label active-voice">Active:</span> They had solved the problem.<br>
+                        <div class="explanation"><strong>Explanation:</strong> 'them' becomes the subject 'They'. 'had been solved' (past perfect passive) becomes 'had solved'.</div>
+                    </li>
+                    <li>
+                        <span class="voice-label passive-voice">Passive:</span> The match will be won by our team.<br>
+                        <span class="voice-label active-voice">Active:</span> Our team will win the match.<br>
+                        <div class="explanation"><strong>Explanation:</strong> 'our team' becomes the subject. 'will be won' (future passive) becomes 'will win'.</div>
+                    </li>
+                    <li>
+                        <span class="voice-label passive-voice">Passive:</span> The task should be finished by you.<br>
+                        <span class="voice-label active-voice">Active:</span> You should finish the task.<br>
+                        <div class="explanation"><strong>Explanation:</strong> 'you' becomes the subject. 'should be finished' (modal passive) becomes 'should finish'.</div>
+                    </li>
+                     <li>
+                        <span class="voice-label passive-voice">Passive:</span> The walls are being painted by the workers.<br>
+                        <span class="voice-label active-voice">Active:</span> The workers are painting the walls.<br>
+                        <div class="explanation"><strong>Explanation:</strong> 'the workers' becomes the subject. 'are being painted' (present continuous passive) becomes 'are painting'.</div>
+                    </li>
+                    <li>
+                        <span class="voice-label passive-voice">Passive:</span> Was the question answered by him?<br>
+                        <span class="voice-label active-voice">Active:</span> Did he answer the question?<br>
+                        <div class="explanation"><strong>Explanation:</strong> The question form is retained. 'him' becomes subject 'he'. 'Was...answered' (simple past passive) becomes 'Did...answer' (simple past active).</div>
+                    </li>
+                    <li>
+                        <span class="voice-label passive-voice">Passive:</span> Mistakes were made.<br>
+                        <span class="voice-label active-voice">Active:</span> Someone made mistakes.<br>
+                        <div class="explanation"><strong>Explanation:</strong> The doer (agent) is missing in the passive sentence. We supply a general subject like 'someone', 'they', or 'we' to make it active.</div>
+                    </li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const contentSections = document.querySelectorAll('.content-section');
+            const contentColumn = document.querySelector('.content-column');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+
+                    navLinks.forEach(nav => nav.classList.remove('active'));
+                    contentSections.forEach(section => section.classList.remove('active'));
+
+                    this.classList.add('active');
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        targetSection.classList.add('active');
+                        contentColumn.scrollTop = 0; // Scroll to top of content area on click
+                    }
+                });
+            });
+            // Auto-activate the first link on page load
+            document.querySelector('.nav-link').classList.add('active');
+            document.querySelector('.content-section').classList.add('active');
+        });
+    </script>
+
+</body>
+</html>

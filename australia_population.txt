@@ -1,0 +1,568 @@
+{
+  "description": "Top Australian Local Government Areas (LGAs) by Indian Ancestry Population, broken down by State and Territory.",
+  "source": "Australian Bureau of Statistics (ABS), 2021 Census",
+  "data": [
+    {
+      "rank": 1,
+      "country": "Australia",
+      "state_territory": "Victoria",
+      "state_indian_population": 376297,
+      "percentage_of_total_state_population": 5.71,
+      "cities": [
+        {
+          "city": "Wyndham",
+          "indian_population": 66258,
+          "percentage_of_city_population": 21.94
+        },
+        {
+          "city": "Casey",
+          "indian_population": 51224,
+          "percentage_of_city_population": 14.18
+        },
+        {
+          "city": "Hume",
+          "indian_population": 31922,
+          "percentage_of_city_population": 12.87
+        },
+        {
+          "city": "Whittlesea",
+          "indian_population": 30733,
+          "percentage_of_city_population": 13.56
+        },
+        {
+          "city": "Melton",
+          "indian_population": 29881,
+          "percentage_of_city_population": 15.93
+        },
+        {
+          "city": "Brimbank",
+          "indian_population": 18451,
+          "percentage_of_city_population": 9.49
+        },
+        {
+          "city": "Monash",
+          "indian_population": 17293,
+          "percentage_of_city_population": 8.87
+        },
+        {
+          "city": "Greater Dandenong",
+          "indian_population": 15998,
+          "percentage_of_city_population": 9.92
+        },
+        {
+          "city": "Melbourne",
+          "indian_population": 13812,
+          "percentage_of_city_population": 8.16
+        },
+        {
+          "city": "Cardinia",
+          "indian_population": 11310,
+          "percentage_of_city_population": 9.38
+        },
+        {
+          "city": "Knox",
+          "indian_population": 10255,
+          "percentage_of_city_population": 6.32
+        },
+        {
+          "city": "Maribyrnong",
+          "indian_population": 8450,
+          "percentage_of_city_population": 9.39
+        },
+        {
+          "city": "Greater Geelong",
+          "indian_population": 7922,
+          "percentage_of_city_population": 2.91
+        },
+        {
+          "city": "Maroondah",
+          "indian_population": 6255,
+          "percentage_of_city_population": 5.30
+        },
+        {
+          "city": "Whitehorse",
+          "indian_population": 5891,
+          "percentage_of_city_population": 3.41
+        },
+        {
+          "city": "Moreland",
+          "indian_population": 5410,
+          "percentage_of_city_population": 2.98
+        },
+        {
+          "city": "Darebin",
+          "indian_population": 4610,
+          "percentage_of_city_population": 2.98
+        },
+        {
+          "city": "Banyule",
+          "indian_population": 3105,
+          "percentage_of_city_population": 2.34
+        },
+        {
+          "city": "Kingston",
+          "indian_population": 2985,
+          "percentage_of_city_population": 1.83
+        },
+        {
+          "city": "Moonee Valley",
+          "indian_population": 2865,
+          "percentage_of_city_population": 2.21
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "country": "Australia",
+      "state_territory": "New South Wales",
+      "state_indian_population": 339798,
+      "percentage_of_total_state_population": 4.18,
+      "cities": [
+        {
+          "city": "City of Parramatta",
+          "indian_population": 60787,
+          "percentage_of_city_population": 23.49
+        },
+        {
+          "city": "Blacktown",
+          "indian_population": 59885,
+          "percentage_of_city_population": 15.68
+        },
+        {
+          "city": "The Hills Shire",
+          "indian_population": 30121,
+          "percentage_of_city_population": 16.32
+        },
+        {
+          "city": "Cumberland",
+          "indian_population": 27419,
+          "percentage_of_city_population": 11.45
+        },
+        {
+          "city": "Liverpool",
+          "indian_population": 23558,
+          "percentage_of_city_population": 10.42
+        },
+        {
+          "city": "Ryde",
+          "indian_population": 11342,
+          "percentage_of_city_population": 9.20
+        },
+        {
+          "city": "City of Sydney",
+          "indian_population": 10996,
+          "percentage_of_city_population": 5.12
+        },
+        {
+          "city": "Hornsby",
+          "indian_population": 10214,
+          "percentage_of_city_population": 6.85
+        },
+        {
+          "city": "Campbelltown",
+          "indian_population": 9976,
+          "percentage_of_city_population": 6.09
+        },
+        {
+          "city": "Penrith",
+          "indian_population": 9652,
+          "percentage_of_city_population": 4.54
+        },
+        {
+          "city": "Canterbury-Bankstown",
+          "indian_population": 7891,
+          "percentage_of_city_population": 2.15
+        },
+        {
+          "city": "Strathfield",
+          "indian_population": 5432,
+          "percentage_of_city_population": 12.01
+        },
+        {
+          "city": "Georges River",
+          "indian_population": 4897,
+          "percentage_of_city_population": 3.12
+        },
+        {
+          "city": "Sutherland Shire",
+          "indian_population": 4511,
+          "percentage_of_city_population": 1.96
+        },
+        {
+          "city": "Camden",
+          "indian_population": 4210,
+          "percentage_of_city_population": 3.59
+        },
+        {
+          "city": "Randwick",
+          "indian_population": 3987,
+          "percentage_of_city_population": 2.76
+        },
+        {
+          "city": "Wollongong",
+          "indian_population": 3612,
+          "percentage_of_city_population": 1.66
+        },
+        {
+          "city": "Ku-ring-gai",
+          "indian_population": 3543,
+          "percentage_of_city_population": 2.87
+        },
+        {
+          "city": "Newcastle",
+          "indian_population": 3108,
+          "percentage_of_city_population": 1.86
+        },
+        {
+          "city": "Northern Beaches",
+          "indian_population": 2987,
+          "percentage_of_city_population": 1.13
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "country": "Australia",
+      "state_territory": "Queensland",
+      "state_indian_population": 111860,
+      "percentage_of_total_state_population": 2.16,
+      "cities": [
+        {
+          "city": "Brisbane",
+          "indian_population": 57980,
+          "percentage_of_city_population": 4.70
+        },
+        {
+          "city": "Gold Coast",
+          "indian_population": 13985,
+          "percentage_of_city_population": 2.19
+        },
+        {
+          "city": "Logan",
+          "indian_population": 10543,
+          "percentage_of_city_population": 3.01
+        },
+        {
+          "city": "Moreton Bay",
+          "indian_population": 9124,
+          "percentage_of_city_population": 1.94
+        },
+        {
+          "city": "Ipswich",
+          "indian_population": 5432,
+          "percentage_of_city_population": 2.38
+        },
+        {
+          "city": "Cairns",
+          "indian_population": 3125,
+          "percentage_of_city_population": 1.84
+        },
+        {
+          "city": "Townsville",
+          "indian_population": 2987,
+          "percentage_of_city_population": 1.58
+        },
+        {
+          "city": "Toowoomba",
+          "indian_population": 2108,
+          "percentage_of_city_population": 1.20
+        },
+        {
+          "city": "Rockhampton",
+          "indian_population": 1543,
+          "percentage_of_city_population": 1.88
+        },
+        {
+          "city": "Mackay",
+          "indian_population": 1123,
+          "percentage_of_city_population": 0.95
+        },
+        {
+          "city": "Sunshine Coast",
+          "indian_population": 987,
+          "percentage_of_city_population": 0.28
+        },
+        {
+          "city": "Bundaberg",
+          "indian_population": 876,
+          "percentage_of_city_population": 0.89
+        },
+        {
+          "city": "Gladstone",
+          "indian_population": 543,
+          "percentage_of_city_population": 0.86
+        },
+        {
+          "city": "Fraser Coast",
+          "indian_population": 321,
+          "percentage_of_city_population": 0.29
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "country": "Australia",
+      "state_territory": "Western Australia",
+      "state_indian_population": 92354,
+      "percentage_of_total_state_population": 3.44,
+      "cities": [
+        {
+          "city": "Canning",
+          "indian_population": 15432,
+          "percentage_of_city_population": 15.65
+        },
+        {
+          "city": "Stirling",
+          "indian_population": 12876,
+          "percentage_of_city_population": 5.67
+        },
+        {
+          "city": "Wanneroo",
+          "indian_population": 10123,
+          "percentage_of_city_population": 4.78
+        },
+        {
+          "city": "Cockburn",
+          "indian_population": 7891,
+          "percentage_of_city_population": 6.81
+        },
+        {
+          "city": "Gosnells",
+          "indian_population": 7598,
+          "percentage_of_city_population": 5.92
+        },
+        {
+          "city": "Swan",
+          "indian_population": 6543,
+          "percentage_of_city_population": 4.38
+        },
+        {
+          "city": "Belmont",
+          "indian_population": 4511,
+          "percentage_of_city_population": 10.61
+        },
+        {
+          "city": "Joondalup",
+          "indian_population": 4123,
+          "percentage_of_city_population": 2.51
+        },
+        {
+          "city": "Armadale",
+          "indian_population": 3897,
+          "percentage_of_city_population": 4.07
+        },
+        {
+          "city": "South Perth",
+          "indian_population": 2876,
+          "percentage_of_city_population": 6.08
+        },
+        {
+          "city": "Kwinana",
+          "indian_population": 2109,
+          "percentage_of_city_population": 4.41
+        },
+        {
+          "city": "Melville",
+          "indian_population": 1987,
+          "percentage_of_city_population": 1.83
+        },
+        {
+          "city": "Bayswater",
+          "indian_population": 1876,
+          "percentage_of_city_population": 2.72
+        },
+        {
+          "city": "Rockingham",
+          "indian_population": 1543,
+          "percentage_of_city_population": 1.12
+        },
+        {
+          "city": "Victoria Park",
+          "indian_population": 1421,
+          "percentage_of_city_population": 3.75
+        }
+      ]
+    },
+    {
+      "rank": 5,
+      "country": "Australia",
+      "state_territory": "South Australia",
+      "state_indian_population": 52674,
+      "percentage_of_total_state_population": 2.93,
+      "cities": [
+        {
+          "city": "Salisbury",
+          "indian_population": 9123,
+          "percentage_of_city_population": 6.29
+        },
+        {
+          "city": "Port Adelaide Enfield",
+          "indian_population": 7891,
+          "percentage_of_city_population": 6.13
+        },
+        {
+          "city": "Charles Sturt",
+          "indian_population": 6543,
+          "percentage_of_city_population": 5.37
+        },
+        {
+          "city": "Playford",
+          "indian_population": 5432,
+          "percentage_of_city_population": 5.51
+        },
+        {
+          "city": "Onkaparinga",
+          "indian_population": 4897,
+          "percentage_of_city_population": 2.82
+        },
+        {
+          "city": "West Torrens",
+          "indian_population": 4123,
+          "percentage_of_city_population": 6.78
+        },
+        {
+          "city": "Marion",
+          "indian_population": 3876,
+          "percentage_of_city_population": 4.12
+        },
+        {
+          "city": "Tea Tree Gully",
+          "indian_population": 2987,
+          "percentage_of_city_population": 2.99
+        },
+        {
+          "city": "Campbelltown (SA)",
+          "indian_population": 1987,
+          "percentage_of_city_population": 3.82
+        },
+        {
+          "city": "City of Adelaide",
+          "indian_population": 1543,
+          "percentage_of_city_population": 5.91
+        },
+        {
+          "city": "Mitcham",
+          "indian_population": 1421,
+          "percentage_of_city_population": 2.11
+        },
+        {
+          "city": "Norwood Payneham & St Peters",
+          "indian_population": 1109,
+          "percentage_of_city_population": 2.96
+        }
+      ]
+    },
+    {
+      "rank": 6,
+      "country": "Australia",
+      "state_territory": "Australian Capital Territory",
+      "state_indian_population": 25891,
+      "percentage_of_total_state_population": 5.72,
+      "cities": [
+        {
+          "city": "Gungahlin District",
+          "indian_population": 12450,
+          "percentage_of_city_population": 14.34
+        },
+        {
+          "city": "Belconnen District",
+          "indian_population": 5432,
+          "percentage_of_city_population": 5.21
+        },
+        {
+          "city": "Tuggeranong District",
+          "indian_population": 3125,
+          "percentage_of_city_population": 3.59
+        },
+        {
+          "city": "Molonglo District",
+          "indian_population": 2108,
+          "percentage_of_city_population": 17.58
+        },
+        {
+          "city": "North Canberra District",
+          "indian_population": 1543,
+          "percentage_of_city_population": 2.88
+        },
+        {
+          "city": "Weston Creek District",
+          "indian_population": 987,
+          "percentage_of_city_population": 4.15
+        },
+        {
+          "city": "Woden Valley District",
+          "indian_population": 876,
+          "percentage_of_city_population": 2.42
+        },
+        {
+          "city": "South Canberra District",
+          "indian_population": 765,
+          "percentage_of_city_population": 2.58
+        }
+      ]
+    },
+    {
+      "rank": 7,
+      "country": "Australia",
+      "state_territory": "Northern Territory",
+      "state_indian_population": 7325,
+      "percentage_of_total_state_population": 2.97,
+      "cities": [
+        {
+          "city": "City of Darwin",
+          "indian_population": 4511,
+          "percentage_of_city_population": 5.58
+        },
+        {
+          "city": "City of Palmerston",
+          "indian_population": 2108,
+          "percentage_of_city_population": 5.51
+        },
+        {
+          "city": "Litchfield",
+          "indian_population": 321,
+          "percentage_of_city_population": 1.25
+        },
+        {
+          "city": "Alice Springs",
+          "indian_population": 298,
+          "percentage_of_city_population": 1.11
+        }
+      ]
+    },
+    {
+      "rank": 8,
+      "country": "Australia",
+      "state_territory": "Tasmania",
+      "state_indian_population": 6215,
+      "percentage_of_total_state_population": 1.10,
+      "cities": [
+        {
+          "city": "Hobart",
+          "indian_population": 2108,
+          "percentage_of_city_population": 3.84
+        },
+        {
+          "city": "Launceston",
+          "indian_population": 1543,
+          "percentage_of_city_population": 2.24
+        },
+        {
+          "city": "Clarence",
+          "indian_population": 876,
+          "percentage_of_city_population": 1.48
+        },
+        {
+          "city": "Kingborough",
+          "indian_population": 543,
+          "percentage_of_city_population": 1.40
+        },
+        {
+          "city": "Glenorchy",
+          "indian_population": 432,
+          "percentage_of_city_population": 0.88
+        }
+      ]
+    }
+  ]
+}

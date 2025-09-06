@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alternative Career Explorer</title>
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧭</text></svg>">
+
+<style>
+    :root {
+        --primary-red: #c0392b;
+        --dark-red: #a93226;
+        --light-gray: #ecf0f1;
+        --text-dark: #2c3e50;
+        --bg-white: #ffffff;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: var(--light-gray);
+        color: var(--text-dark);
+        margin: 0;
+        padding: 20px;
+    }
+
+    .container {
+        max-width: 900px;
+        margin: 20px auto;
+        padding: 40px;
+        background: var(--bg-white);
+        border-radius: 15px;
+        /* Main 3D effect */
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1), 0 6px 6px rgba(0,0,0,0.15);
+        border: 1px solid #ddd;
+    }
+
+    .header h1 {
+        text-align: center;
+        font-size: 3rem;
+        font-weight: 800;
+        color: var(--primary-red);
+        /* 3D Text Effect */
+        text-shadow: 
+            -1px -1px 0 #fff,  
+             1px -1px 0 #fff,
+            -1px  1px 0 #fff,
+             1px  1px 0 #fff, /* White outline */
+             3px 3px 0px var(--dark-red); /* Red shadow */
+        margin-bottom: 10px;
+    }
+    
+    .header p {
+        text-align: center;
+        font-size: 1.1rem;
+        color: #7f8c8d;
+        margin-bottom: 40px;
+    }
+
+    /* --- Input Section --- */
+    .input-section {
+        margin-bottom: 40px;
+    }
+    
+    .input-section label {
+        display: block;
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--primary-red);
+    }
+
+    #career-choice {
+        width: 100%;
+        padding: 15px;
+        font-size: 1.1rem;
+        font-family: 'Poppins', sans-serif;
+        border: 2px solid #bdc3c7;
+        border-radius: 8px;
+        background-color: #fff;
+        cursor: pointer;
+        appearance: none; /* Removes default browser styling */
+        background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23c0392b%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
+        background-repeat: no-repeat;
+        background-position: right 15px top 50%;
+        background-size: 14px;
+    }
+
+    /* --- Results Section --- */
+    #results-container {
+        display: none; /* Initially hidden */
+        border-top: 2px dashed var(--primary-red);
+        padding-top: 30px;
+    }
+    
+    #results-container h2 {
+        color: var(--primary-red);
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    
+    .primary-choice-display {
+        background: #f9e5e3; /* Light red background */
+        border-left: 5px solid var(--primary-red);
+        padding: 20px;
+        margin-bottom: 30px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+
+    .primary-choice-display h3 {
+        margin: 0 0 10px 0;
+        color: var(--dark-red);
+        font-size: 1.4rem;
+    }
+
+    .primary-stats {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        gap: 15px;
+        font-size: 0.95rem;
+    }
+
+    .stat {
+        text-align: center;
+    }
+    .stat .value {
+        font-weight: 700;
+        font-size: 1.2rem;
+        color: var(--text-dark);
+    }
+
+    .alternatives-grid {
+        display: grid;
+        gap: 25px;
+    }
+
+    .alternative-card {
+        background: var(--bg-white);
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 25px;
+        /* 3D effect for cards */
+        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .alternative-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    }
+
+    .alternative-card h4 {
+        margin: 0 0 20px 0;
+        font-size: 1.3rem;
+        color: var(--primary-red);
+    }
+
+    .comparison {
+        margin-bottom: 15px;
+    }
+
+    .comparison-label {
+        display: flex;
+        justify-content: space-between;
+        font-weight: 600;
+        margin-bottom: 8px;
+        font-size: 0.9rem;
+    }
+    .original-value { color: #7f8c8d; }
+    .alternative-value { color: var(--dark-red); }
+
+    .bar-container {
+        background-color: var(--light-gray);
+        border-radius: 20px;
+        height: 12px;
+        margin-bottom: 5px;
+        overflow: hidden;
+    }
+
+    .bar {
+        height: 100%;
+        border-radius: 20px;
+        transition: width 0.5s ease-in-out;
+    }
+    .original-bar .bar { background-color: #7f8c8d; }
+    .alternative-bar .bar { background-color: var(--primary-red); }
+
+    .bar-legend {
+        display: flex;
+        align-items: center;
+        font-size: 0.8rem;
+        color: #555;
+    }
+    .legend-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        margin-right: 5px;
+    }
+    .dot-original { background-color: #7f8c8d; }
+    .dot-alternative { background-color: var(--primary-red); }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>Alternative Career Explorer</h1>
+        <p>Can't pursue your dream career? Discover similar, high-potential alternatives!</p>
+    </div>
+
+    <div class="input-section">
+        <label for="career-choice">1. Select Your Primary Career Choice</label>
+        <select id="career-choice">
+            <option value="">-- Select a Course --</option>
+            <!-- Options will be dynamically added by JavaScript -->
+        </select>
+    </div>
+
+    <div id="results-container">
+        <!-- Primary choice details will be injected here -->
+        <div id="primary-choice-display-area"></div>
+
+        <h2>Top Alternative Career Paths</h2>
+        
+        <!-- Alternative career cards will be injected here -->
+        <div class="alternatives-grid" id="alternatives-grid-area"></div>
+    </div>
+</div>
+
+
+
+<script>
+ // REPLACE THE ENTIRE <script> TAG CONTENT WITH THIS
+
+/**
+ * ===================================================================
+ * METHOD E: The Domain + Job Profile Hierarchy Model
+ * ===================================================================
+ * This logic strictly adheres to the user's request.
+ * 1. PRIMARY FILTER: It ONLY considers courses with the same `jobProfile`.
+ * 2. RANKING: Within that group, it scores based on shared `domains`.
+ * 3. TIE-BREAKER: Shared `tags` are used for final ranking adjustments.
+ */
+function findAlternatives(selectedCourse) {
+    const selectedProfile = selectedCourse.jobProfile;
+    const selectedDomains = selectedCourse.domains || [];
+
+    if (!selectedProfile) {
+        return []; // Failsafe
+    }
+
+    // STEP 1: Create a candidate pool ONLY from courses with the same Job Profile.
+    const candidatePool = courseData.filter(course =>
+        course.id !== selectedCourse.id && course.jobProfile === selectedProfile
+    );
+
+    const alternatives = [];
+
+    // STEP 2 & 3: Score the candidates based on shared domains and tags.
+    candidatePool.forEach(course => {
+        let score = 0;
+        const targetDomains = course.domains || [];
+
+        // Heavily reward shared domains
+        const commonDomains = selectedDomains.filter(d => targetDomains.includes(d));
+        score += commonDomains.length * 10;
+
+        // Add minor points for shared tags as a tie-breaker
+        const commonTags = (selectedCourse.tags || []).filter(tag => (course.tags || []).includes(tag));
+        score += commonTags.length;
+        
+        // Only add if there is some level of domain or tag similarity
+        if (score > 0) {
+           alternatives.push({ course, score });
+        }
+    });
+
+    // Sort by the highest score to find the closest match
+    alternatives.sort((a, b) => b.score - a.score);
+
+    return alternatives.slice(0, 4).map(alt => alt.course);
+}
+
+
+const courseData = [
+    // --- Engineering Courses ---
+    { id: 'ssc-diploma-in-aeronautical-engineering', name: 'Diploma in Aeronautical Engineering', jobProfile: 'engineering_design', domains: ['aerospace', 'aviation'], tags: ['core:physics', 'core:math', 'skill:design', 'skill:analysis'], growthRate: 12, avgFee: 120000, avgSalary: 550000 },
+    { id: 'ssc-diploma-in-agricultural-engineering', name: 'Diploma in Agricultural Engineering', jobProfile: 'engineering_design', domains: ['agriculture', 'farming_tech'], tags: ['core:biology', 'core:mechanics', 'skill:design', 'skill:machinery'], growthRate: 8, avgFee: 70000, avgSalary: 400000 },
+    { id: 'ssc-diploma-in-automobile-engineering', name: 'Diploma in Automobile Engineering', jobProfile: 'engineering_design', domains: ['automotive', 'vehicle_systems'], tags: ['core:physics', 'core:mechanics', 'skill:design', 'skill:manufacturing'], growthRate: 9, avgFee: 80000, avgSalary: 420000 },
+    { id: 'ssc-diploma-in-biomedical-engineering', name: 'Diploma in Biomedical Engineering', jobProfile: 'specialized_engineering', domains: ['biomedical', 'medical_devices', 'healthcare_tech'], tags: ['core:biology', 'core:electronics', 'skill:design', 'skill:instrumentation'], growthRate: 11, avgFee: 110000, avgSalary: 500000 },
+    { id: 'ssc-diploma-in-ceramic-technology', name: 'Diploma in Ceramic Technology', jobProfile: 'materials_engineering', domains: ['materials_science', 'industrial_materials'], tags: ['core:chemistry', 'core:materials', 'skill:manufacturing', 'skill:lab-work'], growthRate: 6, avgFee: 65000, avgSalary: 380000 },
+    { id: 'ssc-diploma-in-chemical-engineering', name: 'Diploma in Chemical Engineering', jobProfile: 'process_engineering', domains: ['chemical_processing', 'industrial_manufacturing'], tags: ['core:chemistry', 'core:physics', 'skill:process-control', 'skill:analysis'], growthRate: 7, avgFee: 90000, avgSalary: 450000 },
+    { id: 'ssc-diploma-in-civil-engineering', name: 'Diploma in Civil Engineering', jobProfile: 'engineering_design', domains: ['construction', 'infrastructure'], tags: ['core:physics', 'core:math', 'skill:design', 'skill:drawing', 'skill:surveying'], growthRate: 8, avgFee: 75000, avgSalary: 400000 },
+    { id: 'ssc-diploma-in-computer-science-engineering', name: 'Diploma in Computer Science & Engineering', jobProfile: 'software_dev', domains: ['software_dev', 'it_systems'], tags: ['core:math', 'core:logic', 'skill:programming', 'skill:database'], growthRate: 18, avgFee: 70000, avgSalary: 480000 },
+    { id: 'ssc-diploma-in-electrical-engineering', name: 'Diploma in Electrical Engineering', jobProfile: 'engineering_design', domains: ['electrical_systems', 'power_generation'], tags: ['core:physics', 'core:math', 'skill:circuit-design', 'skill:machinery'], growthRate: 9, avgFee: 80000, avgSalary: 430000 },
+    { id: 'ssc-diploma-in-electronics-communication-engineering', name: 'Diploma in Electronics & Communication Engineering', jobProfile: 'engineering_design', domains: ['electronics', 'telecom'], tags: ['core:physics', 'core:math', 'skill:circuit-design', 'skill:networking'], growthRate: 12, avgFee: 85000, avgSalary: 460000 },
+    { id: 'ssc-diploma-in-environmental-engineering', name: 'Diploma in Environmental Engineering', jobProfile: 'specialized_engineering', domains: ['environment', 'public_works', 'sustainability'], tags: ['core:chemistry', 'core:biology', 'skill:analysis', 'skill:management'], growthRate: 10, avgFee: 95000, avgSalary: 480000 },
+    { id: 'ssc-diploma-in-industrial-automation', name: 'Diploma in Industrial Automation', jobProfile: 'process_engineering', domains: ['automation', 'robotics', 'industrial_manufacturing'], tags: ['core:mechanics', 'core:electronics', 'skill:automation', 'skill:robotics'], growthRate: 15, avgFee: 100000, avgSalary: 520000 },
+    { id: 'ssc-diploma-in-industrial-design', name: 'Diploma in Industrial Design', jobProfile: 'creative_design', domains: ['product_design', 'creative_design'], tags: ['core:drawing', 'core:mechanics', 'skill:design', 'skill:cad'], growthRate: 9, avgFee: 110000, avgSalary: 450000 },
+    { id: 'ssc-diploma-in-information-technology-it', name: 'Diploma in Information Technology (IT)', jobProfile: 'software_dev', domains: ['it_systems', 'software_dev', 'networking'], tags: ['core:logic', 'skill:programming', 'skill:networking', 'skill:database'], growthRate: 17, avgFee: 65000, avgSalary: 450000 },
+    { id: 'ssc-diploma-in-instrumentation-engineering', name: 'Diploma in Instrumentation Engineering', jobProfile: 'engineering_design', domains: ['electronics', 'industrial_manufacturing', 'process_control'], tags: ['core:electronics', 'core:physics', 'skill:measurement', 'skill:calibration'], growthRate: 8, avgFee: 80000, avgSalary: 440000 },
+    { id: 'ssc-diploma-in-manufacturing-engineering', name: 'Diploma in Manufacturing Engineering', jobProfile: 'engineering_design', domains: ['manufacturing', 'production', 'mechanical'], tags: ['core:mechanics', 'core:materials', 'skill:manufacturing', 'skill:process-control'], growthRate: 7, avgFee: 75000, avgSalary: 410000 },
+    { id: 'ssc-diploma-in-marine-engineering', name: 'Diploma in Marine Engineering', jobProfile: 'specialized_engineering', domains: ['maritime', 'shipping'], tags: ['core:physics', 'core:mechanics', 'skill:machinery', 'skill:maintenance'], growthRate: 7, avgFee: 150000, avgSalary: 600000 },
+    { id: 'ssc-diploma-in-mechanical-engineering', name: 'Diploma in Mechanical Engineering', jobProfile: 'engineering_design', domains: ['mechanical', 'manufacturing', 'production'], tags: ['core:physics', 'core:math', 'skill:design', 'skill:analysis'], growthRate: 8, avgFee: 80000, avgSalary: 420000 },
+    { id: 'ssc-diploma-in-mechatronics-engineering', name: 'Diploma in Mechatronics Engineering', jobProfile: 'engineering_design', domains: ['automation', 'robotics', 'mechanical', 'electronics'], tags: ['core:mechanics', 'core:electronics', 'skill:robotics', 'skill:design'], growthRate: 16, avgFee: 110000, avgSalary: 540000 },
+    { id: 'ssc-diploma-in-metallurgical-engineering', name: 'Diploma in Metallurgical Engineering', jobProfile: 'materials_engineering', domains: ['materials_science', 'metals_industry'], tags: ['core:chemistry', 'core:materials', 'skill:analysis', 'skill:lab-work'], growthRate: 6, avgFee: 85000, avgSalary: 430000 },
+    { id: 'ssc-diploma-in-mining-engineering', name: 'Diploma in Mining Engineering', jobProfile: 'specialized_engineering', domains: ['resource_extraction', 'geology'], tags: ['core:geology', 'core:mechanics', 'skill:operations', 'skill:safety'], growthRate: 5, avgFee: 90000, avgSalary: 470000 },
+    { id: 'ssc-diploma-in-nanotechnology', name: 'Diploma in Nanotechnology', jobProfile: 'research_dev', domains: ['materials_science', 'research_dev', 'biomedical'], tags: ['core:physics', 'core:chemistry', 'skill:research', 'skill:lab-work'], growthRate: 14, avgFee: 130000, avgSalary: 550000 },
+    { id: 'ssc-diploma-in-petrochemical-engineering', name: 'Diploma in Petrochemical Engineering', jobProfile: 'process_engineering', domains: ['oil_gas', 'chemical_processing'], tags: ['core:chemistry', 'skill:process-control', 'skill:operations'], growthRate: 6, avgFee: 100000, avgSalary: 500000 },
+    { id: 'ssc-diploma-in-petroleum-engineering', name: 'Diploma in Petroleum Engineering', jobProfile: 'specialized_engineering', domains: ['oil_gas', 'resource_extraction'], tags: ['core:geology', 'core:chemistry', 'skill:operations', 'skill:drilling'], growthRate: 5, avgFee: 110000, avgSalary: 520000 },
+    { id: 'ssc-diploma-in-plastic-technology', name: 'Diploma in Plastic Technology', jobProfile: 'materials_engineering', domains: ['materials_science', 'polymers', 'industrial_manufacturing'], tags: ['core:chemistry', 'core:materials', 'skill:manufacturing', 'skill:design'], growthRate: 7, avgFee: 70000, avgSalary: 390000 },
+    { id: 'ssc-diploma-in-power-electronics', name: 'Diploma in Power Electronics', jobProfile: 'engineering_design', domains: ['electronics', 'electrical_systems'], tags: ['core:electronics', 'core:physics', 'skill:circuit-design', 'skill:control-systems'], growthRate: 9, avgFee: 85000, avgSalary: 450000 },
+    { id: 'ssc-diploma-in-power-plant-engineering-operations', name: 'Diploma in Power Plant Engineering (Operations)', jobProfile: 'operations_management', domains: ['power_generation', 'energy_systems'], tags: ['core:mechanics', 'core:electricals', 'skill:operations', 'skill:maintenance'], growthRate: 6, avgFee: 95000, avgSalary: 480000 },
+    { id: 'ssc-diploma-in-production-engineering', name: 'Diploma in Production Engineering', jobProfile: 'engineering_design', domains: ['production', 'manufacturing', 'mechanical'], tags: ['core:mechanics', 'skill:manufacturing', 'skill:management', 'skill:quality'], growthRate: 7, avgFee: 75000, avgSalary: 410000 },
+    { id: 'ssc-diploma-in-railway-signalling-telecommunication', name: 'Diploma in Railway Signalling and Telecommunication', jobProfile: 'specialized_technician', domains: ['transport_systems', 'telecom'], tags: ['core:electronics', 'skill:networking', 'skill:maintenance'], growthRate: 8, avgFee: 90000, avgSalary: 460000 },
+    { id: 'ssc-diploma-in-robotics-engineering', name: 'Diploma in Robotics Engineering', jobProfile: 'engineering_design', domains: ['robotics', 'automation', 'mechatronics'], tags: ['core:mechanics', 'core:electronics', 'skill:automation', 'skill:design'], growthRate: 18, avgFee: 120000, avgSalary: 580000 },
+    { id: 'ssc-diploma-in-textile-technology', name: 'Diploma in Textile Technology', jobProfile: 'process_engineering', domains: ['textiles', 'fashion_tech'], tags: ['core:chemistry', 'core:materials', 'skill:manufacturing', 'skill:process-control'], growthRate: 5, avgFee: 60000, avgSalary: 350000 },
+    { id: 'ssc-diploma-in-tool-engineering', name: 'Diploma in Tool Engineering', jobProfile: 'engineering_design', domains: ['mechanical', 'manufacturing', 'precision_engineering'], tags: ['core:mechanics', 'core:materials', 'skill:design', 'skill:machining'], growthRate: 7, avgFee: 70000, avgSalary: 400000 },
+    { id: 'ssc-diploma-in-vlsi-design', name: 'Diploma in VLSI Design', jobProfile: 'engineering_design', domains: ['electronics', 'semiconductors'], tags: ['core:electronics', 'core:logic', 'skill:design', 'skill:programming'], growthRate: 15, avgFee: 100000, avgSalary: 530000 },
+    { id: 'ssc-diploma-in-quantity-surveying', name: 'Diploma in Quantity Surveying', jobProfile: 'project_management', domains: ['construction', 'finance'], tags: ['core:math', 'skill:estimation', 'skill:management'], growthRate: 9, avgFee: 60000, avgSalary: 420000 },
+    { id: 'ssc-diploma-in-urban-planning-assistantship', name: 'Diploma in Urban Planning Assistantship', jobProfile: 'technical_assistant', domains: ['construction', 'infrastructure', 'urban_planning'], tags: ['core:geography', 'skill:planning', 'skill:drawing'], growthRate: 8, avgFee: 70000, avgSalary: 400000 },
+    { id: 'ssc-diploma-in-value-engineering', name: 'Diploma in Value Engineering', jobProfile: 'process_engineering', domains: ['production', 'business_process'], tags: ['core:math', 'skill:analysis', 'skill:costing'], growthRate: 10, avgFee: 65000, avgSalary: 450000 },
+    { id: 'ssc-diploma-in-construction-management', name: 'Diploma in Construction Management', jobProfile: 'project_management', domains: ['construction', 'infrastructure'], tags: ['core:math', 'skill:management', 'skill:planning', 'skill:estimation'], growthRate: 9, avgFee: 80000, avgSalary: 440000 },
+    { id: 'ssc-diploma-in-hydro-power-plant-technology', name: 'Diploma in Hydro Power Plant Technology', jobProfile: 'operations_management', domains: ['power_generation', 'energy_systems', 'renewable_energy'], tags: ['core:mechanics', 'core:electricals', 'skill:operations'], growthRate: 7, avgFee: 95000, avgSalary: 490000 },
+    { id: 'ssc-diploma-in-maintenance-engineering', name: 'Diploma in Maintenance Engineering', jobProfile: 'hands_on_trade', domains: ['mechanical', 'electrical_systems', 'industrial_maintenance'], tags: ['core:mechanics', 'core:electricals', 'skill:maintenance', 'skill:repair'], growthRate: 8, avgFee: 70000, avgSalary: 410000 },
+    { id: 'ssc-diploma-in-metro-rail-technology', name: 'Diploma in Metro Rail Technology', jobProfile: 'specialized_technician', domains: ['transport_systems', 'railways'], tags: ['core:electricals', 'core:mechanics', 'skill:operations', 'skill:maintenance'], growthRate: 10, avgFee: 100000, avgSalary: 500000 },
+    { id: 'ssc-diploma-in-pipeline-engineering', name: 'Diploma in Pipeline Engineering', jobProfile: 'specialized_engineering', domains: ['oil_gas', 'infrastructure', 'transport_systems'], tags: ['core:mechanics', 'core:civil', 'skill:design', 'skill:maintenance'], growthRate: 6, avgFee: 90000, avgSalary: 480000 },
+    { id: 'ssc-diploma-in-rolling-stock-maintenance', name: 'Diploma in Rolling Stock Maintenance', jobProfile: 'hands_on_trade', domains: ['transport_systems', 'railways', 'mechanical'], tags: ['core:mechanics', 'core:electricals', 'skill:maintenance', 'skill:repair'], growthRate: 8, avgFee: 85000, avgSalary: 450000 },
+    { id: 'ssc-diploma-in-ship-building-technology', name: 'Diploma in Ship Building Technology', jobProfile: 'engineering_design', domains: ['maritime', 'manufacturing', 'construction'], tags: ['core:mechanics', 'core:materials', 'skill:design', 'skill:welding'], growthRate: 7, avgFee: 120000, avgSalary: 530000 },
+    { id: 'ssc-diploma-in-thermal-power-plant-technology', name: 'Diploma in Thermal Power Plant Technology', jobProfile: 'operations_management', domains: ['power_generation', 'energy_systems'], tags: ['core:mechanics', 'core:electricals', 'skill:operations', 'skill:maintenance'], growthRate: 5, avgFee: 95000, avgSalary: 470000 },
+
+
+   // --- Medical & Health Courses ---
+    { id: 'ssc-diploma-in-agriculture', name: 'Diploma in Agriculture', jobProfile: 'agri_science', domains: ['agriculture', 'agribusiness'], tags: ['core:biology', 'core:chemistry', 'skill:farming', 'skill:analysis'], growthRate: 7, avgFee: 50000, avgSalary: 320000 },
+    { id: 'ssc-diploma-in-animal-husbandry', name: 'Diploma in Animal Husbandry', jobProfile: 'agri_science', domains: ['agriculture', 'animal_care'], tags: ['core:biology', 'skill:animal-care', 'skill:farming'], growthRate: 6, avgFee: 60000, avgSalary: 300000 },
+    { id: 'ssc-diploma-in-aquaculture-fish-farming', name: 'Diploma in Aquaculture (Fish Farming)', jobProfile: 'agri_science', domains: ['agriculture', 'fisheries'], tags: ['core:biology', 'skill:farming', 'skill:management'], growthRate: 8, avgFee: 55000, avgSalary: 330000 },
+    { id: 'ssc-diploma-in-ayurveda-nursing', name: 'Diploma in Ayurveda Nursing', jobProfile: 'patient_care', domains: ['patient_care', 'holistic_health'], tags: ['core:biology', 'core:anatomy', 'skill:nursing'], growthRate: 9, avgFee: 70000, avgSalary: 300000 },
+    { id: 'ssc-diploma-in-dairy-product-manufacturing', name: 'Diploma in Dairy Product Manufacturing', jobProfile: 'food_science_tech', domains: ['food_processing', 'agriculture'], tags: ['core:biology', 'core:chemistry', 'skill:food-processing', 'skill:quality'], growthRate: 7, avgFee: 65000, avgSalary: 340000 },
+    { id: 'ssc-diploma-in-dental-hygiene', name: 'Diploma in Dental Hygiene', jobProfile: 'patient_care', domains: ['dental_care', 'patient_care'], tags: ['core:biology', 'core:anatomy', 'skill:clinical-procedure'], growthRate: 10, avgFee: 90000, avgSalary: 350000 },
+    { id: 'ssc-diploma-in-dental-mechanics', name: 'Diploma in Dental Mechanics', jobProfile: 'healthcare_technician', domains: ['dental_care', 'medical_devices'], tags: ['core:anatomy', 'skill:craftsmanship', 'skill:lab-work'], growthRate: 8, avgFee: 85000, avgSalary: 320000 },
+    { id: 'ssc-diploma-in-dialysis-technology', name: 'Diploma in Dialysis Technology', jobProfile: 'healthcare_technician', domains: ['healthcare_technician', 'clinical_support'], tags: ['core:biology', 'core:anatomy', 'skill:patient-care', 'skill:machinery-operation'], growthRate: 12, avgFee: 80000, avgSalary: 380000 },
+    { id: 'ssc-diploma-in-electrocardiogram-ecg-technology', name: 'Diploma in Electrocardiogram (ECG) Technology', jobProfile: 'healthcare_technician', domains: ['healthcare_technician', 'diagnostics'], tags: ['core:biology', 'core:anatomy', 'skill:diagnosis-support'], growthRate: 10, avgFee: 60000, avgSalary: 310000 },
+    { id: 'ssc-diploma-in-fish-processing-technology', name: 'Diploma in Fish Processing Technology', jobProfile: 'food_science_tech', domains: ['food_processing', 'fisheries'], tags: ['core:biology', 'core:chemistry', 'skill:food-processing', 'skill:quality'], growthRate: 7, avgFee: 60000, avgSalary: 340000 },
+    { id: 'ssc-diploma-in-floriculture', name: 'Diploma in Floriculture', jobProfile: 'agri_science', domains: ['agriculture', 'horticulture'], tags: ['core:biology', 'skill:horticulture', 'skill:farming'], growthRate: 8, avgFee: 45000, avgSalary: 300000 },
+    { id: 'ssc-diploma-in-food-production', name: 'Diploma in Food Production', jobProfile: 'hands_on_trade', domains: ['culinary_arts', 'hospitality'], tags: ['skill:cooking', 'skill:management', 'skill:hygiene'], growthRate: 9, avgFee: 80000, avgSalary: 320000 },
+    { id: 'ssc-diploma-in-food-science', name: 'Diploma in Food Science', jobProfile: 'food_science_tech', domains: ['food_processing', 'quality_control', 'research_dev'], tags: ['core:chemistry', 'core:biology', 'skill:lab-work', 'skill:analysis'], growthRate: 8, avgFee: 70000, avgSalary: 380000 },
+    { id: 'ssc-diploma-in-fruit-vegetable-processing', name: 'Diploma in Fruit and Vegetable Processing', jobProfile: 'food_science_tech', domains: ['food_processing', 'agriculture'], tags: ['core:biology', 'core:chemistry', 'skill:food-processing', 'skill:quality'], growthRate: 7, avgFee: 55000, avgSalary: 330000 },
+    { id: 'ssc-diploma-in-grain-processing-technology', name: 'Diploma in Grain Processing Technology', jobProfile: 'food_science_tech', domains: ['food_processing', 'agriculture'], tags: ['core:biology', 'core:chemistry', 'skill:food-processing', 'skill:machinery'], growthRate: 6, avgFee: 55000, avgSalary: 330000 },
+    { id: 'ssc-diploma-in-horticulture', name: 'Diploma in Horticulture', jobProfile: 'agri_science', domains: ['horticulture', 'agriculture', 'landscaping'], tags: ['core:biology', 'skill:farming', 'skill:management'], growthRate: 7, avgFee: 50000, avgSalary: 310000 },
+    { id: 'ssc-diploma-in-medical-laboratory-technology-mlt', name: 'Diploma in Medical Laboratory Technology (MLT)', jobProfile: 'healthcare_technician', domains: ['healthcare_technician', 'diagnostics'], tags: ['core:biology', 'core:chemistry', 'skill:lab-work', 'skill:analysis'], growthRate: 11, avgFee: 75000, avgSalary: 340000 },
+    { id: 'ssc-diploma-in-meat-processing-technology', name: 'Diploma in Meat Processing Technology', jobProfile: 'food_science_tech', domains: ['food_processing', 'animal_care'], tags: ['core:biology', 'core:chemistry', 'skill:food-processing', 'skill:quality'], growthRate: 6, avgFee: 60000, avgSalary: 350000 },
+    { id: 'ssc-diploma-in-nursing', name: 'Diploma in Nursing', jobProfile: 'patient_care', domains: ['patient_care', 'clinical_support'], tags: ['core:biology', 'core:anatomy', 'skill:clinical-procedure', 'skill:nursing'], growthRate: 12, avgFee: 80000, avgSalary: 350000 },
+    { id: 'ssc-diploma-in-occupational-health-safety', name: 'Diploma in Occupational Health and Safety', jobProfile: 'management', domains: ['safety_management', 'public_health'], tags: ['core:biology', 'skill:safety', 'skill:inspection'], growthRate: 10, avgFee: 50000, avgSalary: 400000 },
+    { id: 'ssc-diploma-in-ophthalmic-technology', name: 'Diploma in Ophthalmic Technology', jobProfile: 'healthcare_technician', domains: ['healthcare_technician', 'vision_care'], tags: ['core:biology', 'core:physics', 'skill:diagnosis-support'], growthRate: 11, avgFee: 70000, avgSalary: 330000 },
+    { id: 'ssc-diploma-in-pharmacy', name: 'Diploma in Pharmacy', jobProfile: 'healthcare_technician', domains: ['pharmacy', 'healthcare_support'], tags: ['core:chemistry', 'core:biology', 'skill:dispensing', 'skill:analysis'], growthRate: 11, avgFee: 90000, avgSalary: 320000 },
+    { id: 'ssc-diploma-in-poultry-farming', name: 'Diploma in Poultry Farming', jobProfile: 'agri_science', domains: ['agriculture', 'animal_care'], tags: ['core:biology', 'skill:farming', 'skill:business'], growthRate: 7, avgFee: 55000, avgSalary: 310000 },
+    { id: 'ssc-diploma-in-radiology-technology', name: 'Diploma in Radiology Technology', jobProfile: 'healthcare_technician', domains: ['healthcare_technician', 'diagnostics', 'imaging_tech'], tags: ['core:physics', 'core:anatomy', 'skill:imaging', 'skill:patient-care'], growthRate: 10, avgFee: 85000, avgSalary: 390000 },
+    { id: 'ssc-diploma-in-rural-healthcare', name: 'Diploma in Rural Healthcare', jobProfile: 'patient_care', domains: ['patient_care', 'public_health'], tags: ['core:biology', 'skill:community-outreach', 'skill:first-aid'], growthRate: 9, avgFee: 40000, avgSalary: 280000 },
+    { id: 'ssc-diploma-in-sanitary-inspector', name: 'Diploma in Sanitary Inspector', jobProfile: 'public_health_officer', domains: ['public_health', 'environment'], tags: ['core:biology', 'core:chemistry', 'skill:inspection'], growthRate: 8, avgFee: 35000, avgSalary: 300000 },
+    { id: 'ssc-diploma-in-seed-technology', name: 'Diploma in Seed Technology', jobProfile: 'agri_science', domains: ['agriculture', 'research_dev'], tags: ['core:biology', 'core:genetics', 'skill:lab-work', 'skill:quality'], growthRate: 7, avgFee: 60000, avgSalary: 340000 },
+    { id: 'ssc-diploma-in-sericulture-silk-farming', name: 'Diploma in Sericulture (Silk Farming)', jobProfile: 'agri_science', domains: ['agriculture', 'textiles'], tags: ['core:biology', 'skill:farming', 'skill:process-control'], growthRate: 5, avgFee: 55000, avgSalary: 310000 },
+    { id: 'ssc-diploma-in-x-ray-technology', name: 'Diploma in X-Ray Technology', jobProfile: 'healthcare_technician', domains: ['healthcare_technician', 'diagnostics', 'imaging_tech'], tags: ['core:physics', 'core:anatomy', 'skill:imaging', 'skill:patient-care'], growthRate: 10, avgFee: 75000, avgSalary: 360000 },
+    { id: 'ssc-diploma-in-pest-management-agricultural', name: 'Diploma in Pest Management (Agricultural)', jobProfile: 'agri_science', domains: ['agriculture', 'pest_control'], tags: ['core:biology', 'core:chemistry', 'skill:analysis', 'skill:safety'], growthRate: 7, avgFee: 45000, avgSalary: 320000 },
+
+    // --- Commerce & Finance Courses ---
+    { id: 'ssc-diploma-in-advertising-brand-management', name: 'Diploma in Advertising and Brand Management', jobProfile: 'marketing_specialist', domains: ['marketing', 'communications', 'branding'], tags: ['core:communication', 'skill:creative', 'skill:strategy'], growthRate: 10, avgFee: 70000, avgSalary: 380000 },
+    { id: 'ssc-diploma-in-banking-finance', name: 'Diploma in Banking and Finance', jobProfile: 'finance_professional', domains: ['finance', 'banking', 'accounting'], tags: ['core:math', 'core:economics', 'skill:analysis'], growthRate: 9, avgFee: 45000, avgSalary: 350000 },
+    { id: 'ssc-diploma-in-business-administration', name: 'Diploma in Business Administration', jobProfile: 'management', domains: ['business_management', 'administration'], tags: ['core:economics', 'skill:operations', 'skill:communication'], growthRate: 8, avgFee: 50000, avgSalary: 340000 },
+    { id: 'ssc-diploma-in-business-management', name: 'Diploma in Business Management', jobProfile: 'management', domains: ['business_management', 'project_management'], tags: ['core:economics', 'skill:leadership', 'skill:strategy'], growthRate: 8, avgFee: 55000, avgSalary: 350000 },
+    { id: 'ssc-diploma-in-carbon-accounting', name: 'Diploma in Carbon Accounting', jobProfile: 'finance_professional', domains: ['finance', 'accounting', 'sustainability'], tags: ['core:math', 'core:environmental-science', 'skill:auditing'], growthRate: 15, avgFee: 65000, avgSalary: 450000 },
+    { id: 'ssc-diploma-in-corporate-communication', name: 'Diploma in Corporate Communication', jobProfile: 'marketing_specialist', domains: ['communications', 'public_relations', 'marketing'], tags: ['core:communication', 'skill:writing', 'skill:pr'], growthRate: 9, avgFee: 60000, avgSalary: 370000 },
+    { id: 'ssc-diploma-in-customs-clearance-freight-forwarding', name: 'Diploma in Customs Clearance and Freight Forwarding', jobProfile: 'logistics_coordinator', domains: ['logistics', 'supply_chain', 'international_trade'], tags: ['core:law', 'skill:documentation', 'skill:operations'], growthRate: 8, avgFee: 50000, avgSalary: 380000 },
+    { id: 'ssc-diploma-in-digital-marketing', name: 'Diploma in Digital Marketing', jobProfile: 'marketing_specialist', domains: ['marketing', 'digital_media', 'communications'], tags: ['core:communication', 'skill:analysis', 'skill:seo'], growthRate: 20, avgFee: 45000, avgSalary: 400000 },
+    { id: 'ssc-diploma-in-e-accounting-taxation', name: 'Diploma in E-Accounting Taxation', jobProfile: 'finance_professional', domains: ['accounting', 'finance', 'taxation'], tags: ['core:math', 'skill:accounting', 'skill:taxation'], growthRate: 11, avgFee: 35000, avgSalary: 330000 },
+    { id: 'ssc-diploma-in-export-import-management', name: 'Diploma in Export-Import Management', jobProfile: 'logistics_coordinator', domains: ['international_trade', 'logistics', 'supply_chain'], tags: ['core:economics', 'skill:management', 'skill:documentation'], growthRate: 9, avgFee: 55000, avgSalary: 400000 },
+    { id: 'ssc-diploma-in-financial-accounting', name: 'Diploma in Financial Accounting', jobProfile: 'finance_professional', domains: ['accounting', 'finance'], tags: ['core:math', 'skill:accounting', 'skill:auditing'], growthRate: 9, avgFee: 30000, avgSalary: 300000 },
+    { id: 'ssc-diploma-in-foreign-exchange-management', name: 'Diploma in Foreign Exchange Management', jobProfile: 'finance_professional', domains: ['finance', 'banking', 'international_trade'], tags: ['core:economics', 'skill:analysis', 'skill:trading'], growthRate: 10, avgFee: 60000, avgSalary: 420000 },
+    { id: 'ssc-diploma-in-human-resource-management', name: 'Diploma in Human Resource Management', jobProfile: 'management', domains: ['business_management', 'human_resources'], tags: ['core:psychology', 'skill:recruitment', 'skill:communication'], growthRate: 8, avgFee: 50000, avgSalary: 340000 },
+    { id: 'ssc-diploma-in-insurance-management', name: 'Diploma in Insurance Management', jobProfile: 'finance_professional', domains: ['finance', 'insurance'], tags: ['core:math', 'skill:sales', 'skill:risk-management'], growthRate: 7, avgFee: 40000, avgSalary: 320000 },
+    { id: 'ssc-diploma-in-international-trade', name: 'Diploma in International Trade', jobProfile: 'logistics_coordinator', domains: ['international_trade', 'logistics', 'business_management'], tags: ['core:economics', 'core:geography', 'skill:negotiation'], growthRate: 9, avgFee: 60000, avgSalary: 410000 },
+    { id: 'ssc-diploma-in-investment-management', name: 'Diploma in Investment Management', jobProfile: 'finance_professional', domains: ['finance', 'stock_market'], tags: ['core:economics', 'core:math', 'skill:analysis', 'skill:research'], growthRate: 12, avgFee: 70000, avgSalary: 450000 },
+    { id: 'ssc-diploma-in-logistics-management', name: 'Diploma in Logistics Management', jobProfile: 'logistics_coordinator', domains: ['logistics', 'supply_chain', 'transport_management'], tags: ['core:geography', 'skill:management', 'skill:planning'], growthRate: 10, avgFee: 55000, avgSalary: 390000 },
+    { id: 'ssc-diploma-in-marketing-management', name: 'Diploma in Marketing Management', jobProfile: 'marketing_specialist', domains: ['marketing', 'sales', 'business_management'], tags: ['core:communication', 'core:psychology', 'skill:sales', 'skill:strategy'], growthRate: 9, avgFee: 50000, avgSalary: 360000 },
+    { id: 'ssc-diploma-in-public-relations', name: 'Diploma in Public Relations', jobProfile: 'marketing_specialist', domains: ['public_relations', 'communications', 'marketing'], tags: ['core:communication', 'skill:writing', 'skill:pr'], growthRate: 8, avgFee: 60000, avgSalary: 350000 },
+    { id: 'ssc-diploma-in-retail-management', name: 'Diploma in Retail Management', jobProfile: 'management', domains: ['retail', 'sales', 'business_management'], tags: ['core:communication', 'skill:sales', 'skill:customer-service'], growthRate: 7, avgFee: 45000, avgSalary: 310000 },
+    { id: 'ssc-diploma-in-risk-insurance', name: 'Diploma in Risk and Insurance', jobProfile: 'finance_professional', domains: ['insurance', 'finance'], tags: ['core:math', 'skill:analysis', 'skill:risk-management'], growthRate: 8, avgFee: 45000, avgSalary: 340000 },
+    { id: 'ssc-diploma-in-sales-management', name: 'Diploma in Sales Management', jobProfile: 'management', domains: ['sales', 'business_management', 'marketing'], tags: ['core:communication', 'core:psychology', 'skill:sales', 'skill:negotiation'], growthRate: 9, avgFee: 40000, avgSalary: 330000 },
+    { id: 'ssc-diploma-in-sports-management', name: 'Diploma in Sports Management', jobProfile: 'management', domains: ['sports_management', 'event_management', 'business_management'], tags: ['core:communication', 'skill:marketing', 'skill:event-planning'], growthRate: 10, avgFee: 80000, avgSalary: 380000 },
+    { id: 'ssc-diploma-in-stock-market-operations', name: 'Diploma in Stock Market Operations', jobProfile: 'finance_professional', domains: ['stock_market', 'finance'], tags: ['core:math', 'core:economics', 'skill:trading', 'skill:analysis'], growthRate: 13, avgFee: 60000, avgSalary: 430000 },
+    { id: 'ssc-diploma-in-supply-chain-analytics', name: 'Diploma in Supply Chain Analytics', jobProfile: 'logistics_coordinator', domains: ['supply_chain', 'logistics', 'data_analytics'], tags: ['core:math', 'skill:analysis', 'skill:planning'], growthRate: 12, avgFee: 75000, avgSalary: 460000 },
+    { id: 'ssc-diploma-in-taxation', name: 'Diploma in Taxation', jobProfile: 'finance_professional', domains: ['taxation', 'accounting', 'finance'], tags: ['core:math', 'core:law', 'skill:accounting'], growthRate: 10, avgFee: 35000, avgSalary: 340000 },
+    { id: 'ssc-diploma-in-warehouse-management', name: 'Diploma in Warehouse Management', jobProfile: 'logistics_coordinator', domains: ['supply_chain', 'logistics'], tags: ['core:math', 'skill:operations', 'skill:inventory-control'], growthRate: 9, avgFee: 45000, avgSalary: 350000 },
+    { id: 'ssc-diploma-in-port-management', name: 'Diploma in Port Management', jobProfile: 'logistics_coordinator', domains: ['logistics', 'maritime', 'transport_management'], tags: ['core:geography', 'skill:operations', 'skill:logistics'], growthRate: 8, avgFee: 70000, avgSalary: 420000 },
+
+
+       // --- Hospitality Courses ---
+    { id: 'ssc-diploma-in-adventure-tourism', name: 'Diploma in Adventure Tourism', jobProfile: 'service_management', domains: ['tourism', 'travel', 'sports_management'], tags: ['core:geography', 'skill:planning', 'skill:customer-service'], growthRate: 11, avgFee: 65000, avgSalary: 340000 },
+    { id: 'ssc-diploma-in-airline-cabin-crew-ground-staff', name: 'Diploma in Airline Cabin Crew and Ground Staff', jobProfile: 'customer_service', domains: ['travel', 'aviation', 'hospitality'], tags: ['core:communication', 'skill:customer-service', 'skill:safety'], growthRate: 9, avgFee: 120000, avgSalary: 400000 },
+    { id: 'ssc-diploma-in-airport-management', name: 'Diploma in Airport Management', jobProfile: 'operations_management', domains: ['aviation', 'hospitality', 'transport_management'], tags: ['core:communication', 'skill:operations', 'skill:logistics'], growthRate: 10, avgFee: 100000, avgSalary: 420000 },
+    { id: 'ssc-diploma-in-bakery-confectionery', name: 'Diploma in Bakery and Confectionery', jobProfile: 'hands_on_trade', domains: ['culinary_arts', 'food_production'], tags: ['core:chemistry', 'skill:baking', 'skill:creative'], growthRate: 8, avgFee: 75000, avgSalary: 300000 },
+    { id: 'ssc-diploma-in-barista-coffee-making', name: 'Diploma in Barista and Coffee Making', jobProfile: 'hands_on_trade', domains: ['culinary_arts', 'food_service'], tags: ['skill:customer-service', 'skill:beverage-prep'], growthRate: 9, avgFee: 40000, avgSalary: 280000 },
+    { id: 'ssc-diploma-in-bartending', name: 'Diploma in Bartending', jobProfile: 'hands_on_trade', domains: ['culinary_arts', 'food_service'], tags: ['core:chemistry', 'skill:beverage-prep', 'skill:mixology'], growthRate: 9, avgFee: 50000, avgSalary: 310000 },
+    { id: 'ssc-diploma-in-brewing-distillery-technology', name: 'Diploma in Brewing and Distillery Technology', jobProfile: 'food_science_tech', domains: ['food_production', 'beverage_production'], tags: ['core:chemistry', 'core:biology', 'skill:food-processing'], growthRate: 7, avgFee: 90000, avgSalary: 400000 },
+    { id: 'ssc-diploma-in-culinary-arts-chef-training', name: 'Diploma in Culinary Arts (Chef Training)', jobProfile: 'hands_on_trade', domains: ['culinary_arts', 'food_production', 'hospitality'], tags: ['core:chemistry', 'skill:cooking', 'skill:management'], growthRate: 9, avgFee: 150000, avgSalary: 380000 },
+    { id: 'ssc-diploma-in-eco-tourism', name: 'Diploma in Eco-Tourism', jobProfile: 'service_management', domains: ['tourism', 'travel', 'sustainability'], tags: ['core:environmental-science', 'core:geography', 'skill:planning'], growthRate: 12, avgFee: 60000, avgSalary: 350000 },
+    { id: 'ssc-diploma-in-food-beverage-service', name: 'Diploma in Food and Beverage Service', jobProfile: 'customer_service', domains: ['food_service', 'hospitality'], tags: ['core:communication', 'skill:operations', 'skill:customer-service'], growthRate: 8, avgFee: 50000, avgSalary: 290000 },
+    { id: 'ssc-diploma-in-front-office-operations', name: 'Diploma in Front Office Operations', jobProfile: 'customer_service', domains: ['hospitality', 'hotel_management', 'administration'], tags: ['core:communication', 'skill:administration', 'skill:customer-service'], growthRate: 8, avgFee: 45000, avgSalary: 280000 },
+    { id: 'ssc-diploma-in-heritage-tourism', name: 'Diploma in Heritage Tourism', jobProfile: 'service_management', domains: ['tourism', 'travel', 'cultural_heritage'], tags: ['core:history', 'core:geography', 'skill:planning'], growthRate: 9, avgFee: 55000, avgSalary: 330000 },
+    { id: 'ssc-diploma-in-hotel-management', name: 'Diploma in Hotel Management', jobProfile: 'management', domains: ['hotel_management', 'hospitality'], tags: ['core:communication', 'skill:operations', 'skill:customer-service'], growthRate: 8, avgFee: 90000, avgSalary: 350000 },
+    { id: 'ssc-diploma-in-housekeeping-management', name: 'Diploma in Housekeeping Management', jobProfile: 'operations_management', domains: ['hotel_management', 'hospitality'], tags: ['skill:operations', 'skill:hygiene', 'skill:management'], growthRate: 7, avgFee: 40000, avgSalary: 270000 },
+    { id: 'ssc-diploma-in-patisserie', name: 'Diploma in Patisserie', jobProfile: 'hands_on_trade', domains: ['culinary_arts', 'food_production'], tags: ['core:chemistry', 'skill:baking', 'skill:creative'], growthRate: 8, avgFee: 80000, avgSalary: 310000 },
+    { id: 'ssc-diploma-in-tourism-hospitality-management-advanced', name: 'Diploma in Tourism and Hospitality Management (Advanced)', jobProfile: 'management', domains: ['tourism', 'hospitality', 'travel'], tags: ['core:communication', 'skill:planning', 'skill:customer-service'], growthRate: 9, avgFee: 85000, avgSalary: 360000 },
+    { id: 'ssc-diploma-in-travel-agency-management', name: 'Diploma in Travel Agency Management', jobProfile: 'service_management', domains: ['travel', 'tourism'], tags: ['core:geography', 'skill:sales', 'skill:planning'], growthRate: 8, avgFee: 50000, avgSalary: 320000 },
+
+    // --- Arts & Design Courses ---
+    { id: 'ssc-diploma-in-acting', name: 'Diploma in Acting', jobProfile: 'creative_artist', domains: ['performing_arts', 'film_media'], tags: ['core:communication', 'skill:performance'], growthRate: 7, avgFee: 150000, avgSalary: 350000 },
+    { id: 'ssc-diploma-in-animation-multimedia', name: 'Diploma in Animation & Multimedia', jobProfile: 'creative_design', domains: ['media_design', 'animation_vfx'], tags: ['core:drawing', 'skill:animation', 'skill:software-tools'], growthRate: 14, avgFee: 95000, avgSalary: 400000 },
+    { id: 'ssc-diploma-in-architecture', name: 'Diploma in Architecture', jobProfile: 'engineering_design', domains: ['architecture', 'construction', 'design'], tags: ['core:drawing', 'core:math', 'skill:design', 'skill:cad'], growthRate: 8, avgFee: 100000, avgSalary: 420000 },
+    { id: 'ssc-diploma-in-cinematography', name: 'Diploma in Cinematography', jobProfile: 'creative_technician', domains: ['film_media', 'photography'], tags: ['core:physics', 'skill:photography', 'skill:technical-operation'], growthRate: 9, avgFee: 130000, avgSalary: 400000 },
+    { id: 'ssc-diploma-in-commercial-art', name: 'Diploma in Commercial Art', jobProfile: 'creative_design', domains: ['media_design', 'fine_arts', 'graphic_design'], tags: ['core:drawing', 'skill:design', 'skill:illustration'], growthRate: 8, avgFee: 60000, avgSalary: 320000 },
+    { id: 'ssc-diploma-in-content-writing-management', name: 'Diploma in Content Writing and Management', jobProfile: 'creative_artist', domains: ['writing', 'digital_media', 'marketing'], tags: ['core:communication', 'skill:writing', 'skill:editing'], growthRate: 15, avgFee: 40000, avgSalary: 350000 },
+    { id: 'ssc-diploma-in-dtp', name: 'Diploma in Desktop Publishing (DTP)', jobProfile: 'creative_technician', domains: ['graphic_design', 'printing_tech'], tags: ['skill:design', 'skill:software-tools'], growthRate: 6, avgFee: 20000, avgSalary: 250000 },
+    { id: 'ssc-diploma-in-digital-film-making', name: 'Diploma in Digital Film Making', jobProfile: 'creative_artist', domains: ['film_media', 'media_production'], tags: ['core:communication', 'skill:direction', 'skill:editing'], growthRate: 10, avgFee: 180000, avgSalary: 420000 },
+    { id: 'ssc-diploma-in-drone-technology', name: 'Diploma in Drone Technology', jobProfile: 'specialized_technician', domains: ['aviation', 'photography'], tags: ['core:electronics', 'core:physics', 'skill:piloting', 'skill:repair'], growthRate: 22, avgFee: 90000, avgSalary: 480000 },
+    { id: 'ssc-diploma-in-fashion-design', name: 'Diploma in Fashion Design', jobProfile: 'creative_design', domains: ['fashion_design', 'textiles'], tags: ['core:drawing', 'skill:design', 'skill:sewing'], growthRate: 7, avgFee: 120000, avgSalary: 350000 },
+    { id: 'ssc-diploma-in-film-direction', name: 'Diploma in Film Direction', jobProfile: 'creative_artist', domains: ['film_media', 'media_production'], tags: ['core:communication', 'skill:direction', 'skill:storytelling'], growthRate: 8, avgFee: 160000, avgSalary: 400000 },
+    { id: 'ssc-diploma-in-film-editing', name: 'Diploma in Film Editing', jobProfile: 'creative_technician', domains: ['film_media', 'post_production'], tags: ['skill:editing', 'skill:software-tools', 'skill:storytelling'], growthRate: 9, avgFee: 100000, avgSalary: 380000 },
+    { id: 'ssc-diploma-in-fine-arts', name: 'Diploma in Fine Arts', jobProfile: 'creative_artist', domains: ['fine_arts'], tags: ['core:drawing', 'skill:painting', 'skill:sculpting'], growthRate: 5, avgFee: 50000, avgSalary: 280000 },
+    { id: 'ssc-diploma-in-furniture-design', name: 'Diploma in Furniture Design', jobProfile: 'creative_design', domains: ['product_design', 'interior_design', 'craftsmanship'], tags: ['core:drawing', 'skill:design', 'skill:woodworking'], growthRate: 6, avgFee: 80000, avgSalary: 360000 },
+    { id: 'ssc-diploma-in-gemology', name: 'Diploma in Gemology', jobProfile: 'specialized_technician', domains: ['jewellery', 'gemstones'], tags: ['core:geology', 'core:chemistry', 'skill:analysis'], growthRate: 6, avgFee: 90000, avgSalary: 380000 },
+    { id: 'ssc-diploma-in-graphic-design', name: 'Diploma in Graphic Design', jobProfile: 'creative_design', domains: ['graphic_design', 'media_design'], tags: ['core:drawing', 'skill:design', 'skill:software-tools'], growthRate: 12, avgFee: 65000, avgSalary: 360000 },
+    { id: 'ssc-diploma-in-interior-design', name: 'Diploma in Interior Design', jobProfile: 'creative_design', domains: ['interior_design', 'design'], tags: ['core:drawing', 'skill:design', 'skill:planning'], growthRate: 8, avgFee: 110000, avgSalary: 380000 },
+    { id: 'ssc-diploma-in-jewellery-design', name: 'Diploma in Jewellery Design', jobProfile: 'creative_design', domains: ['jewellery', 'fashion_design', 'product_design'], tags: ['core:drawing', 'skill:design', 'skill:craftsmanship'], growthRate: 7, avgFee: 130000, avgSalary: 400000 },
+    { id: 'ssc-diploma-in-jewellery-manufacturing', name: 'Diploma in Jewellery Manufacturing', jobProfile: 'hands_on_trade', domains: ['jewellery', 'craftsmanship'], tags: ['skill:craftsmanship', 'skill:manufacturing'], growthRate: 6, avgFee: 100000, avgSalary: 370000 },
+    { id: 'ssc-diploma-in-journalism', name: 'Diploma in Journalism', jobProfile: 'creative_artist', domains: ['writing', 'journalism', 'communications'], tags: ['core:communication', 'skill:writing', 'skill:reporting'], growthRate: 6, avgFee: 70000, avgSalary: 340000 },
+    { id: 'ssc-diploma-in-landscaping-garden-design', name: 'Diploma in Landscaping and Garden Design', jobProfile: 'creative_design', domains: ['landscaping', 'horticulture', 'design'], tags: ['core:biology', 'core:drawing', 'skill:design', 'skill:planning'], growthRate: 7, avgFee: 60000, avgSalary: 330000 },
+    { id: 'ssc-diploma-in-music-production', name: 'Diploma in Music Production', jobProfile: 'creative_technician', domains: ['performing_arts', 'sound_engineering', 'media_production'], tags: ['core:physics-sound', 'skill:sound-engineering', 'skill:software-tools'], growthRate: 9, avgFee: 120000, avgSalary: 370000 },
+    { id: 'ssc-diploma-in-photography', name: 'Diploma in Photography', jobProfile: 'creative_technician', domains: ['photography', 'media_design'], tags: ['core:physics-light', 'skill:photography', 'skill:editing'], growthRate: 8, avgFee: 80000, avgSalary: 320000 },
+    { id: 'ssc-diploma-in-pottery-ceramics', name: 'Diploma in Pottery and Ceramics', jobProfile: 'creative_artist', domains: ['fine_arts', 'craftsmanship'], tags: ['skill:craftsmanship', 'skill:design', 'skill:creative'], growthRate: 4, avgFee: 60000, avgSalary: 280000 },
+    { id: 'ssc-diploma-in-screenwriting', name: 'Diploma in Screenwriting', jobProfile: 'creative_artist', domains: ['writing', 'film_media'], tags: ['core:communication', 'skill:writing', 'skill:storytelling'], growthRate: 7, avgFee: 90000, avgSalary: 360000 },
+    { id: 'ssc-diploma-in-sound-design', name: 'Diploma in Sound Design', jobProfile: 'creative_technician', domains: ['sound_engineering', 'post_production', 'film_media'], tags: ['core:physics-sound', 'skill:sound-engineering', 'skill:editing'], growthRate: 9, avgFee: 100000, avgSalary: 380000 },
+    { id: 'ssc-diploma-in-theatre-arts', name: 'Diploma in Theatre Arts', jobProfile: 'creative_artist', domains: ['performing_arts'], tags: ['core:communication', 'skill:performance', 'skill:direction'], growthRate: 5, avgFee: 80000, avgSalary: 300000 },
+    { id: 'ssc-diploma-in-ui-ux-design', name: 'Diploma in UI/UX Design', jobProfile: 'creative_design', domains: ['graphic_design', 'web_design', 'software_dev'], tags: ['core:psychology', 'skill:design', 'skill:research'], growthRate: 19, avgFee: 85000, avgSalary: 500000 },
+    { id: 'ssc-diploma-in-video-editing', name: 'Diploma in Video Editing', jobProfile: 'creative_technician', domains: ['post_production', 'film_media'], tags: ['skill:editing', 'skill:software-tools', 'skill:storytelling'], growthRate: 10, avgFee: 70000, avgSalary: 350000 },
+    { id: 'ssc-diploma-in-boutique-management', name: 'Diploma in Boutique Management', jobProfile: 'management', domains: ['fashion_design', 'retail'], tags: ['skill:management', 'skill:sales', 'skill:design-sense'], growthRate: 7, avgFee: 60000, avgSalary: 300000 },
+    { id: 'ssc-diploma-in-museum-archival-studies', name: 'Diploma in Museum and Archival Studies', jobProfile: 'specialized_technician', domains: ['cultural_heritage', 'library_science'], tags: ['core:history', 'skill:management', 'skill:curation'], growthRate: 4, avgFee: 45000, avgSalary: 290000 },
+    { id: 'ssc-diploma-in-product-design', name: 'Diploma in Product Design', jobProfile: 'creative_design', domains: ['product_design', 'creative_design'], tags: ['core:drawing', 'core:mechanics', 'skill:design', 'skill:cad'], growthRate: 9, avgFee: 100000, avgSalary: 430000 },
+    { id: 'ssc-diploma-in-translation-interpretation', name: 'Diploma in Translation and Interpretation', jobProfile: 'specialized_technician', domains: ['writing', 'language_services'], tags: ['core:language', 'core:communication', 'skill:translation'], growthRate: 8, avgFee: 50000, avgSalary: 360000 },
+
+
+  // --- IT & Computer Courses ---
+    { id: 'ssc-certificate-in-ar-vr', name: 'Certificate in Augmented Reality (AR) & Virtual Reality (VR)', jobProfile: 'software_dev', domains: ['software_dev', 'animation_vfx'], tags: ['core:logic', 'skill:programming', 'skill:3d-modeling'], growthRate: 25, avgFee: 100000, avgSalary: 550000 },
+    { id: 'ssc-certificate-in-basic-computer-applications', name: 'Certificate in Basic Computer Applications', jobProfile: 'it_support', domains: ['it_support', 'administration'], tags: ['skill:office-suite', 'skill:data-entry'], growthRate: 5, avgFee: 10000, avgSalary: 220000 },
+    { id: 'ssc-certificate-in-cctv-installation-maintenance', name: 'Certificate in CCTV Installation and Maintenance', jobProfile: 'hands_on_trade', domains: ['it_support', 'hardware_maintenance', 'security_systems'], tags: ['core:electronics', 'skill:installation', 'skill:maintenance'], growthRate: 10, avgFee: 25000, avgSalary: 280000 },
+    { id: 'ssc-certificate-in-computer-hardware-networking', name: 'Certificate in Computer Hardware and Networking', jobProfile: 'it_support', domains: ['it_support', 'hardware_maintenance', 'networking'], tags: ['core:electronics', 'skill:hardware-repair', 'skill:troubleshooting'], growthRate: 9, avgFee: 30000, avgSalary: 300000 },
+    { id: 'ssc-certificate-in-copa', name: 'Certificate in Computer Operator & Programming Assistant (COPA)', jobProfile: 'it_support', domains: ['it_support', 'software_dev', 'administration'], tags: ['skill:programming', 'skill:office-suite'], growthRate: 8, avgFee: 20000, avgSalary: 260000 },
+    { id: 'ssc-certificate-in-cyber-security', name: 'Certificate in Cyber Security', jobProfile: 'security_analyst', domains: ['cybersecurity', 'networking'], tags: ['core:logic', 'skill:networking', 'skill:security-analysis'], growthRate: 22, avgFee: 60000, avgSalary: 520000 },
+    { id: 'ssc-certificate-in-data-entry-operations', name: 'Certificate in Data Entry Operations', jobProfile: 'it_support', domains: ['administration'], tags: ['skill:typing', 'skill:data-entry'], growthRate: 4, avgFee: 8000, avgSalary: 200000 },
+    { id: 'ssc-certificate-in-digital-forensics', name: 'Certificate in Digital Forensics', jobProfile: 'security_analyst', domains: ['cybersecurity', 'law_enforcement_tech'], tags: ['core:logic', 'skill:analysis', 'skill:investigation'], growthRate: 18, avgFee: 70000, avgSalary: 480000 },
+    { id: 'ssc-certificate-in-ethical-hacking', name: 'Certificate in Ethical Hacking', jobProfile: 'security_analyst', domains: ['cybersecurity'], tags: ['core:logic', 'skill:networking', 'skill:hacking-tools'], growthRate: 21, avgFee: 65000, avgSalary: 530000 },
+    { id: 'ssc-certificate-in-embedded-systems', name: 'Certificate in Embedded Systems', jobProfile: 'engineering_design', domains: ['electronics', 'iot', 'hardware_dev'], tags: ['core:electronics', 'core:logic', 'skill:programming'], growthRate: 16, avgFee: 80000, avgSalary: 490000 },
+    { id: 'ssc-certificate-in-internet-of-things-iot', name: 'Certificate in Internet of Things (IoT)', jobProfile: 'software_dev', domains: ['iot', 'software_dev', 'networking'], tags: ['core:electronics', 'core:logic', 'skill:programming'], growthRate: 19, avgFee: 75000, avgSalary: 510000 },
+    { id: 'ssc-certificate-in-mobile-repairing-servicing', name: 'Certificate in Mobile Repairing and Servicing', jobProfile: 'hands_on_trade', domains: ['hardware_maintenance', 'vocational_trade'], tags: ['core:electronics', 'skill:repair', 'skill:troubleshooting'], growthRate: 8, avgFee: 20000, avgSalary: 270000 },
+    { id: 'ssc-certificate-in-network-security', name: 'Certificate in Network Security', jobProfile: 'security_analyst', domains: ['cybersecurity', 'networking'], tags: ['core:logic', 'skill:networking', 'skill:firewall-config'], growthRate: 18, avgFee: 55000, avgSalary: 470000 },
+    { id: 'ssc-certificate-in-office-automation', name: 'Certificate in Office Automation', jobProfile: 'it_support', domains: ['administration', 'it_support'], tags: ['skill:office-suite', 'skill:automation-tools'], growthRate: 6, avgFee: 12000, avgSalary: 240000 },
+    { id: 'ssc-certificate-in-ofc-technology', name: 'Certificate in Optical Fibre Cable (OFC) Technology', jobProfile: 'hands_on_trade', domains: ['telecom', 'networking', 'hardware_maintenance'], tags: ['core:physics', 'skill:installation', 'skill:maintenance'], growthRate: 11, avgFee: 35000, avgSalary: 320000 },
+    { id: 'ssc-certificate-in-printer-scanner-repair', name: 'Certificate in Printer and Scanner Repair', jobProfile: 'hands_on_trade', domains: ['hardware_maintenance', 'vocational_trade'], tags: ['core:electronics', 'core:mechanics', 'skill:repair'], growthRate: 5, avgFee: 18000, avgSalary: 260000 },
+    { id: 'ssc-certificate-in-programming-languages', name: 'Certificate in Programming Languages (C++, Java, Python, etc.)', jobProfile: 'software_dev', domains: ['software_dev'], tags: ['core:logic', 'core:math', 'skill:programming'], growthRate: 17, avgFee: 30000, avgSalary: 380000 },
+    { id: 'ssc-certificate-in-quantum-computing', name: 'Certificate in Quantum Computing', jobProfile: 'research_dev', domains: ['research_dev', 'advanced_computing'], tags: ['core:physics', 'core:math', 'skill:programming'], growthRate: 20, avgFee: 110000, avgSalary: 600000 },
+    { id: 'ssc-certificate-in-seo', name: 'Certificate in Search Engine Optimization (SEO)', jobProfile: 'marketing_specialist', domains: ['digital_media', 'marketing'], tags: ['skill:analysis', 'skill:marketing', 'skill:seo'], growthRate: 18, avgFee: 25000, avgSalary: 340000 },
+    { id: 'ssc-certificate-in-social-media-marketing', name: 'Certificate in Social Media Marketing', jobProfile: 'marketing_specialist', domains: ['digital_media', 'marketing', 'communications'], tags: ['core:communication', 'skill:marketing', 'skill:content-creation'], growthRate: 19, avgFee: 28000, avgSalary: 330000 },
+    { id: 'ssc-certificate-in-web-development', name: 'Certificate in Web Development', jobProfile: 'software_dev', domains: ['software_dev', 'web_design'], tags: ['core:logic', 'skill:programming', 'skill:design'], growthRate: 16, avgFee: 40000, avgSalary: 400000 },
+    { id: 'ssc-diploma-in-smart-home-automation', name: 'Diploma in Smart Home Automation', jobProfile: 'specialized_technician', domains: ['iot', 'electrical_systems', 'electronics'], tags: ['core:electronics', 'skill:installation', 'skill:networking'], growthRate: 18, avgFee: 65000, avgSalary: 420000 },
+
+    // --- Technical/Vocational Courses ---
+    { id: 'ssc-diploma-in-apiculture-beekeeping', name: 'Diploma in Apiculture (Beekeeping)', jobProfile: 'agri_science', domains: ['agriculture'], tags: ['core:biology', 'skill:farming'], growthRate: 6, avgFee: 30000, avgSalary: 280000 },
+    { id: 'ssc-diploma-in-boiler-operation-maintenance', name: 'Diploma in Boiler Operation and Maintenance', jobProfile: 'hands_on_trade', domains: ['industrial_maintenance'], tags: ['core:physics', 'skill:operations', 'skill:maintenance'], growthRate: 5, avgFee: 45000, avgSalary: 350000 },
+    { id: 'ssc-diploma-in-carpentry-woodwork', name: 'Diploma in Carpentry and Woodwork', jobProfile: 'hands_on_trade', domains: ['vocational_trade', 'craftsmanship', 'construction'], tags: ['skill:craftsmanship', 'skill:design'], growthRate: 4, avgFee: 25000, avgSalary: 280000 },
+    { id: 'ssc-diploma-in-cnc-machine-operator', name: 'Diploma in CNC Machine Operator', jobProfile: 'hands_on_trade', domains: ['vocational_trade', 'manufacturing', 'precision_engineering'], tags: ['core:math', 'skill:machining', 'skill:programming'], growthRate: 9, avgFee: 50000, avgSalary: 340000 },
+    { id: 'ssc-diploma-in-corrosion-technology', name: 'Diploma in Corrosion Technology', jobProfile: 'specialized_technician', domains: ['materials_science', 'industrial_maintenance'], tags: ['core:chemistry', 'core:materials', 'skill:analysis'], growthRate: 6, avgFee: 60000, avgSalary: 390000 },
+    { id: 'ssc-diploma-in-draughtsman-civil', name: 'Diploma in Draughtsman (Civil)', jobProfile: 'technical_assistant', domains: ['architecture', 'construction', 'design'], tags: ['core:drawing', 'core:math', 'skill:cad'], growthRate: 7, avgFee: 30000, avgSalary: 300000 },
+    { id: 'ssc-diploma-in-draughtsman-electrical', name: 'Diploma in Draughtsman (Electrical)', jobProfile: 'technical_assistant', domains: ['electrical_systems', 'design'], tags: ['core:drawing', 'core:electronics', 'skill:cad'], growthRate: 7, avgFee: 30000, avgSalary: 310000 },
+    { id: 'ssc-diploma-in-draughtsman-mechanical', name: 'Diploma in Draughtsman (Mechanical)', jobProfile: 'technical_assistant', domains: ['mechanical', 'design'], tags: ['core:drawing', 'core:mechanics', 'skill:cad'], growthRate: 7, avgFee: 30000, avgSalary: 310000 },
+    { id: 'ssc-diploma-in-dressmaking-sewing-technology', name: 'Diploma in Dressmaking/Sewing Technology', jobProfile: 'hands_on_trade', domains: ['fashion_design', 'textiles', 'vocational_trade'], tags: ['skill:sewing', 'skill:design'], growthRate: 5, avgFee: 20000, avgSalary: 240000 },
+    { id: 'ssc-diploma-in-electrician', name: 'Diploma in Electrician', jobProfile: 'hands_on_trade', domains: ['vocational_trade', 'electrical_systems', 'construction'], tags: ['core:electronics', 'skill:wiring', 'skill:repair'], growthRate: 7, avgFee: 25000, avgSalary: 290000 },
+    { id: 'ssc-diploma-in-fabrication-technology', name: 'Diploma in Fabrication Technology', jobProfile: 'hands_on_trade', domains: ['vocational_trade', 'manufacturing', 'welding'], tags: ['core:mechanics', 'skill:welding', 'skill:fabrication'], growthRate: 6, avgFee: 40000, avgSalary: 330000 },
+    { id: 'ssc-diploma-in-fitter', name: 'Diploma in Fitter', jobProfile: 'hands_on_trade', domains: ['vocational_trade', 'mechanical', 'industrial_maintenance'], tags: ['core:mechanics', 'skill:assembly', 'skill:machinery'], growthRate: 6, avgFee: 25000, avgSalary: 290000 },
+    { id: 'ssc-diploma-in-foundryman', name: 'Diploma in Foundryman', jobProfile: 'hands_on_trade', domains: ['vocational_trade', 'metals_industry', 'manufacturing'], tags: ['core:materials', 'skill:casting', 'skill:manufacturing'], growthRate: 5, avgFee: 35000, avgSalary: 320000 },
+    { id: 'ssc-diploma-in-green-building-technology', name: 'Diploma in Green Building Technology', jobProfile: 'specialized_technician', domains: ['construction', 'sustainability'], tags: ['core:environmental-science', 'core:materials', 'skill:design'], growthRate: 11, avgFee: 70000, avgSalary: 430000 },
+    { id: 'ssc-diploma-in-grinder-machining', name: 'Diploma in Grinder (Machining)', jobProfile: 'hands_on_trade', domains: ['vocational_trade', 'manufacturing', 'precision_engineering'], tags: ['core:mechanics', 'skill:machining'], growthRate: 6, avgFee: 30000, avgSalary: 300000 },
+    { id: 'ssc-diploma-in-hair-skin-care-beautician', name: 'Diploma in Hair & Skin Care (Beautician)', jobProfile: 'hands_on_trade', domains: ['beauty_wellness', 'vocational_trade'], tags: ['core:biology', 'skill:beautician', 'skill:customer-service'], growthRate: 8, avgFee: 40000, avgSalary: 260000 },
+    { id: 'ssc-diploma-in-heat-treatment-technology', name: 'Diploma in Heat Treatment Technology', jobProfile: 'hands_on_trade', domains: ['vocational_trade', 'metals_industry'], tags: ['core:materials', 'core:physics', 'skill:manufacturing'], growthRate: 5, avgFee: 45000, avgSalary: 340000 },
+    { id: 'ssc-diploma-in-heavy-vehicle-mechanic', name: 'Diploma in Heavy Vehicle Mechanic', jobProfile: 'hands_on_trade', domains: ['vocational_trade', 'automotive', 'industrial_maintenance'], tags: ['core:mechanics', 'skill:repair', 'skill:maintenance'], growthRate: 6, avgFee: 40000, avgSalary: 330000 },
+    { id: 'ssc-diploma-in-industrial-safety', name: 'Diploma in Industrial Safety', jobProfile: 'management', domains: ['safety_management', 'industrial_manufacturing'], tags: ['skill:safety', 'skill:inspection'], growthRate: 10, avgFee: 40000, avgSalary: 380000 },
+    { id: 'ssc-diploma-in-lathe-machine-operator', name: 'Diploma in Lathe Machine Operator', jobProfile: 'hands_on_trade', domains: ['vocational_trade', 'manufacturing'], tags: ['core:mechanics', 'skill:machining'], growthRate: 6, avgFee: 30000, avgSalary: 300000 },
+    { id: 'ssc-diploma-in-leather-goods-manufacturing', name: 'Diploma in Leather Goods Manufacturing', jobProfile: 'hands_on_trade', domains: ['vocational_trade', 'fashion_design', 'craftsmanship'], tags: ['skill:craftsmanship', 'skill:manufacturing'], growthRate: 4, avgFee: 50000, avgSalary: 310000 },
+    { id: 'ssc-diploma-in-library-information-science', name: 'Diploma in Library and Information Science', jobProfile: 'technical_assistant', domains: ['library_science', 'education'], tags: ['skill:management', 'skill:cataloging'], growthRate: 3, avgFee: 20000, avgSalary: 270000 },
+    { id: 'ssc-diploma-in-machine-tool-technology', name: 'Diploma in Machine Tool Technology', jobProfile: 'hands_on_trade', domains: ['vocational_trade', 'manufacturing', 'mechanical'], tags: ['core:mechanics', 'skill:machining', 'skill:maintenance'], growthRate: 7, avgFee: 35000, avgSalary: 320000 },
+    { id: 'ssc-diploma-in-machinist', name: 'Diploma in Machinist', jobProfile: 'hands_on_trade', domains: ['vocational_trade', 'manufacturing', 'precision_engineering'], tags: ['core:mechanics', 'skill:machining', 'skill:precision'], growthRate: 7, avgFee: 30000, avgSalary: 310000 },
+    { id: 'ssc-diploma-in-masonry-construction', name: 'Diploma in Masonry and Construction', jobProfile: 'hands_on_trade', domains: ['vocational_trade', 'construction'], tags: ['skill:construction'], growthRate: 5, avgFee: 20000, avgSalary: 290000 },
+    { id: 'ssc-diploma-in-motor-mechanic-two-four-wheeler', name: 'Diploma in Motor Mechanic (Two-Wheeler/Four-Wheeler)', jobProfile: 'hands_on_trade', domains: ['vocational_trade', 'automotive'], tags: ['core:mechanics', 'skill:repair', 'skill:maintenance'], growthRate: 8, avgFee: 30000, avgSalary: 300000 },
+    { id: 'ssc-diploma-in-ndt', name: 'Diploma in Non-Destructive Testing (NDT)', jobProfile: 'specialized_technician', domains: ['quality_control', 'industrial_manufacturing'], tags: ['core:physics', 'skill:inspection', 'skill:analysis'], growthRate: 9, avgFee: 60000, avgSalary: 410000 },
+    { id: 'ssc-diploma-in-packaging-technology', name: 'Diploma in Packaging Technology', jobProfile: 'process_engineering', domains: ['logistics', 'product_design', 'manufacturing'], tags: ['core:materials', 'skill:design'], growthRate: 7, avgFee: 55000, avgSalary: 370000 },
+    { id: 'ssc-diploma-in-painting-polishing', name: 'Diploma in Painting and Polishing', jobProfile: 'hands_on_trade', domains: ['vocational_trade', 'construction', 'automotive'], tags: ['skill:painting', 'skill:finishing'], growthRate: 4, avgFee: 20000, avgSalary: 270000 },
+    { id: 'ssc-diploma-in-pattern-making-foundry', name: 'Diploma in Pattern Making (Foundry)', jobProfile: 'hands_on_trade', domains: ['vocational_trade', 'manufacturing', 'craftsmanship'], tags: ['skill:craftsmanship', 'skill:design'], growthRate: 5, avgFee: 35000, avgSalary: 320000 },
+    { id: 'ssc-diploma-in-plumbing-sanitary-engineering', name: 'Diploma in Plumbing and Sanitary Engineering', jobProfile: 'hands_on_trade', domains: ['vocational_trade', 'construction'], tags: ['skill:plumbing', 'skill:installation'], growthRate: 6, avgFee: 25000, avgSalary: 300000 },
+    { id: 'ssc-diploma-in-printing-technology-digital-printing', name: 'Diploma in Printing Technology (Digital Printing)', jobProfile: 'hands_on_trade', domains: ['printing_tech', 'media_production'], tags: ['core:chemistry', 'skill:machine-operation'], growthRate: 6, avgFee: 50000, avgSalary: 330000 },
+    { id: 'ssc-diploma-in-pump-operator-mechanic', name: 'Diploma in Pump Operator Mechanic', jobProfile: 'hands_on_trade', domains: ['vocational_trade', 'industrial_maintenance'], tags: ['core:mechanics', 'skill:maintenance', 'skill:operations'], growthRate: 5, avgFee: 25000, avgSalary: 290000 },
+    { id: 'ssc-diploma-in-quality-control-assurance', name: 'Diploma in Quality Control and Assurance', jobProfile: 'specialized_technician', domains: ['quality_control', 'manufacturing'], tags: ['core:math', 'skill:inspection', 'skill:analysis'], growthRate: 8, avgFee: 45000, avgSalary: 360000 },
+    { id: 'ssc-diploma-in-refrigerator-ac-mechanic', name: 'Diploma in Refrigerator and AC Mechanic', jobProfile: 'hands_on_trade', domains: ['vocational_trade', 'hvac', 'electrical_systems'], tags: ['core:physics', 'core:mechanics', 'skill:repair'], growthRate: 9, avgFee: 35000, avgSalary: 320000 },
+    { id: 'ssc-diploma-in-renewable-resource-management', name: 'Diploma in Renewable Resource Management', jobProfile: 'management', domains: ['renewable_energy', 'sustainability', 'environment'], tags: ['core:environmental-science', 'skill:analysis'], growthRate: 14, avgFee: 65000, avgSalary: 420000 },
+    { id: 'ssc-diploma-in-road-construction', name: 'Diploma in Road Construction', jobProfile: 'hands_on_trade', domains: ['vocational_trade', 'construction', 'infrastructure'], tags: ['core:civil', 'skill:machine-operation'], growthRate: 7, avgFee: 45000, avgSalary: 350000 },
+    { id: 'ssc-diploma-in-sheet-metal-worker', name: 'Diploma in Sheet Metal Worker', jobProfile: 'hands_on_trade', domains: ['vocational_trade', 'manufacturing', 'welding'], tags: ['core:mechanics', 'skill:fabrication'], growthRate: 6, avgFee: 30000, avgSalary: 310000 },
+    { id: 'ssc-diploma-in-surveyor', name: 'Diploma in Surveyor', jobProfile: 'technical_assistant', domains: ['construction', 'land_management'], tags: ['core:math', 'core:geography', 'skill:surveying'], growthRate: 7, avgFee: 35000, avgSalary: 330000 },
+    { id: 'ssc-diploma-in-tailoring', name: 'Diploma in Tailoring', jobProfile: 'hands_on_trade', domains: ['vocational_trade', 'fashion_design', 'craftsmanship'], tags: ['skill:sewing'], growthRate: 4, avgFee: 18000, avgSalary: 230000 },
+    { id: 'ssc-diploma-in-tractor-mechanic', name: 'Diploma in Tractor Mechanic', jobProfile: 'hands_on_trade', domains: ['vocational_trade', 'automotive', 'agriculture'], tags: ['core:mechanics', 'skill:repair'], growthRate: 6, avgFee: 30000, avgSalary: 310000 },
+    { id: 'ssc-diploma-in-turner', name: 'Diploma in Turner', jobProfile: 'hands_on_trade', domains: ['vocational_trade', 'manufacturing'], tags: ['core:mechanics', 'skill:machining'], growthRate: 6, avgFee: 28000, avgSalary: 300000 },
+    { id: 'ssc-diploma-in-vocational-training-skill-development', name: 'Diploma in Vocational Training and Skill Development', jobProfile: 'educator', domains: ['education', 'skill_development'], tags: ['core:communication', 'skill:teaching'], growthRate: 8, avgFee: 35000, avgSalary: 320000 },
+    { id: 'ssc-diploma-in-wastewater-treatment', name: 'Diploma in Wastewater Treatment', jobProfile: 'process_engineering', domains: ['environment', 'public_works'], tags: ['core:chemistry', 'core:biology', 'skill:operations'], growthRate: 9, avgFee: 50000, avgSalary: 370000 },
+    { id: 'ssc-diploma-in-watch-clock-repairing', name: 'Diploma in Watch and Clock Repairing', jobProfile: 'hands_on_trade', domains: ['vocational_trade', 'craftsmanship', 'precision_engineering'], tags: ['core:mechanics', 'skill:repair'], growthRate: 2, avgFee: 40000, avgSalary: 280000 },
+    { id: 'ssc-diploma-in-water-quality-management', name: 'Diploma in Water Quality Management', jobProfile: 'specialized_technician', domains: ['environment', 'public_health'], tags: ['core:chemistry', 'core:biology', 'skill:analysis'], growthRate: 9, avgFee: 45000, avgSalary: 360000 },
+    { id: 'ssc-diploma-in-welder-various-types', name: 'Diploma in Welder (Various types)', jobProfile: 'hands_on_trade', domains: ['welding'], tags: ['skill:welding', 'skill:fabrication'], growthRate: 7, avgFee: 30000, avgSalary: 320000 },
+    { id: 'ssc-diploma-in-welding-technology', name: 'Diploma in Welding Technology', jobProfile: 'hands_on_trade', domains: ['welding'], tags: ['core:materials', 'skill:welding', 'skill:inspection'], growthRate: 7, avgFee: 35000, avgSalary: 340000 },
+    { id: 'ssc-diploma-in-wireman-lineman', name: 'Diploma in Wireman and Lineman', jobProfile: 'hands_on_trade', domains: ['vocational_trade', 'electrical_systems', 'power_generation'], tags: ['core:electricals', 'skill:installation'], growthRate: 6, avgFee: 25000, avgSalary: 300000 },
+
+
+
+   // --- Education Courses ---
+    { id: 'ssc-diploma-in-child-care-education', name: 'Diploma in Child Care and Education', jobProfile: 'educator', domains: ['education', 'child_development'], tags: ['core:psychology', 'skill:teaching', 'skill:child-care'], growthRate: 8, avgFee: 30000, avgSalary: 260000 },
+    { id: 'ssc-diploma-in-geriatric-care', name: 'Diploma in Geriatric Care', jobProfile: 'patient_care', domains: ['patient_care', 'social_work'], tags: ['core:biology', 'core:psychology', 'skill:counselling'], growthRate: 9, avgFee: 35000, avgSalary: 280000 },
+    { id: 'ssc-diploma-in-special-education-needs', name: 'Diploma in Special Education Needs', jobProfile: 'educator', domains: ['education', 'special_needs'], tags: ['core:psychology', 'skill:teaching', 'skill:counselling'], growthRate: 10, avgFee: 45000, avgSalary: 320000 },
+    { id: 'ssc-diploma-in-spoken-english-communication-skills', name: 'Diploma in Spoken English and Communication Skills', jobProfile: 'educator', domains: ['education', 'skill_development', 'language_services'], tags: ['core:language', 'core:communication', 'skill:training'], growthRate: 10, avgFee: 20000, avgSalary: 280000 },
+    { id: 'ssc-diploma-in-ecce', name: 'Diploma in Early Childhood Care and Education (ECCE)', jobProfile: 'educator', domains: ['education', 'child_development'], tags: ['core:psychology', 'skill:teaching', 'skill:child-care'], growthRate: 8, avgFee: 35000, avgSalary: 270000 },
+    { id: 'ssc-diploma-in-education-general', name: 'Diploma in Education (General)', jobProfile: 'educator', domains: ['education'], tags: ['core:psychology', 'core:communication', 'skill:planning'], growthRate: 6, avgFee: 40000, avgSalary: 290000 },
+    { id: 'ssc-diploma-in-montessori-education', name: 'Diploma in Montessori Education', jobProfile: 'educator', domains: ['education', 'child_development'], tags: ['core:psychology', 'skill:teaching', 'skill:child-care'], growthRate: 8, avgFee: 40000, avgSalary: 280000 },
+    { id: 'ssc-diploma-in-physical-education', name: 'Diploma in Physical Education', jobProfile: 'educator', domains: ['education', 'sports_coaching'], tags: ['core:biology', 'skill:teaching', 'skill:coaching'], growthRate: 7, avgFee: 35000, avgSalary: 300000 },
+    { id: 'ssc-diploma-in-remedial-education', name: 'Diploma in Remedial Education', jobProfile: 'educator', domains: ['education', 'special_needs'], tags: ['core:psychology', 'skill:teaching', 'skill:counselling'], growthRate: 9, avgFee: 45000, avgSalary: 310000 },
+    { id: 'ssc-certificate-in-sports-coaching-specific-sport', name: 'Diploma in Sports Coaching (Specific Sport)', jobProfile: 'educator', domains: ['sports_coaching', 'fitness_training'], tags: ['core:biology', 'skill:coaching', 'skill:training'], growthRate: 9, avgFee: 50000, avgSalary: 330000 },
+    { id: 'ssc-certificate-in-yoga-instructor', name: 'Certificate in Yoga Instructor', jobProfile: 'educator', domains: ['fitness_training', 'beauty_wellness'], tags: ['core:anatomy', 'skill:teaching', 'skill:training'], growthRate: 11, avgFee: 25000, avgSalary: 280000 },
+    { id: 'ssc-certificate-in-yoga-naturopathy', name: 'Certificate in Yoga and Naturopathy', jobProfile: 'patient_care', domains: ['holistic_health', 'beauty_wellness'], tags: ['core:biology', 'core:anatomy', 'skill:therapy'], growthRate: 10, avgFee: 40000, avgSalary: 300000 }
+];
+
+
+// --- UI LOGIC (UNCHANGED, BUT REQUIRED FOR COMPLETENESS) ---
+
+document.addEventListener('DOMContentLoaded', () => {
+    const careerSelect = document.getElementById('career-choice');
+    courseData.sort((a, b) => a.name.localeCompare(b.name));
+    courseData.forEach(course => {
+        const option = document.createElement('option');
+        option.value = course.id;
+        option.textContent = course.name;
+        careerSelect.appendChild(option);
+    });
+    careerSelect.addEventListener('change', handleCareerSelection);
+});
+
+function handleCareerSelection(event) {
+    const selectedCourseId = event.target.value;
+    const resultsContainer = document.getElementById('results-container');
+    if (!selectedCourseId) {
+        resultsContainer.style.display = 'none';
+        return;
+    }
+    const selectedCourse = courseData.find(c => c.id === selectedCourseId);
+    const alternatives = findAlternatives(selectedCourse);
+    displayResults(selectedCourse, alternatives); 
+}
+
+function displayResults(selectedCourse, alternatives) {
+    const resultsContainer = document.getElementById('results-container');
+    const primaryDisplayArea = document.getElementById('primary-choice-display-area');
+    const alternativesGrid = document.getElementById('alternatives-grid-area');
+    primaryDisplayArea.innerHTML = '';
+    alternativesGrid.innerHTML = '';
+
+    const primaryHTML = `
+        <div class="primary-choice-display">
+            <h3>Your Primary Choice: ${selectedCourse.name}</h3>
+            <div class="primary-stats">
+                <div class="stat">Industry Growth<br><span class="value">${selectedCourse.growthRate}% / year</span></div>
+                <div class="stat">Avg. Course Fee<br><span class="value">₹${selectedCourse.avgFee.toLocaleString('en-IN')} / year</span></div>
+                <div class="stat">Avg. Starting Salary<br><span class="value">₹${selectedCourse.avgSalary.toLocaleString('en-IN')} / year</span></div>
+            </div>
+        </div>
+    `;
+    primaryDisplayArea.innerHTML = primaryHTML;
+
+    if (alternatives.length === 0) {
+        alternativesGrid.innerHTML = '<p style="text-align:center;">Sorry, we couldn\'t find any closely related career paths for this specific profile. Please try another selection.</p>';
+    } else {
+        alternatives.forEach(alt => {
+            const maxGrowth = Math.max(selectedCourse.growthRate, alt.growthRate, 1);
+            const maxFee = Math.max(selectedCourse.avgFee, alt.avgFee, 1);
+            const maxSalary = Math.max(selectedCourse.avgSalary, alt.avgSalary, 1);
+            const cardHTML = `
+                <div class="alternative-card">
+                    <h4>${alt.name}</h4>
+                    <div class="comparison">
+                        <div class="comparison-label"><span>Industry Growth Rate</span><div><span class="original-value">${selectedCourse.growthRate}%</span> vs <span class="alternative-value">${alt.growthRate}%</span></div></div>
+                        <div class="bar-legend"><div class="legend-dot dot-original"></div> Your Choice</div>
+                        <div class="bar-container original-bar"><div class="bar" style="width: ${(selectedCourse.growthRate / maxGrowth) * 100}%"></div></div>
+                        <div class="bar-legend"><div class="legend-dot dot-alternative"></div> Alternative</div>
+                        <div class="bar-container alternative-bar"><div class="bar" style="width: ${(alt.growthRate / maxGrowth) * 100}%"></div></div>
+                    </div>
+                    <div class="comparison">
+                        <div class="comparison-label"><span>Average Course Fee</span><div><span class="original-value">₹${selectedCourse.avgFee.toLocaleString('en-IN')}</span> vs <span class="alternative-value">₹${alt.avgFee.toLocaleString('en-IN')}</span></div></div>
+                        <div class="bar-container original-bar"><div class="bar" style="width: ${(selectedCourse.avgFee / maxFee) * 100}%"></div></div>
+                        <div class="bar-container alternative-bar"><div class="bar" style="width: ${(alt.avgFee / maxFee) * 100}%"></div></div>
+                    </div>
+                    <div class="comparison">
+                        <div class="comparison-label"><span>Average Starting Salary</span><div><span class="original-value">₹${selectedCourse.avgSalary.toLocaleString('en-IN')}</span> vs <span class="alternative-value">₹${alt.avgSalary.toLocaleString('en-IN')}</span></div></div>
+                        <div class="bar-container original-bar"><div class="bar" style="width: ${(selectedCourse.avgSalary / maxSalary) * 100}%"></div></div>
+                        <div class="bar-container alternative-bar"><div class="bar" style="width: ${(alt.avgSalary / maxSalary) * 100}%"></div></div>
+                    </div>
+                </div>`;
+            alternativesGrid.innerHTML += cardHTML;
+        });
+    }
+    resultsContainer.style.display = 'block';
+    resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+</script>
+
+</body>
+</html>

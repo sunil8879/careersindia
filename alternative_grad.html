@@ -1,0 +1,1413 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alternative Career Explorer - After Graduation</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧭</text></svg>">
+
+<style>
+    :root {
+        --primary-color: #4FFFB0; /* Main Aquamarine Color */
+        --dark-accent: #00b894;   /* Darker Aquamarine for contrast */
+        --light-gray: #ecf0f1;
+        --text-dark: #2c3e50;
+        --bg-white: #ffffff;
+    }
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: var(--light-gray);
+        color: var(--text-dark);
+        margin: 0;
+        padding: 20px;
+    }
+    .container {
+        max-width: 900px;
+        margin: 20px auto;
+        padding: 40px;
+        background: var(--bg-white);
+        border-radius: 15px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1), 0 6px 6px rgba(0,0,0,0.15);
+        border: 1px solid #ddd;
+    }
+    .header h1 {
+        text-align: center;
+        font-size: 3rem;
+        font-weight: 800;
+        color: var(--primary-color); /* Changed */
+        text-shadow: 
+            -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff,
+             3px 3px 0px var(--dark-accent); /* Changed */
+        margin-bottom: 10px;
+    }
+    .header p {
+        text-align: center;
+        font-size: 1.1rem;
+        color: #7f8c8d;
+        margin-bottom: 40px;
+    }
+    .input-section { margin-bottom: 40px; }
+    .input-section label {
+        display: block;
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--primary-color); /* Changed */
+    }
+    #career-choice {
+        width: 100%;
+        padding: 15px;
+        font-size: 1.1rem;
+        font-family: 'Poppins', sans-serif;
+        border: 2px solid #bdc3c7;
+        border-radius: 8px;
+        background-color: #fff;
+        cursor: pointer;
+        appearance: none;
+        background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%234FFFB0%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'); /* Changed */
+        background-repeat: no-repeat;
+        background-position: right 15px top 50%;
+        background-size: 14px;
+    }
+    #results-container {
+        display: none;
+        border-top: 2px dashed var(--primary-color); /* Changed */
+        padding-top: 30px;
+    }
+    #results-container h2 {
+        color: var(--primary-color); /* Changed */
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .primary-choice-display {
+        background: #e4fff5; /* Light aquamarine background */
+        border-left: 5px solid var(--primary-color); /* Changed */
+        padding: 20px;
+        margin-bottom: 30px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+    .primary-choice-display h3 { margin: 0 0 10px 0; color: var(--dark-accent); font-size: 1.4rem; } /* Changed */
+    .primary-stats { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 15px; font-size: 0.95rem; }
+    .stat { text-align: center; }
+    .stat .value { font-weight: 700; font-size: 1.2rem; color: var(--text-dark); }
+    .alternatives-grid { display: grid; gap: 25px; }
+    .alternative-card {
+        background: var(--bg-white);
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 25px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .alternative-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.12); }
+    .alternative-card h4 { margin: 0 0 20px 0; font-size: 1.3rem; color: var(--primary-color); } /* Changed */
+    .comparison { margin-bottom: 15px; }
+    .comparison-label { display: flex; justify-content: space-between; font-weight: 600; margin-bottom: 8px; font-size: 0.9rem; }
+    .original-value { color: #7f8c8d; }
+    .alternative-value { color: var(--dark-accent); } /* Changed */
+    .bar-container { background-color: var(--light-gray); border-radius: 20px; height: 12px; margin-bottom: 5px; overflow: hidden; }
+    .bar { height: 100%; border-radius: 20px; transition: width 0.5s ease-in-out; }
+    .original-bar .bar { background-color: #7f8c8d; }
+    .alternative-bar .bar { background-color: var(--primary-color); } /* Changed */
+    .bar-legend { display: flex; align-items: center; font-size: 0.8rem; color: #555; }
+    .legend-dot { width: 10px; height: 10px; border-radius: 50%; margin-right: 5px; }
+    .dot-original { background-color: #7f8c8d; }
+    .dot-alternative { background-color: var(--primary-color); } /* Changed */
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>Alternative Career Explorer</h1>
+        <p>Can't pursue your dream PG course? Discover similar, high-potential alternatives!</p>
+    </div>
+    <div class="input-section">
+        <label for="career-choice">1. Select Your Primary Career Choice</label>
+        <select id="career-choice">
+            <option value="">-- Select a Course --</option>
+        </select>
+    </div>
+    <div id="results-container">
+        <div id="primary-choice-display-area"></div>
+        <h2>Top Alternative Career Paths</h2>
+        <div class="alternatives-grid" id="alternatives-grid-area"></div>
+    </div>
+</div>
+
+<script>
+/**
+ * ===================================================================
+ * METHOD F: The Expert Mapping Model (Final Version for Graduation)
+ * ===================================================================
+ */
+function findAlternatives(selectedCourse) {
+    return selectedCourse.alternatives || []; // Return the hard-coded list
+}
+
+const courseData = [
+    // --- Management & Commerce ---
+    { id: 'grad-master-of-business-administration-mba', name: 'Master of Business Administration (MBA) - General', growthRate: 8, avgFee: 400000, avgSalary: 800000, alternatives: [
+        { name: 'PGDM (Post Graduate Diploma in Management)', growthRate: 8, avgFee: 500000, avgSalary: 750000 },
+        { name: 'Master of Management Studies (MMS)', growthRate: 7, avgFee: 200000, avgSalary: 700000 },
+        { name: 'Start your own Business (Entrepreneurship)', growthRate: 15, avgFee: 100000, avgSalary: 600000 }
+    ]},
+    { id: 'grad-mba-finance', name: 'MBA in Finance', growthRate: 9, avgFee: 500000, avgSalary: 900000, alternatives: [
+        { name: 'Chartered Financial Analyst (CFA)', growthRate: 10, avgFee: 100000, avgSalary: 950000 },
+        { name: 'M.Com in Finance', growthRate: 8, avgFee: 40000, avgSalary: 550000 },
+        { name: 'Financial Risk Manager (FRM)', growthRate: 9, avgFee: 80000, avgSalary: 850000 }
+    ]},
+    { id: 'grad-mba-marketing', name: 'MBA in Marketing', growthRate: 9, avgFee: 500000, avgSalary: 850000, alternatives: [
+        { name: 'PGDM in Digital Marketing', growthRate: 20, avgFee: 250000, avgSalary: 600000 },
+        { name: 'Brand Manager', growthRate: 8, avgFee: 0, avgSalary: 1000000 },
+        { name: 'Market Research Analyst', growthRate: 9, avgFee: 40000, avgSalary: 500000 }
+    ]},
+    { id: 'grad-mba-human-resource-management-hrm', name: 'MBA in Human Resource Management (HRM)', growthRate: 8, avgFee: 450000, avgSalary: 750000, alternatives: [
+        { name: 'Master of Social Work (MSW) - HR', growthRate: 7, avgFee: 50000, avgSalary: 450000 },
+        { name: 'Certified Human Resources Professional (CHRP)', growthRate: 8, avgFee: 60000, avgSalary: 600000 },
+        { name: 'Corporate Trainer', growthRate: 9, avgFee: 50000, avgSalary: 550000 }
+    ]},
+    { id: 'grad-mba-operations-management', name: 'MBA in Operations Management', growthRate: 9, avgFee: 480000, avgSalary: 950000, alternatives: [
+        { name: 'PGDM in Supply Chain & Logistics', growthRate: 10, avgFee: 300000, avgSalary: 700000 },
+        { name: 'M.Tech in Industrial Engineering', growthRate: 8, avgFee: 130000, avgSalary: 600000 },
+        { name: 'Project Management Professional (PMP) Cert.', growthRate: 9, avgFee: 40000, avgSalary: 1200000 }
+    ]},
+    { id: 'grad-mba-business-analytics', name: 'MBA in Business Analytics', growthRate: 15, avgFee: 600000, avgSalary: 1100000, alternatives: [
+        { name: 'M.Sc. in Data Science', growthRate: 20, avgFee: 150000, avgSalary: 800000 },
+        { name: 'PGDM in Business Analytics', growthRate: 15, avgFee: 400000, avgSalary: 900000 },
+        { name: 'Data Analyst / Scientist Role', growthRate: 20, avgFee: 90000, avgSalary: 750000 }
+    ]},
+    { id: 'grad-mba-data-analytics', name: 'MBA in Data Analytics', growthRate: 20, avgFee: 650000, avgSalary: 1200000, alternatives: [
+        { name: 'M.Tech in Data Science & Analytics', growthRate: 20, avgFee: 250000, avgSalary: 900000 },
+        { name: 'PG Diploma in Data Science', growthRate: 20, avgFee: 300000, avgSalary: 700000 },
+        { name: 'Business Intelligence (BI) Developer', growthRate: 18, avgFee: 50000, avgSalary: 800000 }
+    ]},
+    { id: 'grad-mba-information-technology-it', name: 'MBA in Information Technology (IT)', growthRate: 12, avgFee: 550000, avgSalary: 1000000, alternatives: [
+        { name: 'M.Sc. in Information Technology', growthRate: 15, avgFee: 80000, avgSalary: 600000 },
+        { name: 'IT Project Manager', growthRate: 10, avgFee: 40000, avgSalary: 1200000 },
+        { name: 'PGDM in IT & Systems', growthRate: 12, avgFee: 400000, avgSalary: 850000 }
+    ]},
+    { id: 'grad-master-of-commerce-mcom', name: 'Master of Commerce (M.Com) - General', growthRate: 8, avgFee: 40000, avgSalary: 500000, alternatives: [
+        { name: 'Chartered Accountancy (CA)', growthRate: 10, avgFee: 20000, avgSalary: 800000 },
+        { name: 'Company Secretary (CS)', growthRate: 9, avgFee: 15000, avgSalary: 650000 },
+        { name: 'MBA in Finance', growthRate: 9, avgFee: 500000, avgSalary: 900000 }
+    ]},
+    { id: 'grad-mcom-accounting', name: 'M.Com - Accounting', growthRate: 8, avgFee: 45000, avgSalary: 550000, alternatives: [
+        { name: 'Chartered Accountancy (CA)', growthRate: 10, avgFee: 20000, avgSalary: 800000 },
+        { name: 'Cost and Management Accountancy (CMA)', growthRate: 9, avgFee: 50000, avgSalary: 700000 },
+        { name: 'Accounts Manager in Corporate', growthRate: 7, avgFee: 0, avgSalary: 650000 }
+    ]},
+    { id: 'grad-mcom-finance', name: 'M.Com - Finance', growthRate: 9, avgFee: 50000, avgSalary: 600000, alternatives: [
+        { name: 'MBA in Finance', growthRate: 9, avgFee: 500000, avgSalary: 900000 },
+        { name: 'Chartered Financial Analyst (CFA)', growthRate: 10, avgFee: 100000, avgSalary: 950000 },
+        { name: 'Financial Planner Certification (CFP)', growthRate: 11, avgFee: 50000, avgSalary: 550000 }
+    ]},
+    { id: 'grad-mcom-banking-and-insurance', name: 'M.Com - Banking and Insurance', growthRate: 7, avgFee: 40000, avgSalary: 500000, alternatives: [
+        { name: 'Bank Probationary Officer (PO)', growthRate: 5, avgFee: 10000, avgSalary: 600000 },
+        { name: 'Insurance Underwriter/Manager', growthRate: 7, avgFee: 30000, avgSalary: 550000 },
+        { name: 'MBA in Banking & Finance', growthRate: 8, avgFee: 400000, avgSalary: 800000 }
+    ]},
+    { id: 'grad-mcom-business-economics', name: 'M.Com - Business Economics', growthRate: 8, avgFee: 35000, avgSalary: 580000, alternatives: [
+        { name: 'M.A. in Economics', growthRate: 8, avgFee: 25000, avgSalary: 600000 },
+        { name: 'Market Research Analyst', growthRate: 9, avgFee: 40000, avgSalary: 500000 },
+        { name: 'Data Analyst', growthRate: 20, avgFee: 90000, avgSalary: 750000 }
+    ]},
+    { id: 'grad-mcom-financial-management', name: 'M.Com - Financial Management', growthRate: 9, avgFee: 50000, avgSalary: 620000, alternatives: [
+        { name: 'MBA in Finance', growthRate: 9, avgFee: 500000, avgSalary: 900000 },
+        { name: 'Chartered Financial Analyst (CFA)', growthRate: 10, avgFee: 100000, avgSalary: 950000 },
+        { name: 'Corporate Finance Manager', growthRate: 8, avgFee: 0, avgSalary: 800000 }
+    ]},
+    { id: 'grad-mcom-international-business', name: 'M.Com - International Business', growthRate: 9, avgFee: 60000, avgSalary: 650000, alternatives: [
+        { name: 'MBA in International Business', growthRate: 9, avgFee: 600000, avgSalary: 950000 },
+        { name: 'Export-Import Manager', growthRate: 8, avgFee: 50000, avgSalary: 600000 },
+        { name: 'Supply Chain Manager', growthRate: 10, avgFee: 55000, avgSalary: 700000 }
+    ]},
+    { id: 'grad-mcom-taxation', name: 'M.Com - Taxation', growthRate: 10, avgFee: 45000, avgSalary: 600000, alternatives: [
+        { name: 'Chartered Accountancy (CA)', growthRate: 10, avgFee: 20000, avgSalary: 800000 },
+        { name: 'Tax Consultant / Advisor', growthRate: 9, avgFee: 30000, avgSalary: 650000 },
+        { name: 'LL.M. in Tax Law', growthRate: 8, avgFee: 100000, avgSalary: 700000 }
+    ]},
+    { id: 'grad-mcom-e-commerce', name: 'M.Com - E-Commerce', growthRate: 15, avgFee: 55000, avgSalary: 550000, alternatives: [
+        { name: 'MBA in E-Commerce', growthRate: 16, avgFee: 400000, avgSalary: 800000 },
+        { name: 'Digital Marketing Manager', growthRate: 20, avgFee: 45000, avgSalary: 600000 },
+        { name: 'E-commerce Category Manager', growthRate: 14, avgFee: 0, avgSalary: 700000 }
+    ]},
+    { id: 'grad-mcom-human-resource-management', name: 'M.Com - Human Resource Management', growthRate: 8, avgFee: 45000, avgSalary: 520000, alternatives: [
+        { name: 'MBA in HRM', growthRate: 8, avgFee: 450000, avgSalary: 750000 },
+        { name: 'Master of Social Work (MSW) - HR', growthRate: 7, avgFee: 50000, avgSalary: 450000 },
+        { name: 'Recruitment Specialist', growthRate: 9, avgFee: 30000, avgSalary: 480000 }
+    ]},
+    { id: 'grad-mcom-marketing', name: 'M.Com - Marketing', growthRate: 9, avgFee: 45000, avgSalary: 550000, alternatives: [
+        { name: 'MBA in Marketing', growthRate: 9, avgFee: 500000, avgSalary: 850000 },
+        { name: 'Digital Marketing Manager', growthRate: 20, avgFee: 45000, avgSalary: 600000 },
+        { name: 'Sales Manager', growthRate: 8, avgFee: 0, avgSalary: 700000 }
+    ]},
+    { id: 'grad-mcom-computer-applications', name: 'M.Com - Computer Applications', growthRate: 12, avgFee: 50000, avgSalary: 500000, alternatives: [
+        { name: 'MCA (Master of Computer Applications)', growthRate: 15, avgFee: 100000, avgSalary: 600000 },
+        { name: 'M.Sc. in IT', growthRate: 15, avgFee: 80000, avgSalary: 600000 },
+        { name: 'SAP / ERP Consultant', growthRate: 10, avgFee: 150000, avgSalary: 700000 }
+    ]},
+    { id: 'grad-master-of-financial-management-mfm', name: 'Master of Financial Management (MFM)', growthRate: 9, avgFee: 200000, avgSalary: 850000, alternatives: [
+        { name: 'MBA in Finance', growthRate: 9, avgFee: 500000, avgSalary: 900000 },
+        { name: 'Chartered Financial Analyst (CFA)', growthRate: 10, avgFee: 100000, avgSalary: 950000 },
+        { name: 'M.Com in Finance', growthRate: 8, avgFee: 40000, avgSalary: 550000 }
+    ]},
+    { id: 'grad-master-of-human-resource-management-mhrm', name: 'Master of Human Resource Management (MHRM)', growthRate: 8, avgFee: 200000, avgSalary: 700000, alternatives: [
+        { name: 'MBA in HRM', growthRate: 8, avgFee: 450000, avgSalary: 750000 },
+        { name: 'PGDM in HR', growthRate: 8, avgFee: 300000, avgSalary: 650000 },
+        { name: 'Talent Acquisition Manager', growthRate: 9, avgFee: 0, avgSalary: 800000 }
+    ]},
+    { id: 'grad-master-of-international-business-mib', name: 'Master of International Business (MIB)', growthRate: 9, avgFee: 300000, avgSalary: 900000, alternatives: [
+        { name: 'MBA in International Business', growthRate: 9, avgFee: 600000, avgSalary: 950000 },
+        { name: 'Export-Import Manager', growthRate: 8, avgFee: 50000, avgSalary: 600000 },
+        { name: 'Global Supply Chain Manager', growthRate: 10, avgFee: 0, avgSalary: 1000000 }
+    ]},
+    { id: 'grad-master-of-business-economics-mbe', name: 'Master of Business Economics (MBE)', growthRate: 9, avgFee: 150000, avgSalary: 750000, alternatives: [
+        { name: 'M.A. in Economics', growthRate: 8, avgFee: 25000, avgSalary: 600000 },
+        { name: 'MBA in Finance', growthRate: 9, avgFee: 500000, avgSalary: 900000 },
+        { name: 'Economic Research Analyst', growthRate: 8, avgFee: 0, avgSalary: 700000 }
+    ]},
+    { id: 'grad-master-of-management-studies-mms', name: 'Master of Management Studies (MMS)', growthRate: 8, avgFee: 200000, avgSalary: 700000, alternatives: [
+        { name: 'MBA (Master of Business Administration)', growthRate: 8, avgFee: 400000, avgSalary: 800000 },
+        { name: 'PGDM (Post Graduate Diploma in Management)', growthRate: 8, avgFee: 500000, avgSalary: 750000 },
+        { name: 'Business Consultant', growthRate: 9, avgFee: 0, avgSalary: 900000 }
+    ]},
+    { id: 'grad-master-of-retail-management-mrm', name: 'Master of Retail Management (MRM)', growthRate: 7, avgFee: 180000, avgSalary: 550000, alternatives: [
+        { name: 'MBA in Retail Management', growthRate: 7, avgFee: 400000, avgSalary: 700000 },
+        { name: 'Store Operations Manager', growthRate: 6, avgFee: 0, avgSalary: 600000 },
+        { name: 'E-commerce Category Manager', growthRate: 14, avgFee: 0, avgSalary: 700000 }
+    ]},
+    { id: 'grad-master-of-tourism-administration-mta', name: 'Master of Tourism Administration (MTA)', growthRate: 9, avgFee: 100000, avgSalary: 500000, alternatives: [
+        { name: 'Master of Travel & Tourism Management (MTTM)', growthRate: 9, avgFee: 100000, avgSalary: 500000 },
+        { name: 'MBA in Tourism & Hospitality', growthRate: 8, avgFee: 300000, avgSalary: 600000 },
+        { name: 'Tour Operations Manager', growthRate: 8, avgFee: 0, avgSalary: 550000 }
+    ]},
+    { id: 'grad-master-of-travel-tourism-management-mttm', name: 'Master of Travel and Tourism Management (MTTM)', growthRate: 9, avgFee: 100000, avgSalary: 500000, alternatives: [
+        { name: 'Master of Tourism Administration (MTA)', growthRate: 9, avgFee: 100000, avgSalary: 500000 },
+        { name: 'Airline & Airport Management', growthRate: 10, avgFee: 120000, avgSalary: 550000 },
+        { name: 'Hotel Manager', growthRate: 8, avgFee: 90000, avgSalary: 500000 }
+    ]},
+    { id: 'grad-master-of-hospital-administration-mha', name: 'Master of Hospital Administration (MHA)', growthRate: 10, avgFee: 250000, avgSalary: 650000, alternatives: [
+        { name: 'MBA in Healthcare Management', growthRate: 11, avgFee: 500000, avgSalary: 800000 },
+        { name: 'Master of Public Health (MPH)', growthRate: 9, avgFee: 150000, avgSalary: 550000 },
+        { name: 'Hospital Operations Manager', growthRate: 9, avgFee: 0, avgSalary: 700000 }
+    ]},
+
+    // --- Science (M.Sc.) ---
+    { id: 'grad-master-of-science-msc', name: 'Master of Science (M.Sc.) - General Overview', growthRate: 7, avgFee: 60000, avgSalary: 500000, alternatives: [
+        { name: 'M.Tech in relevant field', growthRate: 8, avgFee: 150000, avgSalary: 600000 },
+        { name: 'Research Scientist (CSIR/NET, PhD)', growthRate: 6, avgFee: 20000, avgSalary: 700000 },
+        { name: 'Teacher/Professor (with B.Ed/PhD)', growthRate: 6, avgFee: 40000, avgSalary: 550000 }
+    ]},
+    { id: 'grad-msc-agriculture', name: 'M.Sc. - Agriculture', growthRate: 8, avgFee: 60000, avgSalary: 550000, alternatives: [
+        { name: 'Agricultural Research Scientist (ARS)', growthRate: 7, avgFee: 0, avgSalary: 700000 },
+        { name: 'MBA in Agribusiness', growthRate: 9, avgFee: 250000, avgSalary: 700000 },
+        { name: 'Bank Officer (Agriculture)', growthRate: 6, avgFee: 10000, avgSalary: 600000 }
+    ]},
+    { id: 'grad-msc-agroforestry', name: 'M.Sc. - Agroforestry', growthRate: 7, avgFee: 50000, avgSalary: 480000, alternatives: [
+        { name: 'M.Sc. in Forestry / Agriculture', growthRate: 7, avgFee: 60000, avgSalary: 500000 },
+        { name: 'Forest Range Officer', growthRate: 5, avgFee: 0, avgSalary: 600000 },
+        { name: 'Sustainability Consultant', growthRate: 12, avgFee: 80000, avgSalary: 500000 }
+    ]},
+    { id: 'grad-msc-analytical-chemistry', name: 'M.Sc. - Analytical Chemistry', growthRate: 7, avgFee: 50000, avgSalary: 450000, alternatives: [
+        { name: 'Quality Control/Assurance Chemist', growthRate: 8, avgFee: 0, avgSalary: 480000 },
+        { name: 'Forensic Lab Analyst', growthRate: 10, avgFee: 60000, avgSalary: 500000 },
+        { name: 'R&D Chemist (Pharma)', growthRate: 8, avgFee: 0, avgSalary: 550000 }
+    ]},
+    { id: 'grad-msc-anatomy', name: 'M.Sc. - Anatomy', growthRate: 7, avgFee: 80000, avgSalary: 450000, alternatives: [
+        { name: 'Medical College Demonstrator/Tutor', growthRate: 6, avgFee: 0, avgSalary: 550000 },
+        { name: 'M.Sc. in Physiology', growthRate: 7, avgFee: 80000, avgSalary: 450000 },
+        { name: 'Medical Writer', growthRate: 12, avgFee: 30000, avgSalary: 480000 }
+    ]},
+    { id: 'grad-msc-animal-husbandry', name: 'M.Sc. - Animal Husbandry', growthRate: 6, avgFee: 70000, avgSalary: 400000, alternatives: [
+        { name: 'Livestock Development Officer', growthRate: 5, avgFee: 0, avgSalary: 500000 },
+        { name: 'M.Sc. in Dairy Science', growthRate: 7, avgFee: 65000, avgSalary: 420000 },
+        { name: 'Animal Nutritionist', growthRate: 6, avgFee: 50000, avgSalary: 450000 }
+    ]},
+    { id: 'grad-msc-anthropology', name: 'M.Sc. - Anthropology', growthRate: 5, avgFee: 40000, avgSalary: 400000, alternatives: [
+        { name: 'M.A. in Social Work (MSW)', growthRate: 7, avgFee: 40000, avgSalary: 380000 },
+        { name: 'Civil Services (IAS/IPS)', growthRate: 2, avgFee: 100000, avgSalary: 900000 },
+        { name: 'User Experience (UX) Researcher', growthRate: 15, avgFee: 80000, avgSalary: 600000 }
+    ]},
+    { id: 'grad-msc-applied-geology', name: 'M.Sc. - Applied Geology', growthRate: 6, avgFee: 60000, avgSalary: 550000, alternatives: [
+        { name: 'Geologist in ONGC/GSI', growthRate: 5, avgFee: 0, avgSalary: 800000 },
+        { name: 'M.Tech in Mining Engineering', growthRate: 5, avgFee: 150000, avgSalary: 650000 },
+        { name: 'Hydrogeologist / Groundwater Specialist', growthRate: 6, avgFee: 0, avgSalary: 580000 }
+    ]},
+    { id: 'grad-msc-applied-mathematics', name: 'M.Sc. - Applied Mathematics', growthRate: 8, avgFee: 40000, avgSalary: 600000, alternatives: [
+        { name: 'M.Sc. in Data Science', growthRate: 20, avgFee: 150000, avgSalary: 800000 },
+        { name: 'Actuarial Science', growthRate: 10, avgFee: 100000, avgSalary: 800000 },
+        { name: 'Quantitative Analyst', growthRate: 12, avgFee: 80000, avgSalary: 1000000 }
+    ]},
+    { id: 'grad-msc-applied-microbiology', name: 'M.Sc. - Applied Microbiology', growthRate: 9, avgFee: 75000, avgSalary: 450000, alternatives: [
+        { name: 'M.Sc. in Biotechnology', growthRate: 9, avgFee: 80000, avgSalary: 450000 },
+        { name: 'Quality Control Microbiologist (Pharma/Food)', growthRate: 8, avgFee: 0, avgSalary: 480000 },
+        { name: 'Clinical Research Associate', growthRate: 10, avgFee: 50000, avgSalary: 400000 }
+    ]},
+    { id: 'grad-msc-aquaculture', name: 'M.Sc. - Aquaculture', growthRate: 8, avgFee: 65000, avgSalary: 420000, alternatives: [
+        { name: 'Master of Fisheries Science (M.F.Sc)', growthRate: 7, avgFee: 70000, avgSalary: 500000 },
+        { name: 'Hatchery Operations Manager', growthRate: 8, avgFee: 0, avgSalary: 450000 },
+        { name: 'Coastal Zone Manager', growthRate: 7, avgFee: 0, avgSalary: 550000 }
+    ]},
+    { id: 'grad-msc-astronomy', name: 'M.Sc. - Astronomy', growthRate: 6, avgFee: 80000, avgSalary: 650000, alternatives: [
+        { name: 'Ph.D. in Astrophysics', growthRate: 5, avgFee: 30000, avgSalary: 800000 },
+        { name: 'Research Scientist at ISRO/DRDO', growthRate: 5, avgFee: 0, avgSalary: 1000000 },
+        { name: 'Data Scientist (with coding skills)', growthRate: 20, avgFee: 90000, avgSalary: 750000 }
+    ]},
+    { id: 'grad-msc-biochemistry', name: 'M.Sc. - Biochemistry', growthRate: 8, avgFee: 65000, avgSalary: 420000, alternatives: [
+        { name: 'M.Sc. in Biotechnology / Molecular Biology', growthRate: 9, avgFee: 75000, avgSalary: 450000 },
+        { name: 'Clinical Lab Scientist', growthRate: 10, avgFee: 0, avgSalary: 400000 },
+        { name: 'R&D Scientist in Pharma', growthRate: 8, avgFee: 0, avgSalary: 550000 }
+    ]},
+    { id: 'grad-msc-bioinformatics', name: 'M.Sc. - Bioinformatics', growthRate: 12, avgFee: 100000, avgSalary: 550000, alternatives: [
+        { name: 'M.Tech in Computational Biology', growthRate: 12, avgFee: 180000, avgSalary: 650000 },
+        { name: 'Data Scientist (Life Sciences)', growthRate: 20, avgFee: 90000, avgSalary: 750000 },
+        { name: 'Genomic Data Analyst', growthRate: 15, avgFee: 80000, avgSalary: 600000 }
+    ]},
+    { id: 'grad-msc-biology', name: 'M.Sc. - Biology', growthRate: 6, avgFee: 40000, avgSalary: 380000, alternatives: [
+        { name: 'M.Sc. in Zoology / Botany / Microbiology', growthRate: 7, avgFee: 50000, avgSalary: 400000 },
+        { name: 'B.Ed. for Teaching Career', growthRate: 6, avgFee: 40000, avgSalary: 450000 },
+        { name: 'Scientific Content Writer', growthRate: 12, avgFee: 30000, avgSalary: 420000 }
+    ]},
+    { id: 'grad-msc-biomedical-science', name: 'M.Sc. - Biomedical Science', growthRate: 9, avgFee: 90000, avgSalary: 500000, alternatives: [
+        { name: 'M.Tech in Biomedical Engineering', growthRate: 11, avgFee: 180000, avgSalary: 620000 },
+        { name: 'Clinical Research Coordinator', growthRate: 10, avgFee: 50000, avgSalary: 450000 },
+        { name: 'Medical Technologist', growthRate: 11, avgFee: 75000, avgSalary: 400000 }
+    ]},
+    { id: 'grad-msc-biophysics', name: 'M.Sc. - Biophysics', growthRate: 7, avgFee: 70000, avgSalary: 520000, alternatives: [
+        { name: 'M.Sc. in Medical Physics', growthRate: 8, avgFee: 100000, avgSalary: 600000 },
+        { name: 'Research Scientist', growthRate: 6, avgFee: 0, avgSalary: 580000 },
+        { name: 'M.Tech in Biomedical Engineering', growthRate: 11, avgFee: 180000, avgSalary: 620000 }
+    ]},
+    { id: 'grad-msc-biotechnology', name: 'M.Sc. - Biotechnology', growthRate: 9, avgFee: 80000, avgSalary: 450000, alternatives: [
+        { name: 'M.Tech in Biotechnology', growthRate: 9, avgFee: 160000, avgSalary: 550000 },
+        { name: 'R&D Scientist (Pharma/Agri)', growthRate: 8, avgFee: 0, avgSalary: 550000 },
+        { name: 'MBA in Pharma Management', growthRate: 9, avgFee: 500000, avgSalary: 800000 }
+    ]},
+    { id: 'grad-msc-botany', name: 'M.Sc. - Botany', growthRate: 5, avgFee: 40000, avgSalary: 380000, alternatives: [
+        { name: 'M.Sc. in Agriculture / Horticulture', growthRate: 7, avgFee: 50000, avgSalary: 450000 },
+        { name: 'Plant Breeder / Geneticist', growthRate: 6, avgFee: 0, avgSalary: 480000 },
+        { name: 'Ecologist / Environmental Consultant', growthRate: 8, avgFee: 60000, avgSalary: 450000 }
+    ]},
+    { id: 'grad-msc-chemistry', name: 'M.Sc. - Chemistry', growthRate: 6, avgFee: 45000, avgSalary: 420000, alternatives: [
+        { name: 'M.Tech in Chemical Engineering', growthRate: 7, avgFee: 150000, avgSalary: 600000 },
+        { name: 'Quality Control Manager (Pharma)', growthRate: 8, avgFee: 0, avgSalary: 500000 },
+        { name: 'Research Scientist (CSIR-NET)', growthRate: 6, avgFee: 20000, avgSalary: 700000 }
+    ]},
+    { id: 'grad-msc-clinical-research', name: 'M.Sc. - Clinical Research', growthRate: 10, avgFee: 120000, avgSalary: 450000, alternatives: [
+        { name: 'Clinical Data Manager', growthRate: 12, avgFee: 50000, avgSalary: 550000 },
+        { name: 'Pharmacovigilance Associate', growthRate: 11, avgFee: 40000, avgSalary: 400000 },
+        { name: 'MBA in Healthcare Management', growthRate: 11, avgFee: 500000, avgSalary: 800000 }
+    ]},
+    { id: 'grad-msc-computer-science', name: 'M.Sc. - Computer Science', growthRate: 16, avgFee: 80000, avgSalary: 600000, alternatives: [
+        { name: 'MCA (Master of Computer Applications)', growthRate: 15, avgFee: 100000, avgSalary: 600000 },
+        { name: 'M.Tech in Computer Science', growthRate: 18, avgFee: 180000, avgSalary: 750000 },
+        { name: 'Software Developer / Engineer', growthRate: 18, avgFee: 0, avgSalary: 550000 }
+    ]},
+    { id: 'grad-msc-criminology', name: 'M.Sc. - Criminology', growthRate: 7, avgFee: 60000, avgSalary: 450000, alternatives: [
+        { name: 'M.Sc. in Forensic Science', growthRate: 10, avgFee: 80000, avgSalary: 450000 },
+        { name: 'Careers in Police / Intelligence Agencies', growthRate: 4, avgFee: 0, avgSalary: 600000 },
+        { name: 'LL.M in Criminal Law', growthRate: 6, avgFee: 100000, avgSalary: 550000 }
+    ]},
+    { id: 'grad-msc-data-science', name: 'M.Sc. - Data Science', growthRate: 20, avgFee: 150000, avgSalary: 800000, alternatives: [
+        { name: 'M.Tech in AI & Data Science', growthRate: 22, avgFee: 250000, avgSalary: 900000 },
+        { name: 'MBA in Business Analytics', growthRate: 15, avgFee: 600000, avgSalary: 1100000 },
+        { name: 'Machine Learning Engineer', growthRate: 22, avgFee: 80000, avgSalary: 950000 }
+    ]},
+    { id: 'grad-msc-environmental-science', name: 'M.Sc. - Environmental Science', growthRate: 9, avgFee: 70000, avgSalary: 500000, alternatives: [
+        { name: 'M.Tech in Environmental Engineering', growthRate: 10, avgFee: 150000, avgSalary: 550000 },
+        { name: 'Environmental Impact Assessment (EIA) Consultant', growthRate: 8, avgFee: 40000, avgSalary: 550000 },
+        { name: 'Indian Forest Service (IFS)', growthRate: 2, avgFee: 100000, avgSalary: 900000 }
+    ]},
+    { id: 'grad-msc-fashion-technology', name: 'M.Sc. - Fashion Technology', growthRate: 7, avgFee: 150000, avgSalary: 550000, alternatives: [
+        { name: 'M.Des in Fashion Design', growthRate: 8, avgFee: 250000, avgSalary: 600000 },
+        { name: 'Apparel Merchandising Manager', growthRate: 7, avgFee: 0, avgSalary: 650000 },
+        { name: 'Fashion Retail Buyer', growthRate: 7, avgFee: 0, avgSalary: 600000 }
+    ]},
+    { id: 'grad-msc-food-science-and-technology', name: 'M.Sc. - Food Science and Technology', growthRate: 8, avgFee: 80000, avgSalary: 500000, alternatives: [
+        { name: 'M.Tech in Food Technology', growthRate: 8, avgFee: 120000, avgSalary: 550000 },
+        { name: 'Food Safety Officer (FSSAI)', growthRate: 7, avgFee: 0, avgSalary: 600000 },
+        { name: 'R&D Scientist (Food Industry)', growthRate: 8, avgFee: 0, avgSalary: 580000 }
+    ]},
+    { id: 'grad-msc-forensic-science', name: 'M.Sc. - Forensic Science', growthRate: 10, avgFee: 80000, avgSalary: 450000, alternatives: [
+        { name: 'Forensic Scientist (Govt. Labs)', growthRate: 8, avgFee: 0, avgSalary: 600000 },
+        { name: 'PG Diploma in Cyber Forensics', growthRate: 18, avgFee: 70000, avgSalary: 500000 },
+        { name: 'Forensic Fingerprint Expert', growthRate: 9, avgFee: 50000, avgSalary: 480000 }
+    ]},
+    { id: 'grad-msc-forestry', name: 'M.Sc. - Forestry', growthRate: 6, avgFee: 60000, avgSalary: 500000, alternatives: [
+        { name: 'Indian Forest Service (IFS)', growthRate: 2, avgFee: 100000, avgSalary: 900000 },
+        { name: 'Wildlife Biologist', growthRate: 6, avgFee: 50000, avgSalary: 450000 },
+        { name: 'M.Sc. in Environmental Science', growthRate: 9, avgFee: 70000, avgSalary: 500000 }
+    ]},
+    { id: 'grad-msc-genetics', name: 'M.Sc. - Genetics', growthRate: 9, avgFee: 90000, avgSalary: 500000, alternatives: [
+        { name: 'M.Tech in Genetic Engineering', growthRate: 9, avgFee: 180000, avgSalary: 600000 },
+        { name: 'Genetic Counselor', growthRate: 10, avgFee: 100000, avgSalary: 550000 },
+        { name: 'Research Scientist (Genomics)', growthRate: 10, avgFee: 0, avgSalary: 650000 }
+    ]},
+    { id: 'grad-msc-geography', name: 'M.Sc. - Geography', growthRate: 6, avgFee: 30000, avgSalary: 450000, alternatives: [
+        { name: 'M.Sc. in Remote Sensing & GIS', growthRate: 10, avgFee: 80000, avgSalary: 550000 },
+        { name: 'Urban Planner', growthRate: 8, avgFee: 100000, avgSalary: 500000 },
+        { name: 'Civil Services (IAS/IPS)', growthRate: 2, avgFee: 100000, avgSalary: 900000 }
+    ]},
+    { id: 'grad-msc-geology', name: 'M.Sc. - Geology', growthRate: 6, avgFee: 60000, avgSalary: 600000, alternatives: [
+        { name: 'Geologist at GSI/ONGC/Coal India', growthRate: 5, avgFee: 0, avgSalary: 850000 },
+        { name: 'M.Tech in Applied Geology', growthRate: 6, avgFee: 120000, avgSalary: 650000 },
+        { name: 'Hydrogeologist', growthRate: 6, avgFee: 0, avgSalary: 580000 }
+    ]},
+    { id: 'grad-msc-horticulture', name: 'M.Sc. - Horticulture', growthRate: 7, avgFee: 60000, avgSalary: 500000, alternatives: [
+        { name: 'Horticulture Officer (Govt.)', growthRate: 6, avgFee: 0, avgSalary: 550000 },
+        { name: 'M.Sc. in Agriculture', growthRate: 8, avgFee: 60000, avgSalary: 550000 },
+        { name: 'Landscape Architect', growthRate: 7, avgFee: 80000, avgSalary: 420000 }
+    ]},
+    { id: 'grad-msc-human-genetics', name: 'M.Sc. - Human Genetics', growthRate: 10, avgFee: 100000, avgSalary: 550000, alternatives: [
+        { name: 'Genetic Counselor', growthRate: 10, avgFee: 100000, avgSalary: 550000 },
+        { name: 'Clinical Research Scientist', growthRate: 10, avgFee: 0, avgSalary: 600000 },
+        { name: 'Ph.D. in Human Genetics', growthRate: 8, avgFee: 30000, avgSalary: 700000 }
+    ]},
+    { id: 'grad-msc-information-technology-it', name: 'M.Sc. - Information Technology (IT)', growthRate: 15, avgFee: 80000, avgSalary: 600000, alternatives: [
+        { name: 'MCA (Master of Computer Applications)', growthRate: 15, avgFee: 100000, avgSalary: 600000 },
+        { name: 'M.Tech in IT', growthRate: 18, avgFee: 170000, avgSalary: 700000 },
+        { name: 'Cloud/DevOps/Cybersecurity Certifications', growthRate: 20, avgFee: 60000, avgSalary: 800000 }
+    ]},
+    { id: 'grad-msc-instrumentation', name: 'M.Sc. - Instrumentation', growthRate: 8, avgFee: 70000, avgSalary: 500000, alternatives: [
+        { name: 'M.Tech in Instrumentation Engineering', growthRate: 8, avgFee: 130000, avgSalary: 550000 },
+        { name: 'Instrumentation & Control Engineer', growthRate: 7, avgFee: 0, avgSalary: 520000 },
+        { name: 'Medical Equipment Maintenance', growthRate: 10, avgFee: 50000, avgSalary: 450000 }
+    ]},
+    { id: 'grad-msc-marine-biology', name: 'M.Sc. - Marine Biology', growthRate: 6, avgFee: 80000, avgSalary: 480000, alternatives: [
+        { name: 'Marine Scientist (NIO)', growthRate: 5, avgFee: 0, avgSalary: 600000 },
+        { name: 'M.Sc. in Aquaculture', growthRate: 8, avgFee: 65000, avgSalary: 420000 },
+        { name: 'Coastal Management Officer', growthRate: 7, avgFee: 0, avgSalary: 550000 }
+    ]},
+    { id: 'grad-msc-materials-science', name: 'M.Sc. - Materials Science', growthRate: 7, avgFee: 90000, avgSalary: 580000, alternatives: [
+        { name: 'M.Tech in Materials Engineering', growthRate: 7, avgFee: 150000, avgSalary: 620000 },
+        { name: 'R&D Scientist (Automotive/Aerospace)', growthRate: 8, avgFee: 0, avgSalary: 650000 },
+        { name: 'M.Sc. in Physics/Chemistry', growthRate: 6, avgFee: 45000, avgSalary: 450000 }
+    ]},
+    { id: 'grad-msc-mathematics', name: 'M.Sc. - Mathematics', growthRate: 8, avgFee: 40000, avgSalary: 600000, alternatives: [
+        { name: 'M.Sc. in Data Science', growthRate: 20, avgFee: 150000, avgSalary: 800000 },
+        { name: 'M.Stat (Master of Statistics)', growthRate: 9, avgFee: 30000, avgSalary: 700000 },
+        { name: 'Professor (after NET/PhD)', growthRate: 6, avgFee: 20000, avgSalary: 750000 }
+    ]},
+    { id: 'grad-msc-medical-lab-technology', name: 'M.Sc. - Medical Lab Technology', growthRate: 11, avgFee: 90000, avgSalary: 450000, alternatives: [
+        { name: 'Pathology Lab Manager', growthRate: 9, avgFee: 0, avgSalary: 500000 },
+        { name: 'M.Sc. in Microbiology/Biochemistry', growthRate: 9, avgFee: 75000, avgSalary: 420000 },
+        { name: 'Application Specialist (Medical Eqpt.)', growthRate: 10, avgFee: 0, avgSalary: 550000 }
+    ]},
+    { id: 'grad-msc-microbiology', name: 'M.Sc. - Microbiology', growthRate: 9, avgFee: 70000, avgSalary: 420000, alternatives: [
+        { name: 'M.Sc. in Applied Microbiology/Biotech', growthRate: 9, avgFee: 75000, avgSalary: 450000 },
+        { name: 'Microbiologist in Pharma/Food Industry', growthRate: 8, avgFee: 0, avgSalary: 480000 },
+        { name: 'Clinical Microbiologist', growthRate: 10, avgFee: 0, avgSalary: 500000 }
+    ]},
+    { id: 'grad-msc-molecular-biology', name: 'M.Sc. - Molecular Biology', growthRate: 10, avgFee: 95000, avgSalary: 520000, alternatives: [
+        { name: 'M.Sc. in Genetics / Biotechnology', growthRate: 9, avgFee: 85000, avgSalary: 480000 },
+        { name: 'Research Scientist (Genomics/Proteomics)', growthRate: 10, avgFee: 0, avgSalary: 650000 },
+        { name: 'Bioinformatics Analyst', growthRate: 12, avgFee: 100000, avgSalary: 550000 }
+    ]},
+    { id: 'grad-msc-nanoscience', name: 'M.Sc. - Nanoscience', growthRate: 14, avgFee: 150000, avgSalary: 600000, alternatives: [
+        { name: 'M.Tech in Nanotechnology', growthRate: 14, avgFee: 220000, avgSalary: 650000 },
+        { name: 'M.Sc. in Materials Science', growthRate: 7, avgFee: 90000, avgSalary: 580000 },
+        { name: 'Ph.D. in Nanoscience', growthRate: 8, avgFee: 30000, avgSalary: 750000 }
+    ]},
+    { id: 'grad-msc-neuroscience', name: 'M.Sc. - Neuroscience', growthRate: 9, avgFee: 120000, avgSalary: 550000, alternatives: [
+        { name: 'Ph.D. in Neuroscience', growthRate: 8, avgFee: 30000, avgSalary: 700000 },
+        { name: 'Clinical Psychologist (with further study)', growthRate: 9, avgFee: 100000, avgSalary: 500000 },
+        { name: 'Medical Writer (Neurology)', growthRate: 12, avgFee: 30000, avgSalary: 520000 }
+    ]},
+    { id: 'grad-msc-nursing', name: 'M.Sc. - Nursing', growthRate: 12, avgFee: 120000, avgSalary: 550000, alternatives: [
+        { name: 'Nursing Supervisor / Ward Manager', growthRate: 10, avgFee: 0, avgSalary: 600000 },
+        { name: 'Clinical Nurse Specialist', growthRate: 11, avgFee: 0, avgSalary: 650000 },
+        { name: 'Nursing College Tutor/Professor', growthRate: 8, avgFee: 0, avgSalary: 700000 }
+    ]},
+    { id: 'grad-msc-nutrition-and-dietetics', name: 'M.Sc. - Nutrition and Dietetics', growthRate: 10, avgFee: 80000, avgSalary: 450000, alternatives: [
+        { name: 'Registered Dietitian (RD)', growthRate: 10, avgFee: 20000, avgSalary: 500000 },
+        { name: 'Public Health Nutritionist', growthRate: 9, avgFee: 0, avgSalary: 480000 },
+        { name: 'Sports Nutrition Consultant', growthRate: 11, avgFee: 40000, avgSalary: 520000 }
+    ]},
+    { id: 'grad-msc-operations-research', name: 'M.Sc. - Operations Research', growthRate: 10, avgFee: 70000, avgSalary: 650000, alternatives: [
+        { name: 'M.Sc. in Data Science / Statistics', growthRate: 18, avgFee: 120000, avgSalary: 750000 },
+        { name: 'MBA in Operations', growthRate: 9, avgFee: 480000, avgSalary: 950000 },
+        { name: 'Supply Chain Analyst', growthRate: 12, avgFee: 75000, avgSalary: 600000 }
+    ]},
+    { id: 'grad-msc-optometry', name: 'M.Sc. - Optometry', growthRate: 11, avgFee: 120000, avgSalary: 550000, alternatives: [
+        { name: 'Senior Optometrist in Hospitals', growthRate: 10, avgFee: 0, avgSalary: 600000 },
+        { name: 'Contact Lens Specialist (Advanced)', growthRate: 10, avgFee: 0, avgSalary: 580000 },
+        { name: 'Faculty in Optometry College', growthRate: 8, avgFee: 0, avgSalary: 650000 }
+    ]},
+    { id: 'grad-msc-pharmaceutical-chemistry', name: 'M.Sc. - Pharmaceutical Chemistry', growthRate: 9, avgFee: 90000, avgSalary: 480000, alternatives: [
+        { name: 'M.Pharm in Pharmachemistry', growthRate: 9, avgFee: 150000, avgSalary: 550000 },
+        { name: 'R&D Chemist in Pharma Industry', growthRate: 8, avgFee: 0, avgSalary: 550000 },
+        { name: 'Quality Control/Assurance Manager', growthRate: 8, avgFee: 0, avgSalary: 600000 }
+    ]},
+    { id: 'grad-msc-physics', name: 'M.Sc. - Physics', growthRate: 6, avgFee: 40000, avgSalary: 500000, alternatives: [
+        { name: 'Ph.D. in Physics (Research)', growthRate: 5, avgFee: 30000, avgSalary: 700000 },
+        { name: 'M.Tech in relevant fields (e.g., Nuclear, Materials)', growthRate: 7, avgFee: 150000, avgSalary: 600000 },
+        { name: 'BARC/ISRO Scientist', growthRate: 5, avgFee: 0, avgSalary: 1000000 }
+    ]},
+    { id: 'grad-msc-physiology', name: 'M.Sc. - Physiology', growthRate: 7, avgFee: 80000, avgSalary: 450000, alternatives: [
+        { name: 'M.Sc. in Anatomy', growthRate: 7, avgFee: 80000, avgSalary: 450000 },
+        { name: 'Exercise Physiologist', growthRate: 8, avgFee: 50000, avgSalary: 480000 },
+        { name: 'Medical College Tutor', growthRate: 6, avgFee: 0, avgSalary: 550000 }
+    ]},
+    { id: 'grad-msc-plant-pathology', name: 'M.Sc. - Plant Pathology', growthRate: 6, avgFee: 55000, avgSalary: 450000, alternatives: [
+        { name: 'M.Sc. in Agriculture', growthRate: 8, avgFee: 60000, avgSalary: 550000 },
+        { name: 'Plant Quarantine Officer', growthRate: 5, avgFee: 0, avgSalary: 500000 },
+        { name: 'Research Scientist (Agri)', growthRate: 7, avgFee: 0, avgSalary: 580000 }
+    ]},
+    { id: 'grad-msc-polymer-science', name: 'M.Sc. - Polymer Science', growthRate: 7, avgFee: 70000, avgSalary: 500000, alternatives: [
+        { name: 'M.Tech in Polymer Engineering', growthRate: 7, avgFee: 130000, avgSalary: 550000 },
+        { name: 'R&D Scientist (Plastics/Paints)', growthRate: 7, avgFee: 0, avgSalary: 580000 },
+        { name: 'M.Sc. in Chemistry', growthRate: 6, avgFee: 45000, avgSalary: 420000 }
+    ]},
+    { id: 'grad-msc-psychology', name: 'M.Sc. - Psychology', growthRate: 9, avgFee: 50000, avgSalary: 400000, alternatives: [
+        { name: 'M.Phil in Clinical Psychology (RCI)', growthRate: 10, avgFee: 150000, avgSalary: 600000 },
+        { name: 'Organizational Psychologist / HR', growthRate: 8, avgFee: 0, avgSalary: 550000 },
+        { name: 'School Counselor', growthRate: 9, avgFee: 30000, avgSalary: 420000 }
+    ]},
+    { id: 'grad-msc-quantum-computing', name: 'M.Sc. - Quantum Computing', growthRate: 20, avgFee: 200000, avgSalary: 900000, alternatives: [
+        { name: 'M.Tech in Quantum Technology', growthRate: 20, avgFee: 250000, avgSalary: 1000000 },
+        { name: 'Ph.D. in Quantum Physics/Computing', growthRate: 15, avgFee: 30000, avgSalary: 1100000 },
+        { name: 'Research Scientist in R&D Labs', growthRate: 15, avgFee: 0, avgSalary: 950000 }
+    ]},
+    { id: 'grad-msc-remote-sensing-and-gis', name: 'M.Sc. - Remote Sensing and GIS', growthRate: 10, avgFee: 80000, avgSalary: 550000, alternatives: [
+        { name: 'M.Tech in Geoinformatics', growthRate: 10, avgFee: 120000, avgSalary: 600000 },
+        { name: 'GIS Analyst / Specialist', growthRate: 12, avgFee: 40000, avgSalary: 500000 },
+        { name: 'Urban Planner', growthRate: 8, avgFee: 100000, avgSalary: 500000 }
+    ]},
+    { id: 'grad-msc-robotics', name: 'M.Sc. - Robotics', growthRate: 18, avgFee: 180000, avgSalary: 700000, alternatives: [
+        { name: 'M.Tech in Robotics', growthRate: 18, avgFee: 180000, avgSalary: 750000 },
+        { name: 'Automation Engineer', growthRate: 15, avgFee: 150000, avgSalary: 650000 },
+        { name: 'AI / Machine Learning Engineer', growthRate: 22, avgFee: 200000, avgSalary: 850000 }
+    ]},
+    { id: 'grad-msc-soil-science', name: 'M.Sc. - Soil Science', growthRate: 6, avgFee: 55000, avgSalary: 480000, alternatives: [
+        { name: 'Soil Scientist (Govt. Depts)', growthRate: 5, avgFee: 0, avgSalary: 600000 },
+        { name: 'M.Sc. in Agriculture', growthRate: 8, avgFee: 60000, avgSalary: 550000 },
+        { name: 'Fertilizer Industry R&D', growthRate: 6, avgFee: 0, avgSalary: 520000 }
+    ]},
+    { id: 'grad-msc-statistics', name: 'M.Sc. - Statistics', growthRate: 9, avgFee: 30000, avgSalary: 700000, alternatives: [
+        { name: 'Master of Statistics (M.Stat) from ISI', growthRate: 12, avgFee: 10000, avgSalary: 1500000 },
+        { name: 'M.Sc. in Data Science', growthRate: 20, avgFee: 150000, avgSalary: 800000 },
+        { name: 'Data Analyst / Statistician', growthRate: 15, avgFee: 50000, avgSalary: 750000 }
+    ]},
+    { id: 'grad-msc-textile-chemistry', name: 'M.Sc. - Textile Chemistry', growthRate: 6, avgFee: 60000, avgSalary: 450000, alternatives: [
+        { name: 'M.Tech in Textile Engineering', growthRate: 6, avgFee: 100000, avgSalary: 550000 },
+        { name: 'Dyeing / Processing Manager', growthRate: 5, avgFee: 0, avgSalary: 500000 },
+        { name: 'Quality Control Manager (Textiles)', growthRate: 6, avgFee: 0, avgSalary: 480000 }
+    ]},
+    { id: 'grad-msc-toxicology', name: 'M.Sc. - Toxicology', growthRate: 7, avgFee: 80000, avgSalary: 500000, alternatives: [
+        { name: 'M.Sc. in Forensic Science', growthRate: 10, avgFee: 80000, avgSalary: 450000 },
+        { name: 'Regulatory Affairs Specialist (Pharma)', growthRate: 8, avgFee: 50000, avgSalary: 550000 },
+        { name: 'Environmental Toxicologist', growthRate: 8, avgFee: 0, avgSalary: 520000 }
+    ]},
+    { id: 'grad-msc-wildlife-biology', name: 'M.Sc. - Wildlife Biology', growthRate: 6, avgFee: 70000, avgSalary: 450000, alternatives: [
+        { name: 'M.Sc. in Forestry', growthRate: 6, avgFee: 60000, avgSalary: 500000 },
+        { name: 'Indian Forest Service (IFS)', growthRate: 2, avgFee: 100000, avgSalary: 900000 },
+        { name: 'Researcher at WII, WWF', growthRate: 5, avgFee: 0, avgSalary: 500000 }
+    ]},
+    { id: 'grad-msc-zoology', name: 'M.Sc. - Zoology', growthRate: 5, avgFee: 40000, avgSalary: 400000, alternatives: [
+        { name: 'M.Sc. in Wildlife Biology', growthRate: 6, avgFee: 70000, avgSalary: 450000 },
+        { name: 'Teacher/Professor (after B.Ed/NET)', growthRate: 6, avgFee: 40000, avgSalary: 480000 },
+        { name: 'Zoologist / Museum Curator', growthRate: 4, avgFee: 0, avgSalary: 420000 }
+    ]},
+
+    // --- Engineering (M.Tech) ---
+    { id: 'grad-master-of-technology-meng', name: 'M.Tech./M.E. - General Overview', growthRate: 8, avgFee: 150000, avgSalary: 700000, alternatives: [
+        { name: 'Ph.D. in Engineering', growthRate: 6, avgFee: 50000, avgSalary: 900000 },
+        { name: 'R&D Engineer in Core Company', growthRate: 8, avgFee: 0, avgSalary: 800000 },
+        { name: 'MBA (Technical Management)', growthRate: 8, avgFee: 800000, avgSalary: 1200000 }
+    ]},
+    { id: 'grad-mtech-aerospace-engineering', name: 'M.Tech. - Aerospace Engineering', growthRate: 10, avgFee: 220000, avgSalary: 900000, alternatives: [
+        { name: 'Scientist at ISRO/DRDO/HAL', growthRate: 6, avgFee: 0, avgSalary: 1100000 },
+        { name: 'Aerodynamic Design Engineer', growthRate: 9, avgFee: 0, avgSalary: 850000 },
+        { name: 'Ph.D. in Aerospace', growthRate: 7, avgFee: 50000, avgSalary: 1000000 }
+    ]},
+    { id: 'grad-mtech-agricultural-engineering', name: 'M.Tech. - Agricultural Engineering', growthRate: 8, avgFee: 140000, avgSalary: 600000, alternatives: [
+        { name: 'Agricultural Scientist (ARS)', growthRate: 7, avgFee: 0, avgSalary: 700000 },
+        { name: 'Farm Mechanization Specialist', growthRate: 7, avgFee: 0, avgSalary: 580000 },
+        { name: 'MBA in Agribusiness', growthRate: 9, avgFee: 250000, avgSalary: 700000 }
+    ]},
+    { id: 'grad-mtech-artificial-intelligence', name: 'M.Tech. - Artificial Intelligence', growthRate: 22, avgFee: 250000, avgSalary: 1200000, alternatives: [
+        { name: 'M.Tech in Data Science', growthRate: 20, avgFee: 250000, avgSalary: 1100000 },
+        { name: 'Machine Learning Engineer', growthRate: 22, avgFee: 0, avgSalary: 1400000 },
+        { name: 'AI Research Scientist', growthRate: 18, avgFee: 0, avgSalary: 1500000 }
+    ]},
+    { id: 'grad-mtech-automobile-engineering', name: 'M.Tech. - Automobile Engineering', growthRate: 9, avgFee: 180000, avgSalary: 750000, alternatives: [
+        { name: 'M.Tech in Mechanical (Design/Thermal)', growthRate: 8, avgFee: 150000, avgSalary: 700000 },
+        { name: 'R&D Engineer (Automotive)', growthRate: 8, avgFee: 0, avgSalary: 800000 },
+        { name: 'EV Powertrain Engineer', growthRate: 25, avgFee: 0, avgSalary: 850000 }
+    ]},
+    { id: 'grad-mtech-biochemical-engineering', name: 'M.Tech. - Biochemical Engineering', growthRate: 8, avgFee: 170000, avgSalary: 650000, alternatives: [
+        { name: 'M.Tech in Biotechnology', growthRate: 9, avgFee: 160000, avgSalary: 600000 },
+        { name: 'Process Engineer (Pharma/Food)', growthRate: 8, avgFee: 0, avgSalary: 700000 },
+        { name: 'Research Scientist (Bioprocess)', growthRate: 8, avgFee: 0, avgSalary: 750000 }
+    ]},
+    { id: 'grad-mtech-biomedical-engineering', name: 'M.Tech. - Biomedical Engineering', growthRate: 11, avgFee: 200000, avgSalary: 700000, alternatives: [
+        { name: 'Medical Device R&D Engineer', growthRate: 10, avgFee: 0, avgSalary: 750000 },
+        { name: 'M.Tech in VLSI / Embedded Systems', growthRate: 15, avgFee: 180000, avgSalary: 800000 },
+        { name: 'Application Specialist (Medical Devices)', growthRate: 10, avgFee: 0, avgSalary: 650000 }
+    ]},
+    { id: 'grad-mtech-bioprocess-engineering', name: 'M.Tech. - Bioprocess Engineering', growthRate: 8, avgFee: 170000, avgSalary: 680000, alternatives: [
+        { name: 'M.Tech in Biotechnology / Biochemical', growthRate: 9, avgFee: 160000, avgSalary: 650000 },
+        { name: 'Upstream/Downstream Processing Scientist', growthRate: 8, avgFee: 0, avgSalary: 720000 },
+        { name: 'Fermentation Technologist', growthRate: 8, avgFee: 0, avgSalary: 650000 }
+    ]},
+    { id: 'grad-mtech-biotechnology-engineering', name: 'M.Tech. - Biotechnology Engineering', growthRate: 9, avgFee: 160000, avgSalary: 600000, alternatives: [
+        { name: 'M.Sc. in Biotechnology', growthRate: 9, avgFee: 80000, avgSalary: 450000 },
+        { name: 'R&D Scientist (Biopharma)', growthRate: 9, avgFee: 0, avgSalary: 700000 },
+        { name: 'MBA in Pharma Management', growthRate: 9, avgFee: 500000, avgSalary: 800000 }
+    ]},
+    { id: 'grad-mtech-ceramic-engineering', name: 'M.Tech. - Ceramic Engineering', growthRate: 6, avgFee: 150000, avgSalary: 600000, alternatives: [
+        { name: 'M.Tech in Materials Engineering', growthRate: 7, avgFee: 150000, avgSalary: 620000 },
+        { name: 'R&D Scientist (Ceramics/Glass)', growthRate: 6, avgFee: 0, avgSalary: 650000 },
+        { name: 'Production Manager (Sanitaryware/Tiles)', growthRate: 5, avgFee: 0, avgSalary: 580000 }
+    ]},
+    { id: 'grad-mtech-chemical-engineering', name: 'M.Tech. - Chemical Engineering', growthRate: 7, avgFee: 160000, avgSalary: 700000, alternatives: [
+        { name: 'Process Design Engineer', growthRate: 7, avgFee: 0, avgSalary: 750000 },
+        { name: 'R&D Scientist (Chemicals/FMCG)', growthRate: 7, avgFee: 0, avgSalary: 720000 },
+        { name: 'MBA in Operations', growthRate: 9, avgFee: 480000, avgSalary: 950000 }
+    ]},
+    { id: 'grad-mtech-civil-engineering', name: 'M.Tech. - Civil Engineering', growthRate: 8, avgFee: 160000, avgSalary: 700000, alternatives: [
+        { name: 'M.Tech in Structural / Geotechnical Engg.', growthRate: 8, avgFee: 160000, avgSalary: 750000 },
+        { name: 'Project Management Professional (PMP)', growthRate: 9, avgFee: 40000, avgSalary: 1200000 },
+        { name: 'Senior Design Engineer (Civil)', growthRate: 7, avgFee: 0, avgSalary: 800000 }
+    ]},
+    { id: 'grad-mtech-communication-engineering', name: 'M.Tech. - Communication Engineering', growthRate: 10, avgFee: 150000, avgSalary: 650000, alternatives: [
+        { name: 'M.Tech in ECE / Telecom', growthRate: 11, avgFee: 150000, avgSalary: 680000 },
+        { name: 'RF / Wireless Engineer', growthRate: 10, avgFee: 0, avgSalary: 750000 },
+        { name: 'Network Engineer', growthRate: 9, avgFee: 0, avgSalary: 600000 }
+    ]},
+    { id: 'grad-mtech-cse', name: 'M.Tech. - Computer Science and Engineering (CSE)', growthRate: 18, avgFee: 180000, avgSalary: 800000, alternatives: [
+        { name: 'M.Tech in AI / Data Science', growthRate: 22, avgFee: 250000, avgSalary: 1200000 },
+        { name: 'Senior Software Development Engineer (SDE)', growthRate: 16, avgFee: 0, avgSalary: 1400000 },
+        { name: 'Ph.D. in Computer Science', growthRate: 10, avgFee: 50000, avgSalary: 1000000 }
+    ]},
+    { id: 'grad-mtech-control-and-automation', name: 'M.Tech. - Control and Automation', growthRate: 12, avgFee: 160000, avgSalary: 720000, alternatives: [
+        { name: 'M.Tech in Mechatronics/Robotics', growthRate: 17, avgFee: 180000, avgSalary: 750000 },
+        { name: 'Automation Engineer (PLC/SCADA)', growthRate: 15, avgFee: 0, avgSalary: 700000 },
+        { name: 'Instrumentation & Control Engineer', growthRate: 8, avgFee: 0, avgSalary: 650000 }
+    ]},
+    { id: 'grad-mtech-cyber-security', name: 'M.Tech. - Cyber Security', growthRate: 22, avgFee: 220000, avgSalary: 900000, alternatives: [
+        { name: 'Security Architect', growthRate: 20, avgFee: 0, avgSalary: 1500000 },
+        { name: 'Information Security Manager (CISM/CISSP)', growthRate: 18, avgFee: 100000, avgSalary: 1800000 },
+        { name: 'Penetration Tester / Ethical Hacker', growthRate: 21, avgFee: 0, avgSalary: 800000 }
+    ]},
+    { id: 'grad-mtech-data-science-and-analytics', name: 'M.Tech. - Data Science & Analytics', growthRate: 20, avgFee: 250000, avgSalary: 1100000, alternatives: [
+        { name: 'M.Tech in AI & Machine Learning', growthRate: 22, avgFee: 250000, avgSalary: 1200000 },
+        { name: 'Data Scientist / ML Engineer', growthRate: 22, avgFee: 0, avgSalary: 1400000 },
+        { name: 'MBA in Business Analytics', growthRate: 15, avgFee: 600000, avgSalary: 1100000 }
+    ]},
+    { id: 'grad-mtech-design-engineering', name: 'M.Tech. - Design Engineering', growthRate: 8, avgFee: 160000, avgSalary: 700000, alternatives: [
+        { name: 'M.Tech in Mechanical Engineering', growthRate: 8, avgFee: 150000, avgSalary: 700000 },
+        { name: 'CAD/CAE Analyst', growthRate: 9, avgFee: 0, avgSalary: 650000 },
+        { name: 'R&D Engineer (Product Design)', growthRate: 9, avgFee: 0, avgSalary: 800000 }
+    ]},
+    { id: 'grad-mtech-digital-forensics', name: 'M.Tech. - Digital Forensics', growthRate: 18, avgFee: 180000, avgSalary: 800000, alternatives: [
+        { name: 'M.Tech in Cyber Security', growthRate: 22, avgFee: 220000, avgSalary: 900000 },
+        { name: 'Forensic Investigator (Cyber Crime Cell)', growthRate: 15, avgFee: 0, avgSalary: 850000 },
+        { name: 'Information Security Auditor', growthRate: 16, avgFee: 0, avgSalary: 950000 }
+    ]},
+    { id: 'grad-mtech-earthquake-engineering', name: 'M.Tech. - Earthquake Engineering', growthRate: 7, avgFee: 180000, avgSalary: 800000, alternatives: [
+        { name: 'M.Tech in Structural Engineering', growthRate: 8, avgFee: 160000, avgSalary: 750000 },
+        { name: 'Structural Design Consultant', growthRate: 7, avgFee: 0, avgSalary: 850000 },
+        { name: 'Researcher in Seismology', growthRate: 6, avgFee: 0, avgSalary: 700000 }
+    ]},
+    { id: 'grad-mtech-electrical-engineering', name: 'M.Tech. - Electrical Engineering', growthRate: 9, avgFee: 150000, avgSalary: 680000, alternatives: [
+        { name: 'M.Tech in Power Systems / Power Electronics', growthRate: 9, avgFee: 150000, avgSalary: 720000 },
+        { name: 'Design Engineer (Electrical Machines)', growthRate: 8, avgFee: 0, avgSalary: 700000 },
+        { name: 'Project Engineer (Electrical)', growthRate: 8, avgFee: 0, avgSalary: 750000 }
+    ]},
+    { id: 'grad-mtech-ece', name: 'M.Tech. - Electronics & Communication Engineering (ECE)', growthRate: 11, avgFee: 150000, avgSalary: 680000, alternatives: [
+        { name: 'M.Tech in VLSI / Embedded Systems', growthRate: 15, avgFee: 180000, avgSalary: 800000 },
+        { name: 'Telecom / RF Engineer', growthRate: 10, avgFee: 0, avgSalary: 750000 },
+        { name: 'Hardware Design Engineer', growthRate: 10, avgFee: 0, avgSalary: 700000 }
+    ]},
+    { id: 'grad-mtech-energy-engineering', name: 'M.Tech. - Energy Engineering', growthRate: 12, avgFee: 170000, avgSalary: 700000, alternatives: [
+        { name: 'M.Tech in Renewable Energy', growthRate: 15, avgFee: 170000, avgSalary: 720000 },
+        { name: 'Energy Auditor / Manager', growthRate: 10, avgFee: 40000, avgSalary: 750000 },
+        { name: 'Sustainability Consultant', growthRate: 12, avgFee: 80000, avgSalary: 650000 }
+    ]},
+    { id: 'grad-mtech-environmental-engineering-standalone', name: 'M.Tech. - Environmental Engineering', growthRate: 10, avgFee: 150000, avgSalary: 600000, alternatives: [
+        { name: 'M.Sc. in Environmental Science', growthRate: 9, avgFee: 70000, avgSalary: 500000 },
+        { name: 'Environmental Consultant (EIA/STP)', growthRate: 9, avgFee: 0, avgSalary: 650000 },
+        { name: 'Pollution Control Board Engineer', growthRate: 7, avgFee: 0, avgSalary: 700000 }
+    ]},
+    { id: 'grad-mtech-food-technology-engineering', name: 'M.Tech. - Food Technology Engineering', growthRate: 8, avgFee: 130000, avgSalary: 580000, alternatives: [
+        { name: 'M.Sc. in Food Technology', growthRate: 8, avgFee: 80000, avgSalary: 500000 },
+        { name: 'Food Process Engineer', growthRate: 8, avgFee: 0, avgSalary: 600000 },
+        { name: 'R&D Manager (FMCG)', growthRate: 8, avgFee: 0, avgSalary: 700000 }
+    ]},
+    { id: 'grad-mtech-geoinformatics', name: 'M.Tech. - Geoinformatics', growthRate: 10, avgFee: 120000, avgSalary: 600000, alternatives: [
+        { name: 'M.Sc. in Remote Sensing & GIS', growthRate: 10, avgFee: 80000, avgSalary: 550000 },
+        { name: 'GIS Developer/Analyst', growthRate: 12, avgFee: 0, avgSalary: 650000 },
+        { name: 'Survey Engineer', growthRate: 7, avgFee: 0, avgSalary: 580000 }
+    ]},
+    { id: 'grad-mtech-industrial-engineering', name: 'M.Tech. - Industrial Engineering', growthRate: 8, avgFee: 130000, avgSalary: 650000, alternatives: [
+        { name: 'M.Tech in Production Engineering', growthRate: 7, avgFee: 130000, avgSalary: 620000 },
+        { name: 'MBA in Operations', growthRate: 9, avgFee: 480000, avgSalary: 950000 },
+        { name: 'Supply Chain Manager', growthRate: 10, avgFee: 0, avgSalary: 800000 }
+    ]},
+    { id: 'grad-mtech-information-technology', name: 'M.Tech. - Information Technology', growthRate: 18, avgFee: 170000, avgSalary: 700000, alternatives: [
+        { name: 'M.Tech in Computer Science', growthRate: 18, avgFee: 180000, avgSalary: 800000 },
+        { name: 'MCA', growthRate: 15, avgFee: 100000, avgSalary: 600000 },
+        { name: 'IT Infrastructure Manager', growthRate: 10, avgFee: 0, avgSalary: 900000 }
+    ]},
+    { id: 'grad-mtech-instrumentation-engineering', name: 'M.Tech. - Instrumentation Engineering', growthRate: 8, avgFee: 130000, avgSalary: 550000, alternatives: [
+        { name: 'M.Tech in Control & Automation', growthRate: 12, avgFee: 160000, avgSalary: 720000 },
+        { name: 'M.Tech in Electronics', growthRate: 11, avgFee: 150000, avgSalary: 680000 },
+        { name: 'Instrumentation Engineer in Oil & Gas/Power', growthRate: 7, avgFee: 0, avgSalary: 700000 }
+    ]},
+    { id: 'grad-mtech-integrated-electronics-and-circuits', name: 'M.Tech. - Integrated Electronics and Circuits', growthRate: 14, avgFee: 180000, avgSalary: 850000, alternatives: [
+        { name: 'M.Tech in VLSI Design', growthRate: 15, avgFee: 180000, avgSalary: 800000 },
+        { name: 'Analog/Digital Circuit Design Engineer', growthRate: 12, avgFee: 0, avgSalary: 900000 },
+        { name: 'Semiconductor Engineer', growthRate: 12, avgFee: 0, avgSalary: 1000000 }
+    ]},
+    { id: 'grad-mtech-manufacturing-technology', name: 'M.Tech. - Manufacturing Technology', growthRate: 7, avgFee: 140000, avgSalary: 600000, alternatives: [
+        { name: 'M.Tech in Production Engineering', growthRate: 7, avgFee: 130000, avgSalary: 620000 },
+        { name: 'M.Tech in Mechanical Engineering', growthRate: 8, avgFee: 150000, avgSalary: 700000 },
+        { name: 'Process Engineer', growthRate: 7, avgFee: 0, avgSalary: 650000 }
+    ]},
+    { id: 'grad-mtech-marine-engineering', name: 'M.Tech. - Marine Engineering', growthRate: 7, avgFee: 220000, avgSalary: 900000, alternatives: [
+        { name: 'Senior Engineer in Merchant Navy', growthRate: 6, avgFee: 0, avgSalary: 1200000 },
+        { name: 'M.Tech in Naval Architecture', growthRate: 7, avgFee: 250000, avgSalary: 950000 },
+        { name: 'Port Engineer', growthRate: 7, avgFee: 0, avgSalary: 800000 }
+    ]},
+    { id: 'grad-mtech-materials-engineering', name: 'M.Tech. - Materials Engineering', growthRate: 7, avgFee: 150000, avgSalary: 620000, alternatives: [
+        { name: 'M.Tech in Metallurgical Engineering', growthRate: 6, avgFee: 140000, avgSalary: 600000 },
+        { name: 'Materials Research Scientist', growthRate: 8, avgFee: 0, avgSalary: 700000 },
+        { name: 'Composites Engineer', growthRate: 9, avgFee: 0, avgSalary: 680000 }
+    ]},
+    { id: 'grad-mtech-mechanical-engineering', name: 'M.Tech. - Mechanical Engineering', growthRate: 8, avgFee: 150000, avgSalary: 700000, alternatives: [
+        { name: 'M.Tech in Design / Thermal Engineering', growthRate: 8, avgFee: 160000, avgSalary: 750000 },
+        { name: 'R&D Manager (Mechanical)', growthRate: 8, avgFee: 0, avgSalary: 900000 },
+        { name: 'Ph.D. in Mechanical Engineering', growthRate: 6, avgFee: 50000, avgSalary: 850000 }
+    ]},
+    { id: 'grad-mtech-mechatronics', name: 'M.Tech. - Mechatronics', growthRate: 16, avgFee: 180000, avgSalary: 750000, alternatives: [
+        { name: 'M.Tech in Robotics', growthRate: 18, avgFee: 180000, avgSalary: 750000 },
+        { name: 'Automation & Robotics Engineer', growthRate: 17, avgFee: 0, avgSalary: 800000 },
+        { name: 'Control Systems Engineer', growthRate: 10, avgFee: 0, avgSalary: 700000 }
+    ]},
+    { id: 'grad-mtech-metallurgical-engineering', name: 'M.Tech. - Metallurgical Engineering', growthRate: 6, avgFee: 140000, avgSalary: 600000, alternatives: [
+        { name: 'M.Tech in Materials Engineering', growthRate: 7, avgFee: 150000, avgSalary: 620000 },
+        { name: 'Process Metallurgist (Steel/Aluminium Plant)', growthRate: 5, avgFee: 0, avgSalary: 700000 },
+        { name: 'Corrosion Engineer', growthRate: 6, avgFee: 0, avgSalary: 650000 }
+    ]},
+    { id: 'grad-mtech-mining-engineering', name: 'M.Tech. - Mining Engineering', growthRate: 5, avgFee: 160000, avgSalary: 650000, alternatives: [
+        { name: 'Mine Manager / Planning Engineer', growthRate: 4, avgFee: 0, avgSalary: 800000 },
+        { name: 'M.Sc. in Geology', growthRate: 6, avgFee: 60000, avgSalary: 600000 },
+        { name: 'Explosives Engineer', growthRate: 5, avgFee: 0, avgSalary: 700000 }
+    ]},
+    { id: 'grad-mtech-nanotechnology', name: 'M.Tech. - Nanotechnology', growthRate: 14, avgFee: 220000, avgSalary: 750000, alternatives: [
+        { name: 'M.Tech in Materials Engineering', growthRate: 7, avgFee: 150000, avgSalary: 620000 },
+        { name: 'Research Scientist (Nanomaterials)', growthRate: 12, avgFee: 0, avgSalary: 800000 },
+        { name: 'Semiconductor Process Engineer', growthRate: 12, avgFee: 0, avgSalary: 900000 }
+    ]},
+    { id: 'grad-mtech-nuclear-engineering', name: 'M.Tech. - Nuclear Engineering', growthRate: 5, avgFee: 250000, avgSalary: 1000000, alternatives: [
+        { name: 'BARC/NPCIL Scientist', growthRate: 4, avgFee: 0, avgSalary: 1200000 },
+        { name: 'M.Sc. in Nuclear Physics', growthRate: 4, avgFee: 50000, avgSalary: 700000 },
+        { name: 'Radiation Safety Officer', growthRate: 6, avgFee: 40000, avgSalary: 650000 }
+    ]},
+    { id: 'grad-mtech-petroleum-engineering', name: 'M.Tech. - Petroleum Engineering', growthRate: 5, avgFee: 200000, avgSalary: 800000, alternatives: [
+        { name: 'Reservoir/Drilling Engineer (ONGC, etc.)', growthRate: 4, avgFee: 0, avgSalary: 1200000 },
+        { name: 'M.Tech in Chemical Engineering', growthRate: 7, avgFee: 160000, avgSalary: 700000 },
+        { name: 'Geoscientist', growthRate: 5, avgFee: 0, avgSalary: 750000 }
+    ]},
+    { id: 'grad-mtech-polymer-technology', name: 'M.Tech. - Polymer Technology', growthRate: 7, avgFee: 140000, avgSalary: 550000, alternatives: [
+        { name: 'M.Tech in Plastic Engineering', growthRate: 7, avgFee: 130000, avgSalary: 520000 },
+        { name: 'R&D Scientist (Polymers)', growthRate: 7, avgFee: 0, avgSalary: 600000 },
+        { name: 'Process Engineer (Tyre/Paint Industry)', growthRate: 6, avgFee: 0, avgSalary: 580000 }
+    ]},
+    { id: 'grad-mtech-production-engineering', name: 'M.Tech. - Production Engineering', growthRate: 7, avgFee: 130000, avgSalary: 620000, alternatives: [
+        { name: 'M.Tech in Industrial/Mechanical Engineering', growthRate: 8, avgFee: 140000, avgSalary: 680000 },
+        { name: 'Manufacturing Process Manager', growthRate: 7, avgFee: 0, avgSalary: 700000 },
+        { name: 'MBA in Operations', growthRate: 9, avgFee: 480000, avgSalary: 950000 }
+    ]},
+    { id: 'grad-mtech-renewable-energy-technologies', name: 'M.Tech. - Renewable Energy Technologies', growthRate: 15, avgFee: 170000, avgSalary: 720000, alternatives: [
+        { name: 'M.Tech in Energy Engineering', growthRate: 12, avgFee: 170000, avgSalary: 700000 },
+        { name: 'Solar/Wind Energy Project Manager', growthRate: 18, avgFee: 0, avgSalary: 800000 },
+        { name: 'Energy Policy Analyst', growthRate: 10, avgFee: 0, avgSalary: 750000 }
+    ]},
+    { id: 'grad-mtech-robotics-and-automation', name: 'M.Tech. - Robotics and Automation', growthRate: 18, avgFee: 180000, avgSalary: 750000, alternatives: [
+        { name: 'M.Tech in Mechatronics', growthRate: 16, avgFee: 180000, avgSalary: 750000 },
+        { name: 'M.Tech in AI', growthRate: 22, avgFee: 250000, avgSalary: 1200000 },
+        { name: 'Robotics Design Engineer', growthRate: 18, avgFee: 0, avgSalary: 850000 }
+    ]},
+    { id: 'grad-mtech-software-engineering', name: 'M.Tech. - Software Engineering', growthRate: 18, avgFee: 180000, avgSalary: 850000, alternatives: [
+        { name: 'M.Tech in Computer Science', growthRate: 18, avgFee: 180000, avgSalary: 800000 },
+        { name: 'Software Architect', growthRate: 16, avgFee: 0, avgSalary: 1500000 },
+        { name: 'Product Manager (Tech)', growthRate: 15, avgFee: 0, avgSalary: 1400000 }
+    ]},
+    { id: 'grad-mtech-structural-engineering', name: 'M.Tech. - Structural Engineering', growthRate: 8, avgFee: 160000, avgSalary: 750000, alternatives: [
+        { name: 'M.Tech in Civil Engineering', growthRate: 8, avgFee: 160000, avgSalary: 700000 },
+        { name: 'Structural Design Consultant', growthRate: 7, avgFee: 0, avgSalary: 850000 },
+        { name: 'Bridge/Building Design Engineer', growthRate: 7, avgFee: 0, avgSalary: 800000 }
+    ]},
+    { id: 'grad-mtech-systems-engineering', name: 'M.Tech. - Systems Engineering', growthRate: 10, avgFee: 170000, avgSalary: 800000, alternatives: [
+        { name: 'M.Tech in Industrial Engineering', growthRate: 8, avgFee: 130000, avgSalary: 650000 },
+        { name: 'MBA in Systems/Operations', growthRate: 9, avgFee: 500000, avgSalary: 950000 },
+        { name: 'Systems Analyst', growthRate: 10, avgFee: 0, avgSalary: 750000 }
+    ]},
+    { id: 'grad-mtech-telecommunication-engineering', name: 'M.Tech. - Telecommunication Engineering', growthRate: 9, avgFee: 150000, avgSalary: 700000, alternatives: [
+        { name: 'M.Tech in ECE', growthRate: 11, avgFee: 150000, avgSalary: 680000 },
+        { name: '5G / Wireless Technology Engineer', growthRate: 15, avgFee: 0, avgSalary: 850000 },
+        { name: 'Network Planning Engineer', growthRate: 9, avgFee: 0, avgSalary: 750000 }
+    ]},
+    { id: 'grad-mtech-textile-engineering', name: 'M.Tech. - Textile Engineering', growthRate: 6, avgFee: 100000, avgSalary: 550000, alternatives: [
+        { name: 'M.Sc. in Textile Chemistry', growthRate: 6, avgFee: 60000, avgSalary: 450000 },
+        { name: 'R&D Manager (Textiles)', growthRate: 5, avgFee: 0, avgSalary: 600000 },
+        { name: 'Technical Textiles Specialist', growthRate: 8, avgFee: 0, avgSalary: 650000 }
+    ]},
+    { id: 'grad-mtech-thermal-engineering', name: 'M.Tech. - Thermal Engineering', growthRate: 8, avgFee: 160000, avgSalary: 720000, alternatives: [
+        { name: 'M.Tech in Mechanical Engineering', growthRate: 8, avgFee: 150000, avgSalary: 700000 },
+        { name: 'HVAC Design Engineer', growthRate: 9, avgFee: 0, avgSalary: 680000 },
+        { name: 'Thermal Power Plant Engineer', growthRate: 5, avgFee: 0, avgSalary: 750000 }
+    ]},
+    { id: 'grad-mtech-vlsi-design', name: 'M.Tech. - VLSI Design', growthRate: 15, avgFee: 180000, avgSalary: 800000, alternatives: [
+        { name: 'M.Tech in Integrated Electronics', growthRate: 14, avgFee: 180000, avgSalary: 850000 },
+        { name: 'Chip Design Engineer (Analog/Digital)', growthRate: 14, avgFee: 0, avgSalary: 1200000 },
+        { name: 'Semiconductor Industry Professional', growthRate: 12, avgFee: 0, avgSalary: 1000000 }
+    ]},
+    { id: 'grad-mtech-water-resources-engineering-standalone', name: 'M.Tech. - Water Resources Engineering', growthRate: 7, avgFee: 140000, avgSalary: 650000, alternatives: [
+        { name: 'M.Tech in Civil / Environmental Engineering', growthRate: 8, avgFee: 150000, avgSalary: 680000 },
+        { name: 'Hydrologist / Water Management Specialist', growthRate: 6, avgFee: 0, avgSalary: 700000 },
+        { name: 'Irrigation Engineer (Govt.)', growthRate: 6, avgFee: 0, avgSalary: 750000 }
+    ]},
+
+    // --- Arts & Humanities (M.A.) ---
+    { id: 'grad-master-of-arts-humanities-social-sciences', name: 'Master of Arts (M.A.) - General Overview', growthRate: 6, avgFee: 30000, avgSalary: 450000, alternatives: [
+        { name: 'Civil Services (UPSC/State PSC)', growthRate: 2, avgFee: 100000, avgSalary: 900000 },
+        { name: 'Ph.D. for Professorship', growthRate: 5, avgFee: 40000, avgSalary: 700000 },
+        { name: 'MBA (after MA)', growthRate: 8, avgFee: 500000, avgSalary: 800000 }
+    ]},
+    { id: 'grad-ma-anthropology', name: 'M.A. - Anthropology', growthRate: 5, avgFee: 40000, avgSalary: 420000, alternatives: [
+        { name: 'User Experience (UX) Researcher', growthRate: 15, avgFee: 80000, avgSalary: 600000 },
+        { name: 'Master of Social Work (MSW)', growthRate: 7, avgFee: 40000, avgSalary: 380000 },
+        { name: 'Civil Services', growthRate: 2, avgFee: 100000, avgSalary: 900000 }
+    ]},
+    { id: 'grad-ma-archaeology', name: 'M.A. - Archaeology', growthRate: 4, avgFee: 50000, avgSalary: 450000, alternatives: [
+        { name: 'Archaeologist (ASI)', growthRate: 3, avgFee: 0, avgSalary: 600000 },
+        { name: 'Museum Curator', growthRate: 4, avgFee: 45000, avgSalary: 400000 },
+        { name: 'M.A. in History', growthRate: 4, avgFee: 15000, avgSalary: 350000 }
+    ]},
+    { id: 'grad-ma-buddhist-studies', name: 'M.A. - Buddhist Studies', growthRate: 3, avgFee: 20000, avgSalary: 350000, alternatives: [
+        { name: 'M.A. in Philosophy', growthRate: 4, avgFee: 15000, avgSalary: 380000 },
+        { name: 'Tour Guide (Religious/Cultural)', growthRate: 6, avgFee: 20000, avgSalary: 300000 },
+        { name: 'Researcher / Academic', growthRate: 3, avgFee: 30000, avgSalary: 450000 }
+    ]},
+    { id: 'grad-ma-child-development', name: 'M.A. - Child Development', growthRate: 8, avgFee: 40000, avgSalary: 380000, alternatives: [
+        { name: 'M.A. in Psychology', growthRate: 9, avgFee: 50000, avgSalary: 400000 },
+        { name: 'Early Childhood Education (ECCE) specialist', growthRate: 8, avgFee: 35000, avgSalary: 350000 },
+        { name: 'Child Counselor in Schools', growthRate: 9, avgFee: 40000, avgSalary: 420000 }
+    ]},
+    { id: 'grad-ma-classical-languages', name: 'M.A. - Classical Languages', growthRate: 2, avgFee: 15000, avgSalary: 350000, alternatives: [
+        { name: 'Academic Researcher / Professor', growthRate: 3, avgFee: 30000, avgSalary: 500000 },
+        { name: 'Translator for Ancient Texts', growthRate: 4, avgFee: 0, avgSalary: 400000 },
+        { name: 'Archivist', growthRate: 5, avgFee: 30000, avgSalary: 420000 }
+    ]},
+    { id: 'grad-ma-comparative-literature', name: 'M.A. - Comparative Literature', growthRate: 5, avgFee: 25000, avgSalary: 400000, alternatives: [
+        { name: 'Editor / Publishing Professional', growthRate: 6, avgFee: 40000, avgSalary: 450000 },
+        { name: 'Content Strategist', growthRate: 15, avgFee: 40000, avgSalary: 500000 },
+        { name: 'Ph.D. in Literature', growthRate: 4, avgFee: 30000, avgSalary: 550000 }
+    ]},
+    { id: 'grad-ma-criminology', name: 'M.A. - Criminology', growthRate: 7, avgFee: 60000, avgSalary: 480000, alternatives: [
+        { name: 'M.Sc. in Forensic Science', growthRate: 10, avgFee: 80000, avgSalary: 450000 },
+        { name: 'Rehabilitation / Probation Officer', growthRate: 6, avgFee: 0, avgSalary: 500000 },
+        { name: 'Careers in Intelligence Agencies (IB, RAW)', growthRate: 4, avgFee: 0, avgSalary: 700000 }
+    ]},
+    { id: 'grad-ma-dance', name: 'M.A. - Dance', growthRate: 6, avgFee: 50000, avgSalary: 300000, alternatives: [
+        { name: 'Professional Dancer / Choreographer', growthRate: 5, avgFee: 0, avgSalary: 350000 },
+        { name: 'Dance Teacher / Instructor', growthRate: 6, avgFee: 30000, avgSalary: 280000 },
+        { name: 'Arts Administrator', growthRate: 5, avgFee: 40000, avgSalary: 320000 }
+    ]},
+    { id: 'grad-ma-development-studies', name: 'M.A. - Development Studies', growthRate: 8, avgFee: 70000, avgSalary: 550000, alternatives: [
+        { name: 'Master of Social Work (MSW)', growthRate: 7, avgFee: 40000, avgSalary: 380000 },
+        { name: 'Policy Analyst (Think Tanks/NGOs)', growthRate: 7, avgFee: 0, avgSalary: 600000 },
+        { name: 'CSR Manager', growthRate: 9, avgFee: 0, avgSalary: 700000 }
+    ]},
+    { id: 'grad-ma-economics', name: 'M.A. - Economics', growthRate: 8, avgFee: 25000, avgSalary: 600000, alternatives: [
+        { name: 'Indian Economic Service (IES)', growthRate: 3, avgFee: 100000, avgSalary: 1000000 },
+        { name: 'RBI Grade B Officer', growthRate: 4, avgFee: 10000, avgSalary: 1200000 },
+        { name: 'MBA in Finance', growthRate: 9, avgFee: 500000, avgSalary: 900000 }
+    ]},
+    { id: 'grad-ma-education', name: 'M.A. - Education', growthRate: 6, avgFee: 30000, avgSalary: 420000, alternatives: [
+        { name: 'M.Ed. (Master of Education)', growthRate: 6, avgFee: 40000, avgSalary: 450000 },
+        { name: 'Educational Administrator / Principal', growthRate: 5, avgFee: 0, avgSalary: 600000 },
+        { name: 'Curriculum Developer / Instructional Designer', growthRate: 10, avgFee: 50000, avgSalary: 550000 }
+    ]},
+    { id: 'grad-ma-english-literature', name: 'M.A. - English Literature', growthRate: 5, avgFee: 20000, avgSalary: 380000, alternatives: [
+        { name: 'Professor (after NET/PhD)', growthRate: 5, avgFee: 20000, avgSalary: 550000 },
+        { name: 'Editor in Publishing House', growthRate: 6, avgFee: 40000, avgSalary: 450000 },
+        { name: 'M.A. in Journalism', growthRate: 7, avgFee: 80000, avgSalary: 420000 }
+    ]},
+    { id: 'grad-ma-environmental-studies', name: 'M.A. - Environmental Studies', growthRate: 9, avgFee: 60000, avgSalary: 480000, alternatives: [
+        { name: 'M.Sc. in Environmental Science', growthRate: 9, avgFee: 70000, avgSalary: 500000 },
+        { name: 'Environmental Activist / NGO Worker', growthRate: 8, avgFee: 0, avgSalary: 400000 },
+        { name: 'Sustainability Officer', growthRate: 12, avgFee: 80000, avgSalary: 600000 }
+    ]},
+    { id: 'grad-ma-film-studies', name: 'M.A. - Film Studies', growthRate: 7, avgFee: 90000, avgSalary: 400000, alternatives: [
+        { name: 'Film Critic / Journalist', growthRate: 6, avgFee: 0, avgSalary: 420000 },
+        { name: 'PG Diploma in Film Direction/Editing', growthRate: 8, avgFee: 150000, avgSalary: 380000 },
+        { name: 'Professor of Cinema', growthRate: 5, avgFee: 30000, avgSalary: 500000 }
+    ]},
+    { id: 'grad-ma-fine-arts', name: 'M.A. - Fine Arts', growthRate: 6, avgFee: 60000, avgSalary: 400000, alternatives: [
+        { name: 'MFA (Master of Fine Arts)', growthRate: 6, avgFee: 70000, avgSalary: 420000 },
+        { name: 'Art Curator / Gallery Manager', growthRate: 5, avgFee: 0, avgSalary: 450000 },
+        { name: 'Art Restoration Specialist', growthRate: 5, avgFee: 80000, avgSalary: 480000 }
+    ]},
+    { id: 'grad-ma-folklore', name: 'M.A. - Folklore', growthRate: 4, avgFee: 25000, avgSalary: 350000, alternatives: [
+        { name: 'Cultural Researcher', growthRate: 4, avgFee: 0, avgSalary: 400000 },
+        { name: 'M.A. in Anthropology/Sociology', growthRate: 5, avgFee: 30000, avgSalary: 420000 },
+        { name: 'Archivist in Cultural Institutions', growthRate: 5, avgFee: 30000, avgSalary: 420000 }
+    ]},
+    { id: 'grad-ma-foreign-languages', name: 'M.A. - Foreign Languages', growthRate: 8, avgFee: 40000, avgSalary: 550000, alternatives: [
+        { name: 'Translator / Interpreter', growthRate: 8, avgFee: 0, avgSalary: 600000 },
+        { name: 'Corporate Language Trainer', growthRate: 9, avgFee: 30000, avgSalary: 500000 },
+        { name: 'Jobs in Embassies / MNCs', growthRate: 7, avgFee: 0, avgSalary: 650000 }
+    ]},
+    { id: 'grad-ma-gender-studies', name: 'M.A. - Gender Studies', growthRate: 7, avgFee: 45000, avgSalary: 450000, alternatives: [
+        { name: 'Master of Social Work (MSW)', growthRate: 7, avgFee: 40000, avgSalary: 380000 },
+        { name: 'Policy Analyst (Gender & Inclusivity)', growthRate: 8, avgFee: 0, avgSalary: 550000 },
+        { name: 'HR Diversity & Inclusion Officer', growthRate: 9, avgFee: 0, avgSalary: 650000 }
+    ]},
+    { id: 'grad-ma-geography', name: 'M.A. - Geography', growthRate: 6, avgFee: 30000, avgSalary: 450000, alternatives: [
+        { name: 'M.Sc. in Geography / GIS', growthRate: 8, avgFee: 50000, avgSalary: 500000 },
+        { name: 'Cartographer', growthRate: 6, avgFee: 40000, avgSalary: 480000 },
+        { name: 'Urban & Regional Planner', growthRate: 8, avgFee: 100000, avgSalary: 500000 }
+    ]},
+    { id: 'grad-ma-hindi-literature', name: 'M.A. - Hindi Literature', growthRate: 5, avgFee: 15000, avgSalary: 350000, alternatives: [
+        { name: 'Official Language Officer (Rajbhasha Adhikari)', growthRate: 5, avgFee: 0, avgSalary: 600000 },
+        { name: 'Hindi Content Writer / Translator', growthRate: 10, avgFee: 20000, avgSalary: 320000 },
+        { name: 'Teacher/Professor (after B.Ed/NET)', growthRate: 6, avgFee: 40000, avgSalary: 450000 }
+    ]},
+    { id: 'grad-ma-history', name: 'M.A. - History', growthRate: 4, avgFee: 20000, avgSalary: 380000, alternatives: [
+        { name: 'M.A. in Archaeology / Museology', growthRate: 4, avgFee: 50000, avgSalary: 450000 },
+        { name: 'Archivist', growthRate: 5, avgFee: 30000, avgSalary: 420000 },
+        { name: 'Civil Services', growthRate: 2, avgFee: 100000, avgSalary: 900000 }
+    ]},
+    { id: 'grad-ma-international-relations', name: 'M.A. - International Relations', growthRate: 7, avgFee: 80000, avgSalary: 600000, alternatives: [
+        { name: 'Indian Foreign Service (IFS)', growthRate: 2, avgFee: 100000, avgSalary: 1200000 },
+        { name: 'Foreign Policy Analyst', growthRate: 6, avgFee: 0, avgSalary: 700000 },
+        { name: 'Diplomat / Embassy Staff', growthRate: 5, avgFee: 0, avgSalary: 800000 }
+    ]},
+    { id: 'grad-ma-journalism-and-mass-communication', name: 'M.A. - Journalism and Mass Communication', growthRate: 7, avgFee: 80000, avgSalary: 420000, alternatives: [
+        { name: 'Broadcast Journalist (TV/Radio)', growthRate: 6, avgFee: 0, avgSalary: 450000 },
+        { name: 'Digital Media Strategist', growthRate: 18, avgFee: 45000, avgSalary: 550000 },
+        { name: 'Corporate Communications Manager', growthRate: 9, avgFee: 0, avgSalary: 600000 }
+    ]},
+    { id: 'grad-ma-labour-studies', name: 'M.A. - Labour Studies', growthRate: 7, avgFee: 50000, avgSalary: 500000, alternatives: [
+        { name: 'MBA in HR', growthRate: 8, avgFee: 450000, avgSalary: 750000 },
+        { name: 'Industrial Relations Manager', growthRate: 6, avgFee: 0, avgSalary: 650000 },
+        { name: 'Labour Law Officer', growthRate: 6, avgFee: 0, avgSalary: 600000 }
+    ]},
+    { id: 'grad-ma-linguistics', name: 'M.A. - Linguistics', growthRate: 6, avgFee: 30000, avgSalary: 480000, alternatives: [
+        { name: 'Computational Linguist (NLP)', growthRate: 15, avgFee: 100000, avgSalary: 700000 },
+        { name: 'Translator / Interpreter', growthRate: 8, avgFee: 0, avgSalary: 600000 },
+        { name: 'Speech Therapist (with further study)', growthRate: 9, avgFee: 80000, avgSalary: 500000 }
+    ]},
+    { id: 'grad-ma-music', name: 'M.A. - Music', growthRate: 6, avgFee: 50000, avgSalary: 320000, alternatives: [
+        { name: 'Music Therapist', growthRate: 8, avgFee: 60000, avgSalary: 350000 },
+        { name: 'Music Composer / Producer', growthRate: 9, avgFee: 120000, avgSalary: 400000 },
+        { name: 'Music Teacher / Professor', growthRate: 6, avgFee: 40000, avgSalary: 380000 }
+    ]},
+    { id: 'grad-ma-museology-and-archival-studies', name: 'M.A. - Museology and Archival Studies', growthRate: 4, avgFee: 50000, avgSalary: 420000, alternatives: [
+        { name: 'Museum Curator', growthRate: 4, avgFee: 0, avgSalary: 450000 },
+        { name: 'Archivist', growthRate: 5, avgFee: 0, avgSalary: 400000 },
+        { name: 'Heritage Manager', growthRate: 5, avgFee: 0, avgSalary: 480000 }
+    ]},
+    { id: 'grad-ma-peace-and-conflict-studies', name: 'M.A. - Peace and Conflict Studies', growthRate: 6, avgFee: 60000, avgSalary: 500000, alternatives: [
+        { name: 'M.A. in International Relations', growthRate: 7, avgFee: 80000, avgSalary: 600000 },
+        { name: 'Work in UN / International NGOs', growthRate: 5, avgFee: 0, avgSalary: 650000 },
+        { name: 'Mediator / Conflict Resolution Specialist', growthRate: 7, avgFee: 40000, avgSalary: 550000 }
+    ]},
+    { id: 'grad-ma-performing-arts', name: 'M.A. - Performing Arts', growthRate: 6, avgFee: 60000, avgSalary: 350000, alternatives: [
+        { name: 'Theatre Director / Producer', growthRate: 5, avgFee: 80000, avgSalary: 400000 },
+        { name: 'Event / Cultural Program Manager', growthRate: 10, avgFee: 80000, avgSalary: 420000 },
+        { name: 'Arts Council Administrator', growthRate: 5, avgFee: 0, avgSalary: 380000 }
+    ]},
+    { id: 'grad-ma-philosophy', name: 'M.A. - Philosophy', growthRate: 4, avgFee: 15000, avgSalary: 380000, alternatives: [
+        { name: 'Civil Services (UPSC)', growthRate: 2, avgFee: 100000, avgSalary: 900000 },
+        { name: 'Ethics Officer / Consultant', growthRate: 7, avgFee: 0, avgSalary: 600000 },
+        { name: 'Professor (after NET/PhD)', growthRate: 5, avgFee: 20000, avgSalary: 550000 }
+    ]},
+    { id: 'grad-ma-political-science', name: 'M.A. - Political Science', growthRate: 5, avgFee: 20000, avgSalary: 450000, alternatives: [
+        { name: 'Civil Services (IAS/IPS)', growthRate: 2, avgFee: 100000, avgSalary: 900000 },
+        { name: 'Public Policy Analyst', growthRate: 7, avgFee: 60000, avgSalary: 600000 },
+        { name: 'Political Campaign Manager', growthRate: 6, avgFee: 0, avgSalary: 500000 }
+    ]},
+    { id: 'grad-ma-population-studies', name: 'M.A. - Population Studies', growthRate: 6, avgFee: 30000, avgSalary: 500000, alternatives: [
+        { name: 'Demographer / Statistician', growthRate: 8, avgFee: 40000, avgSalary: 600000 },
+        { name: 'Public Health Program Manager', growthRate: 9, avgFee: 150000, avgSalary: 550000 },
+        { name: 'Market Research Analyst', growthRate: 9, avgFee: 40000, avgSalary: 500000 }
+    ]},
+    { id: 'grad-ma-psychology', name: 'M.A. - Psychology', growthRate: 9, avgFee: 50000, avgSalary: 400000, alternatives: [
+        { name: 'M.Phil in Clinical Psychology (RCI)', growthRate: 10, avgFee: 150000, avgSalary: 600000 },
+        { name: 'MBA in HR', growthRate: 8, avgFee: 450000, avgSalary: 750000 },
+        { name: 'Organizational Psychologist', growthRate: 8, avgFee: 0, avgSalary: 650000 }
+    ]},
+    { id: 'grad-ma-public-administration', name: 'M.A. - Public Administration', growthRate: 6, avgFee: 25000, avgSalary: 550000, alternatives: [
+        { name: 'Civil Services (IAS/IPS)', growthRate: 2, avgFee: 100000, avgSalary: 900000 },
+        { name: 'MBA in Public Policy', growthRate: 7, avgFee: 500000, avgSalary: 800000 },
+        { name: 'Government Scheme Manager', growthRate: 5, avgFee: 0, avgSalary: 600000 }
+    ]},
+    { id: 'grad-ma-public-policy', name: 'M.A. - Public Policy', growthRate: 7, avgFee: 200000, avgSalary: 700000, alternatives: [
+        { name: 'Policy Analyst for Think Tanks', growthRate: 7, avgFee: 0, avgSalary: 750000 },
+        { name: 'Civil Services', growthRate: 2, avgFee: 100000, avgSalary: 900000 },
+        { name: 'CSR Manager', growthRate: 9, avgFee: 0, avgSalary: 700000 }
+    ]},
+    { id: 'grad-ma-rural-development', name: 'M.A. - Rural Development', growthRate: 7, avgFee: 30000, avgSalary: 400000, alternatives: [
+        { name: 'MBA in Rural Management', growthRate: 8, avgFee: 200000, avgSalary: 600000 },
+        { name: 'NABARD / SIDBI Officer', growthRate: 6, avgFee: 10000, avgSalary: 700000 },
+        { name: 'NGO Program Manager', growthRate: 7, avgFee: 0, avgSalary: 450000 }
+    ]},
+    { id: 'grad-ma-sociology', name: 'M.A. - Sociology', growthRate: 6, avgFee: 20000, avgSalary: 400000, alternatives: [
+        { name: 'Master of Social Work (MSW)', growthRate: 7, avgFee: 40000, avgSalary: 380000 },
+        { name: 'Civil Services', growthRate: 2, avgFee: 100000, avgSalary: 900000 },
+        { name: 'Market Research Analyst (Qualitative)', growthRate: 9, avgFee: 40000, avgSalary: 500000 }
+    ]},
+    { id: 'grad-ma-social-work', name: 'M.A. - Social Work', growthRate: 7, avgFee: 40000, avgSalary: 380000, alternatives: [
+        { name: 'MSW with specialization (e.g., Medical, Psychiatric)', growthRate: 8, avgFee: 50000, avgSalary: 420000 },
+        { name: 'CSR Executive/Manager', growthRate: 9, avgFee: 0, avgSalary: 700000 },
+        { name: 'Labor Welfare Officer', growthRate: 6, avgFee: 0, avgSalary: 550000 }
+    ]},
+    { id: 'grad-ma-theatre-arts', name: 'M.A. - Theatre Arts', growthRate: 5, avgFee: 60000, avgSalary: 380000, alternatives: [
+        { name: 'Professional Actor / Director', growthRate: 6, avgFee: 0, avgSalary: 450000 },
+        { name: 'Drama Educator / Corporate Trainer', growthRate: 7, avgFee: 40000, avgSalary: 400000 },
+        { name: 'M.A. in Film Studies', growthRate: 7, avgFee: 90000, avgSalary: 400000 }
+    ]},
+    { id: 'grad-ma-translation-and-interpretation', name: 'M.A. - Translation and Interpretation', growthRate: 8, avgFee: 50000, avgSalary: 500000, alternatives: [
+        { name: 'Conference Interpreter', growthRate: 9, avgFee: 0, avgSalary: 800000 },
+        { name: 'Technical Translator', growthRate: 8, avgFee: 0, avgSalary: 600000 },
+        { name: 'Localization Specialist', growthRate: 12, avgFee: 40000, avgSalary: 550000 }
+    ]},
+    { id: 'grad-ma-womens-studies', name: 'M.A. - Women\'s Studies', growthRate: 7, avgFee: 45000, avgSalary: 450000, alternatives: [
+        { name: 'M.A. in Gender Studies', growthRate: 7, avgFee: 45000, avgSalary: 450000 },
+        { name: 'Advocacy Officer in NGOs', growthRate: 7, avgFee: 0, avgSalary: 480000 },
+        { name: 'Diversity & Inclusion Manager', growthRate: 9, avgFee: 0, avgSalary: 700000 }
+    ]},
+    { id: 'grad-master-of-social-work-msw', name: 'Master of Social Work (MSW)', growthRate: 7, avgFee: 40000, avgSalary: 380000, alternatives: [
+        { name: 'Medical & Psychiatric Social Worker', growthRate: 8, avgFee: 50000, avgSalary: 420000 },
+        { name: 'CSR Manager', growthRate: 9, avgFee: 0, avgSalary: 700000 },
+        { name: 'Child Welfare Officer', growthRate: 7, avgFee: 0, avgSalary: 450000 }
+    ]},
+    { id: 'grad-master-of-development-studies-mds', name: 'Master of Development Studies (MDS)', growthRate: 8, avgFee: 80000, avgSalary: 600000, alternatives: [
+        { name: 'Program Manager in UN/World Bank', growthRate: 7, avgFee: 0, avgSalary: 1000000 },
+        { name: 'MBA in Rural Management', growthRate: 8, avgFee: 200000, avgSalary: 600000 },
+        { name: 'Policy Analyst', growthRate: 7, avgFee: 0, avgSalary: 700000 }
+    ]},
+
+    // --- Education ---
+    { id: 'grad-master-of-education-med', name: 'Master of Education (M.Ed.)', growthRate: 6, avgFee: 40000, avgSalary: 450000, alternatives: [
+        { name: 'School Principal / Administrator', growthRate: 5, avgFee: 0, avgSalary: 600000 },
+        { name: 'Professor in B.Ed College', growthRate: 5, avgFee: 0, avgSalary: 650000 },
+        { name: 'Education Consultant', growthRate: 8, avgFee: 0, avgSalary: 550000 }
+    ]},
+    { id: 'grad-master-of-physical-education-mped', name: 'Master of Physical Education (M.P.Ed.)', growthRate: 7, avgFee: 40000, avgSalary: 420000, alternatives: [
+        { name: 'Director of Physical Education', growthRate: 6, avgFee: 0, avgSalary: 550000 },
+        { name: 'High-Performance Sports Coach', growthRate: 9, avgFee: 50000, avgSalary: 500000 },
+        { name: 'Master of Sports Management', growthRate: 10, avgFee: 80000, avgSalary: 450000 }
+    ]},
+    { id: 'grad-master-of-library-and-information-science-mlisc', name: 'Master of Library and Information Science (MLISc)', growthRate: 4, avgFee: 30000, avgSalary: 400000, alternatives: [
+        { name: 'University Librarian', growthRate: 3, avgFee: 0, avgSalary: 600000 },
+        { name: 'Digital Librarian / Archivist', growthRate: 8, avgFee: 40000, avgSalary: 480000 },
+        { name: 'Information Scientist', growthRate: 6, avgFee: 0, avgSalary: 500000 }
+    ]},
+    
+    // --- Law ---
+    { id: 'grad-master-of-laws-llm', name: 'Master of Laws (LL.M.) - General Overview', growthRate: 6, avgFee: 100000, avgSalary: 650000, alternatives: [
+        { name: 'Judicial Services (Higher Judiciary)', growthRate: 4, avgFee: 50000, avgSalary: 1500000 },
+        { name: 'Corporate Legal Advisor', growthRate: 7, avgFee: 0, avgSalary: 800000 },
+        { name: 'Professor of Law (after NET/PhD)', growthRate: 5, avgFee: 30000, avgSalary: 800000 }
+    ]},
+    { id: 'grad-llm-constitutional-law', name: 'LL.M. - Constitutional Law', growthRate: 5, avgFee: 120000, avgSalary: 700000, alternatives: [
+        { name: 'Advocate in High Court/Supreme Court', growthRate: 6, avgFee: 0, avgSalary: 800000 },
+        { name: 'Legal Advisor to Govt. Bodies', growthRate: 5, avgFee: 0, avgSalary: 750000 },
+        { name: 'Civil Services', growthRate: 2, avgFee: 100000, avgSalary: 900000 }
+    ]},
+    { id: 'grad-llm-corporate-law', name: 'LL.M. - Corporate Law', growthRate: 8, avgFee: 150000, avgSalary: 850000, alternatives: [
+        { name: 'In-House Counsel for MNCs', growthRate: 8, avgFee: 0, avgSalary: 1000000 },
+        { name: 'Company Secretary (CS)', growthRate: 9, avgFee: 15000, avgSalary: 700000 },
+        { name: 'Mergers & Acquisitions (M&A) Lawyer', growthRate: 9, avgFee: 0, avgSalary: 1200000 }
+    ]},
+    { id: 'grad-llm-criminal-law', name: 'LL.M. - Criminal Law', growthRate: 6, avgFee: 100000, avgSalary: 600000, alternatives: [
+        { name: 'Criminal Defense Lawyer', growthRate: 6, avgFee: 0, avgSalary: 700000 },
+        { name: 'Public Prosecutor', growthRate: 5, avgFee: 0, avgSalary: 800000 },
+        { name: 'Judicial Magistrate', growthRate: 4, avgFee: 50000, avgSalary: 1200000 }
+    ]},
+    { id: 'grad-llm-environmental-law', name: 'LL.M. - Environmental Law', growthRate: 9, avgFee: 130000, avgSalary: 650000, alternatives: [
+        { name: 'Environmental Lawyer (NGT)', growthRate: 8, avgFee: 0, avgSalary: 750000 },
+        { name: 'Legal Consultant for Environmental NGOs', growthRate: 8, avgFee: 0, avgSalary: 600000 },
+        { name: 'Corporate Sustainability & Legal Officer', growthRate: 10, avgFee: 0, avgSalary: 800000 }
+    ]},
+    { id: 'grad-llm-human-rights-law', name: 'LL.M. - Human Rights Law', growthRate: 7, avgFee: 120000, avgSalary: 550000, alternatives: [
+        { name: 'Human Rights Activist/Lawyer', growthRate: 6, avgFee: 0, avgSalary: 500000 },
+        { name: 'Work with UN / International Human Rights Orgs', growthRate: 6, avgFee: 0, avgSalary: 700000 },
+        { name: 'Legal Aid Counsel', growthRate: 7, avgFee: 0, avgSalary: 450000 }
+    ]},
+    { id: 'grad-llm-intellectual-property-law', name: 'LL.M. - Intellectual Property Law', growthRate: 10, avgFee: 160000, avgSalary: 800000, alternatives: [
+        { name: 'Patent/Trademark Attorney', growthRate: 10, avgFee: 0, avgSalary: 900000 },
+        { name: 'IP Consultant for Tech/Media Companies', growthRate: 11, avgFee: 0, avgSalary: 950000 },
+        { name: 'Copyright Lawyer', growthRate: 9, avgFee: 0, avgSalary: 750000 }
+    ]},
+    { id: 'grad-llm-international-law', name: 'LL.M. - International Law', growthRate: 7, avgFee: 180000, avgSalary: 850000, alternatives: [
+        { name: 'Indian Foreign Service (IFS)', growthRate: 2, avgFee: 100000, avgSalary: 1200000 },
+        { name: 'Legal Advisor in International Law Firms', growthRate: 6, avgFee: 0, avgSalary: 1000000 },
+        { name: 'Arbitration Specialist', growthRate: 8, avgFee: 0, avgSalary: 900000 }
+    ]},
+    { id: 'grad-llm-tax-law', name: 'LL.M. - Tax Law', growthRate: 8, avgFee: 140000, avgSalary: 750000, alternatives: [
+        { name: 'Tax Consultant / Lawyer', growthRate: 8, avgFee: 0, avgSalary: 850000 },
+        { name: 'Chartered Accountancy (CA)', growthRate: 10, avgFee: 20000, avgSalary: 800000 },
+        { name: 'In-house Tax Advisor for Corporates', growthRate: 9, avgFee: 0, avgSalary: 950000 }
+    ]},
+    { id: 'grad-master-of-legislative-law-ml', name: 'Master of Legislative Law (ML)', growthRate: 6, avgFee: 120000, avgSalary: 700000, alternatives: [
+        { name: 'LL.M.', growthRate: 6, avgFee: 100000, avgSalary: 650000 },
+        { name: 'Legislative Drafter / Policy Advisor', growthRate: 6, avgFee: 0, avgSalary: 750000 },
+        { name: 'Researcher in Parliamentary Affairs', growthRate: 5, avgFee: 0, avgSalary: 600000 }
+    ]},
+    
+    // --- Design ---
+    { id: 'grad-master-of-design-mdes', name: 'Master of Design (M.Des) - General Overview', growthRate: 10, avgFee: 300000, avgSalary: 800000, alternatives: [
+        { name: 'Senior Product/UI/UX Designer', growthRate: 15, avgFee: 0, avgSalary: 1200000 },
+        { name: 'Design Strategist', growthRate: 12, avgFee: 0, avgSalary: 1000000 },
+        { name: 'Ph.D. in Design', growthRate: 7, avgFee: 50000, avgSalary: 900000 }
+    ]},
+    { id: 'grad-mdes-product-design', name: 'M.Des - Product Design', growthRate: 9, avgFee: 300000, avgSalary: 850000, alternatives: [
+        { name: 'Senior Industrial Designer', growthRate: 9, avgFee: 0, avgSalary: 900000 },
+        { name: 'Automobile/Appliance Designer', growthRate: 8, avgFee: 0, avgSalary: 1000000 },
+        { name: 'M.Tech in Design Engineering', growthRate: 8, avgFee: 160000, avgSalary: 700000 }
+    ]},
+    { id: 'grad-mdes-graphic-design', name: 'M.Des - Graphic Design', growthRate: 12, avgFee: 250000, avgSalary: 700000, alternatives: [
+        { name: 'Art Director', growthRate: 10, avgFee: 0, avgSalary: 900000 },
+        { name: 'M.Des in Communication Design', growthRate: 11, avgFee: 250000, avgSalary: 750000 },
+        { name: 'Senior UI/UX Designer', growthRate: 19, avgFee: 0, avgSalary: 1200000 }
+    ]},
+    { id: 'grad-mdes-fashion-design', name: 'M.Des - Fashion Design', growthRate: 8, avgFee: 350000, avgSalary: 750000, alternatives: [
+        { name: 'Lead Fashion Designer', growthRate: 7, avgFee: 0, avgSalary: 900000 },
+        { name: 'M.Sc. in Fashion Technology', growthRate: 7, avgFee: 150000, avgSalary: 550000 },
+        { name: 'Fashion Brand Manager', growthRate: 8, avgFee: 0, avgSalary: 850000 }
+    ]},
+    { id: 'grad-mdes-textile-design', name: 'M.Des - Textile Design', growthRate: 7, avgFee: 280000, avgSalary: 650000, alternatives: [
+        { name: 'Senior Textile Designer', growthRate: 6, avgFee: 0, avgSalary: 700000 },
+        { name: 'Home Furnishing Designer', growthRate: 7, avgFee: 0, avgSalary: 600000 },
+        { name: 'M.Tech in Textile Engineering', growthRate: 6, avgFee: 100000, avgSalary: 550000 }
+    ]},
+    { id: 'grad-mdes-ceramic-and-glass-design', name: 'M.Des - Ceramic and Glass Design', growthRate: 6, avgFee: 300000, avgSalary: 600000, alternatives: [
+        { name: 'Studio Potter / Glass Artist', growthRate: 5, avgFee: 0, avgSalary: 500000 },
+        { name: 'M.Tech in Ceramic Engineering', growthRate: 6, avgFee: 150000, avgSalary: 600000 },
+        { name: 'Product Designer (Lifestyle)', growthRate: 9, avgFee: 0, avgSalary: 650000 }
+    ]},
+    { id: 'grad-mdes-animation-film-design', name: 'M.Des - Animation Film Design', growthRate: 14, avgFee: 350000, avgSalary: 800000, alternatives: [
+        { name: 'Animation Director', growthRate: 12, avgFee: 0, avgSalary: 1000000 },
+        { name: 'VFX Supervisor', growthRate: 15, avgFee: 0, avgSalary: 1200000 },
+        { name: 'Pre-production Artist (Storyboarding)', growthRate: 10, avgFee: 0, avgSalary: 600000 }
+    ]},
+    { id: 'grad-mdes-digital-game-design', name: 'M.Des - Digital Game Design', growthRate: 15, avgFee: 380000, avgSalary: 900000, alternatives: [
+        { name: 'Game Designer / Level Designer', growthRate: 14, avgFee: 0, avgSalary: 800000 },
+        { name: 'M.Tech in Game Development', growthRate: 15, avgFee: 250000, avgSalary: 850000 },
+        { name: 'M.Des in AR/VR Design', growthRate: 20, avgFee: 400000, avgSalary: 1000000 }
+    ]},
+    { id: 'grad-mdes-strategic-design-management', name: 'M.Des - Strategic Design Management', growthRate: 12, avgFee: 400000, avgSalary: 1000000, alternatives: [
+        { name: 'MBA (Marketing / Strategy)', growthRate: 9, avgFee: 600000, avgSalary: 1200000 },
+        { name: 'Design Thinking Consultant', growthRate: 15, avgFee: 0, avgSalary: 1100000 },
+        { name: 'Product Manager', growthRate: 15, avgFee: 0, avgSalary: 1400000 }
+    ]},
+    { id: 'grad-master-of-fine-arts-mfa', name: 'Master of Fine Arts (MFA)', growthRate: 6, avgFee: 70000, avgSalary: 420000, alternatives: [
+        { name: 'M.A. in Fine Arts', growthRate: 6, avgFee: 60000, avgSalary: 400000 },
+        { name: 'Professional Artist / Illustrator', growthRate: 5, avgFee: 0, avgSalary: 450000 },
+        { name: 'Art Professor', growthRate: 5, avgFee: 0, avgSalary: 600000 }
+    ]},
+    { id: 'grad-master-of-performing-arts-mpa', name: 'Master of Performing Arts (MPA)', growthRate: 6, avgFee: 70000, avgSalary: 380000, alternatives: [
+        { name: 'M.A. in Music/Dance/Theatre', growthRate: 6, avgFee: 50000, avgSalary: 350000 },
+        { name: 'Arts Festival Curator', growthRate: 7, avgFee: 0, avgSalary: 450000 },
+        { name: 'Professor of Performing Arts', growthRate: 5, avgFee: 0, avgSalary: 550000 }
+    ]},
+    { id: 'grad-master-of-visual-arts-mva', name: 'Master of Visual Arts (MVA)', growthRate: 6, avgFee: 70000, avgSalary: 420000, alternatives: [
+        { name: 'MFA (Master of Fine Arts)', growthRate: 6, avgFee: 70000, avgSalary: 420000 },
+        { name: 'Art Director (Film/Advertising)', growthRate: 8, avgFee: 0, avgSalary: 600000 },
+        { name: 'Exhibition Designer', growthRate: 7, avgFee: 0, avgSalary: 480000 }
+    ]},
+    
+    // --- Medical PG & Pharma ---
+    { id: 'grad-master-of-pharmacy-mpharm', name: 'Master of Pharmacy (M.Pharm)', growthRate: 9, avgFee: 150000, avgSalary: 550000, alternatives: [
+        { name: 'Research Scientist in Pharma R&D', growthRate: 8, avgFee: 0, avgSalary: 650000 },
+        { name: 'Drug Inspector / Regulatory Affairs', growthRate: 7, avgFee: 0, avgSalary: 700000 },
+        { name: 'MBA in Pharmaceutical Management', growthRate: 9, avgFee: 500000, avgSalary: 800000 }
+    ]},
+    { id: 'grad-master-of-public-health-mph', name: 'Master of Public Health (MPH)', growthRate: 9, avgFee: 150000, avgSalary: 550000, alternatives: [
+        { name: 'Health Policy Advisor (Govt./NGOs)', growthRate: 8, avgFee: 0, avgSalary: 650000 },
+        { name: 'Epidemiologist', growthRate: 8, avgFee: 0, avgSalary: 700000 },
+        { name: 'Master of Hospital Administration (MHA)', growthRate: 10, avgFee: 250000, avgSalary: 650000 }
+    ]},
+    { id: 'grad-master-of-science-in-clinical-research-mscr', name: 'Master of Science in Clinical Research (MSCR)', growthRate: 10, avgFee: 150000, avgSalary: 500000, alternatives: [
+        { name: 'Clinical Research Associate (CRA)', growthRate: 10, avgFee: 0, avgSalary: 550000 },
+        { name: 'M.Pharm in Pharmacology', growthRate: 9, avgFee: 150000, avgSalary: 520000 },
+        { name: 'Medical Writer', growthRate: 12, avgFee: 30000, avgSalary: 480000 }
+    ]},
+    { id: 'grad-master-of-sports-physiotherapy-msp', name: 'Master of Sports Physiotherapy (MSP)', growthRate: 11, avgFee: 200000, avgSalary: 650000, alternatives: [
+        { name: 'Physiotherapist for Sports Teams', growthRate: 10, avgFee: 0, avgSalary: 750000 },
+        { name: 'M.S. in Orthopedics (for doctors)', growthRate: 8, avgFee: 1500000, avgSalary: 1500000 },
+        { name: 'Strength & Conditioning Coach', growthRate: 10, avgFee: 50000, avgSalary: 500000 }
+    ]},
+
+    // --- PG Diplomas ---
+    { id: 'grad-post-graduate-diploma-programs', name: 'PGDM - General Overview', growthRate: 8, avgFee: 500000, avgSalary: 750000, alternatives: [
+        { name: 'MBA (Master of Business Administration)', growthRate: 8, avgFee: 400000, avgSalary: 800000 },
+        { name: 'Specialized Master\'s Degree (e.g., MFM, MHRM)', growthRate: 8, avgFee: 200000, avgSalary: 750000 },
+        { name: 'Industry-Specific Certification (e.g., CFA, PMP)', growthRate: 10, avgFee: 100000, avgSalary: 900000 }
+    ]},
+    { id: 'grad-pgdm-business-analytics', name: 'PGDM in Business Analytics', growthRate: 15, avgFee: 400000, avgSalary: 900000, alternatives: [
+        { name: 'MBA in Business Analytics', growthRate: 15, avgFee: 600000, avgSalary: 1100000 },
+        { name: 'M.Sc. in Data Science', growthRate: 20, avgFee: 150000, avgSalary: 800000 },
+        { name: 'Business Analyst Role', growthRate: 15, avgFee: 0, avgSalary: 850000 }
+    ]},
+    { id: 'grad-pgdm-data-science', name: 'PGDM in Data Science', growthRate: 20, avgFee: 300000, avgSalary: 700000, alternatives: [
+        { name: 'M.Tech in Data Science', growthRate: 20, avgFee: 250000, avgSalary: 1100000 },
+        { name: 'M.Sc. in Data Science', growthRate: 20, avgFee: 150000, avgSalary: 800000 },
+        { name: 'Data Scientist Role', growthRate: 22, avgFee: 0, avgSalary: 1000000 }
+    ]},
+    { id: 'grad-pgdm-digital-marketing', name: 'PGDM in Digital Marketing', growthRate: 20, avgFee: 250000, avgSalary: 600000, alternatives: [
+        { name: 'MBA in Marketing', growthRate: 9, avgFee: 500000, avgSalary: 850000 },
+        { name: 'SEO/SEM Manager', growthRate: 18, avgFee: 0, avgSalary: 700000 },
+        { name: 'Social Media Strategist', growthRate: 19, avgFee: 0, avgSalary: 650000 }
+    ]},
+    { id: 'grad-pgdca', name: 'PG Diploma in Computer Applications (PGDCA)', growthRate: 14, avgFee: 40000, avgSalary: 350000, alternatives: [
+        { name: 'MCA (Master of Computer Applications)', growthRate: 15, avgFee: 100000, avgSalary: 600000 },
+        { name: 'M.Sc. in IT/CS', growthRate: 16, avgFee: 80000, avgSalary: 600000 },
+        { name: 'Junior Software Developer', growthRate: 18, avgFee: 0, avgSalary: 400000 }
+    ]},
+    // NOTE: Many PGDM and PG Diploma courses are direct alternatives to their Master's counterparts.
+    // The mappings below reflect the most common alternatives.
+    // A generic alternative for any PGDM is always an MBA in the same field.
+
+    // --- Professional Certifications ---
+    { id: 'grad-cert-ca', name: 'Chartered Accountancy (CA)', growthRate: 10, avgFee: 20000, avgSalary: 800000, alternatives: [
+        { name: 'CMA (Cost and Management Accountancy)', growthRate: 9, avgFee: 50000, avgSalary: 700000 },
+        { name: 'CS (Company Secretary)', growthRate: 9, avgFee: 15000, avgSalary: 650000 },
+        { name: 'MBA in Finance', growthRate: 9, avgFee: 500000, avgSalary: 900000 }
+    ]},
+    { id: 'grad-cert-cs', name: 'Company Secretary (CS)', growthRate: 9, avgFee: 15000, avgSalary: 650000, alternatives: [
+        { name: 'LL.B. / LL.M. in Corporate Law', growthRate: 8, avgFee: 150000, avgSalary: 850000 },
+        { name: 'CA (Chartered Accountancy)', growthRate: 10, avgFee: 20000, avgSalary: 800000 },
+        { name: 'Corporate Governance Officer', growthRate: 8, avgFee: 0, avgSalary: 750000 }
+    ]},
+    { id: 'grad-cert-cma-india', name: 'Cost and Management Accountancy (CMA - India)', growthRate: 9, avgFee: 50000, avgSalary: 700000, alternatives: [
+        { name: 'CA (Chartered Accountancy)', growthRate: 10, avgFee: 20000, avgSalary: 800000 },
+        { name: 'MBA in Finance/Operations', growthRate: 9, avgFee: 500000, avgSalary: 900000 },
+        { name: 'Cost Controller / Analyst', growthRate: 8, avgFee: 0, avgSalary: 750000 }
+    ]},
+    { id: 'grad-cert-cfa', name: 'Chartered Financial Analyst (CFA)', growthRate: 10, avgFee: 100000, avgSalary: 950000, alternatives: [
+        { name: 'MBA in Finance', growthRate: 9, avgFee: 500000, avgSalary: 900000 },
+        { name: 'Investment Banker', growthRate: 9, avgFee: 100000, avgSalary: 1500000 },
+        { name: 'Equity Research Analyst', growthRate: 12, avgFee: 70000, avgSalary: 800000 }
+    ]},
+    // Simplified remaining entries as the pattern is established.
+    { id: 'grad-cert-cpa', name: 'Certified Public Accountant (CPA)', growthRate: 8, avgFee: 150000, avgSalary: 1000000, alternatives: [ { name: 'CA (India)', growthRate: 10, avgFee: 20000, avgSalary: 800000 }, { name: 'MBA Finance', growthRate: 9, avgFee: 500000, avgSalary: 900000 } ]},
+    { id: 'grad-cert-frm', name: 'Financial Risk Manager (FRM)', growthRate: 9, avgFee: 80000, avgSalary: 850000, alternatives: [ { name: 'CFA', growthRate: 10, avgFee: 100000, avgSalary: 950000 }, { name: 'Risk Analyst in a Bank', growthRate: 9, avgFee: 0, avgSalary: 900000 } ]},
+    { id: 'grad-cert-medical-coding', name: 'Medical Coding Certification', growthRate: 12, avgFee: 40000, avgSalary: 350000, alternatives: [ { name: 'Medical Transcription', growthRate: 7, avgFee: 30000, avgSalary: 300000 }, { name: 'B.Pharm / B.Sc. Biology', growthRate: 9, avgFee: 80000, avgSalary: 400000 } ]}
+];
+
+
+// --- UI LOGIC (UNCHANGED, BUT REQUIRED FOR COMPLETENESS) ---
+
+document.addEventListener('DOMContentLoaded', () => {
+    const careerSelect = document.getElementById('career-choice');
+    
+    // Create a temporary list of just names and IDs to sort
+    let courseList = courseData.map(course => ({id: course.id, name: course.name}));
+    
+    // Sort the list alphabetically by name
+    courseList.sort((a, b) => a.name.localeCompare(b.name));
+    
+    // Populate the dropdown in the sorted order
+    courseList.forEach(course => {
+        const option = document.createElement('option');
+        option.value = course.id;
+        option.textContent = course.name;
+        careerSelect.appendChild(option);
+    });
+    
+    careerSelect.addEventListener('change', handleCareerSelection);
+});
+
+function handleCareerSelection(event) {
+    const selectedCourseId = event.target.value;
+    const resultsContainer = document.getElementById('results-container');
+    if (!selectedCourseId) {
+        resultsContainer.style.display = 'none';
+        return;
+    }
+    const selectedCourse = courseData.find(c => c.id === selectedCourseId);
+    const alternatives = findAlternatives(selectedCourse);
+    displayResults(selectedCourse, alternatives); 
+}
+
+function displayResults(selectedCourse, alternatives) {
+    const resultsContainer = document.getElementById('results-container');
+    const primaryDisplayArea = document.getElementById('primary-choice-display-area');
+    const alternativesGrid = document.getElementById('alternatives-grid-area');
+    primaryDisplayArea.innerHTML = '';
+    alternativesGrid.innerHTML = '';
+
+    const primaryHTML = `
+        <div class="primary-choice-display">
+            <h3>Your Primary Choice: ${selectedCourse.name}</h3>
+            <div class="primary-stats">
+                <div class="stat">Industry Growth<br><span class="value">${selectedCourse.growthRate}% / year</span></div>
+                <div class="stat">Avg. Course Fee<br><span class="value">₹${selectedCourse.avgFee.toLocaleString('en-IN')} / year</span></div>
+                <div class="stat">Avg. Starting Salary<br><span class="value">₹${selectedCourse.avgSalary.toLocaleString('en-IN')} / year</span></div>
+            </div>
+        </div>
+    `;
+    primaryDisplayArea.innerHTML = primaryHTML;
+
+    if (alternatives.length === 0) {
+        // Find and suggest the General MBA as a fallback for many professional courses
+        const fallback = courseData.find(c => c.id === 'grad-master-of-business-administration-mba');
+        if (selectedCourse.id !== 'grad-master-of-business-administration-mba' && fallback) {
+             alternatives.push(fallback);
+        }
+    }
+
+    if (alternatives.length === 0) {
+        alternativesGrid.innerHTML = '<p style="text-align:center;">Sorry, we couldn\'t find any closely related career paths for this specific profile. Please try another selection.</p>';
+    } else {
+        alternatives.forEach(alt => {
+            const maxGrowth = Math.max(selectedCourse.growthRate, alt.growthRate, 1);
+            const maxFee = Math.max(selectedCourse.avgFee, alt.avgFee, 1);
+            const maxSalary = Math.max(selectedCourse.avgSalary, alt.avgSalary, 1);
+            const cardHTML = `
+                <div class="alternative-card">
+                    <h4>${alt.name}</h4>
+                    <div class="comparison">
+                        <div class="comparison-label"><span>Industry Growth Rate</span><div><span class="original-value">${selectedCourse.growthRate}%</span> vs <span class="alternative-value">${alt.growthRate}%</span></div></div>
+                        <div class="bar-legend"><div class="legend-dot dot-original"></div> Your Choice</div>
+                        <div class="bar-container original-bar"><div class="bar" style="width: ${(selectedCourse.growthRate / maxGrowth) * 100}%"></div></div>
+                        <div class="bar-legend"><div class="legend-dot dot-alternative"></div> Alternative</div>
+                        <div class="bar-container alternative-bar"><div class="bar" style="width: ${(alt.growthRate / maxGrowth) * 100}%"></div></div>
+                    </div>
+                    <div class="comparison">
+                        <div class="comparison-label"><span>Average Course Fee</span><div><span class="original-value">₹${selectedCourse.avgFee.toLocaleString('en-IN')}</span> vs <span class="alternative-value">₹${alt.avgFee.toLocaleString('en-IN')}</span></div></div>
+                        <div class="bar-container original-bar"><div class="bar" style="width: ${(selectedCourse.avgFee / maxFee) * 100}%"></div></div>
+                        <div class="bar-container alternative-bar"><div class="bar" style="width: ${(alt.avgFee / maxFee) * 100}%"></div></div>
+                    </div>
+                    <div class="comparison">
+                        <div class="comparison-label"><span>Average Starting Salary</span><div><span class="original-value">₹${selectedCourse.avgSalary.toLocaleString('en-IN')}</span> vs <span class="alternative-value">₹${alt.avgSalary.toLocaleString('en-IN')}</span></div></div>
+                        <div class="bar-container original-bar"><div class="bar" style="width: ${(selectedCourse.avgSalary / maxSalary) * 100}%"></div></div>
+                        <div class="bar-container alternative-bar"><div class="bar" style="width: ${(alt.avgSalary / maxSalary) * 100}%"></div></div>
+                    </div>
+                </div>`;
+            alternativesGrid.innerHTML += cardHTML;
+        });
+    }
+    resultsContainer.style.display = 'block';
+    resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,866 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alternative Career Explorer - After HSC (12th)</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧭</text></svg>">
+
+<style>
+    :root {
+        --primary-color: #4FFFB0; /* Main Aquamarine Color */
+        --dark-accent: #00b894;   /* Darker Aquamarine for contrast */
+        --light-gray: #ecf0f1;
+        --text-dark: #2c3e50;
+        --bg-white: #ffffff;
+    }
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: var(--light-gray);
+        color: var(--text-dark);
+        margin: 0;
+        padding: 20px;
+    }
+    .container {
+        max-width: 900px;
+        margin: 20px auto;
+        padding: 40px;
+        background: var(--bg-white);
+        border-radius: 15px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1), 0 6px 6px rgba(0,0,0,0.15);
+        border: 1px solid #ddd;
+    }
+    .header h1 {
+        text-align: center;
+        font-size: 3rem;
+        font-weight: 800;
+        color: var(--primary-color); /* Changed */
+        text-shadow: 
+            -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff,
+             3px 3px 0px var(--dark-accent); /* Changed */
+        margin-bottom: 10px;
+    }
+    .header p {
+        text-align: center;
+        font-size: 1.1rem;
+        color: #7f8c8d;
+        margin-bottom: 40px;
+    }
+    .input-section { margin-bottom: 40px; }
+    .input-section label {
+        display: block;
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--primary-color); /* Changed */
+    }
+    #career-choice {
+        width: 100%;
+        padding: 15px;
+        font-size: 1.1rem;
+        font-family: 'Poppins', sans-serif;
+        border: 2px solid #bdc3c7;
+        border-radius: 8px;
+        background-color: #fff;
+        cursor: pointer;
+        appearance: none;
+        background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%234FFFB0%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'); /* Changed */
+        background-repeat: no-repeat;
+        background-position: right 15px top 50%;
+        background-size: 14px;
+    }
+    #results-container {
+        display: none;
+        border-top: 2px dashed var(--primary-color); /* Changed */
+        padding-top: 30px;
+    }
+    #results-container h2 {
+        color: var(--primary-color); /* Changed */
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .primary-choice-display {
+        background: #e4fff5; /* Light aquamarine background */
+        border-left: 5px solid var(--primary-color); /* Changed */
+        padding: 20px;
+        margin-bottom: 30px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+    .primary-choice-display h3 { margin: 0 0 10px 0; color: var(--dark-accent); font-size: 1.4rem; } /* Changed */
+    .primary-stats { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 15px; font-size: 0.95rem; }
+    .stat { text-align: center; }
+    .stat .value { font-weight: 700; font-size: 1.2rem; color: var(--text-dark); }
+    .alternatives-grid { display: grid; gap: 25px; }
+    .alternative-card {
+        background: var(--bg-white);
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 25px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .alternative-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.12); }
+    .alternative-card h4 { margin: 0 0 20px 0; font-size: 1.3rem; color: var(--primary-color); } /* Changed */
+    .comparison { margin-bottom: 15px; }
+    .comparison-label { display: flex; justify-content: space-between; font-weight: 600; margin-bottom: 8px; font-size: 0.9rem; }
+    .original-value { color: #7f8c8d; }
+    .alternative-value { color: var(--dark-accent); } /* Changed */
+    .bar-container { background-color: var(--light-gray); border-radius: 20px; height: 12px; margin-bottom: 5px; overflow: hidden; }
+    .bar { height: 100%; border-radius: 20px; transition: width 0.5s ease-in-out; }
+    .original-bar .bar { background-color: #7f8c8d; }
+    .alternative-bar .bar { background-color: var(--primary-color); } /* Changed */
+    .bar-legend { display: flex; align-items: center; font-size: 0.8rem; color: #555; }
+    .legend-dot { width: 10px; height: 10px; border-radius: 50%; margin-right: 5px; }
+    .dot-original { background-color: #7f8c8d; }
+    .dot-alternative { background-color: var(--primary-color); } /* Changed */
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>Alternative Career Explorer</h1>
+        <p>Can't pursue your dream career after HSC? Discover similar, high-potential alternatives!</p>
+    </div>
+    <div class="input-section">
+        <label for="career-choice">1. Select Your Primary Career Choice</label>
+        <select id="career-choice">
+            <option value="">-- Select a Course --</option>
+        </select>
+    </div>
+    <div id="results-container">
+        <div id="primary-choice-display-area"></div>
+        <h2>Top Alternative Career Paths</h2>
+        <div class="alternatives-grid" id="alternatives-grid-area"></div>
+    </div>
+</div>
+
+<script>
+/**
+ * ===================================================================
+ * METHOD F: The Expert Mapping Model (Final Version for HSC)
+ * ===================================================================
+ * This logic is foolproof. It does not use algorithms. It simply
+ * retrieves the pre-defined, manually curated list of alternatives
+ * for the selected course.
+ */
+function findAlternatives(selectedCourse) {
+    return selectedCourse.alternatives || []; // Return the hard-coded list
+}
+
+const courseData = [
+    // --- Medical & Pharma ---
+    { id: 'hsc-bachelor-of-medicine-bachelor-of-surgery-mbbs', name: 'Bachelor of Medicine, Bachelor of Surgery (MBBS)', growthRate: 8, avgFee: 1000000, avgSalary: 1200000, alternatives: [
+        { name: 'Bachelor of Dental Surgery (BDS)', growthRate: 8, avgFee: 400000, avgSalary: 600000 },
+        { name: 'Bachelor of Physiotherapy (BPT)', growthRate: 10, avgFee: 150000, avgSalary: 500000 },
+        { name: 'B.Sc. in Biotechnology / Microbiology', growthRate: 9, avgFee: 80000, avgSalary: 450000 }
+    ]},
+    { id: 'hsc-bachelor-of-dental-surgery-bds', name: 'Bachelor of Dental Surgery (BDS)', growthRate: 8, avgFee: 400000, avgSalary: 600000, alternatives: [
+        { name: 'Bachelor of Ayurvedic Medicine (BAMS)', growthRate: 7, avgFee: 250000, avgSalary: 500000 },
+        { name: 'B.Sc. in Nursing', growthRate: 12, avgFee: 100000, avgSalary: 400000 },
+        { name: 'Diploma in Dental Hygiene', growthRate: 10, avgFee: 90000, avgSalary: 350000 }
+    ]},
+    { id: 'hsc-bachelor-of-ayurvedic-medicine-surgery-bams', name: 'Bachelor of Ayurvedic Medicine and Surgery (BAMS)', growthRate: 7, avgFee: 250000, avgSalary: 500000, alternatives: [
+        { name: 'Bachelor of Homeopathic Medicine (BHMS)', growthRate: 7, avgFee: 200000, avgSalary: 450000 },
+        { name: 'B.Sc. in Yoga & Naturopathy', growthRate: 10, avgFee: 60000, avgSalary: 350000 },
+        { name: 'Bachelor of Pharmacy (B.Pharm)', growthRate: 11, avgFee: 120000, avgSalary: 400000 }
+    ]},
+    { id: 'hsc-bachelor-of-homeopathic-medicine-surgery-bhms', name: 'Bachelor of Homeopathic Medicine and Surgery (BHMS)', growthRate: 7, avgFee: 200000, avgSalary: 450000, alternatives: [
+        { name: 'Bachelor of Ayurvedic Medicine (BAMS)', growthRate: 7, avgFee: 250000, avgSalary: 500000 },
+        { name: 'B.Sc. in Nutrition & Dietetics', growthRate: 10, avgFee: 70000, avgSalary: 380000 },
+        { name: 'General Nursing & Midwifery (GNM)', growthRate: 12, avgFee: 80000, avgSalary: 350000 }
+    ]},
+    { id: 'hsc-bachelor-of-unani-medicine-surgery-bums', name: 'Bachelor of Unani Medicine and Surgery (BUMS)', growthRate: 6, avgFee: 180000, avgSalary: 400000, alternatives: [
+        { name: 'Bachelor of Ayurvedic Medicine (BAMS)', growthRate: 7, avgFee: 250000, avgSalary: 500000 },
+        { name: 'Bachelor of Homeopathic Medicine (BHMS)', growthRate: 7, avgFee: 200000, avgSalary: 450000 },
+        { name: 'Diploma in Pharmacy (D.Pharm)', growthRate: 9, avgFee: 90000, avgSalary: 300000 }
+    ]},
+    { id: 'hsc-bachelor-of-veterinary-science-animal-husbandry-bvsc-ah', name: 'Bachelor of Veterinary Science & Animal Husbandry (BVSc & AH)', growthRate: 8, avgFee: 150000, avgSalary: 600000, alternatives: [
+        { name: 'B.Sc. in Animal Husbandry', growthRate: 6, avgFee: 60000, avgSalary: 350000 },
+        { name: 'B.Sc. in Zoology', growthRate: 5, avgFee: 30000, avgSalary: 300000 },
+        { name: 'Veterinary Pharmacy', growthRate: 7, avgFee: 70000, avgSalary: 320000 }
+    ]},
+    { id: 'hsc-bachelor-of-physiotherapy-bpt', name: 'Bachelor of Physiotherapy (BPT)', growthRate: 10, avgFee: 150000, avgSalary: 500000, alternatives: [
+        { name: 'Bachelor of Occupational Therapy (BOT)', growthRate: 9, avgFee: 140000, avgSalary: 450000 },
+        { name: 'B.Sc. in Sports Science', growthRate: 9, avgFee: 80000, avgSalary: 400000 },
+        { name: 'Diploma in Physical Education', growthRate: 7, avgFee: 35000, avgSalary: 320000 }
+    ]},
+    { id: 'hsc-bachelor-of-occupational-therapy-bot', name: 'Bachelor of Occupational Therapy (BOT)', growthRate: 9, avgFee: 140000, avgSalary: 450000, alternatives: [
+        { name: 'Bachelor of Physiotherapy (BPT)', growthRate: 10, avgFee: 150000, avgSalary: 500000 },
+        { name: 'B.A. in Psychology / B.Sc. in Psychology', growthRate: 8, avgFee: 40000, avgSalary: 350000 },
+        { name: 'Diploma in Special Education', growthRate: 10, avgFee: 45000, avgSalary: 320000 }
+    ]},
+    { id: 'hsc-bachelor-of-pharmacy-bpharm', name: 'Bachelor of Pharmacy (B.Pharm)', growthRate: 11, avgFee: 120000, avgSalary: 400000, alternatives: [
+        { name: 'B.Sc. in Chemistry / Biotechnology', growthRate: 8, avgFee: 60000, avgSalary: 380000 },
+        { name: 'Medical Representative', growthRate: 9, avgFee: 30000, avgSalary: 350000 },
+        { name: 'Pharmaceutical Production / QA', growthRate: 8, avgFee: 50000, avgSalary: 360000 }
+    ]},
+    { id: 'hsc-bsc-in-nursing', name: 'B.Sc. in Nursing', growthRate: 12, avgFee: 100000, avgSalary: 400000, alternatives: [
+        { name: 'General Nursing & Midwifery (GNM)', growthRate: 12, avgFee: 80000, avgSalary: 350000 },
+        { name: 'B.Sc. in Medical Lab Technology (MLT)', growthRate: 11, avgFee: 75000, avgSalary: 380000 },
+        { name: 'Hospital Administration (BHA)', growthRate: 9, avgFee: 90000, avgSalary: 420000 }
+    ]},
+
+
+     // --- Science ---
+    { id: 'hsc-bachelor-of-science-bsc-in-agriculture', name: 'Bachelor of Science (B.Sc.) in Agriculture', growthRate: 7, avgFee: 50000, avgSalary: 450000, alternatives: [
+        { name: 'B.Tech in Agricultural Engineering', growthRate: 8, avgFee: 70000, avgSalary: 480000 },
+        { name: 'B.Sc. in Horticulture / Forestry', growthRate: 7, avgFee: 50000, avgSalary: 400000 },
+        { name: 'Agribusiness Management (MBA)', growthRate: 9, avgFee: 250000, avgSalary: 700000 }
+    ]},
+    { id: 'hsc-bsc-in-biochemistry', name: 'B.Sc. in Biochemistry', growthRate: 8, avgFee: 60000, avgSalary: 380000, alternatives: [
+        { name: 'B.Sc. in Microbiology / Biotechnology', growthRate: 9, avgFee: 65000, avgSalary: 400000 },
+        { name: 'Medical Lab Technician (MLT)', growthRate: 11, avgFee: 75000, avgSalary: 340000 },
+        { name: 'B.Pharm', growthRate: 11, avgFee: 120000, avgSalary: 400000 }
+    ]},
+    { id: 'hsc-bsc-in-biology', name: 'B.Sc. in Biology', growthRate: 6, avgFee: 30000, avgSalary: 300000, alternatives: [
+        { name: 'B.Sc. in Zoology / Botany', growthRate: 5, avgFee: 30000, avgSalary: 300000 },
+        { name: 'B.Sc. in Biotechnology', growthRate: 9, avgFee: 80000, avgSalary: 450000 },
+        { name: 'Teacher (B.Ed)', growthRate: 6, avgFee: 40000, avgSalary: 350000 }
+    ]},
+    { id: 'hsc-bsc-in-biotechnology', name: 'B.Sc. in Biotechnology', growthRate: 9, avgFee: 80000, avgSalary: 450000, alternatives: [
+        { name: 'B.Tech in Biotechnology', growthRate: 9, avgFee: 160000, avgSalary: 550000 },
+        { name: 'B.Sc. in Microbiology / Genetics', growthRate: 9, avgFee: 70000, avgSalary: 420000 },
+        { name: 'Clinical Research Associate', growthRate: 10, avgFee: 50000, avgSalary: 400000 }
+    ]},
+    { id: 'hsc-bsc-in-botany', name: 'B.Sc. in Botany', growthRate: 5, avgFee: 30000, avgSalary: 300000, alternatives: [
+        { name: 'B.Sc. in Agriculture / Horticulture', growthRate: 7, avgFee: 50000, avgSalary: 450000 },
+        { name: 'Plant Scientist / Ecologist', growthRate: 6, avgFee: 0, avgSalary: 380000 },
+        { name: 'Teacher (B.Ed)', growthRate: 6, avgFee: 40000, avgSalary: 350000 }
+    ]},
+    { id: 'hsc-bsc-in-chemistry', name: 'B.Sc. in Chemistry', growthRate: 6, avgFee: 40000, avgSalary: 380000, alternatives: [
+        { name: 'B.Tech in Chemical Engineering', growthRate: 7, avgFee: 150000, avgSalary: 600000 },
+        { name: 'Pharmaceutical Lab Analyst', growthRate: 9, avgFee: 50000, avgSalary: 350000 },
+        { name: 'Industrial Quality Control', growthRate: 8, avgFee: 45000, avgSalary: 360000 }
+    ]},
+    { id: 'hsc-bsc-in-computer-science', name: 'B.Sc. in Computer Science', growthRate: 17, avgFee: 50000, avgSalary: 480000, alternatives: [
+        { name: 'B.Tech in Computer Science', growthRate: 18, avgFee: 180000, avgSalary: 650000 },
+        { name: 'BCA (Bachelor of Computer Applications)', growthRate: 16, avgFee: 60000, avgSalary: 450000 },
+        { name: 'Data Analyst / Scientist', growthRate: 20, avgFee: 90000, avgSalary: 700000 }
+    ]},
+    { id: 'hsc-bsc-in-data-science', name: 'B.Sc. in Data Science', growthRate: 20, avgFee: 100000, avgSalary: 700000, alternatives: [
+        { name: 'B.Tech in AI & Machine Learning', growthRate: 22, avgFee: 200000, avgSalary: 800000 },
+        { name: 'B.Sc. in Statistics', growthRate: 8, avgFee: 30000, avgSalary: 500000 },
+        { name: 'Business Analyst', growthRate: 15, avgFee: 50000, avgSalary: 600000 }
+    ]},
+    { id: 'hsc-bsc-in-dietetics-nutrition', name: 'B.Sc. in Dietetics and Nutrition', growthRate: 10, avgFee: 70000, avgSalary: 380000, alternatives: [
+        { name: 'Clinical Dietitian', growthRate: 9, avgFee: 0, avgSalary: 400000 },
+        { name: 'Sports Nutritionist', growthRate: 11, avgFee: 80000, avgSalary: 450000 },
+        { name: 'B.Sc. in Food Technology', growthRate: 8, avgFee: 70000, avgSalary: 420000 }
+    ]},
+    { id: 'hsc-bsc-in-electronics', name: 'B.Sc. in Electronics', growthRate: 8, avgFee: 45000, avgSalary: 420000, alternatives: [
+        { name: 'B.Tech in Electronics & Communication', growthRate: 12, avgFee: 140000, avgSalary: 580000 },
+        { name: 'Hardware & Service Engineer', growthRate: 7, avgFee: 40000, avgSalary: 350000 },
+        { name: 'Embedded Systems Developer', growthRate: 16, avgFee: 80000, avgSalary: 500000 }
+    ]},
+    { id: 'hsc-bsc-in-environmental-science', name: 'B.Sc. in Environmental Science', growthRate: 9, avgFee: 55000, avgSalary: 420000, alternatives: [
+        { name: 'B.Tech in Environmental Engineering', growthRate: 10, avgFee: 150000, avgSalary: 550000 },
+        { name: 'Sustainability Consultant', growthRate: 12, avgFee: 80000, avgSalary: 500000 },
+        { name: 'Waste Management Officer', growthRate: 8, avgFee: 40000, avgSalary: 380000 }
+    ]},
+    { id: 'hsc-bsc-in-food-technology', name: 'B.Sc. in Food Technology', growthRate: 8, avgFee: 70000, avgSalary: 420000, alternatives: [
+        { name: 'B.Tech in Food Technology', growthRate: 8, avgFee: 120000, avgSalary: 500000 },
+        { name: 'Food Quality Assurance Officer', growthRate: 9, avgFee: 45000, avgSalary: 400000 },
+        { name: 'B.Sc. in Nutrition & Dietetics', growthRate: 10, avgFee: 70000, avgSalary: 380000 }
+    ]},
+    { id: 'hsc-bsc-in-forensic-science', name: 'B.Sc. in Forensic Science', growthRate: 10, avgFee: 80000, avgSalary: 450000, alternatives: [
+        { name: 'Forensic Lab Technician', growthRate: 9, avgFee: 60000, avgSalary: 400000 },
+        { name: 'B.Sc. in Chemistry / Biology', growthRate: 6, avgFee: 30000, avgSalary: 350000 },
+        { name: 'Cyber Forensics Analyst', growthRate: 18, avgFee: 70000, avgSalary: 500000 }
+    ]},
+    { id: 'hsc-bsc-in-geology', name: 'B.Sc. in Geology', growthRate: 5, avgFee: 50000, avgSalary: 420000, alternatives: [
+        { name: 'Geologist in Mining/Oil & Gas', growthRate: 5, avgFee: 0, avgSalary: 600000 },
+        { name: 'B.Tech in Mining Engineering', growthRate: 5, avgFee: 150000, avgSalary: 550000 },
+        { name: 'Hydrogeologist', growthRate: 6, avgFee: 60000, avgSalary: 480000 }
+    ]},
+    { id: 'hsc-bsc-in-horticulture', name: 'B.Sc. in Horticulture', growthRate: 7, avgFee: 50000, avgSalary: 400000, alternatives: [
+        { name: 'B.Sc. in Agriculture', growthRate: 7, avgFee: 50000, avgSalary: 450000 },
+        { name: 'Landscape Architect', growthRate: 7, avgFee: 80000, avgSalary: 420000 },
+        { name: 'Floriculturist / Plantation Manager', growthRate: 8, avgFee: 45000, avgSalary: 380000 }
+    ]},
+    { id: 'hsc-bsc-in-information-technology-it', name: 'B.Sc. in Information Technology (IT)', growthRate: 17, avgFee: 55000, avgSalary: 460000, alternatives: [
+        { name: 'B.Tech in Information Technology', growthRate: 18, avgFee: 170000, avgSalary: 620000 },
+        { name: 'BCA (Bachelor of Computer Applications)', growthRate: 16, avgFee: 60000, avgSalary: 450000 },
+        { name: 'Software Developer', growthRate: 18, avgFee: 40000, avgSalary: 500000 }
+    ]},
+    { id: 'hsc-bsc-in-mathematics', name: 'B.Sc. in Mathematics', growthRate: 7, avgFee: 25000, avgSalary: 450000, alternatives: [
+        { name: 'B.Sc. in Statistics', growthRate: 8, avgFee: 30000, avgSalary: 500000 },
+        { name: 'Data Analyst', growthRate: 20, avgFee: 90000, avgSalary: 700000 },
+        { name: 'Actuarial Science', growthRate: 10, avgFee: 100000, avgSalary: 800000 }
+    ]},
+    { id: 'hsc-bsc-in-medical-laboratory-technology-mlt', name: 'B.Sc. in Medical Laboratory Technology (MLT)', growthRate: 11, avgFee: 75000, avgSalary: 380000, alternatives: [
+        { name: 'B.Sc. in Radiography / Imaging Technology', growthRate: 10, avgFee: 85000, avgSalary: 400000 },
+        { name: 'B.Sc. in Microbiology', growthRate: 9, avgFee: 70000, avgSalary: 420000 },
+        { name: 'Pathology Lab Manager', growthRate: 9, avgFee: 0, avgSalary: 450000 }
+    ]},
+    { id: 'hsc-bsc-in-microbiology', name: 'B.Sc. in Microbiology', growthRate: 9, avgFee: 70000, avgSalary: 420000, alternatives: [
+        { name: 'B.Sc. in Biotechnology', growthRate: 9, avgFee: 80000, avgSalary: 450000 },
+        { name: 'Clinical Research', growthRate: 10, avgFee: 50000, avgSalary: 400000 },
+        { name: 'Quality Control in Pharma/Food', growthRate: 8, avgFee: 45000, avgSalary: 380000 }
+    ]},
+    { id: 'hsc-bsc-in-nautical-science', name: 'B.Sc. in Nautical Science', growthRate: 6, avgFee: 250000, avgSalary: 800000, alternatives: [
+        { name: 'B.Tech in Marine Engineering', growthRate: 7, avgFee: 200000, avgSalary: 750000 },
+        { name: 'Deck Cadet in Merchant Navy', growthRate: 5, avgFee: 300000, avgSalary: 600000 },
+        { name: 'Port Management', growthRate: 8, avgFee: 80000, avgSalary: 500000 }
+    ]},
+    { id: 'hsc-bsc-in-optometry', name: 'B.Sc. in Optometry', growthRate: 11, avgFee: 100000, avgSalary: 450000, alternatives: [
+        { name: 'Ophthalmic Assistant', growthRate: 11, avgFee: 70000, avgSalary: 330000 },
+        { name: 'Own Optical Store', growthRate: 9, avgFee: 50000, avgSalary: 400000 },
+        { name: 'Contact Lens Specialist', growthRate: 10, avgFee: 60000, avgSalary: 380000 }
+    ]},
+    { id: 'hsc-bsc-in-perfusion-technology', name: 'B.Sc. in Perfusion Technology', growthRate: 10, avgFee: 120000, avgSalary: 550000, alternatives: [
+        { name: 'Operation Theatre Technician', growthRate: 10, avgFee: 75000, avgSalary: 360000 },
+        { name: 'Cardiac Care Technician', growthRate: 11, avgFee: 70000, avgSalary: 340000 },
+        { name: 'B.Sc. in Nursing', growthRate: 12, avgFee: 100000, avgSalary: 400000 }
+    ]},
+    { id: 'hsc-bsc-in-physics', name: 'B.Sc. in Physics', growthRate: 6, avgFee: 30000, avgSalary: 400000, alternatives: [
+        { name: 'B.Tech in Engineering Physics', growthRate: 7, avgFee: 150000, avgSalary: 550000 },
+        { name: 'Research Assistant (Physics Lab)', growthRate: 5, avgFee: 0, avgSalary: 350000 },
+        { name: 'Teacher (B.Ed)', growthRate: 6, avgFee: 40000, avgSalary: 350000 }
+    ]},
+    { id: 'hsc-bsc-in-radiography-imaging-technology', name: 'B.Sc. in Radiography and Imaging Technology', growthRate: 10, avgFee: 85000, avgSalary: 400000, alternatives: [
+        { name: 'Radiologist Assistant', growthRate: 9, avgFee: 60000, avgSalary: 380000 },
+        { name: 'MRI / CT Scan Technologist', growthRate: 11, avgFee: 90000, avgSalary: 420000 },
+        { name: 'Sonographer', growthRate: 10, avgFee: 80000, avgSalary: 410000 }
+    ]},
+    { id: 'hsc-bsc-in-statistics', name: 'B.Sc. in Statistics', growthRate: 8, avgFee: 30000, avgSalary: 500000, alternatives: [
+        { name: 'B.Sc. in Data Science', growthRate: 20, avgFee: 100000, avgSalary: 700000 },
+        { name: 'Actuarial Science', growthRate: 10, avgFee: 100000, avgSalary: 800000 },
+        { name: 'Market Research Analyst', growthRate: 9, avgFee: 40000, avgSalary: 480000 }
+    ]},
+    { id: 'hsc-bsc-in-zoology', name: 'B.Sc. in Zoology', growthRate: 5, avgFee: 30000, avgSalary: 300000, alternatives: [
+        { name: 'B.Sc. in Veterinary Science (BVSc)', growthRate: 8, avgFee: 150000, avgSalary: 600000 },
+        { name: 'Wildlife Conservationist', growthRate: 6, avgFee: 50000, avgSalary: 350000 },
+        { name: 'Teacher (B.Ed)', growthRate: 6, avgFee: 40000, avgSalary: 350000 }
+    ]},
+
+    // --- Engineering & Tech ---
+    { id: 'hsc-bachelor-of-technology-btech-bachelor-of-engineering-be-in-aeronautical-engineering', name: 'B.Tech./B.E. in Aeronautical Engineering', growthRate: 12, avgFee: 200000, avgSalary: 700000, alternatives: [
+        { name: 'B.Tech in Mechanical Engineering', growthRate: 8, avgFee: 150000, avgSalary: 550000 },
+        { name: 'Aircraft Maintenance Engineering (AME)', growthRate: 9, avgFee: 400000, avgSalary: 600000 },
+        { name: 'Career in Defense/Air Force', growthRate: 5, avgFee: 0, avgSalary: 800000 }
+    ]},
+    { id: 'hsc-btech-be-in-agricultural-engineering', name: 'B.Tech./B.E. in Agricultural Engineering', growthRate: 8, avgFee: 130000, avgSalary: 500000, alternatives: [
+        { name: 'B.Sc. in Agriculture', growthRate: 7, avgFee: 50000, avgSalary: 450000 },
+        { name: 'B.Tech in Food Technology', growthRate: 8, avgFee: 120000, avgSalary: 500000 },
+        { name: 'Irrigation Engineer', growthRate: 7, avgFee: 0, avgSalary: 550000 }
+    ]},
+    { id: 'hsc-btech-be-in-artificial-intelligence-machine-learning', name: 'B.Tech./B.E. in Artificial Intelligence and Machine Learning', growthRate: 22, avgFee: 200000, avgSalary: 800000, alternatives: [
+        { name: 'B.Tech in Computer Science', growthRate: 18, avgFee: 180000, avgSalary: 650000 },
+        { name: 'B.Sc. in Data Science', growthRate: 20, avgFee: 100000, avgSalary: 700000 },
+        { name: 'Robotics Engineer', growthRate: 18, avgFee: 180000, avgSalary: 650000 }
+    ]},
+    { id: 'hsc-btech-be-in-automobile-engineering', name: 'B.Tech./B.E. in Automobile Engineering', growthRate: 9, avgFee: 160000, avgSalary: 600000, alternatives: [
+        { name: 'B.Tech in Mechanical Engineering', growthRate: 8, avgFee: 150000, avgSalary: 550000 },
+        { name: 'Electric Vehicle (EV) Design Engineer', growthRate: 25, avgFee: 180000, avgSalary: 650000 },
+        { name: 'Automotive Designer (CAD)', growthRate: 8, avgFee: 80000, avgSalary: 500000 }
+    ]},
+    { id: 'hsc-btech-be-in-biomedical-engineering', name: 'B.Tech./B.E. in Biomedical Engineering', growthRate: 11, avgFee: 180000, avgSalary: 620000, alternatives: [
+        { name: 'B.Tech in Electronics Engineering', growthRate: 12, avgFee: 140000, avgSalary: 580000 },
+        { name: 'Medical Equipment Design Engineer', growthRate: 10, avgFee: 150000, avgSalary: 600000 },
+        { name: 'Hospital Bio-Medical Maintenance Engineer', growthRate: 9, avgFee: 0, avgSalary: 500000 }
+    ]},
+    { id: 'hsc-btech-be-in-biotechnology-engineering', name: 'B.Tech./B.E. in Biotechnology Engineering', growthRate: 9, avgFee: 160000, avgSalary: 550000, alternatives: [
+        { name: 'B.Sc. in Biotechnology', growthRate: 9, avgFee: 80000, avgSalary: 450000 },
+        { name: 'B.Pharm', growthRate: 11, avgFee: 120000, avgSalary: 400000 },
+        { name: 'Clinical Research Scientist', growthRate: 10, avgFee: 60000, avgSalary: 500000 }
+    ]},
+    { id: 'hsc-btech-be-in-ceramic-engineering', name: 'B.Tech./B.E. in Ceramic Engineering', growthRate: 6, avgFee: 140000, avgSalary: 500000, alternatives: [
+        { name: 'B.Tech in Materials Science', growthRate: 7, avgFee: 150000, avgSalary: 580000 },
+        { name: 'B.Tech in Chemical Engineering', growthRate: 7, avgFee: 150000, avgSalary: 600000 },
+        { name: 'Glass/Refractory Industry Professional', growthRate: 5, avgFee: 0, avgSalary: 450000 }
+    ]},
+    { id: 'hsc-btech-be-in-chemical-engineering', name: 'B.Tech./B.E. in Chemical Engineering', growthRate: 7, avgFee: 150000, avgSalary: 600000, alternatives: [
+        { name: 'B.Sc. in Chemistry', growthRate: 6, avgFee: 40000, avgSalary: 380000 },
+        { name: 'B.Tech in Petroleum Engineering', growthRate: 5, avgFee: 180000, avgSalary: 650000 },
+        { name: 'Process Engineer in FMCG/Pharma', growthRate: 8, avgFee: 0, avgSalary: 550000 }
+    ]},
+    { id: 'hsc-btech-be-in-civil-engineering', name: 'B.Tech./B.E. in Civil Engineering', growthRate: 8, avgFee: 150000, avgSalary: 580000, alternatives: [
+        { name: 'Bachelor of Architecture (B.Arch)', growthRate: 8, avgFee: 200000, avgSalary: 600000 },
+        { name: 'Project Management Professional (PMP)', growthRate: 9, avgFee: 40000, avgSalary: 700000 },
+        { name: 'Govt. Civil Engineer (IES)', growthRate: 5, avgFee: 10000, avgSalary: 800000 }
+    ]},
+    { id: 'hsc-btech-be-in-computer-engineering', name: 'B.Tech./B.E. in Computer Engineering', growthRate: 18, avgFee: 180000, avgSalary: 650000, alternatives: [
+        { name: 'B.Tech in IT / Software Engineering', growthRate: 18, avgFee: 170000, avgSalary: 620000 },
+        { name: 'BCA + MCA', growthRate: 16, avgFee: 80000, avgSalary: 600000 },
+        { name: 'B.Tech in AI & Machine Learning', growthRate: 22, avgFee: 200000, avgSalary: 800000 }
+    ]},
+    { id: 'hsc-btech-be-in-computer-science-engineering-cse', name: 'B.Tech./B.E. in Computer Science and Engineering (CSE)', growthRate: 18, avgFee: 180000, avgSalary: 650000, alternatives: [
+        { name: 'B.Tech in Information Technology', growthRate: 18, avgFee: 170000, avgSalary: 620000 },
+        { name: 'B.Tech in AI & Data Science', growthRate: 22, avgFee: 200000, avgSalary: 800000 },
+        { name: 'Full-Stack Web Development', growthRate: 16, avgFee: 100000, avgSalary: 550000 }
+    ]},
+    { id: 'hsc-btech-be-in-cyber-security', name: 'B.Tech./B.E. in Cyber Security', growthRate: 22, avgFee: 200000, avgSalary: 750000, alternatives: [
+        { name: 'B.Tech in Computer Science', growthRate: 18, avgFee: 180000, avgSalary: 650000 },
+        { name: 'Certified Ethical Hacker (CEH)', growthRate: 21, avgFee: 65000, avgSalary: 600000 },
+        { name: 'Network Security Engineer', growthRate: 18, avgFee: 55000, avgSalary: 500000 }
+    ]},
+    { id: 'hsc-btech-be-in-electrical-electronics-engineering-eee', name: 'B.Tech./B.E. in Electrical and Electronics Engineering (EEE)', growthRate: 10, avgFee: 150000, avgSalary: 580000, alternatives: [
+        { name: 'B.Tech in Electronics & Communication', growthRate: 12, avgFee: 140000, avgSalary: 580000 },
+        { name: 'B.Tech in Instrumentation Engineering', growthRate: 8, avgFee: 130000, avgSalary: 520000 },
+        { name: 'Power Systems Engineer', growthRate: 8, avgFee: 0, avgSalary: 600000 }
+    ]},
+    { id: 'hsc-btech-be-in-electrical-engineering', name: 'B.Tech./B.E. in Electrical Engineering', growthRate: 9, avgFee: 140000, avgSalary: 560000, alternatives: [
+        { name: 'B.Tech in Electrical & Electronics (EEE)', growthRate: 10, avgFee: 150000, avgSalary: 580000 },
+        { name: 'Control Systems Engineer', growthRate: 8, avgFee: 130000, avgSalary: 550000 },
+        { name: 'Renewable Energy Engineer', growthRate: 15, avgFee: 160000, avgSalary: 600000 }
+    ]},
+    { id: 'hsc-btech-be-in-electronics-communication-engineering-ece', name: 'B.Tech./B.E. in Electronics and Communication Engineering (ECE)', growthRate: 12, avgFee: 140000, avgSalary: 580000, alternatives: [
+        { name: 'B.Tech in Electrical & Electronics (EEE)', growthRate: 10, avgFee: 150000, avgSalary: 580000 },
+        { name: 'B.Tech in Computer Science', growthRate: 18, avgFee: 180000, avgSalary: 650000 },
+        { name: 'Telecommunication Engineer', growthRate: 9, avgFee: 0, avgSalary: 550000 }
+    ]},
+    { id: 'hsc-btech-be-in-electronics-engineering', name: 'B.Tech./B.E. in Electronics Engineering', growthRate: 12, avgFee: 140000, avgSalary: 580000, alternatives: [
+        { name: 'B.Tech in ECE / EEE', growthRate: 11, avgFee: 150000, avgSalary: 580000 },
+        { name: 'B.Tech in Instrumentation', growthRate: 8, avgFee: 130000, avgSalary: 520000 },
+        { name: 'Embedded Systems Engineer', growthRate: 16, avgFee: 80000, avgSalary: 600000 }
+    ]},
+    { id: 'hsc-btech-be-in-environmental-engineering', name: 'B.Tech./B.E. in Environmental Engineering', growthRate: 10, avgFee: 150000, avgSalary: 550000, alternatives: [
+        { name: 'B.Tech in Civil Engineering', growthRate: 8, avgFee: 150000, avgSalary: 580000 },
+        { name: 'M.Sc. in Environmental Science', growthRate: 9, avgFee: 70000, avgSalary: 500000 },
+        { name: 'Environmental Health & Safety Officer', growthRate: 9, avgFee: 50000, avgSalary: 480000 }
+    ]},
+    { id: 'hsc-btech-be-in-food-technology', name: 'B.Tech./B.E. in Food Technology', growthRate: 8, avgFee: 120000, avgSalary: 500000, alternatives: [
+        { name: 'B.Sc. in Food Science', growthRate: 8, avgFee: 70000, avgSalary: 420000 },
+        { name: 'Food Production Manager', growthRate: 7, avgFee: 0, avgSalary: 480000 },
+        { name: 'MBA in Agribusiness', growthRate: 9, avgFee: 250000, avgSalary: 700000 }
+    ]},
+    { id: 'hsc-btech-be-in-genetic-engineering', name: 'B.Tech./B.E. in Genetic Engineering', growthRate: 9, avgFee: 180000, avgSalary: 600000, alternatives: [
+        { name: 'B.Tech in Biotechnology', growthRate: 9, avgFee: 160000, avgSalary: 550000 },
+        { name: 'B.Sc. in Genetics / Microbiology', growthRate: 9, avgFee: 70000, avgSalary: 450000 },
+        { name: 'Research Scientist', growthRate: 8, avgFee: 0, avgSalary: 500000 }
+    ]},
+    { id: 'hsc-btech-be-in-industrial-engineering', name: 'B.Tech./B.E. in Industrial Engineering', growthRate: 8, avgFee: 130000, avgSalary: 550000, alternatives: [
+        { name: 'B.Tech in Production Engineering', growthRate: 7, avgFee: 130000, avgSalary: 520000 },
+        { name: 'B.Tech in Mechanical Engineering', growthRate: 8, avgFee: 150000, avgSalary: 550000 },
+        { name: 'Supply Chain Manager', growthRate: 10, avgFee: 55000, avgSalary: 600000 }
+    ]},
+    { id: 'hsc-btech-be-in-information-science', name: 'B.Tech./B.E. in Information Science', growthRate: 17, avgFee: 170000, avgSalary: 620000, alternatives: [
+        { name: 'B.Tech in Computer Science', growthRate: 18, avgFee: 180000, avgSalary: 650000 },
+        { name: 'B.Tech in IT', growthRate: 18, avgFee: 170000, avgSalary: 620000 },
+        { name: 'Data Analyst', growthRate: 20, avgFee: 90000, avgSalary: 700000 }
+    ]},
+    { id: 'hsc-btech-be-in-information-technology-it', name: 'B.Tech./B.E. in Information Technology (IT)', growthRate: 18, avgFee: 170000, avgSalary: 620000, alternatives: [
+        { name: 'B.Tech in Computer Science', growthRate: 18, avgFee: 180000, avgSalary: 650000 },
+        { name: 'BCA + MCA', growthRate: 16, avgFee: 80000, avgSalary: 600000 },
+        { name: 'Cloud Computing Engineer', growthRate: 20, avgFee: 70000, avgSalary: 700000 }
+    ]},
+    { id: 'hsc-btech-be-in-instrumentation-engineering', name: 'B.Tech./B.E. in Instrumentation Engineering', growthRate: 8, avgFee: 130000, avgSalary: 520000, alternatives: [
+        { name: 'B.Tech in Electronics & Communication', growthRate: 12, avgFee: 140000, avgSalary: 580000 },
+        { name: 'Process Control Engineer', growthRate: 7, avgFee: 0, avgSalary: 500000 },
+        { name: 'Automation Engineer', growthRate: 15, avgFee: 150000, avgSalary: 600000 }
+    ]},
+    { id: 'hsc-btech-be-in-marine-engineering', name: 'B.Tech./B.E. in Marine Engineering', growthRate: 7, avgFee: 200000, avgSalary: 750000, alternatives: [
+        { name: 'B.Sc. in Nautical Science', growthRate: 6, avgFee: 250000, avgSalary: 800000 },
+        { name: 'B.Tech in Mechanical Engineering', growthRate: 8, avgFee: 150000, avgSalary: 550000 },
+        { name: 'Naval Architect', growthRate: 7, avgFee: 220000, avgSalary: 700000 }
+    ]},
+    { id: 'hsc-btech-be-in-materials-science-engineering', name: 'B.Tech./B.E. in Materials Science and Engineering', growthRate: 7, avgFee: 150000, avgSalary: 580000, alternatives: [
+        { name: 'B.Tech in Metallurgical Engineering', growthRate: 6, avgFee: 140000, avgSalary: 550000 },
+        { name: 'B.Tech in Mechanical Engineering', growthRate: 8, avgFee: 150000, avgSalary: 550000 },
+        { name: 'R&D Scientist (Materials)', growthRate: 8, avgFee: 0, avgSalary: 600000 }
+    ]},
+    { id: 'hsc-btech-be-in-mechanical-engineering', name: 'B.Tech./B.E. in Mechanical Engineering', growthRate: 8, avgFee: 150000, avgSalary: 550000, alternatives: [
+        { name: 'B.Tech in Production / Industrial Engineering', growthRate: 7, avgFee: 130000, avgSalary: 520000 },
+        { name: 'B.Tech in Automobile Engineering', growthRate: 9, avgFee: 160000, avgSalary: 600000 },
+        { name: 'Design Engineer (CAD/CAE)', growthRate: 9, avgFee: 60000, avgSalary: 450000 }
+    ]},
+    { id: 'hsc-btech-be-in-mechatronics-engineering', name: 'B.Tech./B.E. in Mechatronics Engineering', growthRate: 16, avgFee: 160000, avgSalary: 650000, alternatives: [
+        { name: 'B.Tech in Robotics Engineering', growthRate: 18, avgFee: 180000, avgSalary: 650000 },
+        { name: 'B.Tech in Mechanical / ECE', growthRate: 10, avgFee: 150000, avgSalary: 550000 },
+        { name: 'Automation & Controls Engineer', growthRate: 15, avgFee: 100000, avgSalary: 600000 }
+    ]},
+    { id: 'hsc-btech-be-in-metallurgical-engineering', name: 'B.Tech./B.E. in Metallurgical Engineering', growthRate: 6, avgFee: 140000, avgSalary: 550000, alternatives: [
+        { name: 'B.Tech in Materials Science', growthRate: 7, avgFee: 150000, avgSalary: 580000 },
+        { name: 'B.Tech in Mechanical Engineering', growthRate: 8, avgFee: 150000, avgSalary: 550000 },
+        { name: 'Welding Engineer', growthRate: 7, avgFee: 50000, avgSalary: 500000 }
+    ]},
+    { id: 'hsc-btech-be-in-mining-engineering', name: 'B.Tech./B.E. in Mining Engineering', growthRate: 5, avgFee: 150000, avgSalary: 550000, alternatives: [
+        { name: 'B.Tech in Civil Engineering', growthRate: 8, avgFee: 150000, avgSalary: 580000 },
+        { name: 'M.Sc. in Geology', growthRate: 5, avgFee: 60000, avgSalary: 500000 },
+        { name: 'Mine Planning Engineer', growthRate: 5, avgFee: 0, avgSalary: 600000 }
+    ]},
+    { id: 'hsc-btech-be-in-nanotechnology', name: 'B.Tech./B.E. in Nanotechnology', growthRate: 14, avgFee: 220000, avgSalary: 650000, alternatives: [
+        { name: 'B.Tech in Materials Science', growthRate: 7, avgFee: 150000, avgSalary: 580000 },
+        { name: 'M.Sc. in Physics/Chemistry', growthRate: 6, avgFee: 40000, avgSalary: 500000 },
+        { name: 'Research Scientist', growthRate: 8, avgFee: 0, avgSalary: 600000 }
+    ]},
+    { id: 'hsc-btech-be-in-nuclear-engineering', name: 'B.Tech./B.E. in Nuclear Engineering', growthRate: 5, avgFee: 250000, avgSalary: 900000, alternatives: [
+        { name: 'B.Tech in Mechanical/Electrical Engineering', growthRate: 8, avgFee: 150000, avgSalary: 550000 },
+        { name: 'M.Sc. in Nuclear Physics', growthRate: 4, avgFee: 50000, avgSalary: 700000 },
+        { name: 'BARC Scientist/Engineer', growthRate: 4, avgFee: 0, avgSalary: 1000000 }
+    ]},
+    { id: 'hsc-btech-be-in-petroleum-engineering', name: 'B.Tech./B.E. in Petroleum Engineering', growthRate: 5, avgFee: 180000, avgSalary: 650000, alternatives: [
+        { name: 'B.Tech in Chemical Engineering', growthRate: 7, avgFee: 150000, avgSalary: 600000 },
+        { name: 'B.Tech in Mechanical Engineering', growthRate: 8, avgFee: 150000, avgSalary: 550000 },
+        { name: 'Oil & Gas Field Engineer', growthRate: 4, avgFee: 0, avgSalary: 800000 }
+    ]},
+    { id: 'hsc-btech-be-in-plastic-engineering', name: 'B.Tech./B.E. in Plastic Engineering', growthRate: 7, avgFee: 130000, avgSalary: 480000, alternatives: [
+        { name: 'B.Tech in Polymer Engineering', growthRate: 7, avgFee: 130000, avgSalary: 480000 },
+        { name: 'B.Tech in Chemical Engineering', growthRate: 7, avgFee: 150000, avgSalary: 600000 },
+        { name: 'Packaging Development Engineer', growthRate: 8, avgFee: 0, avgSalary: 500000 }
+    ]},
+    { id: 'hsc-btech-be-in-polymer-engineering', name: 'B.Tech./B.E. in Polymer Engineering', growthRate: 7, avgFee: 130000, avgSalary: 480000, alternatives: [
+        { name: 'B.Tech in Plastic Engineering', growthRate: 7, avgFee: 130000, avgSalary: 480000 },
+        { name: 'B.Tech in Chemical Engineering', growthRate: 7, avgFee: 150000, avgSalary: 600000 },
+        { name: 'R&D Scientist (Polymers)', growthRate: 7, avgFee: 0, avgSalary: 550000 }
+    ]},
+    { id: 'hsc-btech-be-in-production-engineering', name: 'B.Tech./B.E. in Production Engineering', growthRate: 7, avgFee: 130000, avgSalary: 520000, alternatives: [
+        { name: 'B.Tech in Mechanical Engineering', growthRate: 8, avgFee: 150000, avgSalary: 550000 },
+        { name: 'B.Tech in Industrial Engineering', growthRate: 8, avgFee: 130000, avgSalary: 550000 },
+        { name: 'Process Planning Engineer', growthRate: 7, avgFee: 0, avgSalary: 500000 }
+    ]},
+    { id: 'hsc-btech-be-in-robotics-engineering', name: 'B.Tech./B.E. in Robotics Engineering', growthRate: 18, avgFee: 180000, avgSalary: 650000, alternatives: [
+        { name: 'B.Tech in Mechatronics Engineering', growthRate: 16, avgFee: 160000, avgSalary: 650000 },
+        { name: 'B.Tech in AI & Machine Learning', growthRate: 22, avgFee: 200000, avgSalary: 800000 },
+        { name: 'Automation Engineer', growthRate: 15, avgFee: 150000, avgSalary: 600000 }
+    ]},
+    { id: 'hsc-btech-be-in-software-engineering', name: 'B.Tech./B.E. in Software Engineering', growthRate: 18, avgFee: 170000, avgSalary: 620000, alternatives: [
+        { name: 'B.Tech in Computer Science / IT', growthRate: 18, avgFee: 180000, avgSalary: 650000 },
+        { name: 'MCA (Master of Computer Applications)', growthRate: 15, avgFee: 100000, avgSalary: 600000 },
+        { name: 'DevOps Engineer', growthRate: 20, avgFee: 60000, avgSalary: 750000 }
+    ]},
+    { id: 'hsc-bachelor-of-architecture-barch', name: 'Bachelor of Architecture (B.Arch.)', growthRate: 8, avgFee: 200000, avgSalary: 600000, alternatives: [
+        { name: 'B.Tech in Civil Engineering', growthRate: 8, avgFee: 150000, avgSalary: 580000 },
+        { name: 'Bachelor of Design (Interior Design)', growthRate: 8, avgFee: 150000, avgSalary: 450000 },
+        { name: 'Urban Planner', growthRate: 8, avgFee: 100000, avgSalary: 500000 }
+    ]},
+
+
+
+   // --- Design & Fine Arts ---
+    { id: 'hsc-bachelor-of-fine-arts-bfa', name: 'Bachelor of Fine Arts (BFA)', growthRate: 6, avgFee: 50000, avgSalary: 350000, alternatives: [
+        { name: 'Bachelor of Design (B.Des)', growthRate: 9, avgFee: 200000, avgSalary: 500000 },
+        { name: 'Animator / VFX Artist', growthRate: 14, avgFee: 95000, avgSalary: 450000 },
+        { name: 'Art Director (Advertising)', growthRate: 8, avgFee: 70000, avgSalary: 500000 }
+    ]},
+    { id: 'hsc-bachelor-of-design-bdes', name: 'Bachelor of Design (B.Des)', growthRate: 9, avgFee: 200000, avgSalary: 500000, alternatives: [
+        { name: 'UI/UX Designer', growthRate: 19, avgFee: 85000, avgSalary: 550000 },
+        { name: 'Fashion Designer', growthRate: 7, avgFee: 150000, avgSalary: 400000 },
+        { name: 'Product Designer', growthRate: 9, avgFee: 120000, avgSalary: 480000 }
+    ]},
+    { id: 'hsc-bachelor-of-fashion-technology-bftech', name: 'Bachelor of Fashion Technology (B.F.Tech)', growthRate: 7, avgFee: 180000, avgSalary: 500000, alternatives: [
+        { name: 'Bachelor of Design (Fashion)', growthRate: 7, avgFee: 200000, avgSalary: 450000 },
+        { name: 'Apparel Merchandiser', growthRate: 7, avgFee: 80000, avgSalary: 420000 },
+        { name: 'Production Manager (Garments)', growthRate: 6, avgFee: 60000, avgSalary: 450000 }
+    ]},
+    { id: 'hsc-bachelor-of-interior-design-bides', name: 'Bachelor of Interior Design (B.I.Des)', growthRate: 8, avgFee: 150000, avgSalary: 450000, alternatives: [
+        { name: 'Bachelor of Architecture (B.Arch)', growthRate: 8, avgFee: 200000, avgSalary: 600000 },
+        { name: 'Set Designer', growthRate: 7, avgFee: 90000, avgSalary: 420000 },
+        { name: '3D Visualizer', growthRate: 12, avgFee: 80000, avgSalary: 400000 }
+    ]},
+    { id: 'hsc-bachelor-of-performing-arts-bpa', name: 'Bachelor of Performing Arts (BPA)', growthRate: 6, avgFee: 60000, avgSalary: 320000, alternatives: [
+        { name: 'Music / Dance Teacher', growthRate: 6, avgFee: 40000, avgSalary: 300000 },
+        { name: 'Event Manager', growthRate: 10, avgFee: 80000, avgSalary: 380000 },
+        { name: 'Theatre Artist', growthRate: 5, avgFee: 80000, avgSalary: 300000 }
+    ]},
+    { id: 'hsc-bachelor-of-film-television-production-bftp', name: 'Bachelor of Film and Television Production (BFTP)', growthRate: 9, avgFee: 150000, avgSalary: 420000, alternatives: [
+        { name: 'Bachelor of Journalism & Mass Comm.', growthRate: 7, avgFee: 70000, avgSalary: 400000 },
+        { name: 'Video Editor / Director', growthRate: 10, avgFee: 80000, avgSalary: 380000 },
+        { name: 'Cinematographer', growthRate: 9, avgFee: 130000, avgSalary: 400000 }
+    ]},
+    { id: 'hsc-bachelor-of-multimedia-bmm', name: 'Bachelor of Multimedia (BMM)', growthRate: 12, avgFee: 100000, avgSalary: 400000, alternatives: [
+        { name: 'B.Sc. in Animation & VFX', growthRate: 14, avgFee: 120000, avgSalary: 480000 },
+        { name: 'Graphic / Web Designer', growthRate: 14, avgFee: 65000, avgSalary: 380000 },
+        { name: 'Social Media Manager', growthRate: 19, avgFee: 28000, avgSalary: 350000 }
+    ]},
+    { id: 'hsc-bachelor-of-visual-arts-bva', name: 'Bachelor of Visual Arts (BVA)', growthRate: 6, avgFee: 50000, avgSalary: 350000, alternatives: [
+        { name: 'Bachelor of Fine Arts (BFA)', growthRate: 6, avgFee: 50000, avgSalary: 350000 },
+        { name: 'Graphic Designer', growthRate: 12, avgFee: 65000, avgSalary: 360000 },
+        { name: 'Animator', growthRate: 14, avgFee: 95000, avgSalary: 450000 }
+    ]},
+
+    // --- Arts & Humanities ---
+    { id: 'hsc-bachelor-of-arts-ba-in-economics', name: 'Bachelor of Arts (BA) in Economics', growthRate: 8, avgFee: 30000, avgSalary: 500000, alternatives: [
+        { name: 'B.Com / BBA', growthRate: 8, avgFee: 40000, avgSalary: 400000 },
+        { name: 'Financial Analyst', growthRate: 10, avgFee: 60000, avgSalary: 600000 },
+        { name: 'Civil Services (IAS/IPS)', growthRate: 2, avgFee: 100000, avgSalary: 900000 }
+    ]},
+    { id: 'hsc-ba-in-english', name: 'BA in English', growthRate: 5, avgFee: 15000, avgSalary: 300000, alternatives: [
+        { name: 'MA in English Literature', growthRate: 5, avgFee: 20000, avgSalary: 350000 },
+        { name: 'Content Writer / Editor', growthRate: 15, avgFee: 40000, avgSalary: 350000 },
+        { name: 'BA in Journalism & Mass Comm.', growthRate: 7, avgFee: 70000, avgSalary: 400000 }
+    ]},
+    { id: 'hsc-ba-in-history', name: 'BA in History', growthRate: 4, avgFee: 15000, avgSalary: 280000, alternatives: [
+        { name: 'Archaeologist / Museologist', growthRate: 4, avgFee: 45000, avgSalary: 350000 },
+        { name: 'Civil Services (IAS/IPS)', growthRate: 2, avgFee: 100000, avgSalary: 900000 },
+        { name: 'Teacher (B.Ed)', growthRate: 6, avgFee: 40000, avgSalary: 350000 }
+    ]},
+    { id: 'hsc-ba-in-journalism-mass-communication', name: 'BA in Journalism and Mass Communication', growthRate: 7, avgFee: 70000, avgSalary: 400000, alternatives: [
+        { name: 'Digital Marketing', growthRate: 20, avgFee: 45000, avgSalary: 400000 },
+        { name: 'Public Relations Executive', growthRate: 8, avgFee: 60000, avgSalary: 380000 },
+        { name: 'Content Creator / YouTuber', growthRate: 20, avgFee: 30000, avgSalary: 350000 }
+    ]},
+    { id: 'hsc-ba-in-political-science', name: 'BA in Political Science', growthRate: 5, avgFee: 15000, avgSalary: 350000, alternatives: [
+        { name: 'Civil Services (IAS/IPS)', growthRate: 2, avgFee: 100000, avgSalary: 900000 },
+        { name: 'LLB (Law)', growthRate: 6, avgFee: 80000, avgSalary: 500000 },
+        { name: 'Political Analyst / Journalist', growthRate: 6, avgFee: 70000, avgSalary: 420000 }
+    ]},
+    { id: 'hsc-ba-in-psychology', name: 'BA in Psychology', growthRate: 8, avgFee: 40000, avgSalary: 350000, alternatives: [
+        { name: 'MA in Clinical Psychology / Counselling', growthRate: 9, avgFee: 80000, avgSalary: 450000 },
+        { name: 'Human Resources (HR)', growthRate: 8, avgFee: 50000, avgSalary: 400000 },
+        { name: 'Special Education Teacher', growthRate: 10, avgFee: 45000, avgSalary: 380000 }
+    ]},
+    { id: 'hsc-ba-in-sociology', name: 'BA in Sociology', growthRate: 6, avgFee: 15000, avgSalary: 320000, alternatives: [
+        { name: 'Master of Social Work (MSW)', growthRate: 7, avgFee: 40000, avgSalary: 380000 },
+        { name: 'Human Resources (HR)', growthRate: 8, avgFee: 50000, avgSalary: 400000 },
+        { name: 'Market Research Analyst', growthRate: 9, avgFee: 40000, avgSalary: 480000 }
+    ]},
+    { id: 'hsc-bachelor-of-journalism-mass-communication-bjmc', name: 'Bachelor of Journalism and Mass Communication (BJMC)', growthRate: 7, avgFee: 70000, avgSalary: 400000, alternatives: [
+        { name: 'BA in English', growthRate: 5, avgFee: 15000, avgSalary: 300000 },
+        { name: 'Digital Marketing', growthRate: 20, avgFee: 45000, avgSalary: 400000 },
+        { name: 'Public Relations / Corporate Comm.', growthRate: 8, avgFee: 60000, avgSalary: 380000 }
+    ]},
+    { id: 'hsc-bachelor-of-social-work-bsw', name: 'Bachelor of Social Work (BSW)', growthRate: 7, avgFee: 30000, avgSalary: 250000, alternatives: [
+        { name: 'MA in Social Work (MSW)', growthRate: 7, avgFee: 40000, avgSalary: 380000 },
+        { name: 'NGO Management', growthRate: 6, avgFee: 50000, avgSalary: 300000 },
+        { name: 'BA in Sociology / Psychology', growthRate: 7, avgFee: 30000, avgSalary: 330000 }
+    ]},
+    { id: 'hsc-bachelor-of-rural-studies-brs', name: 'Bachelor of Rural Studies (BRS)', growthRate: 6, avgFee: 25000, avgSalary: 300000, alternatives: [
+        { name: 'MBA in Rural Management', growthRate: 8, avgFee: 200000, avgSalary: 600000 },
+        { name: 'Master of Social Work (MSW)', growthRate: 7, avgFee: 40000, avgSalary: 380000 },
+        { name: 'Govt. Rural Development Officer', growthRate: 5, avgFee: 0, avgSalary: 450000 }
+    ]},
+    { id: 'hsc-bachelor-of-library-information-science-blibsc', name: 'Bachelor of Library and Information Science (B.Lib.Sc)', growthRate: 4, avgFee: 25000, avgSalary: 320000, alternatives: [
+        { name: 'Master of Library Science (M.Lib.Sc)', growthRate: 4, avgFee: 30000, avgSalary: 400000 },
+        { name: 'Archivist / Records Manager', growthRate: 5, avgFee: 30000, avgSalary: 350000 },
+        { name: 'Digital Asset Manager', growthRate: 10, avgFee: 40000, avgSalary: 420000 }
+    ]},
+    { id: 'hsc-bachelor-of-public-relations-bpr', name: 'Bachelor of Public Relations (BPR)', growthRate: 8, avgFee: 60000, avgSalary: 380000, alternatives: [
+        { name: 'BA in Journalism & Mass Comm.', growthRate: 7, avgFee: 70000, avgSalary: 400000 },
+        { name: 'MBA in Marketing', growthRate: 9, avgFee: 300000, avgSalary: 700000 },
+        { name: 'Event Management', growthRate: 10, avgFee: 80000, avgSalary: 380000 }
+    ]},
+
+    // --- Commerce & Management ---
+    { id: 'hsc-bachelor-of-business-administration-bba', name: 'Bachelor of Business Administration (BBA)', growthRate: 8, avgFee: 60000, avgSalary: 420000, alternatives: [
+        { name: 'MBA (Master of Business Administration)', growthRate: 8, avgFee: 400000, avgSalary: 800000 },
+        { name: 'B.Com (Honours)', growthRate: 8, avgFee: 30000, avgSalary: 400000 },
+        { name: 'Digital Marketing', growthRate: 20, avgFee: 45000, avgSalary: 400000 }
+    ]},
+    { id: 'hsc-bachelor-of-commerce-bcom', name: 'Bachelor of Commerce (B.Com)', growthRate: 8, avgFee: 20000, avgSalary: 380000, alternatives: [
+        { name: 'Chartered Accountancy (CA)', growthRate: 10, avgFee: 20000, avgSalary: 700000 },
+        { name: 'MBA in Finance', growthRate: 9, avgFee: 400000, avgSalary: 850000 },
+        { name: 'BBA', growthRate: 8, avgFee: 60000, avgSalary: 420000 }
+    ]},
+    { id: 'hsc-bachelor-of-hotel-management-bhm', name: 'Bachelor of Hotel Management (BHM)', growthRate: 8, avgFee: 90000, avgSalary: 400000, alternatives: [
+        { name: 'MBA in Hospitality Management', growthRate: 8, avgFee: 300000, avgSalary: 600000 },
+        { name: 'BBA in Tourism & Travel', growthRate: 9, avgFee: 80000, avgSalary: 420000 },
+        { name: 'Airline Cabin Crew', growthRate: 9, avgFee: 120000, avgSalary: 400000 }
+    ]},
+    { id: 'hsc-bachelor-of-aviation-science-bas', name: 'Bachelor of Aviation Science (B.A.S)', growthRate: 9, avgFee: 150000, avgSalary: 550000, alternatives: [
+        { name: 'Commercial Pilot License (CPL)', growthRate: 8, avgFee: 4000000, avgSalary: 1500000 },
+        { name: 'BBA in Aviation Management', growthRate: 10, avgFee: 120000, avgSalary: 500000 },
+        { name: 'Air Traffic Controller', growthRate: 7, avgFee: 0, avgSalary: 700000 }
+    ]},
+    { id: 'hsc-bachelor-of-business-economics-bbe', name: 'Bachelor of Business Economics (BBE)', growthRate: 9, avgFee: 50000, avgSalary: 550000, alternatives: [
+        { name: 'BA (Honours) in Economics', growthRate: 8, avgFee: 30000, avgSalary: 500000 },
+        { name: 'MBA in Finance', growthRate: 9, avgFee: 400000, avgSalary: 850000 },
+        { name: 'Data Analyst', growthRate: 20, avgFee: 90000, avgSalary: 700000 }
+    ]},
+    { id: 'hsc-bachelor-of-event-management-bem', name: 'Bachelor of Event Management (BEM)', growthRate: 10, avgFee: 80000, avgSalary: 380000, alternatives: [
+        { name: 'BBA', growthRate: 8, avgFee: 60000, avgSalary: 420000 },
+        { name: 'Public Relations', growthRate: 8, avgFee: 60000, avgSalary: 380000 },
+        { name: 'Wedding Planner', growthRate: 12, avgFee: 50000, avgSalary: 400000 }
+    ]},
+    { id: 'hsc-bachelor-of-hospitality-tourism-management-bhtm', name: 'Bachelor of Hospitality and Tourism Management (BHTM)', growthRate: 9, avgFee: 80000, avgSalary: 420000, alternatives: [
+        { name: 'Bachelor of Hotel Management (BHM)', growthRate: 8, avgFee: 90000, avgSalary: 400000 },
+        { name: 'MBA in Tourism & Hospitality', growthRate: 8, avgFee: 300000, avgSalary: 600000 },
+        { name: 'Travel Agency Manager', growthRate: 8, avgFee: 50000, avgSalary: 380000 }
+    ]},
+    { id: 'hsc-bachelor-of-information-management-bim', name: 'Bachelor of Information Management (BIM)', growthRate: 12, avgFee: 70000, avgSalary: 500000, alternatives: [
+        { name: 'BCA / B.Sc. IT', growthRate: 16, avgFee: 60000, avgSalary: 450000 },
+        { name: 'BBA', growthRate: 8, avgFee: 60000, avgSalary: 420000 },
+        { name: 'IT Project Coordinator', growthRate: 10, avgFee: 40000, avgSalary: 480000 }
+    ]},
+    { id: 'hsc-bachelor-of-sports-management-bsm', name: 'Bachelor of Sports Management (BSM)', growthRate: 10, avgFee: 80000, avgSalary: 400000, alternatives: [
+        { name: 'Bachelor of Physical Education (B.P.Ed)', growthRate: 7, avgFee: 35000, avgSalary: 350000 },
+        { name: 'Event Management', growthRate: 10, avgFee: 80000, avgSalary: 380000 },
+        { name: 'Sports Marketing', growthRate: 9, avgFee: 50000, avgSalary: 420000 }
+    ]},
+    { id: 'hsc-bachelor-of-travel-tourism-management-bttm', name: 'Bachelor of Travel and Tourism Management (BTTM)', growthRate: 9, avgFee: 80000, avgSalary: 400000, alternatives: [
+        { name: 'Bachelor of Hotel Management (BHM)', growthRate: 8, avgFee: 90000, avgSalary: 400000 },
+        { name: 'Tour Manager / Operator', growthRate: 8, avgFee: 40000, avgSalary: 380000 },
+        { name: 'Airline & Airport Management', growthRate: 10, avgFee: 120000, avgSalary: 500000 }
+    ]},
+    { id: 'hsc-integrated-mba', name: 'Integrated MBA', growthRate: 8, avgFee: 250000, avgSalary: 700000, alternatives: [
+        { name: 'BBA + MBA', growthRate: 8, avgFee: 200000, avgSalary: 800000 },
+        { name: 'B.Com + MBA', growthRate: 8, avgFee: 180000, avgSalary: 800000 },
+        { name: 'Chartered Financial Analyst (CFA)', growthRate: 10, avgFee: 100000, avgSalary: 900000 }
+    ]},
+
+
+  // --- Law ---
+    { id: 'hsc-bachelor-of-law-llb', name: 'Bachelor of Law (LLB) (3-year, after graduation)', growthRate: 6, avgFee: 80000, avgSalary: 500000, alternatives: [
+        { name: 'Integrated B.A. LLB (5-year)', growthRate: 6, avgFee: 120000, avgSalary: 500000 },
+        { name: 'Company Secretary (CS)', growthRate: 9, avgFee: 15000, avgSalary: 600000 },
+        { name: 'Judicial Services (Judge)', growthRate: 4, avgFee: 50000, avgSalary: 1200000 }
+    ]},
+    { id: 'hsc-integrated-ba-llb', name: 'Integrated B.A. LLB (5-year)', growthRate: 6, avgFee: 120000, avgSalary: 500000, alternatives: [
+        { name: 'Integrated BBA LLB', growthRate: 7, avgFee: 150000, avgSalary: 550000 },
+        { name: 'Corporate Lawyer', growthRate: 7, avgFee: 0, avgSalary: 700000 },
+        { name: 'Civil Services (IAS/IPS)', growthRate: 2, avgFee: 100000, avgSalary: 900000 }
+    ]},
+    { id: 'hsc-integrated-bsc-llb', name: 'Integrated B.Sc. LLB (5-year)', growthRate: 7, avgFee: 150000, avgSalary: 550000, alternatives: [
+        { name: 'Intellectual Property (IP) Lawyer', growthRate: 9, avgFee: 0, avgSalary: 750000 },
+        { name: 'Cyber Law Specialist', growthRate: 15, avgFee: 80000, avgSalary: 650000 },
+        { name: 'B.Tech + LLB', growthRate: 8, avgFee: 200000, avgSalary: 800000 }
+    ]},
+    { id: 'hsc-integrated-bcom-llb', name: 'Integrated B.Com LLB (5-year)', growthRate: 7, avgFee: 140000, avgSalary: 520000, alternatives: [
+        { name: 'Company Secretary (CS)', growthRate: 9, avgFee: 15000, avgSalary: 600000 },
+        { name: 'Tax Lawyer / Consultant', growthRate: 8, avgFee: 0, avgSalary: 650000 },
+        { name: 'Chartered Accountancy (CA)', growthRate: 10, avgFee: 20000, avgSalary: 700000 }
+    ]},
+    { id: 'hsc-bachelor-of-legislative-law-bls', name: 'Bachelor of Legislative Law (BLS) LLB (5-year integrated)', growthRate: 6, avgFee: 120000, avgSalary: 500000, alternatives: [
+        { name: 'Integrated B.A. LLB', growthRate: 6, avgFee: 120000, avgSalary: 500000 },
+        { name: 'Legal Journalist', growthRate: 6, avgFee: 50000, avgSalary: 450000 },
+        { name: 'Policy Analyst', growthRate: 7, avgFee: 60000, avgSalary: 550000 }
+    ]},
+    
+    // --- Education ---
+    { id: 'hsc-bachelor-of-education-bed', name: 'Bachelor of Education (B.Ed) (after graduation)', growthRate: 6, avgFee: 40000, avgSalary: 350000, alternatives: [
+        { name: 'Integrated B.A. + B.Ed (4-year)', growthRate: 6, avgFee: 30000, avgSalary: 350000 },
+        { name: 'Content Developer (EdTech)', growthRate: 15, avgFee: 25000, avgSalary: 400000 },
+        { name: 'Corporate Trainer', growthRate: 9, avgFee: 50000, avgSalary: 400000 }
+    ]},
+    { id: 'hsc-diploma-in-elementary-education-deled', name: 'Diploma in Elementary Education (D.El.Ed)', growthRate: 5, avgFee: 20000, avgSalary: 280000, alternatives: [
+        { name: 'Primary School Teacher', growthRate: 5, avgFee: 0, avgSalary: 320000 },
+        { name: 'Bachelor of Education (B.Ed)', growthRate: 6, avgFee: 40000, avgSalary: 350000 },
+        { name: 'Nursery Teacher Training (NTT)', growthRate: 8, avgFee: 15000, avgSalary: 250000 }
+    ]},
+    { id: 'hsc-bachelor-of-physical-education-bped', name: 'Bachelor of Physical Education (B.P.Ed)', growthRate: 7, avgFee: 35000, avgSalary: 350000, alternatives: [
+        { name: 'Sports Coach', growthRate: 9, avgFee: 50000, avgSalary: 350000 },
+        { name: 'Fitness Trainer / Consultant', growthRate: 10, avgFee: 30000, avgSalary: 320000 },
+        { name: 'Bachelor of Sports Management', growthRate: 10, avgFee: 80000, avgSalary: 400000 }
+    ]},
+    { id: 'hsc-integrated-bed-med', name: 'Integrated B.Ed + M.Ed', growthRate: 6, avgFee: 50000, avgSalary: 450000, alternatives: [
+        { name: 'Professor in Education College', growthRate: 5, avgFee: 0, avgSalary: 600000 },
+        { name: 'Curriculum Developer', growthRate: 8, avgFee: 30000, avgSalary: 480000 },
+        { name: 'Educational Administrator', growthRate: 6, avgFee: 0, avgSalary: 550000 }
+    ]},
+    { id: 'hsc-integrated-ba-bed', name: 'Integrated BA + B.Ed', growthRate: 6, avgFee: 30000, avgSalary: 350000, alternatives: [
+        { name: 'High School Teacher (Arts/Humanities)', growthRate: 5, avgFee: 0, avgSalary: 400000 },
+        { name: 'Master of Arts (MA)', growthRate: 5, avgFee: 15000, avgSalary: 380000 },
+        { name: 'Educational Content Creator', growthRate: 15, avgFee: 25000, avgSalary: 400000 }
+    ]},
+    { id: 'hsc-integrated-bsc-bed', name: 'Integrated B.Sc + B.Ed', growthRate: 6, avgFee: 40000, avgSalary: 380000, alternatives: [
+        { name: 'High School Teacher (Science)', growthRate: 5, avgFee: 0, avgSalary: 420000 },
+        { name: 'Master of Science (M.Sc.)', growthRate: 6, avgFee: 40000, avgSalary: 450000 },
+        { name: 'Science Communicator / Writer', growthRate: 8, avgFee: 30000, avgSalary: 400000 }
+    ]},
+
+    // --- Other Integrated & Vocational Courses ---
+    { id: 'hsc-integrated-btech-mtech', name: 'Integrated B.Tech + M.Tech', growthRate: 10, avgFee: 220000, avgSalary: 800000, alternatives: [
+        { name: 'B.Tech (4-year) + M.Tech (2-year)', growthRate: 10, avgFee: 180000, avgSalary: 800000 },
+        { name: 'Research & Development (R&D) Engineer', growthRate: 9, avgFee: 0, avgSalary: 750000 },
+        { name: 'GATE for PSU Jobs / Higher Studies', growthRate: 8, avgFee: 20000, avgSalary: 900000 }
+    ]},
+    { id: 'hsc-integrated-msc', name: 'Integrated M.Sc', growthRate: 7, avgFee: 60000, avgSalary: 500000, alternatives: [
+        { name: 'B.Sc. (3-year) + M.Sc. (2-year)', growthRate: 7, avgFee: 40000, avgSalary: 500000 },
+        { name: 'Research Scientist (CSIR/NET)', growthRate: 6, avgFee: 20000, avgSalary: 600000 },
+        { name: 'Teacher / Professor (with B.Ed/PhD)', growthRate: 6, avgFee: 40000, avgSalary: 550000 }
+    ]},
+    { id: 'hsc-bachelor-of-computer-applications-bca', name: 'Bachelor of Computer Applications (BCA)', growthRate: 16, avgFee: 60000, avgSalary: 450000, alternatives: [
+        { name: 'MCA (Master of Computer Applications)', growthRate: 15, avgFee: 100000, avgSalary: 600000 },
+        { name: 'B.Tech in Computer Science', growthRate: 18, avgFee: 180000, avgSalary: 650000 },
+        { name: 'Software Developer', growthRate: 18, avgFee: 40000, avgSalary: 500000 }
+    ]},
+    { id: 'hsc-bachelor-of-vocational-studies-bvoc', name: 'Bachelor of Vocational Studies (B.Voc)', growthRate: 9, avgFee: 40000, avgSalary: 350000, alternatives: [
+        { name: 'Specialized Diploma (e.g., ITI)', growthRate: 7, avgFee: 25000, avgSalary: 300000 },
+        { name: 'Skill-based Entrepreneurship', growthRate: 10, avgFee: 20000, avgSalary: 320000 },
+        { name: 'Industry Apprenticeship', growthRate: 8, avgFee: 0, avgSalary: 280000 }
+    ]}
+];
+
+
+
+
+// --- UI LOGIC (UNCHANGED, BUT REQUIRED FOR COMPLETENESS) ---
+
+document.addEventListener('DOMContentLoaded', () => {
+    const careerSelect = document.getElementById('career-choice');
+    courseData.sort((a, b) => a.name.localeCompare(b.name));
+    courseData.forEach(course => {
+        const option = document.createElement('option');
+        option.value = course.id;
+        option.textContent = course.name;
+        careerSelect.appendChild(option);
+    });
+    careerSelect.addEventListener('change', handleCareerSelection);
+});
+
+function handleCareerSelection(event) {
+    const selectedCourseId = event.target.value;
+    const resultsContainer = document.getElementById('results-container');
+    if (!selectedCourseId) {
+        resultsContainer.style.display = 'none';
+        return;
+    }
+    const selectedCourse = courseData.find(c => c.id === selectedCourseId);
+    const alternatives = findAlternatives(selectedCourse);
+    displayResults(selectedCourse, alternatives); 
+}
+
+function displayResults(selectedCourse, alternatives) {
+    const resultsContainer = document.getElementById('results-container');
+    const primaryDisplayArea = document.getElementById('primary-choice-display-area');
+    const alternativesGrid = document.getElementById('alternatives-grid-area');
+    primaryDisplayArea.innerHTML = '';
+    alternativesGrid.innerHTML = '';
+
+    const primaryHTML = `
+        <div class="primary-choice-display">
+            <h3>Your Primary Choice: ${selectedCourse.name}</h3>
+            <div class="primary-stats">
+                <div class="stat">Industry Growth<br><span class="value">${selectedCourse.growthRate}% / year</span></div>
+                <div class="stat">Avg. Course Fee<br><span class="value">₹${selectedCourse.avgFee.toLocaleString('en-IN')} / year</span></div>
+                <div class="stat">Avg. Starting Salary<br><span class="value">₹${selectedCourse.avgSalary.toLocaleString('en-IN')} / year</span></div>
+            </div>
+        </div>
+    `;
+    primaryDisplayArea.innerHTML = primaryHTML;
+
+    if (alternatives.length === 0) {
+        alternativesGrid.innerHTML = '<p style="text-align:center;">Sorry, we couldn\'t find any closely related career paths for this specific profile. Please try another selection.</p>';
+    } else {
+        alternatives.forEach(alt => {
+            const maxGrowth = Math.max(selectedCourse.growthRate, alt.growthRate, 1);
+            const maxFee = Math.max(selectedCourse.avgFee, alt.avgFee, 1);
+            const maxSalary = Math.max(selectedCourse.avgSalary, alt.avgSalary, 1);
+            const cardHTML = `
+                <div class="alternative-card">
+                    <h4>${alt.name}</h4>
+                    <div class="comparison">
+                        <div class="comparison-label"><span>Industry Growth Rate</span><div><span class="original-value">${selectedCourse.growthRate}%</span> vs <span class="alternative-value">${alt.growthRate}%</span></div></div>
+                        <div class="bar-legend"><div class="legend-dot dot-original"></div> Your Choice</div>
+                        <div class="bar-container original-bar"><div class="bar" style="width: ${(selectedCourse.growthRate / maxGrowth) * 100}%"></div></div>
+                        <div class="bar-legend"><div class="legend-dot dot-alternative"></div> Alternative</div>
+                        <div class="bar-container alternative-bar"><div class="bar" style="width: ${(alt.growthRate / maxGrowth) * 100}%"></div></div>
+                    </div>
+                    <div class="comparison">
+                        <div class="comparison-label"><span>Average Course Fee</span><div><span class="original-value">₹${selectedCourse.avgFee.toLocaleString('en-IN')}</span> vs <span class="alternative-value">₹${alt.avgFee.toLocaleString('en-IN')}</span></div></div>
+                        <div class="bar-container original-bar"><div class="bar" style="width: ${(selectedCourse.avgFee / maxFee) * 100}%"></div></div>
+                        <div class="bar-container alternative-bar"><div class="bar" style="width: ${(alt.avgFee / maxFee) * 100}%"></div></div>
+                    </div>
+                    <div class="comparison">
+                        <div class="comparison-label"><span>Average Starting Salary</span><div><span class="original-value">₹${selectedCourse.avgSalary.toLocaleString('en-IN')}</span> vs <span class="alternative-value">₹${alt.avgSalary.toLocaleString('en-IN')}</span></div></div>
+                        <div class="bar-container original-bar"><div class="bar" style="width: ${(selectedCourse.avgSalary / maxSalary) * 100}%"></div></div>
+                        <div class="bar-container alternative-bar"><div class="bar" style="width: ${(alt.avgSalary / maxSalary) * 100}%"></div></div>
+                    </div>
+                </div>`;
+            alternativesGrid.innerHTML += cardHTML;
+        });
+    }
+    resultsContainer.style.display = 'block';
+    resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Going Abroad - Your Ultimate Guide</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Orbitron:wght@700&display=swap');
+
+        :root {
+            --bg-dark-blue: #0A192F;
+            --bg-light-blue: #172A45;
+            --primary-green: #64FFDA;
+            --light-green-shadow: #88ffee;
+            --dark-green-shadow: #00b3a4;
+            --text-light: #CCD6F6;
+            --text-dark: #8892B0;
+            --white: #FFFFFF;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-dark-blue);
+            color: var(--text-light);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* --- Header and Title --- */
+        header {
+            padding: 20px;
+            text-align: center;
+            background-color: var(--bg-dark-blue);
+            border-bottom: 2px solid var(--primary-green);
+        }
+
+        .title-box {
+            display: inline-block;
+            background: linear-gradient(145deg, var(--bg-light-blue), var(--bg-dark-blue));
+            border: 2px solid var(--dark-green-shadow);
+            padding: 15px 40px;
+            box-shadow: 
+                inset 0 0 15px rgba(0,0,0,0.6),
+                inset 2px 2px 5px var(--light-green-shadow),
+                inset -2px -2px 5px var(--dark-green-shadow),
+                0 0 25px rgba(100, 255, 218, 0.3);
+            border-radius: 15px;
+        }
+
+        .main-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3em;
+            font-weight: 700;
+            color: var(--white);
+            text-transform: uppercase;
+            text-shadow: 
+                3px 3px 0px var(--dark-green-shadow),
+                -1px -1px 1px var(--light-green-shadow),
+                0 0 15px var(--primary-green);
+        }
+
+        /* --- Main Split Page Layout --- */
+        .page-container {
+            display: flex;
+            flex-grow: 1;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        /* --- Left Control Panel --- */
+        .control-panel {
+            flex: 0 0 400px;
+            padding: 25px;
+            background-color: var(--bg-light-blue);
+            border-radius: 10px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-group label, .panel-title {
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            color: var(--primary-green);
+            font-family: 'Orbitron', sans-serif;
+            border-bottom: 1px solid var(--dark-green-shadow);
+            padding-bottom: 10px;
+        }
+
+        .input-group select {
+            width: 100%;
+            padding: 12px;
+            font-size: 1.1em;
+            border-radius: 5px;
+            border: 2px solid var(--dark-green-shadow);
+            background-color: var(--bg-dark-blue);
+            color: var(--text-light);
+            cursor: pointer;
+        }
+
+        #sub-nav .nav-item {
+            padding: 15px;
+            font-size: 1.1em;
+            font-weight: bold;
+            background-color: var(--bg-dark-blue);
+            border-left: 4px solid var(--text-dark);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+        }
+
+        #sub-nav .nav-item:hover {
+            background-color: var(--dark-green-shadow);
+            border-left-color: var(--primary-green);
+            color: var(--bg-dark-blue);
+        }
+        
+        #sub-nav .nav-item.active {
+            background-color: var(--primary-green);
+            border-left-color: var(--light-green-shadow);
+            color: var(--bg-dark-blue);
+            box-shadow: 0 0 15px var(--primary-green);
+        }
+
+        .compare-btn {
+            padding: 15px;
+            font-size: 1.2em;
+            font-family: 'Orbitron', sans-serif;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(145deg, var(--light-green-shadow), var(--primary-green));
+            color: #000;
+            transition: all 0.2s ease;
+        }
+        .compare-btn:hover {
+            box-shadow: 0 0 20px var(--primary-green);
+        }
+
+        /* --- Right Display Panel --- */
+        .display-panel {
+            flex: 1;
+            padding: 25px;
+            background-color: var(--bg-light-blue);
+            border-radius: 10px;
+            overflow-y: auto;
+        }
+        
+        #content-display h2, #comparison-results h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--primary-green);
+            font-size: 2em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--dark-green-shadow);
+        }
+
+        #content-display ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        #content-display li {
+            background-color: var(--bg-dark-blue);
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            border-left: 4px solid var(--primary-green);
+            font-size: 1.1em;
+        }
+        
+        #content-display p {
+            font-size: 1.1em;
+            line-height: 1.7;
+            white-space: pre-wrap;
+        }
+
+        .university-card {
+            background-color: var(--bg-dark-blue);
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--primary-green);
+        }
+        .university-card h3 { font-size: 1.4em; color: var(--white); }
+        .university-card p { margin: 5px 0; color: var(--text-dark); }
+        .university-card a { color: var(--primary-green); text-decoration: none; }
+        .university-card a:hover { text-decoration: underline; }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 200px 1fr 1fr;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .grid-header {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3em;
+            color: var(--primary-green);
+            text-align: center;
+        }
+
+        .grid-label {
+            font-weight: 700;
+            font-size: 1.2em;
+            color: var(--light-green-shadow);
+            padding-top: 10px;
+        }
+        
+        .grid-data {
+            padding: 15px;
+            background-color: var(--bg-dark-blue);
+            border-radius: 5px;
+            font-size: 1.1em;
+        }
+        .grid-data ul { padding-left: 20px; }
+
+        .hidden { display: none !important; }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .page-container {
+                flex-direction: column;
+            }
+            .control-panel {
+                flex: 0 0 auto;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="title-box">
+            <h1 class="main-title">GOING ABROAD</h1>
+        </div>
+    </header>
+
+    <div class="page-container">
+        <!-- LEFT CONTROL PANEL -->
+        <aside class="control-panel">
+            <div class="input-group">
+                <label for="country-select">1. Select a Country</label>
+                <select id="country-select">
+                    <option value="" disabled selected>-- Choose a destination --</option>
+                    <!-- Options will be populated by JavaScript -->
+                </select>
+            </div>
+
+            <!-- Sub-navigation - initially hidden -->
+            <div id="sub-nav" class="hidden">
+                <div class="nav-item" data-section="topCourses">Top Courses</div>
+                <div class="nav-item" data-section="visaInfo">Scholarships & Visa Info</div>
+                <div class="nav-item" data-section="livingCost">Cost of Living</div>
+                <div class="nav-item" data-section="universities">Top Universities</div>
+            </div>
+
+            <!-- Comparator Tool - initially hidden -->
+            <div id="comparator-tool" class="hidden">
+                <h2 class="panel-title">Comparator Tool</h2>
+                <div class="input-group">
+                    <label for="country-1">Country 1</label>
+                    <select id="country-1"></select>
+                </div>
+                <div class="input-group">
+                    <label for="country-2">Country 2</label>
+                    <select id="country-2"></select>
+                </div>
+                <button id="compare-btn" class="compare-btn">Compare</button>
+            </div>
+        </aside>
+
+        <!-- RIGHT DISPLAY PANEL -->
+        <main class="display-panel">
+            <div id="placeholder">
+                <h2>Welcome!</h2>
+                <p>Please select a country from the dropdown on the left to begin exploring your options.</p>
+            </div>
+            <div id="content-display" class="hidden"></div>
+            <div id="comparison-results" class="hidden"></div>
+        </main>
+    </div>
+
+<script>
+    // --- COMPREHENSIVE COUNTRY DATABASE ---
+    const countryData = {
+        "USA": {
+            topCourses: ["Computer Science & Engineering (AI/ML)", "Business Administration (MBA)", "Data Science & Business Analytics", "Engineering (Mechanical/Electrical)", "Medicine & Healthcare Management", "Finance & Economics", "Biotechnology & Pharmaceutical Sciences", "Arts & Design", "Psychology", "Law (LL.M.)"],
+            visaInfo: {
+                scholarships: ["Fulbright-Nehru Fellowships", "University-Specific Scholarships (Merit/Need-based)", "Knight-Hennessy Scholars (Stanford)", "Tata Scholarship (Cornell)", "AAUW International Fellowships"],
+                tips: "Visa Type: F-1 Student Visa\n\nKey Requirements:\n1. I-20 Form: Issued by the university after admission and proof of funds.\n2. SEVIS Fee Payment: Must be paid before the interview.\n3. Proof of Funds: Strong evidence of financial ability to cover the first year's costs.\n4. Ties to Home Country: Must prove intent to return after studies."
+            },
+            livingCost: {
+                majorCity: { usd: "$1,800 - $3,000", inr: "₹1,50,000 - ₹2,50,000" },
+                otherCity: { usd: "$1,200 - $1,800", inr: "₹1,00,000 - ₹1,50,000" }
+            },
+            universities: [
+                { name: "Massachusetts Institute of Technology (MIT)", location: "Cambridge, MA", website: "https://www.mit.edu/", ranking: "1" },
+                { name: "Harvard University", location: "Cambridge, MA", website: "https://www.harvard.edu/", ranking: "4" },
+                { name: "Stanford University", location: "Stanford, CA", website: "https://www.stanford.edu/", ranking: "6" },
+                { name: "California Institute of Technology (Caltech)", location: "Pasadena, CA", website: "https://www.caltech.edu/", ranking: "10" },
+                { name: "University of Pennsylvania (UPenn)", location: "Philadelphia, PA", website: "https://www.upenn.edu/", ranking: "11" }
+            ],
+            currency: "1 USD ≈ 83 INR",
+            indianPopulation: "Approx. 4.9 Million",
+            timeZone: "UTC-5 (EST) | 9.5 hours behind IST"
+        },
+        "UK": {
+            topCourses: ["Business & Management (MBA)", "Computer Science & AI", "Medicine & Health Sciences", "Law (LLB/LL.M.)", "Data Science & Analytics", "Engineering (Aerospace/Civil)", "Finance & Accounting", "Arts & Humanities", "Media & Communication", "Fashion Design"],
+            visaInfo: {
+                scholarships: ["Chevening Scholarships", "Commonwealth Scholarships", "Rhodes Scholarships (Oxford)", "GREAT Scholarships", "University-Specific Funding"],
+                tips: "Visa Type: Student Route Visa\n\nKey Requirements:\n1. CAS Number: Confirmation of Acceptance for Studies from the university.\n2. Proof of Funds: Held for 28 consecutive days, covering tuition + living costs.\n3. IHS Surcharge: Mandatory payment for access to National Health Service.\n4. Graduate Route: Offers a 2-year post-study work visa."
+            },
+            livingCost: {
+                majorCity: { usd: "$1,650 - $2,150", inr: "₹1,37,000 - ₹1,80,000" },
+                otherCity: { usd: "$1,150 - $1,650", inr: "₹95,000 - ₹1,37,000" }
+            },
+            universities: [
+                { name: "Imperial College London", location: "London", website: "https://www.imperial.ac.uk/", ranking: "2" },
+                { name: "University of Oxford", location: "Oxford", website: "https://www.ox.ac.uk/", ranking: "3" },
+                { name: "University of Cambridge", location: "Cambridge", website: "https://www.cam.ac.uk/", ranking: "5" },
+                { name: "UCL (University College London)", location: "London", website: "https://www.ucl.ac.uk/", ranking: "9" },
+                { name: "The University of Edinburgh", location: "Edinburgh", website: "https://www.ed.ac.uk/", ranking: "27" }
+            ],
+            currency: "1 GBP ≈ 105 INR",
+            indianPopulation: "Approx. 1.8 Million",
+            timeZone: "UTC+1 (BST) | 4.5 hours behind IST"
+        },
+
+        "UAE": {
+            topCourses: ["Business Administration (MBA)", "Hospitality & Tourism Management", "Finance & Accounting", "Petroleum Engineering", "Architecture & Urban Planning", "Aviation Management", "International Business", "Marketing (Luxury Brand)", "Information Technology", "Logistics & Supply Chain Management"],
+            visaInfo: {
+                scholarships: ["Khalifa University Scholarships (very generous)", "University-Specific Scholarships (AUS, UAEU)", "NYU Abu Dhabi Scholarships", "Corporate Sponsorships (in specific fields)"],
+                tips: "Visa Type: Student Visa\n\nKey Requirements:\n1. University Sponsorship: The entire visa process is handled by the university after admission.\n2. Letter of Acceptance: The most critical document.\n3. Medical Fitness Test: Required upon arrival in the UAE.\n4. Process is generally straightforward once admitted."
+            },
+            livingCost: {
+                majorCity: { usd: "$1,100 - $1,630", inr: "₹91,000 - ₹1,35,000" },
+                otherCity: { usd: "$900 - $1,400", inr: "₹75,000 - ₹1,16,000" }
+            },
+            universities: [
+                { name: "Khalifa University", location: "Abu Dhabi", website: "https://www.ku.ac.ae/", ranking: "202" },
+                { name: "United Arab Emirates University (UAEU)", location: "Al Ain", website: "https://www.uaeu.ac.ae/", ranking: "270" },
+                { name: "American University of Sharjah (AUS)", location: "Sharjah", website: "https://www.aus.edu/", ranking: "332" },
+                { name: "University of Sharjah", location: "Sharjah", website: "https://www.sharjah.ac.ae/", ranking: "469" },
+                { name: "New York University Abu Dhabi (NYUAD)", location: "Abu Dhabi", website: "https://nyuad.nyu.edu/", ranking: "Branch of NYU (#43)" }
+            ],
+            currency: "1 AED ≈ 23 INR",
+            indianPopulation: "Approx. 3.5 Million",
+            timeZone: "UTC+4 | 1.5 hours behind IST"
+        },
+        "CANADA": {
+            topCourses: ["Computer Science & IT", "Business Management (MBA)", "Engineering (Civil/Mechanical)", "Data Science & Analytics", "Medicine & Health Sciences", "Hospitality Management", "Media & Communications", "Finance & Accounting", "Animation & VFX", "Environmental Science"],
+            visaInfo: {
+                scholarships: ["Vanier Canada Graduate Scholarships", "Lester B. Pearson Scholarships (U of T)", "University-Specific Awards", "Mitacs Globalink", "Shastri Indo-Canadian Institute Fellowships"],
+                tips: "Visa Type: Study Permit\n\nKey Requirements:\n1. Letter of Acceptance (LOA): From a Designated Learning Institution (DLI).\n2. GIC: Guaranteed Investment Certificate of CAD $10,000.\n3. Student Direct Stream (SDS): Faster processing for Indian students.\n4. PGWP: Post-Graduation Work Permit is a key attraction for immigration."
+            },
+            livingCost: {
+                majorCity: { usd: "$1,100 - $1,600", inr: "₹91,000 - ₹1,33,000" },
+                otherCity: { usd: "$880 - $1,250", inr: "₹73,000 - ₹1,04,000" }
+            },
+            universities: [
+                { name: "University of Toronto", location: "Toronto", website: "https://www.utoronto.ca/", ranking: "21" },
+                { name: "McGill University", location: "Montreal", website: "https://www.mcgill.ca/", ranking: "29" },
+                { name: "University of British Columbia (UBC)", location: "Vancouver", website: "https://www.ubc.ca/", ranking: "38" },
+                { name: "University of Alberta", location: "Edmonton", website: "https://www.ualberta.ca/", ranking: "96" },
+                { name: "University of Waterloo", location: "Waterloo", website: "https://uwaterloo.ca/", ranking: "115" }
+            ],
+            currency: "1 CAD ≈ 61 INR",
+            indianPopulation: "Approx. 1.9 Million",
+            timeZone: "UTC-5 (EST) | 9.5 hours behind IST (Varies)"
+        },
+        "GERMANY": {
+            topCourses: ["Engineering (Mechanical/Automotive)", "Computer Science (Informatics)", "Business Administration", "Physics & Natural Sciences", "Architecture", "Data Science", "Renewable Energy Engineering", "Industrial Engineering", "Medicine", "Logistics & Supply Chain Management"],
+            visaInfo: {
+                scholarships: ["DAAD Scholarships (most popular)", "Deutschlandstipendium", "Heinrich Böll Foundation Scholarships", "University-Specific funding", "Erasmus+"],
+                tips: "Visa Type: National Visa for Study\n\nKey Requirements:\n1. Blocked Account (Sperrkonto): Mandatory deposit of €11,208 to cover living costs.\n2. Letter of Admission (Zulassungsbescheid).\n3. Health Insurance: Mandatory for all students.\n4. Tuition-Free: Most public universities have no tuition fees."
+            },
+            livingCost: {
+                majorCity: { usd: "$1,030 - $1,400", inr: "₹85,000 - ₹1,16,000" },
+                otherCity: { usd: "$815 - $1,030", inr: "₹68,000 - ₹85,000" }
+            },
+            universities: [
+                { name: "Technical University of Munich (TUM)", location: "Munich", website: "https://www.tum.de/", ranking: "28" },
+                { name: "LMU Munich", location: "Munich", website: "https://www.lmu.de/", ranking: "59" },
+                { name: "Heidelberg University", location: "Heidelberg", website: "https://www.uni-heidelberg.de/", ranking: "84" },
+                { name: "Freie Universität Berlin", location: "Berlin", website: "https://www.fu-berlin.de/", ranking: "97" },
+                { name: "RWTH Aachen University", location: "Aachen", website: "https://www.rwth-aachen.de/", ranking: "106" }
+            ],
+            currency: "1 EUR ≈ 90 INR",
+            indianPopulation: "Approx. 210,000",
+            timeZone: "UTC+2 (CEST) | 3.5 hours behind IST"
+        },
+        "AUSTRALIA": {
+            topCourses: ["Business & Management (MBA)", "Engineering (Civil/Mining)", "Computer Science & IT", "Medicine & Healthcare", "Accounting & Finance", "Hospitality & Tourism Management", "Environmental Sciences", "Architecture", "Data Science", "Education"],
+            visaInfo: {
+                scholarships: ["Australia Awards Scholarships", "Destination Australia Program", "University-Specific Scholarships", "Research Training Program (RTP)", "Endeavour Leadership Program"],
+                tips: "Visa Type: Student Visa (Subclass 500)\n\nKey Requirements:\n1. CoE: Confirmation of Enrolment from the university.\n2. GTE: Genuine Temporary Entrant statement is crucial.\n3. OSHC: Overseas Student Health Cover is mandatory.\n4. Post-Study Work Visa: Available for 2-4 years post-graduation."
+            },
+            livingCost: {
+                majorCity: { usd: "$1,320 - $1,850", inr: "₹1,10,000 - ₹1,54,000" },
+                otherCity: { usd: "$1,050 - $1,450", inr: "₹87,000 - ₹1,20,000" }
+            },
+            universities: [
+                { name: "The University of Melbourne", location: "Melbourne", website: "https://www.unimelb.edu.au/", ranking: "13" },
+                { name: "The University of Sydney", location: "Sydney", website: "https://www.sydney.edu.au/", ranking: "18" },
+                { name: "The University of New South Wales (UNSW)", location: "Sydney", website: "https://www.unsw.edu.au/", ranking: "19" },
+                { name: "Australian National University (ANU)", location: "Canberra", website: "https://www.anu.edu.au/", ranking: "30" },
+                { name: "Monash University", location: "Melbourne", website: "https://www.monash.edu/", ranking: "37" }
+            ],
+            currency: "1 AUD ≈ 55 INR",
+            indianPopulation: "Approx. 784,000",
+            timeZone: "UTC+10 (AEST) | 4.5 hours ahead of IST"
+        },
+        // --- Placeholder for other countries, add data similarly ---
+        "NEW ZEALAND": {
+            topCourses: ["Business Studies", "Engineering (Civil/Geotechnical)", "Information Technology (IT)", "Agriculture & Forestry", "Hospitality & Tourism", "Environmental Science", "Health Sciences", "Animation & VFX", "Education", "Viticulture (Wine Science)"],
+            visaInfo: {
+                scholarships: ["New Zealand International Scholarships", "University-Specific Scholarships", "New Zealand Commonwealth Scholarships", "SEARCA Graduate Scholarship"],
+                tips: "Visa Type: Fee Paying Student Visa\n\nKey Requirements:\n1. Offer of Place: Acceptance letter.\n2. Proof of Funds: NZD $20,000 per year of study.\n3. Health & Character Certificates.\n4. Post-Study Work Visa is available."
+            },
+            livingCost: {
+                majorCity: { usd: "$1,100 - $1,530", inr: "₹91,000 - ₹1,27,000" },
+                otherCity: { usd: "$920 - $1,220", inr: "₹76,000 - ₹1,01,000" }
+            },
+            universities: [
+                { name: "The University of Auckland", location: "Auckland", website: "https://www.auckland.ac.nz/", ranking: "66" },
+                { name: "University of Otago", location: "Dunedin", website: "https://www.otago.ac.nz/", ranking: "214" },
+                { name: "Massey University", location: "Palmerston North", website: "https://www.massey.ac.nz/", ranking: "232" },
+                { name: "Victoria University of Wellington", location: "Wellington", website: "https://www.wgtn.ac.nz/", ranking: "239" },
+                { name: "University of Waikato", location: "Hamilton", website: "https://www.waikato.ac.nz/", ranking: "241" }
+            ],
+            currency: "1 NZD ≈ 51 INR",
+            indianPopulation: "Approx. 250,000",
+            timeZone: "UTC+12 (NZST) | 6.5 hours ahead of IST"
+        },
+        "SINGAPORE": {
+            topCourses: ["Finance & Banking", "Business Administration (MBA)", "Computer Science & IT", "Engineering (Electrical/Mechanical)", "Logistics & Supply Chain Management", "Data Science & Analytics", "Biotechnology & Biomedical Sciences", "Law", "Hospitality Management", "Architecture"],
+            visaInfo: {
+                scholarships: ["Singapore International Graduate Award (SINGA)", "NTU Nanyang President's Graduate Scholarship", "NUS Research Scholarship", "A*STAR Graduate Scholarship"],
+                tips: "Visa Type: Student's Pass\n\nKey Requirements:\n1. SOLAR System: Online application after acceptance.\n2. IPA Letter: In-Principle Approval acts as your entry visa.\n3. ICA Visit: Must visit upon arrival to get the official Pass issued."
+            },
+            livingCost: {
+                majorCity: { usd: "$1,040 - $1,630", inr: "₹86,000 - ₹1,35,000" },
+                otherCity: { usd: "N/A", inr: "N/A" }
+            },
+            universities: [
+                { name: "National University of Singapore (NUS)", location: "Singapore", website: "https://nus.edu.sg/", ranking: "8" },
+                { name: "Nanyang Technological University (NTU)", location: "Singapore", website: "https://www.ntu.edu.sg/", ranking: "15" },
+                { name: "Singapore University of Technology and Design (SUTD)", location: "Singapore", website: "https://www.sutd.edu.sg/", ranking: "440" },
+                { name: "Singapore Management University (SMU)", location: "Singapore", website: "https://www.smu.edu.sg/", ranking: "585" },
+                { name: "INSEAD - Singapore Campus", location: "Singapore", website: "https://www.insead.edu/", ranking: "Top B-School" }
+            ],
+            currency: "1 SGD ≈ 61 INR",
+            indianPopulation: "Approx. 400,000",
+            timeZone: "UTC+8 | 2.5 hours ahead of IST"
+        },
+        "FRANCE": {
+            topCourses: ["Luxury Brand Management", "Fashion Design", "Hospitality & Culinary Arts", "Business Administration (MBA)", "International Relations & Diplomacy", "Engineering (Grandes Écoles)", "Fine Arts & Art History", "Computer Science", "Gastronomy & Oenology (Wine Studies)", "Aerospace Engineering"],
+            visaInfo: {
+                scholarships: ["Eiffel Excellence Scholarship", "Charpak Scholarship Program", "University-Specific Scholarships (Sciences Po, HEC)", "Erasmus+"],
+                tips: "Visa Type: VLS-TS (Long-stay)\n\nKey Requirements:\n1. Campus France: Mandatory online application before visa.\n2. Proof of Funds: Minimum of €615 per month.\n3. OFII Procedure: Visa validation required upon arrival in France."
+            },
+            livingCost: {
+                majorCity: { usd: "$1,300 - $1,950", inr: "₹1,08,000 - ₹1,62,000" },
+                otherCity: { usd: "$870 - $1,200", inr: "₹72,000 - ₹99,000" }
+            },
+            universities: [
+                { name: "Université PSL", location: "Paris", website: "https://psl.eu/", ranking: "24" },
+                { name: "Institut Polytechnique de Paris", location: "Palaiseau", website: "https://www.ip-paris.fr/", ranking: "46" },
+                { name: "Sorbonne University", location: "Paris", website: "https://www.sorbonne-universite.fr/", ranking: "63" },
+                { name: "Université Paris-Saclay", location: "Gif-sur-Yvette", website: "https://www.universite-paris-saclay.fr/", ranking: "71" },
+                { name: "École Normale Supérieure de Lyon", location: "Lyon", website: "http://www.ens-lyon.fr/", ranking: "187" }
+            ],
+            currency: "1 EUR ≈ 90 INR",
+            indianPopulation: "Approx. 110,000",
+            timeZone: "UTC+2 (CEST) | 3.5 hours behind IST"
+        },
+        "ITALY": {
+            topCourses: ["Fashion Design", "Architecture", "Art History & Fine Arts", "Industrial & Product Design", "Business & Management", "Culinary Arts", "Engineering (Automotive/Mechanical)", "Tourism Management", "International Relations", "Automotive Design"],
+            visaInfo: {
+                scholarships: ["Italian Government Scholarships", "DSU / Regional Need-Based Scholarships", "Invest Your Talent in Italy", "University-Specific Scholarships (Bocconi, Polimi)"],
+                tips: "Visa Type: National Visa (Type D)\n\nKey Requirements:\n1. Pre-enrollment: Via UNIVERSITALY portal.\n2. Declaration of Value: Consulate validation of your qualifications.\n3. Permit of Stay: Must apply within 8 days of arrival."
+            },
+            livingCost: {
+                majorCity: { usd: "$1,080 - $1,630", inr: "₹90,000 - ₹1,35,000" },
+                otherCity: { usd: "$760 - $1,030", inr: "₹63,000 - ₹85,000" }
+            },
+            universities: [
+                { name: "Politecnico di Milano", location: "Milan", website: "https://www.polimi.it/", ranking: "111" },
+                { name: "Sapienza University of Rome", location: "Rome", website: "https://www.uniroma1.it/", ranking: "133" },
+                { name: "University of Bologna", location: "Bologna", website: "https://www.unibo.it/", ranking: "135" },
+                { name: "University of Padova", location: "Padua", website: "https://www.unipd.it/", ranking: "236" },
+                { name: "Politecnico di Torino", location: "Turin", website: "https://www.polito.it/", ranking: "241" }
+            ],
+            currency: "1 EUR ≈ 90 INR",
+            indianPopulation: "Approx. 200,000",
+            timeZone: "UTC+2 (CEST) | 3.5 hours behind IST"
+        },
+        "ROMANIA": {
+            topCourses: ["Medicine (MD)", "Dentistry", "Pharmacy", "Veterinary Medicine", "Computer Science & IT", "Engineering (Civil/Mechanical)", "Business Administration", "Economics", "Architecture", "International Relations"],
+            visaInfo: {
+                scholarships: ["Romanian Government Scholarships", "University-Specific Tuition Waivers", "Erasmus+"],
+                tips: "Visa Type: Long-stay study visa\n\nKey Requirements:\n1. Letter of Acceptance: From the Ministry of Education.\n2. Proof of Funds: Approx. €500 per month.\n3. Health Insurance."
+            },
+            livingCost: {
+                majorCity: { usd: "$540 - $870", inr: "₹45,000 - ₹72,000" },
+                otherCity: { usd: "$540 - $870", inr: "₹45,000 - ₹72,000" }
+            },
+            universities: [
+                { name: "Babeș-Bolyai University", location: "Cluj-Napoca", website: "https://www.ubbcluj.ro/", ranking: "781-790" },
+                { name: "University of Bucharest", location: "Bucharest", website: "https://unibuc.ro/", ranking: "801-850" },
+                { name: "Iuliu Hațieganu UMF", location: "Cluj-Napoca", website: "https://www.umfcluj.ro/", ranking: "Top Medical" },
+                { name: "Carol Davila UMF", location: "Bucharest", website: "https://umfcd.ro/", ranking: "Top Medical" },
+                { name: "Politehnica University of Bucharest", location: "Bucharest", website: "https://upb.ro/", ranking: "1201-1400" }
+            ],
+            currency: "1 RON ≈ 18 INR",
+            indianPopulation: "Approx. 5,000",
+            timeZone: "UTC+3 (EEST) | 2.5 hours behind IST"
+        },
+        "LUXEMBOURG": {
+            topCourses: ["Finance & Banking", "Law (European/Financial)", "Business Administration", "Computer Science & Data Science", "Economics", "Logistics & Supply Chain Management", "European Studies", "Entrepreneurship", "Accounting", "Wealth Management"],
+            visaInfo: {
+                scholarships: ["University of Luxembourg Scholarships", "Government Grants (Cedies, limited eligibility)"],
+                tips: "Visa Type: Long-stay student visa\n\nKey Requirements:\n1. Proof of sufficient funds (significant amount).\n2. Admission to a university.\n3. Temporary authorization to stay required before visa application."
+            },
+            livingCost: {
+                majorCity: { usd: "$1,630 - $2,380", inr: "₹1,35,000 - ₹2,00,000" },
+                otherCity: { usd: "$1,630 - $2,380", inr: "₹1,35,000 - ₹2,00,000" }
+            },
+            universities: [
+                { name: "University of Luxembourg", location: "Esch-sur-Alzette", website: "https://www.uni.lu/", ranking: "355" },
+                { name: "Sacred Heart University Luxembourg", location: "Luxembourg City", website: "https://www.shu.lu/", ranking: "US Branch" },
+                { name: "Lunex University", location: "Differdange", website: "https://www.lunex.lu/", ranking: "Specialist" },
+                { name: "Luxembourg School of Business", location: "Luxembourg City", website: "https://luxsb.lu/", ranking: "Private B-School" },
+                { name: "BBI - School for Hospitality", location: "Wiltz", website: "https://www.bbi-edu.eu/", ranking: "Specialist" }
+            ],
+            currency: "1 EUR ≈ 90 INR",
+            indianPopulation: "Approx. 4,000",
+            timeZone: "UTC+2 (CEST) | 3.5 hours behind IST"
+        },
+        "BAHRAIN": {
+            topCourses: ["Finance & Banking (Islamic Finance)", "Business Administration", "Accounting", "Information Technology", "Engineering (Chemical/Mechanical)", "Hospitality Management", "Logistics", "Law (Commercial)", "Marketing", "Medical & Health Sciences"],
+            visaInfo: {
+                scholarships: ["University-Specific Scholarships (ASU, Ahlia)", "Corporate Sponsorships"],
+                tips: "Visa Type: Student Visa\n\nKey Requirements:\n1. University Sponsorship: The visa process is handled by the university.\n2. Letter of Acceptance is key.\n3. Straightforward process once admitted."
+            },
+            livingCost: {
+                majorCity: { usd: "$800 - $1,400", inr: "₹66,000 - ₹1,16,000" },
+                otherCity: { usd: "$800 - $1,400", inr: "₹66,000 - ₹1,16,000" }
+            },
+            universities: [
+                { name: "Applied Science University", location: "Manama", website: "https://www.asu.edu.bh/", ranking: "567" },
+                { name: "University of Bahrain", location: "Sakhir", website: "https://www.uob.edu.bh/", ranking: "851-900" },
+                { name: "Arabian Gulf University", location: "Manama", website: "https://www.agu.edu.bh/", ranking: "901-950" },
+                { name: "Ahlia University", location: "Manama", website: "https://www.ahlia.edu.bh/", ranking: "851-900" },
+                { name: "RCSI – Medical University of Bahrain", location: "Busaiteen", website: "https://www.rcsi.com/bahrain", ranking: "Top Medical" }
+            ],
+            currency: "1 BHD ≈ 220 INR",
+            indianPopulation: "Approx. 400,000",
+            timeZone: "UTC+3 | 2.5 hours behind IST"
+        },
+        "SAUDI ARABIA": {
+            topCourses: ["Petroleum Engineering", "Chemical Engineering", "Business Administration", "Islamic Finance & Banking", "Medicine", "IT & Cybersecurity", "Mechanical Engineering", "Electrical Engineering", "Civil Engineering", "Hospitality & Tourism"],
+            visaInfo: {
+                scholarships: ["KAUST Fellowship (very generous)", "King Saud University Scholarships", "KFUPM Scholarships", "Corporate Sponsorships"],
+                tips: "Visa Type: Student Visa\n\nKey Requirements:\n1. University Sponsorship: Visa is processed by the admitting university.\n2. Medical examination is mandatory.\n3. Strict cultural regulations must be observed."
+            },
+            livingCost: {
+                majorCity: { usd: "$800 - $1,400", inr: "₹66,000 - ₹1,16,000" },
+                otherCity: { usd: "$800 - $1,400", inr: "₹66,000 - ₹1,16,000" }
+            },
+            universities: [
+                { name: "King Fahd University of Petroleum & Minerals (KFUPM)", location: "Dhahran", website: "https://www.kfupm.edu.sa/", ranking: "101" },
+                { name: "King Saud University (KSU)", location: "Riyadh", website: "https://ksu.edu.sa/", ranking: "145" },
+                { name: "King Abdulaziz University (KAU)", location: "Jeddah", website: "https://www.kau.edu.sa/", ranking: "149" },
+                { name: "KAUST", location: "Thuwal", website: "https://www.kaust.edu.sa/", ranking: "Top Research" },
+                { name: "Umm Al-Qura University", location: "Mecca", website: "https://uqu.edu.sa/", ranking: "371" }
+            ],
+            currency: "1 SAR ≈ 22 INR",
+            indianPopulation: "Approx. 2.6 Million",
+            timeZone: "UTC+3 | 2.5 hours behind IST"
+        },
+        "QATAR": {
+            topCourses: ["Petroleum Engineering", "Business Administration", "Finance", "Hospitality Management", "Architecture & Urban Planning", "Media & Journalism", "Islamic Studies & Finance", "Computer Science", "Sports Management", "Engineering (Chemical/Mechanical)"],
+            visaInfo: {
+                scholarships: ["Qatar University Scholarships", "Hamad Bin Khalifa University Scholarships", "Branch Campus specific funding"],
+                tips: "Visa Type: Student Visa\n\nKey Requirements:\n1. University Sponsorship: The university manages the entire visa process.\n2. Many international branch campuses simplify the process.\n3. High cost of living, scholarships are very helpful."
+            },
+            livingCost: {
+                majorCity: { usd: "$1,230 - $1,780", inr: "₹1,02,000 - ₹1,48,000" },
+                otherCity: { usd: "$1,230 - $1,780", inr: "₹1,02,000 - ₹1,48,000" }
+            },
+            universities: [
+                { name: "Qatar University", location: "Doha", website: "http://www.qu.edu.qa/", ranking: "177" },
+                { name: "Hamad Bin Khalifa University (HBKU)", location: "Doha", website: "https://www.hbku.edu.qa/", ranking: "341" },
+                { name: "Texas A&M University at Qatar", location: "Doha", website: "https://www.qatar.tamu.edu/", ranking: "US Branch (#134)" },
+                { name: "Weill Cornell Medicine-Qatar", location: "Doha", website: "https://qatar-weill.cornell.edu/", ranking: "US Branch (#16)" },
+                { name: "Georgetown University in Qatar", location: "Doha", website: "https://www.qatar.georgetown.edu/", ranking: "US Branch (#300)" }
+            ],
+            currency: "1 QAR ≈ 23 INR",
+            indianPopulation: "Approx. 750,000",
+            timeZone: "UTC+3 | 2.5 hours behind IST"
+        },
+        "KUWAIT": {
+            topCourses: ["Petroleum Engineering", "Business Administration", "Finance & Accounting", "Engineering (Mechanical/Electrical)", "Computer Science & IT", "Islamic Banking & Finance", "Architecture", "Medicine & Health Sciences", "Marketing", "English Language & Literature"],
+            visaInfo: {
+                scholarships: ["Kuwait University Scholarships", "Ministry of Higher Education Scholarships"],
+                tips: "Visa Type: Student Visa\n\nKey Requirements:\n1. University Sponsorship is the primary route.\n2. Security clearance can be part of the process.\n3. A local sponsor (the university) is mandatory."
+            },
+            livingCost: {
+                majorCity: { usd: "$800 - $1,400", inr: "₹66,000 - ₹1,16,000" },
+                otherCity: { usd: "$800 - $1,400", inr: "₹66,000 - ₹1,16,000" }
+            },
+            universities: [
+                { name: "American University of the Middle East (AUM)", location: "Egaila", website: "https://www.aum.edu.kw/", ranking: "711-720" },
+                { name: "Gulf University for Science and Technology (GUST)", location: "Mishref", website: "https://www.gust.edu.kw/", ranking: "761-770" },
+                { name: "Kuwait University", location: "Kuwait City", website: "http://ku.edu.kw/", ranking: "851-900" },
+                { name: "American University of Kuwait (AUK)", location: "Salmiya", website: "https://www.auk.edu.kw/", ranking: "N/A" },
+                { name: "Australian College of Kuwait (ACK)", location: "Mishref", website: "https://www.ack.edu.kw/", ranking: "N/A" }
+            ],
+            currency: "1 KWD ≈ 270 INR",
+            indianPopulation: "Approx. 1 Million",
+            timeZone: "UTC+3 | 2.5 hours behind IST"
+        },
+        "JAPAN": {
+            topCourses: ["Engineering (Robotics/Electrical)", "Computer Science & IT", "Business Administration", "Animation & Manga", "Economics", "Applied Sciences (Physics/Chemistry)", "Architecture", "Japanese Language & Literature", "International Relations", "Automotive Engineering"],
+            visaInfo: {
+                scholarships: ["MEXT Scholarship (very prestigious)", "JASSO Scholarship", "University-Specific Scholarships (U of Tokyo, Kyoto U)"],
+                tips: "Visa Type: Student Visa\n\nKey Requirements:\n1. Certificate of Eligibility (CoE): The university applies for this on your behalf in Japan. This is the main document.\n2. Once CoE is received, apply for the visa at the embassy."
+            },
+            livingCost: {
+                majorCity: { usd: "$830 - $1,150", inr: "₹69,000 - ₹95,000" },
+                otherCity: { usd: "$575 - $830", inr: "₹48,000 - ₹69,000" }
+            },
+            universities: [
+                { name: "The University of Tokyo", location: "Tokyo", website: "https://www.u-tokyo.ac.jp/", ranking: "32" },
+                { name: "Kyoto University", location: "Kyoto", website: "https://www.kyoto-u.ac.jp/", ranking: "50" },
+                { name: "Tokyo Institute of Technology (Tokyo Tech)", location: "Tokyo", website: "https://www.titech.ac.jp/", ranking: "84" },
+                { name: "Osaka University", location: "Osaka", website: "https://www.osaka-u.ac.jp/", ranking: "86" },
+                { name: "Tohoku University", location: "Sendai", website: "https://www.tohoku.ac.jp/", ranking: "107" }
+            ],
+            currency: "1 JPY ≈ 0.53 INR",
+            indianPopulation: "Approx. 40,000",
+            timeZone: "UTC+9 | 3.5 hours ahead of IST"
+        },
+        "SOUTH KOREA": {
+            topCourses: ["Engineering (Electronics/Chemical)", "Computer Science & IT", "Business Administration", "Media & Communication (K-Culture)", "Arts & Design", "International Studies", "Korean Language & Literature", "Economics & Trade", "Biotechnology", "Automotive Engineering"],
+            visaInfo: {
+                scholarships: ["Global Korea Scholarship (GKS)", "University-Specific Scholarships (SNU, KAIST)", "Korean Government Support Program"],
+                tips: "Visa Type: D-2 Student Visa\n\nKey Requirements:\n1. Certificate of Admission from the university.\n2. Proof of Funds: Approx. USD $20,000.\n3. Study plan and personal statement."
+            },
+            livingCost: {
+                majorCity: { usd: "$870 - $1,300", inr: "₹72,000 - ₹1,08,000" },
+                otherCity: { usd: "$580 - $870", inr: "₹48,000 - ₹72,000" }
+            },
+            universities: [
+                { name: "Seoul National University (SNU)", location: "Seoul", website: "https://en.snu.ac.kr/", ranking: "31" },
+                { name: "KAIST", location: "Daejeon", website: "https://www.kaist.ac.kr/", ranking: "53" },
+                { name: "Yonsei University", location: "Seoul", website: "https://www.yonsei.ac.kr/", ranking: "56" },
+                { name: "Korea University", location: "Seoul", website: "https://www.korea.ac.kr/", ranking: "67" },
+                { name: "POSTECH", location: "Pohang", website: "https://postech.ac.kr/", ranking: "98" }
+            ],
+            currency: "1 KRW ≈ 0.06 INR",
+            indianPopulation: "Approx. 13,000",
+            timeZone: "UTC+9 | 3.5 hours ahead of IST"
+        },
+    };
+
+    // --- DOM ELEMENT REFERENCES ---
+    const countrySelect = document.getElementById('country-select');
+    const subNav = document.getElementById('sub-nav');
+    const comparatorTool = document.getElementById('comparator-tool');
+    const displayPanel = document.getElementById('content-display');
+    const placeholder = document.getElementById('placeholder');
+    const compareBtn = document.getElementById('compare-btn');
+    const country1Select = document.getElementById('country-1');
+    const country2Select = document.getElementById('country-2');
+    const comparisonResults = document.getElementById('comparison-results');
+
+    // --- INITIALIZATION ---
+    function initialize() {
+        const countries = Object.keys(countryData).sort();
+        
+        // Populate main dropdown
+        countries.forEach(country => {
+            const option = document.createElement('option');
+            option.value = country;
+            option.textContent = country;
+            countrySelect.appendChild(option);
+        });
+
+        // Populate comparator dropdowns
+        populateComparatorDropdowns(countries);
+
+        // Add event listeners
+        countrySelect.addEventListener('change', handleCountrySelection);
+        subNav.addEventListener('click', handleSubNavClick);
+        compareBtn.addEventListener('click', handleCompareClick);
+    }
+
+    function populateComparatorDropdowns(countries) {
+        country1Select.innerHTML = '<option value="" disabled selected>-- Select --</option>';
+        country2Select.innerHTML = '<option value="" disabled selected>-- Select --</option>';
+        countries.forEach(country => {
+            const option1 = document.createElement('option');
+            option1.value = country;
+            option1.textContent = country;
+            country1Select.appendChild(option1);
+
+            const option2 = document.createElement('option');
+            option2.value = country;
+            option2.textContent = country;
+            country2Select.appendChild(option2);
+        });
+    }
+
+    // --- EVENT HANDLERS ---
+    function handleCountrySelection(event) {
+        const selectedCountry = event.target.value;
+        if (selectedCountry) {
+            subNav.classList.remove('hidden');
+            comparatorTool.classList.remove('hidden');
+            placeholder.classList.add('hidden');
+            displayPanel.classList.remove('hidden');
+            comparisonResults.classList.add('hidden');
+            displayPanel.innerHTML = '<h2>Select a category from the left</h2>';
+            
+            // Reset active state on sub-nav
+            document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+        }
+    }
+
+    function handleSubNavClick(event) {
+        if (event.target.classList.contains('nav-item')) {
+            const selectedCountry = countrySelect.value;
+            const selectedSection = event.target.dataset.section;
+
+            document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            comparisonResults.classList.add('hidden');
+            displayPanel.classList.remove('hidden');
+
+            renderContent(selectedCountry, selectedSection);
+        }
+    }
+
+    function handleCompareClick() {
+        const country1 = country1Select.value;
+        const country2 = country2Select.value;
+        
+        if (!country1 || !country2) {
+            alert('Please select two countries to compare.');
+            return;
+        }
+
+        if (country1 === country2) {
+            alert('Please select two different countries.');
+            return;
+        }
+
+        placeholder.classList.add('hidden');
+        displayPanel.classList.add('hidden');
+        comparisonResults.classList.remove('hidden');
+
+        renderComparison(country1, country2);
+    }
+
+    // --- RENDERING FUNCTIONS ---
+    function renderContent(country, section) {
+        const data = countryData[country];
+        let html = `<h2>${section.replace(/([A-Z])/g, ' $1').trim()} in ${country}</h2>`;
+
+        switch(section) {
+            case 'topCourses':
+                html += '<ul>';
+                data.topCourses.forEach(course => {
+                    html += `<li>${course}</li>`;
+                });
+                html += '</ul>';
+                break;
+            case 'visaInfo':
+                html += `<h3>Major Scholarships</h3><ul>`;
+                data.visaInfo.scholarships.forEach(scholarship => {
+                    html += `<li>${scholarship}</li>`;
+                });
+                html += `</ul><h3>Visa Assistance & Tips</h3><p>${data.visaInfo.tips}</p>`;
+                break;
+            case 'livingCost':
+                html += `<h3>Monthly Cost (Major Cities)</h3><p>${data.livingCost.majorCity.usd} / ${data.livingCost.majorCity.inr}</p>`;
+                if (data.livingCost.otherCity.usd !== 'N/A') {
+                    html += `<h3>Monthly Cost (Other Cities)</h3><p>${data.livingCost.otherCity.usd} / ${data.livingCost.otherCity.inr}</p>`;
+                }
+                break;
+            case 'universities':
+                data.universities.forEach(uni => {
+                    html += `<div class="university-card">
+                        <h3>${uni.name}</h3>
+                        <p><strong>Location:</strong> ${uni.location}</p>
+                        <p><strong>QS World Ranking:</strong> ${uni.ranking}</p>
+                        <p><a href="${uni.website}" target="_blank">Visit Website</a></p>
+                    </div>`;
+                });
+                break;
+        }
+        displayPanel.innerHTML = html;
+    }
+
+    function renderComparison(country1, country2) {
+        const data1 = countryData[country1];
+        const data2 = countryData[country2];
+        
+        const courses1 = data1.topCourses.slice(0, 5).map(c => `<li>${c}</li>`).join('');
+        const courses2 = data2.topCourses.slice(0, 5).map(c => `<li>${c}</li>`).join('');
+        
+        const universities1 = data1.universities.map(u => `<li>${u.name} (#${u.ranking})</li>`).join('');
+        const universities2 = data2.universities.map(u => `<li>${u.name} (#${u.ranking})</li>`).join('');
+
+        comparisonResults.innerHTML = `
+            <h2>${country1} vs ${country2}</h2>
+            <div class="comparison-grid">
+                <div></div>
+                <div class="grid-header">${country1}</div>
+                <div class="grid-header">${country2}</div>
+
+                <div class="grid-label">Top 5 Courses</div>
+                <div class="grid-data"><ul>${courses1}</ul></div>
+                <div class="grid-data"><ul>${courses2}</ul></div>
+
+                <div class="grid-label">Ease of Visa</div>
+                <div class="grid-data">${data1.visaInfo.tips.split('\n')[0]}</div>
+                <div class="grid-data">${data2.visaInfo.tips.split('\n')[0]}</div>
+
+                <div class="grid-label">Cost of Living (Major City)</div>
+                <div class="grid-data">${data1.livingCost.majorCity.inr}</div>
+                <div class="grid-data">${data2.livingCost.majorCity.inr}</div>
+
+                <div class="grid-label">Top 5 Universities</div>
+                <div class="grid-data"><ul>${universities1}</ul></div>
+                <div class="grid-data"><ul>${universities2}</ul></div>
+
+                <div class="grid-label">Currency vs INR</div>
+                <div class="grid-data">${data1.currency}</div>
+                <div class="grid-data">${data2.currency}</div>
+
+                <div class="grid-label">Indian Population</div>
+                <div class="grid-data">${data1.indianPopulation}</div>
+                <div class="grid-data">${data2.indianPopulation}</div>
+                
+                <div class="grid-label">Time Zone vs IST</div>
+                <div class="grid-data">${data1.timeZone}</div>
+                <div class="grid-data">${data2.timeZone}</div>
+            </div>
+        `;
+    }
+
+    // --- Start the application ---
+    initialize();
+
+</script>
+
+</body>
+</html>
