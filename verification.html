@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Abroad Process</title>
+<style>
+    @import url('https://fonts.cdnfonts.com/css/impact');
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto:wght@300;400&display=swap');
+
+    :root {
+        --white: #ffffff;
+        --light-turquoise: #7FFFD4; /* Main accent color */
+        --light-turquoise-dark: #004d00; /* For 3D shadow */
+        --dark-text: #212529; /* For main page text */
+        --light-gray: #f8f9fa;
+        --border-color: #dee2e6;
+        --shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    body {
+        background-color: var(--white); /* MODIFIED: White background */
+        color: var(--dark-text); /* MODIFIED: Black font */
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 20px;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 20px;
+        background: var(--white); /* Clean background for content */
+        border: 1px solid var(--border-color);
+        border-radius: 10px;
+        box-shadow: var(--shadow);
+    }
+
+    /* MODIFIED: Title box is light turquoise */
+    .title-box {
+        padding: 30px;
+        margin-bottom: 25px;
+        border: none;
+        border-radius: 8px;
+        text-align: center;
+        background: var(--light-turquoise);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        animation: none; /* Removed glow animation */
+    }
+
+    /* MODIFIED: The Intense 3D Impact Font Title */
+    h1 {
+        font-family: 'Impact', sans-serif;
+        font-size: 4.5em;
+        font-weight: normal;
+        line-height: 1.0;
+        color: var(--white); /* MODIFIED: White font */
+        margin: 0;
+        text-transform: uppercase;
+        
+        /* The Intense, Layered 3D Text Shadow */
+        text-shadow: 
+            1px 1px 0px var(--light-turquoise-dark), 
+            2px 2px 0px var(--light-turquoise-dark), 
+            3px 3px 0px var(--light-turquoise-dark),
+            4px 4px 8px rgba(0,0,0,0.2);
+    }
+
+    /* Notification Box (Light Theme) */
+    .notification {
+        background: #e8f5e9; /* Light green background */
+        border-left: 5px solid var(--light-turquoise);
+        padding: 15px;
+        margin-bottom: 40px;
+        font-style: italic;
+        font-size: 0.95em;
+        color: var(--dark-text);
+        border-radius: 0 5px 5px 0;
+    }
+
+    /* 2-Column Layout (Light Theme) */
+    .main-content {
+        display: grid;
+        grid-template-columns: 250px 1fr;
+        gap: 1px;
+        background-color: var(--border-color); /* Grid lines */
+        border: 1px solid var(--border-color);
+    }
+
+    .country-name, .country-description {
+        padding: 20px;
+        background-color: var(--white);
+        color: var(--dark-text);
+    }
+
+    .country-name {
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+    
+    .country-name a {
+        color: var(--black);
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .country-name a:hover {
+        text-decoration: underline;
+    }
+
+    .country-description {
+        font-weight: 300;
+        color: #555;
+    }
+
+    /* Responsive Design for smaller screens */
+    @media (max-width: 768px) {
+        .main-content {
+            grid-template-columns: 1fr; /* Stack columns */
+        }
+        .country-name {
+            border-bottom: 1px solid var(--border-color);
+        }
+        h1 {
+            font-size: 3em;
+        }
+    }
+</style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="title-box">
+            <h1>Study Abroad Process</h1>
+        </header>
+
+        <div class="notification">
+            <p>The countries chosen commensurate with the majority of Indians travelling for the purpose of studying to a foreign country and the list is given alphabetically.</p>
+        </div>
+
+        <main class="main-content">
+            <!-- Australia -->
+            <div class="country-name">
+                <a href="verification_australia.html">Australia</a>
+            </div>
+            <div class="country-description">
+                A highly regulated process centered around QEAC-certified agents, the Genuine Temporary Entrant (GTE) requirement, and the subclass 500 visa.
+            </div>
+
+            <!-- Bahrain -->
+            <div class="country-name">
+                <a href="verification_bahrain.html">Bahrain</a>
+            </div>
+            <div class="country-description">
+                Features a university-sponsored visa system where document attestation is a key prerequisite before the institution applies for the entry permit on your behalf.
+            </div>
+
+            <!-- Canada -->
+            <div class="country-name">
+                <a href="verification_canada.html">Canada</a>
+            </div>
+            <div class="country-description">
+                Requires a Study Permit, with mandatory use of a CICC-licensed consultant for visa advice and a strong emphasis on proof of funds, often via a GIC.
+            </div>
+
+            <!-- China -->
+            <div class="country-name">
+                <a href="verification_china.html">China</a>
+            </div>
+            <div class="country-description">
+                A state-managed process requiring the original Admission Notice and JW201/JW202 form from the university before applying for the X1 entry visa.
+            </div>
+            
+            <!-- France -->
+            <div class="country-name">
+                <a href="verification_france.html">France</a>
+            </div>
+            <div class="country-description">
+                Mandates a pre-consular procedure through the official Campus France "Études en France" platform before the VLS-TS visa application can begin.
+            </div>
+
+            <!-- Germany -->
+            <div class="country-name">
+                <a href="verification_germany.html">Germany</a>
+            </div>
+            <div class="country-description">
+                A structured process known for its mandatory Blocked Account (`Sperrkonto`), potential APS certificate requirement, and a formal visa interview.
+            </div>
+            
+            <!-- Italy -->
+            <div class="country-name">
+                <a href="verification_italy.html">Italy</a>
+            </div>
+            <div class="country-description">
+                Involves a mandatory pre-enrollment on the Universitaly portal and academic verification via a `Dichiarazione di Valore` (DOV) or CIMEA statement.
+            </div>
+
+            <!-- Japan -->
+            <div class="country-name">
+                <a href="verification_japan.html">Japan</a>
+            </div>
+            <div class="country-description">
+                A highly structured system where the university sponsors and applies for a Certificate of Eligibility (CoE) on the student's behalf before the visa process.
+            </div>
+
+            <!-- Kuwait -->
+            <div class="country-name">
+                <a href="verification_kuwait.html">Kuwait</a>
+            </div>
+            <div class="country-description">
+                Operates on a university-sponsorship model where the institution applies for the entry permit after a lengthy and mandatory document attestation process.
+            </div>
+            
+            <!-- Luxembourg -->
+            <div class="country-name">
+                <a href="verification_luxembourg.html">Luxembourg</a>
+            </div>
+            <div class="country-description">
+                A unique two-step process requiring a "Temporary Authorisation to Stay" from within Luxembourg before the final Type D visa application can be made.
+            </div>
+
+            <!-- Malaysia -->
+            <div class="country-name">
+                <a href="verification_malaysia.html">Malaysia</a>
+            </div>
+            <div class="country-description">
+                Centralized through the government's EMGS portal, which processes the Visa Approval Letter (VAL) before the student applies for an entry visa.
+            </div>
+            
+            <!-- New Zealand -->
+            <div class="country-name">
+                <a href="verification_new_zealand.html">New Zealand</a>
+            </div>
+            <div class="country-description">
+                Verified through ENZ Recognised Agencies, the process often involves an "Approval in Principle" (AIP) from immigration before tuition fees are paid.
+            </div>
+
+            <!-- Oman -->
+            <div class="country-name">
+                <a href="verification_oman.html">Oman</a>
+            </div>
+            <div class="country-description">
+                A sponsorship-based system where the university applies for the visa with the Royal Oman Police after the student completes a multi-stage document attestation.
+            </div>
+
+            <!-- Qatar -->
+            <div class="country-name">
+                <a href="verification_qatar.html">Qatar</a>
+            </div>
+            <div class="country-description">
+                Features a university-sponsorship model where the institution handles the visa application with the Ministry of Interior after rigorous document attestation.
+            </div>
+            
+            <!-- Russia -->
+            <div class="country-name">
+                <a href="verification_russia.html">Russia</a>
+            </div>
+            <div class="country-description">
+                Requires the university to secure an official "Invitation Letter" from the Ministry of Internal Affairs before the student can apply for an entry visa.
+            </div>
+
+            <!-- Saudi Arabia -->
+            <div class="country-name">
+                <a href="verification_saudi_arabia.html">Saudi Arabia</a>
+            </div>
+            <div class="country-description">
+                A university-sponsored system where the institution obtains a Visa Authorization Number from the Ministry of Foreign Affairs, a prerequisite for the visa application.
+            </div>
+            
+            <!-- Singapore -->
+            <div class="country-name">
+                <a href="verification_singapore.html">Singapore</a>
+            </div>
+            <div class="country-description">
+                A highly regulated system using the government's SOLAR portal for the Student's Pass application, which follows an In-Principle Approval (IPA) letter.
+            </div>
+
+            <!-- South Korea -->
+            <div class="country-name">
+                <a href="verification_south_korea.html">South Korea</a>
+            </div>
+            <div class="country-description">
+                Requires legalization of documents (Apostille) and a mandatory embassy interview before the D-2 student visa is issued, followed by ARC registration upon arrival.
+            </div>
+            
+            <!-- Spain -->
+            <div class="country-name">
+                <a href="verification_spain.html">Spain</a>
+            </div>
+            <div class="country-description">
+                A bureaucratic process demanding document legalization via Hague Apostille, official sworn translations, and a mandatory post-arrival TIE card application.
+            </div>
+
+            <!-- Switzerland -->
+            <div class="country-name">
+                <a href="verification_switzerland.html">Switzerland</a>
+            </div>
+            <div class="country-description">
+                A decentralized and lengthy process requiring dual approval for the visa from both the Swiss embassy and the specific cantonal migration office.
+            </div>
+            
+            <!-- UAE -->
+            <div class="country-name">
+                <a href="verification_uae.html">UAE</a>
+            </div>
+            <div class="country-description">
+                A university-sponsored system where the institution manages the visa, starting with an Entry Permit and culminating in a Residence Visa and Emirates ID.
+            </div>
+            
+            <!-- UK -->
+            <div class="country-name">
+                <a href="verification_uk.html">UK</a>
+            </div>
+            <div class="country-description">
+                Relies on British Council certified agents, the university-issued CAS number, and a potential credibility interview for the Student Route visa.
+            </div>
+            
+            <!-- USA -->
+            <div class="country-name">
+                <a href="verification_usa.html">USA</a>
+            </div>
+            <div class="country-description">
+                A comprehensive process involving AIRC-certified agents, standardized tests (GRE/GMAT/SAT), the university-issued I-20 form, and a critical F-1 visa interview.
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>

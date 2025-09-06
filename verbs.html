@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parts of Speech: Verbs</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            /* Blue and white gridline background */
+            background-color: #f0f8ff; 
+            background-image: 
+                repeating-linear-gradient(to right, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 30px),
+                repeating-linear-gradient(to bottom, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 30px);
+            background-size: 30px 30px;
+        }
+
+        /* Header Styling */
+        header {
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        header h1 {
+            display: inline-block;
+            background-color: #0056b3;
+            color: white;
+            padding: 20px 40px;
+            border: 3px solid white;
+            border-radius: 15px;
+            /* 3D Box Effect */
+            box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.4), inset 2px 2px 5px rgba(255, 255, 255, 0.3);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-size: 2.2em;
+            margin: 0;
+        }
+
+        /* Main Container for Two-Column Layout */
+        .container {
+            display: flex;
+            max-width: 1300px;
+            margin: 20px auto;
+            background: #ffffff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.15);
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        /* Left Navigation Column */
+        .nav-column {
+            flex: 1;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+            background-color: #f8f9fa;
+        }
+
+        .nav-column ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            position: sticky;
+            top: 20px; /* Makes the nav stick on scroll */
+        }
+
+        .nav-column li a {
+            display: block;
+            padding: 12px 15px;
+            text-decoration: none;
+            color: #0056b3;
+            border-radius: 5px;
+            margin-bottom: 8px;
+            font-weight: bold;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .nav-column li a:hover,
+        .nav-column li a.active {
+            background-color: #0056b3;
+            color: #fff;
+        }
+
+        /* Right Content Column */
+        .content-column {
+            flex: 3;
+            padding: 25px 35px;
+            height: 80vh; /* Set a height to enable scrolling */
+            overflow-y: auto; /* Enable vertical scrollbar */
+        }
+
+        .content-section {
+            display: none;
+        }
+        
+        .content-section.active {
+            display: block;
+        }
+        
+        h2 {
+            font-size: 1.8em;
+            color: #0056b3;
+            border-bottom: 3px solid #0056b3;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        
+        h3 {
+            font-size: 1.4em;
+            color: #333;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        
+        .example-list {
+            list-style-type: decimal;
+            padding-left: 20px;
+        }
+
+        .example-list li {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>PARTS OF SPEECH : VERBS</h1>
+    </header>
+
+    <div class="container">
+        <nav class="nav-column">
+            <ul>
+                <li><a href="#definition" class="nav-link active">Definition</a></li>
+                <li><a href="#types" class="nav-link">Types of Verbs</a></li>
+                <li><a href="#forms" class="nav-link">Verb Forms</a></li>
+                <li><a href="#identify" class="nav-link">How to Identify Verbs</a></li>
+            </ul>
+        </nav>
+
+        <main class="content-column">
+            <!-- DEFINITION SECTION -->
+            <section id="definition" class="content-section active">
+                <h2>Definition</h2>
+                <p>A verb is a word that shows <strong>action</strong> (something being done) or a <strong>state of being</strong> (a condition or existence). It is the most essential part of a sentence.</p>
+                <h3>10 Sentence Examples:</h3>
+                <ol class="example-list">
+                    <li>The students <strong>write</strong> in their notebooks. (Action)</li>
+                    <li>He <strong>is</strong> a talented musician. (State of being)</li>
+                    <li>Birds <strong>fly</strong> south for the winter. (Action)</li>
+                    <li>She <strong>seems</strong> tired today. (State of being)</li>
+                    <li>The chef <strong>prepares</strong> the meal. (Action)</li>
+                    <li>Dinosaurs <strong>existed</strong> millions of years ago. (State of being)</li>
+                    <li>We <strong>are studying</strong> for the competitive exam. (Action)</li>
+                    <li>The Earth <strong>revolves</strong> around the Sun. (Action)</li>
+                    <li>My father <strong>feels</strong> proud of my success. (State of being)</li>
+                    <li>The company <strong>launched</strong> a new product. (Action)</li>
+                </ol>
+            </section>
+
+            <!-- TYPES OF VERBS SECTION -->
+            <section id="types" class="content-section">
+                <h2>Types of Verbs</h2>
+                
+                <h3>Stative Verbs</h3>
+                <p>These describe states, conditions, or senses, not actions. They are not usually used in continuous tenses.</p>
+                <ol class="example-list">
+                    <li>I <strong>believe</strong> your story.</li>
+                    <li>She <strong>owns</strong> three houses.</li>
+                    <li>He <strong>doubts</strong> the result.</li>
+                    <li>This soup <strong>tastes</strong> wonderful.</li>
+                    <li>We <strong>understand</strong> the problem now.</li>
+                    <li>The box <strong>contains</strong> old letters.</li>
+                    <li>I <strong>remember</strong> my first day of school.</li>
+                    <li>She <strong>deserves</strong> the award.</li>
+                    <li>The answer <strong>seems</strong> correct.</li>
+                    <li>He <strong>has</strong> a new car.</li>
+                </ol>
+
+                <h3>Dynamic Verbs</h3>
+                <p>These describe an action, process, or event.</p>
+                <ol class="example-list">
+                    <li>The children <strong>are playing</strong> outside.</li>
+                    <li>He <strong>built</strong> a model airplane.</li>
+                    <li>She <strong>is writing</strong> a novel.</li>
+                    <li>They <strong>traveled</strong> across the country.</li>
+                    <li>The athlete <strong>ran</strong> five miles.</li>
+                    <li>We <strong>listened</strong> to the music.</li>
+                    <li>He <strong>eats</strong> an apple every day.</li>
+                    <li>The team <strong>is developing</strong> a new strategy.</li>
+                    <li>She <strong>threw</strong> the ball.</li>
+                    <li>I <strong>will study</strong> tonight.</li>
+                </ol>
+
+                <h3>Helping (Auxiliary) Verbs</h3>
+                <p>These are used with a main verb to show tense or mood.</p>
+                 <ol class="example-list">
+                    <li>She <strong>is</strong> working from home.</li>
+                    <li>They <strong>have</strong> finished their project.</li>
+                    <li>He <strong>did</strong> not attend the meeting.</li>
+                    <li>We <strong>were</strong> waiting for the bus.</li>
+                    <li>I <strong>had</strong> already eaten when he arrived.</li>
+                    <li><strong>Does</strong> she know the answer?</li>
+                    <li>You <strong>are</strong> making good progress.</li>
+                    <li>They <strong>have</strong> been studying for hours.</li>
+                    <li>He <strong>was</strong> elected president.</li>
+                    <li>I <strong>do</strong> want to go to the concert.</li>
+                </ol>
+
+                <h3>Modal Verbs</h3>
+                <p>A type of helping verb expressing ability, possibility, permission, or obligation.</p>
+                 <ol class="example-list">
+                    <li>She <strong>can</strong> speak three languages fluently.</li>
+                    <li>You <strong>must</strong> submit your assignment by Friday.</li>
+                    <li>It <strong>might</strong> rain later today.</li>
+                    <li><strong>May</strong> I borrow your pen?</li>
+                    <li>We <strong>should</strong> leave early to avoid traffic.</li>
+                    <li>He <strong>will</strong> arrive tomorrow morning.</li>
+                    <li>You <strong>ought to</strong> apologize for your mistake.</li>
+                    <li>I <strong>would</strong> like another cup of coffee, please.</li>
+                    <li>They <strong>could</strong> have won the game.</li>
+                    <li>You <strong>shall</strong> not pass!</li>
+                </ol>
+
+                <h3>Transitive & Intransitive Verbs</h3>
+                <p>Transitive verbs need an object to receive the action, while intransitive verbs do not.</p>
+                <ol class="example-list">
+                    <li>She read <strong>the book</strong>. (Transitive)</li>
+                    <li>The baby slept. (Intransitive)</li>
+                    <li>The pitcher threw <strong>the ball</strong>. (Transitive)</li>
+                    <li>The sun shines brightly. (Intransitive)</li>
+                    <li>I bought <strong>a new car</strong>. (Transitive)</li>
+                    <li>He arrived late. (Intransitive)</li>
+                    <li>The company manufactures <strong>electronics</strong>. (Transitive)</li>
+                    <li>The audience applauded. (Intransitive)</li>
+                    <li>She wrote <strong>a letter</strong> to her friend. (Transitive)</li>
+                    <li>The old car broke down. (Intransitive)</li>
+                </ol>
+
+                <h3>Linking Verbs</h3>
+                <p>These connect the subject with a word that renames or describes it (a subject complement).</p>
+                <ol class="example-list">
+                    <li>He <strong>is</strong> an engineer.</li>
+                    <li>The flowers <strong>smell</strong> wonderful.</li>
+                    <li>She <strong>became</strong> the CEO of the company.</li>
+                    <li>The situation <strong>seems</strong> complicated.</li>
+                    <li>After the gym, I <strong>feel</strong> tired.</li>
+                    <li>The night <strong>grew</strong> dark.</li>
+                    <li>His story <strong>sounds</strong> unbelievable.</li>
+                    <li>You <strong>look</strong> amazing in that dress.</li>
+                    <li>The milk <strong>turned</strong> sour.</li>
+                    <li>My sister <strong>remains</strong> my best friend.</li>
+                </ol>
+            </section>
+
+            <!-- VERB FORMS SECTION -->
+            <section id="forms" class="content-section">
+                <h2>Verb Forms</h2>
+                <p>Verbs change form to show tense. Here are 10 more examples of common irregular verbs:</p>
+                <table border="1" cellpadding="5" cellspacing="0" width="100%">
+                    <tr style="background-color:#f2f2f2; text-align:left;">
+                        <th>V1 (Base)</th><th>V2 (Past)</th><th>V3 (Past Participle)</th><th>V4 (Present Participle)</th><th>V5 (Simple Present)</th>
+                    </tr>
+                    <tr><td>Go</td><td>went</td><td>gone</td><td>going</td><td>goes</td></tr>
+                    <tr><td>See</td><td>saw</td><td>seen</td><td>seeing</td><td>sees</td></tr>
+                    <tr><td>Make</td><td>made</td><td>made</td><td>making</td><td>makes</td></tr>
+                    <tr><td>Take</td><td>took</td><td>taken</td><td>taking</td><td>takes</td></tr>
+                    <tr><td>Give</td><td>gave</td><td>given</td><td>giving</td><td>gives</td></tr>
+                    <tr><td>Come</td><td>came</td><td>come</td><td>coming</td><td>comes</td></tr>
+                    <tr><td>Begin</td><td>began</td><td>begun</td><td>beginning</td><td>begins</td></tr>
+                    <tr><td>Choose</td><td>chose</td><td>chosen</td><td>choosing</td><td>chooses</td></tr>
+                    <tr><td>Speak</td><td>spoke</td><td>spoken</td><td>speaking</td><td>speaks</td></tr>
+                    <tr><td>Break</td><td>broke</td><td>broken</td><td>breaking</td><td>breaks</td></tr>
+                </table>
+            </section>
+            
+            <!-- IDENTIFY VERBS SECTION -->
+                        <!-- IDENTIFY VERBS SECTION (REVISED) -->
+            <section id="identify" class="content-section">
+                <h2>How to Identify Verbs: 9 Techniques</h2>
+
+                <h3>1. Meaning-Based Technique (Action/State Test)</h3>
+                <p><strong>Easy Explanation:</strong> The simplest way to spot a verb is to look for the word in the sentence that shows either an <strong>action</strong> (like running or thinking) or a <strong>state of being</strong> (a condition, like <em>is, seems, or exists</em>).</p>
+                <ol class="example-list">
+                    <li>The wind <strong>howls</strong> at night. (Action)</li>
+                    <li>She <strong>is</strong> a dentist. (State of Being)</li>
+                    <li>He <strong>thinks</strong> about the future. (Mental Action)</li>
+                    <li>The project <strong>appears</strong> complete. (State of Being)</li>
+                    <li>They <strong>celebrated</strong> his victory. (Action)</li>
+                    <li>I <strong>have</strong> a question. (State of Being - possession)</li>
+                    <li>The river <strong>flows</strong> to the sea. (Action)</li>
+                    <li>The defendant <strong>remained</strong> silent. (State of Being)</li>
+                    <li>The team <strong>practices</strong> every day. (Action)</li>
+                    <li>Honesty <strong>is</strong> the best policy. (State of Being)</li>
+                </ol>
+                
+                <h3>2. Inflection Test (Tense Forms)</h3>
+                <p><strong>Easy Explanation:</strong> Verbs are unique because they change their form to show tense (past, present, future). If you can change a word to show a different tense, it's a verb.</p>
+                 <ol class="example-list">
+                    <li>Today I <strong>work</strong>; yesterday I <strong>worked</strong>.</li>
+                    <li>She <strong>sings</strong> now; last night she <strong>sang</strong>.</li>
+                    <li>He <strong>goes</strong> to school; yesterday he <strong>went</strong>.</li>
+                    <li>They <strong>are</strong> here; yesterday they <strong>were</strong> here.</li>
+                    <li>I <strong>begin</strong> the task; yesterday I <strong>began</strong> the task.</li>
+                    <li>The company <strong>grows</strong>; last year it <strong>grew</strong>.</li>
+                    <li>You <strong>choose</strong> a color; yesterday you <strong>chose</strong> a color.</li>
+                    <li>He <strong>drives</strong> a car; yesterday he <strong>drove</strong> a car.</li>
+                    <li>The sun <strong>shines</strong>; yesterday it <strong>shone</strong>.</li>
+                    <li>I <strong>know</strong> the answer; yesterday I <strong>knew</strong> the answer.</li>
+                </ol>
+                
+                <h3>3. Auxiliary (Helping Verb) Test</h3>
+                <p><strong>Easy Explanation:</strong> A main verb can often have a "helping" verb (like <em>am, is, have, will, can</em>) before it. If a word can be placed after one of these helpers, it is very likely a verb.</p>
+                <ol class="example-list">
+                    <li>She <strong>can run</strong> very fast.</li>
+                    <li>They <strong>are playing</strong> chess.</li>
+                    <li>He <strong>has completed</strong> the course.</li>
+                    <li>I <strong>will see</strong> you tomorrow.</li>
+                    <li>You <strong>should listen</strong> carefully.</li>
+                    <li>We <strong>were watching</strong> a movie.</li>
+                    <li>She <strong>did not arrive</strong> on time.</li>
+                    <li>They <strong>must follow</strong> the rules.</li>
+                    <li>He <strong>has been studying</strong> all night.</li>
+                    <li>It <strong>may rain</strong> this afternoon.</li>
+                </ol>
+                
+                <h3>4. Negation Test</h3>
+                <p><strong>Easy Explanation:</strong> You can usually make a verb negative by adding the word "not" after it (or after a helping verb like <em>do, does, did</em>). If a word can be negated this way, it's a verb.</p>
+                <ol class="example-list">
+                    <li>The store <strong>is not</strong> open today.</li>
+                    <li>He <strong>does not understand</strong> the instructions.</li>
+                    <li>They <strong>will not participate</strong> in the event.</li>
+                    <li>I <strong>have not seen</strong> that film.</li>
+                    <li>She <strong>cannot find</strong> her keys.</li>
+                    <li>We <strong>did not receive</strong> the package.</li>
+                    <li>You <strong>should not worry</strong>.</li>
+                    <li>He <strong>was not</strong> paying attention.</li>
+                    <li>The system <strong>is not</strong> working.</li>
+                    <li>They <strong>are not</strong> ready yet.</li>
+                </ol>
+
+                <h3>5. Question Test (Inversion)</h3>
+                <p><strong>Easy Explanation:</strong> To turn a statement into a yes/no question, the helping verb moves to the front, before the subject. This swapping of position (inversion) is a clear sign of a verb.</p>
+                <ol class="example-list">
+                    <li>Statement: He <strong>is</strong> coming. -> Question: <strong>Is</strong> he coming?</li>
+                    <li>Statement: They <strong>have</strong> left. -> Question: <strong>Have</strong> they left?</li>
+                    <li>Statement: You <strong>will</strong> help. -> Question: <strong>Will</strong> you help?</li>
+                    <li>Statement: She <strong>works</strong> here. -> Question: <strong>Does</strong> she <strong>work</strong> here?</li>
+                    <li>Statement: He <strong>saw</strong> the movie. -> Question: <strong>Did</strong> he <strong>see</strong> the movie?</li>
+                    <li>Statement: The package <strong>has</strong> arrived. -> Question: <strong>Has</strong> the package arrived?</li>
+                    <li>Statement: She <strong>can</strong> swim. -> Question: <strong>Can</strong> she swim?</li>
+                    <li>Statement: They <strong>were</strong> listening. -> Question: <strong>Were</strong> they listening?</li>
+                    <li>Statement: You <strong>like</strong> coffee. -> Question: <strong>Do</strong> you <strong>like</strong> coffee?</li>
+                    <li>Statement: He <strong>should</strong> study. -> Question: <strong>Should</strong> he study?</li>
+                </ol>
+
+                <h3>6. Syntactic Position Test</h3>
+                <p><strong>Easy Explanation:</strong> In a standard sentence, the verb typically occupies a specific position: right after the subject (the noun or pronoun that performs the action).</p>
+                 <ol class="example-list">
+                    <li>The <strong>captain</strong> (S) <strong>instructed</strong> (V) the team.</li>
+                    <li><strong>Rain</strong> (S) <strong>fell</strong> (V) throughout the night.</li>
+                    <li>The <strong>company</strong> (S) <strong>hired</strong> (V) new employees.</li>
+                    <li><strong>She</strong> (S) <strong>spoke</strong> (V) confidently.</li>
+                    <li>The <strong>new policy</strong> (S) <strong>affects</strong> (V) everyone.</li>
+                    <li><strong>Many people</strong> (S) <strong>attended</strong> (V) the concert.</li>
+                    <li>The <strong>sun</strong> (S) <strong>sets</strong> (V) in the west.</li>
+                    <li>Our <strong>teacher</strong> (S) <strong>explained</strong> (V) the lesson.</li>
+                    <li>A loud <strong>noise</strong> (S) <strong>startled</strong> (V) us.</li>
+                    <li>The <strong>engineers</strong> (S) <strong>designed</strong> (V) the bridge.</li>
+                </ol>
+
+                <h3>7. Derivational Morphology Test (Suffixes)</h3>
+                <p><strong>Easy Explanation:</strong> Many verbs are formed by adding common suffixes (endings) to nouns or adjectives. If you see a word with endings like <em>-ize, -ify, -ate,</em> or <em>-en</em>, it is often a verb.</p>
+                <ol class="example-list">
+                    <li>They will <strong>modernize</strong> the system. (-ize)</li>
+                    <li>Please <strong>clarify</strong> your statement. (-ify)</li>
+                    <li>The government will <strong>activate</strong> the new plan. (-ate)</li>
+                    <li>We need to <strong>strengthen</strong> our defenses. (-en)</li>
+                    <li>He tried to <strong>justify</strong> his actions. (-ify)</li>
+                    <li>She will <strong>officiate</strong> the ceremony. (-ate)</li>
+                    <li>The news will <strong>sadden</strong> many people. (-en)</li>
+                    <li>They plan to <strong>colonize</strong> the planet. (-ize)</li>
+                    <li>The artist tried to <strong>beautify</strong> the park. (-ify)</li>
+                    <li>Let's <strong>differentiate</strong> between the two concepts. (-ate)</li>
+                </ol>
+                
+                <h3>8. Agreement Test</h3>
+                <p><strong>Easy Explanation:</strong> In the present tense, the verb often changes its form to "agree" with the subject. A singular subject usually takes a verb ending in -s, while a plural subject does not.</p>
+                 <ol class="example-list">
+                    <li>The <strong>dog barks</strong>, but the <strong>dogs bark</strong>.</li>
+                    <li>A <strong>student studies</strong>, but <strong>students study</strong>.</li>
+                    <li>This <strong>machine works</strong>, but these <strong>machines work</strong>.</li>
+                    <li>The <strong>bird sings</strong>, but the <strong>birds sing</strong>.</li>
+                    <li>He <strong>has</strong> a car, but they <strong>have</strong> a car.</li>
+                    <li>A <strong>child plays</strong>, but <strong>children play</strong>.</li>
+                    <li>The <strong>employee knows</strong>, but the <strong>employees know</strong>.</li>
+                    <li>She <strong>was</strong> happy, but they <strong>were</strong> happy.</li>
+                    <li>An <strong>author writes</strong>, but <strong>authors write</strong>.</li>
+                    <li>He <strong>is</strong> a leader, but they <strong>are</strong> leaders.</li>
+                </ol>
+
+                <h3>9. Extra Technique: Wh-Questions</h3>
+                <p><strong>Easy Explanation:</strong> A practical way to find the verb is to identify the subject and then ask, <strong>"What did [the subject] do?"</strong> or <strong>"What is [the subject] doing?"</strong>. The answer to this question will almost always contain the verb.</p>
+                <ol class="example-list">
+                    <li>Sentence: The manager <strong>approved</strong> the budget. (What did the manager do?)</li>
+                    <li>Sentence: The river <strong>is flowing</strong> rapidly. (What is the river doing?)</li>
+                    <li>Sentence: My friend <strong>gave</strong> me a book. (What did my friend do?)</li>
+                    <li>Sentence: The sun <strong>provides</strong> light and heat. (What does the sun do?)</li>
+                    <li>Sentence: The company <strong>will launch</strong> a new app. (What will the company do?)</li>
+                    <li>Sentence: The mechanic <strong>is repairing</strong> the car. (What is the mechanic doing?)</li>
+                    <li>Sentence: She <strong>has submitted</strong> her report. (What has she done?)</li>
+                    <li>Sentence: The committee <strong>announced</strong> the winner. (What did the committee do?)</li>
+                    <li>Sentence: The author <strong>was writing</strong> a new chapter. (What was the author doing?)</li>
+                    <li>Sentence: The guard <strong>locks</strong> the gate at night. (What does the guard do?)</li>
+                </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const contentSections = document.querySelectorAll('.content-section');
+            const contentColumn = document.querySelector('.content-column');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+
+                    navLinks.forEach(nav => nav.classList.remove('active'));
+                    contentSections.forEach(section => section.classList.remove('active'));
+
+                    this.classList.add('active');
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        targetSection.classList.add('active');
+                        contentColumn.scrollTop = 0; // Scroll to top of content area on click
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
