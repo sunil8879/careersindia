@@ -1,0 +1,615 @@
+
+
+const newzealand = [
+  {
+    "Scholarship Name": "Manaaki New Zealand Scholarships",
+    "Host Country and University": "New Zealand, at any eligible New Zealand university.",
+    "Website": "https://www.manaaki.ac.nz/",
+    "Level of Study": "Postgraduate (Master's and PhD).",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Varies by country and chosen course. Generally requires a Bachelor's degree of a standard equivalent to a New Zealand Bachelor's degree.",
+      "Standardized Test Scores": "English proficiency is required (e.g., IELTS overall score of 6.5 and no band less than 6.0; TOEFL iBT score of 90 with a writing score of 21).",
+      "Field of Study": "Priority is given to subjects that contribute to the development of your home country, such as Climate Change and the Environment, Disaster Risk Management, Food Security and Agriculture, Renewable Energy, and Good Governance.",
+      "Other": "Must be a citizen of an eligible country (including India). Must agree to return to your home country for a minimum of two years after completing the scholarship. Work experience in a relevant field is strongly preferred."
+    },
+    "Application Deadline": "The application window for India typically opens in February and closes in March each year.",
+    "Value/Inclusions": "A fully-funded scholarship covering full tuition fees, a living allowance of NZ$531 per week, an establishment allowance of NZ$3000, medical insurance, travel to and from your home country, and research and thesis costs for postgraduate students.",
+    "Application Process": "Apply online through the Manaaki New Zealand Scholarships online application portal. The process involves an initial eligibility check followed by a full application if you meet the criteria.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "Required as part of the online application, with specific questions about your development goals and how the scholarship will help.",
+      "Letters of Recommendation (LORs)": "May be required at later stages.",
+      "Academic Transcripts": "Required from all tertiary institutions attended.",
+      "Proof of English proficiency (TOEFL/IELTS scores)": "Required if you are shortlisted.",
+      "CV or Resume": "Details of work experience are required in the application.",
+      "Passport copy": "Required to prove citizenship."
+    },
+    "How old the scholarship is": "The scholarship program, formerly known as the New Zealand Development Scholarships, has been running for several decades, evolving from the Colombo Plan initiated in the 1950s.",
+    "Age limit": "Must be 18 years or older at the time of commencing the scholarship. There is no upper age limit, but preference may be given to applicants who will have sufficient time to contribute to their country's development after their studies."
+  },
+  {
+    "Scholarship Name": "University of Auckland India High Achievers Scholarship",
+    "Host Country and University": "New Zealand, University of Auckland.",
+    "Website": "https://www.auckland.ac.nz/en/study/scholarships-and-awards/find-a-scholarship/india-high-achievers-scholarship-831-all.html",
+    "Level of Study": "Undergraduate and Postgraduate (Taught Master's).",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Based on academic merit. Applicants must have excellent grades in their previous qualifications (e.g., high scores in Standard XII for undergraduates or a high GPA in a Bachelor's degree for postgraduates).",
+      "Standardized Test Scores": "Must meet the English language requirements for the chosen program.",
+      "Field of Study": "Most undergraduate and postgraduate taught programmes.",
+      "Other": "Must be a citizen of India. Must be a new international student."
+    },
+    "Application Deadline": "There are typically several application rounds per year. For study commencing in Semester One (February), the deadline is usually in October of the previous year.",
+    "Value/Inclusions": "Up to NZ$20,000 towards tuition fees.",
+    "Application Process": "A separate online application is required after you have applied for admission to the university.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A personal statement is required as part of the scholarship application.",
+      "Letters of Recommendation (LORs)": "Required for the course application.",
+      "Academic Transcripts": "Required for the course application.",
+      "Proof of English proficiency (TOEFL/IELTS scores)": "Required for the course application.",
+      "CV or Resume": "May be required for postgraduate course applications.",
+      "Passport copy": "Required for the course application."
+    },
+    "How old the scholarship is": "This is a relatively new scholarship, part of the university's strategy to attract high-achieving students from India.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1883"
+  },
+  {
+    "Scholarship Name": "Victoria University of Wellington Tongarewa Scholarship",
+    "Host Country and University": "New Zealand, Victoria University of Wellington.",
+    "Website": "https://www.wgtn.ac.nz/scholarships/current/tongarewa-scholarship",
+    "Level of Study": "Undergraduate and Postgraduate (coursework).",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Based on academic merit. Must have a strong academic record.",
+      "Standardized Test Scores": "Must meet the English language requirements of the course.",
+      "Field of Study": "All subjects.",
+      "Other": "Must be a new international student. The scholarship is awarded based on academic merit, and applicants are expected to act as ambassadors for the university."
+    },
+    "Application Deadline": "There are three application rounds per year, with deadlines typically in May, September, and December.",
+    "Value/Inclusions": "A partial tuition fee waiver of NZ$5,000 or NZ$10,000 for the first year of study.",
+    "Application Process": "A separate online application is required after you have applied for admission.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A personal statement of up to 500 words is required.",
+      "Letters of Recommendation (LORs)": "One reference is required.",
+      "Academic Transcripts": "Required for the course application.",
+      "Proof of English proficiency (TOEFL/IELTS scores)": "Required for the course application.",
+      "CV or Resume": "May be required for postgraduate course applications.",
+      "Passport copy": "Required for the course application."
+    },
+    "How old the scholarship is": "This is a well-established scholarship at the university.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1897"
+  },
+  {
+    "Scholarship Name": "University of Canterbury International First Year Scholarship",
+    "Host Country and University": "New Zealand, University of Canterbury.",
+    "Website": "https://www.canterbury.ac.nz/scholarshipsearch/ScholarshipDetails.aspx?ScholarshipID=6935",
+    "Level of Study": "Undergraduate.",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must have university entrance level qualification and demonstrate high academic achievement.",
+      "Standardized Test Scores": "Must meet the English language requirements of the course.",
+      "Field of Study": "All undergraduate degree programs.",
+      "Other": "Must be a new international student."
+    },
+    "Application Deadline": "The application deadline is typically in mid-August for study commencing the following year.",
+    "Value/Inclusions": "A partial tuition fee waiver of NZ$10,000, NZ$15,000, or NZ$20,000 for the first year of study.",
+    "Application Process": "A separate online application is required through the university's scholarship portal.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A personal statement may be required.",
+      "Letters of Recommendation (LORs)": "May be required.",
+      "Academic Transcripts": "Required.",
+      "Proof of English proficiency (TOEFL/IELTS scores)": "Required.",
+      "CV or Resume": "Not typically required for undergraduate applications.",
+      "Passport copy": "Required."
+    },
+    "How old the scholarship is": "This has been a key international scholarship for the university for many years.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1873"
+  },
+  {
+    "Scholarship Name": "University of Otago Vice-Chancellor's Scholarship for International Students",
+    "Host Country and University": "New Zealand, University of Otago.",
+    "Website": "https://www.otago.ac.nz/student-services/scholarships/database/otago014694.html",
+    "Level of Study": "Undergraduate and Postgraduate (coursework).",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Based on academic merit.",
+      "Standardized Test Scores": "Must meet the English language requirements of the course.",
+      "Field of Study": "All coursework programs.",
+      "Other": "Must be a new international student."
+    },
+    "Application Deadline": "There are several application rounds, with deadlines typically in December, February, and April.",
+    "Value/Inclusions": "A partial tuition fee waiver of NZ$10,000 for the first year of study.",
+    "Application Process": "No separate application is required. Students are automatically considered when they receive their offer of place.",
+    "Required Documents": {
+      "All documents submitted for course application are used for consideration.": true
+    },
+    "How old the scholarship is": "This scholarship has been part of the university's international recruitment efforts for several years.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1869"
+  },
+  {
+    "Scholarship Name": "University of Waikato International Excellence Scholarship",
+    "Host Country and University": "New Zealand, University of Waikato.",
+    "Website": "https://www.waikato.ac.nz/scholarships/s/university-of-waikato-international-excellence-scholarship",
+    "Level of Study": "Undergraduate and Postgraduate (coursework).",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must demonstrate excellent academic achievement, typically with a GPA of B+ or equivalent.",
+      "Standardized Test Scores": "Must meet the English language requirements of the course.",
+      "Field of Study": "All coursework programs.",
+      "Other": "Must be a new international student."
+    },
+    "Application Deadline": "Applications are accepted throughout the year, with no specific closing date.",
+    "Value/Inclusions": "Up to NZ$20,000 towards tuition fees.",
+    "Application Process": "A separate online application is required after you have received an offer of place.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A personal statement may be required.",
+      "Academic Transcripts": "Required for the course application.",
+      "Proof of English proficiency (TOEFL/IELTS scores)": "Required for the course application.",
+      "Other documents as submitted for the course application": true
+    },
+    "How old the scholarship is": "This has been the university's flagship international scholarship for several years.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1964"
+  },
+  {
+    "Scholarship Name": "Massey University Vice-Chancellor's Excellence Scholarship",
+    "Host Country and University": "New Zealand, Massey University.",
+    "Website": "https://www.massey.ac.nz/study/scholarships-and-awards/massey-university-vice-chancellors-excellence-scholarship/",
+    "Level of Study": "Undergraduate and Postgraduate (coursework).",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Based on academic merit. Must have a strong academic record.",
+      "Standardized Test Scores": "Must meet the English language requirements of the course.",
+      "Field of Study": "All coursework programs.",
+      "Other": "Must be a new international student."
+    },
+    "Application Deadline": "Varies by intake. Students should check the website for specific dates.",
+    "Value/Inclusions": "NZ$5,000 per 60 credits enrolled, for up to the total credit value of the programme, with a maximum of NZ$10,000 per year.",
+    "Application Process": "A separate online application is required after you have received an offer of place.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A personal statement may be required.",
+      "Academic Transcripts": "Required for the course application.",
+      "Proof of English proficiency (TOEFL/IELTS scores)": "Required for the course application.",
+      "Other documents as submitted for the course application": true
+    },
+    "How old the scholarship is": "This scholarship has been offered by Massey for several years.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1927"
+  },
+  {
+    "Scholarship Name": "Lincoln University International Taught Master Merit Scholarships",
+    "Host Country and University": "New Zealand, Lincoln University.",
+    "Website": "https://www.lincoln.ac.nz/study/scholarships/search-scholarships/lincoln-university-international-taught-master-merit-scholarships/",
+    "Level of Study": "Postgraduate (Taught Master's).",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must have a high GPA, typically B+ average or higher.",
+      "Standardized Test Scores": "Must meet the English language requirements of the course.",
+      "Field of Study": "Eligible 180-credit taught Master's programmes.",
+      "Other": "Must be a new international student."
+    },
+    "Application Deadline": "Varies by intake. Students should check the website for specific dates.",
+    "Value/Inclusions": "NZ$10,000 towards the tuition fees.",
+    "Application Process": "No separate application is required. Students are automatically considered when they apply for an eligible programme.",
+    "Required Documents": {
+      "All documents submitted for course application are used for consideration.": true
+    },
+    "How old the scholarship is": "This scholarship has been offered for several years.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1878"
+  },
+  {
+    "Scholarship Name": "Auckland University of Technology (AUT) International Scholarship - South Asia",
+    "Host Country and University": "New Zealand, Auckland University of Technology.",
+    "Website": "https://www.aut.ac.nz/study/scholarships/aut-international-scholarship-south-asia",
+    "Level of Study": "Undergraduate and Postgraduate (coursework).",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must have a high academic record from a recognized institution in a South Asian country.",
+      "Standardized Test Scores": "Must meet the English language requirements of the course.",
+      "Field of Study": "All coursework programs.",
+      "Other": "Must be a citizen of a South Asian country, including India."
+    },
+    "Application Deadline": "Varies by intake. Students should check the website for specific dates.",
+    "Value/Inclusions": "NZ$5,000 towards tuition fees.",
+    "Application Process": "A separate online application is required after you have received an offer of place.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A personal statement may be required.",
+      "Academic Transcripts": "Required for the course application.",
+      "Proof of English proficiency (TOEFL/IELTS scores)": "Required for the course application.",
+      "Other documents as submitted for the course application": true
+    },
+    "How old the scholarship is": "This is a region-specific scholarship that AUT has offered for several years.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "2000"
+  },
+  {
+    "Scholarship Name": "Unitec Institute of Technology International Scholarship",
+    "Host Country and University": "New Zealand, Unitec Institute of Technology.",
+    "Website": "https://www.unitec.ac.nz/international/scholarships-and-fees",
+    "Level of Study": "Vocational (Diploma) and Undergraduate.",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Based on academic merit.",
+      "Standardized Test Scores": "Must meet the English language requirements of the course.",
+      "Field of Study": "All programs.",
+      "Other": "Must be a new international student."
+    },
+    "Application Deadline": "Varies by intake. Students should check the website for specific dates.",
+    "Value/Inclusions": "A partial tuition fee waiver, typically NZ$1,000 to NZ$3,000.",
+    "Application Process": "A separate application is usually required, which includes a personal statement.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A personal statement is usually required.",
+      "Academic Transcripts": true,
+      "Other documents as submitted for the course application": true
+    },
+    "How old the scholarship is": "Unitec has been offering these scholarships for several years.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1976"
+  },
+  {
+    "Scholarship Name": "Manukau Institute of Technology (MIT) International Scholarships",
+    "Host Country and University": "New Zealand, Manukau Institute of Technology.",
+    "Website": "https://www.manukau.ac.nz/international/scholarships",
+    "Level of Study": "Vocational (Diploma) and Undergraduate.",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Based on academic merit.",
+      "Standardized Test Scores": "Must meet the English language requirements of the course.",
+      "Field of Study": "All programs.",
+      "Other": "Must be a new international student."
+    },
+    "Application Deadline": "Varies by intake. Students should check the website for specific dates.",
+    "Value/Inclusions": "A partial tuition fee waiver, typically NZ$1,000 to NZ$2,000.",
+    "Application Process": "A separate application is usually required, which includes a personal statement.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A personal statement is usually required.",
+      "Academic Transcripts": true,
+      "Other documents as submitted for the course application": true
+    },
+    "How old the scholarship is": "MIT has been offering these scholarships for several years.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1970"
+  },
+  {
+    "Scholarship Name": "Wellington Institute of Technology (WelTec) and Whitireia New Zealand International Scholarships",
+    "Host Country and University": "New Zealand, Wellington Institute of Technology and Whitireia New Zealand.",
+    "Website": "https://www.wandw.ac.nz/international/scholarships/",
+    "Level of Study": "Vocational (Diploma) and Undergraduate.",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Based on academic merit.",
+      "Standardized Test Scores": "Must meet the English language requirements of the course.",
+      "Field of Study": "All programs.",
+      "Other": "Must be a new international student."
+    },
+    "Application Deadline": "Varies by intake. Students should check the website for specific dates.",
+    "Value/Inclusions": "A partial tuition fee waiver, typically NZ$1,000 to NZ$3,000.",
+    "Application Process": "A separate application is usually required, which includes a personal statement.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A personal statement is usually required.",
+      "Academic Transcripts": true,
+      "Other documents as submitted for the course application": true
+    },
+    "How old the scholarship is": "These institutions have been offering scholarships for several years.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1904 (WelTec), 1986 (Whitireia)"
+  },
+  {
+    "Scholarship Name": "Ara Institute of Canterbury International Scholarships",
+    "Host Country and University": "New Zealand, Ara Institute of Canterbury.",
+    "Website": "https://www.ara.ac.nz/international/scholarships/",
+    "Level of Study": "Vocational (Diploma) and Undergraduate.",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Based on academic merit.",
+      "Standardized Test Scores": "Must meet the English language requirements of the course.",
+      "Field of Study": "All programs.",
+      "Other": "Must be a new international student."
+    },
+    "Application Deadline": "Varies by intake. Students should check the website for specific dates.",
+    "Value/Inclusions": "A partial tuition fee waiver, typically NZ$1,000 to NZ$2,000.",
+    "Application Process": "A separate application is usually required, which includes a personal statement.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A personal statement is usually required.",
+      "Academic Transcripts": true,
+      "Other documents as submitted for the course application": true
+    },
+    "How old the scholarship is": "Ara has been offering these scholarships for several years.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "2016 (merger of CPIT and Aoraki Polytechnic)"
+  },
+  {
+    "Scholarship Name": "Toi Ohomai Institute of Technology International Scholarships",
+    "Host Country and University": "New Zealand, Toi Ohomai Institute of Technology.",
+    "Website": "https://toiohomai.ac.nz/international/scholarships",
+    "Level of Study": "Vocational (Diploma) and Undergraduate.",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Based on academic merit.",
+      "Standardized Test Scores": "Must meet the English language requirements of the course.",
+      "Field of Study": "All programs.",
+      "Other": "Must be a new international student."
+    },
+    "Application Deadline": "Varies by intake. Students should check the website for specific dates.",
+    "Value/Inclusions": "A partial tuition fee waiver, typically NZ$1,000 to NZ$2,000.",
+    "Application Process": "A separate application is usually required, which includes a personal statement.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A personal statement is usually required.",
+      "Academic Transcripts": true,
+      "Other documents as submitted for the course application": true
+    },
+    "How old the scholarship is": "Toi Ohomai has been offering these scholarships for several years.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "2016 (merger of Bay of Plenty Polytechnic and Waiariki Institute of Technology)"
+  },
+  {
+    "Scholarship Name": "Southern Institute of Technology (SIT) International Scholarships",
+    "Host Country and University": "New Zealand, Southern Institute of Technology.",
+    "Website": "https://www.sit.ac.nz/international/scholarships",
+    "Level of Study": "Vocational (Diploma) and Undergraduate.",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Based on academic merit.",
+      "Standardized Test Scores": "Must meet the English language requirements of the course.",
+      "Field of Study": "All programs.",
+      "Other": "Must be a new international student."
+    },
+    "Application Deadline": "Varies by intake. Students should check the website for specific dates.",
+    "Value/Inclusions": "A partial tuition fee waiver, typically NZ$1,000 to NZ$2,000.",
+    "Application Process": "A separate application is usually required, which includes a personal statement.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A personal statement is usually required.",
+      "Academic Transcripts": true,
+      "Other documents as submitted for the course application": true
+    },
+    "How old the scholarship is": "SIT has been offering these scholarships for several years.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1971"
+  },
+  {
+    "Scholarship Name": "Nelson Marlborough Institute of Technology (NMIT) International Scholarships",
+    "Host Country and University": "New Zealand, Nelson Marlborough Institute of Technology.",
+    "Website": "https://www.nmit.ac.nz/international/scholarships/",
+    "Level of Study": "Vocational (Diploma) and Undergraduate.",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Based on academic merit.",
+      "Standardized Test Scores": "Must meet the English language requirements of the course.",
+      "Field of Study": "All programs.",
+      "Other": "Must be a new international student."
+    },
+    "Application Deadline": "Varies by intake. Students should check the website for specific dates.",
+    "Value/Inclusions": "A partial tuition fee waiver, typically NZ$1,000 to NZ$1,500.",
+    "Application Process": "A separate application is usually required, which includes a personal statement.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A personal statement is usually required.",
+      "Academic Transcripts": true,
+      "Other documents as submitted for the course application": true
+    },
+    "How old the scholarship is": "NMIT has been offering these scholarships for several years.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1905"
+  },
+  {
+    "Scholarship Name": "Northland Polytechnic (NorthTec) International Scholarships",
+    "Host Country and University": "New Zealand, Northland Polytechnic.",
+    "Website": "https://www.northtec.ac.nz/international/scholarships-and-fees",
+    "Level of Study": "Vocational (Diploma) and Undergraduate.",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Based on academic merit.",
+      "Standardized Test Scores": "Must meet the English language requirements of the course.",
+      "Field of Study": "All programs.",
+      "Other": "Must be a new international student."
+    },
+    "Application Deadline": "Varies by intake. Students should check the website for specific dates.",
+    "Value/Inclusions": "A partial tuition fee waiver, typically NZ$1,000 to NZ$2,000.",
+    "Application Process": "A separate application is usually required, which includes a personal statement.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A personal statement is usually required.",
+      "Academic Transcripts": true,
+      "Other documents as submitted for the course application": true
+    },
+    "How old the scholarship is": "NorthTec has been offering these scholarships for several years.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1978"
+  },
+  {
+    "Scholarship Name": "Otago Polytechnic International Scholarships",
+    "Host Country and University": "New Zealand, Otago Polytechnic.",
+    "Website": "https://www.op.ac.nz/international/scholarships/",
+    "Level of Study": "Vocational (Diploma) and Undergraduate.",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Based on academic merit.",
+      "Standardized Test Scores": "Must meet the English language requirements of the course.",
+      "Field of Study": "All programs.",
+      "Other": "Must be a new international student."
+    },
+    "Application Deadline": "Varies by intake. Students should check the website for specific dates.",
+    "Value/Inclusions": "A partial tuition fee waiver, typically NZ$1,000 to NZ$2,000.",
+    "Application Process": "A separate application is usually required, which includes a personal statement.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A personal statement is usually required.",
+      "Academic Transcripts": true,
+      "Other documents as submitted for the course application": true
+    },
+    "How old the scholarship is": "Otago Polytechnic has been offering these scholarships for several years.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1966"
+  },
+  {
+    "Scholarship Name": "Western Institute of Technology at Taranaki (WITT) International Scholarships",
+    "Host Country and University": "New Zealand, Western Institute of Technology at Taranaki.",
+    "Website": "https://www.witt.ac.nz/international/scholarships/",
+    "Level of Study": "Vocational (Diploma) and Undergraduate.",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Based on academic merit.",
+      "Standardized Test Scores": "Must meet the English language requirements of the course.",
+      "Field of Study": "All programs.",
+      "Other": "Must be a new international student."
+    },
+    "Application Deadline": "Varies by intake. Students should check the website for specific dates.",
+    "Value/Inclusions": "A partial tuition fee waiver, typically NZ$1,000 to NZ$2,000.",
+    "Application Process": "A separate application is usually required, which includes a personal statement.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A personal statement is usually required.",
+      "Academic Transcripts": true,
+      "Other documents as submitted for the course application": true
+    },
+    "How old the scholarship is": "WITT has been offering these scholarships for several years.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1972"
+  },
+  {
+    "Scholarship Name": "Eastern Institute of Technology (EIT) International Scholarships",
+    "Host Country and University": "New Zealand, Eastern Institute of Technology.",
+    "Website": "https://www.eit.ac.nz/international/scholarships/",
+    "Level of Study": "Vocational (Diploma) and Undergraduate.",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Based on academic merit.",
+      "Standardized Test Scores": "Must meet the English language requirements of the course.",
+      "Field of Study": "All programs.",
+      "Other": "Must be a new international student."
+    },
+    "Application Deadline": "Varies by intake. Students should check the website for specific dates.",
+    "Value/Inclusions": "A partial tuition fee waiver, typically NZ$1,000 to NZ$2,000.",
+    "Application Process": "A separate application is usually required, which includes a personal statement.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A personal statement is usually required.",
+      "Academic Transcripts": true,
+      "Other documents as submitted for the course application": true
+    },
+    "How old the scholarship is": "EIT has been offering these scholarships for several years.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1975"
+  },
+  {
+    "Scholarship Name": "Waikato Institute of Technology (Wintec) International Scholarships",
+    "Host Country and University": "New Zealand, Waikato Institute of Technology.",
+    "Website": "https://www.wintec.ac.nz/international/scholarships",
+    "Level of Study": "Vocational (Diploma) and Undergraduate.",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Based on academic merit.",
+      "Standardized Test Scores": "Must meet the English language requirements of the course.",
+      "Field of Study": "All programs.",
+      "Other": "Must be a new international student."
+    },
+    "Application Deadline": "Varies by intake. Students should check the website for specific dates.",
+    "Value/Inclusions": "A partial tuition fee waiver, typically NZ$1,000 to NZ$2,000.",
+    "Application Process": "A separate application is usually required, which includes a personal statement.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A personal statement is usually required.",
+      "Academic Transcripts": true,
+      "Other documents as submitted for the course application": true
+    },
+    "How old the scholarship is": "Wintec has been offering these scholarships for several years.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1924"
+  },
+  {
+    "Scholarship Name": "New Zealand School of Education (NZSE) International Scholarships",
+    "Host Country and University": "New Zealand, New Zealand School of Education.",
+    "Website": "https://nzse.ac.nz/international/scholarships/",
+    "Level of Study": "Vocational (Diploma).",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Based on academic merit.",
+      "Standardized Test Scores": "Must meet the English language requirements of the course.",
+      "Field of Study": "Education, IT, and Business.",
+      "Other": "Must be a new international student."
+    },
+    "Application Deadline": "Varies by intake. Students should check the website for specific dates.",
+    "Value/Inclusions": "A partial tuition fee waiver, typically NZ$1,000 to NZ$2,000.",
+    "Application Process": "A separate application is usually required, which includes a personal statement.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A personal statement is usually required.",
+      "Academic Transcripts": true,
+      "Other documents as submitted for the course application": true
+    },
+    "How old the scholarship is": "NZSE has been offering these scholarships for several years.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "2002"
+  },
+  {
+    "Scholarship Name": "Queenstown Resort College (QRC) International Scholarships",
+    "Host Country and University": "New Zealand, Queenstown Resort College.",
+    "Website": "https://www.qrc.ac.nz/international/scholarships/",
+    "Level of Study": "Vocational (Diploma).",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Based on academic merit.",
+      "Standardized Test Scores": "Must meet the English language requirements of the course.",
+      "Field of Study": "Hospitality Management and Adventure Tourism Management.",
+      "Other": "Must be a new international student."
+    },
+    "Application Deadline": "Varies by intake. Students should check the website for specific dates.",
+    "Value/Inclusions": "A partial tuition fee waiver, typically NZ$2,000 to NZ$5,000.",
+    "Application Process": "A separate application is usually required, which includes a personal statement and an interview.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A personal statement is required.",
+      "Academic Transcripts": true,
+      "Other documents as submitted for the course application": true
+    },
+    "How old the scholarship is": "QRC has been offering these scholarships for several years.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "2006"
+  },
+  {
+    "Scholarship Name": "New Zealand School of Tourism (NZST) International Scholarships",
+    "Host Country and University": "New Zealand, New Zealand School of Tourism.",
+    "Website": "https://www.nzschooloftourism.co.nz/international-students/scholarships/",
+    "Level of Study": "Vocational (Diploma).",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Based on academic merit.",
+      "Standardized Test Scores": "Must meet the English language requirements of the course.",
+      "Field of Study": "Tourism, Hospitality, and Travel.",
+      "Other": "Must be a new international student."
+    },
+    "Application Deadline": "Varies by intake. Students should check the website for specific dates.",
+    "Value/Inclusions": "A partial tuition fee waiver, typically NZ$1,000 to NZ$2,000.",
+    "Application Process": "A separate application is usually required, which includes a personal statement.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A personal statement is usually required.",
+      "Academic Transcripts": true,
+      "Other documents as submitted for the course application": true
+    },
+    "How old the scholarship is": "NZST has been offering these scholarships for several years.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1985"
+  },
+
+  {
+    "Scholarship Name": "Media Design School International Student Scholarships",
+    "Host Country and University": "New Zealand, Media Design School.",
+    "Website": "https://www.mediadesignschool.com/scholarships",
+    "Level of Study": "Vocational (Diploma) and Undergraduate.",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Based on academic merit and a creative portfolio.",
+      "Standardized Test Scores": "Must meet the English language requirements of the course.",
+      "Field of Study": "Creative Technologies, 3D Animation and Visual Effects, Game Art, Game Programming, and Graphic Design.",
+      "Other": "Must be a new international student."
+    },
+    "Application Deadline": "Varies by intake. Students should check the website for specific dates.",
+    "Value/Inclusions": "A partial tuition fee waiver, typically NZ$2,000 to NZ$5,000.",
+    "Application Process": "A separate application is usually required, which includes a portfolio and a personal statement.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A personal statement is usually required.",
+      "Creative Portfolio": true,
+      "Academic Transcripts": true,
+      "Other documents as submitted for the course application": true
+    },
+    "How old the scholarship is": "Media Design School has been offering these scholarships for several years.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1998"
+  },
+  {
+    "Scholarship Name": "Yoobee College of Creative Innovation International Student Scholarships",
+    "Host Country and University": "New Zealand, Yoobee College of Creative Innovation.",
+    "Website": "https://www.yoobee.ac.nz/international/scholarships/",
+    "Level of Study": "Vocational (Diploma) and Undergraduate.",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Based on academic merit and a creative portfolio.",
+      "Standardized Test Scores": "Must meet the English language requirements of the course.",
+      "Field of Study": "Animation, Film, Design, and Technology.",
+      "Other": "Must be a new international student."
+    },
+    "Application Deadline": "Varies by intake. Students should check the website for specific dates.",
+    "Value/Inclusions": "A partial tuition fee waiver, typically NZ$1,000 to NZ$3,000.",
+    "Application Process": "A separate application is usually required, which includes a portfolio and a personal statement.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A personal statement is usually required.",
+      "Creative Portfolio": true,
+      "Academic Transcripts": true,
+      "Other documents as submitted for the course application": true
+    },
+    "How old the scholarship is": "Yoobee has been offering these scholarships for several years.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1997"
+  }
+]

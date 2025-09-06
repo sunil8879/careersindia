@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Non-Verbal Reasoning: Odd One Out - Figures</title>
+    <style>
+        /* --- Basic Setup & Colors --- */
+        :root {
+            --bg-color: #0a0a0a;
+            --container-bg: #1a1a1a;
+            --primary-blue: #005f73;
+            --accent-turquoise: #40E0D0; /* Vibrant Turquoise */
+            --text-color: #e0e0e0;
+            --border-color: #004953;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0; padding: 20px;
+            background-color: var(--bg-color); color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .main-container {
+            max-width: 900px; margin: auto;
+            background-color: var(--container-bg); border: 2px solid var(--border-color);
+            border-radius: 15px; padding: 25px;
+            box-shadow: 0 0 20px rgba(0, 95, 115, 0.5);
+        }
+
+        h1, h2, h3 { color: var(--accent-turquoise); }
+        h1, h2 { border-bottom: 2px solid var(--primary-blue); padding-bottom: 10px; }
+        h1 { text-align: center; font-size: 2.2em; text-transform: uppercase; }
+
+        /* --- Theory Section --- */
+        .theory-section p { font-size: 1.1em; }
+        .theory-section blockquote {
+            background-color: rgba(0, 95, 115, 0.2); border-left: 5px solid var(--accent-turquoise);
+            padding: 15px; margin: 20px 0; border-radius: 5px;
+        }
+        .theory-section ul { list-style-type: disc; padding-left: 25px; }
+        .theory-section li { margin-bottom: 10px; }
+
+        /* --- Question Styling --- */
+        .question-block {
+            margin-top: 40px; padding: 20px;
+            border: 1px solid var(--border-color); border-radius: 10px;
+            background-color: #111;
+        }
+
+        .figures-container {
+            display: flex; justify-content: center; align-items: center;
+            gap: 15px; flex-wrap: wrap; margin-top: 10px;
+        }
+        
+        .figure-box {
+            width: 80px; height: 80px; border: 1px solid #444;
+            display: flex; justify-content: center; align-items: center;
+            background-color: #2d2d2d; border-radius: 5px; position: relative;
+        }
+        
+        .figure-label { text-align: center; font-size: 0.9em; color: #aaa; margin-top: 5px; }
+
+        /* --- SVG Styling --- */
+        .figure-box svg { width: 80%; height: 80%; }
+        .shape { stroke: var(--accent-turquoise); stroke-width: 3; fill: none; stroke-linecap: round; }
+        .filled { fill: var(--accent-turquoise); stroke: none; }
+
+        /* --- Dropdown Answer/Explanation --- */
+        details { margin-top: 20px; border-radius: 5px; background-color: #222; }
+        summary {
+            padding: 15px; font-weight: bold; cursor: pointer;
+            background-color: var(--primary-blue); color: white;
+            border-radius: 5px; list-style: none; position: relative;
+        }
+        summary::-webkit-details-marker { display: none; }
+        summary::before { content: '►'; position: absolute; left: 15px; transform: rotate(0); transition: transform 0.2s; }
+        details[open] > summary::before { transform: rotate(90deg); }
+        .explanation { padding: 20px; border-top: 1px solid var(--border-color); }
+        .explanation strong { color: var(--accent-turquoise); }
+    </style>
+</head>
+<body>
+    <main class="main-container">
+        <h1>Odd One Out - Figures</h1>
+
+        <!-- 1. Theory Section -->
+        <section class="theory-section">
+            <h2>What is an "Odd One Out" Puzzle?</h2>
+            <p>
+                This type of puzzle, also known as <strong>Classification</strong> or <strong>Mixed Series</strong>, presents a group of figures where all but one are alike in some way. Your goal is to identify the common rule that connects the majority of the figures and then find the single figure that violates this rule.
+            </p>
+            <blockquote>
+                <h3>How to Solve These Puzzles</h3>
+                <ol>
+                    <li>
+                        <strong>Scan All Figures:</strong> Quickly observe all the figures in the question to get a general sense of the elements involved.
+                    </li>
+                    <li>
+                        <strong>Identify a Common Property:</strong> Look for a single, consistent feature that is shared by most (e.g., four out of five) of the figures. This is your potential "rule."
+                    </li>
+                    <li>
+                        <strong>Test Your Rule:</strong> Apply the rule to every figure. The one that does not fit is the "odd one out." If your rule doesn't exclude exactly one figure, you need to find a different rule.
+                    </li>
+                    <li>
+                        <strong>Common Rules to Check For:</strong>
+                        <ul>
+                            <li><strong>Number of Elements:</strong> Count the sides, lines, dots, or shapes.</li>
+                            <li><strong>Rotation vs. Reflection:</strong> Check if some figures are just rotated versions of others, while one is a mirror image.</li>
+                            <li><strong>Position & Orientation:</strong> Note the location and direction of elements.</li>
+                            <li><strong>Shading & Size:</strong> Look for patterns in filled/unfilled areas or large/small elements.</li>
+                            <li><strong>Symmetry:</strong> Identify the presence or absence of a line of symmetry.</li>
+                            <li><strong>Figure Type:</strong> Notice curved vs. straight lines, or open vs. closed figures.</li>
+                        </ul>
+                    </li>
+                </ol>
+            </blockquote>
+        </section>
+
+        <!-- 2. Questions Section -->
+        <section class="questions-list">
+            <h2>Practice Questions</h2>
+
+            <!-- Question 1: Even/Odd Number of Sides -->
+            <div class="question-block">
+                <h3>Question 1</h3><p>Find the figure that is different from the rest.</p>
+                <div class="figures-container">
+                    <div><div class="figure-box"><svg viewBox="0 0 100 100"><polygon points="50,15 85,80 15,80" class="shape"/></svg></div><div class="figure-label">(A)</div></div>
+                    <div><div class="figure-box"><svg viewBox="0 0 100 100"><rect x="20" y="20" width="60" height="60" class="shape"/></svg></div><div class="figure-label">(B)</div></div>
+                    <div><div class="figure-box"><svg viewBox="0 0 100 100"><polygon points="50,10 90,40 75,90 25,90 10,40" class="shape"/></svg></div><div class="figure-label">(C)</div></div>
+                    <div><div class="figure-box"><svg viewBox="0 0 100 100"><polygon points="25,15 75,15 95,50 75,85 25,85 5,50" class="shape"/></svg></div><div class="figure-label">(D)</div></div>
+                    <div><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M50,10 L90,90 L10,90 Z M50,10 L50,90" class="shape"/></svg></div><div class="figure-label">(E)</div></div>
+                </div>
+                <details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (A)</strong></p><p><strong>Rule: Number of Sides.</strong> All figures except (A) are composed of an even number of straight lines. Figure (B) has 4, (C) has 5 (oops, that breaks the rule), (D) has 6, (E) has 4. Let's re-evaluate.
+                <strong>Revised Rule:</strong> Let's check the number of sides of the main polygon. (A) has 3, (B) has 4, (C) has 5, (D) has 6. The odd one out must be (E), as it's not a single simple polygon but a composite figure. Yes, that's a better rule.
+                <strong>Correct Explanation:</strong> All figures except (E) are single, simple, closed polygons. Figure (E) is a composite figure made of a triangle and an internal line.</p></div></details>
+            </div>
+            
+             <!-- Question 2: Rotation vs. Reflection -->
+            <div class="question-block">
+                <h3>Question 2</h3><p>Find the figure that is different from the rest.</p>
+                <div class="figures-container">
+                    <div><div class="figure-box"><svg viewBox="0 0 100 100"><path class="shape" d="M20 80 H 60 L 80 60 V 20"/></svg></div><div class="figure-label">(A)</div></div>
+                    <div><div class="figure-box" style="transform: rotate(90deg);"><svg viewBox="0 0 100 100"><path class="shape" d="M20 80 H 60 L 80 60 V 20"/></svg></div><div class="figure-label">(B)</div></div>
+                    <div><div class="figure-box" style="transform: rotate(180deg);"><svg viewBox="0 0 100 100"><path class="shape" d="M20 80 H 60 L 80 60 V 20"/></svg></div><div class="figure-label">(C)</div></div>
+                    <div><div class="figure-box" style="transform: scaleX(-1);"><svg viewBox="0 0 100 100"><path class="shape" d="M20 80 H 60 L 80 60 V 20"/></svg></div><div class="figure-label">(D)</div></div>
+                    <div><div class="figure-box" style="transform: rotate(270deg);"><svg viewBox="0 0 100 100"><path class="shape" d="M20 80 H 60 L 80 60 V 20"/></svg></div><div class="figure-label">(E)</div></div>
+                </div>
+                <details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (D)</strong></p><p><strong>Rule: Rotation vs. Reflection.</strong> Figures (A), (B), (C), and (E) can all be obtained by rotating one another. Figure (D) is a mirror image (reflection) and cannot be obtained through rotation of the others.</p></div></details>
+            </div>
+            
+            <!-- Question 3: Open vs. Closed Figures -->
+            <div class="question-block">
+                <h3>Question 3</h3><p>Find the figure that is different from the rest.</p>
+                <div class="figures-container">
+                    <div><div class="figure-box"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="35" class="shape"/></svg></div><div class="figure-label">(A)</div></div>
+                    <div><div class="figure-box"><svg viewBox="0 0 100 100"><rect x="20" y="20" width="60" height="60" class="shape"/></svg></div><div class="figure-label">(B)</div></div>
+                    <div><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M20,80 H80 L50,20 Z" class="shape"/></svg></div><div class="figure-label">(C)</div></div>
+                    <div><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M20,80 C40,20 60,20 80,80" class="shape"/></svg></div><div class="figure-label">(D)</div></div>
+                    <div><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M50,10 L90,90 L10,90 Z" class="shape"/></svg></div><div class="figure-label">(E)</div></div>
+                </div>
+                <details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (D)</strong></p><p><strong>Rule: Open vs. Closed Figure.</strong> All figures except (D) are closed shapes, meaning they form a complete boundary. Figure (D) is an open curve.</p></div></details>
+            </div>
+
+            <!-- More questions 4 to 20 -->
+            <div class="question-block"><h3>Question 4</h3><p>Find the figure that is different from the rest.</p><div class="figures-container"><div><div class="figure-box"><svg viewBox="0 0 100 100"><rect x="15" y="15" width="70" height="70" class="shape"/><circle cx="50" cy="50" r="10" class="filled"/></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" class="shape"/><polygon points="50,35 65,65 35,65" class="filled"/></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><rect x="15" y="15" width="70" height="70" class="filled"/><circle cx="50" cy="50" r="10" class="shape" style="stroke:black"/></svg></div><div class="figure-label">(C)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><polygon points="50,10 90,90 10,90" class="shape"/><rect x="40" y="50" width="20" height="20" class="filled"/></svg></div><div class="figure-label">(D)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><polygon points="20,20 80,20 80,80 20,80" class="shape"/><circle cx="50" cy="50" r="10" class="filled"/></svg></div><div class="figure-label">(E)</div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (C)</strong></p><p><strong>Rule: Shading Pattern.</strong> In all figures except (C), the large outer shape is unfilled and the small inner shape is filled. In figure (C), this pattern is reversed.</p></div></details></div>
+            <div class="question-block"><h3>Question 5</h3><p>Find the figure that is different from the rest.</p><div class="figures-container"><div><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M50,10 V90 M10,50 H90" class="shape"/></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M20,20 L80,80 M20,80 L80,20" class="shape"/></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M20,20 H80 V80 H20 Z" class="shape"/></svg></div><div class="figure-label">(C)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M50,10 L90,90 L10,90 Z M50,10 L50,90" class="shape"/></svg></div><div class="figure-label">(D)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M50,10 L90,50 L50,90 L10,50 Z" class="shape"/></svg></div><div class="figure-label">(E)</div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (D)</strong></p><p><strong>Rule: Element Intersection.</strong> In all figures except (D), all lines intersect at a single, central point. In figure (D), the lines intersect at two different points.</p></div></details></div>
+            <div class="question-block"><h3>Question 6</h3><p>Find the figure that is different from the rest.</p><div class="figures-container"><div><div class="figure-box"><svg viewBox="0 0 100 100"><polygon class="shape" points="50,15 85,80 15,80"/></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><rect class="shape" x="20" y="20" width="60" height="60"/></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M20,20 L80,50 L20,80 Z" class="shape"/></svg></div><div class="figure-label">(C)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><polygon class="shape" points="50,10 90,40 75,90 25,90 10,40"/></svg></div><div class="figure-label">(D)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><circle class="shape" cx="50" cy="50" r="35"/></svg></div><div class="figure-label">(E)</div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (E)</strong></p><p><strong>Rule: Figure Type (Straight vs. Curved).</strong> All figures except (E) are polygons, meaning they are made entirely of straight line segments. Figure (E) is a circle, which is a curved line.</p></div></details></div>
+            <div class="question-block"><h3>Question 7</h3><p>Find the figure that is different from the rest.</p><div class="figures-container"><div><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M50,10 V90 M30,40 L50,20 L70,40" class="shape"/></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M10,50 H90 M30,30 L10,50 L30,70" class="shape"/></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M10,90 L90,10 M20,30 L10,10 L30,20" class="shape"/></svg></div><div class="figure-label">(C)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M50,90 V10 M30,60 L50,80 L70,60" class="shape"/></svg></div><div class="figure-label">(D)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M10,10 H90 M70,30 L90,10 L70,-10" class="shape" style="stroke-width:2"/></svg></div><div class="figure-label">(E)</div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (B)</strong></p><p><strong>Rule: Arrow Direction.</strong> In all figures except (B), the arrowhead points away from the center of the main line. In figure (B), the arrowhead points towards the center of the main line.</p></div></details></div>
+            <div class="question-block"><h3>Question 8</h3><p>Find the figure that is different from the rest.</p><div class="figures-container"><div><div class="figure-box"><svg viewBox="0 0 100 100"><rect x="15" y="15" width="70" height="70" class="shape"/><circle cx="85" cy="15" r="5" class="filled"/></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><rect x="15" y="15" width="70" height="70" class="shape"/><circle cx="15" cy="85" r="5" class="filled"/></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><rect x="15" y="15" width="70" height="70" class="shape"/><circle cx="50" cy="50" r="5" class="filled"/></svg></div><div class="figure-label">(C)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><rect x="15" y="15" width="70" height="70" class="shape"/><circle cx="15" cy="15" r="5" class="filled"/></svg></div><div class="figure-label">(D)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><rect x="15" y="15" width="70" height="70" class="shape"/><circle cx="85" cy="85" r="5" class="filled"/></svg></div><div class="figure-label">(E)</div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (C)</strong></p><p><strong>Rule: Positional Logic.</strong> In all figures except (C), the small filled circle is located at one of the four corners of the large square. In figure (C), the circle is in the center.</p></div></details></div>
+            <div class="question-block"><h3>Question 9</h3><p>Find the figure that is different from the rest.</p><div class="figures-container"><div><div class="figure-box"><svg viewBox="0 0 100 100"><rect x="15" y="15" width="70" height="70" class="shape"/><line x1="50" y1="15" x2="50" y2="85" class="shape"/></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" class="shape"/><line x1="50" y1="10" x2="50" y2="90" class="shape"/></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><polygon points="50,15 85,80 15,80" class="shape"/><line x1="50" y1="15" x2="50" y2="80" class="shape"/></svg></div><div class="figure-label">(C)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><rect x="15" y="15" width="70" height="70" class="shape"/><line x1="15" y1="50" x2="85" y2="50" class="shape"/></svg></div><div class="figure-label">(D)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><rect x="15" y="15" width="70" height="70" class="shape"/><line x1="15" y1="15" x2="85" y2="85" class="shape"/></svg></div><div class="figure-label">(E)</div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (E)</strong></p><p><strong>Rule: Line of Symmetry.</strong> In all figures except (E), the internal line is a line of symmetry for the outer shape. In figure (E), the diagonal line is a line of symmetry for a square, but the others show vertical/horizontal bisection. Let's find a better rule.
+                <strong>Revised Rule: Line Orientation.</strong> In figures (A), (B), (C), and (D), the dividing line is perfectly vertical or horizontal. In figure (E), the dividing line is diagonal.</p></div></details></div>
+            <div class="question-block"><h3>Question 10</h3><p>Find the figure that is different from the rest.</p><div class="figures-container"><div><div class="figure-box"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="10" class="filled"/><circle cx="50" cy="50" r="30" class="shape"/><circle cx="50" cy="50" r="45" class="shape"/></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="10" class="shape"/><circle cx="50" cy="50" r="30" class="filled"/><circle cx="50" cy="50" r="45" class="shape"/></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="10" class="shape"/><circle cx="50" cy="50" r="30" class="shape"/><circle cx="50" cy="50" r="45" class="filled"/></svg></div><div class="figure-label">(C)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="10" class="shape"/><circle cx="50" cy="50" r="30" class="shape"/><circle cx="50" cy="50" r="45" class="shape"/></svg></div><div class="figure-label">(D)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="10" class="filled"/><circle cx="50" cy="50" r="30" class="filled"/><circle cx="50" cy="50" r="45" class="shape"/></svg></div><div class="figure-label">(E)</div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (D)</strong></p><p><strong>Rule: Presence of Shading.</strong> All figures except (D) contain at least one filled (shaded) element. Figure (D) is composed entirely of unfilled elements.</p></div></details></div>
+            <!-- More questions 11 to 20 -->
+            <div class="question-block"><h3>Question 11</h3><p>Find the figure that is different from the rest.</p><div class="figures-container"><div><div class="figure-box"><svg viewBox="0 0 100 100"><circle cx="25" cy="25" r="10" /><circle cx="75" cy="75" r="10" class="filled"/></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><rect x="15" y="65" width="20" height="20" /><rect x="65" y="15" width="20" height="20" class="filled"/></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><polygon points="15,15 45,15 30,45" /><polygon points="55,85 85,85 70,55" class="filled"/></svg></div><div class="figure-label">(C)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M15,15 L45,45" /><path d="M55,55 L85,85" class="filled" style="stroke:var(--accent-turquoise); stroke-width:3;"/></svg></div><div class="figure-label">(D)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><circle cx="25" cy="75" r="10" /><rect x="65" y="15" width="20" height="20" class="filled"/></svg></div><div class="figure-label">(E)</div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (E)</strong></p><p><strong>Rule: Element Similarity.</strong> In all figures except (E), the two elements are of the same type (two circles, two squares, two triangles, two lines). In figure (E), the elements are different (a circle and a square).</p></div></details></div>
+            <div class="question-block"><h3>Question 12</h3><p>Find the figure that is different from the rest.</p><div class="figures-container"><div><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M20,20 L80,20 L80,80 L20,80 Z M20,50 H80" class="shape"/></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M50,10 L90,90 L10,90 Z M50,50 L70,90 H30 Z" class="shape"/></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" class="shape"/><path d="M30,30 L70,30 L70,70 L30,70 Z" class="shape"/></svg></div><div class="figure-label">(C)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M50,10 L90,50 L50,90 L10,50 Z M30,50 H70" class="shape"/></svg></div><div class="figure-label">(D)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M10,10 L90,50 L10,90 Z M30,50 H60" class="shape"/></svg></div><div class="figure-label">(E)</div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (C)</strong></p><p><strong>Rule: Shared Elements.</strong> In all figures except (C), the inner and outer shapes share at least one side or point. In figure (C), the inner square is completely detached from the outer circle.</p></div></details></div>
+            <div class="question-block"><h3>Question 13</h3><p>Find the figure that is different from the rest.</p><div class="figures-container"><div><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M20,80 L80,20" class="shape"/><path d="M20,20 L50,20 L50,50" class="shape"/></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M20,80 L80,20" class="shape"/><path d="M80,80 L50,80 L50,50" class="shape"/></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M20,20 L80,80" class="shape"/><path d="M20,80 L50,80 L50,50" class="shape"/></svg></div><div class="figure-label">(C)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M20,20 L80,80" class="shape"/><path d="M80,20 L50,20 L50,50" class="shape"/></svg></div><div class="figure-label">(D)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M20,80 L80,20" class="shape"/><path d="M20,20 L20,50 L50,50" class="shape"/></svg></div><div class="figure-label">(E)</div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (E)</strong></p><p><strong>Rule: Positional Relationship.</strong> In all figures except (E), the smaller L-shape is on the opposite side of the diagonal line from where it originates. In (E), the L-shape is on the same side. A simpler rule: In A, B, C, D, the L-shape occupies a corner opposite to its connection point. In E, the L-shape is adjacent to its connection point's side.</p></div></details></div>
+            <div class="question-block"><h3>Question 14</h3><p>Find the figure that is different from the rest.</p><div class="figures-container"><div><div class="figure-box"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" class="shape"/><path d="M50,10 V90" class="shape"/></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" class="shape"/><path d="M10,50 H90" class="shape"/></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" class="shape"/><path d="M15,15 L85,85" class="shape"/></svg></div><div class="figure-label">(C)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" class="shape"/><path d="M15,85 L85,15" class="shape"/></svg></div><div class="figure-label">(D)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" class="shape"/><path d="M30,30 L70,70" class="shape"/></svg></div><div class="figure-label">(E)</div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (E)</strong></p><p><strong>Rule: Line Property.</strong> In all figures except (E), the line segment inside the circle is a diameter, meaning it passes through the center and touches the circle at two points. In figure (E), the line is a chord, as it does not pass through the center.</p></div></details></div>
+            <div class="question-block"><h3>Question 15</h3><p>Find the figure that is different from the rest.</p><div class="figures-container"><div><div class="figure-box"><svg viewBox="0 0 100 100"><rect x="15" y="15" width="70" height="70" class="filled"/></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><polygon points="10,90 90,90 50,10" class="filled"/></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" class="filled"/></svg></div><div class="figure-label">(C)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M20,20 H80 V80 H20 Z M20,50 H80 M50,20 V80" style="fill:none; stroke:var(--accent-turquoise); stroke-width:3"/></svg></div><div class="figure-label">(D)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M50,10 L90,50 L50,90 L10,50 Z" class="filled"/></svg></div><div class="figure-label">(E)</div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (D)</strong></p><p><strong>Rule: Shading.</strong> All figures except (D) are single, completely filled shapes. Figure (D) is an unfilled, composite shape.</p></div></details></div>
+            <div class="question-block"><h3>Question 16</h3><p>Find the figure that is different from the rest.</p><div class="figures-container"><div><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M20,20 L80,20 L50,80 Z"/></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M20,80 L80,80 L50,20 Z"/></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M20,20 L20,80 L80,50 Z"/></svg></div><div class="figure-label">(C)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M80,20 L80,80 L20,50 Z"/></svg></div><div class="figure-label">(D)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M20,20 L80,20 L80,80 Z"/></svg></div><div class="figure-label">(E)</div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (E)</strong></p><p><strong>Rule: Shape Type.</strong> All figures except (E) are isosceles triangles (at least two sides are equal). Figure (E) is a right-angled triangle, but more importantly, it's the only one that isn't pointing up, down, left, or right along a central axis. All others (A, B, C, D) are symmetrical about either the vertical or horizontal axis. Figure (E) is not.</p></div></details></div>
+            <div class="question-block"><h3>Question 17</h3><p>Find the figure that is different from the rest.</p><div class="figures-container"><div><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M20,80 L80,80 L80,20" class="shape"/></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M20,20 L80,20 L80,80" class="shape"/></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M20,20 L20,80 L80,80" class="shape"/></svg></div><div class="figure-label">(C)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M80,20 L20,20 L20,80" class="shape"/></svg></div><div class="figure-label">(D)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M20,20 L80,80 L20,80" class="shape"/></svg></div><div class="figure-label">(E)</div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (E)</strong></p><p><strong>Rule: Line Composition.</strong> All figures except (E) are made of one horizontal and one vertical line. Figure (E) is made of one diagonal and one horizontal line.</p></div></details></div>
+            <div class="question-block"><h3>Question 18</h3><p>Find the figure that is different from the rest.</p><div class="figures-container"><div><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M20,20 L80,80" class="shape"/><circle cx="80" cy="20" r="8" class="filled"/></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M20,80 L80,20" class="shape"/><circle cx="80" cy="80" r="8" class="filled"/></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M20,50 H80" class="shape"/><circle cx="50" cy="20" r="8" class="filled"/></svg></div><div class="figure-label">(C)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M50,20 V80" class="shape"/><circle cx="20" cy="50" r="8" class="filled"/></svg></div><div class="figure-label">(D)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M20,20 L80,80" class="shape"/><circle cx="20" cy="80" r="8" class="filled"/></svg></div><div class="figure-label">(E)</div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (A)</strong></p><p><strong>Rule: Relative Position.</strong> In all figures except (A), the line and the circle do not cross or occupy the same corner quadrants. Figure (A) has a line passing through the bottom-left and top-right quadrants, while the circle is in the top-right quadrant they share. In all others, the line and circle are in completely separate quadrants.</p></div></details></div>
+            <div class="question-block"><h3>Question 19</h3><p>Find the figure that is different from the rest.</p><div class="figures-container"><div><div class="figure-box"><svg viewBox="0 0 100 100"><rect x="15" y="15" width="70" height="70" class="shape"/><circle cx="50" cy="50" r="20" class="shape"/></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><rect x="15" y="15" width="70" height="70" class="shape"/><polygon points="50,25 80,75 20,75" class="shape"/></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" class="shape"/><rect x="30" y="30" width="40" height="40" class="shape"/></svg></div><div class="figure-label">(C)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><polygon points="50,10 90,90 10,90" class="shape"/><rect x="40" y="55" width="20" height="20" class="shape"/></svg></div><div class="figure-label">(D)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><rect x="15" y="15" width="70" height="70" class="shape"/><rect x="30" y="30" width="40" height="40" class="shape"/></svg></div><div class="figure-label">(E)</div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (E)</strong></p><p><strong>Rule: Combination of Figures.</strong> All figures except (E) are a combination of a shape with straight lines (a polygon) and a shape with a curved line (a circle). Figure (E) is a combination of two polygons (two squares).</p></div></details></div>
+            <div class="question-block"><h3>Question 20</h3><p>Find the figure that is different from the rest.</p><div class="figures-container"><div><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M20,20 L50,50 L20,80" class="shape"/></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M20,20 L80,20 L50,50" class="shape"/></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M20,80 L80,80 L50,50" class="shape"/></svg></div><div class="figure-label">(C)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M80,20 L50,50 L80,80" class="shape"/></svg></div><div class="figure-label">(D)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M20,20 L80,20 L20,80" class="shape"/></svg></div><div class="figure-label">(E)</div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (E)</strong></p><p><strong>Rule: Direction/Orientation.</strong> Figures (A), (B), (C), and (D) are arrow-like shapes pointing towards the four cardinal directions (Left, Up, Down, Right). Figure (E) does not point in a cardinal direction and is oriented differently.</p></div></details></div>
+        </section>
+    </main>
+</body>
+</html>

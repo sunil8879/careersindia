@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentence Structure: Objects & Complements</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            /* Blue and white gridline background */
+            background-color: #f0f8ff; 
+            background-image: 
+                repeating-linear-gradient(to right, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 30px),
+                repeating-linear-gradient(to bottom, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 30px);
+            background-size: 30px 30px;
+        }
+
+        /* Header Styling */
+        header {
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        header h1 {
+            display: inline-block;
+            background-color: #0056b3;
+            color: white;
+            padding: 20px 40px;
+            border: 3px solid white;
+            border-radius: 15px;
+            /* 3D Box Effect */
+            box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.4), inset 2px 2px 5px rgba(255, 255, 255, 0.3);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-size: 2.2em;
+            margin: 0;
+        }
+
+        /* Main Container for Two-Column Layout */
+        .container {
+            display: flex;
+            max-width: 1300px;
+            margin: 20px auto;
+            background: #ffffff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.15);
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        /* Left Navigation Column */
+        .nav-column {
+            flex: 1;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+            background-color: #f8f9fa;
+        }
+
+        .nav-column ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            position: sticky;
+            top: 20px; /* Makes the nav stick on scroll */
+        }
+
+        .nav-column li a {
+            display: block;
+            padding: 12px 15px;
+            text-decoration: none;
+            color: #0056b3;
+            border-radius: 5px;
+            margin-bottom: 8px;
+            font-weight: bold;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .nav-column li a:hover,
+        .nav-column li a.active {
+            background-color: #0056b3;
+            color: #fff;
+        }
+
+        /* Right Content Column */
+        .content-column {
+            flex: 3;
+            padding: 25px 35px;
+            height: 80vh; /* Set a height to enable scrolling */
+            overflow-y: auto; /* Enable vertical scrollbar */
+        }
+
+        .content-section {
+            display: none;
+        }
+        
+        .content-section.active {
+            display: block;
+        }
+        
+        h2 {
+            font-size: 1.8em;
+            color: #0056b3;
+            border-bottom: 3px solid #0056b3;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        
+        h3 {
+            font-size: 1.4em;
+            color: #333;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        
+        .example-list {
+            list-style-type: decimal;
+            padding-left: 20px;
+        }
+
+        .example-list li {
+            margin-bottom: 15px;
+        }
+        
+        .note {
+            font-style: italic;
+            color: #555;
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-left: 4px solid #0056b3;
+            margin-top: 10px;
+        }
+        
+        code {
+            background-color: #e3e3e3;
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>SENTENCE STRUCTURE: OBJECTS & COMPLEMENTS</h1>
+    </header>
+
+    <div class="container">
+        <nav class="nav-column">
+            <ul>
+                <li><a href="#analyze" class="nav-link active">How to Analyze Sentences</a></li>
+                <li><a href="#direct-object" class="nav-link">Direct Object (DO)</a></li>
+                <li><a href="#indirect-object" class="nav-link">Indirect Object (IO)</a></li>
+                <li><a href="#subject-complement" class="nav-link">Subject Complement (SC)</a></li>
+                <li><a href="#object-complement" class="nav-link">Object Complement (OC)</a></li>
+            </ul>
+        </nav>
+
+        <main class="content-column">
+            <section id="analyze" class="content-section active">
+                <h2>How to Analyze Sentence Structure</h2>
+                <p>To identify objects and complements, the key is to know if the verb is an **Action Verb** (showing action) or a **Linking Verb** (linking the subject to a descriptor).</p>
+                <ol>
+                    <li><strong>Step 1: Find the Verb.</strong> Is it an action verb (like <code>give, write, build</code>) or a linking verb (like <code>is, seems, becomes, tastes</code>)?</li>
+                    <li><strong>Step 2: Find the Subject.</strong> Ask "Who or What + [the verb]?"</li>
+                    <li><strong>Step 3: Analyze the rest of the sentence.</strong> Use the questions in the sections below to find the specific objects or complements.</li>
+                </ol>
+            </section>
+            
+            <section id="direct-object" class="content-section">
+                <h2>Direct Object (DO)</h2>
+                <p>A direct object is the person or thing that directly receives the action of an **action verb**.</p>
+                <div class="note">
+                    <strong>How to Identify:</strong> Ask the question: <strong>Subject + Verb + what?</strong> or <strong>whom?</strong>
+                </div>
+                <h3>10 Examples of Direct Objects:</h3>
+                <ol class="example-list">
+                    <li>Sona loves <code>Chinese food</code>. <br><em>(Analysis: Sona loves what? → Chinese food)</em></li>
+                    <li>Madhav plays <code>the guitar</code>. <br><em>(Analysis: Madhav plays what? → the guitar)</em></li>
+                    <li>The company launched <code>a new product</code>. <br><em>(Analysis: The company launched what? → a new product)</em></li>
+                    <li>She can break <code>your face</code>. <br><em>(Analysis: She can break what? → your face)</em></li>
+                    <li>The teacher praised <code>the students</code>. <br><em>(Analysis: The teacher praised whom? → the students)</em></li>
+                    <li>My brother built <code>a sandcastle</code>. <br><em>(Analysis: My brother built what? → a sandcastle)</em></li>
+                    <li>Everybody loves <code>Ashish</code>. <br><em>(Analysis: Everybody loves whom? → Ashish)</em></li>
+                    <li>The mechanic fixed <code>the car</code>. <br><em>(Analysis: The mechanic fixed what? → the car)</em></li>
+                    <li>The author wrote <code>a best-selling novel</code>. <br><em>(Analysis: The author wrote what? → a best-selling novel)</em></li>
+                    <li>We ate <code>pizza</code> for dinner. <br><em>(Analysis: We ate what? → pizza)</em></li>
+                </ol>
+            </section>
+            
+            <section id="indirect-object" class="content-section">
+                <h2>Indirect Object (IO)</h2>
+                <p>An indirect object is the person or thing that receives the direct object. An IO can only exist if there is a Direct Object, and it always comes **before** the Direct Object.</p>
+                <div class="note">
+                    <strong>How to Identify:</strong> First, find the DO. Then ask: <strong>Subject + Verb + DO + to/for whom?</strong> or <strong>to/for what?</strong>
+                </div>
+                <h3>10 Examples of Indirect Objects:</h3>
+                <ol class="example-list">
+                    <li>Rohan explained <code>me</code> the question. <br><em>(Analysis: Explained the question to whom? → me)</em></li>
+                    <li>I gave <code>Abhi</code> 5 million dollars. <br><em>(Analysis: Gave 5 million dollars to whom? → Abhi)</em></li>
+                    <li>I bought <code>my mother</code> a necklace. <br><em>(Analysis: Bought a necklace for whom? → my mother)</em></li>
+                    <li>He gave <code>me</code> the book. <br><em>(Analysis: Gave the book to whom? → me)</em></li>
+                    <li>The chef cooked <code>the guests</code> a delicious meal. <br><em>(Analysis: Cooked a meal for whom? → the guests)</em></li>
+                    <li>She sent <code>her friend</code> an email. <br><em>(Analysis: Sent an email to whom? → her friend)</em></li>
+                    <li>Please tell <code>the children</code> a story. <br><em>(Analysis: Tell a story to whom? → the children)</em></li>
+                    <li>My father built <code>our family</code> a new house. <br><em>(Analysis: Built a new house for whom? → our family)</em></li>
+                    <li>The company offered <code>the candidate</code> a job. <br><em>(Analysis: Offered a job to whom? → the candidate)</em></li>
+                    <li>She made <code>her son</code> a birthday cake. <br><em>(Analysis: Made a cake for whom? → her son)</em></li>
+                </ol>
+            </section>
+            
+            <section id="subject-complement" class="content-section">
+                <h2>Subject Complement (SC)</h2>
+                <p>A subject complement follows a **linking verb** and either **renames** the subject (as a noun) or **describes** the subject (as an adjective).</p>
+                <div class="note">
+                    <strong>How to Identify:</strong> Ask the question: <strong>Subject + Linking Verb + what?</strong> or <strong>how?</strong> The SC will be equal to or describe the subject.
+                </div>
+                <h3>10 Examples of Subject Complements:</h3>
+                <ol class="example-list">
+                    <li>Ram is <code>a boy</code>. <br><em>(Analysis: Ram = a boy. 'a boy' renames the subject 'Ram'.)</em></li>
+                    <li>He seems <code>tired</code> today. <br><em>(Analysis: 'tired' describes the subject 'He'.)</em></li>
+                    <li>She is <code>a brilliant scientist</code>. <br><em>(Analysis: She = a brilliant scientist. 'a brilliant scientist' renames 'She'.)</em></li>
+                    <li>The soup tastes <code>wonderful</code>. <br><em>(Analysis: 'wonderful' describes the subject 'soup'.)</em></li>
+                    <li>My brother became <code>a successful lawyer</code>. <br><em>(Analysis: 'a successful lawyer' renames 'My brother'.)</em></li>
+                    <li>After the long day, the students were <code>exhausted</code>. <br><em>(Analysis: 'exhausted' describes the subject 'the students'.)</em></li>
+                    <li>The weather appears <code>pleasant</code>. <br><em>(Analysis: 'pleasant' describes the subject 'The weather'.)</em></li>
+                    <li>Her father is <code>a retired army officer</code>. <br><em>(Analysis: 'a retired army officer' renames 'Her father'.)</em></li>
+                    <li>The flowers in the garden smell <code>sweet</code>. <br><em>(Analysis: 'sweet' describes the subject 'The flowers'.)</em></li>
+                    <li>The winner of the competition is <code>she</code>. <br><em>(Analysis: 'she' renames the subject 'The winner'.)</em></li>
+                </ol>
+            </section>
+            
+            <section id="object-complement" class="content-section">
+                <h2>Object Complement (OC)</h2>
+                <p>An object complement follows a **Direct Object** and either **renames** the DO (as a noun) or **describes** the DO (as an adjective). It is used with action verbs like <em>make, consider, call, name, elect, find</em>.</p>
+                <div class="note">
+                    <strong>How to Identify:</strong> Ask the question: <strong>Subject + Verb + Direct Object + what?</strong> The OC will be equal to or describe the DO.
+                </div>
+                <h3>10 Examples of Object Complements:</h3>
+                <ol class="example-list">
+                    <li>The teacher selected him <code>the monitor</code>. <br><em>(Analysis: him = the monitor. 'the monitor' renames the DO 'him'.)</em></li>
+                    <li>We invited him <code>the chief guest</code>. <br><em>(Analysis: him = the chief guest. 'the chief guest' renames the DO 'him'.)</em></li>
+                    <li>The jury found the defendant <code>guilty</code>. <br><em>(Analysis: 'guilty' describes the DO 'the defendant'.)</em></li>
+                    <li>The committee named him <code>chairman</code>. <br><em>(Analysis: 'chairman' renames the DO 'him'.)</em></li>
+                    <li>The teacher considers her students <code>intelligent</code>. <br><em>(Analysis: 'intelligent' describes the DO 'her students'.)</em></li>
+                    <li>We painted the house <code>white</code>. <br><em>(Analysis: 'white' describes the DO 'the house'.)</em></li>
+                    <li>They elected Sarah <code>class president</code>. <br><em>(Analysis: 'class president' renames the DO 'Sarah'.)</em></li>
+                    <li>I find this book very <code>interesting</code>. <br><em>(Analysis: 'interesting' describes the DO 'this book'.)</em></li>
+                    <li>She calls her dog <code>Buddy</code>. <br><em>(Analysis: 'Buddy' renames the DO 'her dog'.)</em></li>
+                    <li>The good news made everyone <code>happy</code>. <br><em>(Analysis: 'happy' describes the DO 'everyone'.)</em></li>
+                </ol>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const contentSections = document.querySelectorAll('.content-section');
+            const contentColumn = document.querySelector('.content-column');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+
+                    navLinks.forEach(nav => nav.classList.remove('active'));
+                    contentSections.forEach(section => section.classList.remove('active'));
+
+                    this.classList.add('active');
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        targetSection.classList.add('active');
+                        contentColumn.scrollTop = 0; // Scroll to top of content area on click
+                    }
+                });
+            });
+            // Auto-activate the first link on page load
+            document.querySelector('.nav-link').classList.add('active');
+            document.querySelector('.content-section').classList.add('active');
+        });
+    </script>
+
+</body>
+</html>

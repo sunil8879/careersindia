@@ -1,0 +1,218 @@
+{
+  "description": "A combined list of various countries with significant Indian populations, broken down by their primary administrative divisions.",
+  "data": [
+    {
+      "country": "Malaysia",
+      "note": "Data refers to Malaysian citizens of Indian ethnicity, a large and long-established community, not just Indian nationals. Based on the Department of Statistics Malaysia.",
+      "country_indian_population": "~2,000,000 (Ethnicity)",
+      "region_type": "State / Federal Territory",
+      "regions": [
+        {
+          "region_name": "Selangor",
+          "indian_population": 425000,
+          "cities": [
+            { "city": "Klang" },
+            { "city": "Petaling Jaya" },
+            { "city": "Subang Jaya" }
+          ]
+        },
+        {
+          "region_name": "Johor",
+          "indian_population": 255000,
+          "cities": [{ "city": "Johor Bahru" }]
+        },
+        {
+          "region_name": "Perak",
+          "indian_population": 240000,
+          "cities": [{ "city": "Ipoh" }]
+        },
+        {
+          "region_name": "Kuala Lumpur (Federal Territory)",
+          "indian_population": 165000,
+          "cities": [{ "city": "Kuala Lumpur" }]
+        },
+        {
+          "region_name": "Penang",
+          "indian_population": 125000,
+          "cities": [{ "city": "George Town" }]
+        }
+      ]
+    },
+    {
+      "country": "Kenya",
+      "note": "Data refers to Kenyan citizens of Asian origin (primarily Indian), known as Kenyan Asians. This is a long-standing community. Based on Kenya National Bureau of Statistics estimates.",
+      "country_indian_population": "~100,000 (Kenyan Asians)",
+      "region_type": "County",
+      "regions": [
+        {
+          "region_name": "Nairobi County",
+          "indian_population": 55000,
+          "cities": [{ "city": "Nairobi" }]
+        },
+        {
+          "region_name": "Mombasa County",
+          "indian_population": 25000,
+          "cities": [{ "city": "Mombasa" }]
+        },
+        {
+          "region_name": "Kisumu County",
+          "indian_population": 8000,
+          "cities": [{ "city": "Kisumu" }]
+        }
+      ]
+    },
+    {
+      "country": "West Indies (Region)",
+      "note": "This represents sovereign countries with massive populations of Indo-Caribbean descent, whose ancestors arrived as indentured laborers. They are citizens of their respective nations. Data is based on national censuses.",
+      "country_indian_population": "Over 1.5 million (Indo-Caribbean)",
+      "region_type": "Country",
+      "regions": [
+        {
+          "region_name": "Trinidad and Tobago",
+          "indian_population": 520000,
+          "cities": [
+            { "city": "Chaguanas", "comment": "Has the largest concentration of Indo-Trinidadians." }
+          ]
+        },
+        {
+          "region_name": "Guyana",
+          "indian_population": 320000,
+          "cities": [
+            { "city": "Georgetown", "comment": "Capital and major population center." }
+          ]
+        },
+        {
+          "region_name": "Suriname",
+          "indian_population": 160000,
+          "cities": [
+            { "city": "Paramaribo", "comment": "Capital city where the community is centered." }
+          ]
+        }
+      ]
+    },
+    {
+      "country": "Switzerland",
+      "note": "Data refers to Indian nationals. Based on Swiss Federal Statistical Office (FSO).",
+      "country_indian_population": "~28,000 (Nationals)",
+      "region_type": "Canton",
+      "regions": [
+        {
+          "region_name": "Zürich",
+          "indian_population": 9500,
+          "cities": [{ "city": "Zürich" }]
+        },
+        {
+          "region_name": "Geneva",
+          "indian_population": 4500,
+          "cities": [{ "city": "Geneva" }]
+        },
+        {
+          "region_name": "Vaud",
+          "indian_population": 3500,
+          "cities": [{ "city": "Lausanne" }]
+        },
+        {
+          "region_name": "Aargau",
+          "indian_population": 2500,
+          "cities": [{ "city": "Baden" }]
+        }
+      ]
+    },
+    {
+      "country": "Sweden",
+      "note": "Data refers to Indian nationals and Swedish citizens born in India. Based on Statistics Sweden (SCB).",
+      "country_indian_population": "~50,000",
+      "region_type": "County",
+      "regions": [
+        {
+          "region_name": "Stockholm County",
+          "indian_population": 25000,
+          "cities": [{ "city": "Stockholm" }, { "city": "Kista", "comment": "Known as Stockholm's 'Silicon Valley'." }]
+        },
+        {
+          "region_name": "Västra Götaland County",
+          "indian_population": 10000,
+          "cities": [{ "city": "Gothenburg (Göteborg)" }]
+        },
+        {
+          "region_name": "Skåne County",
+          "indian_population": 8000,
+          "cities": [{ "city": "Malmö" }, { "city": "Lund" }]
+        }
+      ]
+    },
+    {
+      "country": "Thailand",
+      "note": "A mix of Thai citizens of Indian descent and Indian nationals. Concentrated heavily in Bangkok. Based on embassy and community estimates.",
+      "country_indian_population": "~250,000 (Combined)",
+      "region_type": "Province",
+      "regions": [
+        {
+          "region_name": "Bangkok Metropolitan Region",
+          "indian_population": 200000,
+          "cities": [
+            { "city": "Phahurat", "comment": "Known as Bangkok's 'Little India'." },
+            { "city": "Sukhumvit Area" }
+          ]
+        },
+        {
+          "region_name": "Phuket",
+          "indian_population": 10000,
+          "cities": [{ "city": "Patong" }]
+        }
+      ]
+    },
+    {
+      "country": "Poland",
+      "note": "Data refers to Indian nationals. A rapidly growing community of IT professionals and students. Based on Polish Office for Foreigners.",
+      "country_indian_population": "~30,000 (Nationals)",
+      "region_type": "Voivodeship (Province)",
+      "regions": [
+        {
+          "region_name": "Masovian (Warsaw)",
+          "indian_population": 12000,
+          "cities": [{ "city": "Warsaw" }]
+        },
+        {
+          "region_name": "Lesser Poland (Kraków)",
+          "indian_population": 5000,
+          "cities": [{ "city": "Kraków" }]
+        },
+        {
+          "region_name": "Lower Silesian (Wrocław)",
+          "indian_population": 4000,
+          "cities": [{ "city": "Wrocław" }]
+        }
+      ]
+    },
+    {
+      "country": "Luxembourg",
+      "note": "Data refers to Indian nationals, primarily professionals in finance and IT. Based on STATEC.",
+      "country_indian_population": "~5,000 (Nationals)",
+      "region_type": "Country",
+      "regions": [
+        {
+          "region_name": "Luxembourg",
+          "indian_population": 5000,
+          "cities": [{ "city": "Luxembourg City" }]
+        }
+      ]
+    },
+    {
+      "country": "Vietnam",
+      "note": "A small but growing community of professionals and entrepreneurs. Based on embassy and community estimates.",
+      "country_indian_population": "~5,000",
+      "region_type": "City",
+      "regions": [
+        {
+          "region_name": "Ho Chi Minh City",
+          "indian_population": 4000
+        },
+        {
+          "region_name": "Hanoi",
+          "indian_population": 1000
+        }
+      ]
+    }
+  ]
+}

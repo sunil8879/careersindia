@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Non-Verbal Reasoning: Water Images</title>
+    <style>
+        /* --- Basic Setup & Colors --- */
+        :root {
+            --bg-color: #0a0a0a;
+            --container-bg: #1a1a1a;
+            --primary-blue: #005f73;
+            --accent-turquoise: #40E0D0; /* Vibrant Turquoise */
+            --text-color: #e0e0e0;
+            --border-color: #004953;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0; padding: 20px;
+            background-color: var(--bg-color); color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .main-container {
+            max-width: 900px; margin: auto;
+            background-color: var(--container-bg); border: 2px solid var(--border-color);
+            border-radius: 15px; padding: 25px;
+            box-shadow: 0 0 20px rgba(0, 95, 115, 0.5);
+        }
+
+        h1, h2, h3, h4 { color: var(--accent-turquoise); }
+        h1, h2 { border-bottom: 2px solid var(--primary-blue); padding-bottom: 10px; }
+        h1 { text-align: center; font-size: 2.2em; text-transform: uppercase; }
+        h4 { margin-top: 25px; margin-bottom: 10px; text-align: center; }
+
+        /* --- Theory Section --- */
+        .theory-section p { font-size: 1.1em; }
+        .theory-section blockquote {
+            background-color: rgba(0, 95, 115, 0.2); border-left: 5px solid var(--accent-turquoise);
+            padding: 15px; margin: 20px 0; border-radius: 5px;
+        }
+        .theory-section ul { list-style-type: disc; padding-left: 25px; }
+        .theory-section li { margin-bottom: 10px; }
+        .theory-section strong.highlight { color: var(--accent-turquoise); }
+
+        /* --- Question Styling --- */
+        .question-block {
+            margin-top: 40px; padding: 20px;
+            border: 1px solid var(--border-color); border-radius: 10px;
+            background-color: #111;
+        }
+
+        .water-question-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px; margin-top: 10px;
+        }
+        
+        .problem-figure { text-align: center; }
+
+        .water-line {
+            width: 150px;
+            height: 4px;
+            background: repeating-linear-gradient(
+                to right,
+                var(--primary-blue),
+                var(--primary-blue) 10px,
+                transparent 10px,
+                transparent 20px
+            );
+        }
+
+        .figure-box {
+            width: 120px; height: 120px; border: 1px solid #444;
+            display: flex; justify-content: center; align-items: center;
+            background-color: #2d2d2d; border-radius: 5px; position: relative; margin: auto;
+        }
+        
+        .answer-options {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .answer-figure-box {
+            width: 80px; height: 80px;
+        }
+        
+        .figure-label { text-align: center; font-size: 0.9em; color: #aaa; margin-top: 5px; }
+
+        /* --- SVG Styling --- */
+        .figure-box svg { width: 80%; height: 80%; }
+        .shape { stroke: var(--accent-turquoise); stroke-width: 4; fill: none; stroke-linecap: round; }
+        .filled { fill: var(--accent-turquoise); stroke: none; }
+        .text-element { font-family: Arial, sans-serif; font-size: 45px; font-weight: bold; fill: var(--accent-turquoise); text-anchor: middle; dominant-baseline: middle; }
+
+        /* --- Dropdown Answer/Explanation --- */
+        details { margin-top: 20px; border-radius: 5px; background-color: #222; }
+        summary {
+            padding: 15px; font-weight: bold; cursor: pointer;
+            background-color: var(--primary-blue); color: white;
+            border-radius: 5px; list-style: none; position: relative;
+        }
+        summary::-webkit-details-marker { display: none; }
+        summary::before { content: '►'; position: absolute; left: 15px; transform: rotate(0); transition: transform 0.2s; }
+        details[open] > summary::before { transform: rotate(90deg); }
+        .explanation { padding: 20px; border-top: 1px solid var(--border-color); }
+        .explanation strong { color: var(--accent-turquoise); }
+    </style>
+</head>
+<body>
+    <main class="main-container">
+        <h1>Water Images</h1>
+
+        <!-- 1. Theory Section -->
+        <section class="theory-section">
+            <h2>What is a Water Image?</h2>
+            <p>
+                A Water Image is the reflection of an object into the water immediately below it. In reasoning problems, this means a <strong class="highlight">horizontal reflection</strong>. The key principle is that the figure flips vertically.
+            </p>
+            <blockquote>
+                <h3>How to Solve Water Image Problems</h3>
+                <ul>
+                    <li><strong>Left and Right Remain Unchanged:</strong> Unlike a mirror image, the left side of the object remains on the left, and the right side remains on the right. This is a critical rule for eliminating options.</li>
+                    <li><strong>Top Becomes Bottom (and Vice-Versa):</strong> The figure flips vertically across a horizontal line. The top part of the figure will appear at the bottom in the reflection, and the bottom part will appear at the top.</li>
+                    <li><strong>Proximity to the Water Line:</strong> The parts of the figure closest to the horizontal "water line" will be closest to the line in the reflection.</li>
+                    <li><strong>Check Orientations:</strong> An arrow pointing up (^) will point down (v) in the reflection. An arrow pointing left (<) will <strong class="highlight">still point left (<)</strong>.</li>
+                    <li><strong>Alphanumeric Characters:</strong> This is where it gets tricky. Many letters and numbers change their appearance. For example, 'A' becomes '∀', 'F' becomes 'Ⅎ'. Some, like 'C', 'D', 'E', 'H', 'I', 'O', 'X', remain unchanged if written symmetrically.</li>
+                </ul>
+            </blockquote>
+        </section>
+
+        <!-- 2. Questions Section -->
+        <section class="questions-list">
+            <h2>Practice Questions</h2>
+            
+            <!-- Question 1 -->
+            <div class="question-block">
+                <h3>Question 1</h3><p>Find the correct water image of the given figure.</p>
+                <div class="water-question-container">
+                    <div class="problem-figure"><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M20,20 H80 V80 H50" class="shape"/></svg></div></div>
+                    <div class="water-line"></div>
+                    <div class="answer-options-container">
+                        <div class="answer-options">
+                            <div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><g transform="translate(0 100) scale(1 -1)"><path d="M20,20 H80 V80 H50" class="shape"/></g></svg></div><div class="figure-label">(A)</div></div>
+                            <div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><g transform="translate(100 0) scale(-1 1)"><path d="M20,20 H80 V80 H50" class="shape"/></g></svg></div><div class="figure-label">(B)</div></div>
+                            <div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><path d="M20,20 H80 V80 H50" class="shape"/></svg></div><div class="figure-label">(C)</div></div>
+                        </div>
+                    </div>
+                </div>
+                <details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (A)</strong></p><p><strong>Technique:</strong> The figure is reflected across a horizontal line. The top part flips to become the bottom, and the bottom part flips to become the top. The left and right sides do not change.</p></div></details>
+            </div>
+            
+            <!-- Question 2 -->
+            <div class="question-block">
+                <h3>Question 2</h3><p>Find the correct water image of the given figure.</p>
+                <div class="water-question-container">
+                    <div class="problem-figure"><div class="figure-box"><svg viewBox="0 0 100 100"><text x="50" y="55" class="text-element">FROG</text></svg></div></div>
+                    <div class="water-line"></div>
+                    <div class="answer-options-container">
+                        <div class="answer-options">
+                            <div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><g transform="translate(100 0) scale(-1 1)"><text x="50" y="55" class="text-element">FROG</text></g></svg></div><div class="figure-label">(A)</div></div>
+                            <div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><g transform="translate(0 100) scale(1 -1)"><text x="50" y="55" class="text-element">FROG</text></g></svg></div><div class="figure-label">(B)</div></div>
+                            <div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100" transform="rotate(180)"><text x="50" y="55" class="text-element">FROG</text></svg></div><div class="figure-label">(C)</div></div>
+                        </div>
+                    </div>
+                </div>
+                <details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (B)</strong></p><p><strong>Technique:</strong> Each letter is flipped vertically. The order of letters (left-to-right) does not change. 'F' becomes 'Ⅎ', 'R' reflects vertically, 'O' stays the same, and 'G' reflects vertically.</p></div></details>
+            </div>
+            
+            <!-- More Questions 3 to 20 -->
+            <div class="question-block"><h3>Question 3</h3><p>Find the correct water image of the given figure.</p><div class="water-question-container"><div class="problem-figure"><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M50,10 V90 M10,50 H90" class="shape"/><circle cx="25" cy="25" r="8" class="filled"/></svg></div></div><div class="water-line"></div><div class="answer-options-container"><div class="answer-options"><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><path d="M50,10 V90 M10,50 H90" class="shape"/><circle cx="25" cy="75" r="8" class="filled"/></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><path d="M50,10 V90 M10,50 H90" class="shape"/><circle cx="75" cy="25" r="8" class="filled"/></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><g transform="translate(0 100) scale(1 -1)"><path d="M50,10 V90 M10,50 H90" class="shape"/><circle cx="25" cy="25" r="8" class="filled"/></g></svg></div><div class="figure-label">(C)</div></div></div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (C)</strong></p><p><strong>Technique:</strong> The grid of lines is symmetrical and its water image is identical. The dot in the top-left quadrant reflects vertically to the bottom-left quadrant.</p></div></details></div>
+            <div class="question-block"><h3>Question 4</h3><p>Find the correct water image of the given figure.</p><div class="water-question-container"><div class="problem-figure"><div class="figure-box"><svg viewBox="0 0 100 100"><text x="50" y="55" class="text-element">Up8</text></svg></div></div><div class="water-line"></div><div class="answer-options-container"><div class="answer-options"><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><g transform="translate(100 0) scale(-1 1)"><text x="50" y="55" class="text-element">Up8</text></g></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><g transform="translate(0 100) scale(1 -1)"><text x="50" y="55" class="text-element">Up8</text></g></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box answer-figure-box" transform="rotate(180)"><svg viewBox="0 0 100 100"><text x="50" y="55" class="text-element">Up8</text></svg></div><div class="figure-label">(C)</div></div></div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (B)</strong></p><p><strong>Technique:</strong> The order 'Up8' does not change. The letter 'U' flips to become '∩'. The 'p' flips vertically to become a 'b'. The '8' is symmetrical and remains unchanged.</p></div></details></div>
+            <div class="question-block"><h3>Question 5</h3><p>Find the correct water image of the given figure.</p><div class="water-question-container"><div class="problem-figure"><div class="figure-box"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" class="shape"/><path d="M50,10 L80,30 L50,50 L20,30 Z" class="filled"/></svg></div></div><div class="water-line"></div><div class="answer-options-container"><div class="answer-options"><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" class="shape"/><path d="M50,90 L80,70 L50,50 L20,70 Z" class="filled"/></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><g transform="translate(0 100) scale(1 -1)"><circle cx="50" cy="50" r="40" class="shape"/><path d="M50,10 L80,30 L50,50 L20,30 Z" class="filled"/></g></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" class="shape"/><path d="M50,10 L80,30 L50,50 L20,30 Z" class="filled"/></svg></div><div class="figure-label">(C)</div></div></div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (B)</strong></p><p><strong>Technique:</strong> The outer circle is symmetrical and remains in the same position. The filled rhombus at the top reflects to the bottom, pointing downwards.</p></div></details></div>
+            <div class="question-block"><h3>Question 6</h3><p>Find the correct water image of the given figure.</p><div class="water-question-container"><div class="problem-figure"><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M15,15 L85,85 M85,15 L15,85" class="shape"/><circle cx="50" cy="15" r="5" class="filled"/></svg></div></div><div class="water-line"></div><div class="answer-options-container"><div class="answer-options"><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><path d="M15,15 L85,85 M85,15 L15,85" class="shape"/><circle cx="50" cy="85" r="5" class="filled"/></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><g transform="translate(0 100) scale(1 -1)"><path d="M15,15 L85,85 M85,15 L15,85" class="shape"/><circle cx="50" cy="15" r="5" class="filled"/></g></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><path d="M15,15 L85,85 M85,15 L15,85" class="shape"/><circle cx="15" cy="50" r="5" class="filled"/></svg></div><div class="figure-label">(C)</div></div></div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (B)</strong></p><p><strong>Technique:</strong> The 'X' shape is symmetrical and its reflection is identical. The dot at the top center reflects to the bottom center.</p></div></details></div>
+            <div class="question-block"><h3>Question 7</h3><p>Find the correct water image of the given figure.</p><div class="water-question-container"><div class="problem-figure"><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M10,90 L90,90 L90,10" class="shape"/><circle cx="30" cy="30" r="10" class="filled"/></svg></div></div><div class="water-line"></div><div class="answer-options-container"><div class="answer-options"><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><g transform="translate(100 0) scale(-1 1)"><path d="M10,90 L90,90 L90,10" class="shape"/><circle cx="30" cy="30" r="10" class="filled"/></g></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><g transform="translate(0 100) scale(1 -1)"><path d="M10,90 L90,90 L90,10" class="shape"/><circle cx="30" cy="30" r="10" class="filled"/></g></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><path d="M10,10 L90,10 L90,90" class="shape"/><circle cx="70" cy="70" r="10" class="filled"/></svg></div><div class="figure-label">(C)</div></div></div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (B)</strong></p><p><strong>Technique:</strong> The L-shape at the bottom-right flips vertically to become a shape at the top-right. The dot in the top-left reflects to the bottom-left.</p></div></details></div>
+            <div class="question-block"><h3>Question 8</h3><p>Find the correct water image of the given figure.</p><div class="water-question-container"><div class="problem-figure"><div class="figure-box"><svg viewBox="0 0 100 100"><text x="50" y="55" class="text-element">CHEX</text></svg></div></div><div class="water-line"></div><div class="answer-options-container"><div class="answer-options"><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><text x="50" y="55" class="text-element">CHEX</text></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><g transform="translate(0 100) scale(1 -1)"><text x="50" y="55" class="text-element">CHEX</text></g></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><g transform="translate(100 0) scale(-1 1)"><text x="50" y="55" class="text-element">CHEX</text></g></svg></div><div class="figure-label">(C)</div></div></div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (A)</strong></p><p><strong>Technique:</strong> This is a trick question. The letters C, H, E, and X are all symmetrical about the horizontal axis. Therefore, their water images are identical to the original letters, and the entire word remains unchanged.</p></div></details></div>
+            <div class="question-block"><h3>Question 9</h3><p>Find the correct water image of the given figure.</p><div class="water-question-container"><div class="problem-figure"><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M20,50 h60 M50,20 v60" class="shape"/><path d="M50,20 L80,50" class="shape" style="stroke-width:6"/></svg></div></div><div class="water-line"></div><div class="answer-options-container"><div class="answer-options"><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><g transform="translate(0 100) scale(1 -1)"><path d="M20,50 h60 M50,20 v60" class="shape"/><path d="M50,20 L80,50" class="shape" style="stroke-width:6"/></g></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><path d="M20,50 h60 M50,20 v60" class="shape"/><path d="M50,80 L80,50" class="shape" style="stroke-width:6"/></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><g transform="translate(100 0) scale(-1 1)"><path d="M20,50 h60 M50,20 v60" class="shape"/><path d="M50,20 L80,50" class="shape" style="stroke-width:6"/></g></svg></div><div class="figure-label">(C)</div></div></div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (A)</strong></p><p><strong>Technique:</strong> The central plus-sign is symmetrical and remains unchanged. The thick line in the top-right quadrant reflects vertically to the bottom-right quadrant.</p></div></details></div>
+            <div class="question-block"><h3>Question 10</h3><p>Find the correct water image of the given figure.</p><div class="water-question-container"><div class="problem-figure"><div class="figure-box"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" class="shape"/><line x1="50" y1="50" x2="85" y2="50" class="shape"/><line x1="50" y1="50" x2="50" y2="15" class="shape"/></svg></div></div><div class="water-line"></div><div class="answer-options-container"><div class="answer-options"><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" class="shape"/><line x1="50" y1="50" x2="85" y2="50" class="shape"/><line x1="50" y1="50" x2="50" y2="85" class="shape"/></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" class="shape"/><line x1="50" y1="50" x2="15" y2="50" class="shape"/><line x1="50" y1="50" x2="50" y2="85" class="shape"/></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><g transform="translate(0 100) scale(1 -1)"><circle cx="50" cy="50" r="40" class="shape"/><line x1="50" y1="50" x2="85" y2="50" class="shape"/><line x1="50" y1="50" x2="50" y2="15" class="shape"/></g></svg></div><div class="figure-label">(C)</div></div></div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (C)</strong></p><p><strong>Technique:</strong> This is a clock showing 3:00. In the water image, the hour hand pointing right (to 3) remains pointing right. The minute hand pointing up (to 12) reflects to point down (to 6). The reflected figure appears to show the time 3:30.</p></div></details></div>
+            <div class="question-block"><h3>Question 11</h3><p>Find the correct water image of the given figure.</p><div class="water-question-container"><div class="problem-figure"><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M20,80 L50,20 L80,80 Z" class="shape"/><circle cx="50" cy="40" r="5" class="filled"/></svg></div></div><div class="water-line"></div><div class="answer-options-container"><div class="answer-options"><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><g transform="translate(0 100) scale(1 -1)"><path d="M20,80 L50,20 L80,80 Z" class="shape"/><circle cx="50" cy="40" r="5" class="filled"/></g></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><path d="M20,20 L50,80 L80,20 Z" class="shape"/><circle cx="50" cy="60" r="5" class="filled"/></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box answer-figure-box" transform="rotate(180)"><svg viewBox="0 0 100 100"><path d="M20,80 L50,20 L80,80 Z" class="shape"/><circle cx="50" cy="40" r="5" class="filled"/></svg></div><div class="figure-label">(C)</div></div></div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (A)</strong></p><p><strong>Technique:</strong> The triangle that points up reflects to point down. The dot inside it, which is near the top vertex, reflects to be near the new bottom vertex (which was the original top vertex).</p></div></details></div>
+            <div class="question-block"><h3>Question 12</h3><p>Find the correct water image of the given figure.</p><div class="water-question-container"><div class="problem-figure"><div class="figure-box"><svg viewBox="0 0 100 100"><text x="50" y="55" class="text-element">kE3t</text></svg></div></div><div class="water-line"></div><div class="answer-options-container"><div class="answer-options"><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><g transform="translate(100 0) scale(-1 1)"><text x="50" y="55" class="text-element">kE3t</text></g></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><g transform="translate(0 100) scale(1 -1)"><text x="50" y="55" class="text-element">kE3t</text></g></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><text x="50" y="55" class="text-element">kE3t</text></svg></div><div class="figure-label">(C)</div></div></div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (B)</strong></p><p><strong>Technique:</strong> The letter order is unchanged. 'k' reflects vertically. 'E' is symmetrical and stays the same. '3' is symmetrical and stays the same. 't' reflects vertically.</p></div></details></div>
+            <div class="question-block"><h3>Question 13</h3><p>Find the correct water image of the given figure.</p><div class="water-question-container"><div class="problem-figure"><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M20,20 L80,20 L80,80 L20,80 Z" class="shape"/><path d="M20,20 L80,80 M20,80 L80,20" class="shape"/></svg></div></div><div class="water-line"></div><div class="answer-options-container"><div class="answer-options"><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><path d="M20,20 L80,20 L80,80 L20,80 Z" class="shape"/><path d="M20,20 L80,80 M20,80 L80,20" class="shape"/></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box answer-figure-box"><g transform="translate(0 100) scale(1 -1)"><path d="M20,20 L80,20 L80,80 L20,80 Z" class="shape"/><path d="M20,20 L80,80 M20,80 L80,20" class="shape"/></g></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box answer-figure-box"><g transform="translate(100 0) scale(-1 1)"><path d="M20,20 L80,20 L80,80 L20,80 Z" class="shape"/><path d="M20,20 L80,80 M20,80 L80,20" class="shape"/></g></svg></div><div class="figure-label">(C)</div></div></div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (A)</strong></p><p><strong>Technique:</strong> The figure (a square with two diagonals) is perfectly symmetrical about the horizontal axis. Therefore, its water image is identical to the original figure.</p></div></details></div>
+            <div class="question-block"><h3>Question 14</h3><p>Find the correct water image of the given figure.</p><div class="water-question-container"><div class="problem-figure"><div class="figure-box"><svg viewBox="0 0 100 100"><circle cx="50" cy="30" r="15" class="shape"/><path d="M50,45 v45" class="shape"/><path d="M20,90 h60" class="shape"/></svg></div></div><div class="water-line"></div><div class="answer-options-container"><div class="answer-options"><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><g transform="translate(0 100) scale(1 -1)"><circle cx="50" cy="30" r="15" class="shape"/><path d="M50,45 v45" class="shape"/><path d="M20,90 h60" class="shape"/></g></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100" transform="rotate(180)"><circle cx="50" cy="30" r="15" class="shape"/><path d="M50,45 v45" class="shape"/><path d="M20,90 h60" class="shape"/></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><circle cx="50" cy="70" r="15" class="shape"/><path d="M50,55 v-45" class="shape"/><path d="M20,10 h60" class="shape"/></svg></div><div class="figure-label">(C)</div></div></div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (A)</strong></p><p><strong>Technique:</strong> The figure is reflected vertically. The circle on top moves to the bottom. The horizontal line at the bottom moves to the top. The vertical line connecting them remains in the middle.</p></div></details></div>
+            <div class="question-block"><h3>Question 15</h3><p>Find the correct water image of the given figure.</p><div class="water-question-container"><div class="problem-figure"><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M10,90 L50,10 L90,90" class="shape"/><path d="M30,90 L50,50 L70,90" class="filled"/></svg></div></div><div class="water-line"></div><div class="answer-options-container"><div class="answer-options"><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><g transform="translate(0 100) scale(1 -1)"><path d="M10,90 L50,10 L90,90" class="shape"/><path d="M30,90 L50,50 L70,90" class="filled"/></g></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><path d="M10,10 L50,90 L90,10" class="shape"/><path d="M30,10 L50,50 L70,10" class="filled"/></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><g transform="translate(100 0) scale(-1 1)"><path d="M10,90 L50,10 L90,90" class="shape"/><path d="M30,90 L50,50 L70,90" class="filled"/></g></svg></div><div class="figure-label">(C)</div></div></div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (A)</strong></p><p><strong>Technique:</strong> The large unfilled triangle pointing up reflects to point down. The smaller filled triangle inside it, which also points up, reflects to point down.</p></div></details></div>
+            <div class="question-block"><h3>Question 16</h3><p>Find the correct water image of the given figure.</p><div class="water-question-container"><div class="problem-figure"><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M20,20 L80,20 L50,50 Z" class="shape"/><path d="M20,80 L80,80 L50,50 Z" class="filled"/></svg></div></div><div class="water-line"></div><div class="answer-options-container"><div class="answer-options"><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><path d="M20,80 L80,80 L50,50 Z" class="shape"/><path d="M20,20 L80,20 L50,50 Z" class="filled"/></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><g transform="translate(0 100) scale(1 -1)"><path d="M20,20 L80,20 L50,50 Z" class="shape"/><path d="M20,80 L80,80 L50,50 Z" class="filled"/></g></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box answer-figure-box" transform="rotate(180)"><svg viewBox="0 0 100 100"><path d="M20,20 L80,20 L50,50 Z" class="shape"/><path d="M20,80 L80,80 L50,50 Z" class="filled"/></svg></div><div class="figure-label">(C)</div></div></div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (B)</strong></p><p><strong>Technique:</strong> The top unfilled triangle reflects to the bottom. The bottom filled triangle reflects to the top. The left and right positions remain the same.</p></div></details></div>
+            <div class="question-block"><h3>Question 17</h3><p>Find the correct water image of the given figure.</p><div class="water-question-container"><div class="problem-figure"><div class="figure-box"><svg viewBox="0 0 100 100"><text x="50" y="55" class="text-element">A1B2</text></svg></div></div><div class="water-line"></div><div class="answer-options-container"><div class="answer-options"><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><g transform="translate(100 0) scale(-1 1)"><text x="50" y="55" class="text-element">A1B2</text></g></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100" transform="rotate(180)"><text x="50" y="55" class="text-element">A1B2</text></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><g transform="translate(0 100) scale(1 -1)"><text x="50" y="55" class="text-element">A1B2</text></g></svg></div><div class="figure-label">(C)</div></div></div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (C)</strong></p><p><strong>Technique:</strong> The order 'A1B2' is unchanged. 'A' flips to '∀'. '1' reflects vertically. 'B' is symmetrical and remains 'B'. '2' reflects vertically.</p></div></details></div>
+            <div class="question-block"><h3>Question 18</h3><p>Find the correct water image of the given figure.</p><div class="water-question-container"><div class="problem-figure"><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M20,80 L50,20 L80,80 M50,20 L50,10" class="shape"/></svg></div></div><div class="water-line"></div><div class="answer-options-container"><div class="answer-options"><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><path d="M20,20 L50,80 L80,20 M50,80 L50,90" class="shape"/></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><g transform="translate(0 100) scale(1 -1)"><path d="M20,80 L50,20 L80,80 M50,20 L50,10" class="shape"/></g></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><g transform="translate(100 0) scale(-1 1)"><path d="M20,80 L50,20 L80,80 M50,20 L50,10" class="shape"/></g></svg></div><div class="figure-label">(C)</div></div></div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (B)</strong></p><p><strong>Technique:</strong> The main 'A' shape without the crossbar reflects to become a 'V' shape. The small vertical line attached to the top vertex reflects to be attached to the new bottom vertex, pointing downwards.</p></div></details></div>
+            <div class="question-block"><h3>Question 19</h3><p>Find the correct water image of the given figure.</p><div class="water-question-container"><div class="problem-figure"><div class="figure-box"><svg viewBox="0 0 100 100"><circle cx="30" cy="30" r="15" class="shape"/><rect x="55" y="55" width="30" height="30" class="filled"/></svg></div></div><div class="water-line"></div><div class="answer-options-container"><div class="answer-options"><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><circle cx="30" cy="70" r="15" class="shape"/><rect x="55" y="15" width="30" height="30" class="filled"/></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><circle cx="70" cy="70" r="15" class="shape"/><rect x="15" y="15" width="30" height="30" class="filled"/></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><g transform="translate(0 100) scale(1 -1)"><circle cx="30" cy="30" r="15" class="shape"/><rect x="55" y="55" width="30" height="30" class="filled"/></g></svg></div><div class="figure-label">(C)</div></div></div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (C)</strong></p><p><strong>Technique:</strong> The unfilled circle in the top-left quadrant reflects to the bottom-left quadrant. The filled square in the bottom-right quadrant reflects to the top-right quadrant.</p></div></details></div>
+            <div class="question-block"><h3>Question 20</h3><p>Find the correct water image of the given figure.</p><div class="water-question-container"><div class="problem-figure"><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M20,20 L50,50 L80,20" class="shape"/><path d="M20,80 L50,50 L80,80" class="filled"/></svg></div></div><div class="water-line"></div><div class="answer-options-container"><div class="answer-options"><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100" transform="rotate(180)"><path d="M20,20 L50,50 L80,20" class="shape"/><path d="M20,80 L50,50 L80,80" class="filled"/></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><g transform="translate(100 0) scale(-1 1)"><path d="M20,20 L50,50 L80,20" class="shape"/><path d="M20,80 L50,50 L80,80" class="filled"/></g></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><g transform="translate(0 100) scale(1 -1)"><path d="M20,20 L50,50 L80,20" class="shape"/><path d="M20,80 L50,50 L80,80" class="filled"/></g></svg></div><div class="figure-label">(C)</div></div></div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (C)</strong></p><p><strong>Technique:</strong> The unfilled, upward-pointing V-shape at the top reflects to become a downward-pointing, unfilled V-shape at the bottom. The filled, downward-pointing V-shape at the bottom reflects to become an upward-pointing, filled V-shape at the top.</p></div></details></div>
+
+        </section>
+    </main>
+</body>
+</html>

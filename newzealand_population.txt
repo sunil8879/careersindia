@@ -1,0 +1,475 @@
+{
+  "description": "Top New Zealand Territorial Authorities by Indian Population, broken down by Region.",
+  "source": "Stats NZ Tatauranga Aotearoa, 2018 Census (Indian Ethnic Group)",
+  "data": [
+    {
+      "rank": 1,
+      "country": "New Zealand",
+      "region": "Auckland",
+      "region_indian_population": 158145,
+      "percentage_of_total_region_population": 9.94,
+      "cities": [
+        {
+          "city": "Howick (Local Board)",
+          "indian_population": 36813,
+          "percentage_of_city_population": 25.17
+        },
+        {
+          "city": "Puketāpapa (Local Board)",
+          "indian_population": 15993,
+          "percentage_of_city_population": 27.67
+        },
+        {
+          "city": "Maungakiekie-Tāmaki (Local Board)",
+          "indian_population": 12837,
+          "percentage_of_city_population": 16.29
+        },
+        {
+          "city": "Manurewa (Local Board)",
+          "indian_population": 12792,
+          "percentage_of_city_population": 13.25
+        },
+        {
+          "city": "Henderson-Massey (Local Board)",
+          "indian_population": 11649,
+          "percentage_of_city_population": 9.77
+        },
+        {
+          "city": "Whau (Local Board)",
+          "indian_population": 11520,
+          "percentage_of_city_population": 14.18
+        },
+        {
+          "city": "Ōtara-Papatoetoe (Local Board)",
+          "indian_population": 10599,
+          "percentage_of_city_population": 12.31
+        },
+        {
+          "city": "Papakura (Local Board)",
+          "indian_population": 9483,
+          "percentage_of_city_population": 16.28
+        },
+        {
+          "city": "Hibiscus and Bays (Local Board)",
+          "indian_population": 4833,
+          "percentage_of_city_population": 4.60
+        },
+        {
+          "city": "Albert-Eden (Local Board)",
+          "indian_population": 4311,
+          "percentage_of_city_population": 4.33
+        },
+        {
+          "city": "Franklin (Local Board)",
+          "indian_population": 3810,
+          "percentage_of_city_population": 5.04
+        },
+        {
+          "city": "Upper Harbour (Local Board)",
+          "indian_population": 3150,
+          "percentage_of_city_population": 4.90
+        },
+        {
+          "city": "Kaipātiki (Local Board)",
+          "indian_population": 2403,
+          "percentage_of_city_population": 2.70
+        },
+        {
+          "city": "Waitematā (Local Board)",
+          "indian_population": 1788,
+          "percentage_of_city_population": 2.11
+        },
+        {
+          "city": "Devonport-Takapuna (Local Board)",
+          "indian_population": 1245,
+          "percentage_of_city_population": 2.13
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "country": "New Zealand",
+      "region": "Wellington",
+      "region_indian_population": 25746,
+      "percentage_of_total_region_population": 5.00,
+      "cities": [
+        {
+          "city": "Wellington City",
+          "indian_population": 13410,
+          "percentage_of_city_population": 6.55
+        },
+        {
+          "city": "Hutt City",
+          "indian_population": 6462,
+          "percentage_of_city_population": 6.13
+        },
+        {
+          "city": "Porirua City",
+          "indian_population": 3123,
+          "percentage_of_city_population": 5.67
+        },
+        {
+          "city": "Upper Hutt City",
+          "indian_population": 1917,
+          "percentage_of_city_population": 4.37
+        },
+        {
+          "city": "Kāpiti Coast District",
+          "indian_population": 768,
+          "percentage_of_city_population": 1.46
+        },
+        {
+          "city": "South Wairarapa District",
+          "indian_population": 42,
+          "percentage_of_city_population": 0.41
+        },
+        {
+          "city": "Carterton District",
+          "indian_population": 21,
+          "percentage_of_city_population": 0.22
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "country": "New Zealand",
+      "region": "Waikato",
+      "region_indian_population": 21546,
+      "percentage_of_total_region_population": 4.79,
+      "cities": [
+        {
+          "city": "Hamilton City",
+          "indian_population": 15810,
+          "percentage_of_city_population": 9.77
+        },
+        {
+          "city": "Waikato District",
+          "indian_population": 2415,
+          "percentage_of_city_population": 3.23
+        },
+        {
+          "city": "Waipa District",
+          "indian_population": 1131,
+          "percentage_of_city_population": 2.06
+        },
+        {
+          "city": "South Waikato District",
+          "indian_population": 723,
+          "percentage_of_city_population": 3.09
+        },
+        {
+          "city": "Hauraki District",
+          "indian_population": 393,
+          "percentage_of_city_population": 1.93
+        },
+        {
+          "city": "Matamata-Piako District",
+          "indian_population": 372,
+          "percentage_of_city_population": 1.07
+        },
+        {
+          "city": "Thames-Coromandel District",
+          "indian_population": 258,
+          "percentage_of_city_population": 0.86
+        },
+        {
+          "city": "Ōtorohanga District",
+          "indian_population": 192,
+          "percentage_of_city_population": 1.86
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "country": "New Zealand",
+      "region": "Canterbury",
+      "region_indian_population": 18195,
+      "percentage_of_total_region_population": 3.05,
+      "cities": [
+        {
+          "city": "Christchurch City",
+          "indian_population": 14901,
+          "percentage_of_city_population": 4.07
+        },
+        {
+          "city": "Selwyn District",
+          "indian_population": 1284,
+          "percentage_of_city_population": 2.05
+        },
+        {
+          "city": "Ashburton District",
+          "indian_population": 630,
+          "percentage_of_city_population": 1.88
+        },
+        {
+          "city": "Timaru District",
+          "indian_population": 489,
+          "percentage_of_city_population": 1.05
+        },
+        {
+          "city": "Waimakariri District",
+          "indian_population": 405,
+          "percentage_of_city_population": 0.68
+        },
+        {
+          "city": "Mackenzie District",
+          "indian_population": 108,
+          "percentage_of_city_population": 2.21
+        }
+      ]
+    },
+    {
+      "rank": 5,
+      "country": "New Zealand",
+      "region": "Bay of Plenty",
+      "region_indian_population": 11217,
+      "percentage_of_total_region_population": 3.65,
+      "cities": [
+        {
+          "city": "Tauranga City",
+          "indian_population": 5427,
+          "percentage_of_city_population": 4.14
+        },
+        {
+          "city": "Rotorua District",
+          "indian_population": 2553,
+          "percentage_of_city_population": 3.52
+        },
+        {
+          "city": "Western Bay of Plenty District",
+          "indian_population": 1488,
+          "percentage_of_city_population": 2.89
+        },
+        {
+          "city": "Whakatāne District",
+          "indian_population": 1338,
+          "percentage_of_city_population": 3.84
+        },
+        {
+          "city": "Kawerau District",
+          "indian_population": 222,
+          "percentage_of_city_population": 3.12
+        }
+      ]
+    },
+    {
+      "rank": 6,
+      "country": "New Zealand",
+      "region": "Otago",
+      "region_indian_population": 6813,
+      "percentage_of_total_region_population": 3.10,
+      "cities": [
+        {
+          "city": "Dunedin City",
+          "indian_population": 4257,
+          "percentage_of_city_population": 3.32
+        },
+        {
+          "city": "Queenstown-Lakes District",
+          "indian_population": 1947,
+          "percentage_of_city_population": 5.01
+        },
+        {
+          "city": "Central Otago District",
+          "indian_population": 249,
+          "percentage_of_city_population": 1.15
+        },
+        {
+          "city": "Clutha District",
+          "indian_population": 183,
+          "percentage_of_city_population": 1.04
+        },
+        {
+          "city": "Waitaki District",
+          "indian_population": 177,
+          "percentage_of_city_population": 0.81
+        }
+      ]
+    },
+    {
+      "rank": 7,
+      "country": "New Zealand",
+      "region": "Manawatū-Whanganui",
+      "region_indian_population": 6069,
+      "percentage_of_total_region_population": 2.59,
+      "cities": [
+        {
+          "city": "Palmerston North City",
+          "indian_population": 3777,
+          "percentage_of_city_population": 4.54
+        },
+        {
+          "city": "Whanganui District",
+          "indian_population": 900,
+          "percentage_of_city_population": 2.05
+        },
+        {
+          "city": "Horowhenua District",
+          "indian_population": 765,
+          "percentage_of_city_population": 2.27
+        }
+      ]
+    },
+    {
+      "rank": 8,
+      "country": "New Zealand",
+      "region": "Northland",
+      "region_indian_population": 3642,
+      "percentage_of_total_region_population": 2.06,
+      "cities": [
+        {
+          "city": "Whangārei District",
+          "indian_population": 2742,
+          "percentage_of_city_population": 3.01
+        },
+        {
+          "city": "Far North District",
+          "indian_population": 663,
+          "percentage_of_city_population": 1.00
+        },
+        {
+          "city": "Kaipara District",
+          "indian_population": 237,
+          "percentage_of_city_population": 1.03
+        }
+      ]
+    },
+    {
+      "rank": 9,
+      "country": "New Zealand",
+      "region": "Hawke's Bay",
+      "region_indian_population": 3612,
+      "percentage_of_total_region_population": 2.20,
+      "cities": [
+        {
+          "city": "Hastings District",
+          "indian_population": 2046,
+          "percentage_of_city_population": 2.57
+        },
+        {
+          "city": "Napier City",
+          "indian_population": 1335,
+          "percentage_of_city_population": 2.12
+        }
+      ]
+    },
+    {
+      "rank": 10,
+      "country": "New Zealand",
+      "region": "Taranaki",
+      "region_indian_population": 2550,
+      "percentage_of_total_region_population": 2.17,
+      "cities": [
+        {
+          "city": "New Plymouth District",
+          "indian_population": 1944,
+          "percentage_of_city_population": 2.39
+        },
+        {
+          "city": "South Taranaki District",
+          "indian_population": 423,
+          "percentage_of_city_population": 1.57
+        }
+      ]
+    },
+    {
+      "rank": 11,
+      "country": "New Zealand",
+      "region": "Southland",
+      "region_indian_population": 2217,
+      "percentage_of_total_region_population": 2.24,
+      "cities": [
+        {
+          "city": "Invercargill City",
+          "indian_population": 1563,
+          "percentage_of_city_population": 2.94
+        },
+        {
+          "city": "Southland District",
+          "indian_population": 477,
+          "percentage_of_city_population": 1.54
+        },
+        {
+          "city": "Gore District",
+          "indian_population": 177,
+          "percentage_of_city_population": 1.45
+        }
+      ]
+    },
+    {
+      "rank": 12,
+      "country": "New Zealand",
+      "region": "Nelson",
+      "region_indian_population": 846,
+      "percentage_of_total_region_population": 1.64,
+      "cities": [
+        {
+          "city": "Nelson City",
+          "indian_population": 846,
+          "percentage_of_city_population": 1.64
+        }
+      ]
+    },
+    {
+      "rank": 13,
+      "country": "New Zealand",
+      "region": "Tasman",
+      "region_indian_population": 477,
+      "percentage_of_total_region_population": 0.89,
+      "cities": [
+        {
+          "city": "Tasman District",
+          "indian_population": 477,
+          "percentage_of_city_population": 0.89
+        }
+      ]
+    },
+    {
+      "rank": 14,
+      "country": "New Zealand",
+      "region": "Gisborne",
+      "region_indian_population": 453,
+      "percentage_of_total_region_population": 0.94,
+      "cities": [
+        {
+          "city": "Gisborne District",
+          "indian_population": 453,
+          "percentage_of_city_population": 0.94
+        }
+      ]
+    },
+    {
+      "rank": 15,
+      "country": "New Zealand",
+      "region": "Marlborough",
+      "region_indian_population": 444,
+      "percentage_of_total_region_population": 0.95,
+      "cities": [
+        {
+          "city": "Marlborough District",
+          "indian_population": 444,
+          "percentage_of_city_population": 0.95
+        }
+      ]
+    },
+    {
+      "rank": 16,
+      "country": "New Zealand",
+      "region": "West Coast",
+      "region_indian_population": 210,
+      "percentage_of_total_region_population": 0.65,
+      "cities": [
+        {
+          "city": "Buller District",
+          "indian_population": 105,
+          "percentage_of_city_population": 1.05
+        },
+        {
+          "city": "Grey District",
+          "indian_population": 72,
+          "percentage_of_city_population": 0.52
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parts of Speech: Nouns</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            /* Blue and white gridline background */
+            background-color: #f0f8ff; 
+            background-image: 
+                repeating-linear-gradient(to right, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 30px),
+                repeating-linear-gradient(to bottom, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 30px);
+            background-size: 30px 30px;
+        }
+
+        /* Header Styling */
+        header {
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        header h1 {
+            display: inline-block;
+            background-color: #0056b3;
+            color: white;
+            padding: 20px 40px;
+            border: 3px solid white;
+            border-radius: 15px;
+            /* 3D Box Effect */
+            box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.4), inset 2px 2px 5px rgba(255, 255, 255, 0.3);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-size: 2.2em;
+            margin: 0;
+        }
+
+        /* Main Container for Two-Column Layout */
+        .container {
+            display: flex;
+            max-width: 1300px;
+            margin: 20px auto;
+            background: #ffffff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.15);
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        /* Left Navigation Column */
+        .nav-column {
+            flex: 1;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+            background-color: #f8f9fa;
+        }
+
+        .nav-column ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            position: sticky;
+            top: 20px; /* Makes the nav stick on scroll */
+        }
+
+        .nav-column li a {
+            display: block;
+            padding: 12px 15px;
+            text-decoration: none;
+            color: #0056b3;
+            border-radius: 5px;
+            margin-bottom: 8px;
+            font-weight: bold;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .nav-column li a:hover,
+        .nav-column li a.active {
+            background-color: #0056b3;
+            color: #fff;
+        }
+
+        /* Right Content Column */
+        .content-column {
+            flex: 3;
+            padding: 25px 35px;
+            height: 80vh; /* Set a height to enable scrolling */
+            overflow-y: auto; /* Enable vertical scrollbar */
+        }
+
+        .content-section {
+            display: none;
+        }
+        
+        .content-section.active {
+            display: block;
+        }
+        
+        h2 {
+            font-size: 1.8em;
+            color: #0056b3;
+            border-bottom: 3px solid #0056b3;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        
+        h3 {
+            font-size: 1.4em;
+            color: #333;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        
+        .example-list {
+            list-style-type: decimal;
+            padding-left: 20px;
+        }
+
+        .example-list li {
+            margin-bottom: 8px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>PARTS OF SPEECH : NOUNS</h1>
+    </header>
+
+    <div class="container">
+        <nav class="nav-column">
+            <ul>
+                <li><a href="#definition" class="nav-link active">Definition</a></li>
+                <li><a href="#types" class="nav-link">Types of Nouns</a></li>
+                <li><a href="#plural" class="nav-link">Singular & Plural Nouns</a></li>
+                <li><a href="#identify" class="nav-link">How to Identify Nouns</a></li>
+            </ul>
+        </nav>
+
+        <main class="content-column">
+            <!-- DEFINITION SECTION -->
+            <section id="definition" class="content-section active">
+                <h2>Definition</h2>
+                <p>A noun is a word that names a **person**, **place**, **animal**, **thing**, or **idea**.</p>
+                <h3>10 Sentence Examples:</h3>
+                <ol class="example-list">
+                    <li>My **teacher** (person) works at the **school** (place).</li>
+                    <li>The **dog** (animal) chased the **ball** (thing).</li>
+                    <li>**Honesty** (idea) is the best **policy** (idea).</li>
+                    <li>That **boy** (person) lives in a big **city** (place).</li>
+                    <li>She bought a new **computer** (thing) for her **work** (idea).</li>
+                    <li>The **tourists** (person) visited the **museum** (place).</li>
+                    <li>The **lion** (animal) is a symbol of **courage** (idea).</li>
+                    <li>He read a **book** (thing) about **history** (idea).</li>
+                    <li>My **friend** (person) has a beautiful **cat** (animal).</li>
+                    <li>**Freedom** (idea) is a fundamental human **right** (idea).</li>
+                </ol>
+            </section>
+
+            <!-- TYPES OF NOUNS SECTION -->
+            <section id="types" class="content-section">
+                <h2>Types of Nouns</h2>
+                
+                <h3>Proper Nouns</h3>
+                <p>A name for a specific, unique person, place, or thing. They always begin with a capital letter.</p>
+                <ol class="example-list">
+                    <li>I am meeting **Sunil** at the **Taj Mahal**.</li>
+                    <li>She lives in **Mumbai**, which is a city in **India**.</li>
+                    <li>My birthday is in **April**.</li>
+                    <li>We will visit the **Eiffel Tower** when we go to **Paris**.</li>
+                    <li>He bought a new **Honda** car.</li>
+                    <li>**Jupiter** is the largest planet in our solar system.</li>
+                    <li>The meeting is scheduled for next **Monday**.</li>
+                    <li>I read "Pride and Prejudice" by **Jane Austen**.</li>
+                    <li>Her dog, named **Poppy**, is very friendly.</li>
+                    <li>He works for **Google** in **California**.</li>
+                </ol>
+
+                <h3>Common Nouns</h3>
+                <p>A generic name for a person, place, thing, or idea.</p>
+                <ol class="example-list">
+                    <li>The **boy** threw the **ball** to his **dog**.</li>
+                    <li>We are going to the **city** to visit a **museum**.</li>
+                    <li>My **teacher** gave the **students** an assignment.</li>
+                    <li>She bought a new **dress** at the **store**.</li>
+                    <li>A **doctor** works in a **hospital**.</li>
+                    <li>The **car** needs a new **engine**.</li>
+                    <li>I need to buy some **water** and **fruit**.</li>
+                    <li>The **country** has many beautiful **rivers** and **mountains**.</li>
+                    <li>He is reading a **book** in the **library**.</li>
+                    <li>The **cat** is sleeping on the **chair**.</li>
+                </ol>
+
+                <h3>Concrete Nouns</h3>
+                <p>Nouns that you can perceive with your five senses (sight, smell, hearing, taste, touch).</p>
+                 <ol class="example-list">
+                    <li>She put the **book** on the **table**.</li>
+                    <li>The loud **music** hurt my **ears**.</li>
+                    <li>Can you smell the **smoke** from the **fire**?</li>
+                    <li>The **rain** fell on the **rooftop**.</li>
+                    <li>He ate a delicious **pizza** for **lunch**.</li>
+                    <li>The **sand** on the **beach** was hot.</li>
+                    <li>I heard the **telephone** ringing.</li>
+                    <li>The **flower** has a sweet **fragrance**.</li>
+                    <li>She felt the soft **fabric** of the blanket.</li>
+                    <li>The bright **light** from the **lamp** lit the room.</li>
+                </ol>
+
+                <h3>Abstract Nouns</h3>
+                <p>Nouns that name ideas, qualities, or concepts. You cannot perceive them with the five senses.</p>
+                 <ol class="example-list">
+                    <li>Her **bravery** during the crisis was admirable.</li>
+                    <li>You need a lot of **patience** to learn a new skill.</li>
+                    <li>**Friendship** is a valuable asset.</li>
+                    <li>He felt a great sense of **relief** after the exam.</li>
+                    <li>**Justice** must be served for all.</li>
+                    <li>The politician spoke about the importance of **freedom**.</li>
+                    <li>She has a deep **love** for her family.</li>
+                    <li>His **childhood** was filled with happiness.</li>
+                    <li>We must treat everyone with **kindness** and **respect**.</li>
+                    <li>The new job comes with a lot of **responsibility**.</li>
+                </ol>
+
+                <h3>Collective Nouns</h3>
+                <p>Nouns that refer to a group of people, animals, or things as a single unit.</p>
+                <ol class="example-list">
+                    <li>Our **team** won the championship.</li>
+                    <li>A **flock** of birds flew overhead.</li>
+                    <li>The **audience** applauded the performance.</li>
+                    <li>A **pride** of lions rested in the shade.</li>
+                    <li>The **committee** will meet tomorrow.</li>
+                    <li>He bought a **bunch** of grapes from the market.</li>
+                    <li>A **swarm** of bees flew out of the hive.</li>
+                    <li>The ship's **crew** worked together to navigate the storm.</li>
+                    <li>She arranged a **bouquet** of flowers for the table.</li>
+                    <li>The **jury** delivered its verdict.</li>
+                </ol>
+
+                <h3>Material Nouns</h3>
+                <p>Nouns that refer to the materials or substances from which things are made.</p>
+                <ol class="example-list">
+                    <li>This table is made of **wood**.</li>
+                    <li>She wore a beautiful necklace made of **gold**.</li>
+                    <li>Windows are typically made from **glass**.</li>
+                    <li>The tires are made of **rubber**.</li>
+                    <li>He bought a jacket made of **leather**.</li>
+                    <li>The factory produces tons of **steel** every year.</li>
+                    <li>**Cotton** is used to make comfortable clothing.</li>
+                    <li>The artist carved a statue from **marble**.</li>
+                    <li>Most bottles today are made of **plastic**.</li>
+                    <li>**Diamond** is the hardest known natural substance.</li>
+                </ol>
+            </section>
+            
+            <!-- SINGULAR & PLURAL NOUNS SECTION -->
+            <section id="plural" class="content-section">
+                <h2>Singular & Plural Nouns</h2>
+                <p>Nouns can be singular (one) or plural (more than one). Plurals are formed in various ways.</p>
+                
+                <h3>Plural Rules & Examples</h3>
+                <table>
+                    <thead>
+                        <tr><th>Rule</th><th>Examples (Singular → Plural)</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Add -s</strong> (Most nouns)</td>
+                            <td>boat → boats, house → houses, cat → cats, river → rivers, book → books, chair → chairs, table → tables, pen → pens, dog → dogs, car → cars</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Add -es</strong> (Nouns ending in -s, -x, -z, -ch, -sh)</td>
+                            <td>bus → buses, box → boxes, wish → wishes, watch → watches, quiz → quizzes, dish → dishes, tax → taxes, church → churches, fox → foxes, match → matches</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Change -y to -ies</strong> (Nouns ending in consonant + y)</td>
+                            <td>city → cities, baby → babies, story → stories, party → parties, country → countries, lady → ladies, puppy → puppies, family → families, spy → spies, library → libraries</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Change -f or -fe to -ves</strong></td>
+                            <td>leaf → leaves, wife → wives, wolf → wolves, life → lives, knife → knives, shelf → shelves, loaf → loaves, thief → thieves, calf → calves, elf → elves</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Irregular Plurals</strong> (Vowel changes or new words)</td>
+                            <td>man → men, woman → women, child → children, foot → feet, tooth → teeth, goose → geese, mouse → mice, person → people, ox → oxen, die → dice</td>
+                        </tr>
+                        <tr>
+                            <td><strong>No Change</strong> (Singular and plural are the same)</td>
+                            <td>sheep → sheep, deer → deer, fish → fish, series → series, species → species, aircraft → aircraft, headquarters → headquarters, means → means, moose → moose, furniture → furniture</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            
+            <!-- IDENTIFY NOUNS SECTION -->
+            <section id="identify" class="content-section">
+                <h2>How to Identify Nouns: 10 Techniques</h2>
+
+                <h3>1. Meaning-Based Technique (Naming Test)</h3>
+                <p><strong>Easy Explanation:</strong> A noun is a "naming" word. If a word names a **person**, **place**, **thing**, or **idea**, it is a noun.</p>
+                <ol class="example-list">
+                    <li>The **teacher** explained the **lesson**. (Person, Idea)</li>
+                    <li>We visited the **Eiffel Tower** in **Paris**. (Thing, Place)</li>
+                    <li>My **dog** loves to play with its **ball**. (Animal, Thing)</li>
+                    <li>**Courage** is a valuable **trait**. (Idea)</li>
+                    <li>The **astronaut** traveled to **space**. (Person, Place)</li>
+                    <li>She bought a **bicycle** at the **shop**. (Thing, Place)</li>
+                    <li>His **knowledge** of **history** is impressive. (Idea)</li>
+                    <li>The **ocean** is full of amazing **creatures**. (Place, Animal)</li>
+                    <li>He is a famous **author** of many **books**. (Person, Thing)</li>
+                    <li>The **government** promised **change**. (Group, Idea)</li>
+                </ol>
+
+                <h3>2. Article Test</h3>
+                <p><strong>Easy Explanation:</strong> A reliable way to spot a noun is to see if it can come after an article (the words **a**, **an**, **the**).</p>
+                <ol class="example-list">
+                    <li>He is reading **a book**.</li>
+                    <li>She saw **an elephant** at the zoo.</li>
+                    <li>**The sun** is shining brightly.</li>
+                    <li>They need to buy **a new car**.</li>
+                    <li>**An apple** a day keeps the doctor away.</li>
+                    <li>We walked along **the river**.</li>
+                    <li>He is **an honest man**.</li>
+                    <li>She is studying to be **a doctor**.</li>
+                    <li>**The house** at the end of the street is old.</li>
+                    <li>I have **an idea**.</li>
+                </ol>
+
+                <h3>3. Pluralization Test</h3>
+                <p><strong>Easy Explanation:</strong> If you can make a word plural (usually by adding -s or -es), it's a countable noun.</p>
+                <ol class="example-list">
+                    <li>One **car** was parked, but three other **cars** drove by.</li>
+                    <li>She solved the **problem** by trying different **solutions**.</li>
+                    <li>This **box** is heavy, but those **boxes** are light.</li>
+                    <li>He has one **child**, but his neighbor has three **children**.</li>
+                    <li>The **city** is large, and it is one of many **cities** in the country.</li>
+                    <li>I ate one **potato**, and he ate two **potatoes**.</li>
+                    <li>A **leaf** fell from the tree, and soon many **leaves** were on the ground.</li>
+                    <li>She told one **story**, but he told several **stories**.</li>
+                    <li>The **company** opened a new **branch** in the city.</li>
+                    <li>This **quiz** was easy, but the final exam had three **quizzes**.</li>
+                </ol>
+
+                <h3>4. Possessive Test</h3>
+                <p><strong>Easy Explanation:</strong> Nouns can show ownership, usually by adding an apostrophe + s ('s). If a word can be made possessive, it is a noun.</p>
+                <ol class="example-list">
+                    <li>The **student's** project was highly praised.</li>
+                    <li>My **parents'** house is in the countryside.</li>
+                    <li>The **company's** success is due to its employees' hard work.</li>
+                    <li>We listened to the **prime minister's** speech.</li>
+                    <li>This is **Maria's** book, not yours.</li>
+                    <li>The **cat's** toy is under the sofa.</li>
+                    <li>**James's** car is parked outside.</li>
+                    <li>The **nation's** economy is growing.</li>
+                    <li>We followed the **doctor's** advice.</li>
+                    <li>The **children's** laughter filled the room.</li>
+                </ol>
+
+                <h3>5. Adjective Test</h3>
+                <p><strong>Easy Explanation:</strong> Nouns can be described by adjectives (words like *big, red, beautiful*). If a word can have an adjective placed before it, it's a noun.</p>
+                <ol class="example-list">
+                    <li>She wore a **beautiful dress**.</li>
+                    <li>He made an **important decision**.</li>
+                    <li>They live in a **large, modern house**.</li>
+                    <li>The **delicious aroma** of food filled the room.</li>
+                    <li>It was a **challenging exam** for all the students.</li>
+                    <li>We saw a **fast car** on the highway.</li>
+                    <li>He has a **positive attitude**.</li>
+                    <li>The **old book** was on the top shelf.</li>
+                    <li>She has **bright, intelligent eyes**.</li>
+                    <li>This is a very **complex problem**.</li>
+                </ol>
+
+                <h3>6. Pronoun Substitution Test</h3>
+                <p><strong>Easy Explanation:</strong> A noun or noun phrase can be replaced by a pronoun (like *he, she, it, they*) without changing the sentence's basic meaning.</p>
+                <ol class="example-list">
+                    <li>**The boy** kicked the ball. → **He** kicked the ball.</li>
+                    <li>**The students** submitted their assignments. → **They** submitted their assignments.</li>
+                    <li>My mother gave **the book** to my sister. → My mother gave **it** to **her**.</li>
+                    <li>**The new car** is very expensive. → **It** is very expensive.</li>
+                    <li>The manager praised **John and Sarah**. → The manager praised **them**.</li>
+                    <li>**My dog** is sleeping. → **It** is sleeping.</li>
+                    <li>**The sun** is very bright. → **It** is very bright.</li>
+                    <li>The teacher helped **the little girl**. → The teacher helped **her**.</li>
+                    <li>**The flowers** are beautiful. → **They** are beautiful.</li>
+                    <li>**My brother** called me. → **He** called me.</li>
+                </ol>
+
+                <h3>7. Preposition Test</h3>
+                <p><strong>Easy Explanation:</strong> Nouns often follow prepositions (words like *in, on, at, under, with, for, from*). The word or phrase after a preposition is its object, which is a noun or pronoun.</p>
+                <ol class="example-list">
+                    <li>The book is **on the table**.</li>
+                    <li>He arrived **at the station**.</li>
+                    <li>She has a strong belief **in her abilities**.</li>
+                    <li>The gift is **from my friend**.</li>
+                    <li>They went for a walk **through the park**.</li>
+                    <li>He put the letter **inside the envelope**.</li>
+                    <li>The cat is hiding **under the bed**.</li>
+                    <li>We will meet **after lunch**.</li>
+                    <li>She is talking **about her trip**.</li>
+                    <li>He succeeded **with hard work**.</li>
+                </ol>
+
+                <h3>8. Derivational Morphology Test (Suffixes)</h3>
+                <p><strong>Easy Explanation:</strong> Many nouns are formed by adding specific suffixes (endings) to other words. Common noun suffixes include *-ness, -ment, -ion, -ity, -er, -ist, -hood, -ship*.</p>
+                <ol class="example-list">
+                    <li>His **kindness** (-ness) is appreciated by everyone.</li>
+                    <li>The **development** (-ment) of the project took a year.</li>
+                    <li>Her **decision** (-ion) was to study abroad.</li>
+                    <li>A professional **artist** (-ist) painted the portrait.</li>
+                    <li>They value their **friendship** (-ship) above all else.</li>
+                    <li>The **actor** (-or) gave a great performance.</li>
+                    <li>He showed great **leadership** (-ship) during the crisis.</li>
+                    <li>The **creation** (-ion) of the universe is a complex topic.</li>
+                    <li>She has a lot of **curiosity** (-ity).</li>
+                    <li>His **childhood** (-hood) was spent in a small village.</li>
+                </ol>
+
+                <h3>9. Syntactic Position Test (Subject/Object)</h3>
+                <p><strong>Easy Explanation:</strong> Nouns usually function as the **subject** (who/what does the verb) or the **object** (who/what receives the action) in a sentence.</p>
+                <ol class="example-list">
+                    <li>**The dog** (Subject) chased **the cat** (Object).</li>
+                    <li>**My brother** (Subject) bought **a new phone** (Object).</li>
+                    <li>**The company** (Subject) hired **several new employees** (Object).</li>
+                    <li>**The rain** (Subject) created **floods** (Object) in the city.</li>
+                    <li>**She** (Subject) told **a story** (Object) to the children.</li>
+                    <li>**The sun** (Subject) provides **energy** (Object).</li>
+                    <li>**Students** (Subject) must complete their **assignments** (Object).</li>
+                    <li>**The mechanic** (Subject) fixed **the car** (Object).</li>
+                    <li>**The author** (Subject) wrote **a best-selling novel** (Object).</li>
+                    <li>**Our team** (Subject) won **the championship** (Object).</li>
+                </ol>
+
+                <h3>10. Extra Technique: Wh-Questions</h3>
+                <p><strong>Easy Explanation:</strong> To find the main nouns, ask **"Who?"** or **"What?"** in relation to the verb. The answer to "Who/What did the action?" is the subject noun. The answer to "The subject did the action to whom/what?" is the object noun.</p>
+                <ol class="example-list">
+                    <li>Sentence: **The boy** threw **the ball**. (Who threw? What was thrown?)</li>
+                    <li>Sentence: **The teacher** gave **assignments**. (Who gave? What was given?)</li>
+                    <li>Sentence: **The company** launched **a product**. (What launched? What was launched?)</li>
+                    <li>Sentence: **My friend** drives **a car**. (Who drives? What is driven?)</li>
+                    <li>Sentence: **Lions** hunt **zebras**. (What hunts? What is hunted?)</li>
+                    <li>Sentence: **The chef** prepared **dinner**. (Who prepared? What was prepared?)</li>
+                    <li>Sentence: **The student** answered **the question**. (Who answered? What was answered?)</li>
+                    <li>Sentence: **The doctor** examined **the patient**. (Who examined? Whom was examined?)</li>
+                    <li>Sentence: **The artist** painted **a portrait**. (Who painted? What was painted?)</li>
+                    <li>Sentence: **The child** broke **the toy**. (Who broke? What was broken?)</li>
+                </ol>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const contentSections = document.querySelectorAll('.content-section');
+            const contentColumn = document.querySelector('.content-column');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+
+                    navLinks.forEach(nav => nav.classList.remove('active'));
+                    contentSections.forEach(section => section.classList.remove('active'));
+
+                    this.classList.add('active');
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        targetSection.classList.add('active');
+                        contentColumn.scrollTop = 0; // Scroll to top of content area on click
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

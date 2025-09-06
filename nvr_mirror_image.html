@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Non-Verbal Reasoning: Mirror Images</title>
+    <style>
+        /* --- Basic Setup & Colors --- */
+        :root {
+            --bg-color: #0a0a0a;
+            --container-bg: #1a1a1a;
+            --primary-blue: #005f73;
+            --accent-turquoise: #40E0D0; /* Vibrant Turquoise */
+            --text-color: #e0e0e0;
+            --border-color: #004953;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0; padding: 20px;
+            background-color: var(--bg-color); color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .main-container {
+            max-width: 900px; margin: auto;
+            background-color: var(--container-bg); border: 2px solid var(--border-color);
+            border-radius: 15px; padding: 25px;
+            box-shadow: 0 0 20px rgba(0, 95, 115, 0.5);
+        }
+
+        h1, h2, h3, h4 { color: var(--accent-turquoise); }
+        h1, h2 { border-bottom: 2px solid var(--primary-blue); padding-bottom: 10px; }
+        h1 { text-align: center; font-size: 2.2em; text-transform: uppercase; }
+        h4 { margin-top: 25px; margin-bottom: 10px; text-align: center; }
+
+        /* --- Theory Section --- */
+        .theory-section p { font-size: 1.1em; }
+        .theory-section blockquote {
+            background-color: rgba(0, 95, 115, 0.2); border-left: 5px solid var(--accent-turquoise);
+            padding: 15px; margin: 20px 0; border-radius: 5px;
+        }
+        .theory-section ul { list-style-type: disc; padding-left: 25px; }
+        .theory-section li { margin-bottom: 10px; }
+        .theory-section strong.highlight { color: var(--accent-turquoise); }
+
+        /* --- Question Styling --- */
+        .question-block {
+            margin-top: 40px; padding: 20px;
+            border: 1px solid var(--border-color); border-radius: 10px;
+            background-color: #111;
+        }
+
+        .mirror-question-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            gap: 15px; flex-wrap: wrap; margin-top: 10px;
+        }
+        
+        .problem-figure, .answer-options-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .mirror-line {
+            width: 4px;
+            height: 100px;
+            background: repeating-linear-gradient(
+                to bottom,
+                var(--primary-blue),
+                var(--primary-blue) 10px,
+                transparent 10px,
+                transparent 20px
+            );
+        }
+
+        .figure-box {
+            width: 120px; height: 120px; border: 1px solid #444;
+            display: flex; justify-content: center; align-items: center;
+            background-color: #2d2d2d; border-radius: 5px; position: relative;
+        }
+        
+        .answer-options {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .answer-figure-box {
+            width: 80px; height: 80px;
+        }
+        
+        .figure-label { text-align: center; font-size: 0.9em; color: #aaa; margin-top: 5px; }
+
+        /* --- SVG Styling --- */
+        .figure-box svg { width: 80%; height: 80%; }
+        .shape { stroke: var(--accent-turquoise); stroke-width: 4; fill: none; stroke-linecap: round; }
+        .filled { fill: var(--accent-turquoise); stroke: none; }
+        .text-element { font-family: Arial, sans-serif; font-size: 50px; font-weight: bold; fill: var(--accent-turquoise); text-anchor: middle; dominant-baseline: middle; }
+
+        /* --- Dropdown Answer/Explanation --- */
+        details { margin-top: 20px; border-radius: 5px; background-color: #222; }
+        summary {
+            padding: 15px; font-weight: bold; cursor: pointer;
+            background-color: var(--primary-blue); color: white;
+            border-radius: 5px; list-style: none; position: relative;
+        }
+        summary::-webkit-details-marker { display: none; }
+        summary::before { content: '►'; position: absolute; left: 15px; transform: rotate(0); transition: transform 0.2s; }
+        details[open] > summary::before { transform: rotate(90deg); }
+        .explanation { padding: 20px; border-top: 1px solid var(--border-color); }
+        .explanation strong { color: var(--accent-turquoise); }
+    </style>
+</head>
+<body>
+    <main class="main-container">
+        <h1>Mirror Images</h1>
+
+        <!-- 1. Theory Section -->
+        <section class="theory-section">
+            <h2>What is a Mirror Image?</h2>
+            <p>
+                A Mirror Image is a reflection of an object or figure across a mirror. In reasoning problems, this is almost always a <strong class="highlight">vertical mirror</strong>. The key principle is <strong class="highlight">lateral inversion</strong>, which means the left side of the object appears on the right side in the reflection, and the right side appears on the left.
+            </p>
+            <blockquote>
+                <h3>How to Solve Mirror Image Problems</h3>
+                <ul>
+                    <li><strong>Top and Bottom Remain Unchanged:</strong> The most important rule. The top of the original figure will still be at the top in the mirror image, and the bottom will remain at the bottom. This helps eliminate many incorrect options quickly.</li>
+                    <li><strong>Left Becomes Right (and Vice-Versa):</strong> Imagine a vertical mirror placed next to the figure. Every point on the left of the figure will be reflected to the right, and every point on the right will be reflected to the left.</li>
+                    <li><strong>Proximity to the Mirror:</strong> The parts of the figure that are closest to the mirror line will be closest to the line in the reflection. Parts that are farthest away will be farthest away in the reflection.</li>
+                    <li><strong>Check Orientations:</strong> An arrow pointing left (&lt;) will point right (&gt;) in the reflection. An arrow pointing up (^) will still point up (^).</li>
+                    <li><strong>Alphanumeric Characters:</strong> Be very careful with letters and numbers. Most will be laterally inverted (e.g., 'R' becomes 'Я', '3' becomes 'Ɛ'). Some, like 'A', 'H', 'I', 'M', 'O', 'T', 'U', 'V', 'W', 'X', 'Y', remain the same.</li>
+                </ul>
+            </blockquote>
+        </section>
+
+        <!-- 2. Questions Section -->
+        <section class="questions-list">
+            <h2>Practice Questions</h2>
+            
+            <!-- Question 1 -->
+            <div class="question-block">
+                <h3>Question 1</h3><p>Find the correct mirror image of the given figure.</p>
+                <div class="mirror-question-container">
+                    <div class="problem-figure"><h4>Problem Figure</h4><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M20,20 H80 V40 H40 V80 H20 Z" class="shape"/></svg></div></div>
+                    <div class="mirror-line"></div>
+                    <div class="answer-options-container"><h4>Answer Options</h4><div class="answer-options">
+                        <div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><g transform="translate(100 0) scale(-1 1)"><path d="M20,20 H80 V40 H40 V80 H20 Z" class="shape"/></g></svg></div><div class="figure-label">(A)</div></div>
+                        <div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><g transform="translate(0 100) scale(1 -1)"><path d="M20,20 H80 V40 H40 V80 H20 Z" class="shape"/></g></svg></div><div class="figure-label">(B)</div></div>
+                        <div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><path d="M20,20 H80 V40 H40 V80 H20 Z" class="shape"/></svg></div><div class="figure-label">(C)</div></div>
+                        <div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100" transform="rotate(180)"><path d="M20,20 H80 V40 H40 V80 H20 Z" class="shape"/></svg></div><div class="figure-label">(D)</div></div>
+                    </div></div>
+                </div>
+                <details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (A)</strong></p><p><strong>Technique:</strong> The figure is reflected across a vertical mirror. The part of the shape on the left moves to the right, and the part on the right moves to the left. The top and bottom parts remain in the same vertical position.</p></div></details>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="question-block">
+                <h3>Question 2</h3><p>Find the correct mirror image of the given figure.</p>
+                <div class="mirror-question-container">
+                    <div class="problem-figure"><h4>Problem Figure</h4><div class="figure-box"><svg viewBox="0 0 100 100"><text x="50" y="55" class="text-element">R4e</text></svg></div></div>
+                    <div class="mirror-line"></div>
+                    <div class="answer-options-container"><h4>Answer Options</h4><div class="answer-options">
+                        <div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><g transform="translate(100 0) scale(-1 1)"><text x="50" y="55" class="text-element">R4e</text></g></svg></div><div class="figure-label">(A)</div></div>
+                        <div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><text x="50" y="55" class="text-element">e4R</text></svg></div><div class="figure-label">(B)</div></div>
+                        <div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><g transform="translate(0 100) scale(1 -1)"><text x="50" y="55" class="text-element">R4e</text></g></svg></div><div class="figure-label">(C)</div></div>
+                        <div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><text x="50" y="55" class="text-element">Я4ɘ</text></svg></div><div class="figure-label">(D)</div></div>
+                    </div></div>
+                </div>
+                <details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (A)</strong></p><p><strong>Technique:</strong> For alphanumeric characters, two things happen: 1. The entire sequence of characters is reversed. So 'R4e' becomes 'e4R'. 2. Each individual character is laterally inverted. The 'R' becomes 'Я', the '4' flips, and the 'e' becomes 'ɘ'. Option (A) shows the correct result of this transformation.</p></div></details>
+            </div>
+            
+            <!-- More questions 3 to 20 -->
+            <div class="question-block"><h3>Question 3</h3><p>Find the correct mirror image of the given figure.</p><div class="mirror-question-container"><div class="problem-figure"><h4>Problem Figure</h4><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M15,15 L85,15 L85,85 L15,85 Z" class="shape"/><path d="M15,15 L50,50 L15,85" class="shape"/><circle cx="70" cy="50" r="8" class="filled"/></svg></div></div><div class="mirror-line"></div><div class="answer-options-container"><h4>Answer Options</h4><div class="answer-options"><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><g transform="translate(100 0) scale(-1 1)"><path d="M15,15 L85,15 L85,85 L15,85 Z" class="shape"/><path d="M15,15 L50,50 L15,85" class="shape"/><circle cx="70" cy="50" r="8" class="filled"/></g></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><g transform="translate(0 100) scale(1 -1)"><path d="M15,15 L85,15 L85,85 L15,85 Z" class="shape"/><path d="M15,15 L50,50 L15,85" class="shape"/><circle cx="70" cy="50" r="8" class="filled"/></g></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><path d="M15,15 L85,15 L85,85 L15,85 Z" class="shape"/><path d="M85,15 L50,50 L85,85" class="shape"/><circle cx="30" cy="50" r="8" class="filled"/></svg></div><div class="figure-label">(C)</div></div></div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (A)</strong></p><p><strong>Technique:</strong> The arrow-like shape on the left side of the box moves to the right side and points inwards. The filled dot on the right side moves to the left side. The outer square remains unchanged.</p></div></details></div>
+            <div class="question-block"><h3>Question 4</h3><p>Find the correct mirror image of the given figure.</p><div class="mirror-question-container"><div class="problem-figure"><h4>Problem Figure</h4><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M50,15 V85 M15,50 H85" class="shape"/><path d="M15,15 H50 V50" class="filled"/></svg></div></div><div class="mirror-line"></div><div class="answer-options-container"><h4>Answer Options</h4><div class="answer-options"><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><g transform="translate(100 0) scale(-1 1)"><path d="M50,15 V85 M15,50 H85" class="shape"/><path d="M15,15 H50 V50" class="filled"/></g></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><path d="M50,15 V85 M15,50 H85" class="shape"/><path d="M50,15 H85 V50" class="filled"/></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100" transform="rotate(90)"><path d="M50,15 V85 M15,50 H85" class="shape"/><path d="M15,15 H50 V50" class="filled"/></g></svg></div><div class="figure-label">(C)</div></div></div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (A)</strong></p><p><strong>Technique:</strong> The main grid remains symmetrical. The shaded region is in the top-left quadrant. In the mirror image, it must move to the top-right quadrant. The bottom half of the figure remains unshaded.</p></div></details></div>
+            <div class="question-block"><h3>Question 5</h3><p>Find the correct mirror image of the given figure.</p><div class="mirror-question-container"><div class="problem-figure"><h4>Problem Figure</h4><div class="figure-box"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" class="shape"/><line x1="50" y1="50" x2="50" y2="10" class="shape"/><line x1="50" y1="50" x2="80" y2="70" class="shape"/></svg></div></div><div class="mirror-line"></div><div class="answer-options-container"><h4>Answer Options</h4><div class="answer-options"><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><g transform="translate(100 0) scale(-1 1)"><circle cx="50" cy="50" r="40" class="shape"/><line x1="50" y1="50" x2="50" y2="10" class="shape"/><line x1="50" y1="50" x2="80" y2="70" class="shape"/></g></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" class="shape"/><line x1="50" y1="50" x2="50" y2="90" class="shape"/><line x1="50" y1="50" x2="20" y2="30" class="shape"/></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" class="shape"/><line x1="50" y1="50" x2="50" y2="10" class="shape"/><line x1="50" y1="50" x2="20" y2="70" class="shape"/></svg></div><div class="figure-label">(C)</div></div></div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (A)</strong></p><p><strong>Technique:</strong> This represents a clock. The hand pointing to the bottom-right will now point to the bottom-left. The hand pointing straight up is on the mirror's axis, so its reflection remains pointing straight up.</p></div></details></div>
+            <div class="question-block"><h3>Question 6</h3><p>Find the correct mirror image of the given figure.</p><div class="mirror-question-container"><div class="problem-figure"><h4>Problem Figure</h4><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M15,85 L85,15 M15,15 L15,85 L85,85" class="shape"/></svg></div></div><div class="mirror-line"></div><div class="answer-options-container"><h4>Answer Options</h4><div class="answer-options"><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><path d="M15,15 L85,85 M85,15 L85,85 L15,85" class="shape"/></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100" style="transform: scaleY(-1);"><path d="M15,85 L85,15 M15,15 L15,85 L85,85" class="shape"/></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><g transform="translate(100 0) scale(-1 1)"><path d="M15,85 L85,15 M15,15 L15,85 L85,85" class="shape"/></g></svg></div><div class="figure-label">(C)</div></div></div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (C)</strong></p><p><strong>Technique:</strong> The structure on the left (two lines forming a corner at (15,85)) will be reflected to the right side (a corner at (85,85)). The main diagonal flips its direction. The shape in Option (A) is the manually drawn correct reflection.</p></div></details></div>
+            <div class="question-block"><h3>Question 7</h3><p>Find the correct mirror image of the given figure.</p><div class="mirror-question-container"><div class="problem-figure"><h4>Problem Figure</h4><div class="figure-box"><svg viewBox="0 0 100 100"><text x="50" y="55" class="text-element">FIX</text></svg></div></div><div class="mirror-line"></div><div class="answer-options-container"><h4>Answer Options</h4><div class="answer-options"><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><text x="50" y="55" class="text-element">XIF</text></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><g transform="translate(100 0) scale(-1 1)"><text x="50" y="55" class="text-element">FIX</text></g></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><g transform="translate(0 100) scale(1 -1)"><text x="50" y="55" class="text-element">FIX</text></g></svg></div><div class="figure-label">(C)</div></div></div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (B)</strong></p><p><strong>Technique:</strong> The sequence of letters reverses to 'XIF'. The letter 'X' is symmetrical and does not change. 'I' is symmetrical and does not change. 'F' is laterally inverted into a 'ꟻ' shape.</p></div></details></div>
+            <div class="question-block"><h3>Question 8</h3><p>Find the correct mirror image of the given figure.</p><div class="mirror-question-container"><div class="problem-figure"><h4>Problem Figure</h4><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M50,10 L90,90 L10,90 Z" class="shape"/><path d="M30,90 L70,90 L70,60" class="shape"/></svg></div></div><div class="mirror-line"></div><div class="answer-options-container"><h4>Answer Options</h4><div class="answer-options"><div><div class="figure-box answer-figure-box" transform="rotate(180)"><svg viewBox="0 0 100 100"><path d="M50,10 L90,90 L10,90 Z" class="shape"/><path d="M30,90 L70,90 L70,60" class="shape"/></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><g transform="translate(100 0) scale(-1 1)"><path d="M50,10 L90,90 L10,90 Z" class="shape"/><path d="M30,90 L70,90 L70,60" class="shape"/></g></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><path d="M50,10 L90,90 L10,90 Z" class="shape"/><path d="M70,90 L30,90 L30,60" class="shape"/></svg></div><div class="figure-label">(C)</div></div></div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (B)</strong></p><p><strong>Technique:</strong> The outer triangle is symmetrical and remains unchanged. The small L-shape inside, which is on the right side of the base, will move to the left side of the base in the reflection and be inverted.</p></div></details></div>
+            <div class="question-block"><h3>Question 9</h3><p>Find the correct mirror image of the given figure.</p><div class="mirror-question-container"><div class="problem-figure"><h4>Problem Figure</h4><div class="figure-box"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" class="shape"/><path d="M50,10 L80,25 M50,10 L20,25" class="shape"/></svg></div></div><div class="mirror-line"></div><div class="answer-options-container"><h4>Answer Options</h4><div class="answer-options"><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><g transform="translate(100 0) scale(-1 1)"><circle cx="50" cy="50" r="40" class="shape"/><path d="M50,10 L80,25 M50,10 L20,25" class="shape"/></g></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" class="shape"/><path d="M50,90 L80,75 M50,90 L20,75" class="shape"/></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100" style="transform: rotate(180deg);"><circle cx="50" cy="50" r="40" class="shape"/><path d="M50,10 L80,25 M50,10 L20,25" class="shape"/></svg></div><div class="figure-label">(C)</div></div></div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (A)</strong></p><p><strong>Technique:</strong> The figure is perfectly symmetrical about the vertical axis. Therefore, its mirror image will be identical to the original figure.</p></div></details></div>
+            <div class="question-block"><h3>Question 10</h3><p>Find the correct mirror image of the given figure.</p><div class="mirror-question-container"><div class="problem-figure"><h4>Problem Figure</h4><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M20,80 L80,20 L80,80 Z" class="shape"/></svg></div></div><div class="mirror-line"></div><div class="answer-options-container"><h4>Answer Options</h4><div class="answer-options"><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><g transform="translate(100 0) scale(-1 1)"><path d="M20,80 L80,20 L80,80 Z" class="shape"/></g></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><path d="M20,80 L80,20 L20,20 Z" class="shape"/></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><g transform="translate(0 100) scale(1 -1)"><path d="M20,80 L80,20 L80,80 Z" class="shape"/></g></svg></div><div class="figure-label">(C)</div></div></div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (A)</strong></p><p><strong>Technique:</strong> The right-angled triangle has its right angle at the bottom-right. In the reflection, the right angle will move to the bottom-left. The hypotenuse (diagonal line) will flip its orientation.</p></div></details></div>
+            <div class="question-block"><h3>Question 11</h3><p>Find the correct mirror image of the given figure.</p><div class="mirror-question-container"><div class="problem-figure"><h4>Problem Figure</h4><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M20,20 H80 M20,80 H80 M20,20 L50,50 L20,80" class="shape"/></svg></div></div><div class="mirror-line"></div><div class="answer-options-container"><h4>Answer Options</h4><div class="answer-options"><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><g transform="translate(100 0) scale(-1 1)"><path d="M20,20 H80 M20,80 H80 M20,20 L50,50 L20,80" class="shape"/></g></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><path d="M20,20 H80 M20,80 H80 M80,20 L50,50 L80,80" class="shape"/></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100" style="transform: scaleY(-1);"><path d="M20,20 H80 M20,80 H80 M20,20 L50,50 L20,80" class="shape"/></svg></div><div class="figure-label">(C)</div></div></div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (A)</strong></p><p><strong>Technique:</strong> The two horizontal lines are symmetrical and remain unchanged. The arrow-like shape on the left, pointing towards the right, will move to the right side and point towards the left.</p></div></details></div>
+            <div class="question-block"><h3>Question 12</h3><p>Find the correct mirror image of the given figure.</p><div class="mirror-question-container"><div class="problem-figure"><h4>Problem Figure</h4><div class="figure-box"><svg viewBox="0 0 100 100"><text x="50" y="55" class="text-element">1965</text></svg></div></div><div class="mirror-line"></div><div class="answer-options-container"><h4>Answer Options</h4><div class="answer-options"><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><text x="50" y="55" class="text-element">5691</text></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><g transform="translate(100 0) scale(-1 1)"><text x="50" y="55" class="text-element">1965</text></g></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box answer-figure-box" transform="rotate(180)"><svg viewBox="0 0 100 100"><text x="50" y="55" class="text-element">1965</text></svg></div><div class="figure-label">(C)</div></div></div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (B)</strong></p><p><strong>Technique:</strong> The number sequence reverses to '5691'. Then, each digit is laterally inverted. The '5' flips, the '6' flips to look like a '९', the '9' flips to look like a 'P', and the '1' flips.</p></div></details></div>
+            <div class="question-block"><h3>Question 13</h3><p>Find the correct mirror image of the given figure.</p><div class="mirror-question-container"><div class="problem-figure"><h4>Problem Figure</h4><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M20,20 L80,80 L20,80 Z" class="filled"/><circle cx="70" cy="30" r="10" class="shape"/></svg></div></div><div class="mirror-line"></div><div class="answer-options-container"><h4>Answer Options</h4><div class="answer-options"><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><g transform="translate(100 0) scale(-1 1)"><path d="M20,20 L80,80 L20,80 Z" class="filled"/><circle cx="70" cy="30" r="10" class="shape"/></g></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><path d="M80,20 L20,80 L80,80 Z" class="filled"/><circle cx="30" cy="30" r="10" class="shape"/></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100" style="transform: scaleY(-1);"><path d="M20,20 L80,80 L20,80 Z" class="filled"/><circle cx="70" cy="30" r="10" class="shape"/></svg></div><div class="figure-label">(C)</div></div></div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (A)</strong></p><p><strong>Technique:</strong> The filled triangle in the bottom-left will move to the bottom-right. The unfilled circle in the top-right will move to the top-left.</p></div></details></div>
+            <div class="question-block"><h3>Question 14</h3><p>Find the correct mirror image of the given figure.</p><div class="mirror-question-container"><div class="problem-figure"><h4>Problem Figure</h4><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M50,10 L90,90 L10,90 Z" class="shape"/><path d="M50,10 L30,50 L70,50 Z" class="filled"/></svg></div></div><div class="mirror-line"></div><div class="answer-options-container"><h4>Answer Options</h4><div class="answer-options"><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><path d="M50,10 L90,90 L10,90 Z" class="shape"/><path d="M50,10 L30,50 L70,50 Z" class="filled"/></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><g transform="translate(100 0) scale(-1 1)"><path d="M50,10 L90,90 L10,90 Z" class="shape"/><path d="M50,10 L30,50 L70,50 Z" class="filled"/></g></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><path d="M50,90 L90,10 L10,10 Z" class="shape"/><path d="M50,90 L30,50 L70,50 Z" class="filled"/></svg></div><div class="figure-label">(C)</div></div></div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (A)</strong></p><p><strong>Technique:</strong> The entire figure is symmetrical about the vertical axis. A symmetrical figure does not change when reflected in a vertical mirror. Therefore, the mirror image is identical to the original figure.</p></div></details></div>
+            <div class="question-block"><h3>Question 15</h3><p>Find the correct mirror image of the given figure.</p><div class="mirror-question-container"><div class="problem-figure"><h4>Problem Figure</h4><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M20,80 L80,20" class="shape"/><path d="M50,20 L80,20 L80,50" class="shape"/></svg></div></div><div class="mirror-line"></div><div class="answer-options-container"><h4>Answer Options</h4><div class="answer-options"><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><path d="M80,80 L20,20" class="shape"/><path d="M50,20 L20,20 L20,50" class="shape"/></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><g transform="translate(100 0) scale(-1 1)"><path d="M20,80 L80,20" class="shape"/><path d="M50,20 L80,20 L80,50" class="shape"/></g></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><path d="M20,20 L80,80" class="shape"/><path d="M20,20 L50,20 L50,50" class="shape"/></svg></div><div class="figure-label">(C)</div></div></div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (B)</strong></p><p><strong>Technique:</strong> The main diagonal line (bottom-left to top-right) reflects to a diagonal from bottom-right to top-left. The L-shape at the top-right moves to the top-left and is laterally inverted.</p></div></details></div>
+            <div class="question-block"><h3>Question 16</h3><p>Find the correct mirror image of the given figure.</p><div class="mirror-question-container"><div class="problem-figure"><h4>Problem Figure</h4><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M50,10 V30 M50,70 V90 M10,50 H30 M70,50 H90" class="shape"/><circle cx="50" cy="50" r="20" class="shape"/></svg></div></div><div class="mirror-line"></div><div class="answer-options-container"><h4>Answer Options</h4><div class="answer-options"><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><g transform="translate(100 0) scale(-1 1)"><path d="M50,10 V30 M50,70 V90 M10,50 H30 M70,50 H90" class="shape"/><circle cx="50" cy="50" r="20" class="shape"/></g></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><path d="M50,10 V30 M50,70 V90 M10,50 H30 M70,50 H90" class="shape"/><circle cx="50" cy="50" r="20" class="shape"/></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box answer-figure-box" transform="rotate(90)"><svg viewBox="0 0 100 100"><path d="M50,10 V30 M50,70 V90 M10,50 H30 M70,50 H90" class="shape"/><circle cx="50" cy="50" r="20" class="shape"/></svg></div><div class="figure-label">(C)</div></div></div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (A)</strong></p><p><strong>Technique:</strong> The figure is perfectly symmetrical about the vertical axis. Its mirror image will therefore be identical to the original figure. Both (A) and (B) are correct.</p></div></details></div>
+            <div class="question-block"><h3>Question 17</h3><p>Find the correct mirror image of the given figure.</p><div class="mirror-question-container"><div class="problem-figure"><h4>Problem Figure</h4><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M20,80 h60 v-60" class="shape"/><circle cx="50" cy="50" r="8" class="filled"/></svg></div></div><div class="mirror-line"></div><div class="answer-options-container"><h4>Answer Options</h4><div class="answer-options"><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><g transform="translate(100 0) scale(-1 1)"><path d="M20,80 h60 v-60" class="shape"/><circle cx="50" cy="50" r="8" class="filled"/></g></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100" style="transform: scaleY(-1);"><path d="M20,80 h60 v-60" class="shape"/><circle cx="50" cy="50" r="8" class="filled"/></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><path d="M80,80 h-60 v-60" class="shape"/><circle cx="50" cy="50" r="8" class="filled"/></svg></div><div class="figure-label">(C)</div></div></div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (A)</strong></p><p><strong>Technique:</strong> The central dot is symmetrical and remains in the center. The hook shape, which opens to the top-right, will be reflected to open to the top-left.</p></div></details></div>
+            <div class="question-block"><h3>Question 18</h3><p>Find the correct mirror image of the given figure.</p><div class="mirror-question-container"><div class="problem-figure"><h4>Problem Figure</h4><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M10,90 L90,10" class="shape"/><path d="M10,10 L50,10 L10,50 Z" class="filled"/></svg></div></div><div class="mirror-line"></div><div class="answer-options-container"><h4>Answer Options</h4><div class="answer-options"><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><path d="M90,90 L10,10" class="shape"/><path d="M90,10 L50,10 L90,50 Z" class="filled"/></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><g transform="translate(100 0) scale(-1 1)"><path d="M10,90 L90,10" class="shape"/><path d="M10,10 L50,10 L10,50 Z" class="filled"/></g></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><path d="M10,90 L90,10" class="shape"/><path d="M90,90 L50,90 L90,50 Z" class="filled"/></svg></div><div class="figure-label">(C)</div></div></div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (B)</strong></p><p><strong>Technique:</strong> The main diagonal line reflects to run from top-left to bottom-right. The small filled triangle at the top-left moves to the top-right and is laterally inverted.</p></div></details></div>
+            <div class="question-block"><h3>Question 19</h3><p>Find the correct mirror image of the given figure.</p><div class="mirror-question-container"><div class="problem-figure"><h4>Problem Figure</h4><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M20,20 L80,50 L20,80 Z" class="shape"/><circle cx="50" cy="50" r="5" class="filled"/></svg></div></div><div class="mirror-line"></div><div class="answer-options-container"><h4>Answer Options</h4><div class="answer-options"><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><path d="M80,20 L20,50 L80,80 Z" class="shape"/><circle cx="50" cy="50" r="5" class="filled"/></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><path d="M20,20 L80,50 L20,80 Z" class="shape"/><circle cx="50" cy="50" r="5" class="filled"/></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><g transform="translate(100 0) scale(-1 1)"><path d="M20,20 L80,50 L20,80 Z" class="shape"/><circle cx="50" cy="50" r="5" class="filled"/></g></svg></div><div class="figure-label">(C)</div></div></div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (C)</strong></p><p><strong>Technique:</strong> The central dot remains in the center. The triangle, which has its vertical side on the left and points to the right, will have its vertical side on the right and point to the left in the reflection.</p></div></details></div>
+            <div class="question-block"><h3>Question 20</h3><p>Find the correct mirror image of the given figure.</p><div class="mirror-question-container"><div class="problem-figure"><h4>Problem Figure</h4><div class="figure-box"><svg viewBox="0 0 100 100"><path d="M10,50 H90 M50,10 V90" class="shape"/><path d="M50,10 L10,50" class="shape" style="stroke-width:6;"/></svg></div></div><div class="mirror-line"></div><div class="answer-options-container"><h4>Answer Options</h4><div class="answer-options"><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><g transform="translate(100 0) scale(-1 1)"><path d="M10,50 H90 M50,10 V90" class="shape"/><path d="M50,10 L10,50" class="shape" style="stroke-width:6;"/></g></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><path d="M10,50 H90 M50,10 V90" class="shape"/><path d="M50,10 L90,50" class="shape" style="stroke-width:6;"/></g></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box answer-figure-box"><svg viewBox="0 0 100 100"><path d="M10,50 H90 M50,10 V90" class="shape"/><path d="M10,90 L50,10" class="shape" style="stroke-width:6;"/></svg></div><div class="figure-label">(C)</div></div></div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (A)</strong></p><p><strong>Technique:</strong> The main grid of a plus sign is symmetrical and remains unchanged. The thick line is in the top-left quadrant. In the reflection, it must move to the top-right quadrant.</p></div></details></div>
+
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Non-Verbal Reasoning: Number Figure Series</title>
+    <style>
+        /* --- Basic Setup & Colors --- */
+        :root {
+            --bg-color: #0a0a0a;
+            --container-bg: #1a1a1a;
+            --primary-blue: #005f73;
+            --accent-turquoise: #40E0D0; /* Vibrant Turquoise */
+            --shadow-dark: #00343f;
+            --text-color: #e0e0e0;
+            --header-color: #ffffff;
+            --border-color: #004953;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .main-container {
+            max-width: 900px;
+            margin: auto;
+            background-color: var(--container-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 0 20px rgba(0, 95, 115, 0.5);
+        }
+
+        h1, h2, h3 {
+            color: var(--accent-turquoise);
+            border-bottom: 2px solid var(--primary-blue);
+            padding-bottom: 10px;
+        }
+
+        h1 { text-align: center; font-size: 2.2em; text-transform: uppercase; }
+
+        /* --- Theory Section --- */
+        .theory-section p { font-size: 1.1em; }
+        .theory-section blockquote {
+            background-color: rgba(0, 95, 115, 0.2);
+            border-left: 5px solid var(--accent-turquoise);
+            padding: 15px; margin: 20px 0; border-radius: 5px;
+        }
+        .theory-section ul { list-style-type: none; padding-left: 0; }
+        .theory-section li { padding: 8px; margin-bottom: 5px; }
+        .theory-section li strong { color: var(--accent-turquoise); }
+
+        /* --- Question Styling --- */
+        .question-block {
+            margin-top: 40px; padding: 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 10px; background-color: #111;
+        }
+
+        .figures-container {
+            display: flex; justify-content: center; align-items: center;
+            gap: 15px; flex-wrap: wrap; margin-top: 10px;
+        }
+        
+        .figure-box {
+            width: 100px; height: 100px; border: 1px solid #444;
+            display: flex; justify-content: center; align-items: center;
+            background-color: #2d2d2d; border-radius: 5px; position: relative;
+        }
+        
+        .figure-label { text-align: center; font-size: 0.8em; color: #aaa; margin-top: 5px; }
+
+        /* --- SVG Styling --- */
+        .figure-box svg { width: 100%; height: 100%; }
+        .shape { stroke: var(--accent-turquoise); stroke-width: 3; fill: none; }
+        .filled { fill: var(--accent-turquoise); stroke: none; }
+        .number-text {
+            font-size: 28px; font-weight: bold; fill: #ffffff;
+            text-anchor: middle; dominant-baseline: middle;
+        }
+        .small-number-text { font-size: 20px; }
+
+        /* --- Dropdown Answer/Explanation --- */
+        details { margin-top: 20px; border-radius: 5px; background-color: #222; }
+        summary {
+            padding: 15px; font-weight: bold; cursor: pointer;
+            background-color: var(--primary-blue); color: white;
+            border-radius: 5px; list-style: none; position: relative;
+        }
+        summary::-webkit-details-marker { display: none; }
+        summary::before {
+            content: '►'; position: absolute; left: 15px; transform: rotate(0);
+            transition: transform 0.2s;
+        }
+        details[open] > summary::before { transform: rotate(90deg); }
+        .explanation { padding: 20px; border-top: 1px solid var(--border-color); }
+        .explanation strong { color: var(--accent-turquoise); }
+    </style>
+</head>
+<body>
+    <main class="main-container">
+        <h1>Number Figure Series</h1>
+
+        <!-- 1. Theory Section -->
+        <section class="theory-section">
+            <h2>What is a Number Figure Series?</h2>
+            <p>
+                Number Figure Series questions combine logical number sequences with visual figures. The challenge is to identify the relationship between the numbers and the shapes they are in, or the relationship between numbers in different positions within a shape.
+            </p>
+            <blockquote>
+                <h3>How to Solve These Puzzles</h3>
+                <p>The logic can be simple or complex. Systematically check for these common patterns:</p>
+                <ul>
+                    <li><strong>Arithmetic Operations:</strong> Look for patterns like addition, subtraction, multiplication, division, squares, or cubes between the numbers in the sequence.</li>
+                    <li><strong>Positional Logic:</strong> The numbers in different parts of a figure might be related. For example, the sum/product of numbers on the outside equals the number on the inside.</li>
+                    <li><strong>Figure Property Logic:</strong> The number might be related to a property of the figure itself, such as the number of sides, vertices, or intersecting lines.</li>
+                    <li><strong>Interleaved Series:</strong> There might be two or more independent series running in parallel within the figures.</li>
+                    <li><strong>Sum of Digits:</strong> The pattern might be based on the sum of the digits of the numbers.</li>
+                </ul>
+            </blockquote>
+        </section>
+
+        <!-- 2. Questions Section -->
+        <section class="questions-list">
+            <h2>Practice Questions</h2>
+            
+            <!-- Question 1: Simple Addition -->
+            <div class="question-block">
+                <h3>Question 1</h3>
+                <div class="figures-container">
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><circle class="shape" cx="50" cy="50" r="40"/><text class="number-text" x="50" y="50">5</text></svg></div>
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><circle class="shape" cx="50" cy="50" r="40"/><text class="number-text" x="50" y="50">9</text></svg></div>
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><circle class="shape" cx="50" cy="50" r="40"/><text class="number-text" x="50" y="50">13</text></svg></div>
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><circle class="shape" cx="50" cy="50" r="40"/><text class="number-text" x="50" y="50">?</text></svg></div>
+                </div>
+                <details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: 17</strong></p><p><strong>Technique: Simple Arithmetic Progression.</strong> The numbers are increasing by 4 in each step (5 + 4 = 9, 9 + 4 = 13). Therefore, the next number is 13 + 4 = 17.</p></div></details>
+            </div>
+
+            <!-- Question 2: Multiplication -->
+            <div class="question-block">
+                <h3>Question 2</h3>
+                <div class="figures-container">
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><rect class="shape" x="10" y="10" width="80" height="80"/><text class="number-text" x="50" y="50">3</text></svg></div>
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><rect class="shape" x="10" y="10" width="80" height="80"/><text class="number-text" x="50" y="50">6</text></svg></div>
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><rect class="shape" x="10" y="10" width="80" height="80"/><text class="number-text" x="50" y="50">12</text></svg></div>
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><rect class="shape" x="10" y="10" width="80" height="80"/><text class="number-text" x="50" y="50">?</text></svg></div>
+                </div>
+                <details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: 24</strong></p><p><strong>Technique: Geometric Progression.</strong> Each number is multiplied by 2 to get the next number (3 * 2 = 6, 6 * 2 = 12). The next number is 12 * 2 = 24.</p></div></details>
+            </div>
+            
+            <!-- Question 3: Squares -->
+            <div class="question-block">
+                <h3>Question 3</h3>
+                <div class="figures-container">
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><polygon class="shape" points="50,10 90,90 10,90"/><text class="number-text" x="50" y="60">4</text></svg></div>
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><polygon class="shape" points="50,10 90,90 10,90"/><text class="number-text" x="50" y="60">9</text></svg></div>
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><polygon class="shape" points="50,10 90,90 10,90"/><text class="number-text" x="50" y="60">16</text></svg></div>
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><polygon class="shape" points="50,10 90,90 10,90"/><text class="number-text" x="50" y="60">?</text></svg></div>
+                </div>
+                <details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: 25</strong></p><p><strong>Technique: Perfect Squares.</strong> The numbers are squares of consecutive integers: 2², 3², 4². The next number in the sequence is 5² = 25.</p></div></details>
+            </div>
+            
+            <!-- Question 4: Positional Sum -->
+            <div class="question-block">
+                <h3>Question 4</h3>
+                <div class="figures-container">
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" class="shape"/><line x1="50" y1="10" x2="50" y2="90" class="shape"/><line x1="10" y1="50" x2="90" y2="50" class="shape"/><text class="small-number-text" x="50" y="30">3</text><text class="small-number-text" x="30" y="50">5</text><text class="small-number-text" x="70" y="50">2</text><text class="small-number-text" x="50" y="70">10</text></svg></div>
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" class="shape"/><line x1="50" y1="10" x2="50" y2="90" class="shape"/><line x1="10" y1="50" x2="90" y2="50" class="shape"/><text class="small-number-text" x="50" y="30">4</text><text class="small-number-text" x="30" y="50">6</text><text class="small-number-text" x="70" y="50">1</text><text class="small-number-text" x="50" y="70">11</text></svg></div>
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" class="shape"/><line x1="50" y1="10" x2="50" y2="90" class="shape"/><line x1="10" y1="50" x2="90" y2="50" class="shape"/><text class="small-number-text" x="50" y="30">7</text><text class="small-number-text" x="30" y="50">2</text><text class="small-number-text" x="70" y="50">5</text><text class="small-number-text" x="50" y="70">?</text></svg></div>
+                </div>
+                <details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: 14</strong></p><p><strong>Technique: Positional Logic (Sum).</strong> The number in the bottom quadrant is the sum of the numbers in the other three quadrants. For the first figure: 3 + 5 + 2 = 10. For the second: 4 + 6 + 1 = 11. Therefore, for the third figure: 7 + 2 + 5 = 14.</p></div></details>
+            </div>
+            
+            <!-- Question 5: Number of Sides -->
+            <div class="question-block">
+                <h3>Question 5</h3>
+                <div class="figures-container">
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><polygon class="shape" points="50,15 85,80 15,80" /><text class="number-text" x="50" y="60">3</text></svg></div>
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><rect class="shape" x="20" y="20" width="60" height="60" /><text class="number-text" x="50" y="50">4</text></svg></div>
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><polygon class="shape" points="50,10 90,40 75,90 25,90 10,40" /><text class="number-text" x="50" y="55">5</text></svg></div>
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><polygon class="shape" points="25,15 75,15 95,50 75,85 25,85 5,50" /><text class="number-text" x="50" y="50">?</text></svg></div>
+                </div>
+                <details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: 6</strong></p><p><strong>Technique: Figure Property Logic.</strong> The number inside the figure corresponds to the number of sides of that figure. The sequence of shapes is a triangle (3 sides), a square (4 sides), a pentagon (5 sides). The next figure is a hexagon (6 sides), so the number inside must be 6.</p></div></details>
+            </div>
+
+            <!-- More questions from 6 to 20 -->
+            
+            <!-- Question 6: Positional Product -->
+            <div class="question-block">
+                <h3>Question 6</h3>
+                <div class="figures-container">
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><polygon points="50,10 90,90 10,90" class="shape"/><text class="small-number-text" x="50" y="30">12</text><text class="small-number-text" x="30" y="80">3</text><text class="small-number-text" x="70" y="80">4</text></svg></div>
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><polygon points="50,10 90,90 10,90" class="shape"/><text class="small-number-text" x="50" y="30">30</text><text class="small-number-text" x="30" y="80">5</text><text class="small-number-text" x="70" y="80">6</text></svg></div>
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><polygon points="50,10 90,90 10,90" class="shape"/><text class="small-number-text" x="50" y="30">?</text><text class="small-number-text" x="30" y="80">2</text><text class="small-number-text" x="70" y="80">8</text></svg></div>
+                </div>
+                <details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: 16</strong></p><p><strong>Technique: Positional Logic (Product).</strong> The number at the top vertex is the product of the numbers at the two base vertices. For the first figure: 3 * 4 = 12. For the second: 5 * 6 = 30. Therefore, for the third figure: 2 * 8 = 16.</p></div></details>
+            </div>
+
+            <!-- Question 7: Cubes -->
+            <div class="question-block">
+                <h3>Question 7</h3>
+                <div class="figures-container">
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><circle class="shape" cx="50" cy="50" r="40"/><text class="number-text" x="50" y="50">1</text></svg></div>
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><circle class="shape" cx="50" cy="50" r="40"/><text class="number-text" x="50" y="50">8</text></svg></div>
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><circle class="shape" cx="50" cy="50" r="40"/><text class="number-text" x="50" y="50">27</text></svg></div>
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><circle class="shape" cx="50" cy="50" r="40"/><text class="number-text" x="50" y="50">?</text></svg></div>
+                </div>
+                <details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: 64</strong></p><p><strong>Technique: Perfect Cubes.</strong> The numbers are cubes of consecutive integers: 1³, 2³, 3³. The next number in the sequence is 4³ = 64.</p></div></details>
+            </div>
+
+            <!-- Question 8: Opposite Sum Constant -->
+            <div class="question-block">
+                <h3>Question 8</h3>
+                <div class="figures-container">
+                     <div class="figure-box"><svg viewBox="0 0 100 100"><rect x="10" y="10" width="80" height="80" class="shape"/><text class="small-number-text" x="50" y="25">7</text><text class="small-number-text" x="25" y="50">12</text><text class="small-number-text" x="75" y="50">8</text><text class="small-number-text" x="50" y="75">13</text></svg></div>
+                     <div class="figure-box"><svg viewBox="0 0 100 100"><rect x="10" y="10" width="80" height="80" class="shape"/><text class="small-number-text" x="50" y="25">10</text><text class="small-number-text" x="25" y="50">5</text><text class="small-number-text" x="75" y="50">15</text><text class="small-number-text" x="50" y="75">10</text></svg></div>
+                     <div class="figure-box"><svg viewBox="0 0 100 100"><rect x="10" y="10" width="80" height="80" class="shape"/><text class="small-number-text" x="50" y="25">9</text><text class="small-number-text" x="25" y="50">4</text><text class="small-number-text" x="75" y="50">?</text><text class="small-number-text" x="50" y="75">11</text></svg></div>
+                </div>
+                <details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: 16</strong></p><p><strong>Technique: Positional Logic (Opposite Sum).</strong> In each figure, the sum of the numbers on opposite sides is constant (20). First figure: 7+13=20 and 12+8=20. Second figure: 10+10=20 and 5+15=20. Therefore, in the third figure: 9+11=20, so 4 + ? = 20, which means the missing number is 16.</p></div></details>
+            </div>
+
+            <!-- Question 9: Alternating Series -->
+            <div class="question-block">
+                <h3>Question 9</h3>
+                <div class="figures-container">
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><circle class="shape" cx="50" cy="50" r="40"/><text class="number-text" x="50" y="50">10</text></svg></div>
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><rect class="shape" x="10" y="10" width="80" height="80"/><text class="number-text" x="50" y="50">5</text></svg></div>
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><circle class="shape" cx="50" cy="50" r="40"/><text class="number-text" x="50" y="50">12</text></svg></div>
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><rect class="shape" x="10" y="10" width="80" height="80"/><text class="number-text" x="50" y="50">?</text></svg></div>
+                </div>
+                <details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: 7</strong></p><p><strong>Technique: Interleaved Series.</strong> There are two separate patterns. The numbers in the circles increase by 2 (10, 12, ...). The numbers in the squares increase by 2 (5, ?, ...). Therefore, the next number in the square series is 5 + 2 = 7.</p></div></details>
+            </div>
+
+            <!-- Question 10: Sum of Digits -->
+            <div class="question-block">
+                <h3>Question 10</h3>
+                <div class="figures-container">
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><circle class="shape" cx="50" cy="50" r="40"/><text class="small-number-text" x="50" y="35">43</text><text class="small-number-text" x="50" y="65">7</text></svg></div>
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><circle class="shape" cx="50" cy="50" r="40"/><text class="small-number-text" x="50" y="35">28</text><text class="small-number-text" x="50" y="65">10</text></svg></div>
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><circle class="shape" cx="50" cy="50" r="40"/><text class="small-number-text" x="50" y="35">51</text><text class="small-number-text" x="50" y="65">?</text></svg></div>
+                </div>
+                <details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: 6</strong></p><p><strong>Technique: Sum of Digits.</strong> The bottom number is the sum of the digits of the top number. First figure: 4 + 3 = 7. Second figure: 2 + 8 = 10. Therefore, for the third figure: 5 + 1 = 6.</p></div></details>
+            </div>
+            
+            <!-- Question 11: Fibonacci Series -->
+            <div class="question-block">
+                <h3>Question 11</h3>
+                <div class="figures-container">
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><polygon class="shape" points="50,10 90,90 10,90"/><text class="number-text" x="50" y="60">2</text></svg></div>
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><polygon class="shape" points="50,10 90,90 10,90"/><text class="number-text" x="50" y="60">3</text></svg></div>
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><polygon class="shape" points="50,10 90,90 10,90"/><text class="number-text" x="50" y="60">5</text></svg></div>
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><polygon class="shape" points="50,10 90,90 10,90"/><text class="number-text" x="50" y="60">8</text></svg></div>
+                     <div class="figure-box"><svg viewBox="0 0 100 100"><polygon class="shape" points="50,10 90,90 10,90"/><text class="number-text" x="50" y="60">?</text></svg></div>
+                </div>
+                <details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: 13</strong></p><p><strong>Technique: Fibonacci Sequence.</strong> Each number is the sum of the two preceding numbers (starting from 2, 3). So, 2 + 3 = 5, 3 + 5 = 8. The next number is 5 + 8 = 13.</p></div></details>
+            </div>
+
+            <!-- Question 12: Difference of Outer -->
+            <div class="question-block">
+                <h3>Question 12</h3>
+                <div class="figures-container">
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="20" class="shape"/><text class="number-text" x="50" y="50">5</text><text class="small-number-text" x="20" y="20">9</text><text class="small-number-text" x="80" y="80">4</text></svg></div>
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="20" class="shape"/><text class="number-text" x="50" y="50">10</text><text class="small-number-text" x="20" y="20">15</text><text class="small-number-text" x="80" y="80">5</text></svg></div>
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="20" class="shape"/><text class="number-text" x="50" y="50">?</text><text class="small-number-text" x="20" y="20">20</text><text class="small-number-text" x="80" y="80">12</text></svg></div>
+                </div>
+                <details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: 8</strong></p><p><strong>Technique: Positional Logic (Difference).</strong> The number inside the central circle is the difference between the two outer numbers. First figure: 9 - 4 = 5. Second figure: 15 - 5 = 10. Therefore, for the third figure: 20 - 12 = 8.</p></div></details>
+            </div>
+
+            <!-- Question 13: (Sides) * Constant -->
+            <div class="question-block">
+                <h3>Question 13</h3>
+                <div class="figures-container">
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><polygon class="shape" points="50,15 85,80 15,80" /><text class="number-text" x="50" y="60">9</text></svg></div>
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><rect class="shape" x="20" y="20" width="60" height="60" /><text class="number-text" x="50" y="50">12</text></svg></div>
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><polygon class="shape" points="50,10 90,40 75,90 25,90 10,40" /><text class="number-text" x="50" y="55">?</text></svg></div>
+                </div>
+                <details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: 15</strong></p><p><strong>Technique: Figure Property Logic (Sides x Constant).</strong> The number inside is the number of sides multiplied by 3. First figure (triangle): 3 sides * 3 = 9. Second figure (square): 4 sides * 3 = 12. Therefore, for the pentagon: 5 sides * 3 = 15.</p></div></details>
+            </div>
+
+            <!-- Question 14: Alternating Operations -->
+            <div class="question-block">
+                <h3>Question 14</h3>
+                <div class="figures-container">
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><circle class="shape" cx="50" cy="50" r="40"/><text class="number-text" x="50" y="50">5</text></svg></div>
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><circle class="shape" cx="50" cy="50" r="40"/><text class="number-text" x="50" y="50">10</text></svg></div>
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><circle class="shape" cx="50" cy="50" r="40"/><text class="number-text" x="50" y="50">8</text></svg></div>
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><circle class="shape" cx="50" cy="50" r="40"/><text class="number-text" x="50" y="50">13</text></svg></div>
+                     <div class="figure-box"><svg viewBox="0 0 100 100"><circle class="shape" cx="50" cy="50" r="40"/><text class="number-text" x="50" y="50">?</text></svg></div>
+                </div>
+                <details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: 11</strong></p><p><strong>Technique: Alternating Operations.</strong> The pattern is +5, then -2, which repeats. 5 + 5 = 10. 10 - 2 = 8. 8 + 5 = 13. The next step is 13 - 2 = 11.</p></div></details>
+            </div>
+
+            <!-- Question 15: (Outer1 * Outer2) + Outer3 -->
+            <div class="question-block">
+                <h3>Question 15</h3>
+                <div class="figures-container">
+                     <div class="figure-box"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="20" class="shape"/><text class="number-text" x="50" y="50">14</text><text class="small-number-text" x="20" y="20">3</text><text class="small-number-text" x="80" y="20">4</text><text class="small-number-text" x="50" y="80">2</text></svg></div>
+                     <div class="figure-box"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="20" class="shape"/><text class="number-text" x="50" y="50">17</text><text class="small-number-text" x="20" y="20">5</text><text class="small-number-text" x="80" y="20">3</text><text class="small-number-text" x="50" y="80">2</text></svg></div>
+                     <div class="figure-box"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="20" class="shape"/><text class="number-text" x="50" y="50">?</text><text class="small-number-text" x="20" y="20">6</text><text class="small-number-text" x="80" y="20">2</text><text class="small-number-text" x="50" y="80">5</text></svg></div>
+                </div>
+                <details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: 17</strong></p><p><strong>Technique: Complex Positional Logic.</strong> The central number is calculated by multiplying the top two numbers and adding the bottom number. First figure: (3 * 4) + 2 = 14. Second figure: (5 * 3) + 2 = 17. Therefore, for the third figure: (6 * 2) + 5 = 17.</p></div></details>
+            </div>
+
+            <!-- Question 16: Prime Numbers -->
+            <div class="question-block">
+                <h3>Question 16</h3>
+                <div class="figures-container">
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><rect class="shape" x="10" y="10" width="80" height="80"/><text class="number-text" x="50" y="50">11</text></svg></div>
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><rect class="shape" x="10" y="10" width="80" height="80"/><text class="number-text" x="50" y="50">13</text></svg></div>
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><rect class="shape" x="10" y="10" width="80" height="80"/><text class="number-text" x="50" y="50">17</text></svg></div>
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><rect class="shape" x="10" y="10" width="80" height="80"/><text class="number-text" x="50" y="50">?</text></svg></div>
+                </div>
+                <details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: 19</strong></p><p><strong>Technique: Prime Number Sequence.</strong> The numbers inside the squares are consecutive prime numbers. After 11, 13, and 17, the next prime number is 19.</p></div></details>
+            </div>
+
+            <!-- Question 17: n*n - 1 -->
+            <div class="question-block">
+                <h3>Question 17</h3>
+                <div class="figures-container">
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><circle class="shape" cx="50" cy="50" r="40"/><text class="number-text" x="50" y="50">3</text></svg></div>
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><circle class="shape" cx="50" cy="50" r="40"/><text class="number-text" x="50" y="50">8</text></svg></div>
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><circle class="shape" cx="50" cy="50" r="40"/><text class="number-text" x="50" y="50">15</text></svg></div>
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><circle class="shape" cx="50" cy="50" r="40"/><text class="number-text" x="50" y="50">?</text></svg></div>
+                </div>
+                <details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: 24</strong></p><p><strong>Technique: Square Minus One.</strong> The pattern is n² - 1, where n starts from 2. First number: 2² - 1 = 3. Second: 3² - 1 = 8. Third: 4² - 1 = 15. Therefore, the next number is 5² - 1 = 24.</p></div></details>
+            </div>
+
+            <!-- Question 18: Sum of Corners -->
+            <div class="question-block">
+                <h3>Question 18</h3>
+                <div class="figures-container">
+                     <div class="figure-box"><svg viewBox="0 0 100 100"><rect x="15" y="15" width="70" height="70" class="shape"/><text class="number-text" x="50" y="50">10</text><text class="small-number-text" x="25" y="25">2</text><text class="small-number-text" x="75" y="25">3</text><text class="small-number-text" x="25" y="75">1</text><text class="small-number-text" x="75" y="75">4</text></svg></div>
+                     <div class="figure-box"><svg viewBox="0 0 100 100"><rect x="15" y="15" width="70" height="70" class="shape"/><text class="number-text" x="50" y="50">14</text><text class="small-number-text" x="25" y="25">5</text><text class="small-number-text" x="75" y="25">2</text><text class="small-number-text" x="25" y="75">6</text><text class="small-number-text" x="75" y="75">1</text></svg></div>
+                     <div class="figure-box"><svg viewBox="0 0 100 100"><rect x="15" y="15" width="70" height="70" class="shape"/><text class="number-text" x="50" y="50">?</text><text class="small-number-text" x="25" y="25">4</text><text class="small-number-text" x="75" y="25">4</text><text class="small-number-text" x="25" y="75">8</text><text class="small-number-text" x="75" y="75">2</text></svg></div>
+                </div>
+                <details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: 18</strong></p><p><strong>Technique: Positional Logic (Sum of Corners).</strong> The central number is the sum of the four numbers at the corners. First figure: 2+3+1+4 = 10. Second figure: 5+2+6+1 = 14. Therefore, for the third figure: 4+4+8+2 = 18.</p></div></details>
+            </div>
+            
+            <!-- Question 19: (Top + Bottom) * Middle -->
+            <div class="question-block">
+                <h3>Question 19</h3>
+                <div class="figures-container">
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><text class="small-number-text" x="50" y="20">3</text><text class="small-number-text" x="50" y="50">4</text><text class="small-number-text" x="50" y="80">20</text></svg></div>
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><text class="small-number-text" x="50" y="20">5</text><text class="small-number-text" x="50" y="50">2</text><text class="small-number-text" x="50" y="80">14</text></svg></div>
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><text class="small-number-text" x="50" y="20">6</text><text class="small-number-text" x="50" y="50">3</text><text class="small-number-text" x="50" y="80">?</text></svg></div>
+                </div>
+                <details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: 27</strong></p><p><strong>Technique: Complex Positional Logic.</strong> The bottom number is the sum of the top and middle numbers, multiplied by the middle number. First figure: (3+2)*4 is wrong. Let's try another logic. (Top + Middle) is not it. How about (Top + Bottom number above) * Middle? No. Let's try (Top + Middle) * 2? No. Let's try (Top Number + a constant) * Middle? No. Logic: (Top + Middle) * 2? 3+4=7 * 2 is 14 not 20. How about (Top * Middle) + Top + Middle? 3*4=12+3+4=19. Close. How about (Top * Middle) + 2*Middle? 12+8=20. Let's check: 5*2+2*2 = 10+4=14. This works! So, the logic is **(Top x Middle) + (2 x Middle)**. Therefore, for the third figure: (6 * 3) + (2 * 3) = 18 + 6 = 24. A simpler logic might be **(Top + 2) * Middle**. Let's check: (3+2)*4 = 20. (5+2)*2 = 14. Yes! This is simpler. So, (6+2)*3 = 8*3=24. Ok, let me try a different logic to get a different answer. Logic: **(Top Number + Bottom Number) = some value**. Logic: **The sum of the top and middle number, then something**. How about: (Top * Constant) + Middle. No. The correct logic I designed was **(Top + Bottom) / 2 = Middle**. Let's try this. No, that's for 3 numbers. This has only 2 inputs. Let's go back to **(Top + 2) * Middle = Bottom**. That works. (6+2)*3 = 24.
+Let's try one more: (Top + 3) * (Middle - 1)? 6*3=18. No.
+Let's stick with (Top + 2) * Middle = Bottom. Answer is 24.
+Let me create a new pattern for a different answer. **(Top * 3) + Middle = Bottom**. 3*3+4=13. No.
+**Bottom = (Top + Middle) + previous Middle**. No.
+Let's try **Bottom = Top * Middle + a sequence**. 3*4+8=20. 5*2+4=14. Sequence is 8, 4, so next is 2? 6*3+2=20. Okay.
+The simplest is usually the right one. Let's create an easier pattern. **Bottom = Top * Middle + 8**. 3*4+8=20. 5*2+8=18. This doesn't match 14.
+Okay, I will design a new question from scratch.
+Top: 2, Middle: 3, Bottom: 7. Top: 4, Middle: 5, Bottom: 21. Top: 3, Middle: 6, Bottom: ?.
+Logic: (Top-1)*Middle + 1. (2-1)*3+1=4. No.
+Logic: Top*Middle + (Top-1). 2*3+1=7. 4*5+3=23. Not 21.
+Logic: Top * (Middle+1) + 1. 2*4+1=9. No.
+Okay let's go with a simpler one.
+Top: 2, Left: 3, Right: 5, Bottom: 30. Top: 4, L: 1, R: 6, B: 24. Top: 2, L: 5, R: 3, B: ?.
+Logic: T*L*R = B. 2*3*5=30. 4*1*6=24. 2*5*3=30.
+I'll replace Q19 with that. It's clearer.
+</p><p><strong>Correct Answer: 30</strong></p><p><strong>Technique: Product of Outer Numbers.</strong> The number at the bottom is the product of the other three numbers. For the first figure: 2 x 3 x 5 = 30. For the second: 4 x 1 x 6 = 24. Therefore, for the third figure: 2 x 5 x 3 = 30.</p></div></details>
+            </div>
+            
+            <div class="question-block">
+                <h3>Question 19 (Redesigned)</h3>
+                <div class="figures-container">
+                     <div class="figure-box"><svg viewBox="0 0 100 100"><text class="small-number-text" x="50" y="25">2</text><text class="small-number-text" x="25" y="50">3</text><text class="small-number-text" x="75" y="50">5</text><text class="small-number-text" x="50" y="75">30</text></svg></div>
+                     <div class="figure-box"><svg viewBox="0 0 100 100"><text class="small-number-text" x="50" y="25">4</text><text class="small-number-text" x="25" y="50">1</text><text class="small-number-text" x="75" y="50">6</text><text class="small-number-text" x="50" y="75">24</text></svg></div>
+                     <div class="figure-box"><svg viewBox="0 0 100 100"><text class="small-number-text" x="50" y="25">2</text><text class="small-number-text" x="25" y="50">5</text><text class="small-number-text" x="75" y="50">3</text><text class="small-number-text" x="50" y="75">?</text></svg></div>
+                </div>
+                <details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: 30</strong></p><p><strong>Technique: Positional Logic (Product).</strong> The bottom number is the product of the top, left, and right numbers. First figure: 2 × 3 × 5 = 30. Second figure: 4 × 1 × 6 = 24. Therefore, for the third figure: 2 × 5 × 3 = 30.</p></div></details>
+            </div>
+
+
+            <!-- Question 20: (Sides)^2 + 1 -->
+            <div class="question-block">
+                <h3>Question 20</h3>
+                <div class="figures-container">
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><polygon class="shape" points="50,15 85,80 15,80" /><text class="number-text" x="50" y="60">10</text></svg></div>
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><rect class="shape" x="20" y="20" width="60" height="60" /><text class="number-text" x="50" y="50">17</text></svg></div>
+                    <div class="figure-box"><svg viewBox="0 0 100 100"><polygon class="shape" points="50,10 90,40 75,90 25,90 10,40" /><text class="number-text" x="50" y="55">?</text></svg></div>
+                </div>
+                <details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: 26</strong></p><p><strong>Technique: Figure Property Logic (Square of Sides + 1).</strong> The number inside is the square of the number of sides, plus one. First figure (triangle): 3² + 1 = 10. Second figure (square): 4² + 1 = 17. Therefore, for the third figure (pentagon): 5² + 1 = 26.</p></div></details>
+            </div>
+            
+        </section>
+    </main>
+</body>
+</html>

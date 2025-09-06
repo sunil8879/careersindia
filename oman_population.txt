@@ -1,0 +1,201 @@
+{
+  "description": "Estimated Indian Population in Oman by Governorate and Key Wilayats/Areas. Note: Official, granular data on expatriate populations is not publicly released by the Omani government. Governorate-level figures are high-level estimates; district-level population data is not available.",
+  "source": "Estimates based on data from the Indian Embassy in Muscat, media reports, and demographic analysis.",
+  "data": [
+    {
+      "rank": 1,
+      "country": "Oman",
+      "governorate": "Muscat Governorate",
+      "governorate_indian_population": "~400,000",
+      "percentage_of_total_governorate_population": "Not publicly available",
+      "cities_and_areas": [
+        {
+          "city": "Ruwi",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "Often called 'Little India', it is the commercial and residential heart of the Indian community with countless shops, restaurants, and businesses."
+        },
+        {
+          "city": "Muttrah",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "The historic port and souq area, with a long-standing and significant Indian trading and residential community."
+        },
+        {
+          "city": "Al-Khuwair",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "A major commercial and residential area with a large population of Indian professionals and families."
+        },
+        {
+          "city": "Ghubra",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "A modern area with malls and residential complexes, popular with Indian expatriates."
+        },
+        {
+          "city": "Seeb",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "A large and sprawling coastal Wilayat with a diverse residential population, including many Indians."
+        },
+        {
+          "city": "Al Amerat",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "A growing residential suburb of Muscat with a significant Indian population."
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "country": "Oman",
+      "governorate": "Al Batinah North Governorate",
+      "governorate_indian_population": "~120,000",
+      "percentage_of_total_governorate_population": "Not publicly available",
+      "cities_and_areas": [
+        {
+          "city": "Sohar",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "A major industrial hub with a massive port and free zone. It has a very large population of Indian engineers, technicians, and workers."
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "country": "Oman",
+      "governorate": "Dhofar Governorate",
+      "governorate_indian_population": "~40,000",
+      "percentage_of_total_governorate_population": "Not publicly available",
+      "cities_and_areas": [
+        {
+          "city": "Salalah",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "The largest city in southern Oman, with a major port, free zone, and tourism industry that employs a significant Indian workforce."
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "country": "Oman",
+      "governorate": "Al Batinah South Governorate",
+      "governorate_indian_population": "~50,000",
+      "percentage_of_total_governorate_population": "Not publicly available",
+      "cities_and_areas": [
+        {
+          "city": "Barka",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "A large coastal town with significant agricultural and light industrial activities."
+        }
+      ]
+    },
+    {
+      "rank": 5,
+      "country": "Oman",
+      "governorate": "Ash Sharqiyah South Governorate",
+      "governorate_indian_population": "~15,000",
+      "percentage_of_total_governorate_population": "Not publicly available",
+      "cities_and_areas": [
+        {
+          "city": "Sur",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "A historic port city, now home to a major LNG plant and other industries employing many Indian nationals."
+        }
+      ]
+    },
+    {
+      "rank": 6,
+      "country": "Oman",
+      "governorate": "Ad Dakhiliyah Governorate",
+      "governorate_indian_population": "~10,000",
+      "percentage_of_total_governorate_population": "Not publicly available",
+      "cities_and_areas": [
+        {
+          "city": "Nizwa",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "A major historic and cultural city in the interior, with a significant Indian workforce in retail, services, and construction."
+        }
+      ]
+    },
+    {
+      "rank": 7,
+      "country": "Oman",
+      "governorate": "Al Buraimi Governorate",
+      "governorate_indian_population": "~10,000",
+      "percentage_of_total_governorate_population": "Not publicly available",
+      "cities_and_areas": [
+        {
+          "city": "Al Buraimi City",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "A border town next to Al Ain (UAE), with an industrial estate and significant cross-border trade and workforce."
+        }
+      ]
+    },
+    {
+      "rank": 8,
+      "country": "Oman",
+      "governorate": "Ash Sharqiyah North Governorate",
+      "governorate_indian_population": "~15,000",
+      "percentage_of_total_governorate_population": "Not publicly available",
+      "cities_and_areas": [
+        {
+          "city": "Ibra",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "The main commercial hub for the interior eastern region."
+        }
+      ]
+    },
+    {
+      "rank": 9,
+      "country": "Oman",
+      "governorate": "Ad Dhahirah Governorate",
+      "governorate_indian_population": "~5,000",
+      "percentage_of_total_governorate_population": "Not publicly available",
+      "cities_and_areas": [
+        {
+          "city": "Ibri",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "The main town in this interior region, serving the oil and gas fields further west."
+        }
+      ]
+    },
+    {
+      "rank": 10,
+      "country": "Oman",
+      "governorate": "Al Wusta Governorate",
+      "governorate_indian_population": "~4,000",
+      "percentage_of_total_governorate_population": "Not publicly available",
+      "cities_and_areas": [
+        {
+          "city": "Duqm",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "A massive Special Economic Zone with a new port and drydock, with a rapidly growing Indian workforce in construction and industry."
+        }
+      ]
+    },
+    {
+      "rank": 11,
+      "country": "Oman",
+      "governorate": "Musandam Governorate",
+      "governorate_indian_population": "~1,000",
+      "percentage_of_total_governorate_population": "Not publicly available",
+      "cities_and_areas": [
+        {
+          "city": "Khasab",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "The regional center of the exclave, with an Indian community involved mainly in tourism, trade, and services."
+        }
+      ]
+    }
+  ]
+}

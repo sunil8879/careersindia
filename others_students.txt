@@ -1,0 +1,454 @@
+{
+  "country_wise_data": [
+    {
+      "country": "Ukraine",
+      "data": [
+        {
+          "year": 2015,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2016,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2017,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2018,
+          "no_of_students": 10884
+        },
+        {
+          "year": 2019,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2020,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2021,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2022,
+          "no_of_students": 21928
+        },
+        {
+          "year": 2023,
+          "no_of_students": 11987
+        },
+        {
+          "year": 2024,
+          "no_of_students": 2510
+        }
+      ]
+    },
+    {
+      "country": "Kyrgyzstan",
+      "data": [
+        {
+          "year": 2015,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2016,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2017,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2018,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2019,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2020,
+          "no_of_students": 10000
+        },
+        {
+          "year": 2021,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2022,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2023,
+          "no_of_students": 17400
+        },
+        {
+          "year": 2024,
+          "no_of_students": 17000
+        }
+      ]
+    },
+    {
+      "country": "Kazakhstan",
+      "data": [
+        {
+          "year": 2015,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2016,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2017,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2018,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2019,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2020,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2021,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2022,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2023,
+          "no_of_students": 9500
+        },
+        {
+          "year": 2024,
+          "no_of_students": 9785
+        }
+      ]
+    },
+    {
+      "country": "Philippines",
+      "data": [
+        {
+          "year": 2015,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2016,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2017,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2018,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2019,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2020,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2021,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2022,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2023,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2024,
+          "no_of_students": 9800
+        }
+      ]
+    },
+    {
+      "country": "Bangladesh",
+      "data": [
+        {
+          "year": 2015,
+          "no_of_students": 3438
+        },
+        {
+          "year": 2016,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2017,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2018,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2019,
+          "no_of_students": 12321
+        },
+        {
+          "year": 2020,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2021,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2022,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2023,
+          "no_of_students": 20368
+        },
+        {
+          "year": 2024,
+          "no_of_students": 29232
+        }
+      ]
+    },
+    {
+      "country": "Ireland",
+      "data": [
+        {
+          "year": 2015,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2016,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2017,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2018,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2019,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2020,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2021,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2022,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2023,
+          "no_of_students": 11200
+        },
+        {
+          "year": 2024,
+          "no_of_students": 14000
+        }
+      ]
+    },
+    {
+      "country": "Poland",
+      "data": [
+        {
+          "year": 2015,
+          "no_of_students": 545
+        },
+        {
+          "year": 2016,
+          "no_of_students": 2156
+        },
+        {
+          "year": 2017,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2018,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2019,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2020,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2021,
+          "no_of_students": 2449
+        },
+        {
+          "year": 2022,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2023,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2024,
+          "no_of_students": 4500
+        }
+      ]
+    },
+    {
+      "country": "Sweden",
+      "data": [
+        {
+          "year": 2015,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2016,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2017,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2018,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2019,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2020,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2021,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2022,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2023,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2024,
+          "no_of_students": 4800
+        }
+      ]
+    },
+    {
+      "country": "Georgia",
+      "data": [
+        {
+          "year": 2015,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2016,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2017,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2018,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2019,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2020,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2021,
+          "no_of_students": 8000
+        },
+        {
+          "year": 2022,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2023,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2024,
+          "no_of_students": 20319
+        }
+      ]
+    },
+    {
+      "country": "Uzbekistan",
+      "data": [
+        {
+          "year": 2015,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2016,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2017,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2018,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2019,
+          "no_of_students": 300
+        },
+        {
+          "year": 2020,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2021,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2022,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2023,
+          "no_of_students": 6601
+        },
+        {
+          "year": 2024,
+          "no_of_students": 9915
+        }
+      ]
+    }
+  ]
+}

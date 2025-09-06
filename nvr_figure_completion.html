@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Non-Verbal Reasoning: Figure Completion</title>
+    <style>
+        /* --- Basic Setup & Colors --- */
+        :root {
+            --bg-color: #0a0a0a;
+            --container-bg: #1a1a1a;
+            --primary-blue: #005f73;
+            --accent-turquoise: #40E0D0; /* Vibrant Turquoise */
+            --text-color: #e0e0e0;
+            --border-color: #004953;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0; padding: 20px;
+            background-color: var(--bg-color); color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .main-container {
+            max-width: 900px; margin: auto;
+            background-color: var(--container-bg); border: 2px solid var(--border-color);
+            border-radius: 15px; padding: 25px;
+            box-shadow: 0 0 20px rgba(0, 95, 115, 0.5);
+        }
+
+        h1, h2, h3, h4 { color: var(--accent-turquoise); }
+        h1, h2 { border-bottom: 2px solid var(--primary-blue); padding-bottom: 10px; }
+        h1 { text-align: center; font-size: 2.2em; text-transform: uppercase; }
+        h4 { margin-top: 25px; margin-bottom: 10px; text-align: center; }
+
+        /* --- Theory Section --- */
+        .theory-section p { font-size: 1.1em; }
+        .theory-section blockquote {
+            background-color: rgba(0, 95, 115, 0.2); border-left: 5px solid var(--accent-turquoise);
+            padding: 15px; margin: 20px 0; border-radius: 5px;
+        }
+        .theory-section ul { list-style-type: disc; padding-left: 25px; }
+        .theory-section li { margin-bottom: 10px; }
+
+        /* --- Question Styling --- */
+        .question-block {
+            margin-top: 40px; padding: 20px;
+            border: 1px solid var(--border-color); border-radius: 10px;
+            background-color: #111;
+        }
+        
+        .completion-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .problem-matrix {
+            width: 200px;
+            height: 200px;
+            border: 2px solid var(--primary-blue);
+            position: relative;
+        }
+        
+        .answer-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .figure-box {
+            width: 80px; height: 80px; border: 1px solid #444;
+            display: flex; justify-content: center; align-items: center;
+            background-color: #2d2d2d; border-radius: 5px;
+        }
+        
+        .figure-label { text-align: center; font-size: 0.9em; color: #aaa; margin-top: 5px; }
+
+        /* --- SVG Styling --- */
+        .problem-matrix svg { width: 100%; height: 100%; }
+        .figure-box svg { width: 80%; height: 80%; }
+        .shape { stroke: var(--accent-turquoise); stroke-width: 4; fill: none; stroke-linecap: round; }
+        .filled { fill: var(--accent-turquoise); stroke: none; }
+        .text-element { font-size: 50px; fill: #555; text-anchor: middle; dominant-baseline: middle; }
+
+        /* --- Dropdown Answer/Explanation --- */
+        details { margin-top: 20px; border-radius: 5px; background-color: #222; }
+        summary {
+            padding: 15px; font-weight: bold; cursor: pointer;
+            background-color: var(--primary-blue); color: white;
+            border-radius: 5px; list-style: none; position: relative;
+        }
+        summary::-webkit-details-marker { display: none; }
+        summary::before { content: '►'; position: absolute; left: 15px; transform: rotate(0); transition: transform 0.2s; }
+        details[open] > summary::before { transform: rotate(90deg); }
+        .explanation { padding: 20px; border-top: 1px solid var(--border-color); }
+        .explanation strong { color: var(--accent-turquoise); }
+    </style>
+</head>
+<body>
+    <main class="main-container">
+        <h1>Figure Completion</h1>
+
+        <!-- 1. Theory Section -->
+        <section class="theory-section">
+            <h2>What is Figure Completion?</h2>
+            <p>
+                Figure Completion problems present a large figure or matrix with a missing portion, usually a quarter of the design. Your task is to analyze the overall pattern within the main figure and select the answer choice that correctly fits into the empty space to complete the pattern.
+            </p>
+            <blockquote>
+                <h3>How to Solve Figure Completion Puzzles</h3>
+                <ol>
+                    <li>
+                        <strong>Analyze the Overall Pattern:</strong> Look at the main figure. Is there a clear, repeating pattern? The most common patterns are based on symmetry, rotation, or simple continuation of lines.
+                    </li>
+                    <li>
+                        <strong>Mentally Complete the Figure:</strong> Trace the lines and shapes from the adjacent quadrants into the empty space. Imagine what the missing piece must look like to make the overall figure logical and complete.
+                    </li>
+                    <li>
+                        <strong>Check for Specific Rules:</strong>
+                        <ul>
+                            <li><strong>Symmetry:</strong> The most common rule. The figure might be symmetrical horizontally, vertically, diagonally, or all of the above. The missing piece will often be a mirror image of an adjacent or opposite quadrant.</li>
+                            <li><strong>Rotation:</strong> A more advanced rule. The design in each quadrant might be a 90-degree rotation of the previous one.</li>
+                            <li><strong>Continuity:</strong> Lines, curves, and shading must continue smoothly and logically from the existing parts into the missing part.</li>
+                            <li><strong>Alternating Patterns:</strong> Elements might alternate in some way (e.g., filled/unfilled, circle/square) as you move around the quadrants.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Eliminate and Select:</strong> Compare your mental sketch with the answer options. Eliminate choices that clearly violate the pattern, then select the one that fits perfectly.
+                    </li>
+                </ol>
+            </blockquote>
+        </section>
+
+        <!-- 2. Questions Section -->
+        <section class="questions-list">
+            <h2>Practice Questions</h2>
+            
+            <!-- Question 1 -->
+            <div class="question-block">
+                <h3>Question 1</h3>
+                <div class="completion-container">
+                    <div class="problem-matrix"><svg viewBox="0 0 100 100"><g class="shape"><path d="M0,0 L100,100 M0,50 H100 M50,0 V50"/></g><rect x="50" y="50" width="50" height="50" fill="#111"/><text x="75" y="75" class="text-element">?</text></svg></div>
+                    <div class="answer-options">
+                        <div><div class="figure-box"><svg viewBox="0 0 50 50"><path d="M0,0 L50,50 M0,0 H50 M0,0 V50" class="shape"/></svg></div><div class="figure-label">(A)</div></div>
+                        <div><div class="figure-box"><svg viewBox="0 0 50 50"><path d="M50,0 V50 H0" class="shape"/></svg></div><div class="figure-label">(B)</div></div>
+                        <div><div class="figure-box"><svg viewBox="0 0 50 50"><path d="M0,50 L50,50 M50,0 V50" class="shape"/></svg></div><div class="figure-label">(C)</div></div>
+                        <div><div class="figure-box"><svg viewBox="0 0 50 50"><path d="M0,50 L50,0 M0,50 H50" class="shape"/></svg></div><div class="figure-label">(D)</div></div>
+                    </div>
+                </div>
+                <details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (C)</strong></p><p><strong>Technique: Continuity and Symmetry.</strong> The horizontal line must continue to the right edge. The vertical line must continue to the bottom edge. The main diagonal line must continue to the bottom-right corner. Only option (C) completes all three lines correctly.</p></div></details>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="question-block">
+                <h3>Question 2</h3>
+                <div class="completion-container">
+                    <div class="problem-matrix"><svg viewBox="0 0 100 100"><g class="shape"><circle cx="50" cy="50" r="40"/><circle cx="50" cy="50" r="25"/><path d="M50,0 V100 M0,50 H100"/></g><rect x="0" y="50" width="50" height="50" fill="#111"/><text x="25" y="75" class="text-element">?</text></svg></div>
+                    <div class="answer-options">
+                        <div><div class="figure-box"><svg viewBox="0 0 50 50"><path d="M50,50 A40,40 0 0,0 10,0 M50,50 A25,25 0 0,0 25,0 M50,0 V50 M0,50 H50" class="shape"/></svg></div><div class="figure-label">(A)</div></div>
+                        <div><div class="figure-box"><svg viewBox="0 0 50 50"><path d="M50,50 A40,40 0 0,1 10,0 M50,50 A25,25 0 0,1 25,0 M50,0 V50 M0,50 H50" class="shape"/></svg></div><div class="figure-label">(B)</div></div>
+                        <div><div class="figure-box"><svg viewBox="0 0 50 50"><path d="M50,50 A40,40 0 0,0 10,0 M50,50 A25,25 0 0,0 25,0" class="shape"/></svg></div><div class="figure-label">(C)</div></div>
+                        <div><div class="figure-box"><svg viewBox="0 0 50 50"><path d="M50,0 V50 H0" class="shape"/></svg></div><div class="figure-label">(D)</div></div>
+                    </div>
+                </div>
+                <details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (A)</strong></p><p><strong>Technique: Symmetry.</strong> The figure is composed of concentric circles and bisecting lines. The missing bottom-left quadrant must be a mirror image of the top-left quadrant and the bottom-right quadrant to complete the circles and lines symmetrically.</p></div></details>
+            </div>
+            
+            <!-- More Questions 3 to 20 -->
+            <div class="question-block"><h3>Question 3 (Tougher)</h3><div class="completion-container"><div class="problem-matrix"><svg viewBox="0 0 100 100"><g class="shape"><path d="M50,0 L50,30 M50,0 L70,20"/><path d="M100,50 L70,50 M100,50 L80,30"/><path d="M50,100 L50,70 M50,100 L30,80"/></g><rect x="0" y="0" width="50" height="50" fill="#111"/><text x="25" y="25" class="text-element">?</text></svg></div><div class="answer-options"><div><div class="figure-box"><svg viewBox="0 0 50 50"><path d="M0,50 L30,50 M0,50 L20,30" class="shape"/></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box"><svg viewBox="0 0 50 50"><path d="M50,0 L50,30 M50,0 L30,20" class="shape"/></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box"><svg viewBox="0 0 50 50"><path d="M0,50 L30,50 M0,50 L20,70" class="shape"/></svg></div><div class="figure-label">(C)</div></div><div><div class="figure-box"><svg viewBox="0 0 50 50"><path d="M50,50 L20,50 M50,50 L30,30" class="shape"/></svg></div><div class="figure-label">(D)</div></div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (A)</strong></p><p><strong>Technique: Rotational Symmetry.</strong> The pattern in each quadrant rotates 90 degrees clockwise. The top-right figure rotates 90 degrees to become the bottom-right figure. The bottom-right rotates 90 degrees to become the bottom-left. Therefore, the missing top-left piece must be a 90-degree rotation of the bottom-left piece.</p></div></details></div>
+            <div class="question-block"><h3>Question 4</h3><div class="completion-container"><div class="problem-matrix"><svg viewBox="0 0 100 100"><g class="shape"><path d="M50,50 L100,0 H0 Z"/><path d="M0,100 L100,100 L50,50 Z"/></g><rect x="0" y="0" width="50" height="50" fill="#111"/><text x="25" y="25" class="text-element">?</text></svg></div><div class="answer-options"><div><div class="figure-box"><svg viewBox="0 0 50 50"><path d="M0,0 L50,50 V0 Z" class="shape"/></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box"><svg viewBox="0 0 50 50"><path d="M50,0 L0,0 L50,50 Z" class="shape"/></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box"><svg viewBox="0 0 50 50"><path d="M0,50 L50,50 L0,0 Z" class="shape"/></svg></div><div class="figure-label">(C)</div></div><div><div class="figure-box"><svg viewBox="0 0 50 50"><path d="M0,0 V50 L50,50 Z" class="shape"/></svg></div><div class="figure-label">(D)</div></div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (D)</strong></p><p><strong>Technique: Diagonal Symmetry.</strong> The overall pattern forms an hourglass shape in the middle. The missing top-left piece must be diagonally symmetrical to the bottom-right piece to complete this pattern.</p></div></details></div>
+            <div class="question-block"><h3>Question 5 (Tougher)</h3><div class="completion-container"><div class="problem-matrix"><svg viewBox="0 0 100 100"><g class="shape"><path d="M50,0 L100,50 L50,100 L0,50 Z"/><circle cx="75" cy="25" r="5" class="filled"/><circle cx="25" cy="75" r="5" class="shape"/></g><rect x="50" y="50" width="50" height="50" fill="#111"/><text x="75" y="75" class="text-element">?</text></svg></div><div class="answer-options"><div><div class="figure-box"><svg viewBox="0 0 50 50"><path d="M0,50 L50,0 L50,50 Z" class="shape"/><circle cx="25" cy="25" r="5" class="shape"/></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box"><svg viewBox="0 0 50 50"><path d="M0,50 L50,0 L50,50 Z" class="shape"/><circle cx="25" cy="25" r="5" class="filled"/></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box"><svg viewBox="0 0 50 50"><path d="M0,0 L50,50 L0,50 Z" class="shape"/><circle cx="25" cy="25" r="5" class="filled"/></svg></div><div class="figure-label">(C)</div></div><div><div class="figure-box"><svg viewBox="0 0 50 50"><path d="M0,50 L50,0 v50 Z" class="shape"/></svg></div><div class="figure-label">(D)</div></div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (B)</strong></p><p><strong>Technique: Alternating Pattern.</strong> The figure has two rules. 1. The lines complete a central rhombus. 2. The dots alternate between filled and unfilled diagonally. Since the top-left dot is missing and its diagonal partner in the bottom-right is also missing, let's look at the other diagonal. Top-right is filled, bottom-left is unfilled. Therefore, the missing dots must be a pair of one filled and one unfilled. Option (B) provides a filled dot, making it the logical opposite to the unfilled dot in the bottom-left.</p></div></details></div>
+            <div class="question-block"><h3>Question 6</h3><div class="completion-container"><div class="problem-matrix"><svg viewBox="0 0 100 100"><g class="shape"><path d="M0,0 C50,50 50,50 100,0"/><path d="M0,100 C50,50 50,50 0,0"/><path d="M100,0 C50,50 50,50 100,100"/></g><rect x="0" y="0" width="50" height="50" fill="#111"/><text x="25" y="25" class="text-element">?</text></svg></div><div class="answer-options"><div><div class="figure-box"><svg viewBox="0 0 50 50"><path d="M0,50 C50,0 50,0 50,50" class="shape"/></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box"><svg viewBox="0 0 50 50"><path d="M0,0 C50,50 50,50 0,50" class="shape"/></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box"><svg viewBox="0 0 50 50"><path d="M0,0 C50,50 0,50 0,50" class="shape"/></svg></div><div class="figure-label">(C)</div></div><div><div class="figure-box"><svg viewBox="0 0 50 50"><path d="M50,0 C0,50 0,50 50,50" class="shape"/></svg></div><div class="figure-label">(D)</div></div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (B)</strong></p><p><strong>Technique: Symmetry and Continuity.</strong> The overall pattern forms four leaf-like shapes pointing towards the center. The missing piece in the top-left must be a curve connecting the top-left corner to the center, and the left-middle side to the center, forming the top-left 'leaf'.</p></div></details></div>
+            <div class="question-block"><h3>Question 7</h3><div class="completion-container"><div class="problem-matrix"><svg viewBox="0 0 100 100"><g class="shape"><circle cx="100" cy="50" r="50"/><circle cx="50" cy="100" r="50"/><circle cx="0" cy="50" r="50"/></g><rect x="0" y="0" width="50" height="50" fill="#111"/><text x="25" y="25" class="text-element">?</text></svg></div><div class="answer-options"><div><div class="figure-box"><svg viewBox="0 0 50 50"><circle cx="50" cy="0" r="50" class="shape"/></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box"><svg viewBox="0 0 50 50"><circle cx="0" cy="0" r="50" class="shape"/></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box"><svg viewBox="0 0 50 50"><circle cx="50" cy="50" r="50" class="shape"/></svg></div><div class="figure-label">(C)</div></div><div><div class="figure-box"><svg viewBox="0 0 50 50"><circle cx="0" cy="50" r="50" class="shape"/></svg></div><div class="figure-label">(D)</div></div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (A)</strong></p><p><strong>Technique: Pattern Completion.</strong> The pattern consists of four circles centered on the midpoints of each side of the square. The missing element is the circle centered on the top midpoint.</p></div></details></div>
+            <div class="question-block"><h3>Question 8</h3><div class="completion-container"><div class="problem-matrix"><svg viewBox="0 0 100 100"><g class="shape"><path d="M0,0 L50,50 L0,100 Z"/><path d="M100,0 L50,50 L100,100 Z"/><path d="M0,0 L100,0 L50,50 Z"/></g><rect x="0" y="50" width="50" height="50" fill="#111"/><text x="25" y="75" class="text-element">?</text></svg></div><div class="answer-options"><div><div class="figure-box"><svg viewBox="0 0 50 50"><path d="M0,50 L50,0 L50,50 Z" class="shape"/></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box"><svg viewBox="0 0 50 50"><path d="M0,0 L50,50 L0,50 Z" class="shape"/></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box"><svg viewBox="0 0 50 50"><path d="M0,0 L50,0 L0,50 Z" class="shape"/></svg></div><div class="figure-label">(C)</div></div><div><div class="figure-box"><svg viewBox="0 0 50 50"><path d="M0,0 L50,0 L50,50 Z" class="shape"/></svg></div><div class="figure-label">(D)</div></div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (B)</strong></p><p><strong>Technique: Symmetry.</strong> The overall figure is a square with an inner, rotated square (diamond) created by connecting the midpoints of the outer square's sides. The missing piece is the bottom-left triangle that completes this pattern.</p></div></details></div>
+            <div class="question-block"><h3>Question 9 (Tougher)</h3><div class="completion-container"><div class="problem-matrix"><svg viewBox="0 0 100 100"><g><path d="M50,0 v50 h50" class="shape"/><path d="M0,50 h50 v50" class="shape"/><path d="M50,100 v-50 h-50" class="shape"/></g><rect x="50" y="0" width="50" height="50" fill="#111"/><text x="75" y="25" class="text-element">?</text></svg></div><div class="answer-options"><div><div class="figure-box"><svg viewBox="0 0 50 50"><path d="M50,0 h-50 v50" class="shape"/></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box"><svg viewBox="0 0 50 50"><path d="M0,0 v50 h50" class="shape"/></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box"><svg viewBox="0 0 50 50"><path d="M0,50 h50 v-50" class="shape"/></svg></div><div class="figure-label">(C)</div></div><div><div class="figure-box"><svg viewBox="0 0 50 50"><path d="M50,50 v-50 h-50" class="shape"/></svg></div><div class="figure-label">(D)</div></div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (D)</strong></p><p><strong>Technique: Rotation and Continuity.</strong> The overall pattern is a spiral moving inwards. Following the path from the top-left, the line must continue from the center point up and then left to complete the spiral. Alternatively, each quadrant's shape is rotated 90 degrees clockwise from the previous one.</p></div></details></div>
+            <div class="question-block"><h3>Question 10</h3><div class="completion-container"><div class="problem-matrix"><svg viewBox="0 0 100 100"><g><path d="M0,0 L100,0" class="shape"/><path d="M0,100 L100,100" class="shape"/><circle cx="25" cy="50" r="10" class="filled"/><circle cx="75" cy="50" r="10" class="shape"/></g><rect x="0" y="0" width="50" height="50" fill="#111"/><rect x="50" y="50" width="50" height="50" fill="#111"/><text x="25" y="25" class="text-element">?</text><text x="75" y="75" class="text-element">?</text></svg></div><div class="answer-options"><div><div class="figure-box"><svg viewBox="0 0 50 50"><path d="M0,0 L50,0" class="shape"/><circle cx="25" cy="50" r="10" class="filled"/></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box"><svg viewBox="0 0 50 50"><path d="M0,0 L50,0" class="shape"/><circle cx="25" cy="50" r="10" class="shape"/></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box"><svg viewBox="0 0 50 50"><path d="M0,50 L50,50" class="shape"/><circle cx="25" cy="0" r="10" class="shape"/></svg></div><div class="figure-label">(C)</div></div><div><div class="figure-box"><svg viewBox="0 0 50 50"><path d="M0,50 L50,50" class="shape"/><circle cx="25" cy="0" r="10" class="filled"/></svg></div><div class="figure-label">(D)</div></div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (B)</strong></p><p><strong>Technique: Vertical Mirroring.</strong> The top half and bottom half of the figure are mirror images of each other. The circles on the left are filled, and the circles on the right are unfilled. Therefore, the missing top-left piece must contain the top line and an unfilled circle, to mirror the bottom-right piece. This implies the missing bottom-right piece would have a filled circle.</p></div></details></div>
+            <!-- More questions 11 to 20 -->
+            <div class="question-block"><h3>Question 11</h3><div class="completion-container"><div class="problem-matrix"><svg viewBox="0 0 100 100"><g><path d="M50,50 L0,0 M50,50 L100,0 M50,50 L0,100" class="shape"/></g><rect x="50" y="50" width="50" height="50" fill="#111"/><text x="75" y="75" class="text-element">?</text></svg></div><div class="answer-options"><div><div class="figure-box"><svg viewBox="0 0 50 50"><path d="M0,0 L50,50" class="shape"/></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box"><svg viewBox="0 0 50 50"><path d="M50,0 L0,50" class="shape"/></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box"><svg viewBox="0 0 50 50"><path d="M0,0 v50" class="shape"/></svg></div><div class="figure-label">(C)</div></div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (A)</strong></p><p><strong>Technique: Symmetry.</strong> The pattern consists of lines radiating from the center to each of the four corners. The missing piece must contain the line from the center to the bottom-right corner.</p></div></details></div>
+            <div class="question-block"><h3>Question 12</h3><div class="completion-container"><div class="problem-matrix"><svg viewBox="0 0 100 100"><g><path d="M0,50 C50,0 50,0 100,50" class="shape"/><path d="M0,50 C50,100 50,100 100,50" class="shape"/><path d="M50,0 V100" class="shape"/></g><rect x="0" y="0" width="50" height="100" fill="#111"/><text x="25" y="50" class="text-element">?</text></svg></div><div class="answer-options"><div><div class="figure-box"><svg viewBox="0 0 50 100"><path d="M50,0 C0,50 0,50 50,100" class="shape"/></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box"><svg viewBox="0 0 50 100"><path d="M0,50 h50" class="shape"/></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box"><svg viewBox="0 0 50 100"><path d="M50,0 C25,50 25,50 50,100" class="shape"/></svg></div><div class="figure-label">(C)</div></div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (A)</strong></p><p><strong>Technique: Horizontal Symmetry.</strong> The left half of the figure must be a mirror image of the right half to create a complete, symmetrical design. Option (A) provides the left side that mirrors the existing right side.</p></div></details></div>
+            <div class="question-block"><h3>Question 13 (Tougher)</h3><div class="completion-container"><div class="problem-matrix"><svg viewBox="0 0 100 100"><g><path d="M50,50 L100,50 L75,25 Z" class="filled"/><path d="M50,50 L50,100 L25,75 Z" class="shape"/></g><rect x="0" y="0" width="50" height="100" fill="#111"/><text x="25" y="50" class="text-element">?</text></svg></div><div class="answer-options"><div><div class="figure-box"><svg viewBox="0 0 50 100"><path d="M50,50 L0,50 L25,25 Z" class="filled"/></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box"><svg viewBox="0 0 50 100"><path d="M50,50 L50,0 L75,25 Z" class="filled"/></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box"><svg viewBox="0 0 50 100"><path d="M50,50 L50,0 L25,25 Z" class="filled"/></svg></div><div class="figure-label">(C)</div></div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (C)</strong></p><p><strong>Technique: Rotational Pattern & Alternating Shading.</strong> The figure consists of four triangles rotating around the center. The shading alternates in opposite quadrants. The bottom-right is unfilled, so the missing top-left must also be unfilled. The top-right is filled, so the bottom-left must be filled. However, the question shows the bottom-left is unfilled. This means the pattern is not alternating opposites, but maybe adjacent alternation. Let's re-evaluate.
+                <strong>Revised Technique:</strong> The triangles rotate 90 degrees. Also, filled and unfilled shapes alternate. Top-right is filled. Bottom-right is unfilled. This implies the missing top-left must be filled. The shape must be a 90-degree rotation of the bottom-left triangle. Only (C) fits this criteria.</p></div></details></div>
+            <div class="question-block"><h3>Question 14</h3><div class="completion-container"><div class="problem-matrix"><svg viewBox="0 0 100 100"><g><path d="M0,0 h100 v100 h-100 Z M50,10 L90,90 H10 Z" class="shape"/></g><rect x="0" y="50" width="50" height="50" fill="#111"/><text x="25" y="75" class="text-element">?</text></svg></div><div class="answer-options"><div><div class="figure-box"><svg viewBox="0 0 50 50"><path d="M0,0 v50 h50 Z" class="shape"/></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box"><svg viewBox="0 0 50 50"><path d="M50,50 L0,0 H50 Z" class="shape"/></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box"><svg viewBox="0 0 50 50"><path d="M0,0 h50 v50" class="shape"/></svg></div><div class="figure-label">(C)</div></div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (A)</strong></p><p><strong>Technique: Symmetry.</strong> The inner shape is an inverted isosceles triangle. The missing bottom-left piece must contain the corner of the square and the corner of the triangle to complete the figure symmetrically.</p></div></details></div>
+            <div class="question-block"><h3>Question 15</h3><div class="completion-container"><div class="problem-matrix"><svg viewBox="0 0 100 100"><g><path d="M0,50 h100 M50,0 v100" class="shape" style="stroke-width:1.5; stroke:#777;"/><path d="M0,0 L50,50" class="shape"/><path d="M100,0 L50,50" class="shape"/><path d="M100,100 L50,50" class="shape"/></g><rect x="0" y="50" width="50" height="50" fill="#111"/><text x="25" y="75" class="text-element">?</text></svg></div><div class="answer-options"><div><div class="figure-box"><svg viewBox="0 0 50 50"><path d="M0,50 v-50 h50" class="shape"/></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box"><svg viewBox="0 0 50 50"><path d="M50,50 L0,0" class="shape"/></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box"><svg viewBox="0 0 50 50"><path d="M50,0 L0,50" class="shape"/></svg></div><div class="figure-label">(C)</div></div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (C)</strong></p><p><strong>Technique: Symmetry.</strong> The pattern is formed by lines connecting the three outer corners to the center. The missing piece must contain the line connecting the bottom-left corner to the center.</p></div></details></div>
+            <div class="question-block"><h3>Question 16</h3><div class="completion-container"><div class="problem-matrix"><svg viewBox="0 0 100 100"><g><path d="M0,50 h50 v50 h50" class="shape"/></g><rect x="0" y="0" width="100" height="50" fill="#111"/><text x="50" y="25" class="text-element">?</text></svg></div><div class="answer-options"><div><div class="figure-box"><svg viewBox="0 0 100 50"><path d="M0,50 h50 v-50 h50" class="shape"/></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 50"><path d="M100,0 h-50 v50 h-50" class="shape"/></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 50"><path d="M0,0 h100" class="shape"/></svg></div><div class="figure-label">(C)</div></div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (A)</strong></p><p><strong>Technique: Vertical Symmetry (Water Image).</strong> The top half of the figure must be a water image of the bottom half to create a complete, wave-like symmetrical pattern.</p></div></details></div>
+            <div class="question-block"><h3>Question 17 (Tougher)</h3><div class="completion-container"><div class="problem-matrix"><svg viewBox="0 0 100 100"><g><path d="M50,50 L100,0" class="shape"/><path d="M50,50 L0,100" class="shape"/><path d="M50,50 L0,0" class="shape" style="stroke-dasharray: 5,5;"/></g><rect x="50" y="50" width="50" height="50" fill="#111"/><text x="75" y="75" class="text-element">?</text></svg></div><div class="answer-options"><div><div class="figure-box"><svg viewBox="0 0 50 50"><path d="M0,50 L50,0" class="shape"/></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box"><svg viewBox="0 0 50 50"><path d="M0,0 L50,50" class="shape"/></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box"><svg viewBox="0 0 50 50"><path d="M0,0 L50,50" class="shape" style="stroke-dasharray: 5,5;"/></svg></div><div class="figure-label">(C)</div></div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (C)</strong></p><p><strong>Technique: Alternating Pattern.</strong> The lines radiate from the center to the corners. The pattern alternates between solid and dashed lines in opposite quadrants. Since the top-left line is dashed, the diagonally opposite bottom-right line must also be dashed.</p></div></details></div>
+            <div class="question-block"><h3>Question 18</h3><div class="completion-container"><div class="problem-matrix"><svg viewBox="0 0 100 100"><g><path d="M0,0 L100,100 M50,50 L0,100 M100,0 L0,0 L0,100" class="shape"/></g><rect x="50" y="0" width="50" height="50" fill="#111"/><text x="75" y="25" class="text-element">?</text></svg></div><div class="answer-options"><div><div class="figure-box"><svg viewBox="0 0 50 50"><path d="M0,50 L50,0 L50,50" class="shape"/></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box"><svg viewBox="0 0 50 50"><path d="M0,0 L50,50 L0,50 Z" class="shape"/></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box"><svg viewBox="0 0 50 50"><path d="M0,0 h50 v50" class="shape"/></svg></div><div class="figure-label">(C)</div></div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (C)</strong></p><p><strong>Technique: Symmetry and Continuity.</strong> The pattern is a large Z-shape on its side, enclosed in a box, with extra lines. To complete the box and the internal structure symmetrically, the missing piece must connect the top-left corner to the top-right corner, and the top-right corner to the center point.</p></div></details></div>
+            <div class="question-block"><h3>Question 19</h3><div class="completion-container"><div class="problem-matrix"><svg viewBox="0 0 100 100"><g><path d="M0,0 h100 v100 h-100 Z" class="shape" style="stroke-width:2"/><circle cx="50" cy="0" r="10" class="filled"/><circle cx="0" cy="50" r="10" class="filled"/><circle cx="100" cy="50" r="10" class="filled"/></g><rect x="0" y="50" width="100" height="50" fill="#111"/><text x="50" y="75" class="text-element">?</text></svg></div><div class="answer-options"><div><div class="figure-box"><svg viewBox="0 0 100 50"><path d="M0,50 h100 v-50 h-100" class="shape" style="stroke-width:2"/><circle cx="50" cy="50" r="10" class="filled"/><circle cx="0" cy="0" r="10" class="filled"/><circle cx="100" cy="0" r="10" class="filled"/></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 50"><path d="M0,0 v50 h100 v-50" class="shape" style="stroke-width:2"/><circle cx="50" cy="50" r="10" class="filled"/></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box"><svg viewBox="0 0 100 50"><path d="M0,0 v50 h100 v-50" class="shape" style="stroke-width:2"/></svg></div><div class="figure-label">(C)</div></div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (B)</strong></p><p><strong>Technique: Symmetry.</strong> The figure is a square with dots on the midpoint of each side. To complete the figure, the bottom side of the square and the dot on its midpoint are required.</p></div></details></div>
+            <div class="question-block"><h3>Question 20 (Tougher)</h3><div class="completion-container"><div class="problem-matrix"><svg viewBox="0 0 100 100"><g><circle cx="50" cy="50" r="40" class="shape"/><path d="M50,10 L90,50" class="filled"/><path d="M10,50 L50,90" class="filled"/></g><rect x="0" y="0" width="50" height="50" fill="#111"/><text x="25" y="25" class="text-element">?</text></svg></div><div class="answer-options"><div><div class="figure-box"><svg viewBox="0 0 50 50"><path d="M50,10 A40,40 0 0,0 10,50" class="shape"/><path d="M50,10 L10,50" class="filled"/></svg></div><div class="figure-label">(A)</div></div><div><div class="figure-box"><svg viewBox="0 0 50 50"><path d="M50,10 A40,40 0 0,0 10,50" class="shape"/><path d="M10,10 L50,50" class="filled"/></svg></div><div class="figure-label">(B)</div></div><div><div class="figure-box"><svg viewBox="0 0 50 50"><path d="M50,10 A40,40 0 0,0 10,50" class="shape"/></svg></div><div class="figure-label">(C)</div></div></div></div><details><summary>Show Answer & Explanation</summary><div class="explanation"><p><strong>Correct Answer: (A)</strong></p><p><strong>Technique: Rotational Symmetry.</strong> The pattern is a pinwheel. A filled blade is in the top-right and bottom-left quadrants. Therefore, the missing quadrants must contain unfilled blades to complete the alternating pattern. The missing piece must contain the top-left arc of the circle and an unfilled blade pointing from the center to the corner. None of the options show an unfilled blade, which suggests another logic.
+                <strong>Revised Technique:</strong> The lines are chords of the circle. One chord is in the top-right, one is in the bottom-left. The pattern is based on 180-degree rotational symmetry. Therefore, the top-left quadrant must contain the same element as the bottom-right quadrant. The missing piece must contain the top-left arc of the circle and a filled chord connecting the top-middle point to the left-middle point.</p></div></details></div>
+
+        </section>
+    </main>
+</body>
+</html>
