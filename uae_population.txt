@@ -1,0 +1,231 @@
+{
+  "description": "Estimated Indian Population in the UAE by Emirate and Key Residential Areas. Note: Official, granular data by nationality is not publicly released by the UAE government. Emirate-level figures are estimates. City/Area level population data is not available.",
+  "source": "Estimates based on data from the Indian Embassy in the UAE, media reports, and demographic analysis.",
+  "data": [
+    {
+      "rank": 1,
+      "country": "United Arab Emirates",
+      "emirate": "Dubai",
+      "emirate_indian_population": "~1,380,000",
+      "percentage_of_total_emirate_population": "~40%",
+      "cities_and_areas": [
+        {
+          "city": "Bur Dubai",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "A historic hub for the Indian community with extensive residential and commercial establishments."
+        },
+        {
+          "city": "Deira",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "Famous for the Gold Souk and Spice Souk, with a very high concentration of Indian residents and businesses."
+        },
+        {
+          "city": "Al Karama",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "Well-known for its vibrant Indian community, shopping, and restaurants."
+        },
+        {
+          "city": "Al Nahda (Dubai side)",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "A popular, more modern residential area for Indian families."
+        },
+        {
+          "city": "Discovery Gardens",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "A large residential community with a significant Indian expatriate population."
+        },
+        {
+          "city": "Jumeirah Lakes Towers (JLT)",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "Popular with Indian professionals and families."
+        },
+        {
+          "city": "Oud Metha",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "Home to Indian schools, clubs, and social centers."
+        },
+        {
+          "city": "Al Qusais",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "Large residential area with a high density of Indian expatriates."
+        },
+        {
+          "city": "Dubai Silicon Oasis",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "A mixed-use development with a growing Indian professional community."
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "country": "United Arab Emirates",
+      "emirate": "Abu Dhabi",
+      "emirate_indian_population": "~1,000,000",
+      "percentage_of_total_emirate_population": "~35%",
+      "cities_and_areas": [
+        {
+          "city": "Abu Dhabi City (Central)",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "The main urban center where most of the emirate's Indian population resides."
+        },
+        {
+          "city": "Mussaffah",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "An industrial area with significant residential zones for workers, many of whom are from India."
+        },
+        {
+          "city": "Al Ain",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "The second-largest city in the emirate with a substantial Indian community."
+        },
+        {
+          "city": "Al Khalidiya",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "A central residential and commercial area in Abu Dhabi City."
+        },
+        {
+          "city": "Hamdan Street Area",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "A busy commercial and residential hub."
+        },
+        {
+          "city": "Madinat Zayed",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "Includes residential areas and a prominent shopping center."
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "country": "United Arab Emirates",
+      "emirate": "Sharjah",
+      "emirate_indian_population": "~650,000",
+      "percentage_of_total_emirate_population": "~40%",
+      "cities_and_areas": [
+        {
+          "city": "Al Nahda (Sharjah side)",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "A very popular and densely populated area for Indian families, bordering Dubai."
+        },
+        {
+          "city": "Rolla Area",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "A historic commercial and residential hub for the Indian community in Sharjah."
+        },
+        {
+          "city": "Muwaileh",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "A rapidly growing area, especially popular due to its proximity to universities."
+        },
+        {
+          "city": "Al Qasimia",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "A central, established residential area with a large Indian population."
+        },
+        {
+          "city": "Abu Shagara",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "Another central area known for its Indian residents."
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "country": "United Arab Emirates",
+      "emirate": "Ajman",
+      "emirate_indian_population": "~150,000",
+      "percentage_of_total_emirate_population": "~28%",
+      "cities_and_areas": [
+        {
+          "city": "Al Rashidiya (Ajman)",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "Central residential and commercial district."
+        },
+        {
+          "city": "Al Nuaimiya",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "Borders Sharjah and is a popular residential area."
+        },
+        {
+          "city": "Ajman Downtown",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "The core area of the city."
+        }
+      ]
+    },
+    {
+      "rank": 5,
+      "country": "United Arab Emirates",
+      "emirate": "Ras Al Khaimah",
+      "emirate_indian_population": "~120,000",
+      "percentage_of_total_emirate_population": "~30%",
+      "cities_and_areas": [
+        {
+          "city": "RAK City (Nakheel, Al Seer)",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "The main urban center of the emirate."
+        },
+        {
+          "city": "Al Hamra Village",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "A newer, upscale development with a growing expatriate community."
+        }
+      ]
+    },
+    {
+      "rank": 6,
+      "country": "United Arab Emirates",
+      "emirate": "Fujairah",
+      "emirate_indian_population": "~100,000",
+      "percentage_of_total_emirate_population": "~35%",
+      "cities_and_areas": [
+        {
+          "city": "Fujairah City",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "The capital and main commercial hub where the Indian community is centered."
+        }
+      ]
+    },
+    {
+      "rank": 7,
+      "country": "United Arab Emirates",
+      "emirate": "Umm Al Quwain",
+      "emirate_indian_population": "~40,000",
+      "percentage_of_total_emirate_population": "~45%",
+      "cities_and_areas": [
+        {
+          "city": "Umm Al Quwain City",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "The main city of the smallest emirate by population, with a significant Indian workforce."
+        }
+      ]
+    }
+  ]
+}

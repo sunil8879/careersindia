@@ -1,0 +1,397 @@
+{
+  "description": "Top UK Local Authorities by Indian Population, broken down by Constituent Country.",
+  "source": "ONS Census 2021 (England/Wales), Scotland's Census 2022, NISRA Census 2021 (Northern Ireland)",
+  "data": [
+    {
+      "rank": 1,
+      "country": "United Kingdom",
+      "constituent_country": "England",
+      "country_indian_population": 1858547,
+      "percentage_of_total_country_population": 3.29,
+      "cities": [
+        {
+          "city": "Leicester",
+          "indian_population": 115049,
+          "percentage_of_city_population": 31.22
+        },
+        {
+          "city": "Harrow (London Borough)",
+          "indian_population": 106061,
+          "percentage_of_city_population": 40.58
+        },
+        {
+          "city": "Brent (London Borough)",
+          "indian_population": 103255,
+          "percentage_of_city_population": 30.41
+        },
+        {
+          "city": "Birmingham",
+          "indian_population": 103135,
+          "percentage_of_city_population": 9.01
+        },
+        {
+          "city": "Hounslow (London Borough)",
+          "indian_population": 90059,
+          "percentage_of_city_population": 31.25
+        },
+        {
+          "city": "Redbridge (London Borough)",
+          "indian_population": 89087,
+          "percentage_of_city_population": 28.71
+        },
+        {
+          "city": "Ealing (London Borough)",
+          "indian_population": 87019,
+          "percentage_of_city_population": 23.70
+        },
+        {
+          "city": "Slough",
+          "indian_population": 64143,
+          "percentage_of_city_population": 40.51
+        },
+        {
+          "city": "Newham (London Borough)",
+          "indian_population": 57989,
+          "percentage_of_city_population": 16.51
+        },
+        {
+          "city": "Sandwell",
+          "indian_population": 57497,
+          "percentage_of_city_population": 17.58
+        },
+        {
+          "city": "Hillingdon (London Borough)",
+          "indian_population": 56068,
+          "percentage_of_city_population": 18.52
+        },
+        {
+          "city": "Coventry",
+          "indian_population": 51049,
+          "percentage_of_city_population": 14.81
+        },
+        {
+          "city": "Wolverhampton",
+          "indian_population": 43537,
+          "percentage_of_city_population": 16.59
+        },
+        {
+          "city": "Barnet (London Borough)",
+          "indian_population": 33965,
+          "percentage_of_city_population": 8.76
+        },
+        {
+          "city": "Croydon (London Borough)",
+          "indian_population": 32813,
+          "percentage_of_city_population": 8.44
+        },
+        {
+          "city": "Luton",
+          "indian_population": 23896,
+          "percentage_of_city_population": 10.61
+        },
+        {
+          "city": "Walsall",
+          "indian_population": 23293,
+          "percentage_of_city_population": 8.09
+        },
+        {
+          "city": "Windsor and Maidenhead",
+          "indian_population": 21890,
+          "percentage_of_city_population": 14.36
+        },
+        {
+          "city": "Merton (London Borough)",
+          "indian_population": 18237,
+          "percentage_of_city_population": 8.82
+        },
+        {
+          "city": "Three Rivers",
+          "indian_population": 17260,
+          "percentage_of_city_population": 18.25
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "country": "United Kingdom",
+      "constituent_country": "Scotland",
+      "country_indian_population": 55225,
+      "percentage_of_total_country_population": 1.02,
+      "cities": [
+        {
+          "city": "Glasgow City",
+          "indian_population": 16293,
+          "percentage_of_city_population": 2.65
+        },
+        {
+          "city": "City of Edinburgh",
+          "indian_population": 13063,
+          "percentage_of_city_population": 2.47
+        },
+        {
+          "city": "Aberdeenshire",
+          "indian_population": 4274,
+          "percentage_of_city_population": 1.63
+        },
+        {
+          "city": "Aberdeen City",
+          "indian_population": 3662,
+          "percentage_of_city_population": 1.60
+        },
+        {
+          "city": "South Lanarkshire",
+          "indian_population": 1947,
+          "percentage_of_city_population": 0.60
+        },
+        {
+          "city": "Fife",
+          "indian_population": 1894,
+          "percentage_of_city_population": 0.51
+        },
+        {
+          "city": "Renfrewshire",
+          "indian_population": 1789,
+          "percentage_of_city_population": 1.00
+        },
+        {
+          "city": "North Lanarkshire",
+          "indian_population": 1629,
+          "percentage_of_city_population": 0.48
+        },
+        {
+          "city": "East Renfrewshire",
+          "indian_population": 1461,
+          "percentage_of_city_population": 1.52
+        },
+        {
+          "city": "West Lothian",
+          "indian_population": 1184,
+          "percentage_of_city_population": 0.64
+        },
+        {
+          "city": "Dundee City",
+          "indian_population": 1146,
+          "percentage_of_city_population": 0.77
+        },
+        {
+          "city": "East Dunbartonshire",
+          "indian_population": 994,
+          "percentage_of_city_population": 0.91
+        },
+        {
+          "city": "Stirling",
+          "indian_population": 932,
+          "percentage_of_city_population": 0.99
+        },
+        {
+          "city": "Perth and Kinross",
+          "indian_population": 792,
+          "percentage_of_city_population": 0.52
+        },
+        {
+          "city": "Highland",
+          "indian_population": 724,
+          "percentage_of_city_population": 0.31
+        },
+        {
+          "city": "Falkirk",
+          "indian_population": 482,
+          "percentage_of_city_population": 0.30
+        },
+        {
+          "city": "West Dunbartonshire",
+          "indian_population": 322,
+          "percentage_of_city_population": 0.37
+        },
+        {
+          "city": "Angus",
+          "indian_population": 308,
+          "percentage_of_city_population": 0.27
+        },
+        {
+          "city": "Inverclyde",
+          "indian_population": 296,
+          "percentage_of_city_population": 0.39
+        },
+        {
+          "city": "North Ayrshire",
+          "indian_population": 269,
+          "percentage_of_city_population": 0.20
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "country": "United Kingdom",
+      "constituent_country": "Wales",
+      "country_indian_population": 22135,
+      "percentage_of_total_country_population": 0.71,
+      "cities": [
+        {
+          "city": "Cardiff",
+          "indian_population": 9172,
+          "percentage_of_city_population": 2.50
+        },
+        {
+          "city": "Swansea",
+          "indian_population": 3014,
+          "percentage_of_city_population": 1.25
+        },
+        {
+          "city": "Newport",
+          "indian_population": 2185,
+          "percentage_of_city_population": 1.36
+        },
+        {
+          "city": "Rhondda Cynon Taf",
+          "indian_population": 948,
+          "percentage_of_city_population": 0.40
+        },
+        {
+          "city": "Vale of Glamorgan",
+          "indian_population": 907,
+          "percentage_of_city_population": 0.67
+        },
+        {
+          "city": "Wrexham",
+          "indian_population": 692,
+          "percentage_of_city_population": 0.51
+        },
+        {
+          "city": "Carmarthenshire",
+          "indian_population": 639,
+          "percentage_of_city_population": 0.34
+        },
+        {
+          "city": "Caerphilly",
+          "indian_population": 622,
+          "percentage_of_city_population": 0.35
+        },
+        {
+          "city": "Bridgend",
+          "indian_population": 551,
+          "percentage_of_city_population": 0.38
+        },
+        {
+          "city": "Flintshire",
+          "indian_population": 542,
+          "percentage_of_city_population": 0.35
+        },
+        {
+          "city": "Powys",
+          "indian_population": 404,
+          "percentage_of_city_population": 0.31
+        },
+        {
+          "city": "Neath Port Talbot",
+          "indian_population": 349,
+          "percentage_of_city_population": 0.25
+        },
+        {
+          "city": "Conwy",
+          "indian_population": 331,
+          "percentage_of_city_population": 0.28
+        },
+        {
+          "city": "Gwynedd",
+          "indian_population": 272,
+          "percentage_of_city_population": 0.22
+        },
+        {
+          "city": "Pembrokeshire",
+          "indian_population": 235,
+          "percentage_of_city_population": 0.19
+        },
+        {
+          "city": "Monmouthshire",
+          "indian_population": 204,
+          "percentage_of_city_population": 0.22
+        },
+        {
+          "city": "Denbighshire",
+          "indian_population": 158,
+          "percentage_of_city_population": 0.16
+        },
+        {
+          "city": "Torfaen",
+          "indian_population": 150,
+          "percentage_of_city_population": 0.16
+        },
+        {
+          "city": "Ceredigion",
+          "indian_population": 128,
+          "percentage_of_city_population": 0.18
+        },
+        {
+          "city": "Blaenau Gwent",
+          "indian_population": 99,
+          "percentage_of_city_population": 0.15
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "country": "United Kingdom",
+      "constituent_country": "Northern Ireland",
+      "country_indian_population": 9184,
+      "percentage_of_total_country_population": 0.48,
+      "cities": [
+        {
+          "city": "Belfast",
+          "indian_population": 3218,
+          "percentage_of_city_population": 0.94
+        },
+        {
+          "city": "Lisburn and Castlereagh",
+          "indian_population": 1051,
+          "percentage_of_city_population": 0.72
+        },
+        {
+          "city": "Derry City and Strabane",
+          "indian_population": 883,
+          "percentage_of_city_population": 0.58
+        },
+        {
+          "city": "Armagh City, Banbridge and Craigavon",
+          "indian_population": 841,
+          "percentage_of_city_population": 0.38
+        },
+        {
+          "city": "Newry, Mourne and Down",
+          "indian_population": 724,
+          "percentage_of_city_population": 0.40
+        },
+        {
+          "city": "Antrim and Newtownabbey",
+          "indian_population": 709,
+          "percentage_of_city_population": 0.49
+        },
+        {
+          "city": "Ards and North Down",
+          "indian_population": 559,
+          "percentage_of_city_population": 0.35
+        },
+        {
+          "city": "Mid Ulster",
+          "indian_population": 481,
+          "percentage_of_city_population": 0.32
+        },
+        {
+          "city": "Fermanagh and Omagh",
+          "indian_population": 382,
+          "percentage_of_city_population": 0.32
+        },
+        {
+          "city": "Mid and East Antrim",
+          "indian_population": 221,
+          "percentage_of_city_population": 0.16
+        },
+        {
+          "city": "Causeway Coast and Glens",
+          "indian_population": 115,
+          "percentage_of_city_population": 0.08
+        }
+      ]
+    }
+  ]
+}

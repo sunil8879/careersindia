@@ -1,0 +1,2079 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universities of India - A Comprehensive Guide</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Orbitron:wght@700&display=swap');
+
+        :root {
+            --bg-dark: #0d1b2a;
+            --bg-mid: #1b263b;
+            --bg-light: #415a77;
+            --text-primary: #e0e1dd;
+            --text-secondary: #778da9;
+            --accent-green: #39FF14; /* Parrot Green */
+            --accent-blue: #00B5AD; /* Turquoise Blue */
+            --white: #FFFFFF;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* --- Main Split Page Layout --- */
+        .page-container {
+            display: flex;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* --- Left Control Panel --- */
+        .control-panel {
+            flex: 0 0 450px;
+            padding: 30px;
+            background-color: var(--bg-mid);
+            border-right: 2px solid var(--accent-blue);
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            overflow-y: auto;
+        }
+
+        .title-box {
+            background: linear-gradient(145deg, #2a3a52, #1b263b);
+            border: 2px solid var(--accent-blue);
+            padding: 20px;
+            box-shadow: 
+                inset 0 0 15px rgba(0,0,0,0.6),
+                inset 2px 2px 5px var(--accent-green),
+                inset -2px -2px 5px var(--accent-blue),
+                0 0 20px rgba(100, 255, 218, 0.2),
+                5px 5px 15px rgba(0,0,0,0.5);
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .main-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.0em;
+            font-weight: 700;
+            color: var(--white);
+            text-transform: uppercase;
+            text-shadow: 
+                3px 3px 0px var(--accent-blue),
+                -1px -1px 1px var(--accent-green),
+                0 0 15px var(--accent-green);
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-group label {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            color: var(--accent-green);
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .input-group select {
+            width: 100%;
+            padding: 12px;
+            font-size: 1.1em;
+            border-radius: 5px;
+            border: 2px solid var(--accent-blue);
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            cursor: pointer;
+        }
+        
+        #analysis-btn {
+            padding: 15px;
+            font-size: 1.2em;
+            font-family: 'Orbitron', sans-serif;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(145deg, var(--light-green-shadow), var(--accent-green));
+            color: #000;
+            transition: all 0.2s ease;
+            margin-top: 15px;
+            border-top: 2px solid var(--accent-blue);
+            padding-top: 30px;
+        }
+        #analysis-btn:hover {
+            box-shadow: 0 0 20px var(--accent-green);
+        }
+
+        /* --- Right Display Panel --- */
+        .display-panel {
+            flex: 1;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        
+        .tabs-container {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .tab {
+            padding: 15px 25px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1em;
+            font-weight: 700;
+            cursor: pointer;
+            border-radius: 12px;
+            color: var(--white);
+            transition: all 0.2s ease-out;
+            background: linear-gradient(145deg, #415a77, #1b263b);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+            box-shadow: 
+                5px 5px 10px #000,
+                -5px -5px 10px #2c3a50,
+                inset 1px 1px 2px rgba(255, 255, 255, 0.4),
+                inset -1px -1px 2px rgba(0, 0, 0, 0.6),
+                0 0 15px rgba(0, 181, 173, 0.3);
+        }
+        
+        .tab:hover {
+            transform: translateY(-3px);
+            color: var(--accent-green);
+        }
+
+        .tab.active {
+            color: var(--accent-green);
+            transform: scale(1.05);
+            background: linear-gradient(145deg, #1b263b, #415a77);
+            box-shadow: 
+                inset 5px 5px 10px #000,
+                inset -5px -5px 10px #2c3a50,
+                0 0 15px var(--accent-green);
+        }
+        
+        #content-area {
+            flex-grow: 1;
+            overflow-y: auto;
+            background-color: rgba(0,0,0,0.2);
+            border-radius: 10px;
+            padding: 20px;
+        }
+        
+        .content-section { display: none; }
+        .content-section.active { display: block; }
+        
+        .university-card {
+            background-color: var(--bg-mid);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 5px solid var(--accent-green);
+        }
+        .university-card h3 { font-size: 1.6em; color: var(--white); margin-bottom: 15px; }
+        .university-card a { color: var(--accent-green); text-decoration: none; word-break: break-all; }
+        .university-card strong { color: var(--text-primary); }
+        
+        .uni-meta { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 15px; font-size: 0.9em; }
+        .meta-item { background: var(--bg-dark); padding: 8px 12px; border-radius: 5px;}
+        
+        .course-details {
+            margin-top: 15px;
+            border-top: 1px solid var(--bg-light);
+            padding-top: 15px;
+        }
+        .course-details h4 { font-size: 1.2em; color: var(--accent-green); margin-bottom: 10px; }
+        .course-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; }
+        .course-grid-item { background: var(--bg-dark); padding: 10px; border-radius: 5px; }
+
+        .full-course-list {
+            margin-top: 15px;
+            border-top: 1px solid var(--bg-light);
+            padding-top: 15px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            white-space: pre-wrap; /* Preserves formatting from the database */
+        }
+
+        .comparison-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .hidden { display: none !important; }
+
+        /* Custom Scrollbar */
+          ::-webkit-scrollbar { width: 10px; }
+          ::-webkit-scrollbar-track { background: var(--bg-dark); }
+        ::-webkit-scrollbar-thumb { background-color: var(--accent-blue); border-radius: 20px; border: 3px solid var(--bg-dark); }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .control-panel { flex: 0 0 350px; }
+            .comparison-container { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 992px) {
+            body { height: auto; }
+            .page-container { flex-direction: column; }
+            .control-panel { border-right: none; border-bottom: 2px solid var(--accent-blue); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page-container">
+        <!-- LEFT CONTROL PANEL -->
+        <aside class="control-panel">
+            <div class="title-box">
+                <h1 class="main-title">UNIVERSITIES OF INDIA</h1>
+            </div>
+
+            <div class="input-group">
+                <label for="state-select">Explore Universities by State</label>
+                <select id="state-select">
+                    <option value="" disabled selected>-- Choose a State / UT --</option>
+                    <!-- Options populated by JavaScript -->
+                </select>
+            </div>
+
+            <button id="analysis-btn">COMPARATIVE ANALYSIS</button>
+        </aside>
+
+        <!-- RIGHT DISPLAY PANEL -->
+        <main class="display-panel">
+            <div id="placeholder">
+                <h2>Welcome!</h2>
+                <p>Select a state from the dropdown to explore universities, or click 'Comparative Analysis' to compare two specific institutions.</p>
+            </div>
+
+            <!-- TABS FOR STATE EXPLORATION -->
+            <div id="state-tabs-container" class="tabs-container hidden">
+                <div class="tab" data-type="ini">Institutes of National Importance</div>
+                <div class="tab" data-type="statePublic">State Public Universities</div>
+                <div class="tab" data-type="private">Private Universities</div>
+                <div class="tab" data-type="deemed">Deemed-to-be Universities</div>
+            </div>
+
+            <!-- TABS FOR COMPARATIVE ANALYSIS -->
+            <div id="comparator-tabs-container" class="tabs-container hidden">
+                <div class="tab" data-type="ini">Compare INIs</div>
+                <div class="tab" data-type="statePublic">Compare State Public</div>
+                <div class="tab" data-type="private">Compare Private</div>
+                <div class="tab" data-type="deemed">Compare Deemed</div>
+            </div>
+
+            <!-- SELECTION BOXES FOR COMPARATOR -->
+            <div id="comparator-selection" class="input-group hidden" style="flex-direction: row; gap: 20px; margin-bottom: 20px;">
+                <div style="flex: 1;">
+                    <label for="university-1">Choose University 1</label>
+                    <select id="university-1"></select>
+                </div>
+                <div style="flex: 1;">
+                    <label for="university-2">Choose University 2</label>
+                    <select id="university-2"></select>
+                </div>
+            </div>
+
+            <!-- CONTENT AREA (where results appear) -->
+            <div id="content-area">
+                <div id="university-display" class="content-section"></div>
+                <div id="comparison-display" class="content-section"></div>
+            </div>
+        </main>
+    </div>
+
+
+
+<script>
+    // --- COMPREHENSIVE UNIVERSITY DATABASE WITH NUMERICAL DATA ---
+    const universityData = {
+        "ANDAMAN AND NICOBAR ISLANDS": {
+            ini: [], central: [], deemed: [], private: [],
+            statePublic: [
+                {
+                    name: "Andaman & Nicobar Islands University (ANU)",
+                    location: "Port Blair",
+                    website: "https://anu.and.nic.in/",
+                    established: 2015,
+                    nirfRanking: "N/A",
+                    flagshipCourses: [
+                        { name: "M.Sc. Marine Biology", feesINR: "₹20-30k (2 Yrs)", avgSalaryLPA: "4-6 LPA", placementRate: "Moderate", resultsPercent: "80-90%", entranceExam: "University Test" },
+                        { name: "MBA Tourism & Travel Management", feesINR: "₹60-80k (2 Yrs)", avgSalaryLPA: "4-7 LPA", placementRate: "Good", resultsPercent: "85-95%", entranceExam: "University Test" }
+                    ],
+                    allCourses: "Affiliates all UG colleges in the islands (B.A, B.Com, B.Sc, B.Tech, B.Ed, LLB)."
+                }
+            ]
+        },
+        "ANDHRA PRADESH": {
+            ini: [
+                {
+                    name: "Indian Institute of Technology Tirupati (IIT Tirupati)",
+                    location: "Yerpedu, Tirupati District",
+                    website: "https://www.iittp.ac.in/",
+                    established: 2015,
+                    nirfRanking: "59 (Engg. 2023)",
+                    flagshipCourses: [
+                        { name: "B.Tech", feesINR: "₹8-10 Lakhs (4 Yrs)", avgSalaryLPA: "12-16 LPA", placementRate: "92%", resultsPercent: "90-98%", entranceExam: "JEE Advanced" }
+                    ],
+                    allCourses: "Undergraduate (B.Tech): Chemical, Civil, CSE, Electrical, Mechanical. Postgraduate (M.Tech/M.S./M.Sc): M.Tech, M.S. (Research), M.Sc. in Mathematics."
+                },
+                {
+                    name: "Indian Institute of Management Visakhapatnam (IIM Visakhapatnam)",
+                    location: "Visakhapatnam",
+                    website: "https://www.iimv.ac.in/",
+                    established: 2015,
+                    nirfRanking: "29 (Mgmt. 2023)",
+                    flagshipCourses: [
+                        { name: "MBA (PGP)", feesINR: "₹17-18 Lakhs (2 Yrs)", avgSalaryLPA: "16-18 LPA", placementRate: "100%", resultsPercent: "95-100%", entranceExam: "CAT" }
+                    ],
+                    allCourses: "Postgraduate Management: MBA with various specializations. Executive Programs: PGPEP, MBA for Working Professionals."
+                }
+            ],
+            central: [],
+            statePublic: [
+                {
+                    name: "Andhra University",
+                    location: "Visakhapatnam",
+                    website: "https://www.andhrauniversity.edu.in/",
+                    established: 1926,
+                    nirfRanking: "76 (Overall 2023)",
+                    flagshipCourses: [
+                        { name: "B.E./B.Tech", feesINR: "₹1-2 Lakhs (4 Yrs)", avgSalaryLPA: "5-8 LPA", placementRate: "75%", resultsPercent: "80-90%", entranceExam: "AP EAPCET" }
+                    ],
+                    allCourses: "Engineering: B.E./B.Tech and M.E./M.Tech. Sciences: B.Sc and M.Sc. Arts & Commerce: B.A., B.Com, M.A., M.Com. Pharmacy: B.Pharm, M.Pharm. Law: LLB, LLM."
+                }
+            ],
+            deemed: [
+                {
+                    name: "Gandhi Institute of Technology and Management (GITAM)",
+                    location: "Visakhapatnam",
+                    website: "https://www.gitam.edu/",
+                    established: 1980,
+                    nirfRanking: "61 (Univ. 2023)",
+                    flagshipCourses: [
+                        { name: "B.Tech", feesINR: "₹12-15 Lakhs (4 Yrs)", avgSalaryLPA: "5-7 LPA", placementRate: "91%", resultsPercent: "85-95%", entranceExam: "GAT" }
+                    ],
+                    allCourses: "Engineering, Management, Science, Pharmacy, Law, Architecture, and Humanities."
+                }
+            ],
+            private: [
+                 {
+                    name: "SRM University, AP",
+                    location: "Amaravati",
+                    website: "https://srmap.edu.in/",
+                    established: 2017,
+                    nirfRanking: "N/A",
+                    flagshipCourses: [
+                        { name: "B.Tech", feesINR: "₹15-18 Lakhs (4 Yrs)", avgSalaryLPA: "8-10 LPA", placementRate: "92%", resultsPercent: "90-95%", entranceExam: "SRMJEEE / AP EAPCET" }
+                    ],
+                    allCourses: "Engineering (CSE with specializations in AI & ML, Blockchain), Liberal Arts & Basic Sciences (B.A., B.Sc., BBA), Management (MBA)."
+                }
+            ]
+        },
+        "ARUNACHAL PRADESH": {
+            ini: [
+                {
+                    name: "National Institute of Technology, Arunachal Pradesh (NIT-AP)",
+                    location: "Jote, Papum Pare District",
+                    website: "https://www.nitap.ac.in/",
+                    established: 2010,
+                    nirfRanking: "194 (Engg. 2023)",
+                    flagshipCourses: [
+                        { name: "B.Tech", feesINR: "₹6-8 Lakhs (4 Yrs)", avgSalaryLPA: "6-8 LPA", placementRate: "82%", resultsPercent: "85-95%", entranceExam: "JEE Main" }
+                    ],
+                    allCourses: "Undergraduate (B.Tech): Biotechnology, Chemical, Civil, CSE, ECE, EEE, Mechanical. Postgraduate (M.Tech): Specializations in various engineering branches."
+                }
+            ],
+            central: [
+                {
+                    name: "Rajiv Gandhi University",
+                    location: "Rono Hills, Doimukh",
+                    website: "https://rgu.ac.in/",
+                    established: 1984,
+                    nirfRanking: "101-150 (Univ. 2023)",
+                    flagshipCourses: [
+                         { name: "M.A./M.Sc./M.Com", feesINR: "₹20-40k (2 Yrs)", avgSalaryLPA: "3-5 LPA", placementRate: "Moderate", resultsPercent: "75-85%", entranceExam: "CUET-PG" }
+                    ],
+                    allCourses: "Primary affiliating university. On-campus programs include B.Ed., B.P.Ed., M.A., M.Sc., M.Com, MCA, MBA."
+                }
+            ],
+            statePublic: [], deemed: [], private: []
+        },
+        "ASSAM": {
+            ini: [
+                {
+                    name: "Indian Institute of Technology Guwahati (IIT Guwahati)",
+                    location: "Guwahati",
+                    website: "https://www.iitg.ac.in/",
+                    established: 1994,
+                    nirfRanking: "7 (Engg. 2023)",
+                    flagshipCourses: [
+                        { name: "B.Tech", feesINR: "₹8-10 Lakhs (4 Yrs)", avgSalaryLPA: "20-25 LPA", placementRate: "95%", resultsPercent: "90-98%", entranceExam: "JEE Advanced" },
+                        { name: "B.Des", feesINR: "₹8-10 Lakhs (4 Yrs)", avgSalaryLPA: "15-20 LPA", placementRate: "100%", resultsPercent: "90-98%", entranceExam: "UCEED" }
+                    ],
+                    allCourses: "Undergraduate (B.Tech/B.Des): All major engineering branches. Postgraduate (M.Tech/M.Des/M.S./M.Sc/M.A.): Numerous specializations."
+                }
+            ],
+            central: [
+                {
+                    name: "Tezpur University",
+                    location: "Tezpur",
+                    website: "http://www.tezu.ernet.in/",
+                    established: 1994,
+                    nirfRanking: "90 (Univ. 2023)",
+                    flagshipCourses: [
+                        { name: "B.Tech", feesINR: "₹2-3 Lakhs (4 Yrs)", avgSalaryLPA: "5-7 LPA", placementRate: "Good", resultsPercent: "80-90%", entranceExam: "JEE Main" },
+                        { name: "MBA", feesINR: "₹1-2 Lakhs (2 Yrs)", avgSalaryLPA: "5-6 LPA", placementRate: "Good", resultsPercent: "85-95%", entranceExam: "CAT/MAT" }
+                    ],
+                    allCourses: "Engineering, Sciences, Management, Humanities & Social Sciences."
+                }
+            ],
+            statePublic: [
+                 {
+                    name: "Gauhati University",
+                    location: "Guwahati",
+                    website: "https://gauhati.ac.in/",
+                    established: 1948,
+                    nirfRanking: "88 (Univ. 2023)",
+                     flagshipCourses: [
+                        { name: "M.A./M.Sc./M.Com", feesINR: "₹20-50k (2 Yrs)", avgSalaryLPA: "3-6 LPA", placementRate: "Moderate", resultsPercent: "70-80%", entranceExam: "University Entrance Test" }
+                    ],
+                    allCourses: "Comprehensive affiliating university for Arts, Science, Commerce, Law, Management, and Technology."
+                }
+            ],
+            deemed: [],
+            private: [
+                {
+                    name: "Assam Don Bosco University",
+                    location: "Guwahati",
+                    website: "https://www.dbuniversity.ac.in/",
+                    established: 2008,
+                    nirfRanking: "N/A",
+                    flagshipCourses: [
+                        { name: "B.Tech", feesINR: "₹8-10 Lakhs (4 Yrs)", avgSalaryLPA: "4-6 LPA", placementRate: "85%", resultsPercent: "80-90%", entranceExam: "JEE Main / University Test" }
+                    ],
+                    allCourses: "Engineering & Technology, Management & Commerce, Humanities & Social Sciences, Sciences."
+                }
+            ]
+        },
+        "BIHAR": {
+            ini: [
+                {
+                    name: "Indian Institute of Technology Patna (IIT Patna)",
+                    location: "Bihta, Patna",
+                    website: "https://www.iitp.ac.in/",
+                    established: 2008,
+                    nirfRanking: "41 (Engg. 2023)",
+                    flagshipCourses: [
+                         { name: "B.Tech", feesINR: "₹8-10 Lakhs (4 Yrs)", avgSalaryLPA: "15-20 LPA", placementRate: "92%", resultsPercent: "90-95%", entranceExam: "JEE Advanced" }
+                    ],
+                    allCourses: "B.Tech in AI & Data Science, Chemical, Civil, CSE, EEE, Mechanical. M.Tech, M.Sc, and PhD programs."
+                }
+            ],
+            central: [],
+            statePublic: [
+                {
+                    name: "Patna University",
+                    location: "Patna",
+                    website: "https://www.pup.ac.in/",
+                    established: 1917,
+                    nirfRanking: "N/A",
+                     flagshipCourses: [
+                        { name: "B.A./B.Sc./B.Com", feesINR: "₹10-20k (3 Yrs)", avgSalaryLPA: "3-5 LPA", placementRate: "Low", resultsPercent: "60-70%", entranceExam: "Merit-based" }
+                    ],
+                    allCourses: "Constituent colleges in Arts, Science, Commerce, Law, and Education."
+                },
+                {
+                    name: "Chanakya National Law University (CNLU)",
+                    location: "Patna",
+                    website: "https://www.cnlu.ac.in/",
+                    established: 2006,
+                    nirfRanking: "N/A",
+                    flagshipCourses: [
+                        { name: "B.A./BBA LLB (Hons.)", feesINR: "₹8-10 Lakhs (5 Yrs)", avgSalaryLPA: "10-14 LPA", placementRate: "90%", resultsPercent: "90-95%", entranceExam: "CLAT" }
+                    ],
+                    allCourses: "Integrated Law programs, LL.M, and PhD."
+                }
+            ],
+            deemed: [],
+            private: []
+        },
+
+        "CHANDIGARH": {
+            ini: [
+                {
+                    name: "Postgraduate Institute of Medical Education and Research (PGIMER)",
+                    location: "Chandigarh",
+                    website: "https://pgimer.edu.in/",
+                    established: 1962,
+                    nirfRanking: "2 (Medical 2023)",
+                    flagshipCourses: [
+                         { name: "MD/MS", feesINR: "₹15-25k (3 Yrs)", avgSalaryLPA: "12-18 LPA (as SR)", placementRate: "100%", resultsPercent: "95-100%", entranceExam: "INI-CET" }
+                    ],
+                    allCourses: "Postgraduate (MD/MS), Super-Specialty (DM/M.Ch), PhD, and Health Science (M.Sc, MPH) programs. No MBBS."
+                }
+            ],
+            central: [],
+            statePublic: [
+                {
+                    name: "Punjab Engineering College (PEC)",
+                    location: "Chandigarh",
+                    website: "https://pec.ac.in/",
+                    established: 1921,
+                    nirfRanking: "92 (Engg. 2023)",
+                     flagshipCourses: [
+                        { name: "B.Tech", feesINR: "₹8-9 Lakhs (4 Yrs)", avgSalaryLPA: "12-16 LPA", placementRate: "93%", resultsPercent: "85-95%", entranceExam: "JEE Main" }
+                    ],
+                    allCourses: "B.Tech in Aerospace, Civil, CSE, ECE, EEE, Mechanical. M.Tech specializations."
+                }
+            ],
+            deemed: [
+                {
+                    name: "Panjab University",
+                    location: "Chandigarh",
+                    website: "https://puchd.ac.in/",
+                    established: 1882,
+                    nirfRanking: "44 (Univ. 2023)",
+                    flagshipCourses: [
+                        { name: "MBA (UBS)", feesINR: "₹1-2 Lakhs (2 Yrs)", avgSalaryLPA: "10-12 LPA", placementRate: "100%", resultsPercent: "90-98%", entranceExam: "CAT" },
+                        { name: "B.E. (UIET)", feesINR: "₹4-5 Lakhs (4 Yrs)", avgSalaryLPA: "6-8 LPA", placementRate: "Good", resultsPercent: "80-90%", entranceExam: "JEE Main" }
+                    ],
+                    allCourses: "On-campus programs in Law (UILS), Business (UBS), Pharmacy (UIPS), Engineering (UIET), Arts and Science. Affiliates colleges in Chandigarh."
+                }
+            ],
+            private: []
+        },
+        "CHHATTISGARH": {
+            ini: [
+                {
+                    name: "Indian Institute of Technology Bhilai (IIT Bhilai)",
+                    location: "Bhilai, Durg District",
+                    website: "https://www.iitbhilai.ac.in/",
+                    established: 2016,
+                    nirfRanking: "N/A",
+                    flagshipCourses: [
+                        { name: "B.Tech", feesINR: "₹8-10 Lakhs (4 Yrs)", avgSalaryLPA: "14-18 LPA", placementRate: "90%+", resultsPercent: "90-95%", entranceExam: "JEE Advanced" }
+                    ],
+                    allCourses: "B.Tech in CSE, Data Science & AI, ECE, Mechanical, Materials Science. M.Tech, M.Sc, and PhD programs."
+                },
+                {
+                    name: "National Institute of Technology, Raipur (NIT Raipur)",
+                    location: "Raipur",
+                    website: "http://www.nitrr.ac.in/",
+                    established: 1956,
+                    nirfRanking: "70 (Engg. 2023)",
+                    flagshipCourses: [
+                        { name: "B.Tech", feesINR: "₹6-8 Lakhs (4 Yrs)", avgSalaryLPA: "10-13 LPA", placementRate: "91%", resultsPercent: "85-95%", entranceExam: "JEE Main" }
+                    ],
+                    allCourses: "B.Tech in Bio-Medical, Bio-Tech, Chemical, Civil, CSE, ECE, EEE, IT, Mechanical, Mining; B.Arch. M.Tech and MCA."
+                }
+            ],
+            central: [
+                {
+                    name: "Guru Ghasidas Vishwavidyalaya",
+                    location: "Bilaspur",
+                    website: "https://www.ggu.ac.in/",
+                    established: 1983,
+                    nirfRanking: "101-150 (Univ. 2023)",
+                    flagshipCourses: [
+                        { name: "B.Tech", feesINR: "₹2-3 Lakhs (4 Yrs)", avgSalaryLPA: "4-6 LPA", placementRate: "Good", resultsPercent: "75-85%", entranceExam: "JEE Main / VET" }
+                    ],
+                    allCourses: "B.Tech, B.Pharm, B.Ed., B.Com (Hons.), B.A, B.Sc. Also offers M.Tech, M.Pharm, M.Ed., MBA."
+                }
+            ],
+            statePublic: [
+                {
+                    name: "Hidayatullah National Law University (HNLU)",
+                    location: "Raipur",
+                    website: "https://hnlu.ac.in/",
+                    established: 2003,
+                    nirfRanking: "N/A",
+                    flagshipCourses: [
+                        { name: "B.A. LLB (Hons.)", feesINR: "₹9-11 Lakhs (5 Yrs)", avgSalaryLPA: "10-15 LPA", placementRate: "90%+", resultsPercent: "90-98%", entranceExam: "CLAT" }
+                    ],
+                    allCourses: "5-year integrated B.A. LLB (Hons.), a one-year LL.M program, and a PhD in Law."
+                }
+            ],
+            deemed: [],
+            private: []
+        },
+        "DADRA AND NAGAR HAVELI AND DAMAN AND DIU": {
+            ini: [], central: [], statePublic: [], deemed: [], private: [],
+            // Using a custom category to list affiliated colleges
+            affiliated: [
+                 {
+                    name: "Namo Medical Education & Research Institute",
+                    location: "Silvassa",
+                    website: "https://namoeducation.in/",
+                    established: 2019,
+                    nirfRanking: "N/A",
+                    flagshipCourses: [
+                        { name: "MBBS", feesINR: "₹4-5 Lakhs (5.5 Yrs)", avgSalaryLPA: "N/A", placementRate: "100% (Internship)", resultsPercent: "90-98%", entranceExam: "NEET-UG" }
+                    ],
+                    allCourses: "This is the only medical college in the UT, affiliated to VNSGU, Surat."
+                }
+            ]
+        },
+        "DELHI": {
+            ini: [
+                {
+                    name: "Indian Institute of Technology Delhi (IIT Delhi)",
+                    location: "Hauz Khas, New Delhi",
+                    website: "https://home.iitd.ac.in/",
+                    established: 1961,
+                    nirfRanking: "2 (Engg. 2023)",
+                    flagshipCourses: [
+                         { name: "B.Tech", feesINR: "₹8-10 Lakhs (4 Yrs)", avgSalaryLPA: "22-28 LPA", placementRate: "96%", resultsPercent: "95-99%", entranceExam: "JEE Advanced" }
+                    ],
+                    allCourses: "B.Tech in Biotech, Chemical, Civil, CSE, EEE, Eng. Physics, Mechanical. M.Tech, M.S., M.Sc, MBA (DMS)."
+                },
+                {
+                    name: "All India Institute of Medical Sciences (AIIMS) Delhi",
+                    location: "Ansari Nagar, New Delhi",
+                    website: "https://www.aiims.edu/",
+                    established: 1956,
+                    nirfRanking: "1 (Medical 2023)",
+                     flagshipCourses: [
+                        { name: "MBBS", feesINR: "< ₹10,000 (5.5 Yrs)", avgSalaryLPA: "12-18 LPA (as JR)", placementRate: "100%", resultsPercent: "98-100%", entranceExam: "NEET-UG" }
+                    ],
+                    allCourses: "MBBS, B.Sc. (Hons.) Nursing, B.Sc. Paramedical. The most sought-after MD, MS, DM, and M.Ch programs in India."
+                }
+            ],
+            central: [
+                {
+                    name: "University of Delhi (DU)",
+                    location: "North & South Campus, New Delhi",
+                    website: "http://www.du.ac.in/",
+                    established: 1922,
+                    nirfRanking: "11 (Univ. 2023)",
+                    flagshipCourses: [
+                        { name: "B.Com (Hons.) - SRCC", feesINR: "₹1-1.5 Lakhs (3 Yrs)", avgSalaryLPA: "9-12 LPA", placementRate: "95%", resultsPercent: "90-98%", entranceExam: "CUET-UG" },
+                        { name: "MBA (FMS)", feesINR: "₹2-3 Lakhs (2 Yrs)", avgSalaryLPA: "30-34 LPA", placementRate: "100%", resultsPercent: "98-100%", entranceExam: "CAT" }
+                    ],
+                    allCourses: "Affiliates 75+ colleges (St. Stephen's, Hindu, LSR) for B.A, B.Com, B.Sc (Hons.). On-campus faculties for PG and PhD."
+                },
+                {
+                    name: "Jawaharlal Nehru University (JNU)",
+                    location: "New Delhi",
+                    website: "https://www.jnu.ac.in/",
+                    established: 1969,
+                    nirfRanking: "2 (Univ. 2023)",
+                     flagshipCourses: [
+                        { name: "M.A. (Intl. Relations)", feesINR: "< ₹10,000 (2 Yrs)", avgSalaryLPA: "6-10 LPA", placementRate: "Focus on Academia/Govt", resultsPercent: "85-95%", entranceExam: "CUET-PG" }
+                    ],
+                    allCourses: "Primarily PG and Research. Renowned for M.A. in International Relations, Political Science, Economics; M.Sc. in Life Sciences. B.A. (Hons.) in foreign languages."
+                }
+            ],
+            statePublic: [
+                {
+                    name: "Delhi Technological University (DTU)",
+                    location: "Rohini, New Delhi",
+                    website: "http://www.dtu.ac.in/",
+                    established: 1941,
+                    nirfRanking: "29 (Engg. 2023)",
+                    flagshipCourses: [
+                        { name: "B.Tech", feesINR: "₹8-9 Lakhs (4 Yrs)", avgSalaryLPA: "15-20 LPA", placementRate: "95%", resultsPercent: "90-98%", entranceExam: "JEE Main (JAC Delhi)" }
+                    ],
+                    allCourses: "B.Tech in Software, Automotive, Eng. Physics, etc.; B.Des, BBA. M.Tech and MBA (DSM)."
+                },
+                {
+                    name: "National Law University, Delhi (NLU Delhi)",
+                    location: "Dwarka, New Delhi",
+                    website: "https://nludelhi.ac.in/",
+                    established: 2008,
+                    nirfRanking: "2 (Law 2023)",
+                    flagshipCourses: [
+                        { name: "B.A. LLB (Hons.)", feesINR: "₹15-18 Lakhs (5 Yrs)", avgSalaryLPA: "18-20 LPA", placementRate: "100%", resultsPercent: "95-100%", entranceExam: "AILET" }
+                    ],
+                    allCourses: "5-year integrated B.A. LLB (Hons.), one-year LL.M program, and a PhD in Law."
+                }
+            ],
+            deemed: [],
+            private: []
+        },
+        "GOA": {
+            ini: [
+                {
+                    name: "Indian Institute of Technology Goa (IIT Goa)",
+                    location: "Farmagudi, Ponda",
+                    website: "https://iitgoa.ac.in/",
+                    established: 2016,
+                    nirfRanking: "N/A",
+                    flagshipCourses: [
+                        { name: "B.Tech", feesINR: "₹8-10 Lakhs (4 Yrs)", avgSalaryLPA: "16-20 LPA", placementRate: "90%+", resultsPercent: "90-95%", entranceExam: "JEE Advanced" }
+                    ],
+                    allCourses: "B.Tech in CSE, EEE, Mechanical, Mathematics & Computing. M.Tech and PhD programs."
+                }
+            ],
+            central: [],
+            statePublic: [
+                 {
+                    name: "Goa University",
+                    location: "Taleigao Plateau, Panaji",
+                    website: "https://www.unigoa.ac.in/",
+                    established: 1985,
+                    nirfRanking: "101-150 (Univ. 2023)",
+                    flagshipCourses: [
+                        { name: "M.Sc. Marine Sciences", feesINR: "₹40-60k (2 Yrs)", avgSalaryLPA: "5-8 LPA", placementRate: "Good", resultsPercent: "80-90%", entranceExam: "University Test" }
+                    ],
+                    allCourses: "Affiliating university for B.A, B.Com, B.Sc, B.E, B.Pharm, LL.B. On-campus M.A, M.Sc, M.Com, MBA, MCA, M.Pharm, LL.M."
+                }
+            ],
+            deemed: [],
+            private: [
+                {
+                    name: "Birla Institute of Technology & Science, Pilani – Goa Campus",
+                    location: "Zuarinagar, Sancoale",
+                    website: "https://www.bits-pilani.ac.in/goa/",
+                    established: 2004,
+                    nirfRanking: "25 (Univ. 2023 - as BITS)",
+                    flagshipCourses: [
+                        { name: "B.E.", feesINR: "₹22-25 Lakhs (4 Yrs)", avgSalaryLPA: "20-26 LPA", placementRate: "98%", resultsPercent: "90-98%", entranceExam: "BITSAT" }
+                    ],
+                    allCourses: "B.E. in Chemical, CSE, ECE, EEE, Mechanical. M.Sc. in Biology, Chemistry, Eco, Maths, Physics (with dual degree option)."
+                }
+            ]
+        },
+
+        "GUJARAT": {
+            ini: [
+                 {
+                    name: "Indian Institute of Technology Gandhinagar (IIT Gandhinagar)",
+                    location: "Gandhinagar",
+                    website: "https://iitgn.ac.in/",
+                    established: 2008,
+                    nirfRanking: "18 (Engg. 2023)",
+                    flagshipCourses: [
+                        { name: "B.Tech", feesINR: "₹8-10 Lakhs (4 Yrs)", avgSalaryLPA: "15-19 LPA", placementRate: "92%", resultsPercent: "90-98%", entranceExam: "JEE Advanced" }
+                    ],
+                    allCourses: "B.Tech in Chemical, Civil, CSE, EEE, Materials, Mechanical Engg, AI. M.Tech, M.Sc, M.A."
+                },
+                {
+                    name: "Indian Institute of Management Ahmedabad (IIM Ahmedabad)",
+                    location: "Ahmedabad",
+                    website: "https://www.iima.ac.in/",
+                    established: 1961,
+                    nirfRanking: "1 (Mgmt. 2023)",
+                    flagshipCourses: [
+                        { name: "MBA (PGP)", feesINR: "₹25-27 Lakhs (2 Yrs)", avgSalaryLPA: "32-35 LPA", placementRate: "100%", resultsPercent: "98-100%", entranceExam: "CAT" }
+                    ],
+                    allCourses: "PGP in Management, PGP in Food and Agribusiness Management, PGPX for Executives."
+                }
+            ],
+            central: [],
+            statePublic: [
+                {
+                    name: "The Maharaja Sayajirao University of Baroda (MSU Baroda)",
+                    location: "Vadodara",
+                    website: "https://www.msubaroda.ac.in/",
+                    established: 1949,
+                    nirfRanking: "101-150 (Univ. 2023)",
+                     flagshipCourses: [
+                        { name: "B.E./B.Tech", feesINR: "₹50-80k (4 Yrs)", avgSalaryLPA: "5-7 LPA", placementRate: "Good", resultsPercent: "75-85%", entranceExam: "GUJCET" }
+                    ],
+                    allCourses: "Comprehensive programs in Fine Arts, Technology & Engineering, Science, Arts, Commerce, Law, and Medicine."
+                }
+            ],
+            deemed: [],
+            private: [
+                {
+                    name: "Dhirubhai Ambani Institute of ICT (DA-IICT)",
+                    location: "Gandhinagar",
+                    website: "https://www.daiict.ac.in/",
+                    established: 2001,
+                    nirfRanking: "101-150 (Engg. 2023)",
+                    flagshipCourses: [
+                        { name: "B.Tech (ICT)", feesINR: "₹8-9 Lakhs (4 Yrs)", avgSalaryLPA: "16-20 LPA", placementRate: "100%", resultsPercent: "95-99%", entranceExam: "JEE Main" }
+                    ],
+                    allCourses: "B.Tech in ICT, Mathematics & Computing. M.Tech in ICT, M.Sc. in Data Science, M.Des in Communication Design."
+                }
+            ]
+        },
+        "HARYANA": {
+            ini: [
+                {
+                    name: "Indian Institute of Management Rohtak (IIM Rohtak)",
+                    location: "Rohtak",
+                    website: "https://www.iimrohtak.ac.in/",
+                    established: 2009,
+                    nirfRanking: "12 (Mgmt. 2023)",
+                    flagshipCourses: [
+                        { name: "MBA (PGP)", feesINR: "₹17-19 Lakhs (2 Yrs)", avgSalaryLPA: "18-20 LPA", placementRate: "100%", resultsPercent: "95-100%", entranceExam: "CAT" }
+                    ],
+                    allCourses: "MBA, Integrated BBA+MBA, Integrated BBA+LLB."
+                }
+            ],
+            central: [],
+            statePublic: [],
+            deemed: [],
+            private: [
+                {
+                    name: "Ashoka University",
+                    location: "Sonipat",
+                    website: "https://www.ashoka.edu.in/",
+                    established: 2014,
+                    nirfRanking: "N/A",
+                    flagshipCourses: [
+                        { name: "B.A./B.Sc. (Liberal Arts)", feesINR: "₹38-40 Lakhs (4 Yrs)", avgSalaryLPA: "10-14 LPA", placementRate: "High", resultsPercent: "90-98%", entranceExam: "AAT / SAT" }
+                    ],
+                    allCourses: "B.A./B.Sc. (Hons.) with majors in Economics, Political Science, History, Psychology, CSE, Physics. Flagship Young India Fellowship (YIF)."
+                },
+                {
+                    name: "O. P. Jindal Global University",
+                    location: "Sonipat",
+                    website: "https://jgu.edu.in/",
+                    established: 2009,
+                    nirfRanking: "N/A",
+                    flagshipCourses: [
+                         { name: "B.A./BBA LLB (Hons.)", feesINR: "₹30-35 Lakhs (5 Yrs)", avgSalaryLPA: "15-18 LPA", placementRate: "High", resultsPercent: "90-98%", entranceExam: "LSAT-India / JSAT" }
+                    ],
+                    allCourses: "Law (JGLS), Business (JGBS), International Affairs, Journalism & Media, Architecture."
+                }
+            ]
+        },
+
+        "HIMACHAL PRADESH": {
+            ini: [
+                {
+                    name: "Indian Institute of Technology Mandi (IIT Mandi)",
+                    location: "Kamand Valley, Mandi",
+                    website: "https://www.iitmandi.ac.in/",
+                    established: 2009,
+                    nirfRanking: "33 (Engg. 2023)",
+                    flagshipCourses: [
+                        { name: "B.Tech", feesINR: "₹8-10 Lakhs (4 Yrs)", avgSalaryLPA: "18-22 LPA", placementRate: "93%", resultsPercent: "90-98%", entranceExam: "JEE Advanced" }
+                    ],
+                    allCourses: "B.Tech in CSE, Data Science, EEE, Mechanical, Civil, Bioengineering. M.Tech, M.S. (Research), M.Sc."
+                }
+            ],
+            central: [],
+            statePublic: [
+                {
+                    name: "Himachal Pradesh University (HPU)",
+                    location: "Shimla",
+                    website: "https://www.hpuniv.ac.in/",
+                    established: 1970,
+                    nirfRanking: "151-200 (Univ. 2023)",
+                    flagshipCourses: [
+                        { name: "MBA (HPUBS)", feesINR: "₹1-2 Lakhs (2 Yrs)", avgSalaryLPA: "5-7 LPA", placementRate: "Good", resultsPercent: "80-90%", entranceExam: "HPU-MAT" }
+                    ],
+                    allCourses: "Affiliating university for Arts, Science, Commerce, Law. On-campus Management, MCA."
+                }
+            ],
+            deemed: [],
+            private: [
+                {
+                    name: "Jaypee University of Information Technology",
+                    location: "Waknaghat, Solan",
+                    website: "https://www.juit.ac.in/",
+                    established: 2002,
+                    nirfRanking: "101-150 (Engg. 2023)",
+                    flagshipCourses: [
+                        { name: "B.Tech", feesINR: "₹10-12 Lakhs (4 Yrs)", avgSalaryLPA: "7-10 LPA", placementRate: "90%", resultsPercent: "85-95%", entranceExam: "JEE Main" }
+                    ],
+                    allCourses: "B.Tech in CSE, IT, ECE, Civil, Bioinformatics. M.Tech and PhD programs."
+                }
+            ]
+        },
+        "JHARKHAND": {
+            ini: [
+                {
+                    name: "Indian Institute of Technology (ISM), Dhanbad",
+                    location: "Dhanbad",
+                    website: "https://www.iitism.ac.in/",
+                    established: 1926,
+                    nirfRanking: "17 (Engg. 2023)",
+                    flagshipCourses: [
+                        { name: "B.Tech (Mining/Petroleum)", feesINR: "₹8-10 Lakhs (4 Yrs)", avgSalaryLPA: "20-25 LPA", placementRate: "96%", resultsPercent: "90-98%", entranceExam: "JEE Advanced" }
+                    ],
+                    allCourses: "B.Tech in Mining, Petroleum, Mineral, CSE, EEE, Mechanical, Civil Engg. M.Tech, M.Sc, MBA."
+                },
+                {
+                    name: "Indian Institute of Management Ranchi (IIM Ranchi)",
+                    location: "Ranchi",
+                    website: "https://www.iimranchi.ac.in/",
+                    established: 2009,
+                    nirfRanking: "24 (Mgmt. 2023)",
+                    flagshipCourses: [
+                        { name: "MBA-HRM", feesINR: "₹17-18 Lakhs (2 Yrs)", avgSalaryLPA: "16-18 LPA", placementRate: "100%", resultsPercent: "95-100%", entranceExam: "CAT" }
+                    ],
+                    allCourses: "MBA, MBA-HRM, MBA-Business Analytics, Integrated BBA+MBA."
+                }
+            ],
+            central: [],
+            statePublic: [],
+            deemed: [
+                {
+                    name: "Birla Institute of Technology, Mesra (BIT Mesra)",
+                    location: "Mesra, Ranchi",
+                    website: "https://www.bitmesra.ac.in/",
+                    established: 1955,
+                    nirfRanking: "53 (Engg. 2023)",
+                    flagshipCourses: [
+                        { name: "B.E./B.Tech", feesINR: "₹12-14 Lakhs (4 Yrs)", avgSalaryLPA: "11-14 LPA", placementRate: "92%", resultsPercent: "85-95%", entranceExam: "JEE Main" }
+                    ],
+                    allCourses: "B.E. in CSE, ECE, Mechanical, Civil; B.Arch, B.Pharm, BHMCT. M.E, M.Pharm, MBA, MCA."
+                }
+            ],
+            private: []
+        },
+        "KARNATAKA": {
+            ini: [
+                {
+                    name: "Indian Institute of Science (IISc)",
+                    location: "Bengaluru",
+                    website: "https://iisc.ac.in/",
+                    established: 1909,
+                    nirfRanking: "1 (Overall 2023)",
+                    flagshipCourses: [
+                        { name: "B.S. (Research)", feesINR: "₹1-2 Lakhs (4 Yrs)", avgSalaryLPA: "15-20 LPA", placementRate: "High (Focus on Research)", resultsPercent: "95-100%", entranceExam: "JEE/NEET" },
+                        { name: "M.Tech (CSE/AI)", feesINR: "₹1-2 Lakhs (2 Yrs)", avgSalaryLPA: "30-35 LPA", placementRate: "100%", resultsPercent: "98-100%", entranceExam: "GATE" }
+                    ],
+                    allCourses: "4-year B.S. (Research), M.Tech, M.Des, M.Mgt, and world-class PhD programs."
+                },
+                {
+                    name: "Indian Institute of Management Bangalore (IIM Bangalore)",
+                    location: "Bengaluru",
+                    website: "https://www.iimb.ac.in/",
+                    established: 1973,
+                    nirfRanking: "2 (Mgmt. 2023)",
+                    flagshipCourses: [
+                        { name: "MBA (PGP)", feesINR: "₹24-26 Lakhs (2 Yrs)", avgSalaryLPA: "33-35 LPA", placementRate: "100%", resultsPercent: "98-100%", entranceExam: "CAT" }
+                    ],
+                    allCourses: "MBA, MBA in Business Analytics, Executive PGP, PhD programs."
+                }
+            ],
+            central: [],
+            statePublic: [
+                {
+                    name: "National Law School of India University (NLSIU)",
+                    location: "Bengaluru",
+                    website: "https://www.nls.ac.in/",
+                    established: 1986,
+                    nirfRanking: "1 (Law 2023)",
+                    flagshipCourses: [
+                        { name: "B.A. LLB (Hons.)", feesINR: "₹18-20 Lakhs (5 Yrs)", avgSalaryLPA: "18-22 LPA", placementRate: "100%", resultsPercent: "98-100%", entranceExam: "CLAT" }
+                    ],
+                    allCourses: "5-year integrated B.A. LLB (Hons.), LL.M, Master's in Public Policy, PhD."
+                }
+            ],
+            deemed: [
+                {
+                    name: "Manipal Academy of Higher Education (MAHE)",
+                    location: "Manipal",
+                    website: "https://www.manipal.edu/",
+                    established: 1953,
+                    nirfRanking: "6 (Univ. 2023)",
+                    flagshipCourses: [
+                        { name: "B.Tech (MIT)", feesINR: "₹16-18 Lakhs (4 Yrs)", avgSalaryLPA: "10-13 LPA", placementRate: "95%", resultsPercent: "90-98%", entranceExam: "MET" },
+                        { name: "MBBS (KMC)", feesINR: "₹70-80 Lakhs (5.5 Yrs)", avgSalaryLPA: "N/A", placementRate: "100% (Internship)", resultsPercent: "95-100%", entranceExam: "NEET-UG" }
+                    ],
+                    allCourses: "Engineering (MIT), Medicine (KMC), Management, Pharmacy, Dentistry, Architecture."
+                }
+            ],
+            private: [
+                {
+                    name: "PES University",
+                    location: "Bengaluru",
+                    website: "https://pes.edu/",
+                    established: 1972,
+                    nirfRanking: "101-150 (Univ. 2023)",
+                    flagshipCourses: [
+                        { name: "B.Tech (CSE)", feesINR: "₹16-18 Lakhs (4 Yrs)", avgSalaryLPA: "12-16 LPA", placementRate: "95%", resultsPercent: "90-98%", entranceExam: "PESSAT / KCET" }
+                    ],
+                    allCourses: "B.Tech, BBA, MBA, B.Com, Law, Design, and Architecture."
+                }
+            ]
+        },
+        "KERALA": {
+            ini: [
+                {
+                    name: "Indian Institute of Management Kozhikode (IIM Kozhikode)",
+                    location: "Kozhikode",
+                    website: "https://iimk.ac.in/",
+                    established: 1996,
+                    nirfRanking: "3 (Mgmt. 2023)",
+                    flagshipCourses: [
+                        { name: "MBA (PGP)", feesINR: "₹20-22 Lakhs (2 Yrs)", avgSalaryLPA: "28-31 LPA", placementRate: "100%", resultsPercent: "95-100%", entranceExam: "CAT" }
+                    ],
+                    allCourses: "MBA, PGP in Finance, PGP in Liberal Studies & Management."
+                },
+                {
+                    name: "National Institute of Technology Calicut (NIT Calicut)",
+                    location: "Kozhikode",
+                    website: "http://www.nitc.ac.in/",
+                    established: 1961,
+                    nirfRanking: "23 (Engg. 2023)",
+                    flagshipCourses: [
+                        { name: "B.Tech", feesINR: "₹6-8 Lakhs (4 Yrs)", avgSalaryLPA: "12-15 LPA", placementRate: "94%", resultsPercent: "90-98%", entranceExam: "JEE Main" }
+                    ],
+                    allCourses: "B.Tech in Chemical, Civil, CSE, EEE, ECE, Mechanical; B.Arch. M.Tech, MCA, MBA."
+                }
+            ],
+            central: [],
+            statePublic: [
+                {
+                    name: "Cochin University of Science and Technology (CUSAT)",
+                    location: "Kochi",
+                    website: "https://www.cusat.ac.in/",
+                    established: 1971,
+                    nirfRanking: "63 (Univ. 2023)",
+                    flagshipCourses: [
+                        { name: "B.Tech (Marine Engg.)", feesINR: "₹3-4 Lakhs (4 Yrs)", avgSalaryLPA: "8-12 LPA", placementRate: "High", resultsPercent: "85-95%", entranceExam: "CUSAT CAT" }
+                    ],
+                    allCourses: "B.Tech, M.Tech, flagship Marine Sciences school, M.Sc, MBA, Law."
+                }
+            ],
+            deemed: [
+                {
+                    name: "Amrita Vishwa Vidyapeetham, Amritapuri Campus",
+                    location: "Amritapuri, Kollam",
+                    website: "https://www.amrita.edu/campus/amritapuri/",
+                    established: 1994,
+                    nirfRanking: "7 (Univ. 2023 - as Amrita)",
+                    flagshipCourses: [
+                        { name: "B.Tech", feesINR: "₹12-15 Lakhs (4 Yrs)", avgSalaryLPA: "7-10 LPA", placementRate: "94%", resultsPercent: "90-98%", entranceExam: "AEEE" }
+                    ],
+                    allCourses: "B.Tech in CSE, ECE, EEE, Mechanical. M.Tech, MSW, M.A., BAMS."
+                }
+            ],
+            private: []
+        },
+
+        "LADAKH": {
+            ini: [],
+            central: [
+                {
+                    name: "University of Ladakh",
+                    location: "Leh and Kargil",
+                    website: "https://www.universityofladakh.org.in/",
+                    established: 2019,
+                    nirfRanking: "N/A",
+                    flagshipCourses: [
+                        { name: "B.A./B.Sc./B.Com", feesINR: "₹10-20k (3 Yrs)", avgSalaryLPA: "N/A", placementRate: "N/A", resultsPercent: "70-80%", entranceExam: "Merit-based" }
+                    ],
+                    allCourses: "Affiliates all UG colleges. Offers M.Sc. in Botany, Zoology, Geology; M.A. in Political Science, History."
+                }
+            ],
+            statePublic: [],
+            deemed: [
+                 {
+                    name: "Central Institute of Buddhist Studies (CIBS)",
+                    location: "Leh",
+                    website: "https://www.cibs.ac.in/",
+                    established: 1959,
+                    nirfRanking: "N/A",
+                    flagshipCourses: [
+                        { name: "Bachelor's/Master's (Buddhist Studies)", feesINR: "Minimal", avgSalaryLPA: "N/A", placementRate: "N/A", resultsPercent: "85-95%", entranceExam: "University Test" }
+                    ],
+                    allCourses: "Bachelor's (Shastri), Master's (Acharya), M.Phil, and PhD in Buddhist studies."
+                }
+            ],
+            private: []
+        },
+        "LAKSHADWEEP": {
+            ini: [], central: [], statePublic: [], deemed: [], private: [],
+            affiliated: [
+                 {
+                    name: "Govt. Jawaharlal Nehru College",
+                    location: "Kavaratti",
+                    website: "https://jnc.utl.gov.in/",
+                    established: 1972,
+                    nirfRanking: "N/A",
+                    flagshipCourses: [
+                        { name: "B.Sc. Aquaculture", feesINR: "₹5-10k (3 Yrs)", avgSalaryLPA: "3-5 LPA", placementRate: "Moderate", resultsPercent: "75-85%", entranceExam: "Merit-based" }
+                    ],
+                    allCourses: "Offers B.A. English, B.Sc. Aquaculture, M.A. English, M.Sc. Aquaculture. Affiliated to Calicut University."
+                }
+            ]
+        },
+        "MADHYA PRADESH": {
+            ini: [
+                {
+                    name: "Indian Institute of Technology Indore (IIT Indore)",
+                    location: "Indore",
+                    website: "https://www.iiti.ac.in/",
+                    established: 2009,
+                    nirfRanking: "14 (Engg. 2023)",
+                    flagshipCourses: [
+                        { name: "B.Tech", feesINR: "₹8-10 Lakhs (4 Yrs)", avgSalaryLPA: "20-24 LPA", placementRate: "94%", resultsPercent: "90-98%", entranceExam: "JEE Advanced" }
+                    ],
+                    allCourses: "B.Tech in CSE, EEE, ME, Civil, Metallurgy, Chemical, Space Science Engg. M.Tech, M.S. (Research), M.Sc."
+                },
+                {
+                    name: "Indian Institute of Management Indore (IIM Indore)",
+                    location: "Indore",
+                    website: "https://www.iimidr.ac.in/",
+                    established: 1996,
+                    nirfRanking: "8 (Mgmt. 2023)",
+                    flagshipCourses: [
+                        { name: "MBA (PGP)", feesINR: "₹21-22 Lakhs (2 Yrs)", avgSalaryLPA: "28-30 LPA", placementRate: "100%", resultsPercent: "95-100%", entranceExam: "CAT" },
+                        { name: "IPM (BBA+MBA)", feesINR: "₹30-35 Lakhs (5 Yrs)", avgSalaryLPA: "24-26 LPA", placementRate: "100%", resultsPercent: "95-100%", entranceExam: "IPMAT" }
+                    ],
+                    allCourses: "Flagship MBA (PGP), 5-year Integrated Programme in Management (IPM), Executive PGP, PhD."
+                }
+            ],
+            central: [],
+            statePublic: [],
+            deemed: [],
+            private: [
+                {
+                    name: "VIT Bhopal University",
+                    location: "Bhopal",
+                    website: "https://vitbhopal.ac.in/",
+                    established: 2017,
+                    nirfRanking: "N/A",
+                    flagshipCourses: [
+                        { name: "B.Tech", feesINR: "₹12-14 Lakhs (4 Yrs)", avgSalaryLPA: "7-9 LPA", placementRate: "Good", resultsPercent: "85-95%", entranceExam: "VITEEE" }
+                    ],
+                    allCourses: "B.Tech in CSE (Gaming Tech, AI), ECE, Mechanical, Aerospace Engg. M.Tech, MCA."
+                }
+            ]
+        },
+        "MANIPUR": {
+            ini: [
+                {
+                    name: "National Institute of Technology, Manipur (NIT Manipur)",
+                    location: "Langol, Imphal",
+                    website: "https://www.nitmanipur.ac.in/",
+                    established: 2010,
+                    nirfRanking: "95 (Engg. 2023)",
+                    flagshipCourses: [
+                        { name: "B.Tech", feesINR: "₹6-8 Lakhs (4 Yrs)", avgSalaryLPA: "7-9 LPA", placementRate: "85%", resultsPercent: "85-95%", entranceExam: "JEE Main" }
+                    ],
+                    allCourses: "B.Tech in Civil, CSE, ECE, EEE, Mechanical. M.Tech, M.Sc, PhD programs."
+                },
+                {
+                    name: "National Sports University",
+                    location: "Imphal",
+                    website: "https://www.nsu.ac.in/",
+                    established: 2018,
+                    nirfRanking: "N/A",
+                    flagshipCourses: [
+                        { name: "B.Sc. (Sports Coaching)", feesINR: "₹1-2 Lakhs (3 Yrs)", avgSalaryLPA: "4-7 LPA", placementRate: "Good", resultsPercent: "90-98%", entranceExam: "University Test" }
+                    ],
+                    allCourses: "B.Sc. in Sports Coaching, Bachelor of Physical Education and Sports (BPES), M.Sc. Sports Coaching, M.A. Sports Psychology."
+                }
+            ],
+            central: [],
+            statePublic: [
+                {
+                    name: "Manipur University",
+                    location: "Canchipur, Imphal",
+                    website: "https://www.manipuruniv.ac.in/",
+                    established: 1980,
+                    nirfRanking: "101-150 (Univ. 2023)",
+                    flagshipCourses: [
+                        { name: "M.A./M.Sc.", feesINR: "₹20-40k (2 Yrs)", avgSalaryLPA: "3-5 LPA", placementRate: "Moderate", resultsPercent: "70-80%", entranceExam: "University Test" }
+                    ],
+                    allCourses: "Primary affiliating university. On-campus M.A, M.Sc, M.Com, MBA, LL.M, Master of Fine Arts."
+                }
+            ],
+            deemed: [],
+            private: []
+        },
+        "MEGHALAYA": {
+            ini: [
+                {
+                    name: "Indian Institute of Management Shillong (IIM Shillong)",
+                    location: "Shillong",
+                    website: "https://www.iimshillong.ac.in/",
+                    established: 2007,
+                    nirfRanking: "26 (Mgmt. 2023)",
+                    flagshipCourses: [
+                        { name: "MBA (PGP)", feesINR: "₹17-19 Lakhs (2 Yrs)", avgSalaryLPA: "25-27 LPA", placementRate: "100%", resultsPercent: "95-100%", entranceExam: "CAT" }
+                    ],
+                    allCourses: "MBA (PGP), PGP for Executives (PGPEx), PhD programs."
+                }
+            ],
+            central: [
+                {
+                    name: "North-Eastern Hill University (NEHU)",
+                    location: "Shillong",
+                    website: "https://nehu.ac.in/",
+                    established: 1973,
+                    nirfRanking: "80 (Univ. 2023)",
+                    flagshipCourses: [
+                         { name: "M.A./M.Sc.", feesINR: "₹20-40k (2 Yrs)", avgSalaryLPA: "3-6 LPA", placementRate: "Moderate", resultsPercent: "75-85%", entranceExam: "University Test / CUET-PG" }
+                    ],
+                    allCourses: "Primary affiliating university. On-campus B.Tech, M.Tech, MBA, Law."
+                }
+            ],
+            statePublic: [],
+            deemed: [],
+            private: []
+        },
+        "MIZORAM": {
+            ini: [
+                {
+                    name: "National Institute of Technology Mizoram (NIT Mizoram)",
+                    location: "Aizawl",
+                    website: "https://www.nitmz.ac.in/",
+                    established: 2010,
+                    nirfRanking: "N/A",
+                    flagshipCourses: [
+                        { name: "B.Tech", feesINR: "₹6-8 Lakhs (4 Yrs)", avgSalaryLPA: "6-8 LPA", placementRate: "80%", resultsPercent: "85-95%", entranceExam: "JEE Main" }
+                    ],
+                    allCourses: "B.Tech in Civil, CSE, ECE, EEE, Mechanical. M.Tech and PhD programs."
+                }
+            ],
+            central: [
+                {
+                    name: "Mizoram University",
+                    location: "Aizawl",
+                    website: "https://mzu.edu.in/",
+                    established: 2000,
+                    nirfRanking: "76 (Univ. 2023)",
+                    flagshipCourses: [
+                        { name: "M.A./M.Sc.", feesINR: "₹20-40k (2 Yrs)", avgSalaryLPA: "3-5 LPA", placementRate: "Moderate", resultsPercent: "75-85%", entranceExam: "CUET-PG" }
+                    ],
+                    allCourses: "Primary affiliating university. On-campus B.Tech, M.A, M.Sc, M.Com, MBA, Mass Comm, M.Ed."
+                }
+            ],
+            statePublic: [],
+            deemed: [],
+            private: []
+        },
+        "NAGALAND": {
+            ini: [
+                {
+                    name: "National Institute of Technology Nagaland (NIT Nagaland)",
+                    location: "Chümoukedima, Dimapur",
+                    website: "https://nitnagaland.ac.in/",
+                    established: 2010,
+                    nirfRanking: "125 (Engg. 2023)",
+                    flagshipCourses: [
+                        { name: "B.Tech", feesINR: "₹6-8 Lakhs (4 Yrs)", avgSalaryLPA: "6-8 LPA", placementRate: "81%", resultsPercent: "85-95%", entranceExam: "JEE Main" }
+                    ],
+                    allCourses: "B.Tech in Civil, CSE, ECE, EEE, EIE, Mechanical. M.Tech, M.Sc, PhD."
+                }
+            ],
+            central: [
+                {
+                    name: "Nagaland University",
+                    location: "Lumami (HQ)",
+                    website: "https://nagalanduniversity.ac.in/",
+                    established: 1994,
+                    nirfRanking: "151-200 (Univ. 2023)",
+                    flagshipCourses: [
+                        { name: "B.Sc. (Agri)", feesINR: "₹50-80k (4 Yrs)", avgSalaryLPA: "3-5 LPA", placementRate: "Moderate", resultsPercent: "70-80%", entranceExam: "CUET-UG" }
+                    ],
+                    allCourses: "Primary affiliating university. On-campus B.Sc. (Agri), B.Tech, M.A, M.Sc, M.Com, MBA."
+                }
+            ],
+            statePublic: [],
+            deemed: [],
+            private: []
+},
+        "ODISHA": {
+            ini: [
+                {
+                    name: "Indian Institute of Technology Bhubaneswar (IIT Bhubaneswar)",
+                    location: "Bhubaneswar",
+                    website: "https://www.iitbbs.ac.in/",
+                    established: 2008,
+                    nirfRanking: "47 (Engg. 2023)",
+                    flagshipCourses: [
+                        { name: "B.Tech", feesINR: "₹8-10 Lakhs (4 Yrs)", avgSalaryLPA: "16-20 LPA", placementRate: "93%", resultsPercent: "90-98%", entranceExam: "JEE Advanced" }
+                    ],
+                    allCourses: "B.Tech in Civil, CSE, ECE, EEE, Mechanical, Metallurgy. M.Tech, M.Sc, PhD."
+                },
+                {
+                    name: "National Institute of Technology, Rourkela (NIT Rourkela)",
+                    location: "Rourkela",
+                    website: "https://www.nitrkl.ac.in/",
+                    established: 1961,
+                    nirfRanking: "16 (Engg. 2023)",
+                    flagshipCourses: [
+                        { name: "B.Tech", feesINR: "₹6-8 Lakhs (4 Yrs)", avgSalaryLPA: "14-18 LPA", placementRate: "95%", resultsPercent: "90-98%", entranceExam: "JEE Main" }
+                    ],
+                    allCourses: "B.Tech in Bio-Tech, Ceramic, Chemical, Civil, CSE, ECE, EEE, Mechanical, Mining; B.Arch. M.Tech, M.Sc, MBA."
+                }
+            ],
+            central: [],
+            statePublic: [
+                {
+                    name: "Utkal University",
+                    location: "Bhubaneswar",
+                    website: "https://www.utkaluniversity.ac.in/",
+                    established: 1943,
+                    nirfRanking: "92 (Univ. 2023)",
+                    flagshipCourses: [
+                        { name: "MBA", feesINR: "₹1-2 Lakhs (2 Yrs)", avgSalaryLPA: "5-7 LPA", placementRate: "Good", resultsPercent: "80-90%", entranceExam: "OJEE" }
+                    ],
+                    allCourses: "Major affiliating university for Arts, Science, Commerce, Law, and Management."
+                }
+            ],
+            deemed: [
+                {
+                    name: "Kalinga Institute of Industrial Technology (KIIT)",
+                    location: "Bhubaneswar",
+                    website: "https://kiit.ac.in/",
+                    established: 1992,
+                    nirfRanking: "16 (Univ. 2023)",
+                    flagshipCourses: [
+                        { name: "B.Tech", feesINR: "₹14-16 Lakhs (4 Yrs)", avgSalaryLPA: "8-10 LPA", placementRate: "95%", resultsPercent: "90-98%", entranceExam: "KIITEE" },
+                        { name: "MBBS (KIMS)", feesINR: "₹70-80 Lakhs (5.5 Yrs)", avgSalaryLPA: "N/A", placementRate: "100% (Internship)", resultsPercent: "95-100%", entranceExam: "NEET-UG" }
+                    ],
+                    allCourses: "Engineering, Medical Sciences (KIMS), Management (KSOM), Law, Biotechnology, Rural Management."
+                }
+            ],
+            private: [
+                {
+                    name: "Xavier University, Bhubaneswar (XUB)",
+                    location: "Bhubaneswar",
+                    website: "https://xub.edu.in/",
+                    established: 2013,
+                    nirfRanking: "N/A",
+                    flagshipCourses: [
+                        { name: "MBA (XIMB)", feesINR: "₹20-22 Lakhs (2 Yrs)", avgSalaryLPA: "18-20 LPA", placementRate: "100%", resultsPercent: "95-100%", entranceExam: "XAT/CAT" }
+                    ],
+                    allCourses: "Flagship MBA programs (XIMB), B.Com, B.Sc. Mass Comm, Master's in Public Policy."
+                }
+            ]
+        },
+        "PUDUCHERRY": {
+            ini: [
+                {
+                    name: "National Institute of Technology, Puducherry (NIT Puducherry)",
+                    location: "Karaikal",
+                    website: "https://www.nitpy.ac.in/",
+                    established: 2010,
+                    nirfRanking: "101-150 (Engg. 2023)",
+                    flagshipCourses: [
+                        { name: "B.Tech", feesINR: "₹6-8 Lakhs (4 Yrs)", avgSalaryLPA: "8-10 LPA", placementRate: "88%", resultsPercent: "85-95%", entranceExam: "JEE Main" }
+                    ],
+                    allCourses: "B.Tech in Civil, CSE, ECE, EEE, Mechanical. M.Tech and PhD programs."
+                },
+                {
+                    name: "Jawaharlal Institute of Postgraduate Medical Education and Research (JIPMER)",
+                    location: "Puducherry",
+                    website: "https://jipmer.edu.in/",
+                    established: 1823,
+                    nirfRanking: "5 (Medical 2023)",
+                    flagshipCourses: [
+                        { name: "MBBS", feesINR: "< ₹50,000 (5.5 Yrs)", avgSalaryLPA: "12-18 LPA (as JR)", placementRate: "100%", resultsPercent: "98-100%", entranceExam: "NEET-UG" }
+                    ],
+                    allCourses: "MBBS, B.Sc. Nursing, B.Sc. Allied Medical Sciences. Postgraduate (MD/MS) and Super-Specialty (DM/M.Ch) programs."
+                }
+            ],
+            central: [
+                {
+                    name: "Pondicherry University",
+                    location: "Puducherry",
+                    website: "https://www.pondiuni.edu.in/",
+                    established: 1985,
+                    nirfRanking: "87 (Univ. 2023)",
+                     flagshipCourses: [
+                        { name: "MBA", feesINR: "₹2-3 Lakhs (2 Yrs)", avgSalaryLPA: "6-8 LPA", placementRate: "Good", resultsPercent: "85-95%", entranceExam: "CUET-PG" }
+                    ],
+                    allCourses: "Primary affiliating university for the UT. On-campus M.A, M.Sc, M.Com, MBA, MCA, LL.M. and 5-year Integrated programs."
+                }
+            ],
+            statePublic: [],
+            deemed: [],
+            private: []
+        },
+        "PUNJAB": {
+            ini: [
+                {
+                    name: "Indian Institute of Technology Ropar (IIT Ropar)",
+                    location: "Rupnagar",
+                    website: "https://www.iitrpr.ac.in/",
+                    established: 2008,
+                    nirfRanking: "22 (Engg. 2023)",
+                    flagshipCourses: [
+                        { name: "B.Tech", feesINR: "₹8-10 Lakhs (4 Yrs)", avgSalaryLPA: "18-22 LPA", placementRate: "90%", resultsPercent: "90-98%", entranceExam: "JEE Advanced" }
+                    ],
+                    allCourses: "B.Tech in Chemical, Civil, CSE, EEE, Mechanical. M.Tech, M.S., M.Sc."
+                },
+                {
+                    name: "Indian Institute of Management Amritsar (IIM Amritsar)",
+                    location: "Amritsar",
+                    website: "https://iimamritsar.ac.in/",
+                    established: 2015,
+                    nirfRanking: "51 (Mgmt. 2023)",
+                    flagshipCourses: [
+                        { name: "MBA", feesINR: "₹16-18 Lakhs (2 Yrs)", avgSalaryLPA: "16-18 LPA", placementRate: "100%", resultsPercent: "95-100%", entranceExam: "CAT" }
+                    ],
+                    allCourses: "MBA, MBA-Business Analytics, MBA-HR, Executive MBA."
+                }
+            ],
+            central: [],
+            statePublic: [
+                {
+                    name: "The Rajiv Gandhi National University of Law (RGNUL)",
+                    location: "Patiala",
+                    website: "https://www.rgnul.ac.in/",
+                    established: 2006,
+                    nirfRanking: "20 (Law 2023)",
+                    flagshipCourses: [
+                        { name: "B.A. LLB (Hons.)", feesINR: "₹10-12 Lakhs (5 Yrs)", avgSalaryLPA: "10-14 LPA", placementRate: "High", resultsPercent: "90-98%", entranceExam: "CLAT" }
+                    ],
+                    allCourses: "5-year integrated B.A. LLB (Hons.), LL.M, and PhD."
+                }
+            ],
+            deemed: [
+                {
+                    name: "Thapar Institute of Engineering and Technology",
+                    location: "Patiala",
+                    website: "http://www.thapar.edu/",
+                    established: 1956,
+                    nirfRanking: "22 (Univ. 2023)",
+                    flagshipCourses: [
+                        { name: "B.E./B.Tech", feesINR: "₹14-16 Lakhs (4 Yrs)", avgSalaryLPA: "10-14 LPA", placementRate: "95%", resultsPercent: "90-98%", entranceExam: "JEE Main / Board Merit" }
+                    ],
+                    allCourses: "B.E. in CSE, ECE, Mechanical, Civil; BBA, MBA, M.Sc."
+                }
+            ],
+            private: [
+                {
+                    name: "Lovely Professional University (LPU)",
+                    location: "Jalandhar",
+                    website: "https://www.lpu.in/",
+                    established: 2005,
+                    nirfRanking: "38 (Univ. 2023)",
+                    flagshipCourses: [
+                        { name: "B.Tech", feesINR: "₹10-12 Lakhs (4 Yrs)", avgSalaryLPA: "6-8 LPA", placementRate: "High", resultsPercent: "85-95%", entranceExam: "LPUNEST / JEE Main" },
+                        { name: "MBA", feesINR: "₹8-10 Lakhs (2 Yrs)", avgSalaryLPA: "7-9 LPA", placementRate: "High", resultsPercent: "90-98%", entranceExam: "LPUNEST / CAT" }
+                    ],
+                    allCourses: "Massive range of programs in Engineering, Management, Law, Pharmacy, Agriculture, Hotel Mgmt."
+                },
+                {
+                    name: "Chandigarh University",
+                    location: "Mohali",
+                    website: "https://www.cuchd.in/",
+                    established: 2012,
+                    nirfRanking: "27 (Univ. 2023)",
+                    flagshipCourses: [
+                        { name: "B.E. (CSE)", feesINR: "₹8-10 Lakhs (4 Yrs)", avgSalaryLPA: "7-9 LPA", placementRate: "High", resultsPercent: "85-95%", entranceExam: "CUCET" }
+                    ],
+                    allCourses: "Comprehensive portfolio in Engineering, Management, Law, Architecture, Media Studies, Hospitality."
+                }
+            ]
+        },
+        "RAJASTHAN": {
+            ini: [
+                {
+                    name: "Indian Institute of Technology Jodhpur (IIT Jodhpur)",
+                    location: "Jodhpur",
+                    website: "https://iitj.ac.in/",
+                    established: 2008,
+                    nirfRanking: "30 (Engg. 2023)",
+                    flagshipCourses: [
+                        { name: "B.Tech", feesINR: "₹8-10 Lakhs (4 Yrs)", avgSalaryLPA: "18-22 LPA", placementRate: "92%", resultsPercent: "90-98%", entranceExam: "JEE Advanced" }
+                    ],
+                    allCourses: "B.Tech in AI & Data Science, Bioengineering, Chemical, Civil, CSE. M.Tech, M.S., M.Sc."
+                },
+                 {
+                    name: "Indian Institute of Management Udaipur (IIM Udaipur)",
+                    location: "Udaipur",
+                    website: "https://www.iimu.ac.in/",
+                    established: 2011,
+                    nirfRanking: "16 (Mgmt. 2023)",
+                    flagshipCourses: [
+                        { name: "MBA", feesINR: "₹20-22 Lakhs (2 Yrs)", avgSalaryLPA: "19-21 LPA", placementRate: "100%", resultsPercent: "95-100%", entranceExam: "CAT" }
+                    ],
+                    allCourses: "MBA, One-year MBAs in Global Supply Chain Mgmt & Digital Enterprise Mgmt."
+                }
+            ],
+            central: [],
+            statePublic: [
+                {
+                    name: "National Law University, Jodhpur (NLU Jodhpur)",
+                    location: "Jodhpur",
+                    website: "http://nlujodhpur.ac.in/",
+                    established: 1999,
+                    nirfRanking: "10 (Law 2023)",
+                    flagshipCourses: [
+                        { name: "B.A./BBA LLB (Hons.)", feesINR: "₹14-16 Lakhs (5 Yrs)", avgSalaryLPA: "16-19 LPA", placementRate: "100%", resultsPercent: "95-100%", entranceExam: "CLAT" }
+                    ],
+                    allCourses: "Integrated Law programs, LL.M, MBA in Insurance, PhD."
+                }
+            ],
+            deemed: [],
+            private: [
+                {
+                    name: "Birla Institute of Technology and Science, Pilani (BITS Pilani)",
+                    location: "Pilani",
+                    website: "https://www.bits-pilani.ac.in/",
+                    established: 1964,
+                    nirfRanking: "25 (Univ. 2023)",
+                    flagshipCourses: [
+                        { name: "B.E.", feesINR: "₹22-25 Lakhs (4 Yrs)", avgSalaryLPA: "20-26 LPA", placementRate: "98%", resultsPercent: "90-98%", entranceExam: "BITSAT" }
+                    ],
+                    allCourses: "B.E. in CSE, ECE, Mechanical; M.Sc. in Physics, Chemistry, Eco (with dual-degree option)."
+                }
+            ]
+        },
+        "SIKKIM": {
+            ini: [
+                {
+                    name: "National Institute of Technology Sikkim (NIT Sikkim)",
+                    location: "Ravangla, South Sikkim",
+                    website: "https://nitsikkim.ac.in/",
+                    established: 2010,
+                    nirfRanking: "151-200 (Engg. 2023)",
+                    flagshipCourses: [
+                        { name: "B.Tech", feesINR: "₹6-8 Lakhs (4 Yrs)", avgSalaryLPA: "7-9 LPA", placementRate: "80%", resultsPercent: "85-95%", entranceExam: "JEE Main" }
+                    ],
+                    allCourses: "B.Tech in Civil, CSE, ECE, EEE, Mechanical. M.Tech and M.Sc. programs."
+                }
+            ],
+            central: [
+                {
+                    name: "Sikkim University",
+                    location: "Gangtok",
+                    website: "https://cus.ac.in/",
+                    established: 2007,
+                    nirfRanking: "101-150 (Univ. 2023)",
+                    flagshipCourses: [
+                        { name: "MBA", feesINR: "₹1-2 Lakhs (2 Yrs)", avgSalaryLPA: "5-7 LPA", placementRate: "Good", resultsPercent: "80-90%", entranceExam: "CUET-PG" }
+                    ],
+                    allCourses: "Primary affiliating university. On-campus M.A, M.Sc, MBA, MCA, Law."
+                }
+            ],
+            statePublic: [],
+            deemed: [],
+            private: [
+                {
+                    name: "Sikkim Manipal University (SMU)",
+                    location: "Gangtok",
+                    website: "https://smu.edu.in/",
+                    established: 1995,
+                    nirfRanking: "101-150 (Univ. 2023)",
+                    flagshipCourses: [
+                        { name: "MBBS (SMIMS)", feesINR: "₹70-80 Lakhs (5.5 Yrs)", avgSalaryLPA: "N/A", placementRate: "100% (Internship)", resultsPercent: "95-100%", entranceExam: "NEET-UG" },
+                        { name: "B.Tech (SMIT)", feesINR: "₹10-12 Lakhs (4 Yrs)", avgSalaryLPA: "6-8 LPA", placementRate: "90%", resultsPercent: "85-95%", entranceExam: "SMITEE / JEE Main" }
+                    ],
+                    allCourses: "Medical Sciences (SMIMS), Engineering (SMIT), Management (BBA/MBA)."
+                }
+            ]
+        },
+        "TAMIL NADU": {
+            ini: [
+                {
+                    name: "Indian Institute of Technology Madras (IIT Madras)",
+                    location: "Chennai",
+                    website: "https://www.iitm.ac.in/",
+                    established: 1959,
+                    nirfRanking: "1 (Overall 2023)",
+                    flagshipCourses: [
+                        { name: "B.Tech", feesINR: "₹8-10 Lakhs (4 Yrs)", avgSalaryLPA: "22-28 LPA", placementRate: "96%", resultsPercent: "95-99%", entranceExam: "JEE Advanced" }
+                    ],
+                    allCourses: "B.Tech in Aerospace, Chemical, Civil, CSE; B.S. in Data Science (Online). M.Tech, M.Sc, MBA."
+                },
+                {
+                    name: "National Institute of Technology, Tiruchirappalli (NIT Trichy)",
+                    location: "Tiruchirappalli",
+                    website: "https://www.nitt.edu/",
+                    established: 1964,
+                    nirfRanking: "9 (Engg. 2023)",
+                    flagshipCourses: [
+                        { name: "B.Tech", feesINR: "₹6-8 Lakhs (4 Yrs)", avgSalaryLPA: "14-18 LPA", placementRate: "95%", resultsPercent: "90-98%", entranceExam: "JEE Main" }
+                    ],
+                    allCourses: "B.Tech in Chemical, Civil, CSE, ECE, ICE, Mechanical; B.Arch. M.Tech, M.Sc, MCA, MBA."
+                }
+            ],
+            central: [],
+            statePublic: [
+                {
+                    name: "Anna University",
+                    location: "Chennai",
+                    website: "https://www.annauniv.edu/",
+                    established: 1978,
+                    nirfRanking: "14 (Univ. 2023)",
+                    flagshipCourses: [
+                        { name: "B.E./B.Tech (CEG Campus)", feesINR: "₹1-2 Lakhs (4 Yrs)", avgSalaryLPA: "8-12 LPA", placementRate: "95%", resultsPercent: "90-98%", entranceExam: "TNEA" }
+                    ],
+                    allCourses: "Premier affiliating technical university. On-campus programs in CSE, IT, ECE, Mechanical, Aero, Auto."
+                }
+            ],
+            deemed: [
+                {
+                    name: "Vellore Institute of Technology (VIT)",
+                    location: "Vellore",
+                    website: "https://vit.ac.in/",
+                    established: 1984,
+                    nirfRanking: "8 (Univ. 2023)",
+                    flagshipCourses: [
+                        { name: "B.Tech", feesINR: "₹8-20 Lakhs (4 Yrs)", avgSalaryLPA: "8-11 LPA", placementRate: "95%", resultsPercent: "90-98%", entranceExam: "VITEEE" }
+                    ],
+                    allCourses: "B.Tech in CSE (AI&ML, Cybersecurity), ECE, Mechanical; BBA, Law."
+                }
+            ],
+            private: []
+        },
+        "TELANGANA": {
+            ini: [
+                {
+                    name: "Indian Institute of Technology Hyderabad (IIT Hyderabad)",
+                    location: "Sangareddy",
+                    website: "https://iith.ac.in/",
+                    established: 2008,
+                    nirfRanking: "8 (Engg. 2023)",
+                    flagshipCourses: [
+                        { name: "B.Tech", feesINR: "₹8-10 Lakhs (4 Yrs)", avgSalaryLPA: "20-25 LPA", placementRate: "94%", resultsPercent: "90-98%", entranceExam: "JEE Advanced" }
+                    ],
+                    allCourses: "B.Tech in AI, Biomedical, Biotech, Chemical, Civil, CSE. M.Tech, M.Des, M.Sc."
+                },
+                {
+                    name: "Indian Institute of Information Technology, Hyderabad (IIIT Hyderabad)",
+                    location: "Hyderabad",
+                    website: "https://www.iiit.ac.in/",
+                    established: 1998,
+                    nirfRanking: "62 (Engg. 2023)",
+                    flagshipCourses: [
+                        { name: "B.Tech (CSE)", feesINR: "₹14-16 Lakhs (4 Yrs)", avgSalaryLPA: "30-35 LPA", placementRate: "100%", resultsPercent: "98-100%", entranceExam: "JEE Main / UGEE" }
+                    ],
+                    allCourses: "B.Tech in CSE, ECE. 5-year Dual Degree (B.Tech + M.S. by Research). Strong research in AI, Robotics."
+                }
+            ],
+            central: [],
+            statePublic: [
+                {
+                    name: "NALSAR University of Law",
+                    location: "Hyderabad",
+                    website: "https://www.nalsar.ac.in/",
+                    established: 1998,
+                    nirfRanking: "3 (Law 2023)",
+                    flagshipCourses: [
+                        { name: "B.A. LLB (Hons.)", feesINR: "₹12-15 Lakhs (5 Yrs)", avgSalaryLPA: "16-20 LPA", placementRate: "100%", resultsPercent: "95-100%", entranceExam: "CLAT" }
+                    ],
+                    allCourses: "5-year integrated B.A. LLB (Hons.), LL.M, and MBA program."
+                }
+            ],
+            deemed: [],
+            private: [
+                {
+                    name: "Indian School of Business (ISB)",
+                    location: "Hyderabad",
+                    website: "https://www.isb.edu/",
+                    established: 2001,
+                    nirfRanking: "N/A (Globally Ranked)",
+                    flagshipCourses: [
+                        { name: "MBA (PGP)", feesINR: "₹35-40 Lakhs (1 Yr)", avgSalaryLPA: "32-35 LPA", placementRate: "100%", resultsPercent: "98-100%", entranceExam: "GMAT/GRE" }
+                    ],
+                    allCourses: "Flagship Post Graduate Programme in Management (PGP), Executive programs."
+                }
+            ]
+        },
+
+        "TRIPURA": {
+            ini: [
+                {
+                    name: "National Institute of Technology, Agartala (NIT Agartala)",
+                    location: "Agartala",
+                    website: "https://www.nita.ac.in/",
+                    established: 1965,
+                    nirfRanking: "91 (Engg. 2023)",
+                    flagshipCourses: [
+                        { name: "B.Tech", feesINR: "₹6-8 Lakhs (4 Yrs)", avgSalaryLPA: "8-10 LPA", placementRate: "88%", resultsPercent: "85-95%", entranceExam: "JEE Main" }
+                    ],
+                    allCourses: "B.Tech in Bio-Engg, Chemical, Civil, CSE, ECE, EEE, EIE, Mechanical, Production. M.Tech, M.Sc, MCA, MBA."
+                }
+            ],
+            central: [
+                {
+                    name: "Tripura University",
+                    location: "Suryamaninagar, Agartala",
+                    website: "https://www.tripurauniv.ac.in/",
+                    established: 1987,
+                    nirfRanking: "101-150 (Univ. 2023)",
+                    flagshipCourses: [
+                        { name: "M.A./M.Sc.", feesINR: "₹15-30k (2 Yrs)", avgSalaryLPA: "3-5 LPA", placementRate: "Moderate", resultsPercent: "70-80%", entranceExam: "CUET-PG" }
+                    ],
+                    allCourses: "Primary affiliating university. On-campus M.A, M.Sc, M.Com, MBA, LL.M."
+                }
+            ],
+            statePublic: [],
+            deemed: [],
+            private: []
+        },
+        "UTTAR PRADESH": {
+            ini: [
+                {
+                    name: "Indian Institute of Technology Kanpur (IIT Kanpur)",
+                    location: "Kanpur",
+                    website: "https://www.iitk.ac.in/",
+                    established: 1959,
+                    nirfRanking: "4 (Engg. 2023)",
+                    flagshipCourses: [
+                        { name: "B.Tech", feesINR: "₹8-10 Lakhs (4 Yrs)", avgSalaryLPA: "22-28 LPA", placementRate: "95%", resultsPercent: "95-99%", entranceExam: "JEE Advanced" }
+                    ],
+                    allCourses: "B.Tech/B.S. in Aerospace, Chemical, Civil, CSE, EEE, ME, Materials; Economics, Physics. M.Tech, M.Des, MBA."
+                },
+                {
+                    name: "Indian Institute of Management Lucknow (IIM Lucknow)",
+                    location: "Lucknow",
+                    website: "https://www.iiml.ac.in/",
+                    established: 1984,
+                    nirfRanking: "6 (Mgmt. 2023)",
+                    flagshipCourses: [
+                        { name: "MBA (PGP)", feesINR: "₹20-22 Lakhs (2 Yrs)", avgSalaryLPA: "30-32 LPA", placementRate: "100%", resultsPercent: "98-100%", entranceExam: "CAT" }
+                    ],
+                    allCourses: "PGP, PGP-Agribusiness Management, Executive Programs (IPMX)."
+                }
+            ],
+            central: [
+                {
+                    name: "Banaras Hindu University (BHU)",
+                    location: "Varanasi",
+                    website: "https://www.bhu.ac.in/",
+                    established: 1916,
+                    nirfRanking: "5 (Univ. 2023)",
+                    flagshipCourses: [
+                        { name: "MBBS (IMS)", feesINR: "₹1-2 Lakhs (5.5 Yrs)", avgSalaryLPA: "N/A", placementRate: "100% (Internship)", resultsPercent: "95-100%", entranceExam: "NEET-UG" },
+                        { name: "B.Sc (Agri)", feesINR: "< ₹50,000 (4 Yrs)", avgSalaryLPA: "5-8 LPA", placementRate: "High", resultsPercent: "90-98%", entranceExam: "CUET-UG" }
+                    ],
+                    allCourses: "Massive range of courses including Medicine (IMS), Agricultural Sciences, Arts, Science, Commerce, Law."
+                },
+                {
+                    name: "Aligarh Muslim University (AMU)",
+                    location: "Aligarh",
+                    website: "https://www.amu.ac.in/",
+                    established: 1875,
+                    nirfRanking: "9 (Univ. 2023)",
+                    flagshipCourses: [
+                        { name: "B.Tech (ZHCET)", feesINR: "₹2-3 Lakhs (4 Yrs)", avgSalaryLPA: "6-9 LPA", placementRate: "Good", resultsPercent: "85-95%", entranceExam: "AMUEEE" }
+                    ],
+                    allCourses: "Comprehensive portfolio including Engineering (ZHCET), Medicine (JNMCH), Law, Arts, and Sciences."
+                }
+            ],
+            statePublic: [],
+            deemed: [],
+            private: [
+                {
+                    name: "Amity University, Noida",
+                    location: "Noida",
+                    website: "https://www.amity.edu/noida/",
+                    established: 2005,
+                    nirfRanking: "35 (Univ. 2023)",
+                    flagshipCourses: [
+                        { name: "B.Tech", feesINR: "₹14-16 Lakhs (4 Yrs)", avgSalaryLPA: "5-7 LPA", placementRate: "High", resultsPercent: "85-95%", entranceExam: "Amity JEE / JEE Main" }
+                    ],
+                    allCourses: "Massive portfolio in Engineering, Management, Law, Mass Communication, Biotechnology."
+                },
+                {
+                    name: "Shiv Nadar University",
+                    location: "Greater Noida",
+                    website: "https://snu.edu.in/",
+                    established: 2011,
+                    nirfRanking: "62 (Univ. 2023)",
+                    flagshipCourses: [
+                        { name: "B.Tech", feesINR: "₹20-24 Lakhs (4 Yrs)", avgSalaryLPA: "10-14 LPA", placementRate: "High", resultsPercent: "90-98%", entranceExam: "SNUSAT + APT" }
+                    ],
+                    allCourses: "Programs through School of Engineering, Natural Sciences, Humanities & Social Sciences, and Management."
+                }
+            ]
+        },
+        "UTTARAKHAND": {
+            ini: [
+                {
+                    name: "Indian Institute of Technology Roorkee (IIT Roorkee)",
+                    location: "Roorkee",
+                    website: "https://www.iitr.ac.in/",
+                    established: 1847,
+                    nirfRanking: "5 (Engg. 2023)",
+                    flagshipCourses: [
+                        { name: "B.Tech", feesINR: "₹8-10 Lakhs (4 Yrs)", avgSalaryLPA: "20-26 LPA", placementRate: "95%", resultsPercent: "90-98%", entranceExam: "JEE Advanced" }
+                    ],
+                    allCourses: "B.Tech in Civil, CSE, Chemical, ECE, EEE, Mechanical; B.Arch. M.Tech, M.Arch, MBA."
+                }
+            ],
+            central: [],
+            statePublic: [],
+            deemed: [],
+            private: [
+                {
+                    name: "University of Petroleum and Energy Studies (UPES)",
+                    location: "Dehradun",
+                    website: "https://www.upes.ac.in/",
+                    established: 2003,
+                    nirfRanking: "52 (Univ. 2023)",
+                    flagshipCourses: [
+                        { name: "B.Tech (CSE)", feesINR: "₹15-20 Lakhs (4 Yrs)", avgSalaryLPA: "8-11 LPA", placementRate: "95%", resultsPercent: "90-98%", entranceExam: "UPESEAT / JEE Main" }
+                    ],
+                    allCourses: "B.Tech (CSE, Aerospace, Petroleum), MBA (Oil & Gas, Power, Aviation), Law, Design."
+                }
+            ]
+        },
+        "WEST BENGAL": {
+            ini: [
+                {
+                    name: "Indian Institute of Technology Kharagpur (IIT Kharagpur)",
+                    location: "Kharagpur",
+                    website: "http://www.iitkgp.ac.in/",
+                    established: 1951,
+                    nirfRanking: "6 (Engg. 2023)",
+                    flagshipCourses: [
+                        { name: "B.Tech", feesINR: "₹8-10 Lakhs (4 Yrs)", avgSalaryLPA: "20-26 LPA", placementRate: "94%", resultsPercent: "90-98%", entranceExam: "JEE Advanced" }
+                    ],
+                    allCourses: "B.Tech in Aerospace, Agri, CSE, ECE, Mechanical, Mining, Naval Arch; B.Arch; LLB. M.Tech, MBA (VGSOM)."
+                },
+                {
+                    name: "Indian Institute of Management Calcutta (IIM Calcutta)",
+                    location: "Joka, Kolkata",
+                    website: "https://www.iimcal.ac.in/",
+                    established: 1961,
+                    nirfRanking: "4 (Mgmt. 2023)",
+                    flagshipCourses: [
+                        { name: "MBA", feesINR: "₹25-27 Lakhs (2 Yrs)", avgSalaryLPA: "33-35 LPA", placementRate: "100%", resultsPercent: "98-100%", entranceExam: "CAT" }
+                    ],
+                    allCourses: "MBA, PG Diploma in Business Analytics (PGDBA), MBA for Executives (MBAEx)."
+                }
+            ],
+            central: [],
+            statePublic: [
+                {
+                    name: "Jadavpur University",
+                    location: "Kolkata",
+                    website: "http://www.jaduniv.edu.in/",
+                    established: 1955,
+                    nirfRanking: "4 (Univ. 2023)",
+                    flagshipCourses: [
+                        { name: "B.E./B.Tech", feesINR: "< ₹50,000 (4 Yrs)", avgSalaryLPA: "12-16 LPA", placementRate: "98%", resultsPercent: "90-98%", entranceExam: "WBJEE" }
+                    ],
+                    allCourses: "Engineering (CSE, IT, ECE, Power), Arts (English, Comp. Lit, Film Studies), Science."
+                },
+                {
+                    name: "The West Bengal National University of Juridical Sciences (WBNUJS)",
+                    location: "Kolkata",
+                    website: "https://www.nujs.edu/",
+                    established: 2000,
+                    nirfRanking: "4 (Law 2023)",
+                    flagshipCourses: [
+                        { name: "B.A. LLB (Hons.)", feesINR: "₹15-18 Lakhs (5 Yrs)", avgSalaryLPA: "16-19 LPA", placementRate: "100%", resultsPercent: "95-100%", entranceExam: "CLAT" }
+                    ],
+                    allCourses: "5-year integrated B.A. LLB (Hons.), LL.M, and PhD in Law."
+                }
+            ],
+            deemed: [],
+            private: []
+        }
+    };
+
+    // --- SCRIPT LOGIC ---
+    const stateSelect = document.getElementById('state-select');
+    const analysisBtn = document.getElementById('analysis-btn');
+    const stateTabsContainer = document.getElementById('state-tabs-container');
+    const comparatorTabsContainer = document.getElementById('comparator-tabs-container');
+    const comparatorSelection = document.getElementById('comparator-selection');
+    const universityDisplay = document.getElementById('university-display');
+    const comparisonDisplay = document.getElementById('comparison-display');
+    const placeholder = document.getElementById('placeholder');
+    const university1Select = document.getElementById('university-1');
+    const university2Select = document.getElementById('university-2');
+
+    function initialize() {
+        const states = Object.keys(universityData).sort();
+        const populateDropdown = (selectElement) => {
+            selectElement.innerHTML = '<option value="" disabled selected>-- Select --</option>';
+            states.forEach(state => {
+                const option = document.createElement('option');
+                option.value = state;
+                option.textContent = state;
+                selectElement.appendChild(option);
+            });
+        };
+        populateDropdown(stateSelect);
+
+        stateSelect.addEventListener('change', handleStateSelection);
+        analysisBtn.addEventListener('click', handleAnalysisClick);
+        stateTabsContainer.addEventListener('click', handleStateTabClick);
+        comparatorTabsContainer.addEventListener('click', handleComparatorTabClick);
+        [university1Select, university2Select].forEach(select => select.addEventListener('change', handleUniversitySelection));
+    }
+
+    function handleStateSelection() {
+        hideAllDynamicElements();
+        stateTabsContainer.classList.remove('hidden');
+        universityDisplay.classList.add('active');
+        const firstTab = stateTabsContainer.querySelector('.tab');
+        if (firstTab) {
+            firstTab.click();
+        }
+    }
+
+    function handleAnalysisClick() {
+        hideAllDynamicElements();
+        comparatorTabsContainer.classList.remove('hidden');
+        comparisonDisplay.innerHTML = '<p style="text-align:center; color: var(--text-secondary);">Select a university type above, then choose two universities to compare.</p>';
+        comparisonDisplay.classList.add('active');
+        const firstTab = comparatorTabsContainer.querySelector('.tab');
+        if (firstTab) {
+            firstTab.click();
+        }
+    }
+
+    function handleStateTabClick(event) {
+        const target = event.target.closest('.tab');
+        if (target) {
+            const state = stateSelect.value;
+            const type = target.dataset.type;
+            stateTabsContainer.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            target.classList.add('active');
+            renderUniversityList(state, type);
+        }
+    }
+
+    function handleComparatorTabClick(event) {
+        const target = event.target.closest('.tab');
+        if (target) {
+            const type = target.dataset.type;
+            comparatorTabsContainer.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            target.classList.add('active');
+            populateUniversityDropdowns(type);
+            comparatorSelection.classList.remove('hidden');
+            comparisonDisplay.classList.add('active');
+            comparisonDisplay.innerHTML = '<p style="text-align:center; color: var(--text-secondary);">Now, choose two universities from the dropdowns above.</p>';
+        }
+    }
+
+    function handleUniversitySelection() {
+        const uni1Id = university1Select.value;
+        const uni2Id = university2Select.value;
+        if (uni1Id && uni2Id) {
+            if (uni1Id === uni2Id) {
+                alert("Please select two different universities.");
+                return;
+            }
+            renderUniversityComparison(uni1Id, uni2Id);
+        }
+    }
+
+    function hideAllDynamicElements() {
+        placeholder.style.display = 'none';
+        stateTabsContainer.classList.add('hidden');
+        comparatorTabsContainer.classList.add('hidden');
+        comparatorSelection.classList.add('hidden');
+        universityDisplay.classList.remove('active');
+        comparisonDisplay.classList.remove('active');
+    }
+    
+    function generateCoursesHTML(courses) {
+        if (!courses || courses.length === 0) return '<p>No flagship course data available.</p>';
+        return courses.map(course => `
+            <div class="course-details">
+                <h4>${course.name}</h4>
+                <div class="course-grid">
+                    <div class="course-grid-item"><strong>Entrance:</strong> ${course.entranceExam || 'N/A'}</div>
+                    <div class="course-grid-item"><strong>Fees:</strong> ${course.feesINR || 'N/A'}</div>
+                    <div class="course-grid-item"><strong>Placement:</strong> ${course.placementRate || 'N/A'}</div>
+                    <div class="course-grid-item"><strong>Avg. Salary:</strong> ${course.avgSalaryLPA || 'N/A'}</div>
+                    <div class="course-grid-item"><strong>Results:</strong> ${course.resultsPercent || 'N/A'}</div>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    function renderUniversityList(state, type) {
+        const universities = universityData[state]?.[type] || [];
+        if (universities.length === 0) {
+            universityDisplay.innerHTML = `<p style="text-align:center; color: var(--text-secondary);">No universities listed for this category in ${state}.</p>`;
+            return;
+        }
+        universityDisplay.innerHTML = universities.map(uni => `
+            <div class="university-card">
+                <h3>${uni.name}</h3>
+                <div class="uni-meta">
+                    <span class="meta-item"><strong>Location:</strong> ${uni.location}</span>
+                    <span class="meta-item"><strong>Established:</strong> ${uni.established}</span>
+                    <span class="meta-item"><strong>NIRF Ranking:</strong> ${uni.nirfRanking}</span>
+                </div>
+                <p><strong>Website:</strong> <a href="${uni.website}" target="_blank">${uni.website}</a></p>
+                <div class="full-course-list">
+                    <strong>All Courses Overview:</strong> ${uni.allCourses || 'Detailed list not available.'}
+                </div>
+                ${generateCoursesHTML(uni.flagshipCourses)}
+            </div>
+        `).join('');
+    }
+
+    function populateUniversityDropdowns(type) {
+        const allUnis = [];
+        Object.keys(universityData).forEach(state => {
+            if (universityData[state][type]) {
+                universityData[state][type].forEach(uni => {
+                    allUnis.push({ id: `${state}|${uni.name}`, name: `${uni.name} (${state})` });
+                });
+            }
+        });
+
+        allUnis.sort((a, b) => a.name.localeCompare(b.name));
+
+        const populate = (selectElement) => {
+            selectElement.innerHTML = '<option value="" disabled selected>-- Choose University --</option>';
+            allUnis.forEach(uni => {
+                const option = document.createElement('option');
+                option.value = uni.id;
+                option.textContent = uni.name;
+                selectElement.appendChild(option);
+            });
+        };
+        populate(university1Select);
+        populate(university2Select);
+    }
+    
+    function getUniversityById(id) {
+        if (!id) return null;
+        const [state, name] = id.split('|');
+        for (const type in universityData[state]) {
+            const uni = universityData[state][type].find(u => u.name === name);
+            if (uni) return uni;
+        }
+        return null;
+    }
+
+    function renderUniversityComparison(uni1Id, uni2Id) {
+        const uni1 = getUniversityById(uni1Id);
+        const uni2 = getUniversityById(uni2Id);
+        if (!uni1 || !uni2) return;
+
+        comparisonDisplay.innerHTML = `
+            <div class="comparison-container">
+                <div class="university-card">
+                    <h3>${uni1.name}</h3>
+                     <div class="uni-meta">
+                        <span class="meta-item"><strong>Established:</strong> ${uni1.established}</span>
+                        <span class="meta-item"><strong>NIRF:</strong> ${uni1.nirfRanking}</span>
+                    </div>
+                    <p><strong>Website:</strong> <a href="${uni1.website}" target="_blank">${uni1.website}</a></p>
+                    ${generateCoursesHTML(uni1.flagshipCourses)}
+                </div>
+                <div class="university-card">
+                    <h3>${uni2.name}</h3>
+                    <div class="uni-meta">
+                        <span class="meta-item"><strong>Established:</strong> ${uni2.established}</span>
+                        <span class="meta-item"><strong>NIRF:</strong> ${uni2.nirfRanking}</span>
+                    </div>
+                    <p><strong>Website:</strong> <a href="${uni2.website}" target="_blank">${uni2.website}</a></p>
+                    ${generateCoursesHTML(uni2.flagshipCourses)}
+                </div>
+            </div>
+        `;
+    }
+
+    initialize();
+</script>
+</body>
+</html>

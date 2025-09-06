@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Discovery Quiz - Careers India</title>
+    
+<style>
+    /* === QUIZ THEME: 3D NEON BEVEL === */
+    @import url('https://fonts.cdnfonts.com/css/impact');
+
+    :root {
+        --gradient-blue-start: #00224D;
+        --gradient-blue-end: #0047AB;
+        --grid-line-color: rgba(64, 224, 208, 0.15);
+        --turquoise-light: #40E0D0;
+        --turquoise-mid: #00B5AD;
+        --turquoise-dark: #008B8B;
+        --neon-light: #39FF14;
+        --neon-mid: #2ECC71;
+        --neon-dark: #008000;
+        --font-color-black: #000000;
+        --shine-color: rgba(255, 255, 255, 0.7);
+        --text-color-light: #f0f0f0;
+        --error-color: #FF4136;
+    }
+
+    /* --- Global Styles & Background --- */
+    body {
+        background-color: var(--gradient-blue-end);
+        background-image: 
+            linear-gradient(var(--grid-line-color) 2px, transparent 2px),
+            linear-gradient(90deg, var(--grid-line-color) 2px, transparent 2px),
+            linear-gradient(to bottom, var(--gradient-blue-start), var(--gradient-blue-end));
+        background-size: 50px 50px, 50px 50px, 100% 100%;
+        font-family: Impact, Charcoal, 'Arial Narrow Bold', sans-serif;
+        margin: 0;
+        padding: 40px 20px;
+        color: var(--text-color-light);
+    }
+    
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    /* --- Header & Title --- */
+    header {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    
+    .main-title {
+        font-size: 4.5em;
+        font-weight: normal;
+        margin: 20px 0 15px 0;
+        color: white;
+        text-transform: uppercase;
+        text-shadow: 
+            1px 1px 0px var(--turquoise-dark), 2px 2px 0px var(--turquoise-dark),
+            3px 3px 0px var(--turquoise-dark), 4px 4px 0px var(--turquoise-dark),
+            5px 5px 10px rgba(0, 0, 0, 0.5);
+    }
+    
+    .tagline {
+        font-size: 1.5em;
+        color: var(--turquoise-light);
+        text-shadow: 0 0 8px rgba(64, 224, 208, 0.7);
+    }
+    
+    /* --- User Info Section --- */
+    .user-info {
+        background: rgba(0, 0, 0, 0.3);
+        border: 1px solid var(--turquoise-mid);
+        border-radius: 20px;
+        padding: 30px;
+        margin-bottom: 40px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        box-shadow: inset 0 0 15px rgba(0,0,0,0.5);
+    }
+
+    .input-group {
+        flex: 1;
+        min-width: 250px;
+    }
+
+    .input-group label {
+        display: block;
+        font-size: 1.2em;
+        margin-bottom: 8px;
+        color: var(--turquoise-light);
+        text-shadow: 1px 1px 2px #000;
+    }
+
+    .input-group input, .input-group select {
+        width: 100%;
+        padding: 12px;
+        font-family: Impact, Charcoal, 'Arial Narrow Bold', sans-serif;
+        font-size: 1.2em;
+        border: 2px solid var(--turquoise-dark);
+        border-radius: 10px;
+        background-color: #003366;
+        color: white;
+        box-sizing: border-box;
+    }
+    
+    .input-group input:focus, .input-group select:focus {
+        outline: none;
+        border-color: var(--neon-light);
+        box-shadow: 0 0 10px var(--neon-light);
+    }
+    
+    /* --- Quiz Section --- */
+    .quiz-form {
+        background: rgba(0,0,0,0.2);
+        border-radius: 20px;
+        padding: 20px 30px;
+    }
+
+    .category-header {
+        font-size: 2.5em;
+        text-align: center;
+        margin: 40px 0 30px 0;
+        color: var(--turquoise-light);
+        text-shadow: 2px 2px 0px var(--turquoise-dark), 4px 4px 8px rgba(0,0,0,0.5);
+    }
+
+    .question-block {
+        margin-bottom: 25px;
+        background: rgba(0,0,0,0.2);
+        padding: 20px;
+        border-radius: 15px;
+        border-left: 5px solid var(--turquoise-mid);
+    }
+
+    .question-text {
+        font-size: 1.4em;
+        line-height: 1.4;
+        margin-bottom: 15px;
+        color: white;
+        text-shadow: 1px 1px 2px #000;
+    }
+
+    .answers {
+        display: flex;
+        gap: 15px;
+    }
+
+    .answers input[type="radio"] {
+        display: none; /* Hide original radio button */
+    }
+
+    .answers label {
+        flex-grow: 1;
+        text-align: center;
+        padding: 12px;
+        font-size: 1.5em;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.2s ease-out;
+        border: 2px solid var(--turquoise-dark);
+        background: rgba(0,0,0,0.3);
+        color: var(--text-color-light);
+        text-shadow: 1px 1px 2px #000;
+    }
+
+    /* Style for when a radio is checked */
+    .answers input[type="radio"]:checked + label {
+        background: var(--neon-light);
+        color: var(--font-color-black);
+        border-color: var(--neon-dark);
+        transform: scale(1.05);
+        box-shadow: 0 0 15px var(--neon-light);
+        text-shadow: 1px 1px 1px rgba(255,255,255,0.5);
+    }
+
+    /* --- Submit Button --- */
+    #submit-btn {
+        width: 100%;
+        max-width: 450px;
+        margin: 40px auto 0 auto;
+        padding: 15px;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        position: relative;
+        transition: all 0.15s ease-out;
+        font-family: Impact, Charcoal, 'Arial Narrow Bold', sans-serif;
+        color: var(--font-color-black);
+        background: linear-gradient(145deg, var(--turquoise-light), var(--turquoise-mid));
+        box-shadow: 
+            inset 0px 4px 6px var(--shine-color),
+            inset 0px -8px 8px rgba(0, 0, 0, 0.25),
+            0px 10px 0px var(--turquoise-dark),
+            0px 15px 25px rgba(0, 0, 0, 0.4);
+        display: block; 
+        box-sizing: border-box;
+        font-size: 1.8em;
+        text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.4);
+    }
+
+    #submit-btn:hover {
+        background: linear-gradient(145deg, var(--neon-light), var(--neon-mid));
+        box-shadow: 
+            inset 0px 4px 6px var(--shine-color),
+            inset 0px -8px 8px rgba(0, 0, 0, 0.25),
+            0px 10px 0px var(--neon-dark),
+            0px 15px 30px rgba(0, 0, 0, 0.5);
+        transform: translateY(-3px);
+    }
+
+    #submit-btn:active {
+        transform: translateY(5px);
+        box-shadow: 
+            inset 0px 4px 10px rgba(0, 0, 0, 0.4),
+            0px 5px 0px var(--turquoise-dark),
+            0px 8px 15px rgba(0, 0, 0, 0.4);
+    }
+
+    /* --- Results Section --- */
+    .results-container {
+        display: none; /* Initially hidden */
+        margin-top: 50px;
+        padding: 40px;
+        background: radial-gradient(circle, rgba(0,50,90,0.9) 0%, rgba(0,20,40,0.95) 100%);
+        border: 2px solid var(--neon-light);
+        border-radius: 25px;
+        text-align: center;
+        box-shadow: 0 0 30px var(--neon-light), inset 0 0 20px rgba(0,0,0,0.5);
+        animation: fadeIn 1s ease-in-out;
+    }
+    
+    @keyframes fadeIn {
+        from { opacity: 0; transform: scale(0.9); }
+        to { opacity: 1; transform: scale(1); }
+    }
+
+    .results-container h2 {
+        font-size: 3em;
+        margin-bottom: 10px;
+        color: var(--neon-light);
+        text-shadow: 0 0 10px var(--neon-light);
+    }
+    
+    .results-container .zone-text {
+        font-size: 2em;
+        color: white;
+        margin-bottom: 30px;
+    }
+    
+    .results-container .zone-text span {
+        font-size: 1.5em;
+        color: var(--turquoise-light);
+        display: block;
+        margin-top: 5px;
+        text-transform: capitalize;
+    }
+
+    .results-container h3 {
+        font-size: 1.8em;
+        margin-bottom: 20px;
+        border-bottom: 2px solid var(--turquoise-mid);
+        display: inline-block;
+        padding-bottom: 5px;
+    }
+
+    #course-list {
+        list-style-type: none;
+        padding: 0;
+        font-size: 1.5em;
+    }
+    
+    #course-list li {
+        margin-bottom: 15px;
+        padding: 10px;
+        background: rgba(0,0,0,0.3);
+        border-radius: 10px;
+        transition: all 0.3s;
+    }
+
+    #course-list li:hover {
+        background: var(--turquoise-mid);
+        color: var(--font-color-black);
+        transform: scale(1.05);
+        text-shadow: none;
+    }
+
+    /* --- Error Message Styling --- */
+    #error-message {
+        color: var(--error-color);
+        text-align: center;
+        font-size: 1.3em;
+        margin-top: 20px;
+        display: none; /* Hidden by default */
+        text-shadow: 1px 1px 2px #000;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1 class="main-title">Career Discovery Quiz</h1>
+        <p class="tagline">Find the perfect course for you!</p>
+    </header>
+
+    <form id="quizForm" onsubmit="return false;">
+        <!-- USER INFO SECTION -->
+        <section class="user-info">
+            <div class="input-group">
+                <label for="studentName">Name:</label>
+                <input type="text" id="studentName" name="studentName" required>
+            </div>
+            <div class="input-group">
+                <label for="studentAge">Age:</label>
+                <input type="number" id="studentAge" name="studentAge" required>
+            </div>
+            <div class="input-group">
+                <label for="educationLevel">Current Education Level:</label>
+                <select id="educationLevel" name="educationLevel" required>
+                    <option value="">-- Select Level --</option>
+                    <option value="ssc">SSC / 10th Pass</option>
+                    <option value="hsc">HSC / 12th Pass</option>
+                    <option value="graduation">Graduation</option>
+                    <option value="post_graduation">Post Graduation</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- QUIZ QUESTIONS SECTION -->
+        <section class="quiz-form">
+            
+            <h2 class="category-header">Part 1: Cognitive & Aptitude Factors</h2>
+            <div class="question-block"><p class="question-text">1. I enjoy solving brain teasers, riddles, or logic puzzles.</p><div class="answers" data-category="cognitive"><input type="radio" id="q1_yes" name="q1" value="yes"><label for="q1_yes">YES</label><input type="radio" id="q1_no" name="q1" value="no" checked><label for="q1_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">2. When faced with a complex problem, I try to break it down into smaller, logical steps.</p><div class="answers" data-category="cognitive"><input type="radio" id="q2_yes" name="q2" value="yes"><label for="q2_yes">YES</label><input type="radio" id="q2_no" name="q2" value="no" checked><label for="q2_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">3. I feel comfortable working with numbers, charts, and spreadsheets.</p><div class="answers" data-category="cognitive"><input type="radio" id="q3_yes" name="q3" value="yes"><label for="q3_yes">YES</label><input type="radio" id="q3_no" name="q3" value="no" checked><label for="q3_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">4. I can quickly perform mental calculations without much difficulty.</p><div class="answers" data-category="cognitive"><input type="radio" id="q4_yes" name="q4" value="yes"><label for="q4_yes">YES</label><input type="radio" id="q4_no" name="q4" value="no" checked><label for="q4_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">5. I have a strong vocabulary and enjoy learning new words.</p><div class="answers" data-category="cognitive"><input type="radio" id="q5_yes" name="q5" value="yes"><label for="q5_yes">YES</label><input type="radio" id="q5_no" name="q5" value="no" checked><label for="q5_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">6. I can easily understand the main arguments in a complex piece of writing.</p><div class="answers" data-category="cognitive"><input type="radio" id="q6_yes" name="q6" value="yes"><label for="q6_yes">YES</label><input type="radio" id="q6_no" name="q6" value="no" checked><label for="q6_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">7. I can easily visualize objects in three dimensions, as if I were rotating them in my mind.</p><div class="answers" data-category="cognitive"><input type="radio" id="q7_yes" name="q7" value="yes"><label for="q7_yes">YES</label><input type="radio" id="q7_no" name="q7" value="no" checked><label for="q7_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">8. I am good at reading maps and navigating in unfamiliar places.</p><div class="answers" data-category="cognitive"><input type="radio" id="q8_yes" name="q8" value="yes"><label for="q8_yes">YES</label><input type="radio" id="q8_no" name="q8" value="no" checked><label for="q8_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">9. I like to examine data to find underlying trends or patterns.</p><div class="answers" data-category="cognitive"><input type="radio" id="q9_yes" name="q9" value="yes"><label for="q9_yes">YES</label><input type="radio" id="q9_no" name="q9" value="no" checked><label for="q9_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">10. Before making a decision, I analyze the pros and cons of each option.</p><div class="answers" data-category="cognitive"><input type="radio" id="q10_yes" name="q10" value="yes"><label for="q10_yes">YES</label><input type="radio" id="q10_no" name="q10" value="no" checked><label for="q10_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">11. I am interested in theoretical concepts and abstract ideas, not just practical applications.</p><div class="answers" data-category="cognitive"><input type="radio" id="q11_yes" name="q11" value="yes"><label for="q11_yes">YES</label><input type="radio" id="q11_no" name="q11" value="no" checked><label for="q11_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">12. I enjoy discussing philosophies, theories, and "what if" scenarios.</p><div class="answers" data-category="cognitive"><input type="radio" id="q12_yes" name="q12" value="yes"><label for="q12_yes">YES</label><input type="radio" id="q12_no" name="q12" value="no" checked><label for="q12_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">13. I can focus on a single task for a long period without getting distracted.</p><div class="answers" data-category="cognitive"><input type="radio" id="q13_yes" name="q13" value="yes"><label for="q13_yes">YES</label><input type="radio" id="q13_no" name="q13" value="no" checked><label for="q13_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">14. I am good at remembering facts, figures, and details.</p><div class="answers" data-category="cognitive"><input type="radio" id="q14_yes" name="q14" value="yes"><label for="q14_yes">YES</label><input type="radio" id="q14_no" name="q14" value="no" checked><label for="q14_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">15. I often notice small errors or inconsistencies that others might miss.</p><div class="answers" data-category="cognitive"><input type="radio" id="q15_yes" name="q15" value="yes"><label for="q15_yes">YES</label><input type="radio" id="q15_no" name="q15" value="no" checked><label for="q15_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">16. I believe that ensuring every small detail is correct is crucial for a successful outcome.</p><div class="answers" data-category="cognitive"><input type="radio" id="q16_yes" name="q16" value="yes"><label for="q16_yes">YES</label><input type="radio" id="q16_no" name="q16" value="no" checked><label for="q16_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">17. I enjoy coming up with new and unconventional ideas.</p><div class="answers" data-category="cognitive"><input type="radio" id="q17_yes" name="q17" value="yes"><label for="q17_yes">YES</label><input type="radio" id="q17_no" name="q17" value="no" checked><label for="q17_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">18. I prefer finding creative solutions over using traditional methods.</p><div class="answers" data-category="cognitive"><input type="radio" id="q18_yes" name="q18" value="yes"><label for="q18_yes">YES</label><input type="radio" id="q18_no" name="q18" value="no" checked><label for="q18_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">19. I am curious about how things work, whether it's a machine or a software program.</p><div class="answers" data-category="cognitive"><input type="radio" id="q19_yes" name="q19" value="yes"><label for="q19_yes">YES</label><input type="radio" id="q19_no" name="q19" value="no" checked><label for="q19_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">20. I enjoy troubleshooting and fixing technical problems.</p><div class="answers" data-category="cognitive"><input type="radio" id="q20_yes" name="q20" value="yes"><label for="q20_yes">YES</label><input type="radio" id="q20_no" name="q20" value="no" checked><label for="q20_no">NO</label></div></div>
+
+            <h2 class="category-header">Part 2: Communication & Social Factors</h2>
+            <div class="question-block"><p class="question-text">21. I am confident when speaking in front of a group of people.</p><div class="answers" data-category="social"><input type="radio" id="q21_yes" name="q21" value="yes"><label for="q21_yes">YES</label><input type="radio" id="q21_no" name="q21" value="no" checked><label for="q21_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">22. I find it easy to articulate my thoughts and ideas clearly when I speak.</p><div class="answers" data-category="social"><input type="radio" id="q22_yes" name="q22" value="yes"><label for="q22_yes">YES</label><input type="radio" id="q22_no" name="q22" value="no" checked><label for="q22_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">23. I enjoy writing and feel I can express myself well in writing.</p><div class="answers" data-category="social"><input type="radio" id="q23_yes" name="q23" value="yes"><label for="q23_yes">YES</label><input type="radio" id="q23_no" name="q23" value="no" checked><label for="q23_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">24. I am good at organizing my written work in a clear and logical way.</p><div class="answers" data-category="social"><input type="radio" id="q24_yes" name="q24" value="yes"><label for="q24_yes">YES</label><input type="radio" id="q24_no" name="q24" value="no" checked><label for="q24_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">25. I find it easy to connect with people from different backgrounds.</p><div class="answers" data-category="social"><input type="radio" id="q25_yes" name="q25" value="yes"><label for="q25_yes">YES</label><input type="radio" id="q25_no" name="q25" value="no" checked><label for="q25_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">26. People often describe me as friendly and approachable.</p><div class="answers" data-category="social"><input type="radio" id="q26_yes" name="q26" value="yes"><label for="q26_yes">YES</label><input type="radio" id="q26_no" name="q26" value="no" checked><label for="q26_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">27. I am good at sensing what other people are feeling.</p><div class="answers" data-category="social"><input type="radio" id="q27_yes" name="q27" value="yes"><label for="q27_yes">YES</label><input type="radio" id="q27_no" name="q27" value="no" checked><label for="q27_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">28. I genuinely care about the problems and well-being of others.</p><div class="answers" data-category="social"><input type="radio" id="q28_yes" name="q28" value="yes"><label for="q28_yes">YES</label><input type="radio" id="q28_no" name="q28" value="no" checked><label for="q28_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">29. I prefer working in a group rather than working alone.</p><div class="answers" data-category="social"><input type="radio" id="q29_yes" name="q29" value="yes"><label for="q29_yes">YES</label><input type="radio" id="q29_no" name="q29" value="no" checked><label for="q29_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">30. I enjoy collaborating with others to achieve a shared goal.</p><div class="answers" data-category="social"><input type="radio" id="q30_yes" name="q30" value="yes"><label for="q30_yes">YES</label><input type="radio" id="q30_no" name="q30" value="no" checked><label for="q30_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">31. I am good at convincing others to see my point of view.</p><div class="answers" data-category="social"><input type="radio" id="q31_yes" name="q31" value="yes"><label for="q31_yes">YES</label><input type="radio" id="q31_no" name="q31" value="no" checked><label for="q31_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">32. I enjoy negotiating or debating to reach an agreement.</p><div class="answers" data-category="social"><input type="radio" id="q32_yes" name="q32" value="yes"><label for="q32_yes">YES</label><input type="radio" id="q32_no" name="q32" value="no" checked><label for="q32_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">33. I naturally take charge of a situation when no one else does.</p><div class="answers" data-category="social"><input type="radio" id="q33_yes" name="q33" value="yes"><label for="q33_yes">YES</label><input type="radio" id="q33_no" name="q33" value="no" checked><label for="q33_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">34. I enjoy motivating and guiding others to perform at their best.</p><div class="answers" data-category="social"><input type="radio" id="q34_yes" name="q34" value="yes"><label for="q34_yes">YES</label><input type="radio" id="q34_no" name="q34" value="no" checked><label for="q34_no">NO</label></div></div>
+
+            <h2 class="category-header">Part 3: Personality & Behavior Traits</h2>
+            <div class="question-block"><p class="question-text">35. I feel energized after spending time with a large group of people.</p><div class="answers" data-category="personality"><input type="radio" id="q35_yes" name="q35" value="yes"><label for="q35_yes">YES</label><input type="radio" id="q35_no" name="q35" value="no" checked><label for="q35_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">36. I do my best work when I can focus alone in a quiet environment.</p><div class="answers" data-category="personality"><input type="radio" id="q36_yes" name="q36" value="yes"><label for="q36_yes">YES</label><input type="radio" id="q36_no" name="q36" value="no" checked><label for="q36_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">37. I believe in my ability to succeed even when tasks are difficult.</p><div class="answers" data-category="personality"><input type="radio" id="q37_yes" name="q37" value="yes"><label for="q37_yes">YES</label><input type="radio" id="q37_no" name="q37" value="no" checked><label for="q37_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">38. I am not afraid to voice my opinions, even if they are unpopular.</p><div class="answers" data-category="personality"><input type="radio" id="q38_yes" name="q38" value="yes"><label for="q38_yes">YES</label><input type="radio" id="q38_no" name="q38" value="no" checked><label for="q38_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">39. I can stick to a schedule and meet deadlines without needing someone to remind me.</p><div class="answers" data-category="personality"><input type="radio" id="q39_yes" name="q39" value="yes"><label for="q39_yes">YES</label><input type="radio" id="q39_no" name="q39" value="no" checked><label for="q39_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">40. I am driven to finish what I start, even if it’s a long and challenging project.</p><div class="answers" data-category="personality"><input type="radio" id="q40_yes" name="q40" value="yes"><label for="q40_yes">YES</label><input type="radio" id="q40_no" name="q40" value="no" checked><label for="q40_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">41. I am excited by the idea of taking risks for a potentially high reward.</p><div class="answers" data-category="personality"><input type="radio" id="q41_yes" name="q41" value="yes"><label for="q41_yes">YES</label><input type="radio" id="q41_no" name="q41" value="no" checked><label for="q41_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">42. I prefer situations that are stable and predictable over those that are uncertain.</p><div class="answers" data-category="personality"><input type="radio" id="q42_yes" name="q42" value="yes"><label for="q42_yes">YES</label><input type="radio" id="q42_no" name="q42" value="no" checked><label for="q42_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">43. I remain calm and level-headed in stressful situations.</p><div class="answers" data-category="personality"><input type="radio" id="q43_yes" name="q43" value="yes"><label for="q43_yes">YES</label><input type="radio" id="q43_no" name="q43" value="no" checked><label for="q43_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">44. My mood is generally stable and doesn't change drastically from day to day.</p><div class="answers" data-category="personality"><input type="radio" id="q44_yes" name="q44" value="yes"><label for="q44_yes">YES</label><input type="radio" id="q44_no" name="q44" value="no" checked><label for="q44_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">45. I can easily adjust my plans when unexpected changes occur.</p><div class="answers" data-category="personality"><input type="radio" id="q45_yes" name="q45" value="yes"><label for="q45_yes">YES</label><input type="radio" id="q45_no" name="q45" value="no" checked><label for="q45_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">46. I enjoy variety in my work and dislike doing the same routine every day.</p><div class="answers" data-category="personality"><input type="radio" id="q46_yes" name="q46" value="yes"><label for="q46_yes">YES</label><input type="radio" id="q46_no" name="q46" value="no" checked><label for="q46_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">47. I tend to make decisions quickly based on my intuition or "gut feeling."</p><div class="answers" data-category="personality"><input type="radio" id="q47_yes" name="q47" value="yes"><label for="q47_yes">YES</label><input type="radio" id="q47_no" name="q47" value="no" checked><label for="q47_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">48. I prefer to gather a lot of information before making a choice.</p><div class="answers" data-category="personality"><input type="radio" id="q48_yes" name="q48" value="yes"><label for="q48_yes">YES</label><input type="radio" id="q48_no" name="q48" value="no" checked><label for="q48_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">49. I have a strong desire to be the best in my field.</p><div class="answers" data-category="personality"><input type="radio" id="q49_yes" name="q49" value="yes"><label for="q49_yes">YES</label><input type="radio" id="q49_no" name="q49" value="no" checked><label for="q49_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">50. I am always looking for new challenges to push myself further.</p><div class="answers" data-category="personality"><input type="radio" id="q50_yes" name="q50" value="yes"><label for="q50_yes">YES</label><input type="radio" id="q50_no" name="q50" value="no" checked><label for="q50_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">51. Following rules and doing things "by the book" is important to me.</p><div class="answers" data-category="personality"><input type="radio" id="q51_yes" name="q51" value="yes"><label for="q51_yes">YES</label><input type="radio" id="q51_no" name="q51" value="no" checked><label for="q51_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">52. I would never compromise my principles for personal gain.</p><div class="answers" data-category="personality"><input type="radio" id="q52_yes" name="q52" value="yes"><label for="q52_yes">YES</label><input type="radio" id="q52_no" name="q52" value="no" checked><label for="q52_no">NO</label></div></div>
+
+            <h2 class="category-header">Part 4: Interest-Based Factors (RIASEC)</h2>
+            <div class="question-block"><p class="question-text">53. I enjoy physical, hands-on activities like building or repairing things.</p><div class="answers" data-category="interest"><input type="radio" id="q53_yes" name="q53" value="yes"><label for="q53_yes">YES</label><input type="radio" id="q53_no" name="q53" value="no" checked><label for="q53_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">54. I prefer working with tools, machines, or animals rather than ideas.</p><div class="answers" data-category="interest"><input type="radio" id="q54_yes" name="q54" value="yes"><label for="q54_yes">YES</label><input type="radio" id="q54_no" name="q54" value="no" checked><label for="q54_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">55. I am curious and enjoy activities that involve research and analysis.</p><div class="answers" data-category="interest"><input type="radio" id="q55_yes" name="q55" value="yes"><label for="q55_yes">YES</label><input type="radio" id="q55_no" name="q55" value="no" checked><label for="q55_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">56. I like to solve complex problems and understand how things work on a deep level.</p><div class="answers" data-category="interest"><input type="radio" id="q56_yes" name="q56" value="yes"><label for="q56_yes">YES</label><input type="radio" id="q56_no" name="q56" value="no" checked><label for="q56_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">57. Expressing myself creatively through art, music, or writing is important to me.</p><div class="answers" data-category="interest"><input type="radio" id="q57_yes" name="q57" value="yes"><label for="q57_yes">YES</label><input type="radio" id="q57_no" name="q57" value="no" checked><label for="q57_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">58. I enjoy work that allows for self-expression and doesn't have a lot of strict rules.</p><div class="answers" data-category="interest"><input type="radio" id="q58_yes" name="q58" value="yes"><label for="q58_yes">YES</label><input type="radio" id="q58_no" name="q58" value="no" checked><label for="q58_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">59. I feel fulfilled when I am helping, teaching, or caring for others.</p><div class="answers" data-category="interest"><input type="radio" id="q59_yes" name="q59" value="yes"><label for="q59_yes">YES</label><input type="radio" id="q59_no" name="q59" value="no" checked><label for="q59_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">60. I enjoy working in groups and value building strong relationships with people.</p><div class="answers" data-category="interest"><input type="radio" id="q60_yes" name="q60" value="yes"><label for="q60_yes">YES</label><input type="radio" id="q60_no" name="q60" value="no" checked><label for="q60_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">61. I enjoy leading teams, starting businesses, and persuading people.</p><div class="answers" data-category="interest"><input type="radio" id="q61_yes" name="q61" value="yes"><label for="q61_yes">YES</label><input type="radio" id="q61_no" name="q61" value="no" checked><label for="q61_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">62. I am ambitious and enjoy activities that involve sales, management, or politics.</p><div class="answers" data-category="interest"><input type="radio" id="q62_yes" name="q62" value="yes"><label for="q62_yes">YES</label><input type="radio" id="q62_no" name="q62" value="no" checked><label for="q62_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">63. I enjoy working with data and am good at tasks that require organization.</p><div class="answers" data-category="interest"><input type="radio" id="q63_yes" name="q63" value="yes"><label for="q63_yes">YES</label><input type="radio" id="q63_no" name="q63" value="no" checked><label for="q63_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">64. I prefer to work in a structured environment with clear instructions.</p><div class="answers" data-category="interest"><input type="radio" id="q64_yes" name="q64" value="yes"><label for="q64_yes">YES</label><input type="radio" id="q64_no" name="q64" value="no" checked><label for="q64_no">NO</label></div></div>
+
+            <h2 class="category-header">Part 5: Career-Specific Values</h2>
+            <div class="question-block"><p class="question-text">65. Is it very important for you to have enough personal time for family and hobbies?</p><div class="answers" data-category="values"><input type="radio" id="q65_yes" name="q65" value="yes"><label for="q65_yes">YES</label><input type="radio" id="q65_no" name="q65" value="no" checked><label for="q65_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">66. Would you avoid a job that regularly required you to work long hours or on weekends?</p><div class="answers" data-category="values"><input type="radio" id="q66_yes" name="q66" value="yes"><label for="q66_yes">YES</label><input type="radio" id="q66_no" name="q66" value="no" checked><label for="q66_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">67. Is having a stable, secure job a top priority for you?</p><div class="answers" data-category="values"><input type="radio" id="q67_yes" name="q67" value="yes"><label for="q67_yes">YES</label><input type="radio" id="q67_no" name="q67" value="no" checked><label for="q67_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">68. Do you value a steady career path over a high-risk, high-reward opportunity?</p><div class="answers" data-category="values"><input type="radio" id="q68_yes" name="q68" value="yes"><label for="q68_yes">YES</label><input type="radio" id="q68_no" name="q68" value="no" checked><label for="q68_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">69. Is earning a very high salary one of your most important career goals?</p><div class="answers" data-category="values"><input type="radio" id="q69_yes" name="q69" value="yes"><label for="q69_yes">YES</label><input type="radio" id="q69_no" name="q69" value="no" checked><label for="q69_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">70. Are you highly motivated by financial rewards and bonuses?</p><div class="answers" data-category="values"><input type="radio" id="q70_yes" name="q70" value="yes"><label for="q70_yes">YES</label><input type="radio" id="q70_no" name="q70" value="no" checked><label for="q70_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">71. Is it important that your work makes a positive contribution to society?</p><div class="answers" data-category="values"><input type="radio" id="q71_yes" name="q71" value="yes"><label for="q71_yes">YES</label><input type="radio" id="q71_no" name="q71" value="no" checked><label for="q71_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">72. Would you be more satisfied in a job that helps people than in one that just makes money?</p><div class="answers" data-category="values"><input type="radio" id="q72_yes" name="q72" value="yes"><label for="q72_yes">YES</label><input type="radio" id="q72_no" name="q72" value="no" checked><label for="q72_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">73. Do you want a career with clear opportunities for promotion and advancement?</p><div class="answers" data-category="values"><input type="radio" id="q73_yes" name="q73" value="yes"><label for="q73_yes">YES</label><input type="radio" id="q73_no" name="q73" value="no" checked><label for="q73_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">74. Is continuous learning and developing new skills important for your career?</p><div class="answers" data-category="values"><input type="radio" id="q74_yes" name="q74" value="yes"><label for="q74_yes">YES</label><input type="radio" id="q74_no" name="q74" value="no" checked><label for="q74_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">75. Do you work best when you have the freedom to manage your own tasks?</p><div class="answers" data-category="values"><input type="radio" id="q75_yes" name="q75" value="yes"><label for="q75_yes">YES</label><input type="radio" id="q75_no" name="q75" value="no" checked><label for="q75_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">76. Do you dislike being micromanaged and prefer to work independently?</p><div class="answers" data-category="values"><input type="radio" id="q76_yes" name="q76" value="yes"><label for="q76_yes">YES</label><input type="radio" id="q76_no" name="q76" value="no" checked><label for="q76_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">77. Is having a job title that is well-respected by others important to you?</p><div class="answers" data-category="values"><input type="radio" id="q77_yes" name="q77" value="yes"><label for="q77_yes">YES</label><input type="radio" id="q77_no" name="q77" value="no" checked><label for="q77_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">78. Are you motivated by public recognition and awards for your work?</p><div class="answers" data-category="values"><input type="radio" id="q78_yes" name="q78" value="yes"><label for="q78_yes">YES</label><input type="radio" id="q78_no" name="q78" value="no" checked><label for="q78_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">79. Does a career that involves frequent travel sound exciting to you?</p><div class="answers" data-category="values"><input type="radio" id="q79_yes" name="q79" value="yes"><label for="q79_yes">YES</label><input type="radio" id="q79_no" name="q79" value="no" checked><label for="q79_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">80. Would you prefer a job that allows you to work in different cities or countries?</p><div class="answers" data-category="values"><input type="radio" id="q80_yes" name="q80" value="yes"><label for="q80_yes">YES</label><input type="radio" id="q80_no" name="q80" value="no" checked><label for="q80_no">NO</label></div></div>
+
+            <h2 class="category-header">Part 6: Skills & Background Filters</h2>
+            <div class="question-block"><p class="question-text">81. Are you confident in your ability to learn and use a new language?</p><div class="answers" data-category="skills"><input type="radio" id="q81_yes" name="q81" value="yes"><label for="q81_yes">YES</label><input type="radio" id="q81_no" name="q81" value="no" checked><label for="q81_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">82. Do you enjoy communicating with people who speak different languages?</p><div class="answers" data-category="skills"><input type="radio" id="q82_yes" name="q82" value="yes"><label for="q82_yes">YES</label><input type="radio" id="q82_no" name="q82" value="no" checked><label for="q82_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">83. Are you quick to learn and adapt to new software, apps, and technology?</p><div class="answers" data-category="skills"><input type="radio" id="q83_yes" name="q83" value="yes"><label for="q83_yes">YES</label><input type="radio" id="q83_no" name="q83" value="no" checked><label for="q83_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">84. Are you the person friends or family ask for help with tech-related problems?</p><div class="answers" data-category="skills"><input type="radio" id="q84_yes" name="q84" value="yes"><label for="q84_yes">YES</label><input type="radio" id="q84_no" name="q84" value="no" checked><label for="q84_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">85. Have you always performed better in subjects like math and science?</p><div class="answers" data-category="skills"><input type="radio" id="q85_yes" name="q85" value="yes"><label for="q85_yes">YES</label><input type="radio" id="q85_no" name="q85" value="no" checked><label for="q85_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">86. Have you always excelled in subjects like literature, history, and the arts?</p><div class="answers" data-category="skills"><input type="radio" id="q86_yes" name="q86" value="yes"><label for="q86_yes">YES</label><input type="radio" id="q86_no" name="q86" value="no" checked><label for="q86_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">87. Would you be happiest working in a fast-paced, bustling, and energetic environment?</p><div class="answers" data-category="skills"><input type="radio" id="q87_yes" name="q87" value="yes"><label for="q87_yes">YES</label><input type="radio" id="q87_no" name="q87" value="no" checked><label for="q87_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">88. Do you prefer a calm, quiet, and predictable work setting?</p><div class="answers" data-category="skills"><input type="radio" id="q88_yes" name="q88" value="yes"><label for="q88_yes">YES</label><input type="radio" id="q88_no" name="q88" value="no" checked><label for="q88_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">89. Does the idea of working mostly outdoors appeal to you?</p><div class="answers" data-category="skills"><input type="radio" id="q89_yes" name="q89" value="yes"><label for="q89_yes">YES</label><input type="radio" id="q89_no" name="q89" value="no" checked><label for="q89_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">90. Do you thrive in a highly collaborative, team-based office environment?</p><div class="answers" data-category="skills"><input type="radio" id="q90_yes" name="q90" value="yes"><label for="q90_yes">YES</label><input type="radio" id="q90_no" name="q90" value="no" checked><label for="q90_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">91. Do you prefer a formal, corporate office setting with professional standards?</p><div class="answers" data-category="skills"><input type="radio" id="q91_yes" name="q91" value="yes"><label for="q91_yes">YES</label><input type="radio" id="q91_no" name="q91" value="no" checked><label for="q91_no">NO</label></div></div>
+            <div class="question-block"><p class="question-text">92. Are you most productive with a flexible schedule or the option to work from home?</p><div class="answers" data-category="skills"><input type="radio" id="q92_yes" name="q92" value="yes"><label for="q92_yes">YES</label><input type="radio" id="q92_no" name="q92" value="no" checked><label for="q92_no">NO</label></div></div>
+
+            <button id="submit-btn" onclick="calculateResults()">Find My Career Path</button>
+            <p id="error-message"></p>
+
+        </section>
+    </form>
+    
+    <!-- RESULTS CONTAINER -->
+    <section class="results-container" id="results">
+        <h2>Congratulations, <span id="result-name"></span>!</h2>
+        <p class="zone-text">Your dominant career zone is: <span id="result-zone"></span></p>
+        <h3>Based on your profile, here are your Top 5 recommended courses:</h3>
+        <ul id="course-list">
+            <!-- Courses will be dynamically inserted here -->
+        </ul>
+    </section>
+
+</div>
+
+<script>
+// --- STEP 1: COURSE MAPPING DATABASE ---
+// This object maps career zones and education levels to relevant courses.
+const courseMappings = {
+    // 🧠 Zone for logical, analytical, problem-solving, and scientific minds.
+    cognitive: {
+        ssc: [
+             "Diploma in Computer Science & Engineering", "Diploma in Information Technology (IT)", "Diploma in Electrical Engineering",
+        "Diploma in Electronics & Communication Engineering", "Diploma in Mechanical Engineering", "Diploma in Civil Engineering",
+        "Diploma in Chemical Engineering", "Diploma in Aeronautical Engineering", "Diploma in Automobile Engineering",
+        "Diploma in Biomedical Engineering", "Diploma in Industrial Automation", "Diploma in Instrumentation Engineering",
+        "Diploma in Manufacturing Engineering", "Diploma in Marine Engineering", "Diploma in Mechatronics Engineering",
+        "Diploma in Metallurgical Engineering", "Diploma in Mining Engineering", "Diploma in Nanotechnology",
+        "Diploma in Petrochemical Engineering", "Diploma in Petroleum Engineering", "Diploma in Plastic Technology",
+        "Diploma in Power Electronics", "Diploma in Power Plant Engineering (Operations)", "Diploma in Production Engineering",
+        "Diploma in Robotics Engineering", "Diploma in Tool Engineering", "Diploma in VLSI Design", "Diploma in Drone Technology",
+        "Diploma in Railway Signalling and Telecommunication", "Diploma in Metro Rail Technology", "Diploma in Pipeline Engineering",
+        "Certificate in Computer Hardware and Networking", "Certificate in Computer Operator & Programming Assistant (COPA)",
+        "Certificate in Cyber Security", "Certificate in Ethical Hacking", "Certificate in Embedded Systems",
+        "Certificate in Internet of Things (IoT)", "Certificate in Network Security", "Certificate in Optical Fibre Cable (OFC) Technology",
+        "Certificate in Programming Languages (C++, Java, Python, etc.)", "Certificate in Quantum Computing", "Certificate in Web Development",
+        "Diploma in Banking and Finance", "Diploma in E-Accounting Taxation", "Diploma in Financial Accounting",
+        "Diploma in Foreign Exchange Management", "Diploma in Investment Management", "Diploma in Stock Market Operations",
+        "Diploma in Supply Chain Analytics", "Diploma in Taxation", "Diploma in Value Engineering", "Diploma in Quantity Surveying",
+        "Diploma in Medical Laboratory Technology (MLT)", "Diploma in Dialysis Technology", "Diploma in Radiology Technology",
+        "Diploma in X-Ray Technology", "Diploma in Ophthalmic Technology", "Diploma in ECG Technology",
+        "Diploma in Boiler Operation and Maintenance", "Diploma in Corrosion Technology", "Diploma in Draughtsman (Civil)",
+        "Diploma in Draughtsman (Electrical)", "Diploma in Draughtsman (Mechanical)", "Diploma in Heat Treatment Technology",
+        "Diploma in Machine Tool Technology", "Diploma in Non-Destructive Testing (NDT)", "Diploma in Quality Control and Assurance",
+        "Diploma in Surveyor", "Diploma in Welding Technology", "Diploma in CNC Machine Operator", "Diploma in Machinist",
+        "Diploma in Turner", "Diploma in Grinder (Machining)", "Diploma in Fitter", "Diploma in Foundryman", "Diploma in Pattern Making (Foundry)"
+        ],
+        hsc: [
+           // Core Engineering (B.Tech/B.E.)
+        "B.Tech./B.E. in Computer Science and Engineering (CSE)", "B.Tech./B.E. in Artificial Intelligence and Machine Learning",
+        "B.Tech./B.E. in Data Science", "B.Tech./B.E. in Electronics and Communication Engineering (ECE)", "B.Tech./B.E. in Electrical Engineering",
+        "B.Tech./B.E. in Mechanical Engineering", "B.Tech./B.E. in Civil Engineering", "B.Tech./B.E. in Software Engineering",
+        "B.Tech./B.E. in Information Technology (IT)", "B.Tech./B.E. in Aeronautical Engineering", "B.Tech./B.E. in Chemical Engineering",
+        "B.Tech./B.E. in Mechatronics Engineering", "B.Tech./B.E. in Robotics Engineering", "B.Tech./B.E. in Cyber Security",
+        // Specialized Engineering & Tech
+        "Bachelor of Architecture (B.Arch.)", "Bachelor of Pharmacy (B.Pharm)", "B.Tech./B.E. in Nanotechnology", "B.Tech./B.E. in Genetic Engineering",
+        "B.Tech./B.E. in Biomedical Engineering", "B.Tech./B.E. in Biotechnology Engineering", "B.Tech./B.E. in Marine Engineering",
+        // Core Science (B.Sc.)
+        "B.Sc. in Physics", "B.Sc. in Chemistry", "B.Sc. in Mathematics", "B.Sc. in Statistics",
+        "B.Sc. in Computer Science", "B.Sc. in Data Science", "B.Sc. in Information Technology (IT)", "B.Sc. in Electronics",
+        "B.Sc. in Forensic Science", "B.Sc. in Geology", "B.Sc. in Actuarial Science",
+        // Commerce & Economics
+        "B.A. in Economics", "Bachelor of Commerce (B.Com)", "Bachelor of Business Economics (BBE)", "B.Com in Financial Markets",
+        // Integrated Technical Degrees
+        "Integrated B.Tech + M.Tech", "Integrated M.Sc", "Integrated B.Sc. LLB (5-year)", "Bachelor of Computer Applications (BCA)"
+        ],
+        graduation: [
+          // Core M.Tech / M.E.
+        "M.Tech. - Computer Science and Engineering (CSE)", "M.Tech. - Artificial Intelligence", "M.Tech. - Data Science & Analytics",
+        "M.Tech. - Electronics & Communication Engineering (ECE)", "M.Tech. - Mechanical Engineering", "M.Tech. - Civil Engineering",
+        "M.Tech. - Electrical Engineering", "M.Tech. - Software Engineering", "M.Tech. - VLSI Design", "M.Tech. - Structural Engineering",
+        "M.Tech. - Thermal Engineering", "M.Tech. - Control and Automation", "M.Tech. - Communication Engineering",
+        "M.Tech. - Cyber Security", "M.Tech. - Robotics and Automation", "M.Tech. - Nanotechnology", "M.Tech. - Aerospace Engineering",
+        // Core M.Sc.
+        "M.Sc. - Physics", "M.Sc. - Mathematics", "M.Sc. - Chemistry", "M.Sc. - Statistics",
+        "M.Sc. - Computer Science", "M.Sc. - Data Science", "M.Sc. - Biotechnology", "M.Sc. - Forensic Science",
+        "M.Sc. - Applied Geology", "M.Sc. - Operations Research", "M.Sc. - Quantum Computing",
+        // Professional Degrees & Certifications
+        "Master of Computer Applications (MCA)", "Master of Pharmacy (M.Pharm)", "Chartered Accountancy (CA)",
+        "Company Secretary (CS)", "Cost and Management Accountancy (CMA - India)", "Chartered Financial Analyst (CFA)",
+        "Financial Risk Manager (FRM)", "Certified Public Accountant (CPA)",
+        // PG Diplomas (Technical & Analytical)
+        "PG Diploma in Data Science", "PG Diploma in Artificial Intelligence & Machine Learning", "PG Diploma in Cyber Security",
+        "PG Diploma in Cloud Computing", "PG Diploma in Blockchain Technology", "PG Diploma in Embedded Systems",
+        "PG Diploma in Computer Applications (PGDCA)", "PG Diploma in Geoinformatics",
+        // Finance & Management (Analytical Focus)
+        "MBA in Finance", "MBA in Business Analytics", "MBA in Operations Management", "M.A. - Economics",
+        "Master of Financial Management (MFM)", "PGDM in Business Analytics", "PGDM in Finance", "PGDM in Operations Management",
+        "PGDM in Risk Management", "PGDM in Investment Banking"
+        ],
+        post_graduation: [
+           // Ph.D. (Engineering & Tech)
+        "Ph.D. in Computer Science & Engineering", "Ph.D. in Artificial Intelligence (Engg.)", "Ph.D. in Data Science (Engg.)",
+        "Ph.D. in Mechanical Engineering", "Ph.D. in Electrical Engineering", "Ph.D. in Civil Engineering",
+        "Ph.D. in Electronics & Communication Engineering", "Ph.D. in Robotics", "Ph.D. in Cybersecurity (Engg.)",
+        "Ph.D. in Materials Science (Engg.)", "Ph.D. in Energy Engineering", "Ph.D. in Architecture", "Ph.D. in Planning",
+        // Ph.D. (Science)
+        "Ph.D. in Physics", "Ph.D. in Chemistry", "Ph.D. in Mathematics", "Ph.D. in Statistics",
+        "Ph.D. in Biotechnology", "Ph.D. in Nanoscience", "Ph.D. in Neuroscience", "Ph.D. in Astronomy",
+        "Ph.D. in Forensic Science", "Ph.D. in Geology", "Ph.D. in Biomedical Science",
+        // Medical Super Speciality & Doctoral
+        "DM - Doctorate of Medicine (Super Speciality)", "M.Ch - Master of Chirurgiae (Super Speciality)",
+        "Doctor of Pharmacy (Pharm.D.) - Post Baccalaureate",
+        // Ph.D. (Analytical Humanities & Commerce)
+        "Ph.D. in Economics", "Ph.D. in Finance", "Ph.D. in Philosophy", "Ph.D. in Linguistics",
+        // Fellowships (Research Intensive)
+        "Post-Doctoral Fellowships Overview", "SERB National Post-Doctoral Fellowship (N-PDF)", "CSIR Research Associateship (CSIR-RA)",
+        "DBT Research Associateship (DBT-RA)", "UGC D. S. Kothari Postdoctoral Fellowship", "Ramanujan Fellowship"
+        ]
+    },
+    // 🗣️ Zone for helpers, communicators, and those who thrive on human interaction.
+    social: {
+        ssc: [
+           "Diploma in Nursing", "Diploma in Child Care and Education", "Diploma in Geriatric Care", "Diploma in Ayurveda Nursing",
+        "Diploma in Spoken English and Communication Skills", "Diploma in Public Relations", "Diploma in Hotel Management",
+        "Diploma in Airline Cabin Crew and Ground Staff", "Diploma in Food and Beverage Service", "Diploma in Front Office Operations",
+        "Diploma in Housekeeping Management", "Diploma in Travel Agency Management", "Diploma in Tourism and Hospitality Management (Advanced)",
+        "Diploma in Special Education Needs", "Diploma in Education (General)", "Diploma in Montessori Education",
+        "Diploma in Early Childhood Care and Education (ECCE)", "Diploma in Library and Information Science", "Diploma in Social Work",
+        "Diploma in Hair & Skin Care (Beautician)", "Diploma in Adventure Tourism", "Diploma in Eco-Tourism", "Diploma in Heritage Tourism",
+        "Diploma in Physical Education", "Certificate in Yoga Instructor", "Certificate in Yoga and Naturopathy", "Diploma in Remedial Education",
+        "Diploma in Human Resource Management", "Diploma in Corporate Communication", "Diploma in Marketing Management", "Diploma in Sales Management"
+        ],
+        hsc: [
+            // Core Medical & Allied Health
+        "Bachelor of Medicine, Bachelor of Surgery (MBBS)", "Bachelor of Dental Surgery (BDS)", "B.Sc. in Nursing",
+        "Bachelor of Physiotherapy (BPT)", "Bachelor of Occupational Therapy (BOT)", "B.Sc. in Optometry",
+        "B.Sc. in Dietetics and Nutrition", "B.Sc. in Medical Laboratory Technology (MLT)", "B.Sc. in Radiography and Imaging Technology",
+        // Traditional Indian Medicine
+        "Bachelor of Ayurvedic Medicine and Surgery (BAMS)", "Bachelor of Homeopathic Medicine and Surgery (BHMS)",
+        "Bachelor of Unani Medicine and Surgery (BUMS)", "Bachelor of Naturopathy and Yogic Sciences (BNYS)",
+        // Social Sciences & Education
+        "Bachelor of Social Work (BSW)", "B.A. in Psychology", "B.A. in Sociology", "Bachelor of Education (B.Ed)",
+        "Diploma in Elementary Education (D.El.Ed)", "Integrated BA + B.Ed", "Integrated B.Sc + B.Ed",
+        // Hospitality & Communication
+        "Bachelor of Hotel Management (BHM)", "B.A. in Journalism and Mass Communication", "B.A. in English",
+        "Bachelor of Public Relations (BPR)", "Bachelor of Hospitality and Tourism Management (BHTM)",
+        // Other People-Oriented Fields
+        "B.A. in History", "B.A. in Political Science", "Bachelor of Physical Education (B.P.Ed)",
+        "Bachelor of Library and Information Science (B.Lib.Sc)", "B.A. in Anthropology"
+        ],
+        graduation: [
+               "Master of Social work (MSW)", "M.A. in Psychology", "M.Sc. - Psychology", "MBA in Human Resource Management (HRM)",
+        "Master of Public Health (MPH)", "PG Diploma in Guidance and Counseling", "Master of Education (M.Ed.)",
+        "M.A. in Journalism and Mass Communication", "Master of Hospital Administration (MHA)", "M.Sc. - Nursing",
+        "M.A. in Child Development", "Master of Tourism Administration (MTA)", "PG Diploma in Public Relations and Advertising",
+        "Master of Physical Education (M.P.Ed.)", "M.A. in Sociology", "M.A. in English Literature", "M.A. in Political Science",
+        "M.A. in History", "M.A. in Public Administration", "M.A. in Education", "M.Sc. - Nutrition and Dietetics",
+        "Master of Human Resource Management (MHRM)", "PGDM in Human Resource Management", "PGDM in NGO Management",
+        "PG Diploma in Rehabilitation Psychology", "PG Diploma in Social Work", "PG Diploma in Hospital Administration",
+        "M.Sc. - Clinical Research", "Certificate in Counselling Skills (Specialized)"
+        ],
+        post_graduation: [
+            "Ph.D. in Psychology", "Ph.D. in Sociology", "Ph.D. in Social Work", "Ph.D. in Public Health",
+        "Ph.D. in Education", "Ph.D. in Human Resource Management (HRM)", "Ph.D. in Mass Communication",
+        "Ph.D. in Political Science", "Ph.D. in History", "Ph.D. in English Literature", "Ph.D. in Anthropology",
+        "MD in General Medicine", "MD in Pediatrics", "MD in Psychiatry", "MS in Obstetrics & Gynaecology",
+        "MD in Community Medicine", "Ph.D. in Library Science", "ICSSR Post-Doctoral Fellowship",
+        "Ph.D. in Physical Education"
+        ]
+    },
+    // 🌱 Zone for leaders, persuaders, entrepreneurs, and risk-takers.
+    personality: {
+        ssc: [
+             "Diploma in Business Administration", "Diploma in Sales Management", "Diploma in Marketing Management",
+        "Diploma in Retail Management", "Diploma in Public Relations", "Diploma in Advertising and Brand Management",
+        "Diploma in Event Management", "Diploma in Acting", "Diploma in Film Direction", "Diploma in Journalism",
+        "Diploma in Boutique Management", "Diploma in Export-Import Management", "Diploma in Insurance Management",
+        "Diploma in Business Management", "Diploma in Logistics Management", "Diploma in Sports Management",
+        "Diploma in Bartending", "Diploma in Entrepreneurship", "Diploma in Leadership Skills", // Assuming Entrepreneurship/Leadership Diplomas exist
+        "Diploma in Customs Clearance and Freight Forwarding", "Diploma in Risk and Insurance"
+        ],
+        hsc: [
+              "Bachelor of Business Administration (BBA)", "Integrated B.A. LLB (5-year)", "Bachelor of Event Management (BEM)",
+        "B.A. in Journalism and Mass Communication", "Bachelor of Management Studies (BMS)", "BBA in International Business",
+        "Bachelor of Public Relations (BPR)", "Bachelor of Sports Management (BSM)", "Integrated MBA",
+        "B.A. in Political Science", "Bachelor of Film and Television Production (BFTP)", "Bachelor of Commerce (B.Com)",
+        "Bachelor of Legislative Law (BLS) LLB (5-year integrated)", "B.Com LLB (5-year integrated)", "BBA LLB (5-year integrated)"
+        ],
+        graduation: [
+           "Master of Business Administration (MBA) - General", "MBA in Marketing", "MBA in International Business",
+        "M.A. in Journalism and Mass Communication", "Master of Laws (LL.M.) - Corporate Law", "Master of International Business (MIB)",
+        "PGDM in Marketing", "PGDM in Public Relations Management", "PGDM in Entrepreneurship Development", "PGDM in International Business",
+        "Company Secretary (CS)", "PGDM in Event Management", "M.A. in International Relations", "Master of Management Studies (MMS)",
+        "Master of Retail Management (MRM)", "PGDM in Agri-Business Management", "PGDM in Project Management",
+        "Master of Business Economics (MBE)", "Master of Travel and Tourism Management (MTTM)"
+        ],
+        post_graduation: [
+           "Ph.D. in Management", "Ph.D. in Marketing", "Ph.D. in International Business", "Ph.D. in Corporate Law",
+        "Ph.D. in Political Science", "Ph.D. in Entrepreneurship", "Ph.D. in Finance", "Ph.D. in Human Resource Management (HRM)",
+        "Ph.D. in Agri-Business Management", "Ph.D. in Healthcare Management", "Ph.D. in Journalism",
+        "Doctor of Business Administration (DBA)"
+        ]
+    },
+    // 🎯 Zone for hands-on, creative, and practical doers.
+    interest: {
+        ssc: [
+            "Diploma in Mechanical Engineering", "Diploma in Civil Engineering", "Diploma in Agriculture", "Diploma in Carpentry and Woodwork",
+        "Diploma in Fitter", "Diploma in Welder", "Diploma in Electrician", "Diploma in Motor Mechanic (Two-Wheeler/Four-Wheeler)", "Diploma in Plumbing and Sanitary Engineering",
+        "Diploma in Horticulture", "Diploma in Animal Husbandry", "Diploma in Poultry Farming", "Diploma in Sericulture (Silk Farming)",
+        "Diploma in Aquaculture (Fish Farming)", "Diploma in Floriculture", "Diploma in Apiculture (Beekeeping)",
+        "Diploma in Masonry and Construction", "Diploma in Fabrication Technology", "Diploma in Heavy Vehicle Mechanic",
+        "Diploma in Lathe Machine Operator", "Diploma in Leather Goods Manufacturing", "Diploma in Painting and Polishing",
+        "Diploma in Pump Operator Mechanic", "Diploma in Refrigerator and AC Mechanic", "Diploma in Sheet Metal Worker",
+        "Diploma in Tractor Mechanic", "Diploma in Wireman and Lineman", "Diploma in Watch and Clock Repairing",
+        "Diploma in Rolling Stock Maintenance", "Diploma in Road Construction", "Diploma in Ship Building Technology",
+        // Investigative (Thinkers, Scientific)
+        "Diploma in Medical Laboratory Technology (MLT)", "Diploma in Chemical Engineering", "Diploma in Food Science",
+        "Diploma in Environmental Engineering", "Diploma in Pharmacy", "Diploma in Dental Hygiene", "Diploma in Dental Mechanics",
+        "Diploma in Seed Technology", "Diploma in Fish Processing Technology", "Diploma in Grain Processing Technology",
+        "Diploma in Meat Processing Technology", "Diploma in Dairy Product Manufacturing", "Diploma in Brewing and Distillery Technology",
+        "Diploma in Pest Management (Agricultural)", "Diploma in Corrosion Technology", "Diploma in Non-Destructive Testing (NDT)",
+        // Artistic (Creators)
+        "Diploma in Fashion Design", "Diploma in Interior Design", "Diploma in Culinary Arts (Chef Training)", "Diploma in Photography",
+        "Diploma in Animation & Multimedia", "Diploma in Fine Arts", "Diploma in Graphic Design", "Diploma in Jewellery Design",
+        "Diploma in Bakery and Confectionery", "Diploma in Film Editing", "Diploma in Sound Design", "Diploma in Commercial Art",
+        "Diploma in Content Writing and Management", "Diploma in Digital Film Making", "Diploma in Film Direction", "Diploma in Screenwriting",
+        "Diploma in Furniture Design", "Diploma in Gemology", "Diploma in Jewellery Manufacturing", "Diploma in Landscaping and Garden Design",
+        "Diploma in Music Production", "Diploma in Patisserie", "Diploma in Pottery and Ceramics", "Diploma in Printing Technology (Digital Printing)",
+        "Diploma in Theatre Arts", "Diploma in UI/UX Design", "Diploma in Video Editing", "Diploma in Dressmaking/Sewing Technology", "Diploma in Tailoring",
+        // Conventional (Organizers)
+        "Certificate in Computer Operator & Programming Assistant (COPA)", "Diploma in Financial Accounting", "Diploma in Library and Information Science",
+        "Diploma in E-Accounting Taxation", "Certificate in Data Entry Operations", "Certificate in Office Automation",
+        "Diploma in Warehouse Management", "Diploma in Urban Planning Assistantship"
+        ],
+        hsc: [
+            // Realistic (Hands-on, Do-ers)
+        "B.Tech in Mechanical Engineering", "B.Tech in Civil Engineering", "B.Sc. in Agriculture", "B.Sc. in Horticulture",
+        "B.Sc. in Forestry", "B.Tech in Automobile Engineering", "B.Sc. in Nautical Science", "B.Sc. in Geology",
+        "Bachelor of Veterinary Science & Animal Husbandry (BVSc & AH)", "B.Tech in Mining Engineering", "B.Tech in Marine Engineering",
+        // Investigative (Thinkers, Scientific)
+        "B.Sc. in Physics", "B.Sc. in Chemistry", "B.Sc. in Biology", "B.Sc. in Biotechnology", "B.Sc. in Forensic Science",
+        "B.Sc. in Microbiology", "B.Sc. in Biochemistry", "B.Sc. in Zoology", "B.Sc. in Botany", "B.Tech in Chemical Engineering",
+        // Artistic (Creators)
+        "Bachelor of Design (B.Des)", "Bachelor of Fine Arts (BFA)", "Bachelor of Architecture (B.Arch.)",
+        "B.Sc. in Animation & Multimedia", "Bachelor of Performing Arts (BPA)", "B.F.Tech (Bachelor of Fashion Technology)",
+        "Bachelor of Visual Arts (BVA)", "Bachelor of Film and Television Production (BFTP)", "B.Des in Fashion Design",
+        "B.Des in Interior Design", "B.Des in Graphic Design",
+        // Conventional (Organizers)
+        "Bachelor of Commerce (B.Com)", "Bachelor of Computer Applications (BCA)", "B.Sc. in Statistics",
+        "Bachelor of Library and Information Science (B.Lib.Sc)"
+        ],
+        graduation: [
+           // Realistic (Hands-on, Applied Engineering)
+        "M.Tech. - Mechanical Engineering", "M.Tech. - Civil Engineering", "M.Tech. - Automobile Engineering", "M.Tech. - Marine Engineering",
+        "M.Sc. - Agriculture", "M.Sc. - Horticulture", "M.Sc. - Forestry", "M.Tech. - Agricultural Engineering",
+        // Investigative (Scientific Research)
+        "M.Sc. - Physics", "M.Sc. - Chemistry", "M.Sc. - Biology", "M.Sc. - Biotechnology", "M.Sc. - Forensic Science",
+        "M.Sc. - Microbiology", "M.Sc. - Biochemistry", "M.Sc. - Zoology", "M.Sc. - Botany", "M.Sc. - Geology",
+        "M.Sc. - Environmental Science", "M.Sc. - Marine Biology", "M.Sc. - Genetics", "Master of Pharmacy (M.Pharm)",
+        "PG Diploma in Clinical Research",
+        // Artistic (Creative & Design)
+        "Master of Design (M.Des)", "Master of Fine Arts (MFA)", "M.A. - Music", "M.A. - Dance", "Master of Performing Arts (MPA)",
+        "M.Des - Product Design", "M.Des - Graphic Design", "M.Des - Fashion Design",
+        "PG Diploma in Film and TV Production", "PG Diploma in Animation and VFX", "PG Diploma in Photography",
+        "PG Diploma in Sound Engineering", "M.A. - Film Studies", "M.A. - Theatre Arts", "M.A. - Comparative Literature",
+        // Conventional (Organizational & Structured)
+        "Master of Commerce (M.Com)", "Master of Library and Information Science (MLISc)", "Chartered Accountancy (CA)",
+        "M.Com - Taxation", "PGDM in Logistics and Supply Chain Management", "PG Diploma in Computer Applications (PGDCA)",
+        "M.Com - Banking and Insurance"
+        ],
+        post_graduation: [
+            // Realistic (Hands-on, Applied Research)
+        "Ph.D. in Mechanical Engineering", "Ph.D. in Civil Engineering", "M.Ch - Master of Chirurgiae (Super Speciality)",
+        "MS in General Surgery", "MS in Orthopaedics", "Ph.D. in Agriculture", "Master of Veterinary Science (MVSc)",
+        // Investigative (Scientific Research)
+        "Ph.D. in Physics", "Ph.D. in Chemistry", "Ph.D. in Biology", "Ph.D. in Biotechnology", "Ph.D. in Forensic Science",
+        "Ph.D. in Geology", "Ph.D. in Marine Biology", "Ph.D. in Pharmacology (Pharma)", "Ph.D. in Pharmaceutics",
+        "DM - Doctorate of Medicine (Super Speciality)", "MD in Pathology", "ICMR Postdoctoral Fellowship",
+        // Artistic (Creative Research & Mastery)
+        "Ph.D. in Design", "Ph.D. in Fine Arts", "Ph.D. in Music", "Ph.D. in Film Studies", "Ph.D. in Theatre Arts",
+        "Ph.D. in Literature", "Ph.D. in Fashion Design", "Ph.D. in Product Design",
+        // Conventional (Organizational Research)
+        "Ph.D. in Library Science", "Ph.D. in Statistics", "Ph.D. in Operations Management"
+        ]
+    },
+    // 🧩 Zone for those who value security, service, structure, and work-life balance.
+    values: {
+        ssc: [
+           // Job Security & Structure (Govt., Large industries)
+        "Diploma in Railway Signalling and Telecommunication", "Diploma in Metro Rail Technology", "Diploma in Wireman and Lineman",
+        "Diploma in Boiler Operation and Maintenance", "Diploma in Thermal Power Plant Technology", "Diploma in Hydro Power Plant Technology",
+        "Diploma in Rolling Stock Maintenance", "Diploma in Ship Building Technology", "Diploma in Port Management",
+        // Service to Society
+        "Diploma in Environmental Engineering", "Diploma in Water Quality Management", "Diploma in Sanitary Inspector",
+        "Diploma in Rural Healthcare", "Diploma in Fire and Safety", "Diploma in Special Education Needs",
+        "Diploma in Wastewater Treatment", "Diploma in Renewable Resource Management", "Diploma in Museum and Archival Studies",
+        "Diploma in Occupational Health and Safety",
+        // Growth & High Income Potential
+        "Diploma in Petroleum Engineering", "Diploma in Petrochemical Engineering", "Diploma in Stock Market Operations",
+        "Diploma in CNC Machine Operator", "Diploma in VLSI Design", "Diploma in Marine Engineering", "Diploma in Mining Engineering",
+        "Diploma in Power Plant Engineering (Operations)", "Diploma in Robotics Engineering",
+        // Autonomy & Travel
+        "Diploma in Travel Agency Management", "Diploma in Photography", "Diploma in Journalism", "Diploma in Adventure Tourism",
+        "Diploma in Eco-Tourism", "Diploma in Heritage Tourism", "Diploma in Translation and Interpretation"
+        ],
+        hsc: [
+              // Job Security & Structure
+        "Preparation for Government Jobs (SSC CGL, Bank PO, etc.)", "Preparation for Defence Services (CDS, AFCAT)",
+        "B.Tech in Civil Engineering", "B.A. in Public Administration", "Bachelor of Library and Information Science (B.Lib.Sc)",
+        // Service to Society
+        "Bachelor of Medicine, Bachelor of Surgery (MBBS)", "Bachelor of Social Work (BSW)", "B.Sc. in Environmental Science",
+        "B.Tech in Environmental Engineering", "Bachelor of Rural Studies (BRS)", "B.Ed for teaching careers",
+        // Growth & High Income
+        "B.Tech in Computer Science and Engineering (CSE)", "Integrated MBA", "B.Com (Honours) with professional courses (CA, CFA)",
+        "B.Tech./B.E. in Petroleum Engineering", "B.Tech in Artificial Intelligence & Machine Learning",
+        // Autonomy & Travel
+        "Bachelor of Travel and Tourism Management (BTTM)", "B.A. in Journalism and Mass Communication", "Bachelor of Design (B.Des)",
+        "Bachelor of Architecture (B.Arch.)", "B.Sc. in Geology", "B.Sc. in Nautical Science"
+        ],
+        graduation: [
+         // Job Security & Structure
+        "Preparation for Civil Services (UPSC, State PSC)", "Preparation for Banking Exams (IBPS PO, SBI PO, RBI Grade B)",
+        "Master of Library and Information Science (MLISc)", "M.A. in Public Administration", "M.Ed. (for government teaching jobs)",
+        "M.Tech. in government research organizations (e.g., ISRO, DRDO)",
+        // Service to Society
+        "Master of Social Work (MSW)", "Master of Public Health (MPH)", "M.A. in Environmental Studies", "M.A. in Rural Development",
+        "PGDM in NGO Management", "PG Diploma in Sustainable Development", "LL.M. - Environmental Law", "LL.M. - Human Rights Law",
+        "M.Sc. - Environmental Science",
+        // Growth & High Income
+        "Master of Business Administration (MBA)", "M.Tech. in Computer Science and Engineering (CSE)", "Chartered Accountancy (CA)",
+        "PGDM in Investment Banking", "M.Tech. in Petroleum Engineering", "Chartered Financial Analyst (CFA)",
+        "M.Tech. in Artificial Intelligence",
+        // Autonomy & Travel
+        "Master of Tourism Administration (MTA)", "PGDM in Entrepreneurship Development", "M.A. in Journalism",
+        "Master of Design (M.Des)", "Ph.D. (leading to consultancy)", "PG Diploma in Film and TV Production"
+        ],
+        post_graduation: [
+              // Job Security & Structure
+        "Indian Administrative Service (IAS), etc. (Post-Ph.D. entry if applicable)", "Indian Forest Service (IFoS) Examination",
+        "Indian Economic Service (IES)", "Teaching/Professor positions in Government Universities", "Scientist roles in Government bodies (e.g., CSIR, ICMR, ISRO)",
+        // Service to Society
+        "Ph.D. in Public Policy", "Ph.D. in Environmental Science", "Ph.D. in Development Studies", "Ph.D. in Public Health",
+        "MD in Community Medicine", "Post-Doctoral Fellowship in Social Sciences (ICSSR)", "Ph.D. in Education",
+        // Growth & High Income (Top-tier expertise)
+        "DM/M.Ch for specialized private practice", "Ph.D. in Finance", "Ph.D. in Computer Science & Engineering",
+        "Post-Doctoral Fellowship in a high-demand field (e.g., AI, Biotech)", "Ramanujan Fellowship", "Tata Innovation Fellowship",
+        "Industry-Sponsored Postdoctoral Research",
+        // Autonomy & Travel
+        "Post-Doctoral Fellowships (National & International)", "Fulbright-Nehru Postdoctoral Research Fellowships (USA)",
+        "Starting a research-based consultancy/startup"
+        ]
+    },
+    // ✅ Zone for those with strong technical inclinations and a love for specific, skilled tasks.
+    skills: {
+        ssc: [
+               // Tech Savviness (Computers, Electronics, Software)
+        "Certificate in Computer Hardware and Networking", "Diploma in Animation & Multimedia", "Certificate in Web Development",
+        "Certificate in Mobile Repairing and Servicing", "Diploma in UI/UX Design", "Certificate in Digital Marketing",
+        "Certificate in CCTV Installation and Maintenance", "Diploma in Drone Technology", "Diploma in Sound Design",
+        "Certificate in Ethical Hacking", "Diploma in Graphic Design", "Certificate in Programming Languages (C++, Java, Python, etc.)",
+        "Certificate in Augmented Reality (AR) & Virtual Reality (VR)", "Certificate in Digital Forensics", "Certificate in SEO",
+        "Certificate in Social Media Marketing", "Diploma in Smart Home Automation", "Diploma in Desktop Publishing (DTP)",
+        "Certificate in Printer and Scanner Repair",
+        // Language Proficiency
+        "Diploma in Spoken English and Communication Skills", "Diploma in Translation and Interpretation", "Diploma in Corporate Communication",
+        // Academic Strengths (Math/Science -> Engineering; Arts -> Creative)
+        // Note: These are implicitly covered by matching cognitive/interest zones with academic-style diplomas.
+        // For example, a student strong in math would likely score high in 'cognitive', leading to engineering diplomas.
+        // A student strong in arts would score high in 'interest' (Artistic), leading to creative diplomas.
+        // Specific skills like operating machinery
+        "Diploma in Electrician", "Diploma in Refrigerator and AC Mechanic", "Diploma in Motor Mechanic (Two-Wheeler/Four-Wheeler)",
+        "Diploma in CNC Machine Operator", "Diploma in Lathe Machine Operator", "Diploma in Pump Operator Mechanic", "Diploma in Tractor Mechanic"
+        ],
+        hsc: [
+            // Tech Savviness (Computers, Electronics, Software)
+        "B.Tech in Information Technology (IT)", "Bachelor of Computer Applications (BCA)", "B.Tech in Cyber Security",
+        "B.Tech in Electronics and Communication Engineering (ECE)", "B.Sc. in Computer Science", "B.Sc. in Animation & Multimedia",
+        "B.Voc (Vocational Studies) in IT/Software Development", "B.Tech in Mechatronics Engineering", "B.Des in Graphic Design",
+        "Bachelor of Multimedia (BMM)", "B.Tech in Robotics Engineering",
+        // Language Proficiency
+        "B.A. in English", "B.A. in a Foreign Language", "B.A. in Linguistics", "B.A. in Journalism and Mass Communication",
+        // Direct application of academic strengths (Math/Science -> Engineering; Arts -> Humanities)
+        // These are implicitly covered by the other zones, but this category reinforces the direct path.
+        // For Math/Science strengths:
+        "B.Tech./B.E. (any stream)", "B.Sc. (any pure science stream)", "B.Stat (Bachelor of Statistics)",
+        // For Arts/Humanities strengths:
+        "B.A. (any stream)", "Bachelor of Fine Arts (BFA)", "B.A. LLB (5-year integrated)"
+        ],
+        graduation: [
+            // Tech Savviness (Computers, Electronics, Software)
+        "M.Tech. in Information Technology", "PG Diploma in Web Development", "PG Diploma in Cyber Security",
+        "PG Diploma in Digital Marketing", "PG Diploma in Cloud Computing", "PG Diploma in Blockchain Technology",
+        "M.Sc. - Information Technology (IT)", "M.Tech. - Software Engineering", "Certified Ethical Hacker (CEH) Training",
+        "SAP Certification", "Cisco Certified Network Associate (CCNA) Training", "M.Tech. - Robotics and Automation",
+        "PGDM in IT & Systems Management", "PG Diploma in Animation and VFX", "PG Diploma in Sound Engineering",
+        "PG Diploma in Digital Game Design", "M.Sc. - Robotics",
+        // Language Proficiency
+        "M.A. in English Literature", "M.A. in Foreign Languages", "M.A. in Linguistics", "M.A. in Translation and Interpretation",
+        "PG Diploma in Translation and Interpretation",
+        // Direct application of academic strengths
+        "M.Tech. (any stream for B.Tech graduates)", "M.Sc. (any stream for B.Sc. graduates)",
+        "M.Com (for B.Com graduates)", "M.A. (for B.A. graduates)", "Master of Laws (LL.M.) (for LLB graduates)",
+        "Professional Certifications" // General category for skills upgrade
+        ],
+        post_graduation: [
+             // Tech Savviness (Deep Tech Research)
+        "Ph.D. in Cybersecurity (Engg.)", "Ph.D. in Information Technology (Engg.)", "Ph.D. in Robotics",
+        "Post-Doctoral Fellowship in Network Security", "Post-Doctoral Fellowship in AI Research",
+        "Ph.D. in VLSI Design", "Ph.D. in Computer Science & Engineering",
+        // Language Proficiency (Advanced Research)
+        "Ph.D. in Linguistics", "Ph.D. in Literature", "Ph.D. in Classical Languages",
+        // Direct Academic Progression
+        "Ph.D. in [Field of Master's Degree]", "MD/MS (after MBBS)", "MDS (after BDS)", "DM/M.Ch (after MD/MS)",
+        "Post-Doctoral Fellowship in [Field of Ph.D.]"
+        ]
+    }
+};
+
+// --- STEP 2: SCORING & RECOMMENDATION LOGIC ---
+function calculateResults() {
+    const studentName = document.getElementById('studentName').value;
+    const studentAge = document.getElementById('studentAge').value;
+    const educationLevel = document.getElementById('educationLevel').value;
+    const errorMessage = document.getElementById('error-message');
+
+    // Basic Validation
+    if (!studentName || !studentAge || !educationLevel) {
+        errorMessage.textContent = "Please fill in your Name, Age, and Education Level before submitting.";
+        errorMessage.style.display = 'block';
+        return;
+    }
+    errorMessage.style.display = 'none';
+
+    // Initialize scores
+    const scores = {
+        cognitive: 0,
+        social: 0,
+        personality: 0,
+        interest: 0,
+        values: 0,
+        skills: 0
+    };
+
+    // Score the quiz
+    const answers = document.querySelectorAll('.answers');
+    answers.forEach(answer => {
+        const category = answer.getAttribute('data-category');
+        const questionName = answer.querySelector('input').name;
+        const selected = document.querySelector(`input[name="${questionName}"]:checked`);
+        if (selected && selected.value === 'yes') {
+            scores[category]++;
+        }
+    });
+
+    // Find the winning category
+    let maxScore = -1;
+    let winningZone = '';
+    for (const zone in scores) {
+        if (scores[zone] > maxScore) {
+            maxScore = scores[zone];
+            winningZone = zone;
+        }
+    }
+    
+    // Get course recommendations
+    let recommendedCourses = courseMappings[winningZone][educationLevel];
+    
+    // Shuffle and pick top 5
+    const top5Courses = recommendedCourses.sort(() => 0.5 - Math.random()).slice(0, 5);
+    
+    // Display results
+    displayResults(studentName, winningZone, top5Courses);
+}
+
+function displayResults(name, zone, courses) {
+    document.getElementById('result-name').textContent = name;
+    
+    // Capitalize the zone name for display
+    let zoneDisplayName = zone;
+    if (zone === 'interest') {
+        zoneDisplayName = 'Interest-Based (RIASEC)';
+    } else if (zone === 'values') {
+        zoneDisplayName = 'Career Values';
+    } else {
+        zoneDisplayName = zone.charAt(0).toUpperCase() + zone.slice(1);
+    }
+    document.getElementById('result-zone').textContent = zoneDisplayName;
+    
+    const courseList = document.getElementById('course-list');
+    courseList.innerHTML = ''; // Clear previous results
+    courses.forEach(course => {
+        const li = document.createElement('li');
+        li.textContent = course;
+        courseList.appendChild(li);
+    });
+    
+    // Hide the form and show the results
+    document.getElementById('quizForm').style.display = 'none';
+    document.getElementById('results').style.display = 'block';
+
+    // Scroll to results
+    document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+const fs = require('fs');
+
+// --- CONFIGURATION ---
+const INPUT_FILE = 'input_data.txt';
+const OUTPUT_FILE = 'output_data_FIXED.txt';
+
+// --- YOUR CORRECTION MAP ---
+// INSTRUCTIONS:
+// 1. Open 'link_report.txt'.
+// 2. Copy the list of redirected links and paste them here.
+// 3. For any ERROR links, manually find the correct URL and add it to this map.
+const correctionMap = {
+    // PASTE YOUR CORRECTIONS FROM THE REPORT FILE HERE
+    // Example:
+    //   'http://www.sfit.ac.in/': 'https://www.sfit.ac.in/',
+    //   'https://polytechnic.somaiya.edu/': 'https://kjsp.somaiya.edu/en',
+};
+
+// --- SCRIPT LOGIC ---
+console.log(`Reading original file: ${INPUT_FILE}...`);
+if (!fs.existsSync(INPUT_FILE)) {
+    console.error(`ERROR: Input file not found! Make sure '${INPUT_FILE}' is in the folder.`);
+    return;
+}
+
+let fileContent = fs.readFileSync(INPUT_FILE, 'utf-8');
+let replacedCount = 0;
+
+console.log('Replacing URLs based on your correction map...');
+for (const oldUrl in correctionMap) {
+    const newUrl = correctionMap[oldUrl];
+    // Use a simple and safe string replacement
+    if (fileContent.includes(oldUrl)) {
+        fileContent = fileContent.replaceAll(oldUrl, newUrl);
+        console.log(`  - Replaced: ${oldUrl}`);
+        replacedCount++;
+    }
+}
+
+fs.writeFileSync(OUTPUT_FILE, fileContent);
+
+console.log(`\nProcess finished.`);
+console.log(`${replacedCount} URLs were replaced.`);
+console.log(`Your new, corrected file is saved as: ${OUTPUT_FILE}`);

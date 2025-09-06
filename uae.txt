@@ -1,0 +1,555 @@
+
+
+const uae = [
+  {
+    "Scholarship Name": "Chancellor's Scholarship",
+    "Host Country and University": "UAE, Mohamed bin Zayed University of Artificial Intelligence (MBZUAI)",
+    "Website": "https://mbzuai.ac.ae/study/scholarship/",
+    "Level of Study": "Postgraduate (Master's and PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must have a minimum CGPA of 3.2 (on a 4.0 scale) or equivalent from a reputable university. Must demonstrate academic excellence and potential for research.",
+      "Standardized Test Scores": "English proficiency is required (IELTS 6.5, TOEFL iBT 90). A GRE score is optional but recommended.",
+      "Field of Study": "Computer Vision, Machine Learning, Natural Language Processing.",
+      "Other": "Open to all nationalities. Must be a full-time student."
+    },
+    "Application Deadline": "The deadline for international students is typically at the end of March for the Fall intake.",
+    "Value/Inclusions": "This is a fully-funded scholarship covering 100% of tuition fees, a competitive monthly stipend for living expenses, university accommodation, health insurance, and one return ticket to your home country per year.",
+    "Application Process": "Apply for admission to an MSc or PhD program through the MBZUAI online portal. All admitted students are automatically considered for the scholarship. There is no separate scholarship application.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "Required, detailing your research interests and academic goals.",
+      "Letters of Recommendation (LORs)": "Two letters of recommendation are required.",
+      "Academic Transcripts": "Required from all post-secondary institutions attended.",
+      "Proof of English proficiency (TOEFL/IELTS scores)": "Required.",
+      "CV or Resume": "Required.",
+      "Passport copy": "Required."
+    },
+    "How old the scholarship is": "The university and its scholarship program were established recently, with the first academic year beginning in 2021.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "2019"
+  },
+  {
+    "Scholarship Name": "Provost's Graduate Fellowship",
+    "Host Country and University": "UAE, Khalifa University",
+    "Website": "https://www.ku.ac.ae/scholarships-graduate",
+    "Level of Study": "Postgraduate (Master's and PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must have a high CGPA from a reputable university. A minimum of 3.25 for MSc and 3.5 for PhD applicants is typically required.",
+      "Standardized Test Scores": "English proficiency is required (IELTS 6.5, TOEFL iBT 91). A GRE score is required for all applicants to the College of Engineering.",
+      "Field of Study": "Various programs in Engineering, Science, and Arts & Humanities.",
+      "Other": "Open to all nationalities. Must be a full-time student."
+    },
+    "Application Deadline": "The application deadline is typically around late April for the Fall semester.",
+    "Value/Inclusions": "A fully-funded scholarship that includes a monthly stipend (AED 20,000 for Master's, AED 40,000 for PhD), full tuition fee waiver, support to attend international research conferences, and free university accommodation for eligible students.",
+    "Application Process": "Apply for admission to a graduate program at Khalifa University. Eligible students are automatically considered for fellowships.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A statement detailing your research interests is required.",
+      "Letters of Recommendation (LORs)": "Two letters of recommendation are required.",
+      "Academic Transcripts": "Required.",
+      "Proof of English proficiency (TOEFL/IELTS scores)": "Required.",
+      "CV or Resume": "Required.",
+      "Passport copy": "Required."
+    },
+    "How old the scholarship is": "The university has offered these prestigious fellowships for several years.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "2007 (through a merger of older institutions)."
+  },
+  {
+    "Scholarship Name": "University of Dubai International Students Scholarship",
+    "Host Country and University": "UAE, University of Dubai",
+    "Website": "https://ud.ac.ae/scholarships/",
+    "Level of Study": "Undergraduate and Postgraduate",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Based on academic merit. For undergraduates, requires a high school score of 90% or above. For postgraduates, requires a CGPA of 3.5 or above.",
+      "Standardized Test Scores": "Must meet the English language requirements of the university.",
+      "Field of Study": "Programs in Business, Law, and IT.",
+      "Other": "Must be a new international student."
+    },
+    "Application Deadline": "No separate application required. Students are automatically considered upon admission.",
+    "Value/Inclusions": "A 25% tuition fee discount.",
+    "Application Process": "Apply for admission to the University of Dubai. You will be automatically assessed for the scholarship.",
+    "Required Documents": {
+      "Academic Transcripts": "Required.",
+      "Proof of English proficiency (TOEFL/IELTS scores)": "Required.",
+      "Passport copy": "Required."
+    },
+    "How old the scholarship is": "The university has offered international scholarships for many years.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1997"
+  },
+  {
+    "Scholarship Name": "American University of Sharjah (AUS) Chancellor's Scholars Award",
+    "Host Country and University": "UAE, American University of Sharjah",
+    "Website": "https://www.aus.edu/admissions/scholarships-and-grants/chancellors-scholars-award",
+    "Level of Study": "Undergraduate",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Based on exceptional academic merit. Typically requires very high secondary school scores.",
+      "Standardized Test Scores": "Must meet AUS admission requirements, which often include SAT scores and English proficiency tests (TOEFL/IELTS).",
+      "Field of Study": "All undergraduate programs.",
+      "Other": "Open to first-time undergraduate students of any nationality. Based purely on merit."
+    },
+    "Application Deadline": "No separate application. Students are automatically considered if they apply for admission by the priority deadline, typically in early March.",
+    "Value/Inclusions": "A 75% to 100% tuition fee waiver. It is renewable based on maintaining a high GPA (3.5 or above).",
+    "Application Process": "Apply for undergraduate admission to AUS. The admissions committee automatically identifies and selects eligible candidates.",
+    "Required Documents": {
+      "Academic Transcripts": "Required.",
+      "Proof of English proficiency (TOEFL/IELTS scores)": "Required.",
+      "SAT/ACT scores": "May be required.",
+      "Passport copy": "Required."
+    },
+    "How old the scholarship is": "This has been AUS's flagship merit scholarship for many years.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1997"
+  },
+  {
+    "Scholarship Name": "New York University Abu Dhabi (NYUAD) Financial Aid",
+    "Host Country and University": "UAE, New York University Abu Dhabi",
+    "Website": "https://nyuad.nyu.edu/en/admissions/financial-support.html",
+    "Level of Study": "Undergraduate",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must be admitted to NYUAD. Admission is highly competitive.",
+      "Standardized Test Scores": "NYU is test-optional, but strong scores are recommended. English proficiency must be demonstrated.",
+      "Field of Study": "All undergraduate programs.",
+      "Other": "NYUAD is need-blind for all applicants, including international students. This means your ability to pay is not a factor in the admission decision."
+    },
+    "Application Deadline": "You must apply for admission and financial aid by the relevant deadline (Early Decision in November, Regular Decision in January).",
+    "Value/Inclusions": "NYUAD meets 100% of demonstrated financial need. Awards can be full scholarships covering tuition, room, board, personal expenses, health insurance, and flights to and from Abu Dhabi.",
+    "Application Process": "Apply for admission to NYUAD via the Common Application. Submit the CSS Profile to be considered for financial aid.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "Part of the Common Application.",
+      "Letters of Recommendation (LORs)": "Required.",
+      "Academic Transcripts": "Required.",
+      "Proof of English proficiency (TOEFL/IELTS scores)": "Required if needed.",
+      "CV or Resume": "Not typically required.",
+      "Passport copy": "Required.",
+      "Proof of financial need (if applicable)": "The CSS Profile and supporting parent income documents are required."
+    },
+    "How old the scholarship is": "The generous financial aid policy has been in place since the university's inception.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "2010"
+  },
+  {
+    "Scholarship Name": "University of Wollongong in Dubai (UOWD) Academic Merit Scholarship",
+    "Host Country and University": "UAE, University of Wollongong in Dubai",
+    "Website": "https://www.uowdubai.ac.ae/scholarships",
+    "Level of Study": "Undergraduate and Postgraduate",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Based on academic excellence. For undergraduates, requires high school scores of 80% or higher. For postgraduates, requires a Bachelor's degree with a score of 75% or higher.",
+      "Standardized Test Scores": "Must meet the English language requirements of the course.",
+      "Field of Study": "All coursework programs.",
+      "Other": "Open to new international students."
+    },
+    "Application Deadline": "No separate application. Students are automatically considered upon admission.",
+    "Value/Inclusions": "A tiered tuition fee waiver from 15% to 50%, depending on the academic score.",
+    "Application Process": "Apply for admission to UOWD. The scholarship is awarded automatically to eligible students based on their academic results.",
+    "Required Documents": {
+      "Academic Transcripts": "Required.",
+      "Proof of English proficiency (TOEFL/IELTS scores)": "Required.",
+      "Passport copy": "Required."
+    },
+    "How old the scholarship is": "The university has had a merit-based scholarship system for many years.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1993"
+  },
+  {
+    "Scholarship Name": "Heriot-Watt University Dubai Campus Merit Scholarship for Indian Students",
+    "Host Country and University": "UAE, Heriot-Watt University Dubai Campus",
+    "Website": "https://www.hw.ac.uk/dubai/study/fees/scholarships.htm",
+    "Level of Study": "Undergraduate and Postgraduate",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Based on academic merit. Specific percentages for Indian curriculum (e.g., CBSE, CISCE) are listed on the website, typically 70% and above.",
+      "Standardized Test Scores": "Must meet the English language requirements of the course.",
+      "Field of Study": "All coursework programs.",
+      "Other": "Must be a citizen of India."
+    },
+    "Application Deadline": "No separate application. Students are automatically considered upon admission.",
+    "Value/Inclusions": "A tiered tuition fee waiver. The exact amount varies by academic performance and is a fixed AED amount deducted from the tuition fee.",
+    "Application Process": "Apply for admission to a program at the Dubai campus. The scholarship amount is confirmed in the offer letter if you are eligible.",
+    "Required Documents": {
+      "Academic Transcripts": "Required.",
+      "Proof of English proficiency (TOEFL/IELTS scores)": "Required.",
+      "Passport copy": "Required."
+    },
+    "How old the scholarship is": "Country-specific scholarships have been a feature of the Dubai campus for several years.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1821 (in the UK), 2005 (Dubai Campus)"
+  },
+  {
+    "Scholarship Name": "Middlesex University Dubai International Foundation Programme (IFP) Scholarship",
+    "Host Country and University": "UAE, Middlesex University Dubai",
+    "Website": "https://www.mdx.ac.ae/scholarships-and-grants",
+    "Level of Study": "Foundation (pathway to undergraduate).",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Based on academic merit in high school.",
+      "Standardized Test Scores": "Must meet the English language requirements for the foundation program.",
+      "Field of Study": "Pathway to various undergraduate degrees.",
+      "Other": "Open to all international students applying for the IFP."
+    },
+    "Application Deadline": "No separate application. Students are automatically considered upon admission.",
+    "Value/Inclusions": "A fixed tuition fee reduction, typically around AED 5,000.",
+    "Application Process": "Apply for admission to the International Foundation Programme. Eligible students are automatically awarded the grant.",
+    "Required Documents": {
+      "Academic Transcripts": "Required.",
+      "Proof of English proficiency (TOEFL/IELTS scores)": "Required.",
+      "Passport copy": "Required."
+    },
+    "How old the scholarship is": "This pathway-specific grant has been available for many years.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1878 (in the UK), 2005 (Dubai Campus)"
+  },
+  {
+    "Scholarship Name": "Canadian University Dubai Scholarship for Academic Excellence",
+    "Host Country and University": "UAE, Canadian University Dubai (CUD)",
+    "Website": "https://www.cud.ac.ae/scholarships",
+    "Level of Study": "Undergraduate",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Based on outstanding academic achievement in high school. Requires a score of 95% or higher.",
+      "Standardized Test Scores": "Must meet CUD's English language requirements.",
+      "Field of Study": "All undergraduate programs.",
+      "Other": "Open to new students of all nationalities."
+    },
+    "Application Deadline": "You must apply for the scholarship before the start of the semester.",
+    "Value/Inclusions": "A 50% tuition fee waiver for the first semester, renewable if a high GPA is maintained.",
+    "Application Process": "Submit a scholarship application form along with your application for admission.",
+    "Required Documents": {
+      "Academic Transcripts": "Required.",
+      "Proof of English proficiency (TOEFL/IELTS scores)": "Required.",
+      "Passport copy": "Required.",
+      "Scholarship Application Form": "Required."
+    },
+    "How old the scholarship is": "The university has offered academic scholarships since its early years.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "2006"
+  },
+  {
+    "Scholarship Name": "Rochester Institute of Technology (RIT) Dubai Merit Scholarships",
+    "Host Country and University": "UAE, RIT Dubai",
+    "Website": "https://www.rit.edu/dubai/scholarships",
+    "Level of Study": "Undergraduate and Postgraduate",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Based on academic merit. For undergraduates, high school average is considered. For postgraduates, the undergraduate GPA is considered.",
+      "Standardized Test Scores": "Must meet RIT Dubai's English language requirements.",
+      "Field of Study": "Programs in Engineering, Computing, Business, and Leadership.",
+      "Other": "Open to all new students."
+    },
+    "Application Deadline": "No separate application. Students are automatically considered upon admission.",
+    "Value/Inclusions": "A tiered tuition fee reduction from 10% to 40% based on academic scores.",
+    "Application Process": "Apply for admission to RIT Dubai. The scholarship award is communicated along with the offer of admission.",
+    "Required Documents": {
+      "Academic Transcripts": "Required.",
+      "Proof of English proficiency (TOEFL/IELTS scores)": "Required.",
+      "Passport copy": "Required."
+    },
+    "How old the scholarship is": "Merit scholarships have been available since the campus was established.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1829 (in the US), 2008 (Dubai Campus)"
+  },
+  {
+    "Scholarship Name": "American University in Dubai (AUD) Scholarships",
+    "Host Country and University": "UAE, American University in Dubai",
+    "Website": "https://www.aud.edu/admissions/scholarships/",
+    "Level of Study": "Undergraduate",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Several scholarships available. The H.H. Sheikh Mohammed Bin Rashid Al Maktoum Scholarship requires outstanding academic and leadership qualities. Other scholarships are based on specific high school curricula scores.",
+      "Standardized Test Scores": "Must meet AUD's English proficiency and often SAT requirements.",
+      "Field of Study": "All undergraduate programs.",
+      "Other": "Open to students of all nationalities."
+    },
+    "Application Deadline": "Varies by scholarship. The deadline for the H.H. Sheikh Mohammed Bin Rashid Al Maktoum Scholarship is typically in early March.",
+    "Value/Inclusions": "Can range from a partial scholarship to a 100% tuition fee waiver for the duration of the program.",
+    "Application Process": "A separate and detailed scholarship application is required for the most prestigious awards. This includes essays and letters of recommendation.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "Required in the form of essays.",
+      "Letters of Recommendation (LORs)": "Required for top scholarships.",
+      "Academic Transcripts": "Required.",
+      "Proof of English proficiency (TOEFL/IELTS scores)": "Required.",
+      "CV or Resume": "Detailing extracurricular activities.",
+      "Passport copy": "Required."
+    },
+    "How old the scholarship is": "AUD has offered a range of scholarships for many years.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1995"
+  },
+  {
+    "Scholarship Name": "Zayed University Undergraduate Merit Scholarships",
+    "Host Country and University": "UAE, Zayed University",
+    "Website": "https://www.zu.ac.ae/main/en/admissions/scholarships.aspx",
+    "Level of Study": "Undergraduate",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Based on high academic standing in the final year of high school (typically 95% or higher).",
+      "Standardized Test Scores": "Must meet the university's English requirements.",
+      "Field of Study": "All undergraduate programs.",
+      "Other": "Open to new international students."
+    },
+    "Application Deadline": "No separate application. Students are automatically considered upon admission.",
+    "Value/Inclusions": "A 50% tuition fee waiver for the first semester, renewable based on maintaining a high GPA.",
+    "Application Process": "Apply for admission to Zayed University. You are automatically considered for the scholarship.",
+    "Required Documents": {
+      "Academic Transcripts": "Required.",
+      "Proof of English proficiency (TOEFL/IELTS scores)": "Required.",
+      "Passport copy": "Required."
+    },
+    "How old the scholarship is": "The university has offered merit scholarships for a long time.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1998"
+  },
+  {
+    "Scholarship Name": "Sorbonne University Abu Dhabi Academic Scholarships",
+    "Host Country and University": "UAE, Sorbonne University Abu Dhabi",
+    "Website": "https://www.sorbonne.ae/admissions/scholarships/",
+    "Level of Study": "Undergraduate and Postgraduate",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Awarded based on outstanding academic results from the previous year of study. For new students, this is based on high school grades.",
+      "Standardized Test Scores": "Must meet the English and/or French language requirements of the program.",
+      "Field of Study": "All programs.",
+      "Other": "Open to all students, including internationals."
+    },
+    "Application Deadline": "The deadline for scholarship applications is typically in early July.",
+    "Value/Inclusions": "A tuition fee waiver of 25% to 75% for one semester, renewable based on continued academic excellence.",
+    "Application Process": "A separate online scholarship application must be submitted through the university's portal.",
+    "Required Documents": {
+      "Academic Transcripts": "Required.",
+      "Proof of English proficiency (TOEFL/IELTS scores)": "Required.",
+      "Passport copy": "Required.",
+      "Scholarship Application Form": "Required."
+    },
+    "How old the scholarship is": "Academic scholarships have been offered since the university's establishment.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "2006"
+  },
+  {
+    "Scholarship Name": "Amity University Dubai Merit Scholarships",
+    "Host Country and University": "UAE, Amity University Dubai",
+    "Website": "https://amityuniversity.ae/scholarships",
+    "Level of Study": "Undergraduate and Postgraduate",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Based on academic merit. For undergraduates, requires scores of 80% and above in Standard XII (CBSE/ISC) or equivalent. For postgraduates, requires a high score in the undergraduate degree.",
+      "Standardized Test Scores": "Must meet the university's English proficiency requirements.",
+      "Field of Study": "All programs.",
+      "Other": "Open to all new students."
+    },
+    "Application Deadline": "No separate application. Students are automatically considered upon admission.",
+    "Value/Inclusions": "A tiered tuition fee waiver from 25% to 50% based on academic scores.",
+    "Application Process": "Apply for admission to Amity University Dubai. The scholarship is awarded based on the documents submitted with your application.",
+    "Required Documents": {
+      "Academic Transcripts": "Required.",
+      "Proof of English proficiency (TOEFL/IELTS scores)": "Required.",
+      "Passport copy": "Required."
+    },
+    "How old the scholarship is": "Merit scholarships are a core part of Amity's admissions process.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "2011 (Dubai Campus)"
+  },
+  {
+    "Scholarship Name": "BITS Pilani, Dubai Campus Merit Scholarships",
+    "Host Country and University": "UAE, BITS Pilani, Dubai Campus",
+    "Website": "https://www.bits-pilani.ac.in/dubai/admissions-scholarships/",
+    "Level of Study": "Undergraduate",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Based on the aggregate marks in Physics, Chemistry, and Mathematics in the Grade 12 examination. Requires scores of 80% and above.",
+      "Standardized Test Scores": "Must meet the institute's English proficiency requirements.",
+      "Field of Study": "Engineering and Technology programs.",
+      "Other": "Open to all new students."
+    },
+    "Application Deadline": "No separate application. Students are automatically considered upon admission.",
+    "Value/Inclusions": "A tiered tuition fee waiver from 15% to 50% for the first year, based on board examination marks.",
+    "Application Process": "Apply for admission to BITS Pilani, Dubai Campus. The scholarship is awarded based on your final Grade 12 marks.",
+    "Required Documents": {
+      "Academic Transcripts": "Required.",
+      "Passport copy": "Required."
+    },
+    "How old the scholarship is": "Merit scholarships have been offered since the Dubai campus was established.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1964 (in India), 2000 (Dubai Campus)"
+  },
+  {
+    "Scholarship Name": "Manipal Academy of Higher Education (MAHE), Dubai - Merit Scholarships",
+    "Host Country and University": "UAE, Manipal Academy of Higher Education, Dubai Campus",
+    "Website": "https://www.manipaldubai.com/dubai-admissions/scholarships.html",
+    "Level of Study": "Undergraduate",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Based on academic merit in the final year of high school. Tiered system based on percentage (e.g., 95%+, 90%+, 85%+).",
+      "Standardized Test Scores": "Must meet the university's English proficiency requirements.",
+      "Field of Study": "All undergraduate programs.",
+      "Other": "Open to all new students applying for undergraduate programs."
+    },
+    "Application Deadline": "No separate application. Students are automatically considered based on their admission application and final school marks.",
+    "Value/Inclusions": "A tiered tuition fee waiver for the first year of study, ranging from 10% to 40% based on the final board examination scores.",
+    "Application Process": "Apply for admission to an undergraduate program at MAHE Dubai. The scholarship is automatically granted to eligible students upon confirmation of final grades.",
+    "Required Documents": {
+      "Academic Transcripts": "Required (Grade 10, 11, and 12).",
+      "Proof of English proficiency (TOEFL/IELTS scores)": "May be required if English was not the medium of instruction.",
+      "Passport copy": "Required."
+    },
+    "How old the scholarship is": "Merit scholarships have been a core component of the university's admission process for many years.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1953 (in India), 2000 (Dubai Campus)"
+  },
+  {
+    "Scholarship Name": "University of Birmingham Dubai Chancellor's Scholarship",
+    "Host Country and University": "UAE, University of Birmingham Dubai",
+    "Website": "https://www.birmingham.ac.uk/dubai/study/fees-and-funding/scholarships.aspx",
+    "Level of Study": "Undergraduate",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must demonstrate exceptional academic achievement and an innovative thinking mindset.",
+      "Standardized Test Scores": "Must meet the university's English language requirements for the chosen course.",
+      "Field of Study": "All undergraduate programs.",
+      "Other": "Open to all new international students."
+    },
+    "Application Deadline": "A separate application is required, typically by a deadline in late May.",
+    "Value/Inclusions": "A 50% tuition fee waiver for the duration of the undergraduate program.",
+    "Application Process": "First, apply for admission to the University of Birmingham Dubai. Once you receive an offer, you can submit a separate online application for the Chancellor's Scholarship, which includes a video submission.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A video submission (up to 2 minutes) is required for the scholarship, answering specific prompts about your ambitions and suitability.",
+      "Letters of Recommendation (LORs)": "Required for the course application.",
+      "Academic Transcripts": "Required.",
+      "Proof of English proficiency (TOEFL/IELTS scores)": "Required.",
+      "Passport copy": "Required."
+    },
+    "How old the scholarship is": "This prestigious scholarship was introduced shortly after the establishment of the Dubai campus.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1900 (in the UK), 2018 (Dubai Campus)"
+  },
+  {
+    "Scholarship Name": "SP Jain School of Global Management - Dean's List Scholarship",
+    "Host Country and University": "UAE, SP Jain School of Global Management, Dubai Campus",
+    "Website": "https://www.spjain.ae/programs/undergraduate/bba/fees-finances",
+    "Level of Study": "Undergraduate",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Based on outstanding academic performance in high school, extracurricular activities, and a strong aptitude for business studies.",
+      "Standardized Test Scores": "SAT/ACT scores are considered. English proficiency is required.",
+      "Field of Study": "Business programs (e.g., Bachelor of Business Administration).",
+      "Other": "Open to new international students."
+    },
+    "Application Deadline": "No separate application. Students are automatically assessed for merit scholarships during the admission process.",
+    "Value/Inclusions": "A partial tuition fee waiver. The value varies based on the overall strength of the applicant's profile.",
+    "Application Process": "Apply for admission to an undergraduate program at SP Jain. The admissions committee assesses all applicants for scholarship eligibility.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "Essays are required as part of the admission application.",
+      "Letters of Recommendation (LORs)": "May be requested.",
+      "Academic Transcripts": "Required.",
+      "Proof of English proficiency (TOEFL/IELTS scores)": "Required.",
+      "SAT/ACT scores": "Recommended.",
+      "Passport copy": "Required."
+    },
+    "How old the scholarship is": "Merit-based scholarships have been a feature since the campus's inception.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "2004 (in Singapore), 2005 (Dubai Campus)"
+  },
+  {
+    "Scholarship Name": "Murdoch University Dubai - International Welcome Scholarship",
+    "Host Country and University": "UAE, Murdoch University Dubai",
+    "Website": "https://www.murdoch.edu.au/dubai/study/scholarships/international-welcome-scholarship",
+    "Level of Study": "Undergraduate and Postgraduate",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Based on academic achievement in previous studies.",
+      "Standardized Test Scores": "Must meet the university's English language requirements.",
+      "Field of Study": "All coursework programs.",
+      "Other": "Must be an international student commencing studies at the Dubai campus."
+    },
+    "Application Deadline": "No separate application required. Students are automatically considered upon receiving an offer.",
+    "Value/Inclusions": "A 20% tuition fee reduction for the duration of the program.",
+    "Application Process": "Apply for admission to Murdoch University Dubai. The scholarship is automatically awarded to eligible students.",
+    "Required Documents": {
+      "Academic Transcripts": "Required.",
+      "Proof of English proficiency (TOEFL/IELTS scores)": "Required.",
+      "Passport copy": "Required."
+    },
+    "How old the scholarship is": "This scholarship has been a long-standing offer to attract international students to the Dubai campus.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1973 (in Australia), 2008 (Dubai Campus)"
+  },
+  {
+    "Scholarship Name": "Abu Dhabi University - Academic Scholarship",
+    "Host Country and University": "UAE, Abu Dhabi University",
+    "Website": "https://www.adu.ac.ae/admissions/financial-aid-and-scholarships/scholarships",
+    "Level of Study": "Undergraduate",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Based on high academic scores in the final year of high school (e.g., 90% or higher).",
+      "Standardized Test Scores": "Must meet the university's English proficiency requirements.",
+      "Field of Study": "All undergraduate programs.",
+      "Other": "Open to all new students."
+    },
+    "Application Deadline": "No separate application. Students are automatically considered based on their admission application.",
+    "Value/Inclusions": "A 20% tuition fee waiver. Renewable based on maintaining a high GPA.",
+    "Application Process": "Apply for admission to Abu Dhabi University. The scholarship is automatically awarded to eligible students.",
+    "Required Documents": {
+      "Academic Transcripts": "Required.",
+      "Proof of English proficiency (TOEFL/IELTS scores)": "Required.",
+      "Passport copy": "Required."
+    },
+    "How old the scholarship is": "The university has offered academic merit scholarships for many years.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "2003"
+  },
+  {
+    "Scholarship Name": "Ajman University - Academic Scholarships for New Students",
+    "Host Country and University": "UAE, Ajman University",
+    "Website": "https://www.ajman.ac.ae/en/admissions/scholarships-financial-aids.html",
+    "Level of Study": "Undergraduate",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Based on final high school scores. Tiered discounts for scores of 99%, 95%+, 90%+, and 85%+.",
+      "Standardized Test Scores": "Must meet the university's English proficiency requirements.",
+      "Field of Study": "All undergraduate programs.",
+      "Other": "Open to all new students."
+    },
+    "Application Deadline": "No separate application. Students are automatically considered upon admission.",
+    "Value/Inclusions": "A tiered tuition fee waiver ranging from 20% to 100% for the first semester, depending on the high school score.",
+    "Application Process": "Apply for admission to Ajman University. The scholarship is granted automatically based on verified high school results.",
+    "Required Documents": {
+      "Academic Transcripts": "Required.",
+      "Proof of English proficiency (TOEFL/IELTS scores)": "Required.",
+      "Passport copy": "Required."
+    },
+    "How old the scholarship is": "This automatic merit-based system has been in place for a long time.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1988"
+  },
+  {
+    "Scholarship Name": "Ras Al Khaimah American University (RAK) Academic Scholarship",
+    "Host Country and University": "UAE, American University of Ras Al Khaimah (AURAK)",
+    "Website": "https://aurak.ac.ae/en/admissions/scholarships-and-financial-aid/",
+    "Level of Study": "Undergraduate",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Based on high school academic performance. A minimum score of 90% is typically required to be considered.",
+      "Standardized Test Scores": "Must meet AURAK's English proficiency requirements.",
+      "Field of Study": "All undergraduate programs.",
+      "Other": "Open to new international students."
+    },
+    "Application Deadline": "No separate application. Students are automatically considered upon admission.",
+    "Value/Inclusions": "A partial tuition fee waiver, with the percentage varying based on academic results.",
+    "Application Process": "Apply for admission to AURAK. The scholarship is awarded automatically to qualifying students.",
+    "Required Documents": {
+      "Academic Transcripts": "Required.",
+      "Proof of English proficiency (TOEFL/IELTS scores)": "Required.",
+      "Passport copy": "Required."
+    },
+    "How old the scholarship is": "The university has offered merit scholarships since its establishment.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "2009"
+  },
+  {
+    "Scholarship Name": "Al Ghurair Young Thinkers Program (YTP) - University Scholarship",
+    "Host Country and University": "UAE, at partner universities (e.g., American University of Sharjah, Khalifa University).",
+    "Website": "https://www.alghurairfoundation.org/our-programs/young-thinkers",
+    "Level of Study": "Undergraduate",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Requires a high school graduation score of 85% or higher.",
+      "Standardized Test Scores": "As required by the partner university.",
+      "Field of Study": "STEM (Science, Technology, Engineering, and Mathematics) fields.",
+      "Other": "Must be an Arab citizen (note: this scholarship is **not for Indian nationals** but is a major scholarship in the region, included for awareness). Must be under 21 years of age and demonstrate financial need."
+    },
+    "Application Deadline": "The application cycle is typically in the early part of the year.",
+    "Value/Inclusions": "A full scholarship covering tuition, university housing, a living stipend, health insurance, and travel.",
+    "Application Process": "Apply through the Al Ghurair Foundation's online portal.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "Essays are required.",
+      "Letters of Recommendation (LORs)": "Required.",
+      "Academic Transcripts": "Required.",
+      "Passport copy": "Required.",
+      "Proof of financial need (if applicable)": "A key requirement for the application."
+    },
+    "How old the scholarship is": "The foundation was launched in 2015.",
+    "Age limit": "Must be under 21 years old.",
+    "Establishment date of the University": "Not applicable (multiple universities)"
+  }
+]

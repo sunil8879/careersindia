@@ -1,0 +1,49 @@
+{
+  "country_wise_data": [
+    {
+      "country": "USA",
+      "data": [
+        {
+          "year": 2015,
+          "no_of_students": 132888
+        },
+        {
+          "year": 2016,
+          "no_of_students": 165918
+        },
+        {
+          "year": 2017,
+          "no_of_students": 186267
+        },
+        {
+          "year": 2018,
+          "no_of_students": 196271
+        },
+        {
+          "year": 2019,
+          "no_of_students": 202014
+        },
+        {
+          "year": 2020,
+          "no_of_students": 193124
+        },
+        {
+          "year": 2021,
+          "no_of_students": 199182
+        },
+        {
+          "year": 2022,
+          "no_of_students": 268923
+        },
+        {
+          "year": 2023,
+          "no_of_students": 331602
+        },
+        {
+          "year": 2024,
+          "no_of_students": 420000
+        }
+      ]
+    }
+  ]
+}

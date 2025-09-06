@@ -1,0 +1,1508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Discovery Quiz - Careers India</title>
+    
+<style>
+    /* === QUIZ THEME V2: 3D NEON BEVEL with LIKERT SCALE === */
+    @import url('https://fonts.cdnfonts.com/css/impact');
+
+    :root {
+        --gradient-blue-start: #00224D;
+        --gradient-blue-end: #0047AB;
+        --grid-line-color: rgba(64, 224, 208, 0.15);
+        --turquoise-light: #40E0D0;
+        --turquoise-mid: #00B5AD;
+        --turquoise-dark: #008B8B;
+        --neon-light: #39FF14;
+        --neon-mid: #2ECC71;
+        --neon-dark: #008000;
+        --font-color-black: #000000;
+        --shine-color: rgba(255, 255, 255, 0.7);
+        --text-color-light: #f0f0f0;
+        --error-color: #FF4136;
+    }
+
+    /* --- Global Styles & Background --- */
+    body {
+        background-color: var(--gradient-blue-end);
+        background-image: 
+            linear-gradient(var(--grid-line-color) 2px, transparent 2px),
+            linear-gradient(90deg, var(--grid-line-color) 2px, transparent 2px),
+            linear-gradient(to bottom, var(--gradient-blue-start), var(--gradient-blue-end));
+        background-size: 50px 50px, 50px 50px, 100% 100%;
+        font-family: Impact, Charcoal, 'Arial Narrow Bold', sans-serif;
+        margin: 0;
+        padding: 40px 20px;
+        color: var(--text-color-light);
+    }
+    
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    /* --- Header & Title --- */
+    header {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    
+    .main-title {
+        font-size: 4.5em;
+        font-weight: normal;
+        margin: 20px 0 15px 0;
+        color: white;
+        text-transform: uppercase;
+        text-shadow: 
+            1px 1px 0px var(--turquoise-dark), 2px 2px 0px var(--turquoise-dark),
+            3px 3px 0px var(--turquoise-dark), 4px 4px 0px var(--turquoise-dark),
+            5px 5px 10px rgba(0, 0, 0, 0.5);
+    }
+    
+    .tagline {
+        font-size: 1.5em;
+        color: var(--turquoise-light);
+        text-shadow: 0 0 8px rgba(64, 224, 208, 0.7);
+    }
+    
+    /* --- User Info Section --- */
+    .user-info {
+        background: rgba(0, 0, 0, 0.3);
+        border: 1px solid var(--turquoise-mid);
+        border-radius: 20px;
+        padding: 30px;
+        margin-bottom: 40px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        box-shadow: inset 0 0 15px rgba(0,0,0,0.5);
+    }
+
+    .input-group {
+        flex: 1;
+        min-width: 250px;
+    }
+
+    .input-group label {
+        display: block;
+        font-size: 1.2em;
+        margin-bottom: 8px;
+        color: var(--turquoise-light);
+        text-shadow: 1px 1px 2px #000;
+    }
+
+    .input-group input, .input-group select {
+        width: 100%;
+        padding: 12px;
+        font-family: Impact, Charcoal, 'Arial Narrow Bold', sans-serif;
+        font-size: 1.2em;
+        border: 2px solid var(--turquoise-dark);
+        border-radius: 10px;
+        background-color: #003366;
+        color: white;
+        box-sizing: border-box;
+    }
+    
+    .input-group input:focus, .input-group select:focus {
+        outline: none;
+        border-color: var(--neon-light);
+        box-shadow: 0 0 10px var(--neon-light);
+    }
+    
+    /* --- Quiz Section --- */
+    .quiz-form {
+        background: rgba(0,0,0,0.2);
+        border-radius: 20px;
+        padding: 20px 30px;
+    }
+
+    .category-header {
+        font-size: 2.5em;
+        text-align: center;
+        margin: 40px 0 30px 0;
+        color: var(--turquoise-light);
+        text-shadow: 2px 2px 0px var(--turquoise-dark), 4px 4px 8px rgba(0,0,0,0.5);
+    }
+    
+    #quiz-container {
+        display: none; /* Hidden by default until a level is selected */
+    }
+
+    .quiz-placeholder {
+        text-align: center;
+        font-size: 1.5em;
+        padding: 50px 20px;
+        color: var(--turquoise-light);
+    }
+
+    .question-block {
+        margin-bottom: 25px;
+        background: rgba(0,0,0,0.2);
+        padding: 20px;
+        border-radius: 15px;
+        border-left: 5px solid var(--turquoise-mid);
+    }
+
+    .question-text {
+        font-size: 1.4em;
+        line-height: 1.4;
+        margin-bottom: 15px;
+        color: white;
+        text-shadow: 1px 1px 2px #000;
+    }
+
+    .answers {
+        display: flex;
+        gap: 10px;
+        justify-content: space-between;
+    }
+
+    .answers input[type="radio"] {
+        display: none;
+    }
+
+    .answers label {
+        flex: 1;
+        text-align: center;
+        padding: 12px 5px;
+        font-size: 1.5em;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.2s ease-out;
+        border: 2px solid var(--turquoise-dark);
+        background: rgba(0,0,0,0.3);
+        color: var(--text-color-light);
+        text-shadow: 1px 1px 2px #000;
+    }
+
+    .answers input[type="radio"]:checked + label {
+        background: var(--neon-light);
+        color: var(--font-color-black);
+        border-color: var(--neon-dark);
+        transform: scale(1.1);
+        box-shadow: 0 0 15px var(--neon-light);
+        text-shadow: 1px 1px 1px rgba(255,255,255,0.5);
+    }
+
+    .likert-labels {
+        display: flex;
+        justify-content: space-between;
+        padding: 5px 10px 0;
+        font-size: 0.9em;
+        color: var(--turquoise-light);
+    }
+
+    /* --- Submit Button --- */
+    #submit-btn {
+        width: 100%;
+        max-width: 450px;
+        margin: 40px auto 0 auto;
+        padding: 15px;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        position: relative;
+        transition: all 0.15s ease-out;
+        font-family: Impact, Charcoal, 'Arial Narrow Bold', sans-serif;
+        color: var(--font-color-black);
+        background: linear-gradient(145deg, var(--turquoise-light), var(--turquoise-mid));
+        box-shadow: 
+            inset 0px 4px 6px var(--shine-color),
+            inset 0px -8px 8px rgba(0, 0, 0, 0.25),
+            0px 10px 0px var(--turquoise-dark),
+            0px 15px 25px rgba(0, 0, 0, 0.4);
+        display: none; /* Hidden by default */
+        box-sizing: border-box;
+        font-size: 1.8em;
+        text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.4);
+    }
+
+    #submit-btn:hover {
+        background: linear-gradient(145deg, var(--neon-light), var(--neon-mid));
+        box-shadow: 
+            inset 0px 4px 6px var(--shine-color),
+            inset 0px -8px 8px rgba(0, 0, 0, 0.25),
+            0px 10px 0px var(--neon-dark),
+            0px 15px 30px rgba(0, 0, 0, 0.5);
+        transform: translateY(-3px);
+    }
+
+    #submit-btn:active {
+        transform: translateY(5px);
+        box-shadow: 
+            inset 0px 4px 10px rgba(0, 0, 0, 0.4),
+            0px 5px 0px var(--turquoise-dark),
+            0px 8px 15px rgba(0, 0, 0, 0.4);
+    }
+
+    /* --- Results Section --- */
+    .results-container {
+        display: none;
+        margin-top: 50px;
+        padding: 40px;
+        background: radial-gradient(circle, rgba(0,50,90,0.9) 0%, rgba(0,20,40,0.95) 100%);
+        border: 2px solid var(--neon-light);
+        border-radius: 25px;
+        text-align: center;
+        box-shadow: 0 0 30px var(--neon-light), inset 0 0 20px rgba(0,0,0,0.5);
+        animation: fadeIn 1s ease-in-out;
+    }
+    
+    @keyframes fadeIn {
+        from { opacity: 0; transform: scale(0.9); }
+        to { opacity: 1; transform: scale(1); }
+    }
+
+    .results-container h2 {
+        font-size: 3em;
+        margin-bottom: 10px;
+        color: var(--neon-light);
+        text-shadow: 0 0 10px var(--neon-light);
+    }
+    
+    .results-container .zone-text {
+        font-size: 2em;
+        color: white;
+        margin-bottom: 30px;
+    }
+    
+    .results-container .zone-text span {
+        font-size: 1.5em;
+        color: var(--turquoise-light);
+        display: block;
+        margin-top: 5px;
+        text-transform: capitalize;
+    }
+
+    .results-container h3 {
+        font-size: 1.8em;
+        margin-bottom: 20px;
+        border-bottom: 2px solid var(--turquoise-mid);
+        display: inline-block;
+        padding-bottom: 5px;
+    }
+
+    #course-list {
+        list-style-type: none;
+        padding: 0;
+        font-size: 1.5em;
+    }
+    
+    #course-list li {
+        margin-bottom: 15px;
+        padding: 10px;
+        background: rgba(0,0,0,0.3);
+        border-radius: 10px;
+        transition: all 0.3s;
+    }
+
+    #course-list li:hover {
+        background: var(--turquoise-mid);
+        color: var(--font-color-black);
+        transform: scale(1.05);
+        text-shadow: none;
+    }
+    
+    #course-list-link {
+        display: inline-block;
+        margin-top: 30px;
+        padding: 12px 25px;
+        background-color: var(--accent-color);
+        color: white;
+        text-decoration: none;
+        border-radius: 10px;
+        font-size: 1.2em;
+        transition: background-color 0.3s;
+    }
+    
+    #course-list-link:hover {
+        background-color: #e55a4e;
+    }
+
+
+    #error-message {
+        color: var(--error-color);
+        text-align: center;
+        font-size: 1.3em;
+        margin-top: 20px;
+        display: none;
+        text-shadow: 1px 1px 2px #000;
+    }
+    
+    /* --- POP-UP STYLES --- */
+    #popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 1000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        backdrop-filter: blur(5px);
+    }
+
+    #popup-content {
+        background-color: var(--turquoise-light);
+        color: var(--font-color-black);
+        padding: 30px;
+        border-radius: 20px;
+        max-width: 500px;
+        width: 90%;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        font-family: Arial, sans-serif; /* Using a more readable font for the popup */
+        text-shadow: none;
+    }
+
+    #popup-content h3 {
+        font-family: Impact, Charcoal, 'Arial Narrow Bold', sans-serif;
+        font-size: 2em;
+        margin-top: 0;
+        color: var(--gradient-blue-start);
+    }
+
+    #popup-scores {
+        margin: 20px 0;
+        text-align: left;
+        font-size: 1.2em;
+    }
+
+    #popup-scores div {
+        padding: 8px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    }
+
+    #popup-scores div:last-child {
+        border-bottom: none;
+    }
+
+    #popup-scores span {
+        font-weight: bold;
+        color: var(--gradient-blue-end);
+    }
+
+    #close-popup-btn {
+        font-family: Impact, Charcoal, 'Arial Narrow Bold', sans-serif;
+        font-size: 1.2em;
+        padding: 10px 30px;
+        border: 2px solid var(--turquoise-dark);
+        border-radius: 10px;
+        background-color: var(--gradient-blue-start);
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.2s;
+    }
+
+    #close-popup-btn:hover {
+        background-color: var(--turquoise-dark);
+    }
+</style>
+</head>
+
+
+<body>
+
+<div class="container">
+    <header>
+        <h1 class="main-title">Career Discovery Quiz</h1>
+        <p class="tagline">Find the perfect course for you!</p>
+    </header>
+
+    <form id="quizForm" onsubmit="return false;">
+        <!-- USER INFO SECTION -->
+        <section class="user-info">
+            <div class="input-group">
+                <label for="studentName">Name:</label>
+                <input type="text" id="studentName" name="studentName" required>
+            </div>
+            <div class="input-group">
+                <label for="studentAge">Age:</label>
+                <input type="number" id="studentAge" name="studentAge" required>
+            </div>
+            <div class="input-group">
+                <label for="educationLevel">Current Education Level:</label>
+                <select id="educationLevel" name="educationLevel" required onchange="handleEducationLevelChange()">
+                    <option value="">-- Select Level --</option>
+<option value="student">A Student (Exploring Future Careers)</option>
+                    <option value="below_10">Below 10th Grade</option>
+                    <option value="above_10">Above 10th Grade</option>
+                    <option value="above_12">Above 12th Grade</option>
+                    <option value="above_grad">Above Graduation</option>
+                    <option value="above_post_grad">Above Post Graduation</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- QUIZ QUESTIONS SECTION WRAPPER -->
+        <section class="quiz-form">
+            
+            <!-- This container will be filled with questions by JavaScript -->
+            <div id="quiz-container">
+                <p class="quiz-placeholder">Please select your education level to begin the quiz.</p>
+            </div>
+
+            <button id="submit-btn" onclick="processQuiz()">Find My Career Path</button>
+            <p id="error-message"></p>
+
+        </section>
+    </form>
+    
+    <!-- RESULTS CONTAINER -->
+    <section class="results-container" id="results">
+        <h2>Congratulations, <span id="result-name"></span>!</h2>
+        <p class="zone-text">Your dominant career profile is: <span id="result-zone"></span></p>
+        <h3><span id="result-header"></span></h3>
+        <ul id="course-list">
+            <!-- Courses/Subjects will be dynamically inserted here -->
+        </ul>
+         <a href="#" id="course-list-link" target="_blank">Explore Full Course List</a>
+    </section>
+
+</div>
+
+<script>
+// ===================================================================================
+//
+//          QUIZ QUESTIONS & COURSE MAPPINGS
+//
+// ===================================================================================
+
+const quizData = {
+// INSERT THIS SNIPPET AT THE BEGINNING OF THE quizData OBJECT
+
+    student: [
+        // 1. STEM & Technology (9 Questions)
+        { text: "Does solving complex math or physics problems feel more like a fun challenge than a chore?", category: 'stem_technology' },
+        { text: "Are you fascinated by the latest technology, like new smartphones, AI, or space exploration?", category: 'stem_technology' },
+        { text: "Do you enjoy building or taking things apart to understand how they work?", category: 'stem_technology' },
+        { text: "Would you be interested in learning a programming language to create a website, app, or game?", category: 'stem_technology' },
+        { text: "Are you curious about scientific research, such as finding new materials or understanding genetics (Biotechnology)?", category: 'stem_technology' },
+        { text: "Do you enjoy finding patterns in data or statistics?", category: 'stem_technology' },
+        { text: "Does the idea of designing and building robots (Robotics/Mechatronics) excite you?", category: 'stem_technology' },
+        { text: "Are you interested in astronomy and the mysteries of the universe?", category: 'stem_technology' },
+        { text: "Do you prefer subjects that have clear, logical rules and answers, like math and science?", category: 'stem_technology' },
+        
+        // 2. Medical & Health Sciences (9 Questions)
+        { text: "Are you deeply curious about the human body and how it works?", category: 'medical_health' },
+        { text: "Do you feel a strong desire to help people who are sick or injured?", category: 'medical_health' },
+        { text: "Can you handle seeing blood or medical procedures without feeling squeamish?", category: 'medical_health' },
+        { text: "Is biology one of your favorite subjects in school?", category: 'medical_health' },
+        { text: "Are you interested in how medicines are made and how they affect the body (Pharmacy)?", category: 'medical_health' },
+        { text: "Do you have a love for animals and an interest in their health (Veterinary Science)?", category: 'medical_health' },
+        { text: "Are you a good listener and able to empathize with people's problems (Psychology)?", category: 'medical_health' },
+        { text: "Do you have a good memory for complex terms and details?", category: 'medical_health' },
+        { text: "Are you interested in the science of food and nutrition?", category: 'medical_health' },
+
+        // 3. Business, Management & Finance (8 Questions)
+        { text: "Do you often find yourself taking the lead in group projects or activities?", category: 'business_finance' },
+        { text: "Are you interested in the stock market and how companies make money?", category: 'business_finance' },
+        { text: "Do you enjoy strategy games that involve managing resources or money?", category: 'business_finance' },
+        { text: "Are you good at persuading people to agree with your ideas?", category: 'business_finance' },
+        { text: "Does the idea of starting your own company one day (Entrepreneurship) excite you?", category: 'business_finance' },
+        { text: "Do you enjoy organizing events or planning projects from start to finish?", category: 'business_finance' },
+        { text: "Are you interested in understanding what makes people want to buy certain products (Marketing)?", category: 'business_finance' },
+        { text: "Are you comfortable with numbers and interested in budgeting or accounting?", category: 'business_finance' },
+
+        // 4. Arts, Design & Creativity (8 Questions)
+        { text: "Do you spend a lot of your free time drawing, painting, or making creative things?", category: 'arts_design' },
+        { text: "Are you passionate about music, dance, or acting?", category: 'arts_design' },
+        { text: "Do you have a strong imagination and enjoy creating stories or new worlds?", category: 'arts_design' },
+        { text: "Are you interested in how movies are made or how video games are designed?", category: 'arts_design' },
+        { text: "Do you have a good eye for color, style, and visual composition (Fashion/Graphic Design)?", category: 'arts_design' },
+        { text: "Do you notice the design of buildings and spaces around you (Architecture)?", category: 'arts_design' },
+        { text: "Do you prefer projects where you have creative freedom over ones with strict rules?", category: 'arts_design' },
+        { text: "Do you enjoy expressing your ideas and emotions through art?", category: 'arts_design' },
+
+        // 5. Humanities & Social Sciences (8 Questions)
+        { text: "Are you fascinated by history and how past events have shaped the present?", category: 'humanities_social' },
+        { text: "Do you enjoy reading books and analyzing their stories and characters (Literature)?", category: 'humanities_social' },
+        { text: "Are you interested in how different cultures and societies work (Sociology/Anthropology)?", category: 'humanities_social' },
+        { text: "Do you enjoy debating and arguing about complex issues like justice and fairness (Law)?", category: 'humanities_social' },
+        { text: "Are you interested in government, politics, and how countries are run?", category: 'humanities_social' },
+        { text: "Do you enjoy explaining concepts to others and helping them learn (Education)?", category: 'humanities_social' },
+        { text: "Do you have a strong sense of curiosity about human nature and why people behave the way they do?", category: 'humanities_social' },
+        { text: "Are you interested in big ideas and questions about life and existence (Philosophy)?", category: 'humanities_social' },
+        
+        // 6. Communication, Media & Languages (7 Questions)
+        { text: "Do you enjoy writing, whether it's for a school newspaper, a blog, or your own stories?", category: 'communication_media' },
+        { text: "Are you interested in how news is reported and shared with the public (Journalism)?", category: 'communication_media' },
+        { text: "Are you skilled at using social media to share ideas or create engaging content?", category: 'communication_media' },
+        { text: "Do you enjoy public speaking or being in front of a camera?", category: 'communication_media' },
+        { text: "Are you interested in learning new languages?", category: 'communication_media' },
+        { text: "Do you pay attention to advertisements and think about why they are effective?", category: 'communication_media' },
+        { text: "Are you good at communicating your ideas clearly, both in writing and speaking?", category: 'communication_media' },
+
+        // 7. Government, Defense & Civil Services (6 Questions)
+        { text: "Do you feel a strong sense of duty and a desire to serve your country?", category: 'government_defense' },
+        { text: "Are you interested in a structured, disciplined lifestyle, like in the Army, Navy, or Air Force?", category: 'government_defense' },
+        { text: "Does the idea of working in government to create and implement policies for the public good (Civil Services) appeal to you?", category: 'government_defense' },
+        { text: "Are you physically active and enjoy challenges that test your endurance and teamwork?", category: 'government_defense' },
+        { text: "Do you believe in following rules and maintaining order?", category: 'government_defense' },
+        { text: "Are you interested in a career that offers a high level of responsibility and public service?", category: 'government_defense' },
+
+        // 8. Education & Training (6 Questions)
+        { text: "Do you find it rewarding to help a friend or classmate finally understand a difficult topic?", category: 'education_training' },
+        { text: "Are you patient when explaining things to someone who is learning for the first time?", category: 'education_training' },
+        { text: "Do you love learning so much that you would enjoy a career of lifelong learning and research (Academia)?", category: 'education_training' },
+        { text: "Would you enjoy creating fun and effective ways to teach people new skills?", category: 'education_training' },
+        { text: "Does the idea of becoming an expert in a subject and sharing that knowledge with others excite you?", category: 'education_training' },
+        { text: "Are you interested in how technology can be used to make learning better (EdTech)?", category: 'education_training' },
+        
+        // 9. Hospitality, Travel & Lifestyle (7 Questions)
+        { text: "Do you enjoy being a host and making sure people feel welcome and have a good time?", category: 'hospitality_travel' },
+        { text: "Are you fascinated by different places and cultures and love the idea of traveling?", category: 'hospitality_travel' },
+        { text: "Does a career in a high-end hotel or a luxury resort sound glamorous to you?", category: 'hospitality_travel' },
+        { text: "Are you a 'foodie' who is interested in gourmet cooking and the culinary arts?", category: 'hospitality_travel' },
+        { text: "Are you interested in the aviation industry, perhaps as a pilot or cabin crew member?", category: 'hospitality_travel' },
+        { text: "Do you enjoy planning parties and other events down to the last detail?", category: 'hospitality_travel' },
+        { text: "Are you good at staying calm and friendly even when dealing with difficult situations or people?", category: 'hospitality_travel' },
+
+        // 10. Environment, Agriculture & Sustainability (7 Questions)
+        { text: "Are you concerned about issues like climate change, pollution, and protecting nature?", category: 'environment_agriculture' },
+        { text: "Do you enjoy being outdoors in nature, whether in a forest, on a farm, or by the sea?", category: 'environment_agriculture' },
+        { text: "Are you interested in where our food comes from and how it's grown (Agriculture)?", category: 'environment_agriculture' },
+        { text: "Does the idea of studying and protecting animals in their natural habitats (Wildlife Conservation) appeal to you?", category: 'environment_agriculture' },
+        { text: "Are you interested in developing clean energy sources like solar or wind power?", category: 'environment_agriculture' },
+        { text: "Do you believe it's important for humans to live more sustainably with the planet?", category: 'environment_agriculture' },
+        { text: "Are you interested in ocean life and marine ecosystems (Marine Biology)?", category: 'environment_agriculture' },
+
+        // 11. Trades & Skilled Professions (6 Questions)
+        { text: "Do you get a lot of satisfaction from fixing something that's broken with your own hands?", category: 'skilled_trades' },
+        { text: "Are you good at practical, hands-on tasks that require precision and skill?", category: 'skilled_trades' },
+        { text: "Would you prefer a job where you can see the immediate, physical results of your work each day?", category: 'skilled_trades' },
+        { text: "Are you interested in how cars and other vehicles work and how to repair them?", category: 'skilled_trades' },
+        { text: "Does working with wood (Carpentry) or electrical circuits (Electrician) seem more interesting than sitting at a desk?", category: 'skilled_trades' },
+        { text: "Are you interested in practical creative skills like hairstyling, makeup, or cosmetology?", category: 'skilled_trades' },
+
+        // 12. Sports & Physical Fitness (6 Questions)
+        { text: "Are you passionate about playing or watching sports?", category: 'sports_fitness' },
+        { text: "Do you enjoy being physically active and pushing your body to perform better?", category: 'sports_fitness' },
+        { text: "Are you interested in the science behind athletic performance, such as sports medicine or nutrition?", category: 'sports_fitness' },
+        { text: "Would you enjoy coaching a team and helping athletes improve their skills?", category: 'sports_fitness' },
+        { text: "Does a career as a fitness trainer or yoga instructor, helping people achieve their health goals, sound rewarding?", category: 'sports_fitness' },
+        { text: "Are you interested in the business and management side of the sports industry?", category: 'sports_fitness' },
+
+        // 13. Emerging & Interdisciplinary Fields (7 Questions)
+        { text: "Are you fascinated by the world of computers and interested in protecting them from hackers (Cybersecurity)?", category: 'emerging_fields' },
+        { text: "Do you find new technologies like virtual reality (VR) and augmented reality (AR) exciting?", category: 'emerging_fields' },
+        { text: "Are you interested in the future of the internet, including concepts like Blockchain and Web3?", category: 'emerging_fields' },
+        { text: "Do you enjoy competitive video gaming (Esports) and are you interested in it as a potential career?", category: 'emerging_fields' },
+        { text: "Does combining biology with computer science (Bioinformatics) to analyze biological data sound interesting?", category: 'emerging_fields' },
+        { text: "Are you someone who likes to combine ideas from different subjects to create something new?", category: 'emerging_fields' },
+        { text: "Are you excited by the idea of working in a field that is still new and constantly changing?", category: 'emerging_fields' }
+    ],
+
+
+    below_10: [
+        // Realistic (R) - The Doers (17 Questions)
+        { text: "Do you enjoy building things with blocks like LEGO or other construction toys?", category: 'realistic' },
+        { text: "Would you prefer fixing a broken toy yourself rather than asking someone else to do it?", category: 'realistic' },
+        { text: "Are you interested in gardening or growing your own plants?", category: 'realistic' },
+        { text: "Does working with your hands, like in cooking or crafting, make you happy?", category: 'realistic' },
+        { text: "Do you like spending time outdoors, playing sports or exploring nature?", category: 'realistic' },
+        { text: "Are you curious about how machines, like cars or bicycles, work?", category: 'realistic' },
+        { text: "Would you enjoy a school project where you build a model of a building or a bridge?", category: 'realistic' },
+        { text: "Do you find it satisfying to see a physical result from your work (e.g., a finished drawing, a clean room)?", category: 'realistic' },
+        { text: "Do you prefer subjects where you can do practical experiments, like science labs?", category: 'realistic' },
+        { text: "Are you good at sports that require physical coordination, like catching a ball or running?", category: 'realistic' },
+        { text: "Do you like taking care of pets or other animals?", category: 'realistic' },
+        { text: "Does the idea of working with tools (like a hammer or screwdriver) seem interesting?", category: 'realistic' },
+        { text: "Would you rather be physically active than sit still for a long time?", category: 'realistic' },
+        { text: "Do you enjoy activities like swimming, hiking, or camping?", category: 'realistic' },
+        { text: "Are you interested in learning how to repair things around the house?", category: 'realistic' },
+        { text: "Do you pay attention to the different types of plants and animals you see outside?", category: 'realistic' },
+        { text: "Would you like a job where you work outside more than inside an office?", category: 'realistic' },
+
+        // Investigative (I) - The Thinkers (17 Questions)
+        { text: "Do you often ask 'why' things happen the way they do?", category: 'investigative' },
+        { text: "Do you enjoy solving puzzles, riddles, or brain teasers?", category: 'investigative' },
+        { text: "Are you curious about science and how the world works?", category: 'investigative' },
+        { text: "Do you like to read books or watch documentaries to learn new things?", category: 'investigative' },
+        { text: "Would you enjoy taking apart an old electronic device just to see what's inside?", category: 'investigative' },
+        { text: "Do you like strategy games that require you to think ahead, like chess or video games?", category: 'investigative' },
+        { text: "Are you good at math or solving number problems?", category: 'investigative' },
+        { text: "Do you like to understand the rules of a game completely before you start playing?", category: 'investigative' },
+        { text: "Do you enjoy finding patterns in shapes, numbers, or behaviors?", category: 'investigative' },
+        { text: "Would you be interested in learning a simple coding language on a computer?", category: 'investigative' },
+        { text: "Do you like to collect and organize information about a topic that interests you (e.g., dinosaurs, space)?", category: 'investigative' },
+        { text: "When you see something new, do you try to figure it out on your own before asking for help?", category: 'investigative' },
+        { text: "Are you interested in how the human body works?", category: 'investigative' },
+        { text: "Do you enjoy performing experiments in your science class?", category: 'investigative' },
+        { text: "Do you like to observe people or animals to see how they behave?", category: 'investigative' },
+        { text: "Are you good at finding information online for school projects?", category: 'investigative' },
+        { text: "Do you find mysteries in books or movies exciting to solve?", category: 'investigative' },
+
+        // Artistic (A) - The Creators (17 Questions)
+        { text: "Do you enjoy drawing, painting, or doodling in your free time?", category: 'artistic' },
+        { text: "Do you like to make up your own stories or create new characters?", category: 'artistic' },
+        { text: "Are you interested in playing a musical instrument or singing?", category: 'artistic' },
+        { text: "Do you enjoy acting in school plays or making your own videos?", category: 'artistic' },
+        { text: "Do you have a good imagination and often daydream?", category: 'artistic' },
+        { text: "Do you like to express your feelings through creative activities?", category: 'artistic' },
+        { text: "Do you enjoy choosing your own clothes and creating your own style?", category: 'artistic' },
+        { text: "Would you prefer a project with no rules where you can be totally creative?", category: 'artistic' },
+        { text: "Do you enjoy dancing or other forms of movement to music?", category: 'artistic' },
+        { text: "Are you good at noticing colors, shapes, and designs around you?", category: 'artistic' },
+        { text: "Do you like writing poems or stories, even if just for fun?", category: 'artistic' },
+        { text: "Do you find it fun to redesign your room or organize things in a visually pleasing way?", category: 'artistic' },
+        { text: "Does learning about famous artists or musicians interest you?", category: 'artistic' },
+        { text: "Do you enjoy taking photos or making interesting videos with your phone?", category: 'artistic' },
+        { text: "Do you like to work on projects that are unique and different from what others are doing?", category: 'artistic' },
+        { text: "Are you good at coming up with new ideas?", category: 'artistic' },
+        { text: "Do you like listening to different kinds of music?", category: 'artistic' },
+
+        // Social (S) - The Helpers (17 Questions)
+        { text: "Do you enjoy helping your friends or classmates with their schoolwork?", category: 'social' },
+        { text: "Are you good at listening to others when they have a problem?", category: 'social' },
+        { text: "Do you like working in a group or team more than working alone?", category: 'social' },
+        { text: "Do you enjoy sharing your things with others?", category: 'social' },
+        { text: "Does it make you happy to help someone who is feeling sad or is hurt?", category: 'social' },
+        { text: "Are you good at explaining things to people so they can understand?", category: 'social' },
+        { text: "Do you enjoy volunteering or helping out in your community or school?", category: 'social' },
+        { text: "Do you like meeting new people and making new friends?", category: 'social' },
+        { text: "Are you good at understanding how other people are feeling?", category: 'social' },
+        { text: "Do you prefer cooperative games over competitive ones?", category: 'social' },
+        { text: "Would you enjoy being a teacher or a coach someday?", category: 'social' },
+        { text: "Are you the person your friends come to for advice?", category: 'social' },
+        { text: "Do you like taking care of younger siblings or children?", category: 'social' },
+        { text: "Are you good at working with others to solve a problem together?", category: 'social' },
+        { text: "Do you believe it's important to be kind and fair to everyone?", category: 'social' },
+        { text: "Do you like to be part of clubs or groups at school?", category: 'social' },
+        { text: "Does teaching someone a new skill make you feel good?", category: 'social' },
+
+        // Enterprising (E) - The Persuaders (16 Questions)
+        { text: "Do you like being the leader in a group project or a game?", category: 'enterprising' },
+        { text: "Are you good at convincing your friends or family to do something you want to do?", category: 'enterprising' },
+        { text: "Do you enjoy organizing events, like a birthday party or a school bake sale?", category: 'enterprising' },
+        { text: "Does the idea of starting your own small business, like a lemonade stand, sound fun?", category: 'enterprising' },
+        { text: "Are you comfortable speaking in front of your class?", category: 'enterprising' },
+        { text: "Do you like to take charge and make decisions?", category: 'enterprising' },
+        { text: "Do you enjoy debating or discussing your opinions with others?", category: 'enterprising' },
+        { text: "Are you ambitious and do you like to win?", category: 'enterprising' },
+        { text: "Do you enjoy setting goals for yourself and working to achieve them?", category: 'enterprising' },
+        { text: "Are you good at motivating other people to do their best?", category: 'enterprising' },
+        { text: "Would you be interested in running for a position in student council?", category: 'enterprising' },
+        { text: "Do you see yourself as a confident person?", category: 'enterprising' },
+        { text: "Do you like the idea of managing a team to accomplish a task?", category: 'enterprising' },
+        { text: "Are you interested in how businesses make money?", category: 'enterprising' },
+        { text: "Do you often come up with ideas to improve things at school or at home?", category: 'enterprising' },
+        { text: "Are you willing to take a risk to get a bigger reward in a game?", category: 'enterprising' },
+
+        // Conventional (C) - The Organizers (16 Questions)
+        { text: "Do you like to keep your room, desk, and school supplies neat and organized?", category: 'conventional' },
+        { text: "Do you enjoy making lists and checking things off as you complete them?", category: 'conventional' },
+        { text: "Are you good at following instructions and rules carefully?", category: 'conventional' },
+        { text: "Do you prefer to have a clear plan before you start a task?", category: 'conventional' },
+        { text: "Do you enjoy activities that have clear, step-by-step procedures?", category: 'conventional' },
+        { text: "Are you careful with details and often notice mistakes that others miss?", category: 'conventional' },
+        { text: "Do you feel more comfortable when you have a set routine?", category: 'conventional' },
+        { text: "Do you like organizing your collections (e.g., stamps, cards, toys) neatly?", category: 'conventional' },
+        { text: "Are you good at keeping track of your homework and deadlines?", category: 'conventional' },
+        { text: "Would you enjoy a task like organizing the books in the school library?", category: 'conventional' },
+        { text: "Do you like working with numbers and making sure everything adds up correctly?", category: 'conventional' },
+        { text: "Do you prefer finishing one task completely before starting another?", category: 'conventional' },
+        { text: "Do you pride yourself on being punctual and on time?", category: 'conventional' },
+        { text: "Do you find it satisfying to create a neat chart or a well-organized document on a computer?", category: 'conventional' },
+        { text: "Do you prefer tasks where you know exactly what is expected of you?", category: 'conventional' },
+        { text: "Are you a dependable person who always gets their work done as promised?", category: 'conventional' }
+    ],
+
+    above_10: [
+        // Realistic (R) - The Doers (17 Questions)
+        { text: "Does a career involving hands-on work with machinery, like in mechanical or automobile engineering, appeal to you?", category: 'realistic' },
+        { text: "Are you interested in understanding and working with electrical circuits and wiring systems?", category: 'realistic' },
+        { text: "Would you enjoy a job that involves construction, such as civil engineering or masonry?", category: 'realistic' },
+        { text: "Is the idea of cultivating land and working with crops (agriculture) or animals (husbandry) interesting to you?", category: 'realistic' },
+        { text: "Do you find the process of welding or fitting metal parts together to create something new fascinating?", category: 'realistic' },
+        { text: "Would you be skilled at repairing and maintaining vehicles, from motorcycles to heavy machinery?", category: 'realistic' },
+        { text: "Are you interested in how large structures like ships are built and maintained (Marine/Ship Building)?", category: 'realistic' },
+        { text: "Does a career in a workshop environment, using tools like lathes or grinders, seem engaging?", category: 'realistic' },
+        { text: "Do you have an aptitude for skilled trades like plumbing or carpentry?", category: 'realistic' },
+        { text: "Are you interested in food production and the technical processes behind it (e.g., bakery, dairy tech)?", category: 'realistic' },
+        { text: "Would you enjoy a technical job like operating a CNC machine or managing a production line?", category: 'realistic' },
+        { text: "Is a career spent outdoors, such as a surveyor or in horticulture, more appealing than an office job?", category: 'realistic' },
+        { text: "Are you interested in the mechanics of refrigeration and air conditioning systems?", category: 'realistic' },
+        { text: "Does the technical skill involved in printing technology or textile manufacturing seem interesting?", category: 'realistic' },
+        { text: "Do you think you would be good at troubleshooting and fixing mechanical or electrical problems?", category: 'realistic' },
+        { text: "Are you practical and results-oriented in your approach to projects?", category: 'realistic' },
+        { text: "Would you be interested in the process of extracting resources, such as in mining engineering?", category: 'realistic' },
+
+        // Investigative (I) - The Thinkers (17 Questions)
+        { text: "Does the idea of writing code and developing software in computer science or IT excite you?", category: 'investigative' },
+        { text: "Are you interested in the hardware of computers and how to assemble, maintain, and network them?", category: 'investigative' },
+        { text: "Would you be interested in a career in a medical lab, analyzing samples to help diagnose diseases (MLT)?", category: 'investigative' },
+        { text: "Are you fascinated by electronics and communication systems, like radios, TVs, and mobile phones?", category: 'investigative' },
+        { text: "Does the field of cybersecurity and ethical hacking, finding and fixing digital vulnerabilities, sound intriguing?", category: 'investigative' },
+        { text: "Do you enjoy logical problem-solving, which is key to programming and IT troubleshooting?", category: 'investigative' },
+        { text: "Would you enjoy working with medical imaging technology like X-Rays or CT scans?", category: 'investigative' },
+        { text: "Is learning about advanced technologies like Robotics, VLSI Design, or Nanotechnology something you'd pursue?", category: 'investigative' },
+        { text: "Are you interested in the chemical processes used in industries (Chemical Engineering)?", category: 'investigative' },
+        { text: "Do you have an analytical mind suited for quality control and assurance roles?", category: 'investigative' },
+        { text: "Does the thought of designing and analyzing complex systems, like in Mechatronics or Instrumentation, appeal to you?", category: 'investigative' },
+        { text: "Are you curious about how to operate and maintain specialized technology, like in power plants or metro rail systems?", category: 'investigative' },
+        { text: "Would you enjoy the precision of creating technical drawings and plans (Draughtsman)?", category: 'investigative' },
+        { text: "Are you interested in the science behind pharmacy, learning how medicines are formulated and dispensed?", category: 'investigative' },
+        { text: "Does the field of dental hygiene, which combines technical skill with scientific knowledge, seem interesting?", category: 'investigative' },
+        { text: "Are you methodical and precise, skills needed for operating complex technical equipment?", category: 'investigative' },
+        { text: "Do you enjoy research and finding the most efficient solution to a technical problem?", category: 'investigative' },
+
+        // Artistic (A) - The Creators (17 Questions)
+        { text: "Are you passionate about visual design and creating graphics for websites, posters, or social media?", category: 'artistic' },
+        { text: "Does the idea of bringing characters to life through animation and multimedia excite you?", category: 'artistic' },
+        { text: "Are you interested in fashion and designing your own clothes or accessories?", category: 'artistic' },
+        { text: "Would you enjoy designing the layout and feel of indoor spaces (Interior Design)?", category: 'artistic' },
+        { text: "Is capturing moments and telling stories through photography a hobby you'd like to make a career?", category: 'artistic' },
+        { text: "Do you have a good ear for sound and an interest in music production or sound design?", category: 'artistic' },
+        { text: "Are you drawn to the performing arts, such as acting or film direction?", category: 'artistic' },
+        { text: "Would you enjoy creating intricate designs for jewelry?", category: 'artistic' },
+        { text: "Does creating beautiful and delicious food, as in culinary arts or bakery, feel like a form of art to you?", category: 'artistic' },
+        { text: "Are you skilled in drawing or sketching, which is fundamental to fine arts and commercial art?", category: 'artistic' },
+        { text: "Do you enjoy storytelling and think you could be good at writing scripts or editing films?", category: 'artistic' },
+        { text: "Is making things beautiful, whether it's a room, a poster, or clothing, important to you?", category: 'artistic' },
+        { text: "Do you have an interest in designing user interfaces (UI) and user experiences (UX) for apps and websites?", category: 'artistic' },
+        { text: "Would a career in boutique management, combining business with fashion sense, be appealing?", category: 'artistic' },
+        { text: "Are you imaginative and enjoy coming up with original concepts and ideas?", category: 'artistic' },
+        { text: "Do you enjoy working on projects that allow for self-expression and creativity?", category: 'artistic' },
+        { text: "Are you interested in the technical side of creative fields, like cinematography or video editing?", category: 'artistic' },
+
+        // Social (S) - The Helpers (17 Questions)
+        { text: "Do you feel a strong desire to care for people who are sick or in need (Nursing)?", category: 'social' },
+        { text: "Would you enjoy working with young children and helping them learn and grow (Early Childhood Education)?", category: 'social' },
+        { text: "Does a career in the hospitality industry, like hotel management or front office operations, appeal to you?", category: 'social' },
+        { text: "Are you interested in helping people with special educational needs?", category: 'social' },
+        { text: "Do you have excellent communication skills and enjoy interacting with many different people?", category: 'social' },
+        { text: "Would you find it fulfilling to teach a skill, like a sport (Physical Education) or a language?", category: 'social' },
+        { text: "Are you interested in tourism and helping people have great travel experiences?", category: 'social' },
+        { text: "Do you enjoy taking care of older adults (Geriatric Care)?", category: 'social' },
+        { text: "Are you a good listener and do people often trust you with their problems?", category: 'social' },
+        { text: "Would a job as an airline cabin crew member, focused on customer safety and comfort, be exciting?", category: 'social' },
+        { text: "Are you interested in promoting health and wellness through practices like Yoga and Naturopathy?", category: 'social' },
+        { text: "Do you enjoy teamwork and collaborating with others to provide a service?", category: 'social' },
+        { text: "Would you be good at handling customer relations and ensuring people have a positive experience?", category: 'social' },
+        { text: "Are you interested in helping your community and engaging in social work?", category: 'social' },
+        { text: "Do you find satisfaction in organizing information and helping people find it (Library Science)?", category: 'social' },
+        { text: "Are you patient and understanding, especially when dealing with people who need help?", category: 'social' },
+        { text: "Does a career that involves making people feel welcome and cared for seem rewarding to you?", category: 'social' },
+
+        // Enterprising (E) - The Persuaders (16 Questions)
+        { text: "Are you interested in the world of business, sales, and marketing?", category: 'enterprising' },
+        { text: "Do you see yourself as a natural leader, capable of managing a team or a project?", category: 'enterprising' },
+        { text: "Does the idea of managing events, from planning to execution, excite you?", category: 'enterprising' },
+        { text: "Are you persuasive and good at convincing people about an idea or product?", category: 'enterprising' },
+        { text: "Would a career in public relations or advertising, shaping a brand's image, be interesting?", category: 'enterprising' },
+        { text: "Are you ambitious and motivated by achieving targets and goals?", category: 'enterprising' },
+        { text: "Does the financial world, including banking and the stock market, fascinate you?", category: 'enterprising' },
+        { text: "Are you interested in international trade and export-import management?", category: 'enterprising' },
+        { text: "Would you enjoy managing the logistics and supply chain for a company?", category: 'enterprising' },
+        { text: "Do you have an entrepreneurial spirit and think about starting your own business one day?", category: 'enterprising' },
+        { text: "Are you comfortable taking calculated risks for potential rewards?", category: 'enterprising' },
+        { text: "Do you enjoy public speaking and presenting your ideas to others?", category: 'enterprising' },
+        { text: "Is managing a retail store or a sports team something that sounds appealing?", category: 'enterprising' },
+        { text: "Are you good at negotiating and finding win-win solutions?", category: 'enterprising' },
+        { text: "Do you like to stay informed about business news and market trends?", category: 'enterprising' },
+        { text: "Are you interested in managing human resources and corporate communications within a company?", category: 'enterprising' },
+
+        // Conventional (C) - The Organizers (16 Questions)
+        { text: "Do you enjoy working with numbers and keeping detailed financial records (Financial Accounting)?", category: 'conventional' },
+        { text: "Are you organized, methodical, and efficient in your work?", category: 'conventional' },
+        { text: "Does a career in an office setting, involving tasks like data entry or administration, seem stable and appealing?", category: 'conventional' },
+        { text: "Are you interested in the rules and regulations of taxation and e-accounting?", category: 'conventional' },
+        { text: "Would you be good at a job that requires high attention to detail, like a quantity surveyor or quality control?", category: 'conventional' },
+        { text: "Do you prefer structured tasks with clear guidelines and procedures?", category: 'conventional' },
+        { text: "Is helping to manage a library and organize its information systems an interesting prospect?", category: 'conventional' },
+        { text: "Do you enjoy creating and maintaining organized systems, whether digital or physical?", category: 'conventional' },
+        { text: "Are you reliable and enjoy tasks that require precision and accuracy?", category: 'conventional' },
+        { text: "Would a role in customs clearance, which involves a lot of paperwork and procedures, suit your skills?", category: 'conventional' },
+        { text: "Do you like to plan and schedule things carefully to ensure everything runs smoothly?", category: 'conventional' },
+        { text: "Are you proficient with office software like spreadsheets and word processors?", category: 'conventional' },
+        { text: "Do you find satisfaction in completing tasks accurately and on time?", category: 'conventional' },
+        { text: "Would you enjoy a support role that is crucial for the smooth functioning of a business?", category: 'conventional' },
+        { text: "Do you prefer a predictable work environment over one that is constantly changing?", category: 'conventional' },
+        { text: "Is being thorough and detail-oriented one of your key strengths?", category: 'conventional' }
+    ],
+
+    above_12: [
+        // Realistic (R) - The Doers (16 Questions)
+        { text: "Are you drawn to designing and constructing physical structures like buildings and bridges (Civil Engineering)?", category: 'realistic' },
+        { text: "Does the design and manufacturing of engines, machines, and mechanical systems fascinate you (Mechanical Engineering)?", category: 'realistic' },
+        { text: "Are you interested in the hands-on aspects of agriculture, horticulture, or forestry as a science-based career?", category: 'realistic' },
+        { text: "Would you enjoy a career at sea, navigating and managing large vessels (Nautical Science)?", category: 'realistic' },
+        { text: "Does working with animals to ensure their health and well-being (Veterinary Science) appeal to you?", category: 'realistic' },
+        { text: "Are you interested in the design and production of vehicles (Automobile Engineering)?", category: 'realistic' },
+        { text: "Do you find the idea of extracting natural resources from the earth (Mining Engineering) compelling?", category: 'realistic' },
+        { text: "Would a career that involves physical therapy and helping people regain movement (Physiotherapy) be fulfilling?", category: 'realistic' },
+        { text: "Are you skilled with your hands and enjoy creating tangible art or craft pieces (Fine Arts)?", category: 'realistic' },
+        { text: "Does the study of the Earth's physical structure and substance (Geology) interest you for a field-based career?", category: 'realistic' },
+        { text: "Are you interested in a practical, hands-on role in healthcare, such as Nursing?", category: 'realistic' },
+        { text: "Do you enjoy practical problem-solving that leads to a tangible outcome?", category: 'realistic' },
+        { text: "Would you prefer a career that involves fieldwork and practical application over purely theoretical work?", category: 'realistic' },
+        { text: "Are you interested in the engineering behind aircraft and spacecraft (Aeronautical Engineering)?", category: 'realistic' },
+        { text: "Does the combination of biology and practical farming techniques (B.Sc. Agriculture) seem like a good fit?", category: 'realistic' },
+        { text: "Are you drawn to careers that require physical skill and precision, such as surgery or dentistry?", category: 'realistic' },
+
+        // Investigative (I) - The Thinkers (17 Questions)
+        { text: "Is a career in medicine (MBBS) appealing because you want to diagnose and solve complex health problems?", category: 'investigative' },
+        { text: "Are you fascinated by software, algorithms, and computational theory (Computer Science/Engineering)?", category: 'investigative' },
+        { text: "Do you enjoy studying the fundamental principles of the universe through Physics or Chemistry?", category: 'investigative' },
+        { text: "Does the world of biology at a microscopic level, such as in Biotechnology or Microbiology, excite you?", category: 'investigative' },
+        { text: "Are you interested in using scientific principles to solve crimes (Forensic Science)?", category: 'investigative' },
+        { text: "Does creating and understanding complex electronic circuits and communication systems (ECE) appeal to you?", category: 'investigative' },
+        { text: "Are you drawn to the logic and abstract problem-solving of advanced Mathematics or Statistics?", category: 'investigative' },
+        { text: "Would you enjoy a research-oriented career, constantly seeking new knowledge and discoveries?", category: 'investigative' },
+        { text: "Is the idea of developing new medicines and understanding their effects (Pharmacy) interesting?", category: 'investigative' },
+        { text: "Are you analytical and enjoy working with data to find insights (Data Science)?", category: 'investigative' },
+        { text: "Does the combination of medical knowledge and technology in fields like Biomedical Engineering or Radiography appeal to you?", category: 'investigative' },
+        { text: "Are you a critical thinker who enjoys analyzing information and forming logical conclusions?", category: 'investigative' },
+        { text: "Do you want to understand the 'how' and 'why' behind complex systems, whether biological or technological?", category: 'investigative' },
+        { text: "Would you enjoy a career that involves developing and testing new technologies, like AI or Robotics?", category: 'investigative' },
+        { text: "Is the challenge of a rigorous, science-heavy curriculum something you look forward to?", category: 'investigative' },
+        { text: "Are you interested in the chemical reactions and processes involved in creating new materials (Chemical Engineering)?", category: 'investigative' },
+        { text: "Does the detailed work of diagnosing oral health issues (Dentistry) appeal to your problem-solving side?", category: 'investigative' },
+
+        // Artistic (A) - The Creators (17 Questions)
+        { text: "Is a career in Architecture, where you can blend artistic vision with technical design, your dream?", category: 'artistic' },
+        { text: "Are you passionate about creating visual art, whether through painting, sculpture, or digital media (Fine Arts)?", category: 'artistic' },
+        { text: "Does the world of fashion, from designing clothes to understanding textiles (Fashion Design/Technology), excite you?", category: 'artistic' },
+        { text: "Do you want to express yourself through music, dance, or theatre (Performing Arts)?", category: 'artistic' },
+        { text: "Are you interested in telling stories visually through film, television production, or animation?", category: 'artistic' },
+        { text: "Do you have a knack for graphic design, creating logos, websites, and visual identities?", category: 'artistic' },
+        { text: "Is writing your passion, whether it's journalism, creative writing, or content creation?", category: 'artistic' },
+        { text: "Do you enjoy designing user-friendly and aesthetically pleasing products or digital interfaces (Product/UI-UX Design)?", category: 'artistic' },
+        { text: "Would you enjoy shaping interior spaces to make them both functional and beautiful (Interior Design)?", category: 'artistic' },
+        { text: "Are you an unconventional thinker who prefers to work outside of rigid structures?", category: 'artistic' },
+        { text: "Do you value originality and self-expression in your work above all else?", category: 'artistic' },
+        { text: "Are you interested in the history of art and design, and how it influences current trends?", category: 'artistic' },
+        { text: "Do you communicate better through visuals, music, or performance than through words alone?", category: 'artistic' },
+        { text: "Is having creative freedom a top priority for your future career?", category: 'artistic' },
+        { text: "Do you see beauty in things that others might overlook?", category: 'artistic' },
+        { text: "Are you constantly thinking of new and innovative ways to do things?", category: 'artistic' },
+        { text: "Does the idea of a project-based career, where each new task is a creative challenge, appeal to you?", category: 'artistic' },
+
+        // Social (S) - The Helpers (17 Questions)
+        { text: "Are you deeply interested in understanding human behavior and the mind (Psychology)?", category: 'social' },
+        { text: "Do you want to help individuals and communities overcome challenges and improve their well-being (Social Work)?", category: 'social' },
+        { text: "Is a career in teaching and shaping the next generation (Education) something you aspire to?", category: 'social' },
+        { text: "Are you drawn to healthcare roles that involve direct patient care and communication, like Nursing or Occupational Therapy?", category: 'social' },
+        { text: "Do you enjoy working collaboratively in a team to help others?", category: 'social' },
+        { text: "Are you empathetic and skilled at connecting with people from diverse backgrounds?", category: 'social' },
+        { text: "Would you enjoy a career in hospitality or tourism, making sure people have excellent experiences?", category: 'social' },
+        { text: "Are you interested in the study of societies, social relationships, and culture (Sociology)?", category: 'social' },
+        { text: "Do you find it rewarding to provide guidance and support to others?", category: 'social' },
+        { text: "Is promoting health through proper diet and nutrition (Dietetics) a field that interests you?", category: 'social' },
+        { text: "Are you a strong communicator, able to listen actively and explain things clearly?", category: 'social' },
+        { text: "Would you find a career in library science, helping people access knowledge and resources, fulfilling?", category: 'social' },
+        { text: "Are you interested in physical education and coaching, helping people stay active and healthy?", category: 'social' },
+        { text: "Do you feel a sense of responsibility to contribute positively to society?", category: 'social' },
+        { text: "Are you patient and good at motivating people to achieve their goals?", category: 'social' },
+        { text: "Would you thrive in a role that involves training or developing the skills of others?", category: 'social' },
+        { text: "Do you prefer work environments that are cooperative and focused on human interaction?", category: 'social' },
+
+        // Enterprising (E) - The Persuaders (17 Questions)
+        { text: "Does a career in business management or administration (BBA/BMS), where you lead teams and make strategic decisions, excite you?", category: 'enterprising' },
+        { text: "Are you interested in the principles of law and enjoy debating, negotiating, and constructing arguments (Law)?", category: 'enterprising' },
+        { text: "Do you see yourself in a dynamic role like marketing, advertising, or public relations?", category: 'enterprising' },
+        { text: "Are you ambitious, energetic, and enjoy taking on leadership roles?", category: 'enterprising' },
+        { text: "Does the world of finance, economics, and commerce appeal to your competitive side?", category: 'enterprising' },
+        { text: "Are you interested in managing large-scale events or running a hotel/resort?", category: 'enterprising' },
+        { text: "Do you enjoy public speaking and are you confident in your ability to persuade others?", category: 'enterprising' },
+        { text: "Is starting and running your own business a long-term goal for you?", category: 'enterprising' },
+        { text: "Are you interested in how political systems work and potentially influencing public policy (Political Science)?", category: 'enterprising' },
+        { text: "Would you thrive in a fast-paced, target-driven environment like sales?", category: 'enterprising' },
+        { text: "Are you interested in managing the business side of creative industries, like sports or film production?", category: 'enterprising' },
+        { text: "Do you enjoy making presentations and pitching ideas to an audience?", category: 'enterprising' },
+        { text: "Are you comfortable with taking risks and making high-stakes decisions?", category: 'enterprising' },
+        { text: "Do you have a strong interest in current affairs and media (Journalism & Mass Communication)?", category: 'enterprising' },
+        { text: "Do you prefer to lead a project rather than just be a member of the team?", category: 'enterprising' },
+        { text: "Are you interested in international business and relations?", category: 'enterprising' },
+        { text: "Do you enjoy networking and building connections with influential people?", category: 'enterprising' },
+
+        // Conventional (C) - The Organizers (16 Questions)
+        { text: "Is a career in Commerce (B.Com), focusing on accounting, auditing, and financial records, a good fit for you?", category: 'conventional' },
+        { text: "Do you enjoy working with data, ensuring its accuracy and organization?", category: 'conventional' },
+        { text: "Would you thrive in a structured environment with clear rules and procedures?", category: 'conventional' },
+        { text: "Are you detail-oriented, precise, and methodical in your approach to work?", category: 'conventional' },
+        { text: "Does a career as a Company Secretary (CS), dealing with corporate law and compliance, sound appealing?", category: 'conventional' },
+        { text: "Are you proficient in using office software and enjoy tasks like creating spreadsheets and managing databases?", category: 'conventional' },
+        { text: "Would you enjoy a career in information management or library science, where organization is key?", category: 'conventional' },
+        { text: "Are you a reliable person who can be counted on to follow through on tasks meticulously?", category: 'conventional' },
+        { text: "Do you prefer clear, well-defined tasks over ambiguous, open-ended projects?", category: 'conventional' },
+        { text: "Is financial planning and analysis an area that interests you?", category: 'conventional' },
+        { text: "Do you find satisfaction in creating order from chaos?", category: 'conventional' },
+        { text: "Are you interested in the administrative side of business or healthcare?", category: 'conventional' },
+        { text: "Does a career in actuarial science, involving detailed risk assessment using statistics, seem interesting?", category: 'conventional' },
+        { text: "Are you good at proofreading and catching errors that others might miss?", category: 'conventional' },
+        { text: "Do you prefer to work with facts and figures rather than abstract ideas or emotions?", category: 'conventional' },
+        { text: "Is efficiency important to you, and do you enjoy finding ways to make processes more organized?", category: 'conventional' }
+    ],
+
+
+    above_grad: [
+        // Realistic (R) - The Doers (16 Questions)
+        { text: "Are you looking to deepen your technical expertise in a specific branch of engineering, like Thermal or Structural Engineering (M.Tech)?", category: 'realistic' },
+        { text: "Does a career in surgery (MS), which requires exceptional manual dexterity and practical skill, appeal to you?", category: 'realistic' },
+        { text: "Are you interested in advanced, hands-on agricultural sciences, like horticulture or soil science (M.Sc.)?", category: 'realistic' },
+        { text: "Do you want to pursue a career that involves advanced fieldwork, such as in Geology or Archaeology (M.Sc./M.A.)?", category: 'realistic' },
+        { text: "Is your goal to work in a highly specialized, hands-on design field like Product Design or Animation (M.Des)?", category: 'realistic' },
+        { text: "Are you interested in the advanced practical skills required in veterinary medicine (MVSc)?", category: 'realistic' },
+        { text: "Does mastering a complex craft at a professional level, like sculpture or painting (MFA), drive you?", category: 'realistic' },
+        { text: "Are you more interested in the 'how-to' and application of knowledge rather than purely theoretical research?", category: 'realistic' },
+        { text: "Do you want to build upon your bachelor's degree with a master's that is heavily lab-based or studio-based?", category: 'realistic' },
+        { text: "Is your interest in architecture leading you towards a master's degree focusing on construction technology or sustainable building?", category: 'realistic' },
+        { text: "Do you see yourself operating and managing complex industrial systems or machinery at an expert level?", category: 'realistic' },
+        { text: "Are you interested in the practical application of sports science, like in sports physiotherapy?", category: 'realistic' },
+        { text: "Does the technical side of filmmaking, like cinematography or sound engineering, fascinate you more than writing or directing?", category: 'realistic' },
+        { text: "Are you interested in the hands-on aspects of environmental management, such as water resource management or forestry?", category: 'realistic' },
+        { text: "Do you enjoy the process of building and testing prototypes, whether physical or digital?", category: 'realistic' },
+        { text: "Is your career goal to be an expert practitioner in a field that requires tangible skills?", category: 'realistic' },
+
+        // Investigative (I) - The Thinkers (17 Questions)
+        { text: "Are you driven to pursue a Master's in a pure science like Physics, Chemistry, or Mathematics to understand the universe at a deeper level?", category: 'investigative' },
+        { text: "Does specializing in a complex field like Artificial Intelligence, Data Science, or Machine Learning (M.Tech/M.Sc) excite you?", category: 'investigative' },
+        { text: "Are you interested in a research-intensive field like Biotechnology or Forensic Science for your postgraduate studies?", category: 'investigative' },
+        { text: "Do you want to pursue a career in medical diagnostics (MD Pathology/Radiology) or research (M.Sc Clinical Research)?", category: 'investigative' },
+        { text: "Is your goal to become an expert in a specific area of computer science, such as cybersecurity or VLSI design?", category: 'investigative' },
+        { text: "Do you enjoy deep analysis and theoretical modeling, which are central to courses like M.A. in Economics or M.Sc. in Statistics?", category: 'investigative' },
+        { text: "Are you motivated by intellectual challenges and solving problems that don't have straightforward answers?", category: 'investigative' },
+        { text: "Does a career in academia or a research and development (R&D) lab appeal to you?", category: 'investigative' },
+        { text: "Are you interested in the scientific study of the mind and behavior at an advanced level (M.A./M.Sc. Psychology)?", category: 'investigative' },
+        { text: "Would you enjoy a career where you constantly learn and adapt to new scientific or technological breakthroughs?", category: 'investigative' },
+        { text: "Do you prefer to base your decisions on data and evidence after thorough investigation?", category: 'investigative' },
+        { text: "Is the detailed study of pharmacology and the development of new drugs (M.Pharm) an area you wish to explore?", category: 'investigative' },
+        { text: "Are you more interested in understanding the 'why' behind a problem than just finding a practical solution?", category: 'investigative' },
+        { text: "Does the idea of contributing to the body of human knowledge through rigorous research inspire you?", category: 'investigative' },
+        { text: "Would you enjoy using advanced computational tools to solve complex scientific or engineering problems?", category: 'investigative' },
+        { text: "Are you drawn to fields that require a high degree of specialization and deep subject matter expertise?", category: 'investigative' },
+        { text: "Do you enjoy reading academic papers and staying up-to-date with the latest research in your field of interest?", category: 'investigative' },
+
+        // Artistic (A) - The Creators (17 Questions)
+        { text: "Do you wish to refine your creative talents and develop a unique artistic voice through an MFA or M.Des program?", category: 'artistic' },
+        { text: "Are you passionate about delving deeper into literature, film studies, or theatre arts at a Master's level?", category: 'artistic' },
+        { text: "Is your goal to work in a highly creative industry like advertising, animation, or film production at a senior level?", category: 'artistic' },
+        { text: "Do you want to transition from a general design background to a specialized area like UX/UI or strategic design management?", category: 'artistic' },
+        { text: "Are you more interested in a career that offers creative freedom and autonomy than one that offers stability?", category: 'artistic' },
+        { text: "Does the idea of directing, writing, or producing creative content as a profession drive you?", category: 'artistic' },
+        { text: "Are you interested in advanced music or dance studies (M.A./MPA) to perfect your craft?", category: 'artistic' },
+        { text: "Do you want to use your postgraduate degree to build a strong portfolio that showcases your unique creative work?", category: 'artistic' },
+        { text: "Are you drawn to unstructured work environments where you can experiment with new ideas?", category: 'artistic' },
+        { text: "Is expressing a concept or emotion through your work more important to you than its commercial success?", category: 'artistic' },
+        { text: "Would you enjoy a career as a curator or art historian, interpreting and presenting creative works to the public?", category: 'artistic' },
+        { text: "Are you interested in the intersection of technology and art, such as in digital game design or animation/VFX?", category: 'artistic' },
+        { text: "Do you want to develop your skills in a specific medium, like ceramics, photography, or printmaking, to an expert level?", category: 'artistic' },
+        { text: "Is your primary motivation to create something new and original that has never been seen before?", category: 'artistic' },
+        { text: "Do you find the process of creative brainstorming and conceptualization to be the most exciting part of a project?", category: 'artistic' },
+        { text: "Are you interested in the theoretical aspects of design and how it impacts society?", category: 'artistic' },
+        { text: "Does a career as a professional writer, musician, or artist, despite its uncertainties, seem like the most fulfilling path for you?", category: 'artistic' },
+
+        // Social (S) - The Helpers (17 Questions)
+        { text: "Are you driven to pursue an advanced degree in social work (MSW) or counseling to directly help individuals and communities?", category: 'social' },
+        { text: "Is a master's degree in public health (MPH) appealing because you want to improve the health of entire populations?", category: 'social' },
+        { text: "Do you want to specialize in a field of psychology (e.g., clinical, counseling) to provide therapy and support?", category: 'social' },
+        { text: "Is a career in educational leadership or curriculum development (M.Ed.) your goal?", category: 'social' },
+        { text: "Are you interested in human resource management (MBA-HRM) because you enjoy developing and supporting an organization's people?", category: 'social' },
+        { text: "Would you find a career in hospital administration (MHA) rewarding, ensuring that patients receive the best possible care?", category: 'social' },
+        { text: "Does the idea of working for a non-profit or NGO at a management level appeal to you?", category: 'social' },
+        { text: "Are you a strong advocate for others and want to work in fields like human rights or development studies?", category: 'social' },
+        { text: "Do you want to use your skills to teach and mentor others at a higher level, perhaps as a professor or trainer?", category: 'social' },
+        { text: "Is your primary career motivation to make a tangible, positive impact on society?", category: 'social' },
+        { text: "Do you excel in roles that require empathy, teamwork, and strong interpersonal communication?", category: 'social' },
+        { text: "Are you interested in studying social structures and issues at an advanced level (M.A. Sociology)?", category: 'social' },
+        { text: "Would you enjoy a career in public administration, working to improve government services for citizens?", category: 'social' },
+        { text: "Are you interested in specializing in a healthcare field that focuses on rehabilitation, such as sports physiotherapy?", category: 'social' },
+        { text: "Do you want to become an expert in a specific area of education, like special needs or educational management?", category: 'social' },
+        { text: "Does a career that involves mediating conflicts and fostering cooperation seem like a good fit?", category: 'social' },
+        { text: "Are you passionate about community development and empowering marginalized groups?", category: 'social' },
+
+        // Enterprising (E) - The Persuaders (17 Questions)
+        { text: "Is your primary goal for post-graduation to gain the skills needed to climb the corporate ladder into a leadership role (MBA)?", category: 'enterprising' },
+        { text: "Are you interested in specializing in high-stakes areas of business like finance, marketing, or international business?", category: 'enterprising' },
+        { text: "Does a career in law (LL.M.), specifically in a corporate or commercial field, appeal to you?", category: 'enterprising' },
+        { text: "Are you driven by the idea of starting your own venture and are looking for an entrepreneurship-focused program?", category: 'enterprising' },
+        { text: "Do you want to be in a position to influence people, manage projects, and make important strategic decisions?", category: 'enterprising' },
+        { text: "Are you interested in the business side of technology, such as managing IT projects or tech startups?", category: 'enterprising' },
+        { text: "Does a career in journalism or mass communication at a leadership level, like an editor or producer, seem exciting?", category: 'enterprising' },
+        { text: "Are you assertive, competitive, and enjoy taking on challenges?", category: 'enterprising' },
+        { text: "Would you enjoy a career in public relations or advertising, where you manage a brand's reputation and strategy?", category: 'enterprising' },
+        { text: "Are you comfortable with public speaking and presenting compelling arguments to stakeholders?", category: 'enterprising' },
+        { text: "Is a high earning potential a significant factor in your choice of a postgraduate course?", category: 'enterprising' },
+        { text: "Do you see yourself managing large-scale operations, such as in logistics and supply chain management?", category: 'enterprising' },
+        { text: "Are you interested in international relations and diplomacy, representing your organization or country's interests?", category: 'enterprising' },
+        { text: "Do you enjoy networking and building a strong professional circle to achieve your goals?", category: 'enterprising' },
+        { text: "Are you a risk-taker who is more excited by potential gains than worried by potential losses?", category: 'enterprising' },
+        { text: "Do you aim to be a decision-maker and a person of influence in your chosen field?", category: 'enterprising' },
+        { text: "Are you skilled at identifying market opportunities and developing strategies to capitalize on them?", category: 'enterprising' },
+
+        // Conventional (C) - The Organizers (16 Questions)
+        { text: "Are you aiming to become an expert in accounting and finance through professional certifications like CA, CFA, or CMA?", category: 'conventional' },
+        { text: "Does a career in corporate governance and legal compliance as a Company Secretary (CS) appeal to you?", category: 'conventional' },
+        { text: "Are you highly organized and would enjoy a master's degree in a field that requires precision, like project management or M.Com?", category: 'conventional' },
+        { text: "Do you prefer a career with clear, defined paths for advancement and stable job roles?", category: 'conventional' },
+        { text: "Are you interested in the systematic management of information and data (e.g., MLISc, data analytics)?", category: 'conventional' },
+        { text: "Do you excel at tasks that require careful planning, budgeting, and adherence to regulations?", category: 'conventional' },
+        { text: "Would you be interested in a specialized financial role like risk management or financial planning?", category: 'conventional' },
+        { text: "Is mastering a complex set of rules and procedures, like tax law or accounting standards, a challenge you would enjoy?", category: 'conventional' },
+        { text: "Do you find satisfaction in ensuring that processes are efficient, accurate, and compliant?", category: 'conventional' },
+        { text: "Are you more interested in optimizing existing systems than in creating entirely new ones?", category: 'conventional' },
+        { text: "Do you have a strong aptitude for working with spreadsheets, databases, and financial software?", category: 'conventional' },
+        { text: "Is a career in public administration or bureaucracy, where structure and procedure are paramount, something you would consider?", category: 'conventional' },
+        { text: "Do you value accuracy and thoroughness in your work above speed or creativity?", category: 'conventional' },
+        { text: "Would you enjoy a role in supply chain management that focuses on efficient scheduling and inventory control?", category: 'conventional' },
+        { text: "Are you a dependable and responsible individual who thrives on structure?", category: 'conventional' },
+        { text: "Does the thought of a career as an auditor, focused on meticulously checking records for compliance, seem fitting?", category: 'conventional' }
+    ],
+
+
+
+    above_post_grad: [
+        // Realistic (R) - The Doers (16 Questions)
+        { text: "Is your primary motivation to conduct hands-on, experimental research in an engineering lab (Ph.D. in Engineering)?", category: 'realistic' },
+        { text: "Are you driven to master a highly specialized surgical skill through a super-specialty degree (M.Ch)?", category: 'realistic' },
+        { text: "Does a career involving advanced, field-based research in Geology, Archaeology, or Environmental Science appeal to you?", category: 'realistic' },
+        { text: "Are you interested in a research career that involves building and testing physical prototypes or new materials?", category: 'realistic' },
+        { text: "Is your goal to pursue a Ph.D. that is practice-based, such as in Fine Arts (Studio Practice) or Design?", category: 'realistic' },
+        { text: "Do you want to contribute to science through tangible experiments and lab work rather than theoretical modeling?", category: 'realistic' },
+        { text: "Are you interested in advanced veterinary surgery or clinical practice (MVSc specialization)?", category: 'realistic' },
+        { text: "Would a Post-Doctoral Fellowship that requires significant time in a laboratory or in the field be your ideal next step?", category: 'realistic' },
+        { text: "Do you possess the patience and precision required for complex, multi-year experimental projects?", category: 'realistic' },
+        { text: "Is your passion for agriculture leading you towards a Ph.D. involving crop trials and soil management research?", category: 'realistic' },
+        { text: "Are you more drawn to applied research that solves a specific, practical problem?", category: 'realistic' },
+        { text: "Does the development of new medical devices or surgical techniques fascinate you?", category: 'realistic' },
+        { text: "Do you enjoy the challenge of making sophisticated scientific or engineering equipment work?", category: 'realistic' },
+        { text: "Is your focus on how things are made and can be improved, such as in manufacturing or materials science research?", category: 'realistic' },
+        { text: "Would you thrive in a research environment where you physically interact with your subject matter daily?", category: 'realistic' },
+        { text: "Are you interested in the advanced, practical aspects of pharmacy, such as in Pharmaceutics research?", category: 'realistic' },
+
+        // Investigative (I) - The Thinkers (17 Questions)
+        { text: "Do you have a specific, unanswered question in your field that you are passionate about investigating for a Ph.D.?", category: 'investigative' },
+        { text: "Are you drawn to theoretical research in fields like Physics, Mathematics, or Computer Science?", category: 'investigative' },
+        { text: "Is your goal to pursue a medical super-specialty (DM) that focuses on complex diagnostics and internal medicine?", category: 'investigative' },
+        { text: "Does the prospect of spending years on deep intellectual inquiry and contributing a new piece of knowledge excite you?", category: 'investigative' },
+        { text: "Are you interested in a Post-Doctoral Fellowship to further specialize and become a leading expert in your research niche?", category: 'investigative' },
+        { text: "Do you excel at critical analysis, logical reasoning, and synthesizing complex information from academic literature?", category: 'investigative' },
+        { text: "Is a career as a university professor or a senior scientist in a research institution your ultimate goal?", category: 'investigative' },
+        { text: "Are you interested in computational research, using simulations and data analysis to test hypotheses?", category: 'investigative' },
+        { text: "Does the intellectual rigor of developing a Ph.D. thesis—from proposal to defense—motivate you?", category: 'investigative' },
+        { text: "Are you drawn to fields like Neuroscience or Genetics, which are at the forefront of scientific discovery?", category: 'investigative' },
+        { text: "Do you want to understand the fundamental principles that govern a system, rather than just its practical application?", category: 'investigative' },
+        { text: "Are you self-motivated and capable of working independently on a long-term, complex project?", category: 'investigative' },
+        { text: "Does the thought of discovering something entirely new and publishing your findings appeal to you?", category: 'investigative' },
+        { text: "Are you interested in the pharmacology and molecular mechanisms of drugs (Ph.D. in Pharmacology)?", category: 'investigative' },
+        { text: "Would you enjoy a career that is centered around writing research papers, grants, and scholarly articles?", category: 'investigative' },
+        { text: "Are you driven by curiosity and a relentless desire to find answers?", category: 'investigative' },
+        { text: "Do you see a doctoral degree as the necessary step to achieve the highest level of expertise in your chosen field?", category: 'investigative' },
+
+        // Artistic (A) - The Creators (16 Questions)
+        { text: "Are you considering a Ph.D. to research the theory, history, or criticism of art, design, or literature?", category: 'artistic' },
+        { text: "Is your goal to become a thought leader in a creative field, perhaps as a professor, critic, or curator?", category: 'artistic' },
+        { text: "Do you want to explore the philosophical or societal implications of a creative discipline at a doctoral level?", category: 'artistic' },
+        { text: "Are you interested in developing new creative methodologies or theories through academic research?", category: 'artistic' },
+        { text: "Does the idea of a practice-led Ph.D., where your creative work itself is part of the research, appeal to you?", category: 'artistic' },
+        { text: "Are you motivated to push the boundaries of your creative field through scholarly inquiry?", category: 'artistic' },
+        { text: "Do you see yourself mentoring the next generation of artists or designers in a university setting?", category: 'artistic' },
+        { text: "Is your passion for your art form so deep that you want to dedicate your life to studying it from an academic perspective?", category: 'artistic' },
+        { text: "Are you more interested in the 'why' and 'how' of creativity than just the act of creating?", category: 'artistic' },
+        { text: "Would you enjoy the solitary, intensive research and writing process required for a humanities Ph.D.?", category: 'artistic' },
+        { text: "Are you interested in interdisciplinary research that connects art with technology, sociology, or history?", category: 'artistic' },
+        { text: "Does a career as a senior archivist or museum director, which requires a Ph.D., align with your goals?", category: 'artistic' },
+        { text: "Are you driven to contribute a significant, original piece of scholarship to your creative field?", category: 'artistic' },
+        { text: "Do you enjoy academic debate and discourse about art, film, or music?", category: 'artistic' },
+        { text: "Do you see a Ph.D. as a way to gain the ultimate level of credibility and expertise in your creative domain?", category: 'artistic' },
+        { text: "Are you interested in studying how creative industries are shaped by cultural and economic forces?", category: 'artistic' },
+
+        // Social (S) - The Helpers (17 Questions)
+        { text: "Are you interested in conducting large-scale research on social issues through a Ph.D. in Sociology or Social Work?", category: 'social' },
+        { text: "Does a Ph.D. in Public Health or an MD in Community Medicine appeal to you because you want to influence health policy?", category: 'social' },
+        { text: "Do you want to become a clinical psychologist or a leading academic in psychology through a Ph.D. program?", category: 'social' },
+        { text: "Is your goal to become a professor in an education-related field, training future teachers and administrators (Ph.D. in Education)?", category: 'social' },
+        { text: "Are you interested in a research career that focuses on improving human resource practices and workplace well-being (Ph.D. in HRM)?", category: 'social' },
+        { text: "Does a Post-Doctoral Fellowship in the social sciences (e.g., ICSSR) seem like the right step to establish your research career?", category: 'social' },
+        { text: "Are you passionate about ethnographic research and understanding different cultures at a deep level (Ph.D. in Anthropology)?", category: 'social' },
+        { text: "Do you want to contribute to the development of new therapies or social interventions through rigorous research?", category: 'social' },
+        { text: "Is your primary motivation to use research to advocate for social justice and policy change?", category: 'social' },
+        { text: "Are you interested in the highest levels of library and information science, possibly managing a large university or public library system?", category: 'social' },
+        { text: "Do you enjoy mentoring and guiding other researchers and students?", category: 'social' },
+        { text: "Are you skilled at both qualitative (interviews, observation) and quantitative (surveys, statistics) research methods?", category: 'social' },
+        { text: "Would you enjoy a career that combines research, teaching, and community service?", category: 'social' },
+        { text: "Are you interested in studying international development and global social challenges?", category: 'social' },
+        { text: "Do you see yourself working for a major international NGO or a think tank in a senior research or policy role?", category: 'social' },
+        { text: "Are you driven by a desire to understand and solve complex societal problems?", category: 'social' },
+        { text: "Do you believe academic research is a powerful tool for creating positive social change?", category: 'social' },
+
+        // Enterprising (E) - The Persuaders (17 Questions)
+        { text: "Are you considering a Ph.D. in Management or a Doctor of Business Administration (DBA) to become a top-tier business consultant or academic?", category: 'enterprising' },
+        { text: "Is your goal to become an influential voice in your industry, shaping strategy and thought leadership?", category: 'enterprising' },
+        { text: "Are you interested in a Ph.D. in a field like Economics or Finance to work at a high level in international organizations like the World Bank or IMF?", category: 'enterprising' },
+        { text: "Does a career in legal academia or as a senior legal advisor in a major corporation (requiring a Ph.D. in Law) appeal to you?", category: 'enterprising' },
+        { text: "Are you driven by the prospect of leading a major research division in a corporation?", category: 'enterprising' },
+        { text: "Do you see a Ph.D. as a pathway to high-level policy-making roles in government (e.g., Indian Economic Service)?", category: 'enterprising' },
+        { text: "Are you interested in researching the factors that drive successful entrepreneurship and innovation?", category: 'enterprising' },
+        { text: "Do you enjoy the challenge of securing research funding and managing a large-scale research project?", category: 'enterprising' },
+        { text: "Is building a strong professional network and reputation as an expert a key career driver for you?", category: 'enterprising' },
+        { text: "Are you skilled at communicating complex research findings to a business or policy audience?", category: 'enterprising' },
+        { text: "Do you want to be at the forefront of your field, predicting trends and influencing future directions?", category: 'enterprising' },
+        { text: "Does the idea of using your deep expertise to start a highly specialized, research-based consultancy sound appealing?", category: 'enterprising' },
+        { text: "Are you motivated by both intellectual achievement and the potential for significant financial and professional rewards?", category: 'enterprising' },
+        { text: "Do you enjoy debating complex ideas and defending your research in a competitive academic or corporate environment?", category: 'enterprising' },
+        { text: "Are you interested in the strategic aspects of international relations or corporate law at a doctoral level?", category: 'enterprising' },
+        { text: "Do you thrive on taking intellectual risks to propose new theories or business models?", category: 'enterprising' },
+        { text: "Is your ambition to not just participate in your field, but to lead and define it?", category: 'enterprising' },
+
+        // Conventional (C) - The Organizers (17 Questions)
+        { text: "Are you interested in pursuing a Ph.D. in a highly structured, quantitative field like Statistics, Finance, or Operations Management?", category: 'conventional' },
+        { text: "Does a career as a senior scientist in a government body (like CSIR, ISRO), which involves structured research protocols, appeal to you?", category: 'conventional' },
+        { text: "Are you drawn to research that involves developing and refining complex systems, standards, or procedures?", category: 'conventional' },
+        { text: "Do you find satisfaction in the meticulous, detail-oriented work of data analysis and verification required for a Ph.D.?", category: 'conventional' },
+        { text: "Is your goal to become an expert in a field that relies heavily on established rules and principles, such as constitutional or tax law?", category: 'conventional' },
+        { text: "Do you prefer research that has clear methodologies and quantifiable outcomes?", category: 'conventional' },
+        { text: "Would you enjoy a career managing large, complex datasets or information systems at the highest level?", category: 'conventional' },
+        { text: "Are you interested in the administrative and policy side of academia or research institutions?", category: 'conventional' },
+        { text: "Do you excel at long-term planning and the systematic execution of a research plan?", category: 'conventional' },
+        { text: "Is the idea of contributing to the development of new accounting standards or financial regulations interesting?", category: 'conventional' },
+        { text: "Do you value accuracy and precision so highly that you're willing to dedicate years of research to it?", category: 'conventional' },
+        { text: "Are you comfortable working within the formal structures and protocols of academic or governmental research?", category: 'conventional' },
+        { text: "Does a Post-Doctoral fellowship that involves refining an established research technique appeal to you more than creating a new one?", category: 'conventional' },
+        { text: "Are you more interested in ensuring the integrity and reliability of data than in exploring speculative theories?", category: 'conventional' },
+        { text: "Would you be a good fit for a Ph.D. in a field like Library Science, focusing on advanced cataloging and information architecture?", category: 'conventional' },
+        { text: "Do you thrive when you have a clear, long-term project with well-defined milestones and objectives?", category: 'conventional' },
+        { text: "Is becoming the ultimate authority on a very specific set of regulations or standards a career aspiration for you?", category: 'conventional' }
+    ],
+
+
+};
+
+const courseMappings = {
+// INSERT THIS SNIPPET AT THE BEGINNING OF THE courseMappings OBJECT
+
+    student: {
+        stem_technology: ["Focus on: Physics, Advanced Mathematics, Chemistry", "Activity: Join a Robotics or Science Club", "Explore: Learn a programming language like Python", "Subject: Computer Science", "Skill: Analytical & Problem-Solving"],
+        medical_health: ["Focus on: Biology, Chemistry", "Activity: Volunteer at a local clinic or hospital", "Explore: First-Aid and CPR certification", "Subject: Human Anatomy", "Skill: Empathy & Attention to Detail"],
+        business_finance: ["Focus on: Mathematics, Economics, English", "Activity: Participate in a business plan competition", "Explore: Start a small, supervised entrepreneurial venture", "Subject: Business Studies", "Skill: Leadership & Communication"],
+        arts_design: ["Focus on: Art, History, Literature", "Activity: Build a portfolio of your creative work", "Explore: Learn digital tools like Photoshop or Canva", "Subject: Fine Arts / Design", "Skill: Creativity & Imagination"],
+        humanities_social: ["Focus on: History, Social Studies, English", "Activity: Join a debate club or Model UN", "Explore: Read non-fiction books on current events", "Subject: Political Science / Sociology", "Skill: Critical Thinking & Research"],
+        communication_media: ["Focus on: English, Literature, Social Studies", "Activity: Start a blog or a YouTube channel", "Explore: Join the school newspaper or media club", "Subject: Creative Writing", "Skill: Strong Written & Verbal Communication"],
+        government_defense: ["Focus on: Physical Education, History, Civics", "Activity: Join the NCC, Scouts, or a sports team", "Explore: Read about national history and governance", "Subject: Fitness & Discipline", "Skill: Teamwork & Integrity"],
+        education_training: ["Focus on: Your favorite academic subjects", "Activity: Tutor a younger student or sibling", "Explore: Different teaching methods online", "Subject: Public Speaking", "Skill: Patience & Clear Communication"],
+        hospitality_travel: ["Focus on: Geography, Foreign Languages, English", "Activity: Help organize a school or family event", "Explore: Plan a mock vacation itinerary for a foreign country", "Subject: Customer Service principles", "Skill: Interpersonal Skills & Organization"],
+        environment_agriculture: ["Focus on: Biology, Environmental Science, Geography", "Activity: Join an eco-club or a clean-up drive", "Explore: Start a small home garden", "Subject: Earth Sciences", "Skill: Observation & Problem-Solving"],
+        skilled_trades: ["Focus on: Design & Technology, Basic Physics", "Activity: Join a woodworking or mechanics club", "Explore: Try to fix broken items at home (with supervision)", "Subject: Practical, hands-on projects", "Skill: Manual Dexterity & Spatial Reasoning"],
+        sports_fitness: ["Focus on: Physical Education, Biology", "Activity: Excel in at least one sport", "Explore: Learn about sports nutrition and anatomy", "Subject: Kinesiology (science of movement)", "Skill: Discipline & Teamwork"],
+        emerging_fields: ["Focus on: Computer Science, Advanced Math, Physics", "Activity: Follow tech news and trends", "Explore: Experiment with free game design or coding software", "Subject: Logic & Problem Solving", "Skill: Adaptability & Continuous Learning"]
+    },
+    realistic: {
+        below_10: ["Certificate in Welding", "Basic Carpentry Course", "Mobile Repairing", "Electrician Assistant"],
+        above_10: ["Diploma in Mechanical Engineering", "ITI Fitter/Welder", "Diploma in Agriculture", "Diploma in Civil Engineering"],
+        above_12: ["B.Tech in Mechanical/Civil Engineering", "B.Sc. in Agriculture", "Bachelor of Veterinary Science (BVSc)", "Bachelor of Physiotherapy (BPT)"],
+        above_grad: ["M.Tech in Mechanical/Civil Engineering", "Master of Surgery (MS)", "M.Sc in Agriculture", "Master of Design (Product Design)"],
+        above_post_grad: ["Ph.D. in Mechanical Engineering", "M.Ch (Surgical Super-specialty)", "Post-Doc in Experimental Physics", "Ph.D. in Agriculture"]
+    },
+    investigative: {
+        below_10: ["Join a Science Club", "Learn Basic Coding (Scratch)", "Solve Logic Puzzles", "Watch Science Documentaries"],
+        above_10: ["Diploma in Computer Science", "Diploma in Medical Lab Technology (MLT)", "Diploma in Electronics Engineering"],
+        above_12: ["B.Tech in Computer Science", "MBBS", "B.Sc. in Physics/Chemistry/Maths", "Bachelor of Pharmacy (B.Pharm)"],
+        above_grad: ["M.Tech in AI/Data Science", "MD in General Medicine/Radiology", "M.Sc. in a pure science", "Master of Pharmacy (M.Pharm)"],
+        above_post_grad: ["Ph.D. in any Scientific Field", "DM (Medical Super-specialty)", "Post-Doctoral Fellowship (e.g., SERB, CSIR)", "Become a Research Scientist"]
+    },
+    artistic: {
+        below_10: ["Drawing and Painting Classes", "Join School Theatre/Music", "Learn a Musical Instrument", "Practice Creative Writing"],
+        above_10: ["Diploma in Graphic Design", "Diploma in Animation & Multimedia", "Diploma in Photography", "Diploma in Fashion Design"],
+        above_12: ["Bachelor of Fine Arts (BFA)", "Bachelor of Design (B.Des)", "Bachelor of Architecture (B.Arch)", "B.A. in Journalism"],
+        above_grad: ["Master of Fine Arts (MFA)", "Master of Design (M.Des)", "M.A. in Film Studies", "PG Diploma in Animation/VFX"],
+        above_post_grad: ["Ph.D. in Fine Arts/Design Theory", "Practice-led Ph.D. in a creative field", "Become a University Professor in Arts", "Work as a Senior Art Director/Curator"]
+    },
+    social: {
+        below_10: ["Volunteer for a cause", "Participate in group activities", "Tutor a younger student", "Join a debate club"],
+        above_10: ["Diploma in Nursing", "Diploma in Early Childhood Education", "Diploma in Hotel Management", "Diploma in Social Work"],
+        above_12: ["B.Sc. in Nursing", "Bachelor of Social Work (BSW)", "B.A. in Psychology/Sociology", "Bachelor of Education (B.Ed) path"],
+        above_grad: ["Master of Social Work (MSW)", "M.A. in Clinical Psychology", "Master of Public Health (MPH)", "Master of Education (M.Ed)"],
+        above_post_grad: ["Ph.D. in Psychology/Sociology", "MD in Community Medicine", "Post-Doc in Social Sciences (ICSSR)", "Work in Public Policy"]
+    },
+    enterprising: {
+        below_10: ["Take a leadership role in a group", "Start a mini-project (e.g., bake sale)", "Join school student council", "Practice public speaking"],
+        above_10: ["Diploma in Business Administration", "Diploma in Sales & Marketing", "Diploma in Event Management"],
+        above_12: ["Bachelor of Business Administration (BBA)", "B.Com", "Integrated Law (B.A. LLB)", "Bachelor of Event Management"],
+        above_grad: ["Master of Business Administration (MBA)", "Master of Laws (LL.M in Corporate Law)", "PGDM in Marketing/Finance"],
+        above_post_grad: ["Ph.D. in Management", "Doctor of Business Administration (DBA)", "Start a Technology/Consulting venture", "High-level role in Investment Banking"]
+    },
+    conventional: {
+        below_10: ["Practice organizing your study space", "Create schedules and to-do lists", "Help with family budgeting", "Learn touch typing"],
+        above_10: ["Diploma in Office Management", "Certificate in Financial Accounting (Tally)", "Diploma in Library Science"],
+        above_12: ["Bachelor of Commerce (B.Com)", "Company Secretary (CS) path", "Bachelor of Computer Applications (BCA)"],
+        above_grad: ["Chartered Accountancy (CA)", "Master of Commerce (M.Com)", "PG Diploma in Banking Operations", "MBA in Finance"],
+        above_post_grad: ["Ph.D. in Finance/Accounting", "Become a Financial Risk Manager (FRM)", "Senior role in Corporate Compliance", "Work as a Data Analyst/Manager"]
+    }
+};
+
+const pageLinks = {
+    above_10: "ssc1.html",
+    above_12: "hsc1.html",
+    above_grad: "grad1.html",
+    above_post_grad: "pg1.html"
+};
+
+
+// ===================================================================================
+//
+//          CORE SCRIPT LOGIC (No need to edit below this line)
+//
+// ===================================================================================
+
+function handleEducationLevelChange() {
+    const educationLevel = document.getElementById('educationLevel').value;
+    const quizContainer = document.getElementById('quiz-container');
+    const submitBtn = document.getElementById('submit-btn');
+
+    if (educationLevel) {
+        generateQuiz(educationLevel);
+        quizContainer.style.display = 'block';
+        submitBtn.style.display = 'block';
+    } else {
+        quizContainer.innerHTML = '<p class="quiz-placeholder">Please select your education level to begin the quiz.</p>';
+        quizContainer.style.display = 'block';
+        submitBtn.style.display = 'none';
+    }
+}
+
+function generateQuiz(level) {
+    const quizContainer = document.getElementById('quiz-container');
+    const questions = quizData[level];
+    
+    if (!questions) {
+        quizContainer.innerHTML = '<p class="quiz-placeholder">Quiz not available for this level yet.</p>';
+        return;
+    }
+
+    let quizHtml = `<h2 class="category-header">Answer the following ${questions.length} questions</h2>`;
+    questions.forEach((q, index) => {
+        const questionNumber = index + 1;
+        quizHtml += `
+            <div class="question-block">
+                <p class="question-text">${questionNumber}. ${q.text}</p>
+                <div class="answers" data-category="${q.category}">
+                    <input type="radio" id="q${questionNumber}_1" name="q${questionNumber}" value="1"><label for="q${questionNumber}_1">1</label>
+                    <input type="radio" id="q${questionNumber}_2" name="q${questionNumber}" value="2"><label for="q${questionNumber}_2">2</label>
+                    <input type="radio" id="q${questionNumber}_3" name="q${questionNumber}" value="3" checked><label for="q${questionNumber}_3">3</label>
+                    <input type="radio" id="q${questionNumber}_4" name="q${questionNumber}" value="4"><label for="q${questionNumber}_4">4</label>
+                    <input type="radio" id="q${questionNumber}_5" name="q${questionNumber}" value="5"><label for="q${questionNumber}_5">5</label>
+                </div>
+                <div class="likert-labels"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
+            </div>
+        `;
+    });
+
+    quizContainer.innerHTML = quizHtml;
+}
+
+// REPLACE THE EXISTING processQuiz, calculateStudentResults, and calculateStandardResults FUNCTIONS WITH THESE THREE
+
+function processQuiz() {
+    const studentName = document.getElementById('studentName').value;
+    const studentAge = document.getElementById('studentAge').value;
+    const educationLevel = document.getElementById('educationLevel').value;
+    const errorMessage = document.getElementById('error-message');
+
+    // Validation
+    if (!studentName || !studentAge || !educationLevel) {
+        errorMessage.textContent = "Please fill in your Name, Age, and Education Level.";
+        errorMessage.style.display = 'block';
+        return;
+    }
+    errorMessage.style.display = 'none';
+
+    if (educationLevel === 'student') {
+        calculateNewStudentQuizResults(studentName);
+    } else {
+        calculateStandardQuizResults(studentName, educationLevel);
+    }
+}
+
+// REPLACE the old calculateNewStudentQuizResults function with this one.
+
+function calculateNewStudentQuizResults(studentName) {
+    const scores = {
+        stem_technology: 0, medical_health: 0, business_finance: 0,
+        arts_design: 0, humanities_social: 0, communication_media: 0,
+        government_defense: 0, education_training: 0, hospitality_travel: 0,
+        environment_agriculture: 0, skilled_trades: 0, sports_fitness: 0,
+        emerging_fields: 0
+    };
+
+    const questions = quizData.student;
+    const totalQuestions = questions.length; // Dynamically get the number of questions (94 in this case)
+    let answeredQuestions = 0;
+
+    questions.forEach((q, index) => {
+        const questionNumber = index + 1;
+        const selected = document.querySelector(`input[name="q${questionNumber}"]:checked`);
+        if (selected) {
+            answeredQuestions++;
+            const category = selected.parentElement.getAttribute('data-category');
+            if (category in scores) {
+                scores[category] += parseInt(selected.value, 10);
+            }
+        }
+    });
+
+    // CORRECTED VALIDATION LOGIC
+    if (answeredQuestions < totalQuestions) {
+        const errorMessage = document.getElementById('error-message');
+        errorMessage.textContent = `Please answer all ${totalQuestions} questions. You have answered ${answeredQuestions}.`;
+        errorMessage.style.display = 'block';
+        return;
+    }
+
+    let maxScore = -1;
+    let winningZone = '';
+    for (const zone in scores) {
+        if (scores[zone] > maxScore) {
+            maxScore = scores[zone];
+            winningZone = zone;
+        }
+    }
+
+    const recommendations = courseMappings.student[winningZone];
+    displayResults(studentName, winningZone, recommendations, true, scores, 'student'); // Pass scores and level for the popup
+}
+
+
+
+
+function calculateStandardQuizResults(studentName, educationLevel) {
+    const scores = {
+        realistic: 0, investigative: 0, artistic: 0,
+        social: 0, enterprising: 0, conventional: 0
+    };
+    
+    const questions = quizData[educationLevel];
+    if (!questions) return;
+    const totalQuestions = questions.length;
+    let answeredQuestions = 0;
+
+    questions.forEach((q, index) => {
+        const questionNumber = index + 1;
+        const selected = document.querySelector(`input[name="q${questionNumber}"]:checked`);
+        if (selected) {
+            answeredQuestions++;
+            const category = selected.parentElement.getAttribute('data-category');
+            if (category in scores) {
+                scores[category] += parseInt(selected.value, 10);
+            }
+        }
+    });
+
+    if (answeredQuestions < totalQuestions) {
+        const errorMessage = document.getElementById('error-message');
+        errorMessage.textContent = `Please answer all ${totalQuestions} questions. You have answered ${answeredQuestions}.`;
+        errorMessage.style.display = 'block';
+        return;
+    }
+    
+    let maxScore = -1;
+    let winningZone = '';
+    for (const zone in scores) {
+        if (scores[zone] > maxScore) {
+            maxScore = scores[zone];
+            winningZone = zone;
+        }
+    }
+    
+    let recommendedCourses = courseMappings[winningZone][educationLevel]
+                                .sort(() => 0.5 - Math.random())
+                                .slice(0, 5); 
+    
+    displayResults(studentName, winningZone, recommendedCourses, false, scores, educationLevel); // false for isStudent
+}
+
+
+
+
+
+function displayResults(name, zone, recommendations, scores, educationLevel) {
+    document.getElementById('result-name').textContent = name;
+    
+    let zoneDisplayName = zone.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+    document.getElementById('result-zone').textContent = zoneDisplayName;
+    
+    const resultHeader = document.getElementById('result-header');
+    resultHeader.textContent = "Based on your profile, here are 5 recommended paths:";
+
+    const courseList = document.getElementById('course-list');
+    courseList.innerHTML = '';
+    recommendations.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item;
+        courseList.appendChild(li);
+    });
+
+    const courseLink = document.getElementById('course-list-link');
+    if (pageLinks[educationLevel]) {
+        courseLink.href = pageLinks[educationLevel];
+        courseLink.style.display = 'inline-block';
+    } else {
+        courseLink.style.display = 'none';
+    }
+    
+    document.getElementById('quizForm').style.display = 'none';
+    document.getElementById('results').style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+
+    if (scores) {
+        const questions = quizData[educationLevel];
+        const maxScores = { realistic: 0, investigative: 0, artistic: 0, social: 0, enterprising: 0, conventional: 0 };
+        questions.forEach(q => {
+             if (q.category in maxScores) maxScores[q.category] += 5;
+        });
+
+        const popupScoresDiv = document.getElementById('popup-scores');
+        popupScoresDiv.innerHTML = ''; 
+        for (const category in scores) {
+            const percentage = maxScores[category] > 0 ? Math.round((scores[category] / maxScores[category]) * 100) : 0;
+            const categoryName = category.charAt(0).toUpperCase() + category.slice(1);
+            popupScoresDiv.innerHTML += `<div>${categoryName}: <span>${percentage}%</span></div>`;
+        }
+
+        document.getElementById('popup-overlay').style.display = 'flex';
+    }
+}
+
+
+// --- SCRIPT FOR CLOSING POP-UP ---
+document.addEventListener('DOMContentLoaded', () => {
+    const popupOverlay = document.getElementById('popup-overlay');
+    const closeBtn = document.getElementById('close-popup-btn');
+
+    function closePopup() {
+        popupOverlay.style.display = 'none';
+    }
+
+    closeBtn.addEventListener('click', closePopup);
+    popupOverlay.addEventListener('click', (event) => {
+        if (event.target === popupOverlay) {
+            closePopup();
+        }
+    });
+});
+
+</script>
+
+<!-- POP-UP FOR DETAILED SCORES -->
+<div id="popup-overlay" style="display: none;">
+    <div id="popup-content">
+        <h3>Your Detailed Profile Breakdown</h3>
+        <p>This shows your percentage score for each category based on your answers.</p>
+        <div id="popup-scores">
+            <!-- Scores will be inserted here by JavaScript -->
+        </div>
+        <button id="close-popup-btn">Close</button>
+    </div>
+</div>
+
+</body>
+</html>

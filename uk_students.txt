@@ -1,0 +1,49 @@
+{
+  "country_wise_data": [
+    {
+      "country": "UK",
+      "data": [
+        {
+          "year": 2015,
+          "no_of_students": 10125
+        },
+        {
+          "year": 2016,
+          "no_of_students": 16550
+        },
+        {
+          "year": 2017,
+          "no_of_students": 19750
+        },
+        {
+          "year": 2018,
+          "no_of_students": 26685
+        },
+        {
+          "year": 2019,
+          "no_of_students": 36612
+        },
+        {
+          "year": 2020,
+          "no_of_students": 49844
+        },
+        {
+          "year": 2021,
+          "no_of_students": 126535
+        },
+        {
+          "year": 2022,
+          "no_of_students": 139539
+        },
+        {
+          "year": 2023,
+          "no_of_students": 136921
+        },
+        {
+          "year": 2024,
+          "no_of_students": 111329
+        }
+      ]
+    }
+  ]
+}
