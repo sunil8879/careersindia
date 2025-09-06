@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schools in Bhavnagar</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Patua+One&family=Open+Sans:wght@400;600&display=swap');
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+            background-image: linear-gradient(45deg, #f9e79f 25%, transparent 25%),
+                              linear-gradient(-45deg, #f9e79f 25%, transparent 25%),
+                              linear-gradient(45deg, transparent 75%, #f9e79f 75%),
+                              linear-gradient(-45deg, transparent 75%, #f9e79f 75%);
+            background-size: 20px 20px;
+            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+        }
+
+        #bhavnagar-container {
+            max-width: 1000px;
+            margin: auto;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 20px 30px 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ddd;
+        }
+
+        .bhavnagar-header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 3px double #e67e22;
+            padding-bottom: 15px;
+        }
+
+        .bhavnagar-header h1 {
+            font-family: 'Patua One', cursive;
+            font-size: 3em;
+            color: #d35400;
+            margin: 0;
+        }
+
+        .bhavnagar-school-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        
+        .bhavnagar-school-card {
+            background-color: #ffffff;
+            border: 1px solid #f0f0f0;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+        }
+
+        .bhavnagar-school-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(230, 126, 34, 0.2);
+        }
+
+        .bhavnagar-school-card h2 {
+            font-family: 'Patua One', cursive;
+            font-size: 1.3em;
+            color: #333;
+            margin: 0 0 10px 0;
+        }
+        
+        .bhavnagar-school-card .board {
+            font-size: 0.8em;
+            background-color: #f39c12;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .bhavnagar-school-card .location {
+            font-size: 0.9em;
+            color: #777;
+            margin-bottom: 15px;
+        }
+
+        .bhavnagar-school-card .website-link a {
+            color: #e67e22;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+        
+        .bhavnagar-school-card .website-link a:hover {
+            text-decoration: underline;
+        }
+        
+        .bhavnagar-school-card .website-link .website-na {
+            color: #aaa;
+            font-style: italic;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="bhavnagar-container">
+        <div class="bhavnagar-header">
+            <h1>Bhavnagar's Educational Hubs</h1>
+        </div>
+        <div class="bhavnagar-school-grid">
+            
+            <div class="bhavnagar-school-card">
+                <h2>St. Mary's High School</h2>
+                <div class="board">STATE BOARD (GSEB)</div>
+                <p class="location">Bhavnagar</p>
+                <div class="website-link"><span class="website-na">Website N/A</span></div>
+            </div>
+            
+            <div class="bhavnagar-school-card">
+                <h2>Silver Bells Public School</h2>
+                <div class="board">CBSE</div>
+                <p class="location">Bhavnagar</p>
+                <div class="website-link"><a href="https://www.silverbells.org" target="_blank">Visit Website</a></div>
+            </div>
+            
+            <div class="bhavnagar-school-card">
+                <h2>Shree Dakshinamurti Vinay Mandir</h2>
+                <div class="board">STATE BOARD (GSEB)</div>
+                <p class="location">Bhavnagar</p>
+                <div class="website-link"><a href="https://www.dakshinamurti.org" target="_blank">Visit Website</a></div>
+            </div>
+            
+            <div class="bhavnagar-school-card">
+                <h2>Fatima Convent High School</h2>
+                <div class="board">STATE BOARD (GSEB)</div>
+                <p class="location">Bhavnagar</p>
+                <div class="website-link"><span class="website-na">Website N/A</span></div>
+            </div>
+
+            <div class="bhavnagar-school-card">
+                <h2>Swaminarayan Gurukul</h2>
+                <div class="board">STATE BOARD (GSEB)</div>
+                <p class="location">Bhavnagar</p>
+                <div class="website-link"><a href="https://www.gurukul.org/bhavnagar" target="_blank">Visit Website</a></div>
+            </div>
+
+            <div class="bhavnagar-school-card">
+                <h2>Kendriya Vidyalaya, Bhavnagar</h2>
+                <div class="board">CBSE</div>
+                <p class="location">Bhavnagar</p>
+                <div class="website-link"><a href="https://bhavnagarpara.kvs.ac.in" target="_blank">Visit Website</a></div>
+            </div>
+            
+            <div class="bhavnagar-school-card">
+                <h2>Gyanmanjari Vidyapith</h2>
+                <div class="board">CBSE</div>
+                <p class="location">Bhavnagar</p>
+                <div class="website-link"><a href="https://www.gyanmanjari.org" target="_blank">Visit Website</a></div>
+            </div>
+            
+            <div class="bhavnagar-school-card">
+                <h2>The Adhyyan School</h2>
+                <div class="board">CBSE</div>
+                <p class="location">Bhavnagar</p>
+                <div class="website-link"><a href="https://www.theadhyyan.edu.in" target="_blank">Visit Website</a></div>
+            </div>
+            
+            <div class="bhavnagar-school-card">
+                <h2>Jawahar Navodaya Vidyalaya</h2>
+                <div class="board">CBSE</div>
+                <p class="location">Bhavnagar</p>
+                <div class="website-link"><a href="https://navodaya.gov.in/nvs/nvs-school/BHAVNAGAR/en/home/" target="_blank">Visit Website</a></div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

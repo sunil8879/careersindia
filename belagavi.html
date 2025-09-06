@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schools in Belagavi</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@700&family=Source+Sans+Pro:wght@400;600&display=swap');
+
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background-color: #2c3e50; /* Midnight Blue */
+            margin: 0;
+            padding: 25px;
+            color: #ecf0f1;
+        }
+
+        #belagavi-container {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .belagavi-header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .belagavi-header h1 {
+            font-family: 'Exo 2', sans-serif;
+            font-size: 3.5em;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            text-shadow: 0 0 10px #3498db, 0 0 20px #3498db;
+        }
+
+        .belagavi-school-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        .belagavi-school-card {
+            background-color: rgba(52, 73, 94, 0.8);
+            border: 1px solid #34495e;
+            border-radius: 5px;
+            padding: 20px;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .belagavi-school-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(52, 152, 219, 0.2), transparent);
+            transition: left 0.5s ease-in-out;
+        }
+
+        .belagavi-school-card:hover::before {
+            left: 100%;
+        }
+        
+        .belagavi-school-card:hover {
+            background-color: #34495e;
+            border-color: #3498db;
+        }
+
+        .belagavi-school-card h2 {
+            font-family: 'Exo 2', sans-serif;
+            font-size: 1.5em;
+            color: #3498db;
+            margin: 0 0 12px 0;
+        }
+
+        .belagavi-school-card p {
+            margin: 4px 0;
+            font-size: 1em;
+            line-height: 1.5;
+        }
+
+        .belagavi-school-card strong {
+            font-weight: 600;
+            color: #bdc3c7;
+        }
+
+        .belagavi-school-card a {
+            color: #5dade2;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .belagavi-school-card a:hover {
+            text-decoration: underline;
+        }
+
+        .belagavi-school-card .website-na {
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="belagavi-container">
+        <div class="belagavi-header">
+            <h1>Belagavi Schools</h1>
+        </div>
+        <div class="belagavi-school-list">
+
+            <div class="belagavi-school-card">
+                <h2>KLE International School</h2>
+                <p><strong>Board:</strong> CBSE</p>
+                <p><strong>Location:</strong> Belagavi</p>
+                <p><strong>Website:</strong> <a href="https://www.kleis.org" target="_blank">https://www.kleis.org</a></p>
+            </div>
+
+            <div class="belagavi-school-card">
+                <h2>St. Paul's High School</h2>
+                <p><strong>Board:</strong> CISCE (ICSE/ISC)</p>
+                <p><strong>Location:</strong> Belagavi</p>
+                <p><strong>Website:</strong> <a href="https://www.stpaulsbelgaum.com" target="_blank">https://www.stpaulsbelgaum.com</a></p>
+            </div>
+
+            <div class="belagavi-school-card">
+                <h2>D.A.V. Public School, Belagavi</h2>
+                <p><strong>Board:</strong> CBSE</p>
+                <p><strong>Location:</strong> Belagavi</p>
+                <p><strong>Website:</strong> <a href="https://www.davbelagavi.com" target="_blank">https://www.davbelagavi.com</a></p>
+            </div>
+            
+            <div class="belagavi-school-card">
+                <h2>Kendriya Vidyalaya No. 2</h2>
+                <p><strong>Board:</strong> CBSE</p>
+                <p><strong>Location:</strong> Belagavi</p>
+                <p><strong>Website:</strong> <a href="https://no2belagavi.kvs.ac.in" target="_blank">https://no2belagavi.kvs.ac.in</a></p>
+            </div>
+
+            <div class="belagavi-school-card">
+                <h2>St. Mary's High School</h2>
+                <p><strong>Board:</strong> STATE BOARD</p>
+                <p><strong>Location:</strong> Belagavi</p>
+                <p><strong>Website:</strong> <span class="website-na">N/A</span></p>
+            </div>
+            
+            <div class="belagavi-school-card">
+                <h2>Phoenix Public Residential School</h2>
+                <p><strong>Board:</strong> CBSE</p>
+                <p><strong>Location:</strong> Belagavi</p>
+                <p><strong>Website:</strong> <a href="https://www.phoenixpublicschool.org" target="_blank">https://www.phoenixpublicschool.org</a></p>
+            </div>
+            
+            <div class="belagavi-school-card">
+                <h2>Love Dale Central School</h2>
+                <p><strong>Board:</strong> CBSE</p>
+                <p><strong>Location:</strong> Belagavi</p>
+                <p><strong>Website:</strong> <a href="https://www.lovedaleschool.com" target="_blank">https://www.lovedaleschool.com</a></p>
+            </div>
+            
+            <div class="belagavi-school-card">
+                <h2>Amrita Vidyalayam, Belagavi</h2>
+                <p><strong>Board:</strong> CBSE</p>
+                <p><strong>Location:</strong> Belagavi</p>
+                <p><strong>Website:</strong> <a href="https://www.amritavidyalayam.org/belagavi" target="_blank">https://www.amritavidyalayam.org/belagavi</a></p>
+            </div>
+
+            <div class="belagavi-school-card">
+                <h2>Jain Heritage School, Belagavi</h2>
+                <p><strong>Board:</strong> CBSE</p>
+                <p><strong>Location:</strong> Belagavi</p>
+                <p><strong>Website:</strong> <a href="https://www.jainheritage.ac.in" target="_blank">https://www.jainheritage.ac.in</a></p>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>```
