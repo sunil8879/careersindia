@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schools in Kakinada</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #eef5f9;
+            margin: 0;
+            padding: 25px;
+            color: #34495e;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: auto;
+        }
+
+        .header {
+            background: #005C97;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #363795, #005C97);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #363795, #005C97); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            color: white;
+            padding: 30px 40px;
+            text-align: center;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 3em;
+            font-weight: 600;
+        }
+        
+        .header p {
+            margin: 5px 0 0;
+            font-size: 1.2em;
+            font-weight: 300;
+        }
+
+        .school-container {
+            column-count: 2;
+            column-gap: 20px;
+        }
+
+        .school-card {
+            background: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0, 82, 136, 0.08);
+            break-inside: avoid-column;
+            border-top: 4px solid #3498db;
+            transition: all 0.3s ease;
+        }
+        
+        .school-card:hover {
+            border-top-color: #e74c3c;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 82, 136, 0.15);
+        }
+
+        .school-card h3 {
+            margin: 0 0 12px 0;
+            font-size: 1.4em;
+            color: #2c3e50;
+        }
+        
+        .school-card p {
+            margin: 4px 0;
+            line-height: 1.5;
+            font-size: 0.95em;
+        }
+
+        .school-card strong {
+            font-weight: 600;
+        }
+
+        .school-card a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .school-card a:hover {
+            text-decoration: underline;
+        }
+
+        .not-available {
+            color: #7f8c8d;
+        }
+        
+        @media (max-width: 768px) {
+            .school-container {
+                column-count: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h1>Schools in Kakinada</h1>
+            <p>Andhra Pradesh</p>
+        </div>
+
+        <div class="school-container">
+            <div class="school-card"><h3>Ashram Public School</h3><p><strong>Board:</strong> CBSE</p><p><strong>Location:</strong> Near Nagamallithota Junction, Kakinada</p><p><strong>Website:</strong> <a href="http://ashrampublicschool.com" target="_blank">ashrampublicschool.com</a></p></div>
+            <div class="school-card"><h3>Homi Bhabha Public School</h3><p><strong>Board:</strong> CBSE</p><p><strong>Location:</strong> Kakinada</p><p><strong>Website:</strong> <span class="not-available">Not Available</span></p></div>
+            <div class="school-card"><h3>Akshara School</h3><p><strong>Board:</strong> <span class="not-available">Not Available</span></p><p><strong>Location:</strong> Kakinada</p><p><strong>Website:</strong> <span class="not-available">Not Available</span></p></div>
+            <div class="school-card"><h3>Sri Prakash Synergy School.</h3><p><strong>Board:</strong> CBSE.</p><p><strong>Location:</strong> Peddapuram Road, Samalkot.</p><p><strong>Website:</strong> <a href="http://spsynergy.in" target="_blank">spsynergy.in.</a></p></div>
+            <div class="school-card"><h3>Aditya Public School</h3><p><strong>Board:</strong> CBSE</p><p><strong>Location:</strong> Aditya Nagar, ADB Road, Surampalem</p><p><strong>Website:</strong> <a href="http://aditya.ac.in/publicschool/" target="_blank">aditya.ac.in/publicschool/</a></p></div>
+            <div class="school-card"><h3>Gitanjali Public School</h3><p><strong>Board:</strong> ICSE/ISC Board</p><p><strong>Location:</strong> Kakinada</p><p><strong>Website:</strong> <span class="not-available">Not Available</span></p></div>
+            <div class="school-card"><h3>Akella Public School</h3><p><strong>Board:</strong> CBSE</p><p><strong>Location:</strong> Kakinada</p><p><strong>Website:</strong> <span class="not-available">Not Available</span></p></div>
+            <div class="school-card"><h3>Chaitanya Public School - CPS</h3><p><strong>Board:</strong> CBSE</p><p><strong>Location:</strong> Kakinada</p><p><strong>Website:</strong> <span class="not-available">Not Available</span></p></div>
+            <div class="school-card"><h3>Dr. KKR's Gowtham E.M. School</h3><p><strong>Board:</strong> CBSE</p><p><strong>Location:</strong> Kakinada 3</p><p><strong>Website:</strong> <span class="not-available">Not Available</span></p></div>
+            <div class="school-card"><h3>Arunodaya Public School</h3><p><strong>Board:</strong> Andhra Pradesh Board of Secondary Education</p><p><strong>Location:</strong> Kakinada</p><p><strong>Website:</strong> <span class="not-available">Not Available</span></p></div>
+            <div class="school-card"><h3>The Bluecrest School</h3><p><strong>Board:</strong> <span class="not-available">Not Available</span></p><p><strong>Location:</strong> Kakinada</p><p><strong>Website:</strong> <span class="not-available">Not Available</span></p></div>
+            <div class="school-card"><h3>Narayana IIT E.M School</h3><p><strong>Board:</strong> Andhra Pradesh Board of Secondary Education</p><p><strong>Location:</strong> Kakinada</p><p><strong>Website:</strong> <span class="not-available">Not Available</span></p></div>
+            <div class="school-card"><h3>Wowkids Pretty Pies Preschool</h3><p><strong>Board:</strong> <span class="not-available">Not Available</span></p><p><strong>Location:</strong> Kakinada</p><p><strong>Website:</strong> <span class="not-available">Not Available</span></p></div>
+            <div class="school-card"><h3>Aditya Talent School</h3><p><strong>Board:</strong> <span class="not-available">Not Available</span></p><p><strong>Location:</strong> Kakinada</p><p><strong>Website:</strong> <span class="not-available">Not Available</span></p></div>
+            <div class="school-card"><h3>Sri Chaitanya School - Ramaraopeta</h3><p><strong>Board:</strong> Andhra Pradesh Board of Secondary Education</p><p><strong>Location:</strong> Kakinada</p><p><strong>Website:</strong> <span class="not-available">Not Available</span></p></div>
+            <div class="school-card"><h3>Ramakrishna Public School</h3><p><strong>Board:</strong> Andhra Pradesh Board of Secondary Education</p><p><strong>Location:</strong> Kakinada</p><p><strong>Website:</strong> <span class="not-available">Not Available</span></p></div>
+            <div class="school-card"><h3>RK Kids School</h3><p><strong>Board:</strong> <span class="not-available">Not Available</span></p><p><strong>Location:</strong> Kakinada</p><p><strong>Website:</strong> <span class="not-available">Not Available</span></p></div>
+            <div class="school-card"><h3>Smile A Kids Corner</h3><p><strong>Board:</strong> <span class="not-available">Not Available</span></p><p><strong>Location:</strong> Kakinada</p><p><strong>Website:</strong> <span class="not-available">Not Available</span></p></div>
+            <div class="school-card"><h3>Sri Chaitanya School - Sarpavaram</h3><p><strong>Board:</strong> <span class="not-available">Not Available</span></p><p><strong>Location:</strong> Kakinada</p><p><strong>Website:</strong> <span class="not-available">Not Available</span></p></div>
+            <div class="school-card"><h3>Kidzee - Kakinada AP</h3><p><strong>Board:</strong> <span class="not-available">Not Available</span></p><p><strong>Location:</strong> Kakinada</p><p><strong>Website:</strong> <span class="not-available">Not Available</span></p></div>
+            <div class="school-card"><h3>Ideal College of Arts and Sciences</h3><p><strong>Board:</strong> <span class="not-available">Not Available</span></p><p><strong>Location:</strong> Kakinada</p><p><strong>Website:</strong> <a href="http://ideal.edu.in" target="_blank">ideal.edu.in</a></p></div>
+            <div class="school-card"><h3>Aditya Engineering College</h3><p><strong>Board:</strong> <span class="not-available">Not Available</span></p><p><strong>Location:</strong> Kakinada</p><p><strong>Website:</strong> <a href="http://www.aditya.ac.in" target="_blank">www.aditya.ac.in</a></p></div>
+            <div class="school-card"><h3>Kakinada Institute of Engineering and Technology</h3><p><strong>Board:</strong> <span class="not-available">Not Available</span></p><p><strong>Location:</strong> Kakinada</p><p><strong>Website:</strong> <span class="not-available">Not Available</span></p></div>
+            <div class="school-card"><h3>Jawaharlal Nehru Technological University (JNTU) Kakinada</h3><p><strong>Board:</strong> <span class="not-available">Not Available</span></p><p><strong>Location:</strong> Kakinada</p><p><strong>Website:</strong> <a href="http://www.jntuk.edu.in" target="_blank">www.jntuk.edu.in</a></p></div>
+            <div class="school-card"><h3>Rangaraya Medical College</h3><p><strong>Board:</strong> <span class="not-available">Not Available</span></p><p><strong>Location:</strong> Kakinada</p><p><strong>Website:</strong> <span class="not-available">Not Available</span></p></div>
+        </div>
+    </div>
+
+</body>
+</html>

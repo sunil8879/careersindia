@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOP SCHOOLS IN INDIA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@700&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* === "COSMIC GATEWAY" THEME === */
+        :root {
+            --bg-color: #0d1117;
+            --primary-glow: #00f2fe;
+            --secondary-glow: #ff00c1;
+            --text-color: #c9d1d9;
+            --border-color: rgba(255, 255, 255, 0.15);
+            --card-bg: rgba(22, 27, 34, 0.7);
+        }
+        body {
+            font-family: 'Poppins', sans-serif; margin: 0; padding: 50px 20px; color: var(--text-color);
+            background: linear-gradient(-45deg, #0d1117, #1a2233, #0d1117, #231a33);
+            background-size: 400% 400%; animation: gradientBG 20s ease infinite; line-height: 1.6;
+        }
+        @keyframes gradientBG { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        .container { max-width: 1400px; margin: 0 auto; }
+        .main-header { text-align: center; margin-bottom: 40px; }
+        .main-header h1 { font-family: 'Exo 2', sans-serif; font-size: clamp(2.5rem, 5vw, 4rem); color: #fff; text-shadow: 0 0 10px var(--primary-glow), 0 0 20px var(--secondary-glow); margin: 0; }
+        .search-container { max-width: 700px; margin: 0 auto 50px; display: flex; gap: 10px; }
+        #search-type { flex-shrink: 0; padding: 15px; font-size: 1rem; font-family: 'Poppins', sans-serif; color: #fff; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 50px; }
+        #school-search { flex-grow: 1; width: 100%; padding: 15px 20px; font-size: 1.1rem; font-family: 'Poppins', sans-serif; color: #fff; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 50px; box-sizing: border-box; transition: all 0.3s ease; }
+        #school-search:focus { outline: none; border-color: var(--primary-glow); box-shadow: 0 0 15px rgba(0, 242, 254, 0.5); }
+        
+        /* City Grid Styling */
+        .city-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; margin-bottom: 60px; }
+        .city-card { display: block; text-decoration: none; color: #fff; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 15px; overflow: hidden; position: relative; aspect-ratio: 4 / 5; transition: all 0.4s ease-out; box-shadow: 0 10px 30px rgba(0,0,0,0.4); }
+        .city-card:hover { transform: translateY(-10px) scale(1.03); border-color: var(--primary-glow); box-shadow: 0 20px 40px rgba(0, 242, 254, 0.2); }
+        .city-card .city-image { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease-out; }
+        .city-card:hover .city-image { transform: scale(1.1); }
+        .city-card .city-name { position: absolute; bottom: 0; left: 0; width: 100%; padding: 40px 20px 20px; font-family: 'Exo 2', sans-serif; font-size: 1.8rem; font-weight: 700; text-align: center; background: linear-gradient(to top, rgba(13, 17, 23, 1) 40%, transparent); text-shadow: 0 2px 5px #000; }
+        
+        /* Tier Section Styling */
+        .tier-section { text-align: center; margin-top: 60px; border-top: 1px solid var(--border-color); padding-top: 40px; }
+        .tier-section h2 { font-family: 'Exo 2', sans-serif; font-size: 2rem; margin-bottom: 30px; color: var(--primary-glow); }
+        .tier-list-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px; text-align: left; }
+        .tier-list-container a { display: block; background: var(--card-bg); padding: 15px; border-radius: 8px; text-decoration: none; color: var(--text-color); border: 1px solid var(--border-color); transition: all 0.3s ease; }
+        .tier-list-container a:hover { background-color: var(--primary-glow); color: var(--bg-color); border-color: var(--primary-glow); transform: translateX(5px); }
+        
+        #error-message { display: none; text-align: center; font-size: 1.5rem; color: var(--secondary-glow); margin-top: 30px; }
+
+        @media (max-width: 1200px) { .city-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) { .city-grid { grid-template-columns: 1fr; } .tier-list-container { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); } }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="main-header">
+            <h1>TOP SCHOOLS IN INDIA</h1>
+        </header>
+
+        <div class="search-container">
+            <select id="search-type">
+                <option value="city">Search by City</option>
+      
+            </select>
+            <input type="text" id="school-search" placeholder="Search for a City...">
+        </div>
+        
+        <div id="error-message">No matching results found.</div>
+
+        <section id="tier1-section">
+            <div class="city-grid">
+                <a href="mumbai.html" class="city-card searchable-item" data-city="mumbai" data-board="cisce igcse ibdp cbse state board">
+                    <img src="mumbai.jpg" alt="Gateway of India, Mumbai" class="city-image">
+                    <span class="city-name">Mumbai</span>
+                </a>
+                <a href="delhi.html" class="city-card searchable-item" data-city="delhi" data-board="cbse cisce igcse ibdp">
+                    <img src="delhi.jpg" alt="India Gate, Delhi" class="city-image">
+                    <span class="city-name">Delhi</span>
+                </a>
+                <a href="chennai.html" class="city-card searchable-item" data-city="chennai" data-board="cisce cbse ibdp state board igcse">
+                    <img src="chennai.jpg" alt="Chennai Central Railway Station" class="city-image">
+                    <span class="city-name">Chennai</span>
+                </a>
+                <a href="kolkata.html" class="city-card searchable-item" data-city="kolkata" data-board="cisce ibdp wbbse cbse igcse">
+                    <img src="kolkata.jpg" alt="Howrah Bridge, Kolkata" class="city-image">
+                    <span class="city-name">Kolkata</span>
+                </a>
+                <a href="ahmedabad.html" class="city-card searchable-item" data-city="ahmedabad" data-board="igcse ib cbse state board cisce">
+                    <img src="ahmedabad.jpg" alt="Sabarmati Riverfront, Ahmedabad" class="city-image">
+                    <span class="city-name">Ahmedabad</span>
+                </a>
+                <a href="hyderabad.html" class="city-card searchable-item" data-city="hyderabad" data-board="cisce igcse ibdp cbse state board">
+                    <img src="hyderabad.jpg" alt="Charminar, Hyderabad" class="city-image">
+                    <span class="city-name">Hyderabad</span>
+                </a>
+                <a href="bengaluru.html" class="city-card searchable-item" data-city="bengaluru" data-board="cisce igcse ibdp cbse state board">
+                    <img src="bengaluru.jpg" alt="Vidhana Soudha, Bengaluru" class="city-image">
+                    <span class="city-name">Bengaluru</span>
+                </a>
+                <a href="pune.html" class="city-card searchable-item" data-city="pune" data-board="cisce ibdp state board igcse cbse">
+                    <img src="pune.jpg" alt="Shaniwar Wada, Pune" class="city-image">
+                    <span class="city-name">Pune</span>
+                </a>
+            </div>
+        </section>
+
+        <section id="tier2-section" class="tier-section">
+            <h2>Tier 2 Cities</h2>
+            <div class="tier-list-container">
+                <a href="agra.html" class="searchable-item" data-city="agra" data-board="cbse cisce state board">Agra</a>
+                <a href="ajmer.html" class="searchable-item" data-city="ajmer" data-board="cbse cisce ib igcse state board">Ajmer</a>
+                <a href="prayagraj.html" class="searchable-item" data-city="allahabad prayagraj" data-board="cisce cbse state board">Allahabad (Prayagraj)</a>
+                <a href="amravati.html" class="searchable-item" data-city="amravati" data-board="cbse state board d.ed.">Amravati</a>
+                <a href="amritsar.html" class="searchable-item" data-city="amritsar" data-board="cbse cisce igcse">Amritsar</a>
+                <a href="asansol.html" class="searchable-item" data-city="asansol" data-board="cisce state board cbse">Asansol</a>
+                <a href="aurangabad.html" class="searchable-item" data-city="aurangabad" data-board="cisce cbse state board igcse ibdp">Aurangabad</a>
+                <a href="bareilly.html" class="searchable-item" data-city="bareilly" data-board="cbse cisce state board">Bareilly</a>
+                <a href="belagavi.html" class="searchable-item" data-city="belagavi belgaum" data-board="cbse cisce state board">Belagavi (Belgaum)</a>
+                <a href="bhavnagar.html" class="searchable-item" data-city="bhavnagar" data-board="state board cbse">Bhavnagar</a>
+                <a href="bhopal.html" class="searchable-item" data-city="bhopal" data-board="cisce igcse cbse">Bhopal</a>
+                <a href="bhubaneswar.html" class="searchable-item" data-city="bhubaneswar" data-board="cbse igcse ibdp cisce">Bhubaneswar</a>
+                <a href="bikaner.html" class="searchable-item" data-city="bikaner" data-board="cbse state board">Bikaner</a>
+                <a href="chandigarh.html" class="searchable-item" data-city="chandigarh" data-board="cisce cbse">Chandigarh</a>
+                <a href="coimbatore.html" class="searchable-item" data-city="coimbatore" data-board="cbse ibdp cisce igcse">Coimbatore</a>
+                <a href="cuttack.html" class="searchable-item" data-city="cuttack" data-board="cbse cisce state board">Cuttack</a>
+                <a href="dehradun.html" class="searchable-item" data-city="dehradun" data-board="cisce ibdp cbse igcse">Dehradun</a>
+                <a href="dhanbad.html" class="searchable-item" data-city="dhanbad" data-board="cbse cisce">Dhanbad</a>
+                <a href="bhilai-durg.html" class="searchable-item" data-city="durg bhilai" data-board="cbse state board">Durg-Bhilai</a>
+                <a href="faridabad.html" class="searchable-item" data-city="faridabad" data-board="cbse ib">Faridabad</a>
+                <a href="ghaziabad.html" class="searchable-item" data-city="ghaziabad" data-board="cbse cisce">Ghaziabad</a>
+                <a href="gorakhpur.html" class="searchable-item" data-city="gorakhpur" data-board="cisce cbse">Gorakhpur</a>
+                <a href="guntur.html" class="searchable-item" data-city="guntur" data-board="cbse state board">Guntur</a>
+                <a href="gurugram.html" class="searchable-item" data-city="gurugram gurgaon" data-board="cisce ibdp cbse igcse">Gurugram (Gurgaon)</a>
+                <a href="guwahati.html" class="searchable-item" data-city="guwahati" data-board="cisce seba cbse">Guwahati</a>
+                <a href="gwalior.html" class="searchable-item" data-city="gwalior" data-board="cbse">Gwalior</a>
+                <a href="hubli.html" class="searchable-item" data-city="hubli dharwad" data-board="cbse cisce state board">Hubli-Dharwad</a>
+                <a href="indore.html" class="searchable-item" data-city="indore" data-board="cbse igcse ibdp state board">Indore</a>
+                <a href="jabalpur.html" class="searchable-item" data-city="jabalpur" data-board="cbse state board">Jabalpur</a>
+                <a href="jaipur.html" class="searchable-item" data-city="jaipur" data-board="igcse ibdp cbse cisce">Jaipur</a>
+                <a href="jalandhar.html" class="searchable-item" data-city="jalandhar" data-board="cbse cisce igcse">Jalandhar</a>
+                <a href="jamnagar.html" class="searchable-item" data-city="jamnagar" data-board="cbse state board ghseb">Jamnagar</a>
+                <a href="jamshedpur.html" class="searchable-item" data-city="jamshedpur" data-board="cisce cbse state board">Jamshedpur</a>
+                <a href="jhansi.html" class="searchable-item" data-city="jhansi" data-board="cisce cbse state board">Jhansi</a>
+                <a href="jodhpur.html" class="searchable-item" data-city="jodhpur" data-board="cbse state board">Jodhpur</a>
+                <a href="kanpur.html" class="searchable-item" data-city="kanpur" data-board="cisce cbse state board">Kanpur</a>
+                <a href="kochi.html" class="searchable-item" data-city="kochi" data-board="cbse igcse cisce state board">Kochi</a>
+                <a href="kolhapur.html" class="searchable-item" data-city="kolhapur" data-board="state board cbse cisce">Kolhapur</a>
+                <a href="kota.html" class="searchable-item" data-city="kota" data-board="cbse state board">Kota</a>
+                <a href="kozhikode.html" class="searchable-item" data-city="kozhikode calicut" data-board="cbse igcse state board cisce">Kozhikode (Calicut)</a>
+                <a href="lucknow.html" class="searchable-item" data-city="lucknow" data-board="cisce cbse">Lucknow</a>
+                <a href="ludhiana.html" class="searchable-item" data-city="ludhiana" data-board="cisce cbse">Ludhiana</a>
+                <a href="madurai.html" class="searchable-item" data-city="madurai" data-board="cbse state board igcse cisce">Madurai</a>
+                <a href="mangaluru.html" class="searchable-item" data-city="mangaluru mangalore" data-board="cbse igcse state board">Mangaluru</a>
+                <a href="meerut.html" class="searchable-item" data-city="meerut" data-board="cisce cbse">Meerut</a>
+                <a href="moradabad.html" class="searchable-item" data-city="moradabad" data-board="cisce cbse state board igcse">Moradabad</a>
+                <a href="mysuru.html" class="searchable-item" data-city="mysuru mysore" data-board="cbse cisce state board igcse ibdp">Mysuru (Mysore)</a>
+                <a href="nagpur.html" class="searchable-item" data-city="nagpur" data-board="cbse state board">Nagpur</a>
+                <a href="nashik.html" class="searchable-item" data-city="nashik" data-board="cisce igcse cbse ibdp state board">Nashik</a>
+                <a href="nellore.html" class="searchable-item" data-city="nellore" data-board="cbse state board">Nellore</a>
+                <a href="noida.html" class="searchable-item" data-city="noida" data-board="cbse igcse ibdp cisce">Noida</a>
+                <a href="patna.html" class="searchable-item" data-city="patna" data-board="cbse cisce">Patna</a>
+                <a href="puducherry.html" class="searchable-item" data-city="puducherry pondicherry" data-board="private french baccalaureate igcse ibdp cbse state board cisce">Puducherry</a>
+                <a href="raipur.html" class="searchable-item" data-city="raipur" data-board="cisce cbse igcse state board">Raipur</a>
+                <a href="rajkot.html" class="searchable-item" data-city="rajkot" data-board="cisce state board cbse">Rajkot</a>
+                <a href="ranchi.html" class="searchable-item" data-city="ranchi" data-board="cbse cisce">Ranchi</a>
+                <a href="salem.html" class="searchable-item" data-city="salem" data-board="state board cbse">Salem</a>
+                <a href="siligury.html" class="searchable-item" data-city="siliguri" data-board="cbse cisce wbbse">Siliguri</a>
+                <a href="srinagar.html" class="searchable-item" data-city="srinagar" data-board="j&k state board cbse igcse">Srinagar</a>
+                <a href="surat.html" class="searchable-item" data-city="surat" data-board="ib cisce cbse igcse state board ghseb">Surat</a>
+                <a href="thiruvanthapuram.html" class="searchable-item" data-city="thiruvananthapuram trivandrum" data-board="igcse ibdp state board cbse cisce">Thiruvananthapuram</a>
+                <a href="thrissur.html" class="searchable-item" data-city="thrissur" data-board="cisce cbse state board">Thrissur</a>
+                <a href="tiruchirapally.html" class="searchable-item" data-city="tiruchirapally trichy" data-board="cbse state board cisce">Tiruchirapally (Trichy)</a>
+                <a href="tiruppur.html" class="searchable-item" data-city="tiruppur" data-board="cbse state board">Tiruppur</a>
+                <a href="vadodara.html" class="searchable-item" data-city="vadodara" data-board="cbse cisce state board">Vadodara</a>
+                <a href="varanasi.html" class="searchable-item" data-city="varanasi" data-board="cbse cisce state board">Varanasi</a>
+                <a href="vijaywada.html" class="searchable-item" data-city="vijayawada" data-board="cbse cisce state board">Vijayawada</a>
+                <a href="visakhapatnam.html" class="searchable-item" data-city="visakhapatnam vizag" data-board="igcse ibdp cisce cbse state board">Visakhapatnam (Vizag)</a>
+                <a href="warangal.html" class="searchable-item" data-city="warangal" data-board="cbse igcse state board">Warangal</a>
+            </div>
+        </section>
+
+        <section id="tier3-section" class="tier-section">
+             <h2>Tier 3 Cities</h2>
+            <div class="tier-list-container">
+                <a href="anantapur.html" class="searchable-item" data-city="anantapur" data-board="cbse state board">Anantapur</a>
+                <a href="ongole.html" class="searchable-item" data-city="ongole" data-board="cbse state board cisce">Ongole</a>
+                <a href="kakinada.html" class="searchable-item" data-city="kakinada" data-board="cbse state board icse">Kakinada</a>
+                <a href="chittoor.html" class="searchable-item" data-city="chittoor" data-board="cbse state board cisce">Chittoor</a>
+                <a href="srikakulam.html" class="searchable-item" data-city="srikakulam" data-board="cbse state board icse">Srikakulam</a>
+                <a href="dibrugarh.html" class="searchable-item" data-city="dibrugarh" data-board="cbse seba isc icse ahsec">Dibrugarh</a>
+                <a href="silchar.html" class="searchable-item" data-city="silchar" data-board="cbse seba icse ahsec">Silchar</a>
+                <a href="tezpur.html" class="searchable-item" data-city="tezpur" data-board="cbse seba ahsec">Tezpur</a>
+                <a href="gaya.html" class="searchable-item" data-city="gaya" data-board="cbse icse bseb">Gaya</a>
+                <a href="muzaffarpur.html" class="searchable-item" data-city="muzaffarpur" data-board="cbse bseb icse">Muzaffarpur</a>
+                <a href="purnea.html" class="searchable-item" data-city="purnea" data-board="cbse bseb">Purnea</a>
+                <a href="bhagalpur.html" class="searchable-item" data-city="bhagalpur" data-board="cbse bseb">Bhagalpur</a>
+                <a href="korba.html" class="searchable-item" data-city="korba" data-board="cbse cgbse">Korba</a>
+                <a href="bilaspur.html" class="searchable-item" data-city="bilaspur" data-board="cbse icse cgbse">Bilaspur</a>
+                <a href="durg.html" class="searchable-item" data-city="durg" data-board="cbse icse cgbse">Durg</a>
+                <a href="jagdalpur.html" class="searchable-item" data-city="jagdalpur" data-board="cbse icse cgbse">Jagdalpur</a>
+                <a href="mapusa.html" class="searchable-item" data-city="mapusa" data-board="goa board cbse">Mapusa</a>
+                <a href="margao.html" class="searchable-item" data-city="margao" data-board="goa board cbse">Margao</a>
+                <a href="bharuch.html" class="searchable-item" data-city="bharuch" data-board="cbse cisce gseb">Bharuch</a>
+                <a href="valsad.html" class="searchable-item" data-city="valsad" data-board="cbse gseb">Valsad</a>
+                <a href="mehsana.html" class="searchable-item" data-city="mehsana" data-board="cbse gseb">Mehsana</a>
+                <a href="palanpur.html" class="searchable-item" data-city="palanpur" data-board="cbse gseb">Palanpur</a>
+                <a href="hisar.html" class="searchable-item" data-city="hisar" data-board="cbse hbse">Hisar</a>
+                <a href="kaithal.html" class="searchable-item" data-city="kaithal" data-board="cbse hbse">Kaithal</a>
+                <a href="bhiwani.html" class="searchable-item" data-city="bhiwani" data-board="cbse hbse">Bhiwani</a>
+                <a href="palwal.html" class="searchable-item" data-city="palwal" data-board="cbse hbse">Palwal</a>
+                <a href="mandi.html" class="searchable-item" data-city="mandi" data-board="cbse hpbose">Mandi</a>
+                <a href="solan.html" class="searchable-item" data-city="solan" data-board="cbse hpbose">Solan</a>
+                <a href="kangra.html" class="searchable-item" data-city="kangra" data-board="cbse hpbose icse">Kangra</a>
+                <a href="hazaribagh.html" class="searchable-item" data-city="hazaribagh" data-board="cbse icse jac">Hazaribagh</a>
+                <a href="deoghar.html" class="searchable-item" data-city="deoghar" data-board="cbse icse isc jac">Deoghar</a>
+                <a href="bidar.html" class="searchable-item" data-city="bidar" data-board="cbse icse state board">Bidar</a>
+                <a href="bagalkot.html" class="searchable-item" data-city="bagalkot" data-board="cbse state board">Bagalkot</a>
+                <a href="chitradurga.html" class="searchable-item" data-city="chitradurga" data-board="cbse icse state board">Chitradurga</a>
+                <a href="tumkur.html" class="searchable-item" data-city="tumkur" data-board="cbse state board">Tumkur</a>
+                <a href="hassan.html" class="searchable-item" data-city="hassan" data-board="cbse icse state board">Hassan</a>
+                <a href="kollam.html" class="searchable-item" data-city="kollam" data-board="cbse icse kerala state board">Kollam</a>
+                <a href="kottayam.html" class="searchable-item" data-city="kottayam" data-board="cbse icse kerala state board">Kottayam</a>
+                <a href="alappuzha.html" class="searchable-item" data-city="alappuzha" data-board="cbse icse kerala state board">Alappuzha</a>
+                <a href="kasaragod.html" class="searchable-item" data-city="kasaragod" data-board="cbse kerala state board">Kasaragod</a>
+                <a href="satna.html" class="searchable-item" data-city="satna" data-board="cbse mp board">Satna</a>
+                <a href="katni.html" class="searchable-item" data-city="katni" data-board="cbse mp board">Katni</a>
+                <a href="chhindwara.html" class="searchable-item" data-city="chhindwara" data-board="cbse mp board">Chhindwara</a>
+                <a href="sehore.html" class="searchable-item" data-city="sehore" data-board="cbse mp board">Sehore</a>
+                <a href="sangli.html" class="searchable-item" data-city="sangli" data-board="cbse state board">Sangli</a>
+                <a href="satara.html" class="searchable-item" data-city="satara" data-board="cbse state board">Satara</a>
+                <a href="jalgaon.html" class="searchable-item" data-city="jalgaon" data-board="cbse state board icse isc">Jalgaon</a>
+                <a href="nanded.html" class="searchable-item" data-city="nanded" data-board="cbse state board">Nanded</a>
+                <a href="ahmednagar.html" class="searchable-item" data-city="ahmednagar" data-board="cbse state board">Ahmednagar</a>
+                <a href="imphal.html" class="searchable-item" data-city="imphal" data-board="cbse cohsem bosem">Imphal</a>
+                <a href="churachandpur.html" class="searchable-item" data-city="churachandpur" data-board="cbse cohsem bosem">Churachandpur</a>
+                <a href="shillong.html" class="searchable-item" data-city="shillong" data-board="icse isc cbse mbose">Shillong</a>
+                <a href="aizawl.html" class="searchable-item" data-city="aizawl" data-board="mbse cbse">Aizawl</a>
+                <a href="kohima.html" class="searchable-item" data-city="kohima" data-board="nbse cbse icse">Kohima</a>
+                <a href="dimapur.html" class="searchable-item" data-city="dimapur" data-board="cbse nbse">Dimapur</a>
+                <a href="sambalpur.html" class="searchable-item" data-city="sambalpur" data-board="cbse icse isc bse odisha">Sambalpur</a>
+                <a href="balasore.html" class="searchable-item" data-city="balasore" data-board="icse isc cbse bse odisha">Balasore</a>
+                <a href="berhampur.html" class="searchable-item" data-city="berhampur" data-board="icse isc cbse bse odisha">Berhampur</a>
+                <a href="rourkela.html" class="searchable-item" data-city="rourkela" data-board="icse isc cbse bse odisha">Rourkela</a>
+                <a href="bathinda.html" class="searchable-item" data-city="bathinda" data-board="icse isc cbse pseb">Bathinda</a>
+                <a href="hoshiarpur.html" class="searchable-item" data-city="hoshiarpur" data-board="icse isc cbse">Hoshiarpur</a>
+                <a href="pathankot.html" class="searchable-item" data-city="pathankot" data-board="cbse icse isc">Pathankot</a>
+                <a href="firozpur.html" class="searchable-item" data-city="firozpur" data-board="cbse icse pseb">Firozpur</a>
+                <a href="alwar.html" class="searchable-item" data-city="alwar" data-board="cbse rbse">Alwar</a>
+                <a href="bharatpur.html" class="searchable-item" data-city="bharatpur" data-board="cbse rbse">Bharatpur</a>
+                <a href="pali.html" class="searchable-item" data-city="pali" data-board="cbse rbse">Pali</a>
+                <a href="barmer.html" class="searchable-item" data-city="barmer" data-board="cbse rbse">Barmer</a>
+                <a href="gangtok.html" class="searchable-item" data-city="gangtok" data-board="icse isc cbse">Gangtok</a>
+                <a href="thanjavur.html" class="searchable-item" data-city="thanjavur" data-board="cbse state board">Thanjavur</a>
+                <a href="cuddalore.html" class="searchable-item" data-city="cuddalore" data-board="cbse state board">Cuddalore</a>
+                <a href="erode.html" class="searchable-item" data-city="erode" data-board="cbse state board icse">Erode</a>
+                <a href="nagercoil.html" class="searchable-item" data-city="nagercoil" data-board="cbse state board">Nagercoil</a>
+                <a href="vellore.html" class="searchable-item" data-city="vellore" data-board="cambridge ib cbse icse isc state board">Vellore</a>
+                <a href="karimnagar.html" class="searchable-item" data-city="karimnagar" data-board="cbse state board icse">Karimnagar</a>
+                <a href="nizamabad.html" class="searchable-item" data-city="nizamabad" data-board="cbse state board icse">Nizamabad</a>
+                <a href="mahbubnagar.html" class="searchable-item" data-city="mahbubnagar" data-board="cbse state board">Mahbubnagar</a>
+                <a href="agartala.html" class="searchable-item" data-city="agartala" data-board="icse isc cbse tbse">Agartala</a>
+                <a href="faizabad.html" class="searchable-item" data-city="faizabad ayodhya" data-board="cbse icse isc up board">Faizabad (Ayodhya)</a>
+                <a href="haldwani.html" class="searchable-item" data-city="haldwani" data-board="cbse icse isc">Haldwani</a>
+                <a href="roorkee.html" class="searchable-item" data-city="roorkee" data-board="cbse icse isc">Roorkee</a>
+                <a href="rudrapur.html" class="searchable-item" data-city="rudrapur" data-board="cbse">Rudrapur</a>
+                <a href="durgapur.html" class="searchable-item" data-city="durgapur" data-board="icse isc cbse wbbse">Durgapur</a>
+                <a href="kharagpur.html" class="searchable-item" data-city="kharagpur" data-board="cbse icse isc wbbse">Kharagpur</a>
+                <a href="daman.html" class="searchable-item" data-city="daman" data-board="cbse gseb">Daman</a>
+                <a href="diu.html" class="searchable-item" data-city="diu" data-board="cbse gseb">Diu</a>
+                <a href="port blair.html" class="searchable-item" data-city="port blair" data-board="cbse">Port Blair</a>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchTypeSelect = document.getElementById('search-type');
+            const searchInput = document.getElementById('school-search');
+            const searchableItems = document.querySelectorAll('.searchable-item');
+            const errorMessage = document.getElementById('error-message');
+            const tierSections = document.querySelectorAll('.tier-section, #tier1-section');
+
+            function performSearch() {
+                const filter = searchInput.value.toLowerCase().trim();
+                const type = searchTypeSelect.value;
+                let visibleCount = 0;
+
+                // If search is empty, show everything
+                if (!filter) {
+                    searchableItems.forEach(item => {
+                        item.style.display = 'block'; // or 'grid' for cards
+                    });
+                    tierSections.forEach(sec => sec.style.display = 'block');
+                    errorMessage.style.display = 'none';
+                    return;
+                }
+
+                // Hide all sections initially to only show those with results
+                tierSections.forEach(sec => sec.style.display = 'none');
+                
+                searchableItems.forEach(item => {
+                    const searchData = item.dataset[type] ? item.dataset[type].toLowerCase() : '';
+                    if (searchData.includes(filter)) {
+                        item.style.display = 'block';
+                        // Make the parent section visible
+                        const parentSection = item.closest('.tier-section, #tier1-section');
+                        if (parentSection) {
+                            parentSection.style.display = 'block';
+                        }
+                        visibleCount++;
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+
+                errorMessage.style.display = visibleCount === 0 ? 'block' : 'none';
+            }
+
+            searchInput.addEventListener('input', performSearch);
+            searchTypeSelect.addEventListener('change', function() {
+                searchInput.placeholder = this.value === 'city' ? 'Search for a City...' : 'Search for a Board...';
+                searchInput.value = ''; // Clear input on type change
+                performSearch(); // Reset the view to show all items
+            });
+        });
+    </script>
+</body>
+</html>

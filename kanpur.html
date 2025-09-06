@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schools in Kanpur</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #fce4ec; /* Light Pink */
+            margin: 0;
+            padding: 20px;
+        }
+
+        #kanpur-container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .kanpur-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .kanpur-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3em;
+            color: #880e4f; /* Dark Pink */
+            font-weight: 700;
+        }
+
+        .kanpur-school-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .kanpur-school-card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .kanpur-school-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .kanpur-school-card h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25em;
+            color: #ad1457;
+            margin: 0 0 10px 0;
+        }
+        
+        .kanpur-school-card .location {
+            font-size: 0.9em;
+            color: #f48fb1;
+            margin-bottom: 15px;
+        }
+        
+        .kanpur-school-card .board-type {
+            font-size: 0.85em;
+            background-color: #fce4ec;
+            color: #d81b60;
+            padding: 5px 10px;
+            border-radius: 15px;
+            display: inline-block;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .kanpur-school-card .website-link a {
+            color: #c2185b;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9em;
+        }
+
+        .kanpur-school-card .website-link a:hover {
+            text-decoration: underline;
+        }
+        
+        .kanpur-school-card .website-link .website-na {
+            color: #f8bbd0;
+            font-style: italic;
+            font-size: 0.9em;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="kanpur-container">
+        <div class="kanpur-header">
+            <h1>Kanpur's Top Schools</h1>
+        </div>
+        <div class="kanpur-school-grid">
+            
+            <div class="kanpur-school-card">
+                <div>
+                    <h2>Seth M.R. Jaipuria School, Kanpur</h2>
+                    <p class="location">Kanpur</p>
+                    <span class="board-type">CISCE (ICSE/ISC)</span>
+                </div>
+                <div class="website-link">
+                    <a href="https://jaipuria.com/kanpurschool" target="_blank">Visit Website</a>
+                </div>
+            </div>
+
+            <div class="kanpur-school-card">
+                <div>
+                    <h2>Sir Padampat Singhania Education Centre</h2>
+                    <p class="location">Kanpur</p>
+                    <span class="board-type">CBSE</span>
+                </div>
+                <div class="website-link">
+                    <a href="https://www.spsec.in" target="_blank">Visit Website</a>
+                </div>
+            </div>
+
+            <div class="kanpur-school-card">
+                <div>
+                    <h2>Delhi Public School, Kalyanpur</h2>
+                    <p class="location">Kanpur</p>
+                    <span class="board-type">CBSE</span>
+                </div>
+                <div class="website-link">
+                    <a href="https://www.dpskalyanpur.com" target="_blank">Visit Website</a>
+                </div>
+            </div>
+
+            <div class="kanpur-school-card">
+                <div>
+                    <h2>Dr. Virendra Swarup Education Centre, Kidwai Nagar</h2>
+                    <p class="location">Kanpur</p>
+                    <span class="board-type">CISCE (ICSE/ISC)</span>
+                </div>
+                <div class="website-link">
+                    <a href="https://www.drveducation.com" target="_blank">Visit Website</a>
+                </div>
+            </div>
+            
+            <div class="kanpur-school-card">
+                <div>
+                    <h2>Methodist High School, Kanpur</h2>
+                    <p class="location">Kanpur</p>
+                    <span class="board-type">CISCE (ICSE/ISC)</span>
+                </div>
+                <div class="website-link">
+                    <a href="https://www.mhskanpur.org" target="_blank">Visit Website</a>
+                </div>
+            </div>
+            
+            <div class="kanpur-school-card">
+                <div>
+                    <h2>St. Mary's Convent High School, Kanpur</h2>
+                    <p class="location">Kanpur</p>
+                    <span class="board-type">CISCE (ICSE/ISC)</span>
+                </div>
+                <div class="website-link">
+                    <a href="https://www.smc.ac.in" target="_blank">Visit Website</a>
+                </div>
+            </div>
+            
+            <div class="kanpur-school-card">
+                <div>
+                    <h2>Sheiling House School</h2>
+                    <p class="location">Kanpur</p>
+                    <span class="board-type">CISCE (ICSE/ISC)</span>
+                </div>
+                <div class="website-link">
+                    <a href="https://www.sheilinghouse.com" target="_blank">Visit Website</a>
+                </div>
+            </div>
+
+            <div class="kanpur-school-card">
+                <div>
+                    <h2>The Jain International School</h2>
+                    <p class="location">Kanpur</p>
+                    <span class="board-type">CBSE</span>
+                </div>
+                <div class="website-link">
+                    <a href="https://www.tjiskanpur.in" target="_blank">Visit Website</a>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>

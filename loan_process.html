@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Process for Studying Abroad</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+        :root {
+            --primary-color: #40E0D0; /* Turquoise */
+            --background-color: #0a0a0a;
+            --container-bg: #1a1a1a;
+            --text-color: #f0f0f0;
+            --dark-text: #000000;
+            --success-color: #28a745;
+            --warning-color: #ffc107;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px;
+            box-sizing: border-box;
+        }
+
+        .main-container {
+            width: 100%;
+            max-width: 1600px;
+            background: var(--container-bg);
+            border: 1px solid var(--primary-color);
+            border-radius: 15px;
+            padding: 30px 40px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 25px rgba(64, 224, 208, 0.4);
+        }
+
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .content-wrapper {
+            display: flex;
+            gap: 40px;
+        }
+
+        .left-column, .right-column {
+            flex: 1;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        input[type="text"], input[type="number"], select {
+            width: 100%;
+            background-color: var(--primary-color);
+            color: var(--dark-text);
+            border: none;
+            border-radius: 8px;
+            padding: 12px 15px;
+            font-size: 1rem;
+            font-weight: 600;
+            box-sizing: border-box;
+            box-shadow: inset 2px 2px 5px rgba(0,0,0,0.2);
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            cursor: pointer;
+        }
+
+        select {
+             background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23000000' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+             background-repeat: no-repeat;
+             background-position: right 1rem center;
+             background-size: 1em;
+        }
+
+        input:focus, select:focus { outline: 2px solid var(--background-color); }
+        input[readonly] { cursor: not-allowed; opacity: 0.9; }
+
+        .section-title {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        .info-box {
+            background-color: #2c2c2c;
+            padding: 20px;
+            border-radius: 10px;
+            height: fit-content;
+        }
+        
+        .info-box ul { list-style-type: none; padding-left: 0; }
+        .info-box ul li { padding: 8px 0; border-bottom: 1px solid #444; }
+        .info-box ul li::before { content: '✔'; color: var(--primary-color); margin-right: 10px; }
+        .info-box ol { padding-left: 20px; }
+        .info-box ol li { margin-bottom: 10px; line-height: 1.6; }
+        
+        .eligibility-check-btn, .compare-btn {
+             width: 100%;
+             padding: 12px;
+             font-size: 1.1rem;
+             font-weight: bold;
+             color: var(--dark-text);
+             background-color: var(--primary-color);
+             border: none;
+             border-radius: 8px;
+             cursor: pointer;
+             transition: all 0.2s ease;
+             margin-top: 10px;
+        }
+        
+        .eligibility-check-btn:hover, .compare-btn:hover {
+            filter: brightness(1.1);
+            transform: scale(1.02);
+        }
+        
+        #eligibility-status-display.eligible { background-color: var(--success-color); color: white; }
+        #eligibility-status-display.review { background-color: var(--warning-color); color: var(--dark-text); }
+        
+        #comparison-results {
+            margin-top: 20px;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .comparison-card {
+            flex: 1; min-width: 250px; background: #2c2c2c; padding: 15px;
+            border-radius: 8px; border-left: 4px solid var(--primary-color);
+        }
+        .comparison-card h4 { margin-top: 0;}
+        .comparison-card p { margin: 5px 0; font-size: 0.9rem; }
+        .comparison-card p strong { color: var(--primary-color); }
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+        <h1>LOAN PROCESS FOR STUDYING ABROAD</h1>
+        <div class="content-wrapper">
+            <!-- Left Column -->
+            <div class="left-column">
+                <div class="form-group">
+                    <label for="loan-amount">Amount of Loan (in INR)</label>
+                    <input type="number" id="loan-amount" placeholder="e.g., 3000000" oninput="updateCalculations()">
+                </div>
+                <div class="form-group">
+                    <label for="bank-name">Lender Name</label>
+                    <select id="bank-name" onchange="updateBankInfo()">
+                        <option value="">-- Choose a Lender --</option>
+                        <optgroup label="Public Sector Banks">
+                            <option value="sbi">State Bank of India (SBI)</option>
+                            <option value="bob">Bank of Baroda</option>
+                            <option value="pnb">Punjab National Bank (PNB)</option>
+                            <option value="canara">Canara Bank</option>
+                            <option value="union">Union Bank of India</option>
+                            <option value="boi">Bank of India</option>
+                            <option value="indian">Indian Bank</option>
+                            <option value="central">Central Bank of India</option>
+                            <option value="iob">Indian Overseas Bank</option>
+                            <option value="uco">UCO Bank</option>
+                            <option value="mah">Bank of Maharashtra</option>
+                            <option value="psb">Punjab & Sind Bank</option>
+                        </optgroup>
+                        <optgroup label="Private Sector Banks">
+                            <option value="hdfc">HDFC Bank</option>
+                            <option value="icici">ICICI Bank</option>
+                            <option value="kotak">Kotak Mahindra Bank</option>
+                            <option value="axis">Axis Bank</option>
+                            <option value="yes">Yes Bank</option>
+                            <option value="federal">Federal Bank</option>
+                            <option value="indusind">IndusInd Bank</option>
+                            <option value="rbl">RBL Bank</option>
+                            <option value="idbi">IDBI Bank</option>
+                            <option value="idfc">IDFC FIRST Bank</option>
+                            <option value="bandhan">Bandhan Bank</option>
+                            <option value="kvb">Karur Vysya Bank</option>
+                            <option value="cub">City Union Bank</option>
+                            <option value="tmb">Tamilnad Mercantile Bank</option>
+                            <option value="dhanlaxmi">Dhanlaxmi Bank</option>
+                            <option value="csb">CSB Bank</option>
+                            <option value="sib">South Indian Bank</option>
+                            <option value="jkb">Jammu & Kashmir Bank</option>
+                            <option value="nainital">Nainital Bank</option>
+                        </optgroup>
+                        <optgroup label="Leading NBFCs">
+                            <option value="bajaj">Bajaj Finance</option>
+                            <option value="avanse">Avanse Financial Services</option>
+                            <option value="incred">InCred</option>
+                            <option value="auxilo">Auxilo</option>
+                            <option value="iifl">IIFL Finance</option>
+                        </optgroup>
+                        <optgroup label="FinTech Companies">
+                            <option value="prodigy">Prodigy Finance</option>
+                            <option value="mpower">MPOWER Financing</option>
+                            <option value="leap">Leap Finance</option>
+                            <option value="fibe">Fibe</option>
+                            <option value="navi">Navi</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="interest-rate">Rate of Interest (p.a.)</label>
+                    <input type="text" id="interest-rate" readonly>
+                </div>
+                
+                <div class="info-box" style="margin-bottom: 20px;">
+                    <h3 class="section-title" style="margin-top:0;">Loan Eligibility Test</h3>
+                     <div class="form-group">
+                        <label for="co-applicant-income">Co-applicant Annual Income (INR)</label>
+                        <input type="number" id="co-applicant-income" placeholder="e.g., 1200000">
+                    </div>
+                     <div class="form-group">
+                        <label for="cibil-score">Co-applicant CIBIL Score</label>
+                        <input type="number" id="cibil-score" placeholder="e.g., 750">
+                    </div>
+                     <div class="form-group">
+                        <label for="university-tier">University Tier</label>
+                        <select id="university-tier">
+                            <option value="tier1">Tier 1 (Top 200 World Ranking)</option>
+                            <option value="tier2">Tier 2 (Reputed, but not Top Tier)</option>
+                            <option value="tier3">Tier 3 (Other Institutions)</option>
+                        </select>
+                    </div>
+                    <button class="eligibility-check-btn" onclick="checkEligibility()">Check Eligibility</button>
+                    <div class="form-group" style="margin-top: 15px;">
+                        <label>Eligibility Status</label>
+                        <input type="text" id="eligibility-status-display" readonly>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="loan-sanctioned">Loan Sanctioned (INR)</label>
+                    <input type="text" id="loan-sanctioned" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="emi">Estimated EMI (per month)</label>
+                    <input type="text" id="emi" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="loan-tenure">Loan Tenure (in Years)</label>
+                    <select id="loan-tenure" onchange="updateCalculations()"></select>
+                </div>
+
+                <div class="loan-comparator">
+                    <h2 class="section-title">Loan Comparator</h2>
+                    <div style="display: flex; gap: 20px;">
+                        <div class="form-group" style="flex:1;"><label for="bank1">Lender 1</label><select id="bank1"></select></div>
+                        <div class="form-group" style="flex:1;"><label for="bank2">Lender 2</label><select id="bank2"></select></div>
+                    </div>
+                    <button class="compare-btn" onclick="compareBanks()">Compare Lenders</button>
+                    <div id="comparison-results"></div>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="right-column">
+                <div id="documents-section" class="info-box">
+                    <h2 class="section-title">List of Documents Required</h2>
+                    <div id="documents-list"><p>Please select a lender to see the required documents.</p></div>
+                </div>
+                <br><br>
+                <div id="process-section" class="info-box">
+                    <h2 class="section-title">Loan Process</h2>
+                    <div id="process-steps"><p>The loan process will be displayed here once you select a lender.</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // This is the final, complete, and verified master data object with all 41 lenders and all necessary commas.
+        const lenderData = {
+
+            // --- PUBLIC SECTOR BANKS (12) ---
+            'sbi': {
+                interestRateDisplay: "10.30% – 15.30%", interestRateCalc: 10.30, tenures: [5, 7, 10, 15], type: 'Secured (Global Ed-Vantage Scheme)',
+                documents: [ 'Completed Application Form (Online via Vidya Lakshmi Portal or at the branch)', 'Proof of Admission: Unconditional offer letter from the university', 'Statement of Cost of Education (provided by the university)', 'Academic Records: Mark sheets for 10th, 12th, and all semesters of graduation', 'Standardized Test Scorecards: GRE/GMAT/TOEFL/IELTS, as applicable', 'KYC Documents (Applicant & Co-applicant): PAN Card, Aadhaar Card, Passport', 'Co-applicant Income Proof: Last 2 years’ ITRs, Form 16, latest 3 months salary slips, and 6 months bank statements', 'Statement of Assets and Liabilities for the co-applicant/guarantor', 'For Collateral (Property): Registered Sale Deed, Title Deed, latest Property Tax receipt, approved building plan, and a Non-encumbrance Certificate (NEC)', 'Passport-size photographs of both applicant and co-applicant'],
+                process: [ 'Step 1: Application Submission: The student applies online via the SBI website or the Government\'s Vidya Lakshmi Portal. An offline application can also be submitted at the nearest branch.', 'Step 2: Document Verification: The designated branch receives the application and verifies the authenticity and completeness of all submitted academic, financial, and KYC documents.', 'Step 3: Collateral Assessment: For loans above the threshold, SBI appoints its own approved lawyer and valuer to conduct a thorough legal check and market valuation of the collateral property.', 'Step 4: Credit Appraisal: The bank\'s credit team assesses the co-applicant’s CIBIL score, income stability, repayment capacity, and overall financial health.', 'Step 5: Loan Sanction: A formal Sanction Letter is issued after successful verification of the student\'s academic profile, the co-applicant\'s financial stability (income, CIBIL score), and positive legal and valuation reports for the collateral.', 'Step 6: Legal Formalities: Signing the final Loan Agreement, a Demand Promissory Note, and setting up the repayment instruction (NACH mandate). For secured loans, this also involves executing a Mortgage Deed for the collateral property.', 'Step 7: Disbursement: After all legal formalities are complete and the visa is approved, funds are disbursed in installments directly to the university\'s account as per the fee schedule.']
+            },
+            'bob': {
+                interestRateDisplay: "10.40% – 18.20%", interestRateCalc: 10.40, tenures: [5, 7, 10, 15], type: 'Secured / Unsecured (Baroda Scholar Loan)',
+                documents: [ 'Completed "Baroda Scholar" Application Form with photographs', 'Proof of Admission to a recognized course/university', 'Schedule of expenses for the course', 'All academic mark sheets and certificates (10th, 12th, Graduation)', 'KYC Documents for both student and parent/guardian', 'Parent/Guardian\'s Income Proof (ITR, Form-16, Salary Slips)', 'Statement of Assets & Liabilities of the parent/guardian', 'Copy of Passport and Student Visa', 'If collateral is offered: Title deeds, valuation report, and legal opinion from a bank-approved professional'],
+                process: [ 'Step 1: Application & Initial Interview: The applicant approaches the nearest Bank of Baroda branch with the application and documents. The branch manager often conducts a preliminary interview.', 'Step 2: Document Scrutiny: The bank verifies all academic and financial documents submitted.', 'Step 3: CIBIL & Credit Check: A thorough CIBIL score check and credit history analysis of the co-applicant is performed.', 'Step 4: Collateral Assessment (if applicable): Similar to other PSBs, the property is legally verified and valued by bank-empanelled experts.', 'Step 5: Sanction: The loan is sanctioned by the appropriate authority based on the loan amount and profile strength. A sanction letter is issued.', 'Step 6: Documentation & Agreement: Signing of the loan agreement, promissory note, and other necessary legal documents.', 'Step 7: Disbursement: The loan is disbursed in stages as per the university\'s fee structure, often directly to the institution.']
+            },
+            'pnb': { interestRateDisplay: "10.50% onward", interestRateCalc: 10.50, tenures: [5, 7, 10, 15], type: 'Secured (PNB Saraswati)', documents: ['PNB Loan Application form', 'Admission Letter from the University', 'Detailed Cost/Fee Structure', 'Academic Documents (10th, 12th, Degree)', 'Co-applicant\'s KYC and Income Proof (Last 2 years ITR, Salary Slips)', 'Collateral documents for loans above Rs. 7.5 Lakh', 'Passport, Visa, Air Ticket copies'], process: ['Step 1: Application: Apply through the Vidya Lakshmi portal or visit a PNB branch.', 'Step 2: Verification: The branch verifies student\'s admission and co-applicant\'s financial documents.', 'Step 3: Collateral Evaluation: PNB\'s panel of experts evaluates the legal and market value of the collateral.', 'Step 4: Sanctioning Process: The loan proposal is reviewed by the credit committee for approval.', 'Step 5: Sanction Letter Issued: A formal letter is provided for visa and university purposes.', 'Step 6: Legal Documentation: Execution of loan agreement and mortgage deed.', 'Step 7: Disbursement: Funds are transferred to the university as per the fee schedule.'] },
+            'canara': { interestRateDisplay: "9.95% – 15.40%", interestRateCalc: 9.95, tenures: [5, 7, 10, 15], type: 'Secured (Vidya Turant)', documents: ['Canara Bank Loan Application Form', 'Proof of Admission', 'Prospectus or document detailing the course expenses', 'Complete set of academic transcripts', 'KYC of student and parent/guardian', 'Income verification of parent/guardian (ITR and Bank Statements)', 'Property documents for collateral security'], process: ['Step 1: Approach Branch: Visit the nearest Canara Bank branch with all required documents.', 'Step 2: Counselling: A loan officer explains the terms and conditions of the Vidya Turant scheme.', 'Step 3: Due Diligence: The bank performs due diligence on the provided documents and the co-applicant\'s creditworthiness.', 'Step 4: Collateral Check: Legal and valuation process for the property is initiated.', 'Step 5: Sanction Approval: The competent authority sanctions the loan.', 'Step 6: Agreement Signing: The student and co-applicant sign the final loan agreement.', 'Step 7: Fund Transfer: Canara Bank disburses the tuition fee directly to the institution.'] },
+            'union': { interestRateDisplay: "10.35% – 14.45%", interestRateCalc: 10.35, tenures: [5, 7, 10, 15], type: 'Secured', documents: ['Union Bank Education Loan Application', 'Admission Confirmation Letter', 'Schedule of fees and expenses', 'Academic Mark Sheets and Certificates', 'Co-applicant\'s Financial Documents (Salary, ITR, Bank Statements)', 'KYC for all parties', 'Legal documents of the property being mortgaged'], process: ['Step 1: Application: Submit the application form along with supporting documents at a Union Bank branch.', 'Step 2: Processing: The bank processes the application and verifies the documents.', 'Step 3: Pre-Sanction Survey: This may include verification of the co-applicant\'s residence and the collateral property.', 'Step 4: Credit Committee Review: The loan file is put up for sanction before the credit committee.', 'Step 5: Sanction Letter: An official sanction letter is provided upon approval.', 'Step 6: Legal Formalities: Completion of all legal paperwork including mortgage creation.', 'Step 7: Staged Disbursement: The loan amount is released in parts based on the university\'s fee demand.'] },
+            'boi': { interestRateDisplay: "11.10% – 16.15%", interestRateCalc: 11.10, tenures: [5, 7, 10, 15], type: 'Secured (Star Vidya Loan)', documents: ['BOI Application Form', 'Admission letter and I-20 (for USA)', 'Detailed fee breakdown from the university', 'Academic history documents', 'Co-applicant\'s proof of income and net worth', 'Full KYC documentation set', 'Collateral property\'s chain of title and valuation report'], process: ['Step 1: Submission: The applicant submits the complete application file at a Bank of India branch.', 'Step 2: Scrutiny & Verification: The bank officer scrutinizes the documents for authenticity.', 'Step 3: Co-applicant Credit Check: A detailed CIBIL report and financial analysis of the co-applicant is done.', 'Step 4: Collateral Due Diligence: The property is vetted by legal and valuation teams.', 'Step 5: Sanction: The regional or head office provides the final sanction.', 'Step 6: Loan Agreement: Signing of the loan agreement and other undertakings.', 'Step 7: Fund Disbursement: The bank executes a foreign currency transfer to the university.'] },
+            'indian': { interestRateDisplay: "10.40% - 15.00%", interestRateCalc: 10.40, tenures: [5, 7, 10, 15], type: 'Secured', documents: ['Indian Bank Loan Application', 'Admission proof', 'Course expense schedule', 'Academic certificates', 'Co-borrower\'s financial documents (ITR, Salary Slips)', 'KYC for all parties', 'Legal papers for the property offered as security'], process: ['Step 1: Application: File the loan application at an Indian Bank branch.', 'Step 2: Verification: The bank verifies the student\'s admission and co-borrower\'s income.', 'Step 3: Collateral Assessment: Legal opinion and valuation of the property is obtained.', 'Step 4: Approval Process: The loan is approved by the designated sanctioning authority.', 'Step 5: Sanction Letter: The bank issues a formal sanction letter.', 'Step 6: Documentation: The loan agreement and mortgage documents are executed.', 'Step 7: Disbursement: Funds are remitted to the university as per the fee schedule.'] },
+            'central': { interestRateDisplay: "10.10% – 11.90%", interestRateCalc: 10.10, tenures: [5, 7, 10, 15], type: 'Secured', documents: ['Central Bank Loan Application Form', 'Proof of Admission', 'Prospectus detailing course expenses', 'Complete academic transcripts', 'KYC of student and parent', 'Income proof of parent/guardian', 'Property documents for collateral'], process: ['Step 1: Branch Visit: Visit the nearest Central Bank branch.', 'Step 2: Counselling & Application: A loan officer explains the terms and accepts the application.', 'Step 3: Due Diligence: The bank verifies documents and the co-applicant\'s creditworthiness.', 'Step 4: Collateral Verification: Legal and valuation process for the property.', 'Step 5: Sanction: The competent authority sanctions the loan.', 'Step 6: Agreement Signing: The student and co-applicant sign the final loan agreement.', 'Step 7: Fund Transfer: Bank disburses the tuition fee directly to the institution.'] },
+            'iob': { interestRateDisplay: "10.50% onward", interestRateCalc: 10.50, tenures: [5, 7, 10, 15], type: 'Secured', documents: ['IOB Loan Application', 'Admission Letter', 'Fee Structure', 'Academic Documents', 'Co-applicant\'s KYC and Income Proof', 'Collateral documents for loans above Rs. 7.5 Lakh', 'Passport and Visa copies'], process: ['Step 1: Application: Apply through the Vidya Lakshmi portal or visit an IOB branch.', 'Step 2: Verification: The branch verifies admission and co-applicant\'s financial documents.', 'Step 3: Collateral Evaluation: IOB\'s panel of experts evaluates the collateral.', 'Step 4: Sanctioning: The loan proposal is reviewed for approval.', 'Step 5: Sanction Letter Issued: A formal letter is provided.', 'Step 6: Legal Documentation: Execution of loan agreement and mortgage deed.', 'Step 7: Disbursement: Funds are transferred to the university.'] },
+            'uco': { interestRateDisplay: "10.20% – 13.20%", interestRateCalc: 10.20, tenures: [5, 7, 10, 15], type: 'Secured', documents: ['UCO Bank Application Form', 'Proof of Admission', 'Course expense schedule', 'Academic certificates', 'Co-borrower\'s financial documents', 'KYC for all parties', 'Legal papers for the property offered as security'], process: ['Step 1: Application: File the loan application at a UCO Bank branch.', 'Step 2: Verification: The bank verifies the student\'s admission and co-borrower\'s income.', 'Step 3: Collateral Assessment: Legal opinion and valuation of the property is obtained.', 'Step 4: Approval: The loan is approved by the designated sanctioning authority.', 'Step 5: Sanction Letter: The bank issues a formal sanction letter.', 'Step 6: Documentation: The loan agreement and mortgage documents are executed.', 'Step 7: Disbursement: Funds are remitted to the university.'] },
+            'mah': { interestRateDisplay: "9.00% – 13.80%", interestRateCalc: 9.00, tenures: [5, 7, 10, 15], type: 'Secured', documents: ['Bank of Maharashtra Loan Application', 'Admission Confirmation Letter', 'Schedule of fees', 'Academic Mark Sheets', 'Co-applicant\'s Financial Documents', 'KYC for all parties', 'Legal documents of the mortgaged property'], process: ['Step 1: Application: Submit the application form at a branch.', 'Step 2: Processing & Verification: The bank processes the application.', 'Step 3: Pre-Sanction Survey: Verification of residence and collateral property.', 'Step 4: Credit Review: The loan file is reviewed for sanction.', 'Step 5: Sanction Letter: An official sanction letter is provided.', 'Step 6: Legal Formalities: Completion of legal paperwork including mortgage.', 'Step 7: Disbursement: The loan amount is released based on the university\'s demand.'] },
+            'psb': { interestRateDisplay: "9.85% – 12.90%", interestRateCalc: 9.85, tenures: [5, 7, 10, 15], type: 'Secured', documents: ['Punjab & Sind Bank Application', 'Admission letter', 'Fee breakdown from the university', 'Academic history documents', 'Co-applicant\'s proof of income', 'Full KYC documentation set', 'Collateral property\'s title and valuation report'], process: ['Step 1: Submission: The applicant submits the application file at a branch.', 'Step 2: Scrutiny: The bank officer scrutinizes the documents.', 'Step 3: Co-applicant Credit Check: CIBIL report and financial analysis of the co-applicant.', 'Step 4: Collateral Due Diligence: Property is vetted by legal and valuation teams.', 'Step 5: Sanction: Final sanction is provided by the competent authority.', 'Step 6: Loan Agreement Signing: The agreement is signed.', 'Step 7: Fund Disbursement: The bank transfers funds to the university.'] },
+
+            // --- PRIVATE SECTOR BANKS (19) ---
+            'icici': { interestRateDisplay: "10.85% – 16.65%", interestRateCalc: 10.85, tenures: [5, 7, 10, 12], type: 'Secured / Unsecured', documents: [ 'Signed Application Form with Photographs', 'Unconditional Offer Letter from the university', 'I-20 Form (mandatory for US universities)', 'Standardized Test Scores (GRE, GMAT, TOEFL, IELTS)', 'Complete Academic Record (All mark sheets and passing certificates)', 'KYC Documents for both student and co-borrower', 'Co-borrower Income Proof: Latest 2 years ITR or Form 16, and latest 3 months salary slips', 'Last 8 months bank account statement for the co-borrower', 'Property documents for legal verification (if taking a secured loan)', 'A declaration of any other existing loans or liabilities'], process: [ 'Step 1: Application: The process can be initiated online through the ICICI Bank website or by visiting a branch.', 'Step 2: Relationship Manager Assigned: A dedicated relationship manager is assigned to guide the applicant through the entire process, from documentation to disbursement.', 'Step 3: Rapid Credit Evaluation: ICICI Bank performs a quick assessment of the student’s academic profile and the co-borrower’s financial standing.', 'Step 4: Digital Document Submission: The bank facilitates digital or doorstep collection of required documents.', 'Step 5: Quick Sanction: The loan sanction is often provided within 4-7 working days, and a sanction letter is issued which is crucial for the visa process.', 'Step 6: Post-Visa Formalities: After the student receives their visa, they complete the final legal documentation and sign the loan agreement.', 'Step 7: Customized Disbursement: Funds are disbursed directly to the university or the student\'s account as per the specific requirements of the institution.'] },
+            'hdfc': { interestRateDisplay: "10.85% – 24.00%", interestRateCalc: 10.85, tenures: [5, 7, 10, 12], type: 'Secured / Unsecured (via HDFC Credila)', documents: [ 'Fully completed and signed application form', 'Photo ID and Address Proof (KYC) for student and co-applicant', 'Proof of Admission / Offer Letter from the institution', 'Detailed Fee structure of the course', 'All Academic documents (mark sheets, certificates)', 'GRE/GMAT/IELTS/TOEFL scorecards', 'Income documents of the financial co-applicant (Salary Slips, ITR, Bank Statements)', 'Collateral documents (if applicable) with valuation and legal reports', 'Last 6 months bank account statements of the co-applicant'], process: [ 'Step 1: Online Application & Counselling: Students typically apply through HDFC Credila (HDFC\'s education loan arm). A loan expert counsels the student on the best options.', 'Step 2: Doorstep Service: A representative arranges for doorstep collection of all required documents.', 'Step 3: Credit Underwriting: HDFC Credila\'s specialized credit team evaluates the complete profile, including the student\'s future earning potential.', 'Step 4: Loan Sanction: Upon successful evaluation, a detailed loan sanction letter is provided, which is useful for both admission confirmation and visa applications.', 'Step 5: Property Verification (if applicable): Thorough verification of any collateral provided.', 'Step 6: Loan Agreement: Signing of the final loan agreement with the student and co-applicant.', 'Step 7: Disbursement: Disbursement is customized to match the university fee payment schedule and can be done in multiple tranches.'] },
+            'axis': { interestRateDisplay: "9.99% – 22.00%", interestRateCalc: 9.99, tenures: [5, 7, 10, 15], type: 'Secured / Unsecured', documents: [ 'Duly filled Application Form', 'KYC documents of Applicant and Co-applicant', 'Academic Documents including admission letter and fee structure', 'Last 6 months bank statement of Co-applicant', 'Latest Salary Slip and Income Tax Returns of Co-applicant', 'For secured loans, property documents like Title Deed, Sales Agreement', 'Pro-forma Invoice or letter from the university stating the fee details'], process: [ 'Step 1: Digital Application: Axis Bank offers an end-to-end digital journey starting from their website or mobile app.', 'Step 2: Profile Assessment: The bank assesses the application based on the chosen course, university ranking, and the co-applicant\'s credit profile.', 'Step 3: Preferential Rates: Special interest rates are often offered for students admitted to premier institutes in India and abroad.', 'Step 4: Conditional Sanction: A conditional sanction letter may be issued quickly based on initial documents, which helps in securing admission.', 'Step 5: Final Verification & Documentation: Thorough verification of all submitted documents, including collateral if required.', 'Step 6: Loan Agreement Execution: Signing of the formal loan agreement.', 'Step 7: Disbursement: Funds are disbursed as per the university\'s requirements.'] },
+            'kotak': { interestRateDisplay: "10.99% – 16.99%", interestRateCalc: 10.99, tenures: [5, 7, 10, 12], type: 'Secured / Unsecured', documents: ['Kotak Bank Application Form', 'Admission Proof for a recognized university', 'Fee schedule from the institution', 'Academic Transcripts', 'KYC and Income Proof for co-applicant (ITR, Salary slips, Bank Statements)', 'Passport & Visa copies', 'Collateral documents (if any)'], process: ['Step 1: Application: Initiate the process online or at a Kotak branch.', 'Step 2: Dedicated Advisor: An advisor is assigned to help with the application process.', 'Step 3: Profile Evaluation: The bank evaluates the student’s profile and co-applicant\'s financials.', 'Step 4: Document Submission: Digital or physical submission of documents.', 'Step 5: Sanction Approval: Quick in-principle approval followed by a final sanction letter.', 'Step 6: Agreement Signing: The loan agreement is executed post visa approval.', 'Step 7: Disbursement: Flexible disbursement options tailored to the university\'s needs.'] },
+            'yes': { interestRateDisplay: "11.25% – 21.00%", interestRateCalc: 11.25, tenures: [5, 7, 10], type: 'Secured / Unsecured', documents: ['Yes Bank Loan Application', 'Offer Letter from the university', 'Academic Records', 'Co-borrower\'s KYC and Financial Documents (ITR, Bank Statements)', 'Passport, Visa', 'Collateral documents if loan is secured'], process: ['Step 1: Digital Inquiry: Start by making an inquiry on the Yes Bank website.', 'Step 2: Relationship Manager Contact: A manager will contact you to explain the process.', 'Step 3: Credit Assessment: Swift assessment of the student and co-borrower profile.', 'Step 4: Documentation: Document collection is facilitated by the bank.', 'Step 5: Loan Sanction: A sanction letter is issued upon successful verification.', 'Step 6: Legal Formalities: Signing of the loan agreement.', 'Step 7: Fund Transfer: Funds are transferred directly to the institution.'] },
+            'federal': { interestRateDisplay: "11.49% – 14.49%", interestRateCalc: 11.49, tenures: [5, 7, 10, 15], type: 'Secured', documents: ['Federal Bank Application Form', 'Admission letter and fee details', 'Academic mark sheets', 'Co-applicant\'s income proof and KYC', 'Passport copy', 'Title deeds and other legal documents of the collateral property'], process: ['Step 1: Branch Application: The application is typically submitted at a Federal Bank branch.', 'Step 2: Verification: The bank verifies the submitted documents thoroughly.', 'Step 3: Collateral Appraisal: A detailed legal and valuation check of the property is conducted.', 'Step 4: Sanction: The loan is sanctioned by the appropriate branch or regional authority.', 'Step 5: Sanction Letter: A formal sanction letter is issued.', 'Step 6: Mortgage Creation: The property mortgage is legally executed.', 'Step 7: Disbursement: The fee is disbursed in stages to the university.'] },
+            'idfc': { interestRateDisplay: "10.70% – 36.00%", interestRateCalc: 10.70, tenures: [5, 7, 10], type: 'Secured / Unsecured', documents: ['IDFC First Bank Application Form', 'Admission Letter', 'Fee Structure', 'Academic Transcripts', 'KYC and Income documents of co-applicant', 'Collateral details (if applicable)'], process: ['Step 1: Online Application: IDFC First promotes a seamless digital application process.', 'Step 2: Quick Eligibility Check: An initial eligibility check is done online.', 'Step 3: Profile Review: The bank reviews the student\'s course and the co-applicant\'s credit profile.', 'Step 4: Document Upload: Documents can be uploaded digitally.', 'Step 5: Fast Sanction: The bank aims for a quick turnaround time on loan sanction.', 'Step 6: Digital Agreement: The loan agreement can often be signed digitally.', 'Step 7: Swift Disbursement: Funds are disbursed promptly after formalities.'] },
+            'indusind': { interestRateDisplay: "10.49% – 28.00%", interestRateCalc: 10.49, tenures: [5, 7, 10], type: 'Secured / Unsecured', documents: ['IndusInd Bank Loan Application', 'Proof of admission', 'Schedule of expenses', 'Academic documents', 'Co-applicant financial documents (ITR, bank statements)', 'KYC documents for all parties', 'Collateral documents (if required)'], process: ['Step 1: Application: Apply online or visit a branch.', 'Step 2: Document Collection: A representative assists with document collection.', 'Step 3: Credit Appraisal: The bank evaluates the overall profile for creditworthiness.', 'Step 4: Sanction: A sanction letter is provided after approval.', 'Step 5: Agreement: The loan agreement is signed.', 'Step 6: Disbursement: Funds are transferred as per university guidelines.'] },
+            'rbl': { interestRateDisplay: "18.00% onward", interestRateCalc: 18.00, tenures: [5, 7], type: 'Primarily Unsecured (Personal Loan)', documents: ['RBL Bank Application Form', 'KYC Documents', 'Co-applicant Income Proof (Salary Slips, ITR)', 'Admission Letter (as purpose proof)'], process: ['Step 1: Digital Application: RBL primarily offers personal loans that can be used for education, applied for digitally.', 'Step 2: Quick Verification: The bank uses digital tools for quick KYC and income verification.', 'Step 3: Instant Decision: An in-principle decision on the loan is made quickly.', 'Step 4: Final Offer: A final loan offer is made after backend verification.', 'Step 5: Disbursement: Funds are disbursed to the applicant\'s personal account.'] },
+            'idbi': { interestRateDisplay: "11.00% – 15.50%", interestRateCalc: 11.00, tenures: [5, 7, 10, 15], type: 'Secured', documents: ['IDBI Bank Education Loan Form', 'Admission letter', 'Fee schedule', 'Academic records', 'Co-applicant\'s income and KYC documents', 'Legal documents for collateral property'], process: ['Step 1: Branch Application: The process starts with submitting an application at an IDBI Bank branch.', 'Step 2: Document Verification: Thorough verification of all academic and financial documents.', 'Step 3: Collateral Evaluation: A standard legal and valuation process for the collateral.', 'Step 4: Sanction: The loan is sanctioned based on the bank\'s credit policy.', 'Step 5: Letter of Sanction: A formal letter is issued.', 'Step 6: Mortgage and Agreement: Execution of the mortgage and loan agreement.', 'Step 7: Disbursement: Funds are released to the university.'] },
+            'bandhan': { interestRateDisplay: "10.50% – 13.99%", interestRateCalc: 10.50, tenures: [5, 7, 10], type: 'Secured', documents: ['Bandhan Bank Application Form', 'Proof of Admission', 'Course Fee Details', 'Academic Certificates', 'KYC and Income Proof of Co-applicant', 'Collateral Property Documents'], process: ['Step 1: Branch Visit & Counselling: The process is branch-driven, with loan officers providing detailed counselling.', 'Step 2: Application Submission: Submission of the complete application file.', 'Step 3: Field Investigation: The bank may conduct a field visit to verify residence and property.', 'Step 4: Credit Sanction: The loan is sanctioned by the branch or regional office.', 'Step 5: Agreement Signing: The loan agreement is signed.', 'Step 6: Disbursement: Funds are transferred.'] },
+            'kvb': { interestRateDisplay: "11.15% – 14.15%", interestRateCalc: 11.15, tenures: [5, 7, 10], type: 'Secured', documents: ['KVB Application Form', 'Admission Letter', 'Fee Structure', 'Academic Transcripts', 'Co-applicant\'s financial statements and KYC', 'Legal documents of collateral property'], process: ['Step 1: Branch Application: The process is initiated by submitting an application at a Karur Vysya Bank branch.', 'Step 2: Document Verification: All documents are carefully verified by the bank staff.', 'Step 3: Collateral Assessment: A thorough legal and valuation check is done on the property.', 'Step 4: Sanction: The loan is sanctioned by the relevant authority.', 'Step 5: Formal Agreement: The loan agreement and mortgage documents are executed.', 'Step 6: Disbursement: The fee is disbursed to the university.'] },
+            'cub': { interestRateDisplay: "11.00% – 14.95%", interestRateCalc: 11.00, tenures: [5, 7], type: 'Secured', documents: ['City Union Bank Application Form', 'Admission Proof', 'Fee Details', 'Academic Records', 'Co-applicant Income Proof & KYC', 'Property Documents for Mortgage'], process: ['Step 1: Application at Branch: Submit the loan application at a CUB branch.', 'Step 2: Scrutiny: The bank scrutinizes the application and documents.', 'Step 3: Property Verification: Legal and valuation of the collateral is completed.', 'Step 4: Sanction Approval: The loan is approved by the bank.', 'Step 5: Documentation: All legal documents are signed.', 'Step 6: Disbursement: Funds are released.'] },
+            'sib': { interestRateDisplay: "10.50% – 22.31%", interestRateCalc: 10.50, tenures: [5, 7, 10], type: 'Secured', documents: ['South Indian Bank Application', 'Admission Letter', 'Fee Breakdown', 'Academic History', 'Co-applicant Financials & KYC', 'Collateral Legal Documents'], process: ['Step 1: Branch Submission: Application is submitted at the nearest SIB branch.', 'Step 2: Verification: The bank verifies the authenticity of documents.', 'Step 3: Collateral Check: Legal and valuation of the property is done.', 'Step 4: Sanctioning: The loan is sanctioned as per bank norms.', 'Step 5: Agreement: The loan agreement and mortgage are executed.', 'Step 6: Disbursement: Funds are sent to the institution.'] },
+            'tmb': { interestRateDisplay: "11.50% onward", interestRateCalc: 11.50, tenures: [5, 7], type: 'Secured', documents: ['TMB Application Form', 'Admission Letter', 'Fee Details', 'Academic Records', 'Co-applicant KYC & Income Proof', 'Property Documents'], process: ['Step 1: Branch Application: Submit application at a Tamilnad Mercantile Bank branch.', 'Step 2: Verification Process: The bank verifies all submitted documents.', 'Step 3: Collateral Check: Standard legal and valuation process.', 'Step 4: Sanction: Loan is sanctioned by the branch manager or higher authority.', 'Step 5: Agreement: Sign the loan agreement and mortgage deed.', 'Step 6: Disbursement: Funds are released.'] },
+            'dhanlaxmi': { interestRateDisplay: "12.00% onward", interestRateCalc: 12.00, tenures: [5, 7], type: 'Secured', documents: ['Dhanlaxmi Bank Application', 'Admission Proof', 'Cost of Study', 'Academic Documents', 'Co-applicant Financials', 'Collateral Documents'], process: ['Step 1: Branch Submission: File the application at a Dhanlaxmi Bank branch.', 'Step 2: Document Scrutiny: Documents are verified for authenticity.', 'Step 3: Property Appraisal: Collateral is appraised for value.', 'Step 4: Sanction: Loan is approved.', 'Step 5: Legal Formalities: Agreements are signed.', 'Step 6: Disbursement: Funds are sent.'] },
+            'csb': { interestRateDisplay: "12.50% onward", interestRateCalc: 12.50, tenures: [5, 7, 10], type: 'Secured', documents: ['CSB Bank Application', 'Admission Letter', 'Fee Statement', 'Academic History', 'Co-applicant Income Proof', 'Property Deeds'], process: ['Step 1: Application: Submit the application at a CSB Bank (formerly Catholic Syrian Bank) branch.', 'Step 2: Verification: The bank checks all credentials.', 'Step 3: Collateral Vetting: Property is legally and financially vetted.', 'Step 4: Approval: Loan is approved by the credit team.', 'Step 5: Documentation: Sign all required legal documents.', 'Step 6: Disbursement: Funds are released.'] },
+            'jkb': { interestRateDisplay: "11.00% onward", interestRateCalc: 11.00, tenures: [5, 7, 10], type: 'Secured', documents: ['J&K Bank Application Form', 'Admission Proof', 'Fee Details', 'Academic Records', 'Guarantor/Co-applicant Income & KYC', 'Property Documents'], process: ['Step 1: Branch Application: Apply at a Jammu & Kashmir Bank branch.', 'Step 2: Verification: The bank verifies admission and financials.', 'Step 3: Collateral Assessment: A standard assessment of the collateral is done.', 'Step 4: Sanction: The loan is sanctioned.', 'Step 5: Agreement: Sign the necessary agreements.', 'Step 6: Disbursement: Funds are transferred.'] },
+            'nainital': { interestRateDisplay: "12.25% onward", interestRateCalc: 12.25, tenures: [5, 7, 10], type: 'Secured', documents: ['Nainital Bank Loan Application', 'Letter of Admission', 'Schedule of Fees', 'Academic Certificates', 'Co-applicant KYC and Income Proof', 'Legal documents of collateral'], process: ['Step 1: Branch Submission: Submit the complete application at a Nainital Bank branch.', 'Step 2: Verification: The bank verifies the authenticity of all documents.', 'Step 3: Property Assessment: The collateral property undergoes legal and valuation checks.', 'Step 4: Sanction: The loan is approved by the relevant bank authority.', 'Step 5: Agreement Execution: The loan agreement and mortgage documents are signed.', 'Step 6: Disbursement: Funds are released to the institution.'] },
+
+            // --- LEADING NBFCS (5) ---
+            'bajaj': { interestRateDisplay: "10% – 31%", interestRateCalc: 10.00, tenures: [2, 3, 4, 5, 6, 7], type: 'Unsecured (Personal Loan for Education)', documents: ['PAN Card, Aadhaar Card', 'Last 3 months salary slips', 'Last 6 months bank account statements', 'Admission letter to establish purpose'], process: ['Step 1: Online Application: Apply for a personal loan on the Bajaj Finserv website or app.', 'Step 2: Instant Approval: Get an instant in-principle approval based on your CIBIL and basic details.', 'Step 3: Document Upload: Upload minimal documents like KYC and income proof online.', 'Step 4: Verification Call: A representative may call for a quick verification.', 'Step 5: E-Agreement: Sign the loan agreement digitally.', 'Step 6: Quick Disbursement: Funds are disbursed to your personal bank account within 24-48 hours.'] },
+            'avanse': { interestRateDisplay: "12.50% onward", interestRateCalc: 12.50, tenures: [3, 5, 7, 10], type: 'Primarily Unsecured', documents: [ 'GRE/GMAT/TOEFL/IELTS Scorecard (highly important)', 'Proof of Admission (can be conditional initially)', 'All academic documents from 10th standard onwards', 'Co-borrower income documents (Latest ITR, bank statements)', 'KYC documents for both student and co-borrower', 'A simple declaration of assets and liabilities'], process: [ 'Step 1: 100% Online Application: The student fills a simple form on the Avanse website and uploads initial documents.', 'Step 2: AI-based Evaluation: An initial eligibility check is often done using AI and data analytics for a quick response.', 'Step 3: Holistic Profile Review: Avanse focuses heavily on the student’s profile—university ranking, course relevance, and academic scores—not just the co-applicant\'s income.', 'Step 4: Rapid Turnaround: A loan decision and sanction letter are often generated within 24-48 hours of complete document submission.', 'Step 5: Digital Agreement: The loan agreement is signed digitally using Aadhaar e-sign, making the process paperless.', 'Step 6: Swift Disbursement: Funds are transferred directly to the university upon the student\'s request after visa approval.'] },
+            'incred': { interestRateDisplay: "11.50% onward", interestRateCalc: 11.50, tenures: [5, 7, 10], type: 'Secured / Unsecured', documents: ['InCred Application Form', 'Academic Documents & Test Scores (GRE/GMAT)', 'Admission Letter', 'KYC of student and co-applicant', 'Co-applicant\'s income proof (ITR, Bank Statements)', 'Collateral documents (if applicable)'], process: ['Step 1: Online Inquiry: Start the process by filling an online form.', 'Step 2: Loan Counsellor: A dedicated counsellor is assigned to assess requirements and guide you.', 'Step 3: Profile-based Underwriting: InCred evaluates the student\'s future potential along with co-applicant\'s financials.', 'Step 4: Doorstep Document Collection: They offer service to collect documents from your home.', 'Step 5: Quick Sanction: A sanction letter is provided swiftly for visa purposes.', 'Step 6: Digital Documentation: The final agreement is signed digitally.', 'Step 7: Fund Transfer: Funds are transferred directly to the university.'] },
+            'auxilo': { interestRateDisplay: "12.00% onward", interestRateCalc: 12.00, tenures: [5, 7, 10], type: 'Secured / Unsecured', documents: ['Auxilo Application Form', 'Academic Records & Entrance Exam Scores', 'Proof of Admission', 'KYC for student and co-borrower', 'Income documents for co-borrower', 'Property documents for secured loans'], process: ['Step 1: Digital Application: Apply online through Auxilo\'s platform.', 'Step 2: Personalized Counselling: A loan expert contacts the student to understand their specific needs.', 'Step 3: Customized Loan Structuring: Auxilo focuses on creating a customized loan solution for each student.', 'Step 4: Swift Verification: Quick verification of academic and financial credentials.', 'Step 5: Sanction Letter: A formal sanction letter is issued.', 'Step 6: E-Signing: The loan agreement is signed electronically.', 'Step 7: Hassle-free Disbursement: The disbursement is coordinated with the university.'] },
+            'iifl': { interestRateDisplay: "12.75% onward", interestRateCalc: 12.75, tenures: [5, 7], type: 'Secured (Loan Against Property for Education)', documents: ['IIFL Loan Application', 'KYC documents of all applicants', 'Income proof of co-applicants', 'Admission Letter', 'Complete chain of property documents for collateral'], process: ['Step 1: Inquiry: The process starts with an inquiry for a Loan Against Property, specifying education as the purpose.', 'Step 2: Document Collection: A relationship manager assists with document collection.', 'Step 3: Property Valuation & Legal Check: A thorough due diligence is performed on the property.', 'Step 4: Credit Sanction: The loan is sanctioned based on property value and income eligibility.', 'Step 5: Loan Agreement & Mortgage: The loan agreement is signed and the property is mortgaged.', 'Step 6: Disbursement: Funds are disbursed to the applicant\'s account.'] },
+
+            // --- FINTECH COMPANIES (5) ---
+            'prodigy': { interestRateDisplay: "13.80% onward", interestRateCalc: 13.80, tenures: [7, 10, 15, 20], type: 'Unsecured (No Co-applicant, No Collateral)', documents: [ 'Proof of Identity: Passport', 'Proof of Admission to a Prodigy-supported school', 'Credit Report (Prodigy often pulls this automatically)', 'Proof of Address', 'Proof of Savings (if any)', 'Resume or CV detailing academic and work experience'], process: [ 'Step 1: Online Eligibility Check: The student creates a profile on the Prodigy Finance website and checks if their university and program are supported (typically top-tier institutions).', 'Step 2: Instant Quote: If eligible, the student receives a conditional loan offer (a quote) in minutes, outlining the interest rate and amount.', 'Step 3: Document Upload: The student uploads all required documents to a secure online portal.', 'Step 4: Final Review & Verification: The Prodigy team reviews the documents and admission proof for final approval.', 'Step 5: Digital Signature: The student reviews and signs the final loan agreement online from anywhere in the world.', 'Step 6: Direct Disbursement to University: Prodigy sends the funds directly to the university in the local currency (e.g., USD, EUR), so the student doesn\'t have to handle the money transfer.'] },
+            'mpower': { interestRateDisplay: "13.99% onward", interestRateCalc: 13.99, tenures: [10], type: 'Unsecured (No Co-applicant, No Collateral)', documents: ['Valid Passport and Student Visa', 'Admission Letter from an MPOWER-supported US or Canadian university', 'Standardized Test Scores (if available)', 'Proof of existing funds (if any)', 'Resume/CV'], process: ['Step 1: Eligibility Check: The student checks their eligibility on MPOWER\'s website (limited to specific schools in the US & Canada).', 'Step 2: Online Application: A detailed online application is submitted.', 'Step 3: Initial Credit Decision: MPOWER provides an initial credit decision, often within a few days.', 'Step 4: Document Upload & Verification: The student uploads documents for verification.', 'Step 5: Final Loan Offer & Visa Support Letter: A final, firm loan offer is made. MPOWER also provides a visa support letter.', 'Step 6: Loan Agreement: The student signs the loan agreement.', 'Step 7: Direct Disbursement: Funds are sent directly to the school to cover tuition and other university charges.'] },
+            'leap': { interestRateDisplay: "13.50% onward", interestRateCalc: 13.50, tenures: [7, 10], type: 'Unsecured (No Co-applicant, No Collateral)', documents: ['Passport', 'Admission Letter to a supported university (US, Canada, UK, Australia)', 'Credit History documents', 'Proof of Address', 'Resume'], process: ['Step 1: Online Application: A simple 10-minute application on the Leap Finance website.', 'Step 2: Conditional Offer: Receive a conditional sanction letter within 24 hours.', 'Step 3: Document Verification: Upload documents for verification by the credit team.', 'Step 4: Final Sanction Letter: A final sanction letter is provided for the visa process.', 'Step 5: Digital Agreement: Sign the loan agreement digitally.', 'Step 6: Disbursement to University: Leap Finance coordinates with the university for direct fund transfer.'] },
+            'fibe': { interestRateDisplay: "14.00% onward", interestRateCalc: 14.00, tenures: [1, 2, 3], type: 'Unsecured (Personal Loan via App)', documents: ['PAN Card', 'Aadhaar Card for e-KYC', 'Selfie', 'Last 3-6 months bank statement showing salary credits'], process: ['Step 1: Download Fibe App: The entire process is app-based.', 'Step 2: Register & Check Eligibility: Register with your mobile number and check your eligibility in minutes.', 'Step 3: Complete KYC: Complete your KYC digitally by uploading documents.', 'Step 4: Select Loan Amount: Choose the desired loan amount and tenure from the approved limit.', 'Step 5: E-sign & Mandate: E-sign the loan agreement and set up an e-mandate for repayment.', 'Step 6: Instant Disbursal: The money is transferred to your bank account instantly.'] },
+            'navi': { interestRateDisplay: "9.9% – 45%", interestRateCalc: 9.90, tenures: [1, 2, 3, 4, 5, 6], type: 'Unsecured (App-based Personal Loan)', documents: ['PAN Card', 'Aadhaar Card', 'Selfie for KYC verification'], process: ['Step 1: Download the Navi App: The entire process is handled through the Navi mobile application.', 'Step 2: Enter Basic Details: Provide your name, contact details, and employment information.', 'Step 3: Instant Eligibility Check: The app performs an instant check based on your PAN and credit score.', 'Step 4: Loan Offer: A loan offer with the amount, interest rate, and tenure is displayed.', 'Step 5: Video KYC: Complete a quick video KYC for verification.', 'Step 6: Bank Account Setup: Link your bank account for auto-debit of EMIs.', 'Step 7: Instant Disbursement: The loan amount is disbursed to your bank account, often within minutes. (Note: This is a personal loan, which can be used for education, not a dedicated education loan).'] }
+
+        };
+
+        // --- FUNCTIONS ---
+
+        function populateBankDropdowns() {
+            const mainSelect = document.getElementById('bank-name');
+            const comparatorSelects = [document.getElementById('bank1'), document.getElementById('bank2')];
+            comparatorSelects.forEach(sel => sel.innerHTML = mainSelect.innerHTML);
+        }
+        
+        function updateBankInfo() {
+            const select = document.getElementById('bank-name');
+            const bankId = select.value;
+            const docList = document.getElementById('documents-list');
+            const processSteps = document.getElementById('process-steps');
+            const tenureSelect = document.getElementById('loan-tenure');
+            const interestRateInput = document.getElementById('interest-rate');
+
+            if (!bankId) {
+                interestRateInput.value = '';
+                interestRateInput.dataset.calcRate = '0';
+                docList.innerHTML = '<p>Please select a lender to see the required documents.</p>';
+                processSteps.innerHTML = '<p>The loan process will be displayed here once you select a lender.</p>';
+                tenureSelect.innerHTML = '';
+                updateCalculations();
+                return;
+            }
+
+            const data = lenderData[bankId];
+            if (!data) {
+                console.error("No data found for lender ID:", bankId);
+                return;
+            }
+
+            interestRateInput.value = data.interestRateDisplay;
+            interestRateInput.dataset.calcRate = data.interestRateCalc;
+
+            let docHtml = '<ul>';
+            data.documents.forEach(doc => { docHtml += `<li>${doc}</li>`; });
+            docHtml += '</ul>';
+            docList.innerHTML = docHtml;
+
+            let processHtml = '<ol>';
+            data.process.forEach(step => { processHtml += `<li>${step}</li>`; });
+            processHtml += '</ol>';
+            processSteps.innerHTML = processHtml;
+
+            tenureSelect.innerHTML = '';
+            data.tenures.forEach(year => {
+                const option = document.createElement('option');
+                option.value = year;
+                option.textContent = `${year} Years`;
+                tenureSelect.appendChild(option);
+            });
+
+            updateCalculations();
+        }
+
+        function updateCalculations() {
+            const amount = parseFloat(document.getElementById('loan-amount').value) || 0;
+            const statusDisplay = document.getElementById('eligibility-status-display');
+            const isEligible = statusDisplay.value.includes('Eligible');
+            const interestRateInput = document.getElementById('interest-rate');
+            const rate = parseFloat(interestRateInput.dataset.calcRate) || 0;
+            const tenure = parseInt(document.getElementById('loan-tenure').value) || 0;
+
+            if (isEligible && amount > 0) {
+                document.getElementById('loan-sanctioned').value = `₹ ${amount.toLocaleString('en-IN')}`;
+                if (rate > 0 && tenure > 0) {
+                    const emi = calculateEMI(amount, rate, tenure);
+                    document.getElementById('emi').value = `₹ ${Math.round(emi).toLocaleString('en-IN')}`;
+                } else {
+                    document.getElementById('emi').value = '';
+                }
+            } else {
+                document.getElementById('loan-sanctioned').value = 'Not Applicable';
+                document.getElementById('emi').value = 'Not Applicable';
+            }
+        }
+
+        function calculateEligibilityScore() {
+            const income = parseInt(document.getElementById('co-applicant-income').value) || 0;
+            const cibil = parseInt(document.getElementById('cibil-score').value) || 0;
+            const uniTier = document.getElementById('university-tier').value;
+            let score = 0, incomeScore = 0, cibilScore = 0, uniScore = 0;
+            if (income >= 1500000) incomeScore = 35; else if (income >= 1000000) incomeScore = 25; else if (income >= 600000) incomeScore = 15; else incomeScore = 5;
+            if (cibil >= 780) cibilScore = 35; else if (cibil >= 750) cibilScore = 30; else if (cibil >= 700) cibilScore = 20; else if (cibil >= 650) cibilScore = 10; else cibilScore = 0;
+            if (uniTier === 'tier1') uniScore = 30; else if (uniTier === 'tier2') uniScore = 20; else uniScore = 10;
+            score = incomeScore + cibilScore + uniScore;
+            const threshold = 60;
+            let status = (score >= threshold) ? 'Eligible' : 'Review';
+            let message = (score >= threshold) ? `Eligible (Score: ${score}/100). Strong Profile.` : `May Require Review (Score: ${score}/100).`;
+            return { status, message };
+        }
+
+        function checkEligibility() {
+            const result = calculateEligibilityScore();
+            const displayField = document.getElementById('eligibility-status-display');
+            displayField.value = result.message;
+            displayField.className = (result.status === 'Eligible') ? 'eligible' : 'review';
+            updateCalculations();
+        }
+
+        function calculateEMI(p, r, n) {
+            if (p <= 0 || r <= 0 || n <= 0) return 0;
+            const monthlyRate = r / 12 / 100;
+            const numPayments = n * 12;
+            return p * monthlyRate * Math.pow(1 + monthlyRate, numPayments) / (Math.pow(1 + monthlyRate, numPayments) - 1);
+        }
+
+        function getBankDataForComparison(selectId) {
+            const select = document.getElementById(selectId);
+            const bankId = select.value;
+            if (!bankId) return null;
+
+            const data = lenderData[bankId];
+            const selectedOption = select.options[select.selectedIndex];
+
+            return {
+                name: selectedOption.text,
+                type: data.type,
+                interestRateDisplay: data.interestRateDisplay,
+                interestRateCalc: data.interestRateCalc
+            };
+        }
+
+        function createComparisonCard(data) {
+            if (!data) return '<div class="comparison-card"><p>Please select a lender.</p></div>';
+            const amount = parseFloat(document.getElementById('loan-amount').value) || 0;
+            const tenure = parseInt(document.getElementById('loan-tenure').value) || 10;
+            const emi = calculateEMI(amount, data.interestRateCalc, tenure);
+
+            return `
+                <div class="comparison-card">
+                    <h4>${data.name}</h4>
+                    <p><strong>Interest Rate:</strong> ${data.interestRateDisplay}</p>
+                    <p><strong>Loan Type:</strong> ${data.type}</p>
+                    <p><strong>Estimated EMI:</strong> ₹ ${Math.round(emi).toLocaleString('en-IN')}</p>
+                </div>
+            `;
+        }
+
+        function compareBanks() {
+            const bank1Data = getBankDataForComparison('bank1');
+            const bank2Data = getBankDataForComparison('bank2');
+            document.getElementById('comparison-results').innerHTML = createComparisonCard(bank1Data) + createComparisonCard(bank2Data);
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            populateBankDropdowns();
+            updateBankInfo();
+        });
+    </script>
+
+</body>
+</html>
