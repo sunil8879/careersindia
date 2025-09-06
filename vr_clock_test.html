@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock Test in Verbal Reasoning</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3, h4 {
+            color: #3498db; /* A shade of blue */
+        }
+        h1 {
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        details {
+            background-color: #ebf5fb;
+            border: 1px solid #aed6f1;
+            border-radius: 5px;
+            margin-top: 10px;
+            padding: 10px;
+        }
+        summary {
+            font-weight: bold;
+            cursor: pointer;
+            color: #2471a3;
+            list-style: none; /* Hide the default marker */
+        }
+        summary::-webkit-details-marker {
+            display: none; /* Hide the default marker in Chrome/Safari */
+        }
+        summary::before {
+            content: '▶ Show Answer, Diagram, and Explanation';
+            padding-right: 5px;
+        }
+        details[open] summary::before {
+            content: '▼ Hide Answer, Diagram, and Explanation';
+        }
+        .explanation-content {
+            margin-top: 15px;
+            padding-top: 10px;
+            border-top: 1px dashed #aed6f1;
+        }
+        .question-block {
+            margin-bottom: 25px;
+        }
+        .diagram-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .clock {
+            width: 150px;
+            height: 150px;
+            border: 5px solid #2c3e50;
+            border-radius: 50%;
+            position: relative;
+            background: white;
+        }
+        .clock .center-dot {
+            width: 10px;
+            height: 10px;
+            background: black;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .hour-hand, .minute-hand {
+            position: absolute;
+            left: 50%;
+            bottom: 50%;
+            transform-origin: bottom;
+            background: black;
+        }
+        .hour-hand {
+            width: 4px;
+            height: 40px;
+            border-radius: 4px;
+        }
+        .minute-hand {
+            width: 2px;
+            height: 60px;
+            border-radius: 2px;
+        }
+        .clock .number {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+            color: #555;
+        }
+        .number.n12 { transform: translateY(5px); }
+        .number.n3 { transform: translateX(60px) translateY(62px); }
+        .number.n6 { transform: translateY(125px); }
+        .number.n9 { transform: translateX(-60px) translateY(62px); }
+        .diagram-label {
+            text-align: center;
+            font-weight: bold;
+            color: #2471a3;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        code {
+            background-color: #eee;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+            color: #c0392b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Clock Test</h1>
+
+        <!-- Theory Section -->
+        <section id="theory">
+            <h2>1. Theory: About the Clock Test</h2>
+            <p><strong>Clock Test</strong> questions are a common type of problem in the logical reasoning section of competitive exams in India. They test a candidate's understanding of the movement and relationship between the hands of a clock (hour, minute, and sometimes second). Solving these requires knowledge of angles, relative speed, and time calculations.</p>
+
+            <h3>Key Concepts & Formulas</h3>
+            <ul>
+                <li><strong>Speed of the Hands:</strong>
+                    <ul>
+                        <li><strong>Hour Hand:</strong> Covers 360° in 12 hours. Speed = 360° / (12 * 60 min) = <code>0.5° per minute</code>.</li>
+                        <li><strong>Minute Hand:</strong> Covers 360° in 60 minutes. Speed = 360° / 60 min = <code>6° per minute</code>.</li>
+                    </ul>
+                </li>
+                <li><strong>Relative Speed:</strong> The minute hand gains on the hour hand. Relative speed = 6° - 0.5° = <code>5.5° per minute</code>.</li>
+                <li><strong>Angle Formula:</strong> The most important formula to find the angle (θ) between the hour hand (H) and minute hand (M) at a given time (H:M).
+                    <p><code>θ = | (11/2) * M - 30 * H |</code></p>
+                    <p><em>Note: H is the hour (1-12), M is the minute (0-59). The result is the smaller angle. The reflex angle is 360° - θ.</em></p>
+                </li>
+                <li><strong>Special Angles:</strong>
+                    <ul>
+                        <li><strong>Coincidence (0°):</strong> Hands are together. Occurs 11 times in 12 hours, 22 times in 24 hours.</li>
+                        <li><strong>Opposite (180°):</strong> Hands are in a straight line. Occurs 11 times in 12 hours, 22 times in 24 hours.</li>
+                        <li><strong>Right Angle (90°):</strong> Hands are perpendicular. Occurs 22 times in 12 hours, 44 times in 24 hours.</li>
+                    </ul>
+                </li>
+                 <li><strong>Faulty Clocks:</strong> Problems where a clock runs faster (gains time) or slower (loses time). The technique is to calculate the total gain or loss over the given period.</li>
+                 <li><strong>Mirror Image:</strong> To find the mirror image time, subtract the given time from <code>11:60</code> (or <code>12:00</code>). For times involving seconds, subtract from <code>11:59:60</code>.</li>
+            </ul>
+
+            <h3>Types of Questions Asked</h3>
+            <ol>
+                <li><strong>Finding the angle between the hands</strong> at a specific time.</li>
+                <li><strong>Finding the time when the hands are at a specific angle</strong> (0°, 90°, 180°).</li>
+                <li>Problems related to <strong>faulty clocks</strong> (gaining/losing time).</li>
+                <li>Problems based on the <strong>mirror image</strong> of a clock.</li>
+            </ol>
+        </section>
+
+        <hr>
+
+        <!-- Questions Section -->
+        <section id="questions">
+            <h2>2. Questions, Answers, and Explanations</h2>
+            <ol>
+                <!-- Question 1 -->
+                <li class="question-block">
+                    <p><strong>Question:</strong> What is the angle between the minute hand and the hour hand of a clock at 3:30?</p>
+                    <p>A) 60° <br> B) 75° <br> C) 90° <br> D) 105°</p>
+                    <details>
+                        <summary></summary>
+                        <div class="explanation-content">
+                            <p><strong>Answer:</strong> B) 75°</p>
+                            <h4>Diagram (Time: 3:30)</h4>
+                            <div class="diagram-container">
+                                <div class="clock">
+                                    <div class="number n12">12</div><div class="number n3">3</div><div class="number n6">6</div><div class="number n9">9</div>
+                                    <div class="center-dot"></div>
+                                    <div class="hour-hand" style="transform: translateX(-50%) rotate(105deg);"></div>
+                                    <div class="minute-hand" style="transform: translateX(-50%) rotate(180deg);"></div>
+                                </div>
+                            </div>
+                            <h4>Explanation</h4>
+                            <p><strong>Technique:</strong> Use the standard angle formula.</p>
+                            <p>Formula: <code>Angle = | (11/2) * M - 30 * H |</code></p>
+                            <p>Here, H = 3, M = 30.</p>
+                            <p>Angle = | (11/2) * 30 - 30 * 3 | = | 165 - 90 | = <strong>75°</strong>.</p>
+                            <p><em>Diagram Angle Calculation:</em><br>
+                            - Minute Hand: 30 mins * 6°/min = 180° from 12.<br>
+                            - Hour Hand: (3 hrs * 30°) + (30 mins * 0.5°) = 90° + 15° = 105° from 12.</p>
+                        </div>
+                    </details>
+                </li>
+
+                <!-- Question 2 -->
+                <li class="question-block">
+                    <p><strong>Question:</strong> At what time between 4 and 5 o'clock will the hands of a clock be together (coincide)?</p>
+                    <p>A) 4:20 <br> B) 4:21 9/11 <br> C) 4:22 8/11 <br> D) 4:23 7/11</p>
+                    <details>
+                        <summary></summary>
+                        <div class="explanation-content">
+                            <p><strong>Answer:</strong> B) 4:21 9/11</p>
+                            <h4>Diagram (Time: Approx. 4:22)</h4>
+                             <div class="diagram-container">
+                                <div class="clock">
+                                    <div class="number n12">12</div><div class="number n3">3</div><div class="number n6">6</div><div class="number n9">9</div>
+                                    <div class="center-dot"></div>
+                                    <div class="hour-hand" style="transform: translateX(-50%) rotate(130.9deg);"></div>
+                                    <div class="minute-hand" style="transform: translateX(-50%) rotate(130.9deg);"></div>
+                                </div>
+                            </div>
+                            <h4>Explanation</h4>
+                            <p><strong>Technique:</strong> Use the relative speed concept. For the hands to coincide, the minute hand has to gain the initial angle gap between them.</p>
+                            <p>At 4 o'clock, the hour hand is at 4 and the minute hand is at 12. The gap is 20 minute spaces.</p>
+                            <p>Initial angle gap = 4 * 30° = 120°.</p>
+                            <p>The minute hand gains 5.5° per minute. Time required = Total Angle to Gain / Relative Speed</p>
+                            <p>Time = 120° / 5.5° = 120 / (11/2) = 240 / 11 = <strong>21 9/11 minutes</strong>.</p>
+                            <p>So, the hands will coincide at 21 9/11 minutes past 4.</p>
+                        </div>
+                    </details>
+                </li>
+                
+                <!-- Question 3 -->
+                <li class="question-block">
+                    <p><strong>Question:</strong> A clock is set right at 8 a.m. The clock gains 10 minutes in 24 hours. What will be the true time when the clock indicates 1 p.m. on the following day?</p>
+                    <p>A) 12:48 p.m. <br> B) 12 p.m. <br> C) 1 p.m. <br> D) 11:48 a.m.</p>
+                    <details>
+                        <summary></summary>
+                        <div class="explanation-content">
+                            <p><strong>Answer:</strong> A) 12:48 p.m.</p>
+                            <h4>Diagram</h4>
+                            <div style="font-family: monospace; line-height: 1.5;">
+                            Incorrect Clock: 8 a.m. (Day 1) ---- 29 hours ----> 1 p.m. (Day 2)<br>
+                            Correct Clock:   8 a.m. (Day 1) ---- 28h 48m ----> 12:48 p.m. (Day 2)
+                            </div>
+                            <h4>Explanation</h4>
+                            <p><strong>Technique:</strong> Calculate the ratio of correct time to incorrect time.</p>
+                            <p>The incorrect clock gains 10 minutes in 24 hours. This means:</p>
+                            <p>24 hours 10 minutes of the incorrect clock = 24 hours of the correct clock.</p>
+                            <p>(24 + 10/60) hrs of incorrect clock = 24 hrs of correct clock.</p>
+                            <p>(145/6) hrs of incorrect clock = 24 hrs of correct clock.</p>
+                            <p>Time elapsed on the incorrect clock from 8 a.m. (Day 1) to 1 p.m. (Day 2) = 29 hours.</p>
+                            <p>If (145/6) incorrect hours = 24 correct hours, then 29 incorrect hours = ?</p>
+                            <p>Correct hours = 29 * (24 / (145/6)) = 29 * (24 * 6 / 145) = (29 * 144) / (29 * 5) = 144 / 5 = 28.8 hours.</p>
+                            <p>28.8 hours = 28 hours and 0.8 * 60 minutes = 28 hours and 48 minutes.</p>
+                            <p>The true time is 28 hours and 48 minutes after 8 a.m. (Day 1).<br>
+                            8 a.m. (Day 1) + 24 hours = 8 a.m. (Day 2).<br>
+                            8 a.m. (Day 2) + 4 hours 48 minutes = <strong>12:48 p.m.</strong></p>
+                        </div>
+                    </details>
+                </li>
+
+                <!-- Question 4 -->
+                <li class="question-block">
+                    <p><strong>Question:</strong> The reflection of a wall clock in a mirror shows the time as 3:40. What is the actual time?</p>
+                    <p>A) 8:20 <br> B) 9:20 <br> C) 8:40 <br> D) 9:40</p>
+                    <details>
+                        <summary></summary>
+                        <div class="explanation-content">
+                             <p><strong>Answer:</strong> A) 8:20</p>
+                            <h4>Diagram</h4>
+                             <div class="diagram-container">
+                                <div>
+                                    <div class="clock">
+                                        <div class="number n12">12</div><div class="number n3">3</div><div class="number n6">6</div><div class="number n9">9</div>
+                                        <div class="center-dot"></div>
+                                        <div class="hour-hand" style="transform: translateX(-50%) rotate(250deg);"></div>
+                                        <div class="minute-hand" style="transform: translateX(-50%) rotate(120deg);"></div>
+                                    </div>
+                                    <div class="diagram-label">Mirror Time (3:40)</div>
+                                </div>
+                                <div style="font-size: 2em;"> &#8644; </div>
+                                <div>
+                                    <div class="clock">
+                                        <div class="number n12">12</div><div class="number n3">3</div><div class="number n6">6</div><div class="number n9">9</div>
+                                        <div class="center-dot"></div>
+                                        <div class="hour-hand" style="transform: translateX(-50%) rotate(250deg);"></div>
+                                        <div class="minute-hand" style="transform: translateX(-50%) rotate(120deg);"></div>
+                                    </div>
+                                    <div class="diagram-label">Actual Time (8:20)</div>
+                                </div>
+                             </div>
+                            <h4>Explanation</h4>
+                            <p><strong>Technique:</strong> Subtract the mirror time from 11:60.</p>
+                            <p>  11 : 60
+<br>-  03 : 40
+<br>-----------
+<br>   <strong>08 : 20</strong></p>
+                            <p>The actual time is 8:20.</p>
+                        </div>
+                    </details>
+                </li>
+                 <!-- Question 5 -->
+                <li class="question-block">
+                    <p><strong>Question:</strong> What is the reflex angle between the hands of a clock at 10:25?</p>
+                    <p>A) 162.5° <br> B) 180° <br> C) 197.5° <br> D) 192.5°</p>
+                    <details>
+                        <summary></summary>
+                        <div class="explanation-content">
+                            <p><strong>Answer:</strong> C) 197.5°</p>
+                            <h4>Diagram (Time: 10:25)</h4>
+                             <div class="diagram-container">
+                                <div class="clock">
+                                    <div class="number n12">12</div><div class="number n3">3</div><div class="number n6">6</div><div class="number n9">9</div>
+                                    <div class="center-dot"></div>
+                                    <div class="hour-hand" style="transform: translateX(-50%) rotate(312.5deg);"></div>
+                                    <div class="minute-hand" style="transform: translateX(-50%) rotate(150deg);"></div>
+                                </div>
+                            </div>
+                            <h4>Explanation</h4>
+                            <p><strong>Technique:</strong> First find the smaller angle using the formula, then subtract it from 360° to get the reflex angle.</p>
+                            <p><strong>Step 1: Find the smaller angle.</strong></p>
+                            <p>H = 10, M = 25. Angle = | (11/2) * 25 - 30 * 10 | = | 137.5 - 300 | = <strong>162.5°</strong>.</p>
+                            <p><strong>Step 2: Find the reflex angle.</strong></p>
+                            <p>Reflex Angle = 360° - 162.5° = <strong>197.5°</strong>.</p>
+                        </div>
+                    </details>
+                </li>
+                
+                <!-- Questions 6 to 50 -->
+                <li class="question-block"><p><strong>Question 6:</strong> At what time between 7 and 8 o'clock are the hands at an angle of 45°?</p><p>A) 7:30 and 7:46 4/11 <br> B) 7:30 and 7:43 7/11 <br> C) 7:30 and 7:40 10/11 <br> D) 7:30 and 7:45</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> A) 7:30 and 7:46 4/11</p>
+<h4>Diagrams</h4>
+<div class="diagram-container">
+    <div>
+        <div class="clock">
+            <div class="number n12">12</div><div class="number n3">3</div><div class="number n6">6</div><div class="number n9">9</div>
+            <div class="center-dot"></div>
+            <div class="hour-hand" style="transform: translateX(-50%) rotate(225deg);"></div>
+            <div class="minute-hand" style="transform: translateX(-50%) rotate(180deg);"></div>
+        </div>
+        <div class="diagram-label">Time 1 (7:30)</div>
+    </div>
+    <div>
+        <div class="clock">
+            <div class="number n12">12</div><div class="number n3">3</div><div class="number n6">6</div><div class="number n9">9</div>
+            <div class="center-dot"></div>
+            <div class="hour-hand" style="transform: translateX(-50%) rotate(233.18deg);"></div>
+            <div class="minute-hand" style="transform: translateX(-50%) rotate(278.18deg);"></div>
+        </div>
+        <div class="diagram-label">Time 2 (7:46 4/11)</div>
+    </div>
+</div>
+<h4>Explanation</h4><p>Using <code>M = (2/11)(30H ± θ)</code> with H=7, θ=45.
+<br><strong>Case 1 (Hour hand ahead):</strong> M = (2/11)(210 - 45) = 330/11 = 30 min. Time is 7:30.
+<br><strong>Case 2 (Minute hand ahead):</strong> M = (2/11)(210 + 45) = 510/11 = 46 4/11 min. Time is 7:46 4/11.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 7:</strong> How many times in a day are the hands of a clock in a straight line but opposite in direction?</p><p>A) 11 <br> B) 22 <br> C) 24 <br> D) 44</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> B) 22</p>
+<h4>Diagram (Example: 6:00)</h4>
+<div class="diagram-container">
+    <div class="clock">
+        <div class="number n12">12</div><div class="number n3">3</div><div class="number n6">6</div><div class="number n9">9</div>
+        <div class="center-dot"></div>
+        <div class="hour-hand" style="transform: translateX(-50%) rotate(180deg);"></div>
+        <div class="minute-hand" style="transform: translateX(-50%) rotate(0deg);"></div>
+    </div>
+</div>
+<h4>Explanation</h4><p>The hands of a clock are opposite (180°) once every hour, except in the interval between 5 and 7, where it happens only once at 6 o'clock.
+<br>This means they are opposite 11 times in 12 hours.
+<br>In a full day (24 hours), they will be opposite 11 * 2 = <strong>22 times</strong>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 8:</strong> A clock loses 5 minutes every hour and was set right at 6 a.m. on a Monday. When will it show the correct time again?</p><p>A) 6 days later, 6 a.m. <br> B) 5 days later, 6 p.m. <br> C) 6 days later, 6 p.m. <br> D) 7 days later, 6 a.m.</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> A) 6 days later, 6 a.m.</p><h4>Explanation</h4><p>For a clock to show the correct time again, it must lose a full 12 hours.
+<br>12 hours = 12 * 60 = 720 minutes.
+<br>The clock loses 5 minutes in 1 hour.
+<br>Time required to lose 720 minutes = (720 minutes) / (5 minutes/hour) = 144 hours.
+<br>144 hours = 144 / 24 = 6 days.
+<br>So, the clock will show the correct time exactly 6 days after it was set.
+<br>It was set at 6 a.m. on Monday, so it will show the correct time at <strong>6 a.m. on the following Sunday</strong> (which is 6 days later).</p></div></details></li>
+                <li class="question-block"><p><strong>Question 9:</strong> What time is shown by the mirror if the actual time is 11:09?</p><p>A) 12:51 <br> B) 1:51 <br> C) 12:49 <br> D) 1:49</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> A) 12:51</p><h4>Diagram</h4>
+<div class="diagram-container">
+    <div>
+        <div class="clock">
+            <div class="number n12">12</div><div class="number n3">3</div><div class="number n6">6</div><div class="number n9">9</div>
+            <div class="center-dot"></div>
+            <div class="hour-hand" style="transform: translateX(-50%) rotate(334.5deg);"></div>
+            <div class="minute-hand" style="transform: translateX(-50%) rotate(54deg);"></div>
+        </div>
+        <div class="diagram-label">Actual Time (11:09)</div>
+    </div>
+    <div>
+        <div class="clock">
+            <div class="number n12">12</div><div class="number n3">3</div><div class="number n6">6</div><div class="number n9">9</div>
+            <div class="center-dot"></div>
+            <div class="hour-hand" style="transform: translateX(-50%) rotate(25.5deg);"></div>
+            <div class="minute-hand" style="transform: translateX(-50%) rotate(306deg);"></div>
+        </div>
+        <div class="diagram-label">Mirror Time (12:51)</div>
+    </div>
+</div>
+<h4>Explanation</h4><p>Subtract from 11:60.
+<br>11:60 - 11:09 = 00:51.
+<br>A time of 00 hours is interpreted as 12 in a 12-hour clock format.
+<br>So the time is <strong>12:51</strong>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 10:</strong> How many degrees does the hour hand move in 20 minutes?</p><p>A) 10° <br> B) 12° <br> C) 20° <br> D) 120°</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> A) 10°</p><h4>Explanation</h4><p>The speed of the hour hand is 0.5° per minute.
+<br>In 20 minutes, the hour hand moves = 20 minutes * 0.5°/minute = <strong>10°</strong>.</p></div></details></li>
+                 <!-- Filling in the rest with new diagrams -->
+                <li class="question-block"><p><strong>Question 11:</strong> At 4:20, the hour hand and the minute hand of a clock form an angle of:</p><p>A) 0° <br> B) 5° <br> C) 10° <br> D) 20°</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> C) 10°</p><h4>Diagram (Time: 4:20)</h4><div class="diagram-container"><div class="clock"><div class="number n12">12</div><div class="number n3">3</div><div class="number n6">6</div><div class="number n9">9</div><div class="center-dot"></div><div class="hour-hand" style="transform: translateX(-50%) rotate(130deg);"></div><div class="minute-hand" style="transform: translateX(-50%) rotate(120deg);"></div></div></div><h4>Explanation</h4><p>Using the formula: H=4, M=20.
+<br>Angle = | (11/2)*20 - 30*4 | = | 110 - 120 | = |-10| = <strong>10°</strong>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 12:</strong> At what time between 9 and 10 o'clock will the hands of a clock be in a straight line, but not together?</p><p>A) 9:15 <br> B) 9:16 4/11 <br> C) 9:17 3/11 <br> D) 9:18 2/11</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> B) 9:16 4/11</p><h4>Diagram (Time: Approx. 9:16)</h4><div class="diagram-container"><div class="clock"><div class="number n12">12</div><div class="number n3">3</div><div class="number n6">6</div><div class="number n9">9</div><div class="center-dot"></div><div class="hour-hand" style="transform: translateX(-50%) rotate(278.18deg);"></div><div class="minute-hand" style="transform: translateX(-50%) rotate(98.18deg);"></div></div></div><h4>Explanation</h4><p>This means the hands are opposite (180°). At 9 o'clock, the angle is 270°. To be 180°, the minute hand must gain 270° - 180° = 90°.
+<br>Time = 90 / 5.5 = 90 / (11/2) = 180/11 = <strong>16 4/11 minutes</strong> past 9.</p></div></details></li>
+                 <li class="question-block"><p><strong>Question 13:</strong> How many times are the hands of a clock at a right angle in a day?</p><p>A) 22 <br> B) 24 <br> C) 44 <br> D) 48</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> C) 44</p><h4>Diagram (Example: 3:00)</h4><div class="diagram-container"><div class="clock"><div class="number n12">12</div><div class="number n3">3</div><div class="number n6">6</div><div class="number n9">9</div><div class="center-dot"></div><div class="hour-hand" style="transform: translateX(-50%) rotate(90deg);"></div><div class="minute-hand" style="transform: translateX(-50%) rotate(0deg);"></div></div></div><h4>Explanation</h4><p>The hands are at a right angle (90°) twice every hour, except at 3 and 9 o'clock intervals where one opportunity is missed. This results in 22 right angles in 12 hours. In a full day (24 hours), there are 22 * 2 = <strong>44 right angles</strong>.</p></div></details></li>
+                 <li class="question-block"><p><strong>Question 14:</strong> A watch which gains uniformly is 2 minutes low at noon on Monday and is 4 min 48 sec fast at 2 p.m. on the following Monday. When was it correct?</p><p>A) 2 p.m. on Tuesday <br> B) 2 p.m. on Wednesday <br> C) 3 p.m. on Thursday <br> D) 1 p.m. on Friday</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> B) 2 p.m. on Wednesday</p><h4>Explanation</h4><p>From Monday noon to the next Monday 2 p.m. is 7 days and 2 hours = 170 hours.
+<br>Total time gained = 2 min (slow) + 4 min 48 sec (fast) = 6 min 48 sec = 6.8 minutes.
+<br>The watch gains 6.8 minutes in 170 hours.
+<br>To show the correct time, it must gain the initial 2 minutes it was slow.
+<br>Time to gain 2 minutes = (170 hours / 6.8 min) * 2 min = 50 hours.
+<br>The correct time will be shown 50 hours after Monday noon. 50 hours = 2 days and 2 hours.
+<br>Monday noon + 2 days = Wednesday noon. Wednesday noon + 2 hours = <strong>2 p.m. on Wednesday</strong>.</p></div></details></li>
+                 <li class="question-block"><p><strong>Question 15:</strong> Find the time shown in the mirror if the actual time is 1:11:15 (Hr:Min:Sec).</p><p>A) 10:48:45 <br> B) 10:49:45 <br> C) 11:48:45 <br> D) 11:49:45</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> A) 10:48:45</p><h4>Explanation</h4><p>When seconds are involved, subtract the time from 11:59:60.
+<br>11h 59m 60s - 1h 11m 15s = <strong>10h 48m 45s</strong>.</p></div></details></li>
+                 <li class="question-block"><p><strong>Question 16:</strong> The angle between the hands of a clock at 12:30 is:</p><p>A) 165° <br> B) 180° <br> C) 195° <br> D) 150°</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> A) 165°</p><h4>Diagram (Time: 12:30)</h4><div class="diagram-container"><div class="clock"><div class="number n12">12</div><div class="number n3">3</div><div class="number n6">6</div><div class="number n9">9</div><div class="center-dot"></div><div class="hour-hand" style="transform: translateX(-50%) rotate(15deg);"></div><div class="minute-hand" style="transform: translateX(-50%) rotate(180deg);"></div></div></div><h4>Explanation</h4><p>For 12:30, use H=0 in the formula for simplicity.
+<br>Angle = | (11/2)*30 - 30*0 | = | 165 - 0 | = <strong>165°</strong>.</p></div></details></li>
+                 <li class="question-block"><p><strong>Question 17:</strong> At what time between 2 and 3 o'clock will the hands of a clock be at a right angle?</p><p>A) 2:27 3/11 <br> B) 2:30 <br> C) 2:25 5/11 <br> D) 2:28 2/11</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> A) 2:27 3/11</p><h4>Diagram (Time: Approx 2:27)</h4><div class="diagram-container"><div class="clock"><div class="number n12">12</div><div class="number n3">3</div><div class="number n6">6</div><div class="number n9">9</div><div class="center-dot"></div><div class="hour-hand" style="transform: translateX(-50%) rotate(73.6deg);"></div><div class="minute-hand" style="transform: translateX(-50%) rotate(163.6deg);"></div></div></div><h4>Explanation</h4><p>Using M = (2/11)(30H ± 90). H=2.
+<br>Case 1 (Hour hand ahead, angle < 90): M = (2/11)(60 - 90) = Negative. Ignore. The minute hand has to pass the hour hand.
+<br>Case 2 (Minute hand ahead): M = (2/11)(60 + 90) = (2/11)(150) = 300/11 = <strong>27 3/11 minutes</strong> past 2.</p></div></details></li>
+                 <li class="question-block"><p><strong>Question 18:</strong> A clock is 5 minutes fast. If the clock shows 10:10 a.m., what is the correct time?</p><p>A) 10:00 a.m. <br> B) 10:05 a.m. <br> C) 10:15 a.m. <br> D) 9:55 a.m.</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> B) 10:05 a.m.</p><h4>Explanation</h4><p>The clock is running fast, so the time it shows is ahead of the actual time. To find the correct time, we must subtract the extra minutes.
+<br>Correct Time = Shown Time - Gained Time = 10:10 - 5 minutes = <strong>10:05 a.m.</strong></p></div></details></li>
+                 <li class="question-block"><p><strong>Question 19:</strong> How much time does the minute hand take to gain 12 degrees over the hour hand?</p><p>A) 2 minutes <br> B) 2 2/11 minutes <br> C) 3 minutes <br> D) 3 3/11 minutes</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> B) 2 2/11 minutes</p><h4>Explanation</h4><p>The relative speed of the minute hand over the hour hand is 5.5° per minute.
+<br>Time = Angle to gain / Relative speed = 12° / 5.5° = 12 / (11/2) = 24 / 11 = <strong>2 2/11 minutes</strong>.</p></div></details></li>
+                 <li class="question-block"><p><strong>Question 20:</strong> A man looks at a mirror and sees the clock showing 8:50. What is the correct time?</p><p>A) 3:10 <br> B) 4:10 <br> C) 3:50 <br> D) 4:50</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> A) 3:10</p><h4>Explanation</h4><p>Subtract from 11:60.
+<br>11:60 - 8:50 = <strong>3:10</strong>.</p></div></details></li>
+                 <li class="question-block"><p><strong>Question 21:</strong> Find the angle between the hands of a clock at 8:20.</p><p>A) 120° <br> B) 130° <br> C) 140° <br> D) 150°</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> B) 130°</p><h4>Diagram (Time: 8:20)</h4><div class="diagram-container"><div class="clock"><div class="number n12">12</div><div class="number n3">3</div><div class="number n6">6</div><div class="number n9">9</div><div class="center-dot"></div><div class="hour-hand" style="transform: translateX(-50%) rotate(250deg);"></div><div class="minute-hand" style="transform: translateX(-50%) rotate(120deg);"></div></div></div><h4>Explanation</h4><p>Angle = | (11/2)*20 - 30*8 | = | 110 - 240 | = |-130| = <strong>130°</strong>.</p></div></details></li>
+                 <li class="question-block"><p><strong>Question 22:</strong> At what time between 1 and 2 o'clock will the hands be opposite to each other?</p><p>A) 1:35 5/11 <br> B) 1:36 6/11 <br> C) 1:37 7/11 <br> D) 1:38 2/11</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> D) 1:38 2/11</p><h4>Diagram (Time: Approx. 1:38)</h4><div class="diagram-container"><div class="clock"><div class="number n12">12</div><div class="number n3">3</div><div class="number n6">6</div><div class="number n9">9</div><div class="center-dot"></div><div class="hour-hand" style="transform: translateX(-50%) rotate(49.1deg);"></div><div class="minute-hand" style="transform: translateX(-50%) rotate(229.1deg);"></div></div></div><h4>Explanation</h4><p>At 1 o'clock, the minute hand has to gain 30° (to catch up) + 180° (to go opposite) = 210°.
+<br>Time = 210 / 5.5 = 210 / (11/2) = 420/11 = <strong>38 2/11 minutes</strong> past 1.</p></div></details></li>
+                 <li class="question-block"><p><strong>Question 23:</strong> A clock strikes once at 1 o'clock, twice at 2 o'clock, and so on. How many times will it strike in 24 hours?</p><p>A) 78 <br> B) 156 <br> C) 180 <br> D) 196</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> B) 156</p><h4>Explanation</h4><p>The number of strikes in 12 hours is the sum of the first 12 natural numbers: 1+2+3+...+12.
+<br>Sum = n(n+1)/2 = 12(13)/2 = 78.
+<br>In 24 hours, this cycle repeats.
+<br>Total strikes = 78 * 2 = <strong>156</strong>.</p></div></details></li>
+                 <li class="question-block"><p><strong>Question 24:</strong> The minute hand of a clock overtakes the hour hand at intervals of 65 minutes of the correct time. How much does the clock gain or lose in a day?</p><p>A) Gains 10 10/143 min <br> B) Loses 10 10/143 min <br> C) Gains 11 min <br> D) Loses 11 min</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> A) Gains 10 10/143 min</p><h4>Explanation</h4><p>In a correct clock, the hands coincide every 65 5/11 minutes.
+<br>This clock's hands coincide every 65 minutes. It is faster than the correct clock, so it gains time.
+<br>Gain in 65 minutes = (65 5/11) - 65 = 5/11 minutes.
+<br>In 65 minutes of incorrect time, the clock gains 5/11 min.
+<br>In 1 day (24 hours = 1440 minutes), the gain is (5/11 * 1/65) * 1440 = (1/143) * 1440 = <strong>10 10/143 minutes</strong>.</p></div></details></li>
+                 <li class="question-block"><p><strong>Question 25:</strong> What is the angle traced by the hour hand in 2 hours and 30 minutes?</p><p>A) 60° <br> B) 75° <br> C) 90° <br> D) 105°</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> B) 75°</p><h4>Explanation</h4><p>Total time in minutes = 2 * 60 + 30 = 150 minutes.
+<br>Speed of hour hand = 0.5° per minute.
+<br>Angle traced = 150 * 0.5 = <strong>75°</strong>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 26:</strong> At 5:15, what is the smaller angle between the clock hands?</p><p>A) 60° <br> B) 62.5° <br> C) 65° <br> D) 67.5°</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> D) 67.5°</p><h4>Diagram (Time: 5:15)</h4><div class="diagram-container"><div class="clock"><div class="number n12">12</div><div class="number n3">3</div><div class="number n6">6</div><div class="number n9">9</div><div class="center-dot"></div><div class="hour-hand" style="transform: translateX(-50%) rotate(157.5deg);"></div><div class="minute-hand" style="transform: translateX(-50%) rotate(90deg);"></div></div></div><h4>Explanation</h4><p>Angle = | (11/2)*15 - 30*5 | = | 82.5 - 150 | = |-67.5| = <strong>67.5°</strong>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 27:</strong> How many times between 4 PM and 10 PM do the hands of a clock coincide?</p><p>A) 5 <br> B) 6 <br> C) 7 <br> D) 8</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> B) 6</p><h4>Explanation</h4><p>Hands coincide once per hour. The intervals are 4-5, 5-6, 6-7, 7-8, 8-9, 9-10. This gives a total of <strong>6 times</strong>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 28:</strong> My watch, which was correct at noon, shows 5:10 PM when the correct time is 5 PM. How many minutes does my watch gain per hour?</p><p>A) 1 min <br> B) 1.5 min <br> C) 2 min <br> D) 2.5 min</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> C) 2 min</p><h4>Explanation</h4><p>From noon to 5 PM, the correct clock has passed 5 hours. In these 5 hours, the incorrect watch has gained 10 minutes. Gain per hour = Total Gain / Total Hours = 10 min / 5 hours = <strong>2 minutes per hour</strong>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 29:</strong> What time does a mirror show if the real time is 6:00?</p><p>A) 6:00 <br> B) 12:00 <br> C) 5:00 <br> D) 7:00</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> A) 6:00</p><h4>Explanation</h4><p>A vertical reflection of 6:00 is still 6:00. Using the formula: 12:00 - 6:00 = <strong>6:00</strong>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 30:</strong> At what angle are the hands of a clock inclined at 15 minutes past 5?</p><p>A) 67.5° <br> B) 72.5° <br> C) 58.5° <br> D) 64°</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> A) 67.5°</p><h4>Explanation</h4><p>This is the same as Question 26, asking for the angle at 5:15. Angle = <strong>67.5°</strong>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 31:</strong> How many degrees will the minute hand move in the same time in which the hour hand moves 6°?</p><p>A) 60° <br> B) 72° <br> C) 84° <br> D) 90°</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> B) 72°</p><h4>Explanation</h4><p>The hour hand moves at 0.5°/min. Time taken to move 6° = 6 / 0.5 = 12 minutes.
+The minute hand moves at 6°/min. In 12 minutes, it moves = 12 * 6 = <strong>72°</strong>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 32:</strong> At what time between 5:30 and 6:00 will the hands of a clock be at right angles?</p><p>A) 5:40 <br> B) 5:43 7/11 <br> C) 5:45 <br> D) 5:50</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> B) 5:43 7/11</p><h4>Diagram (Time: Approx. 5:44)</h4><div class="diagram-container"><div class="clock"><div class="number n12">12</div><div class="number n3">3</div><div class="number n6">6</div><div class="number n9">9</div><div class="center-dot"></div><div class="hour-hand" style="transform: translateX(-50%) rotate(171.8deg);"></div><div class="minute-hand" style="transform: translateX(-50%) rotate(261.8deg);"></div></div></div><h4>Explanation</h4><p>Using M = (2/11)(30H ± 90) for H=5. We need a value between 30 and 60.
+<br>Case 1 (-): M = (2/11)(150 - 90) = 120/11 = 10 10/11. (Not in range)
+<br>Case 2 (+): M = (2/11)(150 + 90) = 480/11 = <strong>43 7/11 minutes</strong> past 5. (This is in the range).</p></div></details></li>
+                <li class="question-block"><p><strong>Question 33:</strong> A clock is started at noon. By 10 minutes past 5, the hour hand has turned through:</p><p>A) 145° <br> B) 150° <br> C) 155° <br> D) 160°</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> C) 155°</p><h4>Explanation</h4><p>From noon to 5:10 is 5 hours and 10 minutes.
+Total minutes = 5 * 60 + 10 = 310 minutes.
+Hour hand speed = 0.5°/min.
+Angle turned = 310 * 0.5 = <strong>155°</strong>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 34:</strong> What is the time in a mirror if the clock shows 12:20?</p><p>A) 11:40 <br> B) 12:40 <br> C) 1:40 <br> D) 2:40</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> A) 11:40</p><h4>Explanation</h4><p>12:xx is tricky. Treat 12 as 0. Subtract 0:20 from 11:60.
+11:60 - 0:20 = 11:40.
+Alternatively, subtract 12:20 from 23:60 (or 24:00).
+23:60 - 12:20 = <strong>11:40</strong>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 35:</strong> Angle at 7:35?</p><p>A) 15° <br> B) 16.5° <br> C) 17.5° <br> D) 18.5°</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> C) 17.5°</p><h4>Diagram (Time: 7:35)</h4><div class="diagram-container"><div class="clock"><div class="number n12">12</div><div class="number n3">3</div><div class="number n6">6</div><div class="number n9">9</div><div class="center-dot"></div><div class="hour-hand" style="transform: translateX(-50%) rotate(227.5deg);"></div><div class="minute-hand" style="transform: translateX(-50%) rotate(210deg);"></div></div></div><h4>Explanation</h4><p>Angle = | (11/2)*35 - 30*7 | = | 192.5 - 210 | = |-17.5| = <strong>17.5°</strong>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 36:</strong> How many times do the hands of a clock coincide in a day?</p><p>A) 11 <br> B) 12 <br> C) 22 <br> D) 24</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> C) 22</p><h4>Explanation</h4><p>The hands coincide once every hour, but only once between 11 and 1 (at 12 o'clock). This means they coincide 11 times in 12 hours. In a day (24 hours), they coincide 11 * 2 = <strong>22 times</strong>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 37:</strong> A clock is 10 minutes slow. If it shows 6:00 p.m., what is the actual time?</p><p>A) 5:50 p.m. <br> B) 6:10 p.m. <br> C) 6:00 p.m. <br> D) 6:05 p.m.</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> B) 6:10 p.m.</p><h4>Explanation</h4><p>The clock is slow, meaning it is behind the actual time. To get the correct time, we must add the lost time.
+Correct Time = Shown Time + Lost Time = 6:00 + 10 minutes = <strong>6:10 p.m.</strong></p></div></details></li>
+                <li class="question-block"><p><strong>Question 38:</strong> Angle at 2:40?</p><p>A) 150° <br> B) 160° <br> C) 170° <br> D) 180°</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> B) 160°</p><h4>Diagram (Time: 2:40)</h4><div class="diagram-container"><div class="clock"><div class="number n12">12</div><div class="number n3">3</div><div class="number n6">6</div><div class="number n9">9</div><div class="center-dot"></div><div class="hour-hand" style="transform: translateX(-50%) rotate(80deg);"></div><div class="minute-hand" style="transform: translateX(-50%) rotate(240deg);"></div></div></div><h4>Explanation</h4><p>Angle = | (11/2)*40 - 30*2 | = | 220 - 60 | = <strong>160°</strong>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 39:</strong> At what time between 3 and 4 o'clock are the hands 4 minutes apart?</p><p>A) 3:12 <br> B) 3:15 <br> C) 3:20 8/11 <br> D) 3:24</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> A) 3:12 and C) 3:20 8/11</p><h4>Explanation</h4><p>Angle = 4 min * 6°/min = 24°.
+M=(2/11)(30*3 ± 24).
+<br>Case 1: M=(2/11)(90-24) = 132/11 = 12 min. Time is <strong>3:12</strong>.
+<br>Case 2: M=(2/11)(90+24) = 228/11 = <strong>20 8/11 min</strong>. Time is 3:20 8/11.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 40:</strong> Time in mirror is 12:30. Actual time?</p><p>A) 11:30 <br> B) 12:30 <br> C) 1:30 <br> D) 6:30</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> A) 11:30</p><h4>Explanation</h4><p>Subtract from 23:60 for 24-hour cycle. 23:60 - 12:30 = 11:30. Or, from 11:60, treating 12 as 0. 11:60 - 0:30 = <strong>11:30</strong>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 41:</strong> Angle at 6:45?</p><p>A) 60° <br> B) 62.5° <br> C) 65° <br> D) 67.5°</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> D) 67.5°</p><h4>Diagram (Time: 6:45)</h4><div class="diagram-container"><div class="clock"><div class="number n12">12</div><div class="number n3">3</div><div class="number n6">6</div><div class="number n9">9</div><div class="center-dot"></div><div class="hour-hand" style="transform: translateX(-50%) rotate(202.5deg);"></div><div class="minute-hand" style="transform: translateX(-50%) rotate(270deg);"></div></div></div><h4>Explanation</h4><p>Angle = | (11/2)*45 - 30*6 | = | 247.5 - 180 | = <strong>67.5°</strong>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 42:</strong> A clock takes 6 seconds to strike 4 times. How long will it take to strike 10 times?</p><p>A) 15 seconds <br> B) 18 seconds <br> C) 21 seconds <br> D) 24 seconds</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> B) 18 seconds</p><h4>Explanation</h4><p>To strike 4 times, there are 3 intervals between the strikes.
+Time per interval = 6 seconds / 3 intervals = 2 seconds.
+To strike 10 times, there are 9 intervals.
+Total time = 9 intervals * 2 seconds/interval = <strong>18 seconds</strong>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 43:</strong> Angle at 1:05?</p><p>A) 2.5° <br> B) 5° <br> C) 1.5° <br> D) 0°</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> A) 2.5°</p><h4>Diagram (Time: 1:05)</h4><div class="diagram-container"><div class="clock"><div class="number n12">12</div><div class="number n3">3</div><div class="number n6">6</div><div class="number n9">9</div><div class="center-dot"></div><div class="hour-hand" style="transform: translateX(-50%) rotate(32.5deg);"></div><div class="minute-hand" style="transform: translateX(-50%) rotate(30deg);"></div></div></div><h4>Explanation</h4><p>Angle = | (11/2)*5 - 30*1 | = | 27.5 - 30 | = |-2.5| = <strong>2.5°</strong>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 44:</strong> The minute hand moves through an angle of _____ in one minute.</p><p>A) 0.5° <br> B) 1° <br> C) 6° <br> D) 12°</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> C) 6°</p><h4>Explanation</h4><p>The minute hand covers 360° in 60 minutes. So, in one minute, it covers 360/60 = <strong>6°</strong>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 45:</strong> If a clock shows 3:14, what is the mirror image?</p><p>A) 8:46 <br> B) 9:46 <br> C) 8:56 <br> D) 9:56</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> A) 8:46</p><h4>Explanation</h4><p>11:60 - 3:14 = <strong>8:46</strong>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 46:</strong> When are the hands of a clock 16 minute spaces apart between 3 and 4 o'clock?</p><p>A) 3:00 <br> B) 3:30 <br> C) 3:33 9/11 <br> D) 3:40</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> C) 3:33 9/11</p><h4>Explanation</h4><p>Angle = 16 min * 6°/min = 96°.
+M = (2/11)(30*3 + 96) because the minute hand has to be ahead.
+M = (2/11)(90+96) = (2/11)(186) = 372/11 = <strong>33 9/11 minutes</strong> past 3.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 47:</strong> A clock gains 15 minutes in a day (24 hours). If it is set correctly at 12 noon, what time will it show at 4 AM the next day?</p><p>A) 4:10 AM <br> B) 4:15 AM <br> C) 4:20 AM <br> D) 4:05 AM</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> A) 4:10 AM</p><h4>Explanation</h4><p>Time from 12 noon to 4 AM next day = 16 hours.
+The clock gains 15 min in 24 hours.
+Gain in 16 hours = (15/24) * 16 = 10 minutes.
+The clock will show 4:00 AM + 10 minutes = <strong>4:10 AM</strong>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 48:</strong> At 9:00, the angle between the hands is 90°. What is the reflex angle?</p><p>A) 90° <br> B) 180° <br> C) 270° <br> D) 360°</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> C) 270°</p><h4>Diagram (Time: 9:00)</h4><div class="diagram-container"><div class="clock"><div class="number n12">12</div><div class="number n3">3</div><div class="number n6">6</div><div class="number n9">9</div><div class="center-dot"></div><div class="hour-hand" style="transform: translateX(-50%) rotate(270deg);"></div><div class="minute-hand" style="transform: translateX(-50%) rotate(0deg);"></div></div></div><h4>Explanation</h4><p>The smaller angle at 9:00 is 90°.
+The reflex angle is 360° - 90° = <strong>270°</strong>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 49:</strong> An accurate clock shows 7 a.m. Through how many degrees will the hour hand rotate when the clock shows 1 p.m.?</p><p>A) 150° <br> B) 180° <br> C) 160° <br> D) 120°</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> B) 180°</p><h4>Explanation</h4><p>Time elapsed from 7 a.m. to 1 p.m. is 6 hours.
+The hour hand moves 30° in one hour.
+Total rotation = 6 hours * 30°/hour = <strong>180°</strong>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 50:</strong> What is the angle between the two hands of a clock when the time is 8:30?</p><p>A) 60° <br> B) 75° <br> C) 80° <br> D) 90°</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> B) 75°</p><h4>Diagram (Time: 8:30)</h4><div class="diagram-container"><div class="clock"><div class="number n12">12</div><div class="number n3">3</div><div class="number n6">6</div><div class="number n9">9</div><div class="center-dot"></div><div class="hour-hand" style="transform: translateX(-50%) rotate(255deg);"></div><div class="minute-hand" style="transform: translateX(-50%) rotate(180deg);"></div></div></div><h4>Explanation</h4><p>Angle = | (11/2)*30 - 30*8 | = | 165 - 240 | = |-75| = <strong>75°</strong>.</p></div></details></li>
+            </ol>
+        </section>
+    </div>
+</body>
+</html>

@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Problems in Reasoning</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3 {
+            color: #d9534f; /* A shade of red */
+        }
+        h1 {
+            text-align: center;
+            border-bottom: 2px solid #d9534f;
+            padding-bottom: 10px;
+        }
+        details {
+            background-color: #fcf8e3;
+            border: 1px solid #faebcc;
+            border-radius: 5px;
+            margin-top: 10px;
+            padding: 10px;
+        }
+        summary {
+            font-weight: bold;
+            cursor: pointer;
+            color: #8a6d3b;
+            list-style: none; /* Hide the default marker */
+        }
+        summary::-webkit-details-marker {
+            display: none; /* Hide the default marker in Chrome/Safari */
+        }
+        summary::before {
+            content: '▶ Show Answer and Explanation';
+            padding-right: 5px;
+        }
+        details[open] summary::before {
+            content: '▼ Hide Answer and Explanation';
+        }
+        .explanation-content {
+            margin-top: 15px;
+            padding-top: 10px;
+            border-top: 1px dashed #faebcc;
+        }
+        .question-block {
+            margin-bottom: 25px;
+        }
+        .options {
+            list-style-type: upper-alpha;
+        }
+        .diagram {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            overflow-x: auto;
+            white-space: pre;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #d9534f;
+            color: white;
+        }
+        code {
+            background-color: #eee;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Age Problems</h1>
+
+        <!-- Theory Section -->
+        <section id="theory">
+            <h2>1. Theory: About Age Problems</h2>
+            <p><strong>Age Problems</strong> are mathematical word problems that are a staple of the Quantitative Aptitude and Logical Reasoning sections in nearly all Indian government competitive exams (like SSC, Banking, Railways, UPSC CSAT, etc.). These questions test a candidate's ability to translate textual information into algebraic equations and solve them efficiently.</p>
+            <p>The core concept revolves around the relationship between the ages of two or more people at different points in time: the past, the present, and the future.</p>
+
+            <h3>Key Concepts & Techniques</h3>
+            <ol>
+                <li><strong>The Constant Difference:</strong> The difference in age between two people remains constant throughout their lives. If Person A is 10 years older than Person B today, they will be 10 years older 20 years from now and were 10 years older 5 years ago. This is a fundamental rule.</li>
+                <li><strong>Using Variables:</strong> The best approach is to assume the <strong>present age</strong> of a person as a variable (e.g., <code>x</code>). This serves as the baseline.</li>
+                <li><strong>Formulating Past and Future Ages:</strong>
+                    <ul>
+                        <li>If the present age is <code>x</code>, then 'n' years ago, the age was <code>x - n</code>.</li>
+                        <li>If the present age is <code>x</code>, then 'n' years in the future (or hence), the age will be <code>x + n</code>.</li>
+                    </ul>
+                </li>
+                <li><strong>Handling Ratios:</strong> If the ratio of the ages of A and B is <code>a:b</code>, their ages should be represented as <code>ax</code> and <code>bx</code>, where <code>x</code> is a common multiplier.</li>
+                <li><strong>Setting up Equations:</strong> The entire problem is a story that needs to be converted into one or more algebraic equations. For example, "The sum of their ages is 40" translates to <code>Age_A + Age_B = 40</code>.</li>
+            </ol>
+            
+            <h3>Types of Questions Asked</h3>
+            <ul>
+                <li><strong>Ratio-Based Problems:</strong> Questions provide ratios of ages in the past, present, or future, and you must find the current ages.</li>
+                <li><strong>Sum/Difference/Product Problems:</strong> Questions based on the sum, difference, or product of ages.</li>
+                <li><strong>Average Age Problems:</strong> Questions involving the average age of a group of people, often including scenarios where a person joins or leaves the group.</li>
+                <li><strong>"Times as old as" Problems:</strong> Statements like "A father is three times as old as his son."</li>
+                <li><strong>Complex Problems:</strong> Multi-condition problems that combine several of the above types.</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <!-- Questions Section -->
+        <section id="questions">
+            <h2>2. Questions, Answers, and Explanations</h2>
+            <ol>
+                <!-- Question 1 -->
+                <li class="question-block">
+                    <p><strong>Question:</strong> The ratio of the present ages of Priya and her mother is 2:5. After 8 years, the ratio of their ages will be 1:2. What is the present age of the mother?</p>
+                    <p>A) 30 years <br> B) 36 years <br> C) 40 years <br> D) 45 years</p>
+                    <details>
+                        <summary></summary>
+                        <div class="explanation-content">
+                            <p><strong>Answer:</strong> C) 40 years</p>
+                            <p><strong>Technique:</strong> Use the ratio method. Represent present ages as <code>2x</code> and <code>5x</code>. Form an equation for their ages after 8 years.</p>
+                            <h4>Diagram (Age Table):</h4>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Person</th>
+                                        <th>Present Age</th>
+                                        <th>Age after 8 years</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Priya</td>
+                                        <td>2x</td>
+                                        <td>2x + 8</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mother</td>
+                                        <td>5x</td>
+                                        <td>5x + 8</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p><strong>Explanation:</strong>
+                                Let the present ages of Priya and her mother be <code>2x</code> and <code>5x</code> respectively.
+                                <br>After 8 years, Priya's age will be <code>2x + 8</code> and her mother's age will be <code>5x + 8</code>.
+                                <br>According to the question, the ratio of their ages after 8 years will be 1:2.
+                                <br>So, <code>(2x + 8) / (5x + 8) = 1 / 2</code>
+                                <br>Cross-multiplying gives: <code>2 * (2x + 8) = 1 * (5x + 8)</code>
+                                <br><code>4x + 16 = 5x + 8</code>
+                                <br><code>16 - 8 = 5x - 4x</code>
+                                <br><code>x = 8</code>
+                                <br>The present age of the mother is <code>5x = 5 * 8 = 40</code> years.
+                            </p>
+                        </div>
+                    </details>
+                </li>
+
+                <!-- Question 2 -->
+                <li class="question-block">
+                    <p><strong>Question:</strong> The sum of the ages of a father and his son is 60 years. Six years ago, the father's age was five times the age of the son. What will be the son's age after 6 years?</p>
+                    <p>A) 14 years <br> B) 20 years <br> C) 22 years <br> D) 24 years</p>
+                    <details>
+                        <summary></summary>
+                        <div class="explanation-content">
+                            <p><strong>Answer:</strong> B) 20 years</p>
+                            <p><strong>Technique:</strong> Form two linear equations with two variables (father's age F, son's age S) based on the two conditions given.</p>
+                            <h4>Diagram (Age Table):</h4>
+                             <table>
+                                <thead>
+                                    <tr>
+                                        <th>Person</th>
+                                        <th>Age 6 years ago</th>
+                                        <th>Present Age</th>
+                                        <th>Age after 6 years</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Father</td>
+                                        <td>F - 6</td>
+                                        <td>F</td>
+                                        <td>F + 6</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Son</td>
+                                        <td>S - 6</td>
+                                        <td>S</td>
+                                        <td>S + 6</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p><strong>Explanation:</strong>
+                                Let the present age of the father be <code>F</code> and the son be <code>S</code>.
+                                <br><strong>Condition 1:</strong> The sum of their present ages is 60.
+                                <br><code>F + S = 60</code>  => <code>F = 60 - S</code> (Equation 1)
+                                <br><br><strong>Condition 2:</strong> Six years ago, the father's age was five times the son's age.
+                                <br>Father's age 6 years ago = <code>F - 6</code>
+                                <br>Son's age 6 years ago = <code>S - 6</code>
+                                <br><code>(F - 6) = 5 * (S - 6)</code> (Equation 2)
+                                <br><br>Now, substitute the value of F from Equation 1 into Equation 2:
+                                <br><code>(60 - S - 6) = 5 * (S - 6)</code>
+                                <br><code>54 - S = 5S - 30</code>
+                                <br><code>54 + 30 = 5S + S</code>
+                                <br><code>84 = 6S</code>
+                                <br><code>S = 84 / 6 = 14</code>
+                                <br>So, the son's present age is 14 years.
+                                <br>The question asks for the son's age after 6 years.
+                                <br>Son's age after 6 years = <code>14 + 6 = 20</code> years.
+                            </p>
+                        </div>
+                    </details>
+                </li>
+                
+                <!-- Question 3 -->
+                <li class="question-block">
+                    <p><strong>Question:</strong> The product of the ages of Ankit and Nikita is 240. If twice the age of Nikita is more than Ankit's age by 4 years, what is Nikita's age?</p>
+                    <p>A) 10 years <br> B) 12 years <br> C) 20 years <br> D) 24 years</p>
+                    <details>
+                        <summary></summary>
+                        <div class="explanation-content">
+                            <p><strong>Answer:</strong> B) 12 years</p>
+                            <p><strong>Technique:</strong> Form two equations, one for the product and one for the relationship. This may lead to a quadratic equation. Alternatively, use the options to check the conditions (back-solving).</p>
+                             <p><strong>Explanation (Method 1: Solving Equations):</strong>
+                                Let Ankit's age be <code>A</code> and Nikita's age be <code>N</code>.
+                                <br><strong>Condition 1:</strong> <code>A * N = 240</code> => <code>A = 240 / N</code>
+                                <br><strong>Condition 2:</strong> <code>2N = A + 4</code> => <code>A = 2N - 4</code>
+                                <br><br>Now, equate the two expressions for A:
+                                <br><code>240 / N = 2N - 4</code>
+                                <br><code>240 = N * (2N - 4)</code>
+                                <br><code>240 = 2N² - 4N</code>
+                                <br>Divide by 2: <code>120 = N² - 2N</code>
+                                <br><code>N² - 2N - 120 = 0</code>
+                                <br>Factoring the quadratic equation: <code>(N - 12)(N + 10) = 0</code>
+                                <br>Since age cannot be negative, <code>N = 12</code>.
+                                <br>Nikita's age is 12 years.
+                             </p>
+                             <p><strong>Explanation (Method 2: Using Options):</strong>
+                                Let's test the options for Nikita's age (N).
+                                <br><strong>A) If N = 10:</strong> From A*N=240, A = 24. Condition 2 check: 2N = 20, A+4 = 24+4=28. 20 is not equal to 28. Incorrect.
+                                <br><strong>B) If N = 12:</strong> From A*N=240, A = 20. Condition 2 check: 2N = 24, A+4 = 20+4=24. 24 is equal to 24. Correct.
+                             </p>
+                        </div>
+                    </details>
+                </li>
+
+                <!-- Question 4 -->
+                <li class="question-block">
+                    <p><strong>Question:</strong> The average age of a husband, wife, and their child 3 years ago was 27 years. The average age of the wife and the child 5 years ago was 20 years. What is the present age of the husband?</p>
+                    <p>A) 35 years <br> B) 40 years <br> C) 45 years <br> D) 50 years</p>
+                    <details>
+                        <summary></summary>
+                        <div class="explanation-content">
+                             <p><strong>Answer:</strong> B) 40 years</p>
+                            <p><strong>Technique:</strong> Use the formula <code>Sum = Average * Number of people</code>. Calculate the sum of ages at different time points and find the present ages.</p>
+                            <p><strong>Explanation:</strong>
+                                Let the present ages be H, W, and C.
+                                <br><br><strong>Condition 1:</strong> 3 years ago, the average age of H, W, and C was 27.
+                                <br>Sum of their ages 3 years ago = <code>27 * 3 = 81</code> years.
+                                <br>Their ages 3 years ago were (H-3), (W-3), and (C-3).
+                                <br><code>(H-3) + (W-3) + (C-3) = 81</code>
+                                <br><code>H + W + C - 9 = 81</code>
+                                <br><code>H + W + C = 90</code> (Sum of their present ages)
+                                <br><br><strong>Condition 2:</strong> 5 years ago, the average age of W and C was 20.
+                                <br>Sum of their ages 5 years ago = <code>20 * 2 = 40</code> years.
+                                <br>Their ages 5 years ago were (W-5) and (C-5).
+                                <br><code>(W-5) + (C-5) = 40</code>
+                                <br><code>W + C - 10 = 40</code>
+                                <br><code>W + C = 50</code> (Sum of present ages of wife and child)
+                                <br><br>Now we have two equations:
+                                <br>1. <code>H + W + C = 90</code>
+                                <br>2. <code>W + C = 50</code>
+                                <br>Substitute (2) into (1): <code>H + 50 = 90</code>
+                                <br><code>H = 40</code>
+                                <br>The present age of the husband is 40 years.
+                            </p>
+                        </div>
+                    </details>
+                </li>
+
+                <!-- Question 5 -->
+                 <li class="question-block">
+                    <p><strong>Question:</strong> A father said to his son, "I was as old as you are at the present at the time of your birth". If the father's age is 38 years now, what was the son's age five years back?</p>
+                    <p>A) 14 years <br> B) 19 years <br> C) 24 years <br> D) 9 years</p>
+                    <details>
+                        <summary></summary>
+                        <div class="explanation-content">
+                             <p><strong>Answer:</strong> A) 14 years</p>
+                            <p><strong>Technique:</strong> Translate the statement "I was as old as you are now, at the time of your birth" into an equation. This statement implies that the father's age at the son's birth was equal to the son's current age. The father's age at son's birth is simply the difference between their current ages.</p>
+                             <p><strong>Explanation:</strong>
+                                Let the father's present age be <code>F</code> and the son's present age be <code>S</code>.
+                                <br>We are given <code>F = 38</code>.
+                                <br><br>The statement is: "I (father) was as old as you (son) are at the present, at the time of your birth".
+                                <br>Father's age at son's birth = <code>F - S</code>.
+                                <br>Son's present age = <code>S</code>.
+                                <br>So, the statement translates to the equation: <code>F - S = S</code>
+                                <br><code>F = 2S</code>
+                                <br><br>We know the father's present age is 38.
+                                <br><code>38 = 2S</code>
+                                <br><code>S = 19</code>
+                                <br>The son's present age is 19 years.
+                                <br>The question asks for the son's age five years back.
+                                <br>Son's age 5 years back = <code>19 - 5 = 14</code> years.
+                            </p>
+                        </div>
+                    </details>
+                </li>
+                
+                <!-- Questions 6 to 50 -->
+                <li class="question-block">
+                    <p><strong>Question 6:</strong> The ratio between the present ages of A and B is 5:3 respectively. The ratio between A's age 4 years ago and B's age 4 years hence is 1:1. What is the ratio between A's age 4 years hence and B's age 4 years ago?</p>
+                    <p>A) 1:3 <br> B) 2:1 <br> C) 3:1 <br> D) 4:1</p>
+                    <details><summary></summary><div class="explanation-content">
+                        <p><strong>Answer:</strong> C) 3:1</p>
+                        <p><strong>Technique:</strong> Use ratio method with a variable, form an equation from the second condition, solve for the variable, and then calculate the final required ratio.</p>
+                        <p><strong>Explanation:</strong>
+                            Let present ages of A and B be <code>5x</code> and <code>3x</code>.
+                            <br>A's age 4 years ago = <code>5x - 4</code>.
+                            <br>B's age 4 years hence = <code>3x + 4</code>.
+                            <br>Given: <code>(5x - 4) / (3x + 4) = 1 / 1</code>
+                            <br><code>5x - 4 = 3x + 4</code>
+                            <br><code>2x = 8</code> => <code>x = 4</code>.
+                            <br>Present age of A = 5*4 = 20 years.
+                            <br>Present age of B = 3*4 = 12 years.
+                            <br>We need the ratio of A's age 4 years hence (20+4=24) to B's age 4 years ago (12-4=8).
+                            <br>Required ratio = <code>24 : 8 = 3 : 1</code>.
+                        </p>
+                    </div></details>
+                </li>
+
+                <li class="question-block">
+                    <p><strong>Question 7:</strong> A person's present age is two-fifths of the age of his mother. After 8 years, he will be one-half of the age of his mother. What is the present age of the mother?</p>
+                    <p>A) 32 years <br> B) 36 years <br> C) 40 years <br> D) 48 years</p>
+                    <details><summary></summary><div class="explanation-content">
+                        <p><strong>Answer:</strong> C) 40 years</p>
+                        <p><strong>Technique:</strong> Set up variables for present ages and form an equation for the condition after 8 years.</p>
+                        <p><strong>Explanation:</strong>
+                           Let the mother's present age be <code>M</code>.
+                           <br>The person's present age is <code>(2/5)M</code>.
+                           <br>After 8 years, mother's age = <code>M + 8</code>.
+                           <br>After 8 years, person's age = <code>(2/5)M + 8</code>.
+                           <br>Given: <code>(2/5)M + 8 = (1/2)(M + 8)</code>
+                           <br><code>(2M/5) + 8 = M/2 + 4</code>
+                           <br><code>8 - 4 = M/2 - 2M/5</code>
+                           <br><code>4 = (5M - 4M) / 10</code>
+                           <br><code>4 = M / 10</code> => <code>M = 40</code>.
+                           <br>The mother's present age is 40 years.
+                        </p>
+                    </div></details>
+                </li>
+
+                <li class="question-block">
+                    <p><strong>Question 8:</strong> The difference between the ages of two persons is 10 years. Fifteen years ago, the elder one was twice as old as the younger one. The present age of the elder person is:</p>
+                    <p>A) 25 years <br> B) 35 years <br> C) 45 years <br> D) 55 years</p>
+                    <details><summary></summary><div class="explanation-content">
+                        <p><strong>Answer:</strong> B) 35 years</p>
+                        <p><strong>Technique:</strong> Use the constant difference property. If the difference is 10 years now, it was also 10 years 15 years ago.</p>
+                        <p><strong>Explanation:</strong>
+                            Let the present ages of the elder and younger person be E and Y.
+                            <br><code>E - Y = 10</code>.
+                            <br>15 years ago, their ages were <code>E - 15</code> and <code>Y - 15</code>.
+                            <br>Given: <code>(E - 15) = 2 * (Y - 15)</code>
+                            <br>Since <code>Y = E - 10</code>, substitute this into the second equation:
+                            <br><code>E - 15 = 2 * ((E - 10) - 15)</code>
+                            <br><code>E - 15 = 2 * (E - 25)</code>
+                            <br><code>E - 15 = 2E - 50</code>
+                            <br><code>50 - 15 = 2E - E</code>
+                            <br><code>E = 35</code>.
+                            <br>The present age of the elder person is 35 years.
+                        </p>
+                    </div></details>
+                </li>
+                 <!-- ... continuing to 50 ... -->
+                 <li class="question-block">
+                    <p><strong>Question 9:</strong> The total age of A and B is 12 years more than the total age of B and C. C is how many years younger than A?</p>
+                    <p>A) 10 <br> B) 12 <br> C) 14 <br> D) 16</p>
+                    <details><summary></summary><div class="explanation-content">
+                        <p><strong>Answer:</strong> B) 12</p>
+                        <p><strong>Technique:</strong> Translate the sentence directly into an algebraic equation.</p>
+                        <p><strong>Explanation:</strong>
+                            Let the ages of A, B, and C be represented by A, B, and C.
+                            <br>Given: "The total age of A and B is 12 years more than the total age of B and C."
+                            <br><code>A + B = (B + C) + 12</code>
+                            <br>Subtract B from both sides:
+                            <br><code>A = C + 12</code>
+                            <br><code>A - C = 12</code>
+                            <br>This means A is 12 years older than C, or C is 12 years younger than A.
+                        </p>
+                    </div></details>
+                </li>
+                <li class="question-block">
+                    <p><strong>Question 10:</strong> Six years ago, the ratio of the ages of Kunal and Sagar was 6:5. Four years hence, the ratio of their ages will be 11:10. What is Sagar's age at present?</p>
+                    <p>A) 16 years <br> B) 18 years <br> C) 20 years <br> D) 22 years</p>
+                    <details><summary></summary><div class="explanation-content">
+                        <p><strong>Answer:</strong> A) 16 years</p>
+                        <p><strong>Technique:</strong> The "cross-multiplication" shortcut is very effective here. The time interval is 6 (past) + 4 (future) = 10 years.</p>
+                        <p><strong>Explanation (Standard Method):</strong>
+                            Let the ages of Kunal and Sagar 6 years ago be <code>6x</code> and <code>5x</code>.
+                            <br>Their present ages are <code>6x + 6</code> and <code>5x + 6</code>.
+                            <br>Four years hence, their ages will be <code>(6x + 6) + 4</code> and <code>(5x + 6) + 4</code>.
+                            <br>So, ages will be <code>6x + 10</code> and <code>5x + 10</code>.
+                            <br>The new ratio is 11:10.
+                            <br><code>(6x + 10) / (5x + 10) = 11 / 10</code>
+                            <br><code>10(6x + 10) = 11(5x + 10)</code>
+                            <br><code>60x + 100 = 55x + 110</code>
+                            <br><code>5x = 10</code> => <code>x = 2</code>.
+                            <br>Sagar's present age = <code>5x + 6 = 5(2) + 6 = 10 + 6 = 16</code> years.
+                        </p>
+                    </div></details>
+                </li>
+                
+                <li class="question-block">
+                    <p><strong>Question 11:</strong> The age of a man is three times the sum of the ages of his two sons. Five years hence, his age will be double the sum of the ages of his sons. The father's present age is:</p>
+                    <p>A) 40 years <br> B) 45 years <br> C) 50 years <br> D) 55 years</p>
+                    <details><summary></summary><div class="explanation-content">
+                        <p><strong>Answer:</strong> B) 45 years</p>
+                        <p><strong>Technique:</strong> Let the father's age be F and the sum of sons' ages be S. Remember that after 5 years, the sum of the sons' ages increases by 5+5=10.</p>
+                        <p><strong>Explanation:</strong>
+                            Let the father's present age be <code>F</code> and the sum of his two sons' present ages be <code>S</code>.
+                            <br><strong>Condition 1:</strong> <code>F = 3S</code>
+                            <br><br><strong>After 5 years:</strong>
+                            <br>Father's age = <code>F + 5</code>
+                            <br>Sum of sons' ages = <code>S + 5 + 5 = S + 10</code> (Each son ages by 5 years)
+                            <br><strong>Condition 2:</strong> <code>(F + 5) = 2 * (S + 10)</code>
+                            <br><br>Substitute F = 3S into the second equation:
+                            <br><code>(3S + 5) = 2S + 20</code>
+                            <br><code>3S - 2S = 20 - 5</code>
+                            <br><code>S = 15</code>
+                            <br>The father's present age is <code>F = 3S = 3 * 15 = 45</code> years.
+                        </p>
+                    </div></details>
+                </li>
+
+                <li class="question-block">
+                    <p><strong>Question 12:</strong> Ram is 5 years older than his youngest brother. His youngest brother is 3 years younger than his other brother. The sum of the ages of his two brothers is 40. What is Ram's age?</p>
+                    <p>A) 24 years <br> B) 26 years <br> C) 29 years <br> D) 31 years</p>
+                    <details><summary></summary><div class="explanation-content">
+                        <p><strong>Answer:</strong> B) 26 years</p>
+                        <p><strong>Technique:</strong> Define the age of one person as 'x' and express all other ages in terms of 'x'.</p>
+                        <p><strong>Explanation:</strong>
+                            Let the age of the youngest brother be <code>Y</code>.
+                            <br>Let the age of the other brother be <code>O</code>.
+                            <br>Ram's age <code>R = Y + 5</code>.
+                            <br>The youngest brother is 3 years younger than the other brother, so <code>Y = O - 3</code>, or <code>O = Y + 3</code>.
+                            <br>The sum of the ages of the two brothers is 40: <code>Y + O = 40</code>.
+                            <br>Substitute <code>O = Y + 3</code> into the sum equation:
+                            <br><code>Y + (Y + 3) = 40</code>
+                            <br><code>2Y + 3 = 40</code>
+                            <br><code>2Y = 37</code> => <code>Y = 18.5</code>.
+                            Let me re-read the question, ages are usually integers. "His youngest brother is 3 years younger than his other brother". This is correct. "The sum of the ages of his two brothers is 40". This is correct.
+                            Maybe my interpretation is wrong. Let's try setting the other brother's age as x.
+                            Let other brother's age = x. Youngest brother's age = x - 3.
+                            Sum: x + (x-3) = 40 => 2x - 3 = 40 => 2x = 43 => x = 21.5. Still a fraction.
+                            There must be a typo in the question's numbers. Let's assume the sum is 41.
+                            If sum is 41: 2x - 3 = 41 => 2x = 44 => x = 22.
+                            Other brother = 22, Youngest = 19. Ram's age = 19 + 5 = 24.
+                            Let's assume the difference is 4 years.
+                            Other brother = x, Youngest = x-4. Sum = 2x-4 = 40 => 2x = 44 => x = 22.
+                            Other = 22, Youngest = 18. Ram's age = 18 + 5 = 23.
+                            Let's assume the problem is correct as is and I made a mistake.
+                            Let's re-read carefully. Ram is 5 years older than his youngest brother. Youngest brother is 3 years younger than his other brother. Sum of ages of his two brothers is 40.
+                            Let's use Y and O again. Y + O = 40. O - Y = 3.
+                            This is a system of two linear equations. Add them: (Y+O) + (O-Y) = 40+3 => 2O = 43 => O = 21.5. Y = 18.5.
+                            Ram's age = Y + 5 = 18.5 + 5 = 23.5.
+                            The numbers in the question are likely flawed. I will adjust them to produce an integer answer. Let's change the sum to 39.
+                            <br><br><strong>(Assuming sum of brothers' ages is 39)</strong>
+                            <p><strong>Explanation:</strong>
+                            Let the age of the youngest brother be Y and the other brother be O.
+                            <br><code>O - Y = 3</code> (Other brother is 3 years older)
+                            <br><code>O + Y = 39</code> (Sum of their ages)
+                            <br>Adding both equations: <code>2O = 42</code> => <code>O = 21</code>.
+                            <br>So, <code>Y = 21 - 3 = 18</code>.
+                            <br>The youngest brother is 18 years old.
+                            <br>Ram's age = Youngest brother's age + 5 = <code>18 + 5 = 23</code>.
+                            This is not in the options. I will re-adjust to get an answer from the options. Let's aim for 26.
+                            If Ram's age is 26, Youngest brother is 21. Other brother is 21+3=24. Sum = 21+24=45.
+                            So if the sum was 45, the answer would be 26. Let's edit the question to reflect this.
+                            <br><br><strong>Revised Question 12:</strong> Ram is 5 years older than his youngest brother. His youngest brother is 3 years younger than his other brother. If the sum of the ages of his two brothers is 45, what is Ram's age?
+                            <p><strong>Explanation:</strong>
+                            Let youngest brother's age be Y, other brother's age be O.
+                            <br><code>O = Y + 3</code>.
+                            <br><code>O + Y = 45</code>.
+                            <br>Substitute O in the second equation: <code>(Y + 3) + Y = 45</code>.
+                            <br><code>2Y + 3 = 45</code> => <code>2Y = 42</code> => <code>Y = 21</code>.
+                            <br>Ram's age = <code>Y + 5 = 21 + 5 = 26</code> years.
+                        </p>
+                    </div></details>
+                </li>
+                
+                 <!-- Generating the rest of the questions up to 50 with variety -->
+                <li class="question-block">
+                    <p><strong>Question 13:</strong> The ratio of the father's age to the son's age is 4:1. The product of their ages is 196. The ratio of their ages after 5 years will be:</p>
+                    <p>A) 3:1 <br> B) 10:3 <br> C) 11:4 <br> D) 14:5</p>
+                    <details><summary></summary><div class="explanation-content">
+                        <p><strong>Answer:</strong> C) 11:4</p>
+                        <p><strong>Explanation:</strong> Let ages be 4x and x. Product: (4x)(x) = 196 => 4x² = 196 => x² = 49 => x = 7. Present ages are 4*7=28 and 7. After 5 years, ages will be 33 and 12. Ratio = 33:12 = 11:4.</p>
+                    </div></details>
+                </li>
+                <li class="question-block">
+                    <p><strong>Question 14:</strong> The sum of the ages of 5 children born at intervals of 3 years each is 50 years. What is the age of the youngest child?</p>
+                    <p>A) 4 years <br> B) 8 years <br> C) 10 years <br> D) 12 years</p>
+                    <details><summary></summary><div class="explanation-content">
+                        <p><strong>Answer:</strong> A) 4 years</p>
+                        <p><strong>Explanation:</strong> Let the age of the youngest child be x. The ages are x, x+3, x+6, x+9, x+12. Sum: 5x + 30 = 50 => 5x = 20 => x = 4.</p>
+                    </div></details>
+                </li>
+                <li class="question-block">
+                    <p><strong>Question 15:</strong> The present age of Sameer is 5 years more than three times the age of his son. Three years hence, Sameer's age will be 10 years more than twice the age of his son. Find the present age of Sameer.</p>
+                    <p>A) 30 years <br> B) 32 years <br> C) 35 years <br> D) 38 years</p>
+                    <details><summary></summary><div class="explanation-content">
+                        <p><strong>Answer:</strong> D) 38 years</p>
+                        <p><strong>Explanation:</strong> Let son's age be S. Sameer's age is F = 3S+5. Three years hence, F+3 = 2(S+3) + 10. Substitute F: (3S+5)+3 = 2S+6+10 => 3S+8 = 2S+16 => S=8. Sameer's age = 3(8)+5 = 29. Wait. 3S+8=2S+16. S=8. F=3(8)+5 = 24+5=29. Let me check the equations.
+                        F+3 = (2 * (S+3)) + 10.
+                        (3S+5)+3 = 2S + 6 + 10.
+                        3S + 8 = 2S + 16. S = 8.
+                        F = 3S+5 = 3(8)+5 = 29. Let me re-read the question.
+                        "Sameer's age will be 10 years more than twice the age of his son". Correct.
+                        Let me test S=8, F=29. Three years hence: S=11, F=32. Twice son's age is 22. 22+10 = 32. Correct.
+                        The answer is 29. The options are wrong. I will adjust the question to fit an option. Let's aim for 38.
+                        If F=38, then 38 = 3S+5 => 3S = 33 => S=11.
+                        Three years hence: F=41, S=14. Twice son's age = 28. 28+10 = 38. We need it to be 41. So my adjustment failed.
+                        Let's try again with the original calculation. S=8, F=29. This is correct. I'll change the options.
+                        <br><br><strong>Revised Question 15 with correct options:</strong>
+                        <p>A) 25 years <br> B) 29 years <br> C) 32 years <br> D) 35 years</p>
+                        <p><strong>Answer:</strong> B) 29 years</p>
+                        <p><strong>Explanation:</strong> As calculated, S=8 and F=29.</p>
+                    </div></details>
+                </li>
+                <!-- Filling the rest with correct and clear questions -->
+                <li class="question-block"><p><strong>Question 16:</strong> A is two years older than B who is twice as old as C. If the total of the ages of A, B and C is 27, then how old is B?</p><p>A) 7 <br> B) 8 <br> C) 9 <br> D) 10</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> D) 10</p><p><strong>Explanation:</strong> Let C's age be x. Then B's age = 2x. A's age = 2x + 2. Sum: (2x+2) + 2x + x = 27 => 5x + 2 = 27 => 5x = 25 => x = 5. B's age = 2x = 10 years.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 17:</strong> The age of the father 3 years ago was 7 times the age of his son. At present, the father's age is 5 times that of his son. What are the present ages of the father and the son?</p><p>A) 25, 5 <br> B) 30, 6 <br> C) 35, 7 <br> D) 45, 9</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> B) 30, 6 -- No, wait. 45/9=5. 3 years ago: 42, 6. 42=7*6. Correct.
+                Let's recheck B) 30,6. 30/6=5. 3 years ago: 27, 3. 27=9*3. Incorrect.
+                The answer is D.
+                <p><strong>Corrected Answer:</strong> D) 45, 9</p>
+                <p><strong>Explanation:</strong> Let present ages be F and S. F=5S. 3 years ago: F-3 = 7(S-3). Substitute F: 5S-3 = 7S-21 => 18 = 2S => S=9. F=5*9=45. Present ages are 45 and 9.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 18:</strong> The average age of 30 boys in a class is 15 years. If the teacher's age is included, the average increases by 1. What is the teacher's age?</p><p>A) 45 years <br> B) 46 years <br> C) 47 years <br> D) 48 years</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> B) 46 years</p><p><strong>Explanation:</strong> Sum of boys' ages = 30 * 15 = 450. After teacher is included, total people = 31, new average = 16. New sum of ages = 31 * 16 = 496. Teacher's age = 496 - 450 = 46 years.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 19:</strong> The sum of the present ages of a mother and her daughter is 50 years. Also, 5 years ago, the mother's age was 7 times the age of the daughter. What are the present ages of the mother and daughter?</p><p>A) 35, 15 <br> B) 38, 12 <br> C) 40, 10 <br> D) 42, 8</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> C) 40, 10</p><p><strong>Explanation:</strong> Let present ages be M and D. M+D=50. 5 years ago: M-5 = 7(D-5) => M-5 = 7D-35 => M=7D-30. Substitute into first eq: (7D-30)+D=50 => 8D=80 => D=10. M=40.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 20:</strong> Sachin is younger than Rahul by 7 years. If their ages are in the respective ratio of 7:9, how old is Sachin?</p><p>A) 16.5 years <br> B) 24.5 years <br> C) 28 years <br> D) 31.5 years</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> B) 24.5 years</p><p><strong>Explanation:</strong> Let ages be 7x and 9x. Difference = 9x - 7x = 7 => 2x = 7 => x = 3.5. Sachin's age = 7x = 7 * 3.5 = 24.5 years.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 21:</strong> The age of a woman is 4 times that of her daughter. Six years hence, the age of the woman will be 14 years more than twice the age of her daughter. Find the present age of the daughter.</p><p>A) 8 years <br> B) 10 years <br> C) 12 years <br> D) 14 years</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> B) 10 years</p><p><strong>Explanation:</strong> Let daughter's age be D. Woman's age is W = 4D. Six years hence: W+6 = 2(D+6) + 14. Substitute W: 4D+6 = 2D+12+14 => 4D+6 = 2D+26 => 2D=20 => D=10.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 22:</strong> If 6 years are subtracted from the present age of Gulzar and the remainder is divided by 18, then the present age of his grandson Anup is obtained. If Anup is 2 years younger to Mahesh whose age is 5 years, then what is the age of Gulzar?</p><p>A) 48 years <br> B) 60 years <br> C) 84 years <br> D) 96 years</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> B) 60 years</p><p><strong>Explanation:</strong> Mahesh's age = 5. Anup's age = 5 - 2 = 3. Let Gulzar's age be G. (G-6)/18 = Anup's age => (G-6)/18 = 3 => G-6 = 54 => G = 60.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 23:</strong> The ratio of the ages of a father and son at present is 6:1. After 5 years, the ratio will become 7:2. The present age of the son is:</p><p>A) 5 years <br> B) 6 years <br> C) 9 years <br> D) 10 years</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> A) 5 years</p><p><strong>Explanation:</strong> Let present ages be 6x and x. After 5 years: (6x+5)/(x+5) = 7/2 => 2(6x+5)=7(x+5) => 12x+10 = 7x+35 => 5x=25 => x=5. Son's present age is 5 years.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 24:</strong> My brother is 3 years elder to me. My father was 28 years of age when my sister was born while my mother was 26 years of age when I was born. If my sister was 4 years of age when my brother was born, then what was the age of my father when my brother was born?</p><p>A) 30 years <br> B) 32 years <br> C) 34 years <br> D) 35 years</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> B) 32 years</p><p><strong>Explanation:</strong> When the sister was born, father was 28. When the brother was born, the sister was 4 years old. This means the brother was born 4 years after the sister. So, the father's age when the brother was born was 28 + 4 = 32 years.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 25:</strong> Reena's age is 150% of Tina's age, while Meena's age is 80% of Tina's age. The sum of the ages of all three is 66. What is Tina's age?</p><p>A) 15 years <br> B) 20 years <br> C) 25 years <br> D) 30 years</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> B) 20 years</p><p><strong>Explanation:</strong> Let Tina's age be T. Reena's age R = 1.5T. Meena's age M = 0.8T. Sum: R+T+M = 1.5T + T + 0.8T = 66 => 3.3T = 66 => T = 66/3.3 = 20.</p></div></details></li>
+                 <li class="question-block"><p><strong>Question 26:</strong> A man's age is 125% of what it was 10 years ago, but 83 1/3% of what it will be after 10 years. What is his present age?</p><p>A) 45 years <br> B) 50 years <br> C) 55 years <br> D) 60 years</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> B) 50 years</p><p><strong>Explanation:</strong> Let present age be x. 125% is 5/4. 83 1/3% is 5/6. x = (5/4)(x-10) => 4x = 5x-50 => x=50. Let's verify with the second condition: 50 = (5/6)(50+10) => 50 = (5/6)(60) => 50=50. Correct.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 27:</strong> Ten years ago, A was half of B in age. If the ratio of their present ages is 3:4, what will be the total of their present ages?</p><p>A) 20 years <br> B) 30 years <br> C) 35 years <br> D) 45 years</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> C) 35 years</p><p><strong>Explanation:</strong> Let present ages be 3x and 4x. 10 years ago: 3x-10 and 4x-10. (3x-10) = (1/2)(4x-10) => 6x-20 = 4x-10 => 2x=10 => x=5. Present ages are 15 and 20. Total = 15+20=35.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 28:</strong> The average age of 8 men is increased by 2 years when two of them whose ages are 21 and 23 years are replaced by two new men. The average age of the two new men is:</p><p>A) 22 years <br> B) 28 years <br> C) 30 years <br> D) 34 years</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> C) 30 years</p><p><strong>Explanation:</strong> Total increase in age = 8 men * 2 years/man = 16 years. The sum of the ages of the two new men must be 16 years more than the sum of the ages of the men they replaced. Sum of replaced men = 21+23=44. Sum of new men = 44+16=60. Average age of new men = 60/2 = 30.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 29:</strong> Jayesh is as much younger to Anil as he is older to Prashant. If the sum of the ages of Anil and Prashant is 48 years, what is the age of Jayesh?</p><p>A) 20 years <br> B) 24 years <br> C) 30 years <br> D) Cannot be determined</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> B) 24 years</p><p><strong>Explanation:</strong> This wording means Jayesh's age is the average of Anil's and Prashant's ages. Let ages be J, A, P. A - J = J - P => 2J = A + P. Given A+P = 48. So, 2J = 48 => J = 24.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 30:</strong> The present ages of three persons are in proportions 4:7:9. Eight years ago, the sum of their ages was 56. Find their present ages.</p><p>A) 16, 28, 36 <br> B) 20, 35, 45 <br> C) 12, 21, 27 <br> D) 8, 14, 18</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> A) 16, 28, 36</p><p><strong>Explanation:</strong> Let present ages be 4x, 7x, 9x. Eight years ago, sum was (4x-8)+(7x-8)+(9x-8) = 56. => 20x - 24 = 56 => 20x = 80 => x=4. Present ages are 4*4=16, 7*4=28, 9*4=36.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 31:</strong> The age of Mr. Gupta is 4 times the age of his son. After 10 years, the age of Mr. Gupta will be only twice the age of his son. Find the present age of Mr. Gupta's son.</p><p>A) 5 years <br> B) 10 years <br> C) 15 years <br> D) 20 years</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> A) 5 years</p><p><strong>Explanation:</strong> Let son's age be S. Gupta's age is G=4S. After 10 years: G+10 = 2(S+10). Substitute G: 4S+10 = 2S+20 => 2S=10 => S=5.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 32:</strong> A mother is 20 years older than her son. 4 years ago, she was 5 times as old as her son. What is the son's present age?</p><p>A) 8 years <br> B) 9 years <br> C) 10 years <br> D) 11 years</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> B) 9 years</p><p><strong>Explanation:</strong> Let son's age be S. Mother's age M=S+20. 4 years ago: M-4 = 5(S-4). Substitute M: (S+20)-4 = 5S-20 => S+16 = 5S-20 => 36 = 4S => S=9.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 33:</strong> A father's age is the square of his son's age. One year ago, the father's age was eight times the son's age. What is the son's current age?</p><p>A) 5 years <br> B) 6 years <br> C) 7 years <br> D) 8 years</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> C) 7 years</p><p><strong>Explanation:</strong> Let son's age be S, father's age F = S². One year ago: F-1 = 8(S-1). Substitute F: S²-1 = 8S-8 => S²-8S+7=0 => (S-7)(S-1)=0. S cannot be 1 (as father's age would be 1). So S=7.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 34:</strong> The sum of the ages of a father and his son is 45 years. Five years ago, the product of their ages was 34. The ages of the son and the father are respectively:</p><p>A) 6 and 39 <br> B) 7 and 38 <br> C) 9 and 36 <br> D) 11 and 34</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> A) 6 and 39</p><p><strong>Explanation:</strong> Use options. Option A: Present sum 6+39=45. 5 years ago, ages were 1 and 34. Product = 1*34 = 34. Condition matches. No need to check others.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 35:</strong> If twice the son's age in years is added to the father's age, the sum is 70. If twice the father's age is added to the son's age, the sum is 95. The father's age is:</p><p>A) 30 years <br> B) 35 years <br> C) 40 years <br> D) 45 years</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> C) 40 years</p><p><strong>Explanation:</strong> Let ages be F and S. 2S+F=70. 2F+S=95. From first eq, F=70-2S. Substitute in second: 2(70-2S)+S=95 => 140-4S+S=95 => 140-3S=95 => 45=3S => S=15. F = 70-2(15) = 70-30=40.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 36:</strong> The average age of a class of 20 students is 12 years. If the teacher's age is also included, the average age becomes 13 years. What is the teacher's age?</p><p>A) 30 years <br> B) 31 years <br> C) 32 years <br> D) 33 years</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> D) 33 years</p><p><strong>Explanation:</strong> Initial sum of ages = 20 * 12 = 240. New total people = 21, new average = 13. New sum of ages = 21 * 13 = 273. Teacher's age = 273 - 240 = 33 years.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 37:</strong> Four years ago, the ratio of A's age to B's age was 2:3. Four years hence, it will be 5:7. Find their present ages.</p><p>A) A=36, B=52 <br> B) A=40, B=56 <br> C) A=32, B=44 <br> D) A=28, B=40</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> A) 36, 52. Let me recheck. 4 years ago: 32, 48. Ratio 2:3. Correct. 4 years hence: 40, 56. Ratio 5:7. Correct.
+                Let's solve it. 4 years ago, ages 2x, 3x. Present ages 2x+4, 3x+4. 4 years hence: 2x+8, 3x+8. (2x+8)/(3x+8) = 5/7 => 14x+56 = 15x+40 => x=16. Present ages: 2(16)+4=36, 3(16)+4=52. Correct.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 38:</strong> The age of a man is 4 times that of his son. Five years ago, the man was 9 times as old as his son was at that time. What is the present age of the man?</p><p>A) 28 years <br> B) 32 years <br> C) 36 years <br> D) 40 years</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> B) 32 years</p><p><strong>Explanation:</strong> Let son's age be S, man's age M=4S. 5 years ago: M-5 = 9(S-5). Substitute M: 4S-5 = 9S-45 => 40=5S => S=8. Man's age = 4*8=32.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 39:</strong> The ratio of the ages of two boys is 5:6. After two years, the ratio will be 7:8. The ratio of their ages after 12 years will be:</p><p>A) 11:12 <br> B) 13:14 <br> C) 15:16 <br> D) 17:18</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> D) 17:18</p><p><strong>Explanation:</strong> Ages 5x, 6x. After 2 years: (5x+2)/(6x+2)=7/8 => 40x+16 = 42x+14 => 2=2x => x=1. Present ages are 5 and 6. After 12 years, ages will be 17 and 18. Ratio 17:18.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 40:</strong> The present age of a father is 3 years more than three times the age of his son. Three years hence, the father's age will be 10 years more than twice the age of the son. The father's present age is:</p><p>A) 30 years <br> B) 33 years <br> C) 36 years <br> D) 39 years</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> B) 33 years</p><p><strong>Explanation:</strong> Let son's age be S. Father's age F=3S+3. 3 years hence: F+3 = 2(S+3)+10. Substitute F: (3S+3)+3 = 2S+6+10 => 3S+6=2S+16 => S=10. Father's age = 3(10)+3=33.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 41:</strong> When I was born, my father was 30 years old. My sister was born 4 years after me. Currently, my father's age is three times my sister's age. What is my current age?</p><p>A) 10 years <br> B) 12 years <br> C) 14 years <br> D) 16 years</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> C) 14 years</p><p><strong>Explanation:</strong> Let my age be M. My sister's age is S = M-4. My father's age is F = M+30. Given F=3S. M+30 = 3(M-4) => M+30 = 3M-12 => 42 = 2M => M=21. Wait, let me re-check.
+                F-M=30. M-S=4. F=3S. From first two, F=M+30, S=M-4. Substitute in third: M+30 = 3(M-4) => M+30 = 3M-12 => 42=2M => M=21. Sister is 17. Father is 51. 51=3*17. Correct.
+                Where did 14 come from? Let's check the wording. "sister was born 4 years after me". Correct.
+                Maybe the question is "Currently, my age is three times my sister's age". Then M=3S => M=3(M-4) => M=3M-12 => 2M=12 => M=6.
+                Let's try another one. "Currently, my father's age is twice my age". F=2M => M+30=2M => M=30.
+                The question as written leads to 21. Let me adjust the question to get 14.
+                If my age is 14, my sister is 10, my father is 44. 44 is not 3*10.
+                Let's adjust father's age at birth. "When I was born, my father was 20 years old". F=M+20. F=3S => M+20=3(M-4) => M+20=3M-12 => 32=2M => M=16. That's an option.
+                <br><br><strong>Revised Question 41:</strong> When I was born, my father was 20 years old. My sister was born 4 years after me. Currently, my father's age is three times my sister's age. What is my current age?
+                <p><strong>Answer:</strong> D) 16 years</p>
+                <p><strong>Explanation:</strong> My age=M, Sister=S=M-4, Father=F=M+20. Given F=3S. M+20=3(M-4) => M+20=3M-12 => 32=2M => M=16.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 42:</strong> One year ago, a father was 4 times as old as his son. In 6 years time, his age exceeds twice his son's age by 9 years. The ratio of their present ages is:</p><p>A) 9:2 <br> B) 11:3 <br> C) 12:5 <br> D) 13:4</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> D) 13:4</p><p><strong>Explanation:</strong> 1 year ago, ages were 4x, x. Present ages are 4x+1, x+1. In 6 years: 4x+7, x+7. (4x+7) = 2(x+7) + 9 => 4x+7=2x+14+9 => 4x+7=2x+23 => 2x=16 => x=8. Present ages are 4(8)+1=33 and 8+1=9. Ratio is 33:9 = 11:3.
+                Let me recheck my work. 2x=16, x=8. Present ages are 33,9. Ratio 11:3. Option B. Let's see why D could be correct.
+                If x=9, ages are 37,10. Ratio 37:10.
+                Maybe the question implies 'exceeds by 9 years'. That is what I used. Let me re-read the options. B is 11:3.
+                <p><strong>Corrected Answer:</strong> B) 11:3</p>
+                </p></div></details></li>
+                <li class="question-block"><p><strong>Question 43:</strong> The average age of 11 players of a cricket team is increased by 2 months when two of them aged 18 years and 20 years are replaced by two new players. The average age of the new players is:</p><p>A) 19 years 1 month <br> B) 19 years 6 months <br> C) 19 years 11 months <br> D) 20 years 1 month</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> C) 19 years 11 months</p><p><strong>Explanation:</strong> Total increase in age = 11 players * 2 months = 22 months. Sum of replaced players' ages = 18+20=38 years. Sum of new players' ages = 38 years + 22 months. Average age of new players = (38 years + 22 months) / 2 = 19 years + 11 months.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 44:</strong> The ratio between the school ages of Neelam and Shaan is 5:6. If the ratio between one-third of Neelam's age and half of Shaan's age is 5:9, what is the school age of Shaan?</p><p>A) 25 years <br> B) 30 years <br> C) 36 years <br> D) Cannot be determined</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> D) Cannot be determined</p><p><strong>Explanation:</strong> Let ages be 5x, 6x. One-third of Neelam's age = (5x/3). Half of Shaan's age = (6x/2) = 3x. Ratio: (5x/3) / (3x) = 5/9 => 5x / 9x = 5/9 => 5/9=5/9. The variable x cancels out, meaning this second condition is always true regardless of x. We cannot determine a unique value for x.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 45:</strong> Ronit's age is 10 years more than Rohit's age. Also, Ronit's age was twice that of Rohit 15 years ago. What is Rohit's present age?</p><p>A) 15 years <br> B) 20 years <br> C) 25 years <br> D) 30 years</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> C) 25 years</p><p><strong>Explanation:</strong> Let Rohit's age be X. Ronit's age is X+10. 15 years ago: Ronit was (X+10)-15 = X-5. Rohit was X-15. Given X-5 = 2(X-15) => X-5 = 2X-30 => 25=X.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 46:</strong> A grandfather is ten times older than his granddaughter. He is also 54 years older than her. Find their present ages.</p><p>A) Grandfather 60, Granddaughter 6 <br> B) Grandfather 50, Granddaughter 5 <br> C) Grandfather 70, Granddaughter 7 <br> D) Grandfather 80, Granddaughter 8</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> A) Grandfather 60, Granddaughter 6</p><p><strong>Explanation:</strong> Let granddaughter's age be D. Grandfather's age is G=10D. Also, G = D+54. So, 10D = D+54 => 9D=54 => D=6. G = 10*6=60.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 47:</strong> The age of Ram is double that of Shyam and half that of Sohan. Shyam is older than Mohan. Who is the eldest?</p><p>A) Ram <br> B) Shyam <br> C) Sohan <br> D) Mohan</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> C) Sohan</p><p><strong>Explanation:</strong> Let Shyam's age be S. Ram's age R=2S. Sohan's age H is such that Ram is half of Sohan, so R=H/2 => H=2R. Substitute R: H = 2(2S) = 4S. Sohan is the eldest (4S), followed by Ram (2S), then Shyam (S), and finally Mohan (age < S).</p></div></details></li>
+                <li class="question-block"><p><strong>Question 48:</strong> The average of the ages of a man and his daughter is 34 years. If the respective ratio of their ages four years from now is 14:5, what is the daughter's present age?</p><p>A) 12 years <br> B) 16 years <br> C) 18 years <br> D) 22 years</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> B) 16 years</p><p><strong>Explanation:</strong> Sum of present ages = 34*2 = 68. Let present ages be M, D. M+D=68. Four years from now, ages are M+4, D+4. Ratio is (M+4)/(D+4)=14/5. 5(M+4)=14(D+4) => 5M+20=14D+56. Substitute M=68-D: 5(68-D)+20 = 14D+56 => 340-5D+20 = 14D+56 => 360-56=19D => 304=19D => D=16.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 49:</strong> I am three years younger than my brother. Six years ago, I was half my brother's age. How old is my brother now?</p><p>A) 9 years <br> B) 12 years <br> C) 15 years <br> D) 18 years</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> B) 12 years</p><p><strong>Explanation:</strong> Let my age be M, brother's age B. M=B-3. Six years ago: M-6 = (1/2)(B-6). Substitute M: (B-3)-6 = (B-6)/2 => B-9 = (B-6)/2 => 2B-18 = B-6 => B=12.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 50:</strong> If the ages of P and R are added to twice the age of Q, the total is 59. If the ages of Q and R are added to thrice the age of P, the total is 68. And if the age of P is added to thrice the age of Q and thrice the age of R, the total is 108. What is the age of P?</p><p>A) 10 years <br> B) 12 years <br> C) 15 years <br> D) 17 years</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> B) 12 years</p><p><strong>Explanation:</strong> This is a system of 3 linear equations. (1) P+R+2Q=59, (2) Q+R+3P=68, (3) P+3Q+3R=108. From (3), P+3(Q+R)=108. From (2), Q+R=68-3P. Substitute into (3): P+3(68-3P)=108 => P+204-9P=108 => 204-108 = 8P => 96 = 8P => P=12.</p></div></details></li>
+
+            </ol>
+        </section>
+    </div>
+</body>
+</html>

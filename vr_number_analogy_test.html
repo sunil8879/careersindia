@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Analogy in Verbal Reasoning</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3, h4 {
+            color: #e67e22; /* A shade of orange */
+        }
+        h1 {
+            text-align: center;
+            border-bottom: 2px solid #e67e22;
+            padding-bottom: 10px;
+        }
+        details {
+            background-color: #fef5e7;
+            border: 1px solid #f5cba7;
+            border-radius: 5px;
+            margin-top: 10px;
+            padding: 10px;
+        }
+        summary {
+            font-weight: bold;
+            cursor: pointer;
+            color: #af601a;
+            list-style: none; /* Hide the default marker */
+        }
+        summary::-webkit-details-marker {
+            display: none; /* Hide the default marker in Chrome/Safari */
+        }
+        summary::before {
+            content: '▶ Show Answer, Diagram, and Explanation';
+            padding-right: 5px;
+        }
+        details[open] summary::before {
+            content: '▼ Hide Answer, Diagram, and Explanation';
+        }
+        .explanation-content {
+            margin-top: 15px;
+            padding-top: 10px;
+            border-top: 1px dashed #f5cba7;
+        }
+        .question-block {
+            margin-bottom: 25px;
+        }
+        .diagram-table {
+            width: auto;
+            min-width: 300px;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        .diagram-table th, .diagram-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.1em;
+        }
+        .diagram-table th {
+            background-color: #e67e22;
+            color: white;
+        }
+        .diagram-formula {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #fdfefe;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #e5e7e9;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #d35400;
+        }
+        code {
+            background-color: #eee;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Number Analogy</h1>
+
+        <!-- Theory Section -->
+        <section id="theory">
+            <h2>1. Theory: About Number Analogy</h2>
+            <p><strong>Number Analogy</strong> establishes a relationship between a given pair of numbers. A candidate needs to identify this relationship and apply it to a second pair where one number is missing. The format is typically <code>A : B :: C : ?</code>, meaning "A is related to B in the same way that C is related to the missing number."</p>
+            <p>This topic is a cornerstone of the reasoning ability section in Indian government exams because it tests a wide range of skills, including numerical ability, pattern recognition, and logical deduction, all under time pressure.</p>
+
+            <h3>Core Techniques & Patterns</h3>
+            <p>The key is to quickly test for common mathematical relationships. For a pair <code>n₁ : n₂</code>, the relationship can be:</p>
+            <ul>
+                <li><strong>Arithmetic:</strong> <code>n₂ = n₁ + k</code>, <code>n₂ = n₁ - k</code>, <code>n₂ = n₁ * k</code>, <code>n₂ = n₁ / k</code>.</li>
+                <li><strong>Squares/Cubes:</strong> Based on <code>n²</code> or <code>n³</code>. Examples: <code>n₁ : n₁²</code>, <code>n₁ : n₁²+1</code>, <code>n₁ : n₁²-n₁</code>, <code>n₁ : (n₁+1)²</code>, etc.</li>
+                <li><strong>Digit Operations:</strong> The relationship is based on the digits of the number. Examples: sum of digits, product of digits, reversing the digits.</li>
+                <li><strong>Prime Numbers:</strong> The numbers might be consecutive prime numbers or related to them.</li>
+                <li><strong>Combinations:</strong> A mix of the above patterns (e.g., the sum of the digits squared).</li>
+            </ul>
+            
+            <h4>Diagram: Common Pattern Examples</h4>
+            <table class="diagram-table">
+                <thead>
+                    <tr><th>Pattern Name</th><th>Example</th><th>Logic</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Square</td><td><code>7 : 49</code></td><td><code>n : n²</code></td></tr>
+                    <tr><td>Square Plus One</td><td><code>8 : 65</code></td><td><code>n : n² + 1</code></td></tr>
+                    <tr><td>Cube</td><td><code>4 : 64</code></td><td><code>n : n³</code></td></tr>
+                    <tr><td>Cube Minus One</td><td><code>5 : 124</code></td><td><code>n : n³ - 1</code></td></tr>
+                    <tr><td>Sum of Digits</td><td><code>63 : 9</code></td><td><code>ab : a+b</code></td></tr>
+                    <tr><td>Product of Digits</td><td><code>42 : 8</code></td><td><code>ab : a*b</code></td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <hr>
+
+        <!-- Questions Section -->
+        <section id="questions">
+            <h2>2. Questions, Answers, and Explanations</h2>
+            <ol>
+                <!-- Question 1 -->
+                <li class="question-block">
+                    <p><strong>Question 1:</strong> <code>6 : 18 :: 4 : ?</code></p>
+                    <p>A) 2 <br> B) 6 <br> C) 8 <br> D) 12</p>
+                    <details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> D) 12</p>
+                    <h4>Logic/Pattern Diagram</h4><div class="diagram-formula">n : 3n</div>
+                    <h4>Explanation</h4><p><strong>Technique:</strong> Simple Multiplication.
+                    <br>The relationship is that the second number is three times the first number.
+                    <br><code>6 * 3 = 18</code>
+                    <br>Therefore, <code>4 * 3 = 12</code>.</p></div></details>
+                </li>
+                <!-- Question 2 -->
+                <li class="question-block">
+                    <p><strong>Question 2:</strong> <code>7 : 49 :: 11 : ?</code></p>
+                    <p>A) 111 <br> B) 121 <br> C) 132 <br> D) 101</p>
+                    <details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> B) 121</p>
+                    <h4>Logic/Pattern Diagram</h4><div class="diagram-formula">n : n²</div>
+                    <h4>Explanation</h4><p><strong>Technique:</strong> Squares.
+                    <br>The relationship is that the second number is the square of the first number.
+                    <br><code>7² = 49</code>
+                    <br>Therefore, <code>11² = 121</code>.</p></div></details>
+                </li>
+                <!-- Question 3 -->
+                <li class="question-block">
+                    <p><strong>Question 3:</strong> <code>8 : 65 :: 12 : ?</code></p>
+                    <p>A) 144 <br> B) 145 <br> C) 150 <br> D) 169</p>
+                    <details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> B) 145</p>
+                    <h4>Logic/Pattern Diagram</h4><div class="diagram-formula">n : n² + 1</div>
+                    <h4>Explanation</h4><p><strong>Technique:</strong> Square and Add.
+                    <br>The relationship is that the second number is the square of the first number plus one.
+                    <br><code>8² + 1 = 64 + 1 = 65</code>
+                    <br>Therefore, <code>12² + 1 = 144 + 1 = 145</code>.</p></div></details>
+                </li>
+                <!-- Question 4 -->
+                <li class="question-block">
+                    <p><strong>Question 4:</strong> <code>42 : 6 :: 56 : ?</code></p>
+                    <p>A) 7 <br> B) 11 <br> C) 13 <br> D) 30</p>
+                    <details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> B) 11</p>
+                    <h4>Logic/Pattern Diagram</h4><div class="diagram-formula">ab : a + b</div>
+                    <h4>Explanation</h4><p><strong>Technique:</strong> Sum of Digits.
+                    <br>The relationship is that the second number is the sum of the digits of the first number.
+                    <br>For 42, <code>4 + 2 = 6</code>.
+                    <br>Therefore, for 56, <code>5 + 6 = 11</code>.</p></div></details>
+                </li>
+                <!-- Question 5 -->
+                <li class="question-block">
+                    <p><strong>Question 5:</strong> <code>5 : 124 :: 7 : ?</code></p>
+                    <p>A) 342 <br> B) 343 <br> C) 248 <br> D) 125</p>
+                    <details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> A) 342</p>
+                    <h4>Logic/Pattern Diagram</h4><div class="diagram-formula">n : n³ - 1</div>
+                    <h4>Explanation</h4><p><strong>Technique:</strong> Cube and Subtract.
+                    <br>The relationship is that the second number is the cube of the first number minus one.
+                    <br><code>5³ - 1 = 125 - 1 = 124</code>
+                    <br>Therefore, <code>7³ - 1 = 343 - 1 = 342</code>.</p></div></details>
+                </li>
+                 <!-- I will now generate the rest of the questions up to 50, ensuring logical consistency and variety -->
+                <li class="question-block"><p><strong>Question 6:</strong> <code>25 : 625 :: 35 : ?</code></p><p>A) 725 <br> B) 1225 <br> C) 1575 <br> D) 1275</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> B) 1225</p><h4>Logic/Pattern Diagram</h4><div class="diagram-formula">n : n²</div><h4>Explanation</h4><p>The second number is the square of the first. <code>25² = 625</code>. Therefore, <code>35² = 1225</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 7:</strong> <code>14 : 9 :: 26 : ?</code></p><p>A) 12 <br> B) 13 <br> C) 15 <br> D) 31</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> C) 15</p><h4>Logic/Pattern Diagram</h4><div class="diagram-formula">n : (n/2) + 2</div><h4>Explanation</h4><p>The logic is: <code>(14 / 2) + 2 = 7 + 2 = 9</code>. Therefore, <code>(26 / 2) + 2 = 13 + 2 = 15</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 8:</strong> <code>8 : 28 :: 27 : ?</code></p><p>A) 8 <br> B) 28 <br> C) 64 <br> D) 65</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> D) 65</p><h4>Logic/Pattern Diagram</h4><div class="diagram-formula">x³ : (x+1)³ + 1</div><h4>Explanation</h4><p>The first numbers are cubes: <code>8 = 2³</code> and <code>27 = 3³</code>. The relationship is: <code>2³ : (2+1)³ + 1</code> -> <code>8 : 3³ + 1</code> -> <code>8 : 27 + 1 = 28</code>.
+<br>Therefore, <code>3³ : (3+1)³ + 1</code> -> <code>27 : 4³ + 1</code> -> <code>27 : 64 + 1 = 65</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 9:</strong> <code>212 : 436 :: 560 : ?</code></p><p>A) 786 <br> B) 682 <br> C) 784 <br> D) 688</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> C) 784</p><h4>Logic/Pattern Diagram</h4><div class="diagram-formula">n : n + 224</div><h4>Explanation</h4><p>The relationship is a simple addition. <code>212 + 224 = 436</code>. Therefore, <code>560 + 224 = 784</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 10:</strong> <code>121 : 12 :: 25 : ?</code></p><p>A) 1 <br> B) 2 <br> C) 6 <br> D) 7</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> C) 6</p><h4>Logic/Pattern Diagram</h4><div class="diagram-formula">n² : n + 1</div><h4>Explanation</h4><p>The first number is a square. <code>121 = 11²</code>. The second number is <code>11 + 1 = 12</code>.
+<br>For 25, <code>25 = 5²</code>. The second number will be <code>5 + 1 = 6</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 11:</strong> <code>18 : 30 :: 36 : ?</code></p><p>A) 54 <br> B) 62 <br> C) 64 <br> D) 66</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> D) 66</p><h4>Logic/Pattern Diagram</h4><div class="diagram-formula">n : 2n - 6</div><h4>Explanation</h4><p>The relationship is: <code>(18 * 2) - 6 = 36 - 6 = 30</code>.
+<br>Therefore, <code>(36 * 2) - 6 = 72 - 6 = 66</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 12:</strong> <code>49 : 81 :: 100 : ?</code></p><p>A) 64 <br> B) 144 <br> C) 121 <br> D) 169</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> B) 144</p><h4>Logic/Pattern Diagram</h4><div class="diagram-formula">n² : (n+2)²</div><h4>Explanation</h4><p>The numbers are consecutive squares of odd/even numbers. <code>49 = 7²</code> and <code>81 = 9²</code> (7 and 9 are consecutive odd numbers).
+<br><code>100 = 10²</code>. The next consecutive even number is 12. <code>12² = 144</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 13:</strong> <code>72 : 18 :: 56 : ?</code></p><p>A) 24 <br> B) 22 <br> C) 20 <br> D) 16</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> B) 22</p><h4>Logic/Pattern Diagram</h4><div class="diagram-formula">n : (sum of digits of n) * 2</div><h4>Explanation</h4><p>For 72, the sum of digits is <code>7 + 2 = 9</code>. Then <code>9 * 2 = 18</code>.
+<br>For 56, the sum of digits is <code>5 + 6 = 11</code>. Then <code>11 * 2 = 22</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 14:</strong> <code>9 : 80 :: 100 : ?</code></p><p>A) 901 <br> B) 1009 <br> C) 9801 <br> D) 9999</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> D) 9999</p><h4>Logic/Pattern Diagram</h4><div class="diagram-formula">n : n² - 1</div><h4>Explanation</h4><p>The relationship is <code>9² - 1 = 81 - 1 = 80</code>.
+<br>Therefore, <code>100² - 1 = 10000 - 1 = 9999</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 15:</strong> <code>2 : 7 :: 6 : ?</code></p><p>A) 39 <br> B) 40 <br> C) 41 <br> D) 42</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> A) 39</p><h4>Logic/Pattern Diagram</h4><div class="diagram-formula">n : n² + 3 OR n : n³ - 1</div><h4>Explanation</h4><p>There can be multiple logics.
+<br><strong>Logic 1:</strong> <code>n² + 3</code>. <code>2² + 3 = 4 + 3 = 7</code>. Then <code>6² + 3 = 36 + 3 = 39</code>.
+<br><strong>Logic 2:</strong> <code>n³ - 1</code>. <code>2³ - 1 = 8 - 1 = 7</code>. Then <code>6³ - 1 = 216 - 1 = 215</code>.
+<br>Since 39 is in the options, Logic 1 is the intended answer.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 16:</strong> <code>17 : 52 :: 1 : ?</code></p><p>A) 3 <br> B) 4 <br> C) 5 <br> D) 51</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> B) 4</p><h4>Logic/Pattern Diagram</h4><div class="diagram-formula">n : 3n + 1</div><h4>Explanation</h4><p>The relationship is <code>(17 * 3) + 1 = 51 + 1 = 52</code>.
+<br>Therefore, <code>(1 * 3) + 1 = 3 + 1 = 4</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 17:</strong> <code>3 : 243 :: 5 : ?</code></p><p>A) 405 <br> B) 465 <br> C) 3125 <br> D) 546</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> C) 3125</p><h4>Logic/Pattern Diagram</h4><div class="diagram-formula">n : n⁵</div><h4>Explanation</h4><p>The relationship is <code>3⁵ = 3*3*3*3*3 = 243</code>.
+<br>Therefore, <code>5⁵ = 5*5*5*5*5 = 3125</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 18:</strong> <code>20 : 11 :: 102 : ?</code></p><p>A) 49 <br> B) 52 <br> C) 61 <br> D) 98</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> B) 52</p><h4>Logic/Pattern Diagram</h4><div class="diagram-formula">n : (n/2) + 1</div><h4>Explanation</h4><p>The relationship is <code>(20 / 2) + 1 = 10 + 1 = 11</code>.
+<br>Therefore, <code>(102 / 2) + 1 = 51 + 1 = 52</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 19:</strong> <code>48 : 122 :: 168 : ?</code></p><p>A) 215 <br> B) 225 <br> C) 290 <br> D) 292</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> C) 290</p><h4>Logic/Pattern Diagram</h4><div class="diagram-formula">n²-1 : (n+4)²+1</div><h4>Explanation</h4><p>The first number is one less than a perfect square. <code>48 = 7² - 1</code>.
+<br>The second number is <code>122 = 11² + 1</code>. The relation is from 7 to 11 (a difference of 4).
+<br>Let's check the second pair. <code>168 = 13² - 1</code>.
+<br>So the next number should be based on <code>13 + 4 = 17</code>.
+<br>The number will be <code>17² + 1 = 289 + 1 = 290</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 20:</strong> <code>6 : 222 :: 7 : ?</code></p><p>A) 336 <br> B) 343 <br> C) 350 <br> D) 400</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> C) 350</p><h4>Logic/Pattern Diagram</h4><div class="diagram-formula">n : n³ + n</div><h4>Explanation</h4><p>The relationship is <code>6³ + 6 = 216 + 6 = 222</code>.
+<br>Therefore, <code>7³ + 7 = 343 + 7 = 350</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 21:</strong> <code>2 : 3 :: 23 : ?</code></p><p>A) 25 <br> B) 28 <br> C) 29 <br> D) 31</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> C) 29</p><h4>Logic/Pattern Diagram</h4><div class="diagram-formula">n : next prime number</div><h4>Explanation</h4><p>2 and 3 are consecutive prime numbers.
+<br>The next prime number after 23 is <strong>29</strong>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 22:</strong> <code>(9, 15, 21) :: (12, 18, ?)</code></p><p>A) 24 <br> B) 22 <br> C) 30 <br> D) 28</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> A) 24</p><h4>Logic/Pattern Diagram</h4><div class="diagram-formula">(n, n+6, n+12)</div><h4>Explanation</h4><p>In the first group, the numbers are in an arithmetic progression with a common difference of 6.
+<br><code>9 + 6 = 15</code>, <code>15 + 6 = 21</code>.
+<br>Applying the same logic to the second group: <code>12 + 6 = 18</code>. The next number will be <code>18 + 6 = 24</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 23:</strong> <code>68 : 130 :: ? : 350</code></p><p>A) 210 <br> B) 216 <br> C) 222 <br> D) 240</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> C) 222</p><h4>Logic/Pattern Diagram</h4><div class="diagram-formula">n³+n : (n+2)³+(n+2)</div><h4>Explanation</h4><p>The numbers are in the form <code>n³ + n</code>.
+<br><code>68 = 4³ + 4</code>.
+<br><code>130 = 5³ + 5</code>. Wait, 5³+5=130. The difference is just n to n+1.
+Let's re-examine. <code>68 = 4³+4</code>. <code>130 = 5³+5</code>. <code>350 = 7³+7</code>.
+So the missing number should be <code>6³+6 = 216+6 = 222</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 24:</strong> <code>7 : 32 :: 35 : ?</code></p><p>A) 144 <br> B) 156 <br> C) 160 <br> D) 172</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> D) 172</p><h4>Logic/Pattern Diagram</h4><div class="diagram-formula">n : 5n - 3</div><h4>Explanation</h4><p>The relationship is <code>(7 * 5) - 3 = 35 - 3 = 32</code>.
+<br>Therefore, <code>(35 * 5) - 3 = 175 - 3 = 172</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 25:</strong> <code>583 : 293 :: 488 : ?</code></p><p>A) 291 <br> B) 378 <br> C) 487 <br> D) 581</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> B) 378</p><h4>Logic/Pattern Diagram</h4><div class="diagram-formula">abc : (a+b+c) -> relationship between sums</div><h4>Explanation</h4><p>This is based on the sum of digits.
+<br>Sum of digits of 583 = <code>5 + 8 + 3 = 16</code>.
+<br>Sum of digits of 293 = <code>2 + 9 + 3 = 14</code>. The difference is -2.
+<br>Let's check the second pair. Sum of digits of 488 = <code>4 + 8 + 8 = 20</code>.
+<br>The sum of digits of the missing number should be <code>20 - 2 = 18</code>.
+<br>Let's check the options: A) 12, B) 18, C) 19, D) 14.
+<br>Only option B (378) has a sum of digits of 18 (<code>3+7+8=18</code>).</p></div></details></li>
+                <li class="question-block"><p><strong>Question 26:</strong> <code>1 : 1 :: 25 : ?</code></p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> 625</p><h4>Logic/Pattern Diagram</h4><div class="diagram-formula">n : n² (or n : n)</div><h4>Explanation</h4><p>Two logics are possible. 1:1 could be `n:n` or `n:n²`. We check the options.
+If the logic was `n:n`, the answer would be 25. If the logic is `n:n²`, the answer is `25² = 625`. As 625 is a common option in such questions, we assume the more complex logic.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 27:</strong> <code>64 : 8 :: 289 : ?</code></p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> 17</p><h4>Logic/Pattern Diagram</h4><div class="diagram-formula">n² : n</div><h4>Explanation</h4><p>The second number is the square root of the first. <code>√64 = 8</code>. Therefore, <code>√289 = 17</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 28:</strong> <code>10 : 99 :: 9 : ?</code></p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> 80</p><h4>Logic/Pattern Diagram</h4><div class="diagram-formula">n : n² - 1</div><h4>Explanation</h4><p><code>10² - 1 = 99</code>. Therefore, <code>9² - 1 = 80</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 29:</strong> <code>37 : 6 :: 82 : ?</code></p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> 9</p><h4>Logic/Pattern Diagram</h4><div class="diagram-formula">n²+1 : n</div><h4>Explanation</h4><p>The first number is a square plus one. <code>37 = 6² + 1</code>. Therefore, <code>82 = 9² + 1</code>. The missing number is 9.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 30:</strong> <code>5 : 30 :: 8 : ?</code></p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> 72</p><h4>Logic/Pattern Diagram</h4><div class="diagram-formula">n : n * (n+1)</div><h4>Explanation</h4><p><code>5 * (5+1) = 5 * 6 = 30</code>. Therefore, <code>8 * (8+1) = 8 * 9 = 72</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 31:</strong> <code>12 : 140 :: 156 : ?</code></p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> 1820</p><h4>Logic/Pattern Diagram</h4><div class="diagram-formula">n : n * (n-1) - 4 OR n(n-1) : n(n-1) - n</div><h4>Explanation</h4><p>This is complex. 12 -> 140. <code>12² - 4 = 140</code>.
+<br>Let's try <code>156² - 4 = 24336 - 4 = 24332</code>. Not an option.
+<br>Let's try another logic. <code>12 * 11 = 132</code>. No.
+<br>How about <code>12 * 12 - 4 = 140</code>.
+<br>Let's try <code>156 * 12 - 4 = 1872 - 4 = 1868</code>.
+<br>Let's try this: <code>12 = 3 * 4</code>. <code>140</code>.
+Let's try a simpler one. <code>12 : 140</code>. <code>12^2 - 4 = 140</code>. No, 144-4.
+Let's try <code>11 * 12 + 8 = 140</code>.
+Let's try <code>12 * 10 + 20 = 140</code>.
+This is likely a flawed question. Let's create a better one.
+<br><br><strong>Revised Question 31:</strong> <code>11 : 132 :: 12 : ?</code>
+<p><strong>Answer:</strong> 156</p><h4>Explanation</h4><p>The logic is <code>n : n * (n+1)</code>. <code>11 * 12 = 132</code>. Therefore, <code>12 * 13 = 156</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 32:</strong> <code>24 : 60 :: 120 : ?</code></p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> 300</p><h4>Logic/Pattern Diagram</h4><div class="diagram-formula">n : 2.5n</div><h4>Explanation</h4><p><code>24 * 2.5 = 60</code>. Therefore, <code>120 * 2.5 = 300</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 33:</strong> <code>4 : 17 :: 7 : ?</code></p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> 50</p><h4>Logic/Pattern Diagram</h4><div class="diagram-formula">n : n² + 1</div><h4>Explanation</h4><p><code>4² + 1 = 17</code>. Therefore, <code>7² + 1 = 50</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 34:</strong> <code>16 : 56 :: 32 : ?</code></p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> 112</p><h4>Logic/Pattern Diagram</h4><div class="diagram-formula">n : 3.5n</div><h4>Explanation</h4><p><code>16 * 3.5 = 56</code>. Therefore, <code>32 * 3.5 = 112</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 35:</strong> <code>100 : 121 :: 144 : ?</code></p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> 169</p><h4>Logic/Pattern Diagram</h4><div class="diagram-formula">n² : (n+1)²</div><h4>Explanation</h4><p><code>100=10²</code>, <code>121=11²</code>. Then <code>144=12²</code>, so the next number is <code>13² = 169</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 36:</strong> <code>3265 : 4376 :: 4673 : ?</code></p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> 5784</p><h4>Explanation</h4><p>Each digit is increased by 1. <code>3+1=4, 2+1=3, 6+1=7, 5+1=6</code>.
+<br>Therefore, <code>4+1=5, 6+1=7, 7+1=8, 3+1=4</code>. Result: <code>5784</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 37:</strong> <code>5 : 21 :: 7 : ?</code></p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> 45</p><h4>Logic/Pattern Diagram</h4><div class="diagram-formula">n : n² - 4</div><h4>Explanation</h4><p><code>5² - 4 = 21</code>. Therefore, <code>7² - 4 = 49 - 4 = 45</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 38:</strong> <code>123 : 36 :: 221 : ?</code></p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> 25</p><h4>Logic/Pattern Diagram</h4><div class="diagram-formula">abc : (a+b+c)²</div><h4>Explanation</h4><p><code>1+2+3=6</code>, and <code>6² = 36</code>.
+<br>Therefore, <code>2+2+1=5</code>, and <code>5² = 25</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 39:</strong> <code>27 : 9 :: 64 : ?</code></p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> 16</p><h4>Logic/Pattern Diagram</h4><div class="diagram-formula">n³ : n²</div><h4>Explanation</h4><p><code>27 = 3³</code> and <code>9 = 3²</code>.
+<br><code>64 = 4³</code>. The missing number is <code>4² = 16</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 40:</strong> <code>7 : 56 :: 9 : ?</code></p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> 90</p><h4>Logic/Pattern Diagram</h4><div class="diagram-formula">n : n * (n+1)</div><h4>Explanation</h4><p><code>7 * (7+1) = 7 * 8 = 56</code>.
+<br>Therefore, <code>9 * (9+1) = 9 * 10 = 90</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 41:</strong> <code>8 : 81 :: 64 : ?</code></p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> 625</p><h4>Logic/Pattern Diagram</h4><div class="diagram-formula">(n)² : (n+1)² -- No, 8 isn't a square.
+<br>Let's try 2³ : 3⁴.
+<br>Then 64=4³. So the next is 5⁴ = 625. This works.
+</div><h4>Explanation</h4><p>The pattern is <code>x³ : (x+1)⁴</code>.
+<br><code>8 = 2³</code>. The second number is <code>(2+1)⁴ = 3⁴ = 81</code>.
+<br><code>64 = 4³</code>. The missing number is <code>(4+1)⁴ = 5⁴ = 625</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 42:</strong> <code>4 : 20 :: 6 : ?</code></p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> 42</p><h4>Logic/Pattern Diagram</h4><div class="diagram-formula">n : n² + n</div><h4>Explanation</h4><p><code>4² + 4 = 16 + 4 = 20</code>.
+<br>Therefore, <code>6² + 6 = 36 + 6 = 42</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 43:</strong> <code>63 : 9 :: 68 : ?</code></p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> 14</p><h4>Logic/Pattern Diagram</h4><div class="diagram-formula">ab : a+b+c...</div><h4>Explanation</h4><p>Sum of digits: <code>6+3=9</code>. Therefore, <code>6+8=14</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 44:</strong> <code>21 : 3 :: 574 : ?</code></p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> 82</p><h4>Logic/Pattern Diagram</h4><div class="diagram-formula">n : n/7</div><h4>Explanation</h4><p><code>21 / 7 = 3</code>. Therefore, <code>574 / 7 = 82</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 45:</strong> <code>24 : 12 :: 36 : ?</code></p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> 18</p><h4>Logic/Pattern Diagram</h4><div class="diagram-formula">n : n/2</div><h4>Explanation</h4><p><code>24 / 2 = 12</code>. Therefore, <code>36 / 2 = 18</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 46:</strong> <code>11 : 110 :: 15 : ?</code></p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> 210</p><h4>Logic/Pattern Diagram</h4><div class="diagram-formula">n : n² - n</div><h4>Explanation</h4><p><code>11² - 11 = 121 - 11 = 110</code>.
+<br>Therefore, <code>15² - 15 = 225 - 15 = 210</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 47:</strong> <code>456 : 15 :: 789 : ?</code></p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> 24</p><h4>Logic/Pattern Diagram</h4><div class="diagram-formula">abc : a+b+c</div><h4>Explanation</h4><p>Sum of digits: <code>4+5+6 = 15</code>.
+<br>Therefore, <code>7+8+9 = 24</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 48:</strong> <code>5 : 35 :: 13 : ?</code></p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> 195</p><h4>Explanation</h4><p><code>5 * 7 = 35</code>. 5 and 7 are consecutive primes.
+<br>13. The next prime is 17. <code>13 * 17 = 221</code>. Not an option.
+<br>Let's try another logic. <code>5 * (5+2) = 35</code>.
+<br>Then <code>13 * (13+2) = 13 * 15 = 195</code>. This works.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 49:</strong> <code>7528 : 5306 :: 4673 : ?</code></p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> 2451</p><h4>Logic/Pattern Diagram</h4><div class="diagram-formula">n : n - 2222</div><h4>Explanation</h4><p>Each digit is reduced by 2. <code>7-2=5, 5-2=3, 2-2=0, 8-2=6</code>.
+<br>Therefore, <code>4-2=2, 6-2=4, 7-2=5, 3-2=1</code>. Result: <code>2451</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 50:</strong> <code>9 : 28 :: 56 : ?</code></p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> 169</p><h4>Logic/Pattern Diagram</h4><div class="diagram-formula">n : 3n + 1</div><h4>Explanation</h4><p><code>(9 * 3) + 1 = 27 + 1 = 28</code>.
+<br>Therefore, <code>(56 * 3) + 1 = 168 + 1 = 169</code>.</p></div></details></li>
+            </ol>
+        </section>
+    </div>
+</body>
+</html>

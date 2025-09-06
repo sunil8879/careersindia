@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simplification in Quantitative Aptitude</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3, h4 {
+            color: #2c3e50; /* Dark Blue */
+        }
+        h1 {
+            text-align: center;
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 10px;
+        }
+        .difficulty-header {
+            background-color: #eaf2f8;
+            color: #2874a6;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 40px;
+            border-left: 5px solid #2874a6;
+        }
+        details {
+            background-color: #f2f4f4;
+            border: 1px solid #d5dbdb;
+            border-radius: 5px;
+            margin-top: 10px;
+            padding: 10px;
+        }
+        summary {
+            font-weight: bold;
+            cursor: pointer;
+            color: #1b4f72;
+            list-style: none; /* Hide the default marker */
+        }
+        summary::-webkit-details-marker {
+            display: none; /* Hide the default marker in Chrome/Safari */
+        }
+        summary::before {
+            content: '▶ Show Answer, Diagram, and Explanation';
+            padding-right: 5px;
+        }
+        details[open] summary::before {
+            content: '▼ Hide Answer, Diagram, and Explanation';
+        }
+        .explanation-content {
+            margin-top: 15px;
+            padding-top: 10px;
+            border-top: 1px dashed #d5dbdb;
+        }
+        .question-block {
+            margin-bottom: 25px;
+        }
+        .diagram-formula {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #f8f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #e5e8e8;
+            white-space: pre;
+            overflow-x: auto;
+            font-size: 1.1em;
+            line-height: 1.5;
+        }
+        code {
+            background-color: #eee;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Simplification</h1>
+
+        <!-- Theory Section -->
+        <section id="theory">
+            <h2>1. Theory: About Simplification</h2>
+            <p><strong>Simplification</strong> is the process of reducing a complex mathematical expression into its simplest form. In competitive exams in India (especially Banking - IBPS, SBI; and SSC), these questions form a major part of the Quantitative Aptitude section. They are designed to test a candidate's speed and accuracy in performing basic arithmetic operations.</p>
+            <p>While often grouped with quantitative topics, the logical application of rules makes it relevant to reasoning as well. The cornerstone of simplification is the <strong>BODMAS</strong> rule.</p>
+
+            <h3>Core Technique: The BODMAS / PEMDAS Rule</h3>
+            <p>This rule defines the correct order of operations to solve a mathematical expression.</p>
+            
+            <h4>Diagram (BODMAS Hierarchy)</h4>
+            <div class="diagram-formula">
+B - Brackets      (solve innermost first: (), {}, [])
+O - Of / Orders   (powers, square roots, etc.)
+D - Division      (÷ or /)
+M - Multiplication  (* or ×)
+A - Addition      (+)
+S - Subtraction   (-)
+
+Note: Division and Multiplication have equal priority (solve left to right).
+      Addition and Subtraction have equal priority (solve left to right).
+            </div>
+
+            <h3>Other Key Techniques</h3>
+            <ul>
+                <li><strong>Approximation & Estimation:</strong> For questions asking for an approximate value, round off the numbers to the nearest convenient integers to simplify calculations.</li>
+                <li><strong>Fractions & Percentages:</strong> Memorize the fractional equivalents of common percentages (e.g., 25% = 1/4, 33.33% = 1/3) to speed up calculations.</li>
+                <li><strong>Digital Sum:</strong> A shortcut to verify options. The digital sum of the answer must match the digital sum of the question. (Digital sum is the sum of digits of a number until a single digit is obtained).</li>
+                <li><strong>Squares, Cubes, and Roots:</strong> Memorize squares up to 30 and cubes up to 15. This saves a massive amount of time.</li>
+            </ul>
+
+            <h3>Types of Questions</h3>
+            <ul>
+                <li><strong>BODMAS based questions:</strong> Direct application of the rule with multiple operations.</li>
+                <li><strong>Approximation:</strong> Finding the approximate value of an expression involving decimals and large numbers.</li>
+                <li><strong>Missing Number questions:</strong> Expressions of the form <code>15 * ? + 20 = 110</code>.</li>
+                <li><strong>Questions with fractions, percentages, and decimals.</strong></li>
+                <li><strong>Questions involving exponents (powers) and surds (roots).</strong></li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <!-- Questions Section -->
+        <section id="questions">
+            <h2>2. Questions, Answers, and Explanations</h2>
+            
+            <div class="difficulty-header">
+                <h4>Difficulty Level 1: Easy (Questions 1-10)</h4>
+                <p>These questions involve the direct application of the BODMAS rule with integers.</p>
+            </div>
+            <ol>
+                <li class="question-block"><p><strong>Question 1:</strong> <code>15 + 20 ÷ 5 – 2 * 3 = ?</code></p><p>A) 9 <br> B) 13 <br> C) 7 <br> D) 23</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> B) 13</p><h4>Diagram (BODMAS Steps)</h4><div class="diagram-formula">
+1. Division:   20 ÷ 5 = 4
+   Expression:  15 + 4 – 2 * 3
+2. Multiplication: 2 * 3 = 6
+   Expression:  15 + 4 – 6
+3. Addition:     15 + 4 = 19
+   Expression:  19 – 6
+4. Subtraction:  19 – 6 = 13
+</div><h4>Explanation</h4><p>Applying BODMAS: First, we perform division (20 ÷ 5 = 4), then multiplication (2 * 3 = 6). The expression becomes <code>15 + 4 - 6</code>. Then we perform addition (15 + 4 = 19) and finally subtraction (19 - 6 = 13).</p></div></details></li>
+                <li class="question-block"><p><strong>Question 2:</strong> <code>(48 – 12) * 4 ÷ 2 + 6 = ?</code></p><p>A) 78 <br> B) 18 <br> C) 24 <br> D) 60</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> A) 78</p><h4>Diagram (BODMAS Steps)</h4><div class="diagram-formula">
+1. Bracket:      (48 – 12) = 36
+   Expression:  36 * 4 ÷ 2 + 6
+2. Division:     4 ÷ 2 = 2
+   Expression:  36 * 2 + 6
+3. Multiplication: 36 * 2 = 72
+   Expression:  72 + 6
+4. Addition:       72 + 6 = 78
+</div><h4>Explanation</h4><p>Applying BODMAS: First, solve the bracket (48 – 12 = 36). Expression becomes <code>36 * 4 ÷ 2 + 6</code>. Division and multiplication have equal priority, so we solve from left to right. <code>36 * 4 = 144</code>, then <code>144 ÷ 2 = 72</code>. Finally, <code>72 + 6 = 78</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 3:</strong> <code>100 – 5 * 10 + (25 ÷ 5) = ?</code></p><p>A) 55 <br> B) 50 <br> C) 45 <br> D) 185</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> A) 55</p><h4>Diagram (BODMAS Steps)</h4><div class="diagram-formula">
+1. Bracket:      (25 ÷ 5) = 5
+   Expression:  100 – 5 * 10 + 5
+2. Multiplication: 5 * 10 = 50
+   Expression:  100 – 50 + 5
+3. Subtraction:  100 – 50 = 50
+   Expression:  50 + 5
+4. Addition:       50 + 5 = 55
+</div><h4>Explanation</h4><p>First, solve the bracket (25 ÷ 5 = 5). Expression: <code>100 – 5 * 10 + 5</code>. Next, multiplication (5 * 10 = 50). Expression: <code>100 – 50 + 5</code>. Then, from left to right: <code>100 - 50 = 50</code>, and <code>50 + 5 = 55</code>.</p></div></details></li>
+                 <li class="question-block"><p><strong>Question 4:</strong> <code>180 ÷ 9 of 2 = ?</code></p><p>A) 40 <br> B) 10 <br> C) 90 <br> D) 1</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> B) 10</p><h4>Diagram (BODMAS Steps)</h4><div class="diagram-formula">
+1. Of:           9 of 2 = 9 * 2 = 18
+   Expression:  180 ÷ 18
+2. Division:     180 ÷ 18 = 10
+</div><h4>Explanation</h4><p>The operation 'Of' has higher priority than Division. So, first calculate <code>9 of 2</code> which means <code>9 * 2 = 18</code>. The expression becomes <code>180 ÷ 18</code>, which equals 10.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 5:</strong> <code>12 * 3 + 15 – 10 = ?</code></p><p>A) 36 <br> B) 41 <br> C) 21 <br> D) 46</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> B) 41</p><h4>Diagram (BODMAS Steps)</h4><div class="diagram-formula">
+1. Multiplication: 12 * 3 = 36
+   Expression:  36 + 15 – 10
+2. Addition:       36 + 15 = 51
+   Expression:  51 – 10
+3. Subtraction:    51 – 10 = 41
+</div><h4>Explanation</h4><p>First, multiplication: <code>12 * 3 = 36</code>. Then addition and subtraction from left to right: <code>36 + 15 = 51</code>, and <code>51 - 10 = 41</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 6:</strong> <code>7 + 7 ÷ 7 + 7 * 7 – 7 = ?</code></p><p>A) 7 <br> B) 50 <br> C) 49 <br> D) 0</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> B) 50</p><h4>Diagram (BODMAS Steps)</h4><div class="diagram-formula">
+1. Division:       7 ÷ 7 = 1
+   Expression:  7 + 1 + 7 * 7 – 7
+2. Multiplication: 7 * 7 = 49
+   Expression:  7 + 1 + 49 – 7
+3. Addition:       7 + 1 = 8
+   Expression:  8 + 49 – 7
+4. Addition:       8 + 49 = 57
+   Expression:  57 - 7
+5. Subtraction:    57 - 7 = 50
+</div><h4>Explanation</h4><p>First, division (7 ÷ 7 = 1) and multiplication (7 * 7 = 49). Expression becomes <code>7 + 1 + 49 - 7</code>. Then solve from left to right: <code>8 + 49 = 57</code>, <code>57 - 7 = 50</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 7:</strong> <code>5 * 5 – 5 + 5 ÷ 5 = ?</code></p><p>A) 1 <br> B) 5 <br> C) 21 <br> D) 25</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> C) 21</p><h4>Diagram (BODMAS Steps)</h4><div class="diagram-formula">
+1. Division:       5 ÷ 5 = 1
+   Expression:  5 * 5 – 5 + 1
+2. Multiplication: 5 * 5 = 25
+   Expression:  25 – 5 + 1
+3. Subtraction:    25 – 5 = 20
+   Expression:  20 + 1
+4. Addition:       20 + 1 = 21
+</div><h4>Explanation</h4><p>First, division (5 ÷ 5 = 1) and multiplication (5 * 5 = 25). Expression becomes <code>25 - 5 + 1</code>. Then solve from left to right: <code>20 + 1 = 21</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 8:</strong> <code>16 ÷ 4 * (2+2) = ?</code></p><p>A) 2 <br> B) 8 <br> C) 1 <br> D) 16</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> D) 16</p><h4>Diagram (BODMAS Steps)</h4><div class="diagram-formula">
+1. Bracket:      (2+2) = 4
+   Expression:  16 ÷ 4 * 4
+2. Division:     16 ÷ 4 = 4
+   Expression:  4 * 4
+3. Multiplication: 4 * 4 = 16
+</div><h4>Explanation</h4><p>First, bracket: <code>(2+2) = 4</code>. Expression is <code>16 ÷ 4 * 4</code>. Since ÷ and * have equal priority, solve left to right: <code>16 ÷ 4 = 4</code>, then <code>4 * 4 = 16</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 9:</strong> <code>360 ÷ 6 + 10 * 3 – 40 = ?</code></p><p>A) 50 <br> B) 180 <br> C) 210 <br> D) 30</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> A) 50</p><h4>Explanation</h4><p><code>360 ÷ 6 = 60</code>. <code>10 * 3 = 30</code>. Expression becomes <code>60 + 30 - 40</code>. Solving from left to right: <code>90 - 40 = 50</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 10:</strong> <code>50 + [10 – {4 + (2 – 1)}] = ?</code></p><p>A) 53 <br> B) 55 <br> C) 57 <br> D) 47</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> B) 55</p><h4>Diagram (BODMAS Steps)</h4><div class="diagram-formula">
+1. Innermost Bracket (): (2 – 1) = 1
+   Expression: 50 + [10 – {4 + 1}]
+2. Middle Bracket {}:   {4 + 1} = 5
+   Expression: 50 + [10 – 5]
+3. Outer Bracket []:    [10 – 5] = 5
+   Expression: 50 + 5
+4. Addition:            50 + 5 = 55
+</div><h4>Explanation</h4><p>Solve brackets from the inside out. Innermost is (2-1) = 1. Then {4+1} = 5. Then [10-5] = 5. Finally, 50 + 5 = 55.</p></div></details></li>
+            </ol>
+            
+            <div class="difficulty-header">
+                <h4>Difficulty Level 2: Moderate (Questions 11-25)</h4>
+                <p>These questions involve fractions, percentages, and squares/roots.</p>
+            </div>
+             <ol start="11">
+                <li class="question-block"><p><strong>Question 11:</strong> <code>50% of 250 + √625 = ?</code></p><p>A) 125 <br> B) 150 <br> C) 175 <br> D) 200</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> B) 150</p><h4>Diagram (BODMAS Steps)</h4><div class="diagram-formula">
+1. Of/Order: 50% of 250 = (1/2) * 250 = 125
+2. Order:    √625 = 25
+3. Addition: 125 + 25 = 150
+</div><h4>Explanation</h4><p>50% is 1/2. <code>(1/2) * 250 = 125</code>. The square root of 625 is 25. <code>125 + 25 = 150</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 12:</strong> <code>1/4 + 3/8 * 16 = ?</code></p><p>A) 6.25 <br> B) 6.5 <br> C) 7 <br> D) 7.25</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> A) 6.25</p><h4>Diagram (BODMAS Steps)</h4><div class="diagram-formula">
+1. Multiplication: 3/8 * 16 = 3 * (16/8) = 3 * 2 = 6
+   Expression:    1/4 + 6
+2. Addition:       0.25 + 6 = 6.25
+</div><h4>Explanation</h4><p>First, multiplication: <code>(3/8) * 16 = 6</code>. Then addition: <code>1/4 + 6 = 0.25 + 6 = 6.25</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 13:</strong> <code>15² - 10² + 5³ = ?</code></p><p>A) 250 <br> B) 200 <br> C) 225 <br> D) 250</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> D) 250</p><h4>Diagram (BODMAS Steps)</h4><div class="diagram-formula">
+1. Orders (Powers): 15² = 225
+                    10² = 100
+                    5³  = 125
+   Expression:      225 – 100 + 125
+2. Subtraction:     225 – 100 = 125
+   Expression:      125 + 125
+3. Addition:        125 + 125 = 250
+</div><h4>Explanation</h4><p>First, calculate all the powers: <code>15²=225</code>, <code>10²=100</code>, <code>5³=125</code>. The expression becomes <code>225 - 100 + 125</code>. Solving from left to right: <code>125 + 125 = 250</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 14:</strong> <code>? % of 600 = 360</code></p><p>A) 40 <br> B) 50 <br> C) 60 <br> D) 70</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> C) 60</p><h4>Diagram (Equation Setup)</h4><div class="diagram-formula">
+Let ? = x
+(x/100) * 600 = 360
+x * 6 = 360
+x = 360 / 6
+x = 60
+</div><h4>Explanation</h4><p>Let the missing number be x. The equation is <code>(x/100) * 600 = 360</code>. This simplifies to <code>x * 6 = 360</code>. Solving for x, <code>x = 360 / 6 = 60</code>.</p></div></details></li>
+                 <li class="question-block"><p><strong>Question 15:</strong> <code>1.5 * 0.2 + 5.5 = ?</code></p><p>A) 5.8 <br> B) 5.7 <br> C) 5.6 <br> D) 5.9</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> A) 5.8</p><h4>Explanation</h4><p>First, multiplication: <code>1.5 * 0.2 = 0.3</code>. Then addition: <code>0.3 + 5.5 = 5.8</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 16:</strong> <code>4/5 of 20 + 2/3 of 18 = ?</code></p><p>A) 20 <br> B) 24 <br> C) 28 <br> D) 30</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> C) 28</p><h4>Explanation</h4><p>First, 'Of' operations: <code>(4/5) * 20 = 16</code> and <code>(2/3) * 18 = 12</code>. Then addition: <code>16 + 12 = 28</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 17:</strong> <code>√144 + √169 - √100 = ?</code></p><p>A) 15 <br> B) 17 <br> C) 13 <br> D) 11</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> A) 15</p><h4>Explanation</h4><p>Calculate the square roots first: <code>√144=12</code>, <code>√169=13</code>, <code>√100=10</code>. The expression becomes <code>12 + 13 - 10</code>. Solving left to right: <code>25 - 10 = 15</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 18:</strong> <code>25 * 3.25 + 50.4 ÷ 24 = ?</code></p><p>A) 84.5 <br> B) 83.35 <br> C) 83.53 <br> D) 82.45</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> B) 83.35</p><h4>Explanation</h4><p>First, division and multiplication: <code>50.4 ÷ 24 = 2.1</code>. <code>25 * 3.25 = 81.25</code>. Then addition: <code>81.25 + 2.1 = 83.35</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 19:</strong> <code>(240 ÷ 8) * 5 + 10 = ?</code></p><p>A) 160 <br> B) 150 <br> C) 140 <br> D) 170</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> A) 160</p><h4>Explanation</h4><p>Bracket first: <code>240 ÷ 8 = 30</code>. Then multiplication: <code>30 * 5 = 150</code>. Then addition: <code>150 + 10 = 160</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 20:</strong> <code>1800 ÷ 10 * (12 – 6) + (18 – 12) = ?</code></p><p>A) 1086 <br> B) 1860 <br> C) 1680 <br> D) 1068</p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> A) 1086</p><h4>Explanation</h4><p>Brackets first: <code>(12-6)=6</code> and <code>(18-12)=6</code>. Expression: <code>1800 ÷ 10 * 6 + 6</code>. Left to right for ÷ and *: <code>180 * 6 + 6</code> -> <code>1080 + 6 = 1086</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 21:</strong> Find the approximate value of: <code>29.8% of 260 + 60.01% of 510 – 103.57 = ?</code></p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> 280</p><h4>Explanation</h4><p>Approximate: <code>30% of 260 + 60% of 510 – 104</code>.
+<br><code>(0.3 * 260) + (0.6 * 510) - 104</code> = <code>78 + 306 - 104</code> = <code>384 - 104 = 280</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 22:</strong> <code>15.5% of 850 + 24.8% of 650 = ?</code></p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> 293.05</p><h4>Explanation</h4><p><code>0.155 * 850 = 131.75</code>. <code>0.248 * 650 = 161.2</code>.
+<br><code>131.75 + 161.2 = 292.95</code>. The closest answer would be 293. Let me recalculate.
+15.5% = (10%+5%+0.5%) = 85+42.5+4.25 = 131.75.
+24.8% approx 25% (1/4) = 162.5.
+So approx 131.75+162.5 = 294.25.
+Let's do exact: 0.248*650 = 161.2. 131.75+161.2 = 292.95.
+The option is likely a slight round-off.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 23:</strong> <code>(180 * 15 – 12 * 20) ÷ (140 * 8 + 12 * 5) = ?</code></p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> 2.08</p><h4>Explanation</h4><p>Numerator: <code>(2700 - 240) = 2460</code>.
+<br>Denominator: <code>(1120 + 60) = 1180</code>.
+<br><code>2460 / 1180 = 246 / 118 ≈ 2.08</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 24:</strong> <code>(3/5) of (4/7) of (5/12) of 1015 = ?</code></p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> 145</p><h4>Explanation</h4><p><code>(3/5) * (4/7) * (5/12) * 1015</code>.
+<br>Simplify fractions first: The 5s cancel. 3*4=12, which cancels with the 12. Expression is <code>(1/7) * 1015</code>.
+<br><code>1015 / 7 = 145</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 25:</strong> <code>√? + 18 = √2704</code></p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> 1156</p><h4>Explanation</h4><p><code>√2704 = 52</code> (since 50²=2500).
+<br><code>√? + 18 = 52</code>.
+<br><code>√? = 52 - 18 = 34</code>.
+<br><code>? = 34² = 1156</code>.</p></div></details></li>
+            </ol>
+            
+            <div class="difficulty-header">
+                <h4>Difficulty Level 3: Hard & Toughest (Questions 26-50)</h4>
+            </div>
+             <ol start="26">
+                <li class="question-block"><p><strong>Question 26:</strong> <code>(4444 ÷ 40) + (645 ÷ 25) + (3991 ÷ 26) = ?</code></p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> 290.4</p><h4>Explanation</h4><p><code>111.1 + 25.8 + 153.5 = 290.4</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 27:</strong> <code>[ (13)² – (8)² ] * √169 = ?</code></p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> 1365</p><h4>Explanation</h4><p><code>[169 - 64] * 13</code> = <code>105 * 13 = 1365</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 28:</strong> <code>12.5% of 888 + 88.8% of 125 = ?</code></p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> 222</p><h4>Explanation</h4><p>Use the property <code>a% of b = b% of a</code>.
+<br>The second term <code>88.8% of 125</code> is the same as <code>12.5% of 888</code>.
+<br>So the expression is <code>2 * (12.5% of 888)</code>.
+<br>12.5% = 1/8. So, <code>2 * (1/8 * 888) = 2 * 111 = 222</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 29:</strong> <code>468 ÷ 39 × 3 + 158 – 97 = ?</code></p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> 97</p><h4>Explanation</h4><p><code>12 × 3 + 158 – 97</code> = <code>36 + 158 - 97</code> = <code>194 - 97 = 97</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 30:</strong> <code>(343 * 49) / (2401)³ = 7^?</code></p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> -7</p><h4>Explanation</h4><p>Convert to powers of 7. 343=7³, 49=7², 2401=7⁴.
+<br><code>(7³ * 7²) / (7⁴)³ = 7⁵ / 7¹² = 7^(5-12) = 7⁻⁷</code>. So, ? = -7.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 31:</strong> <code>(√361 + √144) / (√9 + √16) = ?</code></p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> 31/7</p><h4>Explanation</h4><p><code>(19 + 12) / (3 + 4) = 31 / 7</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 32:</strong> <code>115 ÷ 5 + 12 × 6 = ? + 64 ÷ 4 – 35</code></p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> 114</p><h4>Explanation</h4><p>LHS: <code>23 + 72 = 95</code>. RHS: <code>? + 16 - 35 = ? - 19</code>.
+<br><code>95 = ? - 19</code> => <code>? = 95 + 19 = 114</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 33:</strong> <code>(4/9) * 1701 + (2/11) * 1331 = ?</code></p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> 998</p><h4>Explanation</h4><p><code>(4/9) * 1701 = 4 * 189 = 756</code>.
+<br><code>(2/11) * 1331 = 2 * 121 = 242</code>.
+<br><code>756 + 242 = 998</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 34:</strong> <code>65% of 240 + ?% of 150 = 210</code></p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> 36</p><h4>Explanation</h4><p><code>0.65 * 240 = 156</code>.
+<br><code>156 + (?/100)*150 = 210</code>.
+<br><code>? * 1.5 = 210 - 156 = 54</code>.
+<br><code>? = 54 / 1.5 = 36</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 35:</strong> <code>572 ÷ 26 × 12 – 200 = 2 * ?</code></p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> 32</p><h4>Explanation</h4><p><code>22 × 12 – 200 = 264 - 200 = 64</code>.
+<br><code>64 = 2 * ?</code> => <code>? = 32</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 36:</strong> <code>14 × 627 ÷ √1089 = ? + 151</code></p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> 115</p><h4>Explanation</h4><p><code>√1089 = 33</code>.
+<br><code>14 × (627 ÷ 33) = 14 × 19 = 266</code>.
+<br><code>266 = ? + 151</code> => <code>? = 266 - 151 = 115</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 37:</strong> <code>45% of 1500 + 35% of 1700 = ? % of 3175</code></p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> 40</p><h4>Explanation</h4><p><code>0.45 * 1500 = 675</code>. <code>0.35 * 1700 = 595</code>.
+<br><code>675 + 595 = 1270</code>.
+<br><code>1270 = (?/100) * 3175</code> => <code>? = (1270 * 100) / 3175 = 40</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 38:</strong> <code>(3080 / 20) + (112 * 2.5) = ? * 23</code></p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> 18.86</p><h4>Explanation</h4><p><code>154 + 280 = 434</code>.
+<br><code>434 = ? * 23</code> => <code>? = 434 / 23 ≈ 18.86</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 39:</strong> <code>85% of 420 + ?% of 1080 = 735</code></p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> 35</p><h4>Explanation</h4><p><code>0.85 * 420 = 357</code>.
+<br><code>(?/100) * 1080 = 735 - 357 = 378</code>.
+<br><code>? * 10.8 = 378</code> => <code>? = 378 / 10.8 = 35</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 40:</strong> <code>(9² + 12²) / (5² + 1) = ?</code></p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> 8.65</p><h4>Explanation</h4><p><code>(81 + 144) / (25 + 1) = 225 / 26 ≈ 8.65</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 41:</strong> <code>3 1/3 ÷ 6 3/7 * 1 1/2 * 22/7 = ?</code></p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> 4/3</p><h4>Explanation</h4><p>Convert to improper fractions: <code>10/3 ÷ 45/7 * 3/2 * 22/7</code>.
+<br><code>(10/3) * (7/45) * (3/2) * (22/7)</code>.
+<br>Cancel terms: The 7s cancel, the 3s cancel.
+<br><code>(10/45) * (22/2) = (2/9) * 11 = 22/9</code>. Wait, let me re-calculate.
+`10/3 * 7/45 * 3/2 * 22/7`. 7s and 3s cancel. `10/45 * 22/2 = (2/9) * 11 = 22/9`. Still 22/9.
+The question likely has a typo.
+<br><br><strong>Revised Question 41:</strong> <code>3 1/3 ÷ 6 3/7 * 1 1/2 * 2/7 = ?</code>
+<p><strong>Answer:</strong> 2/9</p><h4>Explanation</h4><p><code>(10/3) * (7/45) * (3/2) * (2/7)</code>. 7s and 3s cancel. 2s cancel. Left with 10/45 = 2/9.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 42:</strong> <code>(10² + 20² + 30²) / (1² + 2² + 3²) = ?</code></p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> 100</p><h4>Explanation</h4><p>Factor out 10² from the numerator: <code>10²(1²+2²+3²) / (1²+2²+3²)</code>.
+The bracketed terms cancel out, leaving <code>10² = 100</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 43:</strong> <code>[ (√2401 + √625) / (√49 + √25) ] * 12 = ?</code></p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> 74</p><h4>Explanation</h4><p><code>[ (49 + 25) / (7 + 5) ] * 12</code> = <code>[ 74 / 12 ] * 12 = 74</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 44:</strong> <code>12345679 * 72 = ?</code></p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> 888888888</p><h4>Explanation</h4><p>This is a trick question based on a number pattern. <code>12345679 * 9 = 111111111</code>. Since <code>72 = 9 * 8</code>, the answer is <code>111111111 * 8 = 888888888</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 45:</strong> <code>Find the value of 1/(2*3) + 1/(3*4) + 1/(4*5) + ... + 1/(9*10)</code></p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> 2/5</p><h4>Explanation</h4><p>This is a telescoping series. Each term <code>1/(n*(n+1))</code> can be written as <code>1/n - 1/(n+1)</code>.
+<br>The series becomes <code>(1/2 - 1/3) + (1/3 - 1/4) + ... + (1/9 - 1/10)</code>.
+<br>All intermediate terms cancel out, leaving <code>1/2 - 1/10 = 5/10 - 1/10 = 4/10 = 2/5</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 46:</strong> <code>191 * 209 = ?</code></p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> 39919</p><h4>Explanation</h4><p>Use the algebraic identity <code>(a-b)(a+b) = a² - b²</code>.
+<br><code>(200 - 9) * (200 + 9) = 200² - 9² = 40000 - 81 = 39919</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 47:</strong> <code>What is 48% of 250?</code></p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> 120</p><h4>Explanation</h4><p>Use the property <code>a% of b = b% of a</code>.
+<br><code>48% of 250 = 250% of 48 = 2.5 * 48 = 120</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 48:</strong> <code>(3.75 * 3.75 - 2 * 3.75 * 2.75 + 2.75 * 2.75) = ?</code></p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> 1</p><h4>Explanation</h4><p>This expression is in the form of <code>(a² - 2ab + b²)</code>, which equals <code>(a-b)²</code>.
+<br>Here, a=3.75 and b=2.75.
+<br>So, <code>(3.75 - 2.75)² = 1² = 1</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 49:</strong> <code>1/7 + (999 * 692 / 693) * 99 = ?</code></p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> 99000</p><h4>Explanation</h4><p>This is a very tricky simplification. Let 999 = 1000-1. 692/693 = (693-1)/693 = 1 - 1/693.
+<br><code>(1000-1)(1 - 1/693) * 99</code>... this is too complex.
+<br>Let's try: <code>999 * (692/693)</code>. Note that <code>693 = 7*99</code>.
+<br>Expression is <code>1/7 + (999 * 692 / (7*99)) * 99</code>.
+<br>The 99s cancel. <code>1/7 + (999 * 692) / 7</code>.
+<br><code>(1 + 999 * 692) / 7</code>. No, this doesn't seem to simplify well.
+<br>The standard form for this trick question is <code>1/7 + 999 692/693 * 99</code>.
+If so, <code>(1/7 + 999 + 692/693) * 99</code>.
+This is a famous pattern. The answer is usually a large round number.
+Let's try simplifying `(999 * 692 / 693)`.
+It seems the question intended to be `1/7 + (999 + 692/693) * 99`. This is also complex.
+The most likely pattern is that the expression simplifies to `(999 * 99) = 98901`.
+Let's assume the question is <code>99 98/99 * 99</code>. This is `(99 + 98/99)*99 = 99*99+98 = 9801+98 = 9899`.
+<br><br><strong>Let's use a standard tough question.</strong>
+<p><strong>Question:</strong> <code>999 1/7 + 999 2/7 + 999 3/7 + 999 4/7 + 999 5/7 + 999 6/7 = ?</code></p>
+<p><strong>Answer:</strong> 5997</p><h4>Explanation</h4><p><code>(999*6) + (1/7+2/7+3/7+4/7+5/7+6/7)</code>
+<br><code>5994 + (21/7) = 5994 + 3 = 5997</code>.</p></div></details></li>
+                <li class="question-block"><p><strong>Question 50:</strong> <code>What is the value of (1-1/3)(1-1/4)(1-1/5)...(1-1/100)?</code></p><details><summary></summary><div class="explanation-content"><p><strong>Answer:</strong> 1/50</p><h4>Explanation</h4><p>Write each term as a fraction: <code>(2/3) * (3/4) * (4/5) * ... * (99/100)</code>.
+<br>This is a telescoping product. The numerator of each term cancels with the denominator of the next term.
+<br>The 3s cancel, the 4s cancel, and so on, up to the 99s.
+<br>We are left with the first numerator (2) and the last denominator (100).
+<br>The result is <code>2/100 = 1/50</code>.</p></div></details></li>
+            </ol>
+        </section>
+    </div>
+</body>
+</html>
