@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantitative Aptitude - Problems on Trains</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f0f2f5;
+            color: black;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* The 3D Box Container */
+        .container-3d {
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: white;
+            padding: 25px 40px;
+            border-radius: 12px;
+            border: 1px solid #ddd;
+            box-shadow: 
+                6px 6px 16px rgba(0, 0, 0, 0.15),
+                -6px -6px 16px rgba(255, 255, 255, 0.7);
+        }
+
+        /* Headers */
+        h1 {
+            color: #40E0D0; /* Turquoise */
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        h3 {
+            color: black;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            border-left: 4px solid #40E0D0;
+            padding-left: 10px;
+        }
+        
+        /* Content Block Styling */
+        .content-block {
+            margin-bottom: 25px;
+        }
+
+        .content-block p {
+            margin: 10px 0;
+        }
+
+        .content-block strong {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .content-block .notes {
+            background-color: #f8f9fa;
+            border-left: 3px solid #40E0D0;
+            padding: 10px 15px;
+            margin-top: 15px;
+            border-radius: 4px;
+        }
+        
+        .notes strong {
+            color: #40E0D0;
+        }
+        
+        .formula-format {
+            font-weight: bold;
+            font-size: 1.1em;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            background-color: #f0f2f5;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        /* Horizontal Rule for Separation */
+        hr {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #40E0D0, rgba(0, 0, 0, 0));
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container-3d">
+        <h1>Problems on Trains</h1>
+
+        <!-- Core Concept -->
+        <div class="content-block">
+            <h3>Core Concept 1: Unit Conversion</h3>
+            <p><strong>Question</strong></p>
+            <p>What are the essential conversion factors for speed in train problems?</p>
+            <p><strong>Answer</strong></p>
+            <p>The two key conversion factors are for changing km/hr to m/s and vice-versa.</p>
+            <p><strong>Explanation</strong></p>
+            <ul>
+                <li>To convert speed from <strong>km/hr to m/s</strong>, multiply by <strong>5/18</strong>.</li>
+                <li>To convert speed from <strong>m/s to km/hr</strong>, multiply by <strong>18/5</strong>.</li>
+            </ul>
+            <p>This is derived from: 1 km = 1000 m and 1 hr = 3600 s. The ratio is 1000/3600 = 10/36 = 5/18.</p>
+            
+            <div class="notes">
+                <p><strong>Important Notes:</strong> The speaker emphasizes, "This is the first and most important step. In almost every train problem, the distance will be in meters (length of the train) and the speed will be in km/hr. You MUST make the units consistent. Memorize 5/18 and 18/5. This will save you from doing the full conversion every time."</p>
+            </div>
+        </div>
+        
+        <hr>
+        
+        <div class="content-block">
+            <h3>Core Concept 2: Relative Speed</h3>
+            <p><strong>Question</strong></p>
+            <p>How do you calculate the relative speed of two objects (like trains)?</p>
+            <p><strong>Answer</strong></p>
+            <p>It depends on their direction of travel.</p>
+            <p><strong>Explanation</strong></p>
+            <ul>
+                <li><strong>Same Direction:</strong> If two trains are moving in the same direction with speeds S1 and S2, their relative speed is the difference of their speeds: <strong>|S1 - S2|</strong>.</li>
+                <li><strong>Opposite Directions:</strong> If two trains are moving towards each other or away from each other (opposite directions), their relative speed is the sum of their speeds: <strong>S1 + S2</strong>.</li>
+            </ul>
+            <div class="notes">
+                <p><strong>Important Notes:</strong> "Think about it logically," the speaker says. "If you are on a train and another train overtakes you in the same direction, it seems to pass slowly. That's the difference in speed. But if a train passes you from the opposite direction, it goes by very fast. That's the sum of the speeds. Same direction means subtract, opposite direction means add."</p>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Question 1 -->
+        <div class="content-block">
+            <h3>Question 1: Train Crossing a Stationary Object of No Length</h3>
+            <p><strong>Question</strong></p>
+            <p>A 100-meter long train is running at a speed of 30 km/hr. Find the time it takes to pass a man standing near the railway line.</p>
+            <p><strong>Answer</strong></p>
+            <p>12 seconds.</p>
+            <p><strong>Explanation</strong></p>
+            <p>When a train crosses an object with negligible length (like a man, pole, or tree), the distance the train must cover is equal to its own length.</p>
+            <ol>
+                <li><strong>Distance (D):</strong> Length of the train = 100 m.</li>
+                <li><strong>Speed (S):</strong> 30 km/hr. We must convert this to m/s.
+                    <ul><li>Speed in m/s = 30 * (5/18) = 150/18 = 25/3 m/s.</li></ul>
+                </li>
+                <li><strong>Time (T):</strong> Using the formula T = D / S.
+                    <ul><li>T = 100 / (25/3) = 100 * (3/25) = 4 * 3 = 12 seconds.</li></ul>
+                </li>
+            </ol>
+        </div>
+        
+        <hr>
+
+        <!-- Question 2 -->
+        <div class="content-block">
+            <h3>Question 2: Train Crossing a Stationary Object of Length</h3>
+            <p><strong>Question</strong></p>
+            <p>A train is moving at a speed of 132 km/hr. If the length of the train is 110 meters, how long will it take to cross a railway platform 165 meters long?</p>
+            <p><strong>Answer</strong></p>
+            <p>7.5 seconds.</p>
+            <p><strong>Explanation</strong></p>
+            <p>When a train crosses an object with significant length (like a platform, bridge, or another train), the total distance to be covered is the sum of the length of the train and the length of the object.</p>
+            <ol>
+                <li><strong>Total Distance (D):</strong> Length of Train + Length of Platform = 110 m + 165 m = 275 m.</li>
+                <li><strong>Speed (S):</strong> 132 km/hr. Convert to m/s.
+                    <ul><li>Speed in m/s = 132 * (5/18) = 22 * (5/3) = 110/3 m/s.</li></ul>
+                </li>
+                <li><strong>Time (T):</strong> T = D / S.
+                    <ul><li>T = 275 / (110/3) = 275 * (3/110) = 2.5 * 3 = 7.5 seconds.</li></ul>
+                </li>
+            </ol>
+        </div>
+
+        <hr>
+        
+        <!-- Question 3 -->
+        <div class="content-block">
+            <h3>Question 3: Two Trains in Opposite Directions</h3>
+            <p><strong>Question</strong></p>
+            <p>Two trains, 137 meters and 163 meters in length, are running towards each other on parallel lines, one at the rate of 42 km/hr and another at 48 km/hr. In what time will they clear each other from the moment they meet?</p>
+            <p><strong>Answer</strong></p>
+            <p>12 seconds.</p>
+            <p><strong>Explanation</strong></p>
+            <ol>
+                <li><strong>Total Distance (D):</strong> The total distance is the sum of the lengths of both trains.
+                    <ul><li>D = 137 m + 163 m = 300 m.</li></ul>
+                </li>
+                <li><strong>Relative Speed (S):</strong> Since they are moving in opposite directions, we add their speeds.
+                    <ul>
+                        <li>Relative Speed = 42 km/hr + 48 km/hr = 90 km/hr.</li>
+                        <li>Convert to m/s: 90 * (5/18) = 5 * 5 = 25 m/s.</li>
+                    </ul>
+                </li>
+                <li><strong>Time (T):</strong> T = D / S.
+                    <ul><li>T = 300 / 25 = 12 seconds.</li></ul>
+                </li>
+            </ol>
+             <div class="notes">
+                <p><strong>Important Notes:</strong> The speaker reinforces the core concepts: "See how the rules combine? To find the distance, you add the lengths because it's two trains. To find the speed, you add the speeds because they are moving in opposite directions. Then it's just a simple Time = Distance / Speed calculation."</p>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

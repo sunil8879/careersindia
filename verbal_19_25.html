@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Relations Guide (Pages 13-19)</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f7f9;
+            color: #333;
+        }
+        .page {
+            border: 1px solid #d1d9e0;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            page-break-after: always;
+        }
+        .page-header {
+            text-align: right;
+            color: #888;
+            font-style: italic;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            font-size: 0.9em;
+            border-bottom: 1px solid #eee;
+        }
+        .section {
+            margin-bottom: 25px;
+            padding: 15px;
+            border-left: 4px solid;
+            border-radius: 4px;
+        }
+        .theory { border-color: #17a2b8; background-color: #f1f9fa; }
+        .question-block { border-color: #007bff; background-color: #f0f7ff; }
+        .diagram-block { border-color: #fd7e14; background-color: #fff8f2; text-align: center; }
+        .answer-block { border-color: #28a745; background-color: #f3fbf5; }
+        .explanation-block { border-color: #6c757d; background-color: #f8f9fa; }
+        .remarks-block { border-color: #ffc107; background-color: #fffbf2; }
+        
+        .section-title {
+            font-weight: bold;
+            color: #343a40;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        h1, h2, h3 { color: #004085; }
+        h1 { text-align: center; }
+        h2 { border-bottom: 2px solid #e9ecef; padding-bottom: 10px; }
+        .options { list-style-type: lower-alpha; padding-left: 25px; }
+        .answer { font-weight: bold; color: #155724; }
+        .code-def { font-family: 'Courier New', Courier, monospace; background-color: #e9ecef; padding: 2px 5px; border-radius: 3px; }
+
+        /* Diagram Styles */
+        .diagram {
+            border: 1px solid #ccc; background-color: #fdfdfd; padding: 20px;
+            margin: 20px auto; display: inline-block; text-align: center; border-radius: 5px;
+        }
+        .node {
+            border: 2px solid #333; background-color: #fff; padding: 8px 15px;
+            display: inline-block; margin: 5px; font-weight: bold; min-width: 20px;
+        }
+        .circle { border-radius: 50%; }
+        .arrow::after { content: '↓'; font-size: 1.5em; color: #333; display: block; }
+        .h-arrow::after { content: '↔'; font-size: 1.5em; color: #333; display: inline-block; vertical-align: middle; margin: 0 5px;}
+        .h-line::after { content: '—'; font-size: 1.5em; color: #333; display: inline-block; vertical-align: middle; margin: 0 5px;}
+    </style>
+</head>
+<body>
+
+<!-- Start of Page 13 & 14 -->
+<div class="page">
+    <div class="page-header">Page 13 of 309</div>
+    <div class="section theory">
+        <div class="section-title">Theory: Coded Relations</div>
+        <h2>TYPE 3: CODED RELATIONS (EQUATION BASED)</h2>
+        <p>In this type of questions, relations are represented using particular symbols and codes. The information provided has to be decoded for making family flowchart. This flow chart then helps us to answer the questions based on relationships between different persons.</p>
+    </div>
+
+    <div class="section question-block">
+        <div class="section-title">Question: Example 1</div>
+        <p>Study the following information carefully to answer the given questions. If:</p>
+        <ul>
+            <li><code class="code-def">A $ B</code> means A is the father of B</li>
+            <li><code class="code-def">A @ B</code> means B is the mother of A</li>
+            <li><code class="code-def">A * B</code> means A is the wife of B</li>
+            <li><code class="code-def">A & B</code> means A is the sister of B</li>
+            <li><code class="code-def">A # B</code> means B is the daughter of A</li>
+        </ul>
+
+        <h4>A) In <code class="code-def">A*B$C#D@E&F</code>, how is 'B' related to 'D'?</h4>
+        <ol class="options">
+            <li>Son</li><li>Daughter</li><li>Father</li><li>Grandfather</li><li>Cannot be determined</li>
+        </ol>
+    </div>
+    
+    <div class="section explanation-block">
+        <div class="section-title">Explanation: Question A</div>
+        <p>Let's decode the relations:
+        <ul>
+            <li><code class="code-def">A * B</code> &rarr; A is the wife of B. So, B is the husband (male).</li>
+            <li><code class="code-def">B $ C</code> &rarr; B is the father of C.</li>
+            <li><code class="code-def">C # D</code> &rarr; D is the daughter of C. So, C is D's parent.</li>
+        </ul>
+        From this, B is the father of C, and C is the parent of D. This makes B the grandfather of D.
+        </p>
+    </div>
+    <div class="page-header">Page 14 of 309</div>
+    <div class="section diagram-block">
+        <div class="section-title">Diagram: Question A</div>
+        <div class="diagram">
+            <div style="display: flex; align-items: center;">
+                 <div class="node circle">A</div>
+                 <div class="h-arrow"></div>
+                 <div class="node">B</div>
+            </div>
+            <div class="arrow" style="margin-left:55px"></div>
+            <div class="node" style="margin-left:55px">C</div>
+            <div class="arrow" style="margin-left:55px"></div>
+            <div class="node circle" style="margin-left:55px">D</div>
+        </div>
+    </div>
+    <div class="section answer-block"><div class="section-title">Answer: Question A</div><p>From the family tree, it is clear that 'B' is the grandfather of 'D'. Hence, the correct answer is option <span class="answer">(d) Grandfather</span>.</p></div>
+
+    <hr>
+    
+    <div class="section question-block">
+        <h4>B) In <code class="code-def">A*B$C#D@E&F</code>, how is 'C' related to 'E'?</h4>
+        <ol class="options">
+            <li>Mother</li><li>Husband</li><li>Sister</li><li>Daughter</li><li>Uncle</li>
+        </ol>
+    </div>
+    <div class="section explanation-block">
+        <div class="section-title">Explanation: Question B</div>
+        <p>Let's continue decoding from the same expression:
+        <ul>
+            <li><code class="code-def">C # D</code> &rarr; D is the daughter of C.</li>
+            <li><code class="code-def">D @ E</code> &rarr; E is the mother of D.</li>
+        </ul>
+        If D is the daughter of C, and E is the mother of D, then C must be the father of D. This makes C and E a married couple, where C is the husband and E is the wife.
+        </p>
+    </div>
+    <div class="section answer-block"><div class="section-title">Answer: Question B</div><p>From the family tree it is obvious that 'C' and 'E' are a married couple where 'C' is the male partner while 'E' is the female partner. Hence, the correct answer is option <span class="answer">(b) Husband</span>.</p></div>
+</div>
+<!-- End of Page 13 & 14 -->
+
+<!-- Start of Page 15 -->
+<div class="page">
+    <div class="page-header">Page 15 of 309</div>
+    <div class="section question-block">
+        <div class="section-title">Question: Example 1 (continued)</div>
+        <p>Using the same codes as before.</p>
+        <h4>C) In <code class="code-def">A&B*C$D$E</code>, how is 'B' related to 'E'?</h4>
+        <ol class="options">
+            <li>Grandfather</li><li>Grandmother</li><li>Father</li><li>Mother</li><li>Cannot be determined</li>
+        </ol>
+    </div>
+    <div class="section explanation-block">
+        <div class="section-title">Explanation: Question C</div>
+        <p>Let's decode the relations:
+        <ul>
+            <li><code class="code-def">A & B</code> &rarr; A is the sister of B. So, B is female.</li>
+            <li><code class="code-def">B * C</code> &rarr; B is the wife of C. So, C is the husband (male).</li>
+            <li><code class="code-def">C $ D</code> &rarr; C is the father of D.</li>
+            <li><code class="code-def">D $ E</code> &rarr; D is the father of E.</li>
+        </ul>
+        B is married to C. C is the father of D. D is the father of E. Therefore, B and C are the parents of D, and grandparents of E. Since B is female, she is the grandmother of E.
+        </p>
+    </div>
+    <div class="section diagram-block">
+        <div class="section-title">Diagram: Question C</div>
+        <div class="diagram">
+             <div style="display: flex; align-items: center;">
+                 <div class="node circle">A</div>
+                 <div class="h-line"></div>
+                 <div class="node circle">B</div>
+                 <div class="h-arrow"></div>
+                 <div class="node">C</div>
+            </div>
+            <div class="arrow" style="margin-left:115px"></div>
+            <div class="node" style="margin-left:115px">D</div>
+            <div class="arrow" style="margin-left:115px"></div>
+            <div class="node" style="margin-left:115px; border-style:dashed;">E</div>
+        </div>
+    </div>
+    <div class="section answer-block"><div class="section-title">Answer: Question C</div><p>From the family tree it is obvious that 'B' and 'C' are the grandparents of 'E' where 'C' is the male grandparent and 'B' is the female grandparent. Hence, the correct option is <span class="answer">(b) Grandmother</span>.</p></div>
+
+    <hr>
+    
+    <div class="section theory">
+        <div class="section-title">Theory: Example 2 Codes</div>
+        <p>If:</p>
+        <ul>
+            <li><code class="code-def">P + Q</code> means P is the husband of Q</li>
+            <li><code class="code-def">P @ Q</code> means P is the sister of Q</li>
+            <li><code class="code-def">P x Q</code> means P is the mother of Q</li>
+            <li><code class="code-def">P $ Q</code> means P is the father of Q</li>
+        </ul>
+    </div>
+    <div class="section question-block">
+        <div class="section-title">Question: Example 2</div>
+        <p>Which of the following shows D is the son of A?</p>
+        <!-- Options are on the next page -->
+    </div>
+</div>
+<!-- End of Page 15 -->
+
+<!-- Start of Page 16 -->
+<div class="page">
+    <div class="page-header">Page 16 of 309</div>
+    <div class="section question-block">
+        <div class="section-title">Options for Example 2</div>
+        <ol class="options">
+            <li><code class="code-def">A + B x C @ D $ E</code></li>
+            <li><code class="code-def">D x B + C @ A + E</code></li>
+            <li><code class="code-def">B + C x A $ D @ E</code></li>
+            <li><code class="code-def">C x B + A @ D $ E</code></li>
+        </ol>
+    </div>
+    <div class="section explanation-block">
+        <div class="section-title">Explanation: Solution to Example 2</div>
+        <p>We need to find an expression where D is the son of A. This means A must be a parent of D, and D must be male. Let's analyze option (a):</p>
+        <ul>
+            <li><code class="code-def">A + B</code> &rarr; A is the husband of B. (A is male, B is female)</li>
+            <li><code class="code-def">B x C</code> &rarr; B is the mother of C.</li>
+            <li><code class="code-def">C @ D</code> &rarr; C is the sister of D. (C and D are siblings)</li>
+            <li><code class="code-def">D $ E</code> &rarr; D is the father of E. (D is male)</li>
+        </ul>
+        <p>From the decoding: B is the mother of C and D. A is the husband of B, so A is the father of C and D. We also know D is male. Therefore, D is the son of A. Option (a) is correct.</p>
+    </div>
+    <div class="section diagram-block">
+        <div class="section-title">Diagram: Option (a)</div>
+        <div class="diagram">
+            <div style="display: flex; align-items: center;">
+                 <div class="node">A</div>
+                 <div class="h-arrow"></div>
+                 <div class="node circle">B</div>
+            </div>
+            <div class="arrow" style="margin-left:55px"></div>
+            <div style="display: flex; align-items: center;">
+                 <div class="node circle">C</div>
+                 <div class="h-line"></div>
+                 <div class="node">D</div>
+            </div>
+            <div class="arrow" style="margin-left:55px"></div>
+            <div class="node" style="margin-left:55px; border-style:dashed;">E</div>
+        </div>
+    </div>
+    <div class="section answer-block"><div class="section-title">Answer: Example 2</div><p>Studying the above family tree, it is obvious that the correct answer is <span class="answer">option (a)</span>.</p></div>
+</div>
+<!-- End of Page 16 -->
+
+<!-- Start of Page 17 -->
+<div class="page">
+    <div class="page-header">Page 17 of 309</div>
+    <h2>PRACTICE QUESTIONS</h2>
+    <div class="section question-block">
+        <div class="section-title">Practice Question 1</div>
+        <p>If '<code class="code-def">A + B</code>' means 'A is father of B', '<code class="code-def">A – B</code>' means 'A is mother of B', '<code class="code-def">A * B</code>' means 'A is brother of B' and '<code class="code-def">A % B</code>' means 'A is sister of B', then how is Q related to S in '<code class="code-def">P + Q * R – S</code>'?</p>
+        <ol class="options"><li>Husband</li><li>Uncle</li><li>Brother</li><li>Father</li></ol>
+    </div>
+    <div class="section answer-block"><div class="section-title">Answer</div><p>Correct Answer: <span class="answer">b) Uncle</span></p></div>
+    <div class="section explanation-block">
+        <div class="section-title">Explanation</div>
+        <ul>
+            <li><code class="code-def">P + Q</code> &rarr; P is the father of Q.</li>
+            <li><code class="code-def">Q * R</code> &rarr; Q is the brother of R.</li>
+            <li><code class="code-def">R – S</code> &rarr; R is the mother of S.</li>
+        </ul>
+        <p>Q is the brother of R, and R is the mother of S. This means Q is the maternal uncle of S.</p>
+    </div>
+    <div class="section remarks-block"><div class="section-title">Additional Remarks</div><p><strong>Source:</strong> (SSC CGL 2017)</p></div>
+
+    <div class="section question-block">
+        <div class="section-title">Practice Question 2</div>
+        <p>If '<code class="code-def">P x Q</code>' means 'P is the father of Q'; '<code class="code-def">P + Q</code>' means 'P is the mother of Q'; '<code class="code-def">P – Q</code>' means 'P is the brother of Q'; '<code class="code-def">P * Q</code>' means 'P is the sister of Q'.</p>
+        <h4>A) If <code class="code-def">A × B + C * D</code>, then A is D's</h4>
+        <ol class="options"><li>Father</li><li>Grandmother</li><li>Grandfather</li><li>sister</li></ol>
+    </div>
+    <div class="section answer-block"><div class="section-title">Answer</div><p>Correct Answer: <span class="answer">c) Grandfather</span></p></div>
+    <div class="section explanation-block">
+        <div class="section-title">Explanation</div>
+        <ul>
+            <li><code class="code-def">A × B</code> &rarr; A is the father of B.</li>
+            <li><code class="code-def">B + C</code> &rarr; B is the mother of C.</li>
+            <li><code class="code-def">C * D</code> &rarr; C is the sister of D.</li>
+        </ul>
+        <p>A is the father of B. B is the mother of C and D. Therefore, A is the father of the mother of D, which makes A the maternal grandfather of D.</p>
+    </div>
+</div>
+<!-- End of Page 17 -->
+
+<!-- Start of Page 18 -->
+<div class="page">
+    <div class="page-header">Page 18 of 309</div>
+    <div class="section question-block">
+        <div class="section-title">Practice Question 2 (continued)</div>
+        <p>Using the same codes as before.</p>
+        <h4>B) Which of the following shows that B is the aunt of E?</h4>
+        <ol class="options">
+            <li><code class="code-def">A + B – C * D × E</code></li>
+            <li><code class="code-def">A × B * C + D – E</code></li>
+            <li><code class="code-def">A * B × C * D - E</code></li>
+            <li>none of the above</li>
+        </ol>
+    </div>
+    <div class="section answer-block"><div class="section-title">Answer</div><p>Correct Answer: <span class="answer">b) A × B * C + D – E</span></p></div>
+    <div class="section explanation-block">
+        <div class="section-title">Explanation</div>
+        <p>Let's analyze option (b): <code class="code-def">A × B * C + D – E</code></p>
+        <ul>
+            <li><code class="code-def">A x B</code> &rarr; A is father of B.</li>
+            <li><code class="code-def">B * C</code> &rarr; B is sister of C. (B is female).</li>
+            <li><code class="code-def">C + D</code> &rarr; C is mother of D.</li>
+            <li><code class="code-def">D – E</code> &rarr; D is brother of E.</li>
+        </ul>
+        <p>B is the sister of C, and C is the mother of E. The sister of one's mother is their aunt. So, B is the aunt of E.</p>
+    </div>
+    
+    <div class="section question-block">
+        <div class="section-title">Practice Question 3</div>
+        <p>Each of these questions is based on the following information:</p>
+        <ol>
+            <li><code class="code-def">X @ Y</code> means X is the father of Y</li>
+            <li><code class="code-def">X & Y</code> means X is the sister of Y.</li>
+            <li><code class="code-def">X # Y</code> means X is the son of Y.</li>
+        </ol>
+        <h4>A) Which of the following shows the relation that F is the husband of C?</h4>
+        <ol class="options">
+            <li><code class="code-def">C # B @ F @ E</code></li>
+            <li><code class="code-def">B @ F @ E # C</code></li>
+            <li><code class="code-def">C & B # F # E</code></li>
+            <li><code class="code-def">E # B @ F @ C</code></li>
+        </ol>
+    </div>
+    <div class="section answer-block"><div class="section-title">Answer</div><p>Correct Answer: <span class="answer">b) B @ F @ E # C</span></p></div>
+    <div class="section explanation-block">
+        <div class="section-title">Explanation</div>
+        <p>Let's analyze option (b): <code class="code-def">B @ F @ E # C</code></p>
+        <ul>
+            <li><code class="code-def">B @ F</code> &rarr; B is father of F.</li>
+            <li><code class="code-def">F @ E</code> &rarr; F is father of E. (F is male).</li>
+            <li><code class="code-def">E # C</code> &rarr; E is son of C.</li>
+        </ul>
+        <p>F is the father of E, and E is the son of C. This means F and C are the parents of E. Since F is the father (male), C must be the mother (female). Therefore, F is the husband of C.</p>
+    </div>
+</div>
+<!-- End of Page 18 -->
+
+<!-- Start of Page 19 -->
+<div class="page">
+    <div class="page-header">Page 19 of 309</div>
+    <div class="section question-block">
+        <div class="section-title">Practice Question 3 (continued)</div>
+        <p>Using the same codes as before.</p>
+        <h4>B) Which of the following shows the relation that Q is the grandfather of R?</h4>
+        <ol class="options">
+            <li><code class="code-def">S & P @ Q # R</code></li>
+            <li><code class="code-def">Q & R # P # S</code></li>
+            <li><code class="code-def">Q @ S & P @ R</code></li>
+            <li>None of these</li>
+        </ol>
+    </div>
+    <div class="section answer-block"><div class="section-title">Answer</div><p>Correct Answer: <span class="answer">c) Q @ S & P @ R</span></p></div>
+    <div class="section explanation-block">
+        <div class="section-title">Explanation</div>
+        <p>Let's analyze option (c): <code class="code-def">Q @ S & P @ R</code></p>
+        <ul>
+            <li><code class="code-def">Q @ S</code> &rarr; Q is father of S. (Q is male).</li>
+            <li><code class="code-def">S & P</code> &rarr; S is sister of P.</li>
+            <li><code class="code-def">P @ R</code> &rarr; P is father of R.</li>
+        </ul>
+        <p>Q is the father of P (since S and P are siblings and Q is S's father). P is the father of R. Therefore, Q is the father of R's father, which makes Q the grandfather of R.</p>
+    </div>
+     <div class="section remarks-block">
+        <div class="section-title">Additional Remarks</div>
+        <p><strong>Watch this video for better understanding:</strong> <a href="https://www.youtube.com/watch?v=UWZPDkj25NU&t=73s">https://www.youtube.com/watch?v=UWZPDkj25NU&t=73s</a></p>
+    </div>
+</div>
+<!-- End of Page 19 -->
+
+</body>
+</html>

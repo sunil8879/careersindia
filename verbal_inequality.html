@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reasoning - Inequalities (Gate Method)</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f0f2f5;
+            color: black;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* The 3D Box Container */
+        .container-3d {
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: white;
+            padding: 25px 40px;
+            border-radius: 12px;
+            border: 1px solid #ddd;
+            box-shadow: 
+                6px 6px 16px rgba(0, 0, 0, 0.15),
+                -6px -6px 16px rgba(255, 255, 255, 0.7);
+        }
+
+        /* Headers */
+        h1 {
+            color: #40E0D0; /* Turquoise */
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        h3 {
+            color: black;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            border-left: 4px solid #40E0D0;
+            padding-left: 10px;
+        }
+        
+        /* Content Block Styling */
+        .content-block {
+            margin-bottom: 25px;
+        }
+
+        .content-block p {
+            margin: 10px 0;
+        }
+
+        .content-block strong {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .content-block .notes {
+            background-color: #f8f9fa;
+            border-left: 3px solid #40E0D0;
+            padding: 10px 15px;
+            margin-top: 15px;
+            border-radius: 4px;
+        }
+        
+        .notes strong {
+            color: #40E0D0;
+        }
+        
+        .statement-format {
+            font-weight: bold;
+            font-size: 1.2em;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            background-color: #f0f2f5;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        /* Horizontal Rule for Separation */
+        hr {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #40E0D0, rgba(0, 0, 0, 0));
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container-3d">
+        <h1>Inequalities (The Open/Closed Gate Method)</h1>
+
+        <!-- Core Concept -->
+        <div class="content-block">
+            <h3>Core Concept: The "Gate" Analogy</h3>
+            <p><strong>Question</strong></p>
+            <p>How can we quickly determine if a relationship between two elements is possible without getting confused by the symbols?</p>
+            <p><strong>Answer</strong></p>
+            <p>By visualizing the inequality signs as "gates." You can only travel from one element to another if all the gates on the path are "open" in the direction of travel.</p>
+            <p><strong>Explanation</strong></p>
+            <p>The speaker defines the symbols as gates:</p>
+            <ul>
+                <li><strong>> , < , ≥ , ≤ :</strong> These are gates. You can enter from the "open" side but not from the "closed" (pointed) side. For example, in `A > B`, you can travel from A to B, but not from B to A.</li>
+                <li><strong>= :</strong> This is a two-way gate. You can travel in either direction.</li>
+            </ul>
+            <p>A conclusion is only valid if there is a clear, open path from the first element to the second.</p>
+            
+            <div class="notes">
+                <p><strong>Important Notes:</strong> The speaker emphasizes, "This is the most powerful trick for inequalities. Forget about 'greater than' and 'less than'. Just think: Can I enter? In `A > B`, the gate is open from A's side, so you can go A to B. But from B's side, the gate is closed, so B to A is impossible. If any gate on your path is closed, the conclusion is false."</p>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Rule 2 -->
+        <div class="content-block">
+            <h3>The Priority Rule (King vs. Soldier)</h3>
+            <p><strong>Question</strong></p>
+            <p>If a path between two elements contains both `>` and `≥` symbols, which one should be in the conclusion?</p>
+            <p><strong>Answer</strong></p>
+            <p>The `>` symbol (the "King") always gets priority over the `≥` symbol (the "Soldier").</p>
+            <p><strong>Explanation</strong></p>
+            <p>The speaker introduces a priority system for the conclusion:</p>
+            <ul>
+                <li><strong>> or < (The King):</strong> If this symbol appears even once on an open path, it must be present in the final conclusion.</li>
+                <li><strong>≥ or ≤ (The Soldier):</strong> This symbol can only be in the conclusion if the "King" is NOT present on the path. For a `≥` conclusion to be true, *every single gate* on the path must have the equal-to component (`=` or `≥` or `≤`).</li>
+            </ul>
+            
+            <div class="notes">
+                <p><strong>Important Notes:</strong> "Think of it like this," the speaker says. "If you travel a path and meet the King (`>`), he is the most powerful, and the final relationship must reflect his presence. If you only meet Soldiers (`≥`) and two-way gates (`=`), then the relationship is `≥`. But the moment the King appears, he takes over."</p>
+            </div>
+        </div>
+        
+        <hr>
+
+        <!-- Question 1 -->
+        <div class="content-block">
+            <h3>Question 1: Basic Path Checking</h3>
+            <p><strong>Question</strong></p>
+            <p class="statement-format">Statement: A > B ≥ C = D < E</p>
+            <p>Conclusion: A > D</p>
+            <p><strong>Answer</strong></p>
+            <p>The conclusion is correct.</p>
+            <p><strong>Explanation</strong></p>
+            <ol>
+                <li><strong>Path:</strong> We need to travel from A to D. The path is `A > B ≥ C = D`.</li>
+                <li><strong>Gate Check:</strong>
+                    <ul>
+                        <li>From A to B: `>` is open.</li>
+                        <li>From B to C: `≥` is open.</li>
+                        <li>From C to D: `=` is a two-way open gate.</li>
+                    </ul>
+                    Since all gates are open, a relationship is possible.
+                </li>
+                <li><strong>Priority Check:</strong> On the path from A to D, we encountered the "King" symbol (`>`). Therefore, the "King" must be in the conclusion. The conclusion `A > D` is correct.</li>
+            </ol>
+        </div>
+        
+        <hr>
+
+        <!-- Question 2 -->
+        <div class="content-block">
+            <h3>Question 2: Blocked Path</h3>
+            <p><strong>Question</strong></p>
+            <p class="statement-format">Statement: P ≤ Q < R > S</p>
+            <p>Conclusion: P < S</p>
+            <p><strong>Answer</strong></p>
+            <p>The conclusion is incorrect.</p>
+            <p><strong>Explanation</strong></p>
+            <p>We need to travel from P to S. The path is `P ≤ Q < R > S`.</p>
+            <ul>
+                <li>From P to Q: `≤` is open (traveling P to Q).</li>
+                <li>From Q to R: `<` is open (traveling Q to R).</li>
+                <li>From R to S: `>` is a closed gate. We cannot pass from R to S.</li>
+            </ul>
+            <p>Since the path is blocked at `R > S`, no relationship can be established between P and S. Therefore, the conclusion is false.</p>
+            <div class="notes">
+                <p><strong>Important Notes:</strong> The speaker highlights the concept of opposite-facing gates. "Here, `< R >` is a classic blocked path. The gates are facing each other, so you can't get through. As soon as you see this, you know no conclusion is possible between elements on opposite sides. Instantly mark it wrong."</p>
+            </div>
+        </div>
+
+        <hr>
+        
+        <!-- Question 3 -->
+        <div class="content-block">
+            <h3>Question 3: Checking for the "Soldier" (≥)</h3>
+            <p><strong>Question</strong></p>
+            <p class="statement-format">Statement: M ≥ N = O ≥ P</p>
+            <p>Conclusion 1: M ≥ P</p>
+            <p>Conclusion 2: M > P</p>
+            <p><strong>Answer</strong></p>
+            <p>Only Conclusion 1 is correct.</p>
+            <p><strong>Explanation</strong></p>
+            <p>Let's check the path from M to P: `M ≥ N = O ≥ P`.</p>
+            <ul>
+                <li><strong>Path Check:</strong> All gates are open from M to P.</li>
+                <li><strong>Priority Check for Conclusion 1 (M ≥ P):</strong> For a "Soldier" (`≥`) conclusion to be true, the equal-to component must be present at every single gate on the path. Here, we have `≥`, `=`, and `≥`. All three support the `≥` condition. So, Conclusion 1 is correct.</li>
+                <li><strong>Priority Check for Conclusion 2 (M > P):</strong> For a "King" (`>`) conclusion to be true, the `>` symbol must appear at least once on the path. It does not appear here. So, Conclusion 2 is incorrect.</li>
+            </ul>
+            <div class="notes">
+                <p><strong>Important Notes:</strong> "This is the most important rule for the `≥` symbol," the speaker explains. "Think of it as a condition. To get the `≥` conclusion, the 'equal-to' part must never leave you. If even one gate on the path is just `>` (without the `=` below it), the `≥` conclusion fails, and it must become a `>` conclusion."</p>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reasoning - Problems on Ages</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f0f2f5;
+            color: black;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* The 3D Box Container */
+        .container-3d {
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: white;
+            padding: 25px 40px;
+            border-radius: 12px;
+            border: 1px solid #ddd;
+            box-shadow: 
+                6px 6px 16px rgba(0, 0, 0, 0.15),
+                -6px -6px 16px rgba(255, 255, 255, 0.7);
+        }
+
+        /* Headers */
+        h1 {
+            color: #40E0D0; /* Turquoise */
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        h3 {
+            color: black;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            border-left: 4px solid #40E0D0;
+            padding-left: 10px;
+        }
+        
+        /* Content Block Styling */
+        .content-block {
+            margin-bottom: 25px;
+        }
+
+        .content-block p {
+            margin: 10px 0;
+        }
+
+        .content-block strong {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .content-block .notes {
+            background-color: #f8f9fa;
+            border-left: 3px solid #40E0D0;
+            padding: 10px 15px;
+            margin-top: 15px;
+            border-radius: 4px;
+        }
+        
+        .notes strong {
+            color: #40E0D0;
+        }
+
+        /* Horizontal Rule for Separation */
+        hr {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #40E0D0, rgba(0, 0, 0, 0));
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container-3d">
+        <h1>Problems on Ages</h1>
+
+        <!-- Core Concept -->
+        <div class="content-block">
+            <h3>Core Concept: Setting Up the Equation</h3>
+            <p><strong>Question</strong></p>
+            <p>What is the fundamental principle for solving any age-related problem?</p>
+            <p><strong>Answer</strong></p>
+            <p>Always assume the *present age* as a variable (like 'x') and then build equations for the past or future by adding or subtracting years from that present age.</p>
+            <p><strong>Explanation</strong></p>
+            <p>The speaker establishes a simple rule for time travel in these problems:</p>
+            <ul>
+                <li><strong>Present Age:</strong> Let the current age be `x`.</li>
+                <li><strong>Age 'n' years ago (Past):</strong> The age was `x - n`.</li>
+                <li><strong>Age 'n' years hence (Future):</strong> The age will be `x + n`.</li>
+            </ul>
+            <p>The key is to set up an equation by relating the ages at different points in time as described in the problem.</p>
+            
+            <div class="notes">
+                <p><strong>Important Notes:</strong> The speaker emphasizes, "The biggest mistake students make is getting confused about which age to set the equation for. Always bring every condition back to the present. If someone's age was 20 five years ago, their present age is 20+5 = 25. If their age will be 30 in five years, their present age is 30-5 = 25. The present is your anchor point."</p>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Question 1 -->
+        <div class="content-block">
+            <h3>Question 1: Simple Past/Future Relationship</h3>
+            <p><strong>Question</strong></p>
+            <p>The age of a father is twice that of the elder son. Ten years hence, the age of the father will be three times that of the younger son. If the difference between the ages of the two sons is 15 years, what is the age of the father?</p>
+            <p><strong>Answer</strong></p>
+            <p>50 years.</p>
+            <p><strong>Explanation</strong></p>
+            <ol>
+                <li>Let the Elder Son's present age be `E` and the Younger Son's be `Y`. Let the Father's present age be `F`.</li>
+                <li>From the problem: `F = 2E` and `E - Y = 15`, which means `Y = E - 15`.</li>
+                <li>In 10 years (Future): Father's age will be `F + 10` and Younger Son's age will be `Y + 10`.</li>
+                <li>The future condition is: `F + 10 = 3 * (Y + 10)`.</li>
+                <li>Substitute the present-day relationships into the future equation:
+                    <ul>
+                        <li>`(2E) + 10 = 3 * ((E - 15) + 10)`</li>
+                        <li>`2E + 10 = 3 * (E - 5)`</li>
+                        <li>`2E + 10 = 3E - 15`</li>
+                        <li>`E = 25`</li>
+                    </ul>
+                </li>
+                <li>Since `F = 2E`, the Father's age is `2 * 25 = 50` years.</li>
+            </ol>
+        </div>
+        
+        <hr>
+
+        <!-- Question 2 -->
+        <div class="content-block">
+            <h3>Question 2: Ratio of Ages</h3>
+            <p><strong>Question</strong></p>
+            <p>The ratio of the ages of a father and son at present is 6:1. After 5 years, the ratio will become 7:2. What is the present age of the son?</p>
+            <p><strong>Answer</strong></p>
+            <p>5 years.</p>
+            <p><strong>Explanation</strong></p>
+            <ol>
+                <li>Let the present age of the father be `6x` and the son be `1x` (or `x`), based on the 6:1 ratio.</li>
+                <li>After 5 years (Future): Father's age will be `6x + 5` and the son's age will be `x + 5`.</li>
+                <li>The future ratio is 7:2, so we can write the equation: `(6x + 5) / (x + 5) = 7 / 2`.</li>
+                <li>Cross-multiply to solve for x:
+                    <ul>
+                        <li>`2 * (6x + 5) = 7 * (x + 5)`</li>
+                        <li>`12x + 10 = 7x + 35`</li>
+                        <li>`5x = 25`</li>
+                        <li>`x = 5`</li>
+                    </ul>
+                </li>
+                <li>The present age of the son is `x`, which is 5 years.</li>
+            </ol>
+            <div class="notes">
+                <p><strong>Important Notes:</strong> "When you see a ratio, immediately assign a variable `x` to it," the speaker advises. "A ratio of 6:1 becomes ages 6x and 1x. This is the fastest way to set up the equation. Don't work with fractions if you can avoid it."</p>
+            </div>
+        </div>
+
+        <hr>
+        
+        <!-- Question 3 -->
+        <div class="content-block">
+            <h3>Question 3: Difference in Ages</h3>
+            <p><strong>Question</strong></p>
+            <p>A father is 25 years older than his son. In 5 years, he will be twice as old as his son. What will be the son's age after 3 years?</p>
+            <p><strong>Answer</strong></p>
+            <p>23 years.</p>
+            <p><strong>Explanation</strong></p>
+            <ol>
+                <li>Let the Son's present age be `S` and the Father's present age be `F`.</li>
+                <li>From the problem: `F = S + 25`.</li>
+                <li>In 5 years (Future): Father's age will be `F + 5` and Son's age will be `S + 5`.</li>
+                <li>The future condition is: `F + 5 = 2 * (S + 5)`.</li>
+                <li>Substitute the present-day relationship:
+                    <ul>
+                        <li>`(S + 25) + 5 = 2 * (S + 5)`</li>
+                        <li>`S + 30 = 2S + 10`</li>
+                        <li>`S = 20`</li>
+                    </ul>
+                </li>
+                <li>The son's *present* age is 20. The question asks for his age after 3 years, which is `20 + 3 = 23` years.</li>
+            </ol>
+            <div class="notes">
+                <p><strong>Important Notes:</strong> The speaker highlights a common trick: "Always read the final question carefully! They solve for 'S' and find 20, and they see 20 in the options and mark it. But the question asks for the age *after 3 years*. The examiner is testing if you are paying attention to the very end. Don't fall for this trap." He also notes that the difference in ages (25 years) is constant and never changes, which is a key property of age problems.</p>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

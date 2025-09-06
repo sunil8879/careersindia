@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Direction Sense Test Guide (Pages 20-34)</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f7f9;
+            color: #333;
+        }
+        .page {
+            border: 1px solid #d1d9e0;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            page-break-after: always;
+        }
+        .page-header {
+            text-align: right;
+            color: #888;
+            font-style: italic;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            font-size: 0.9em;
+            border-bottom: 1px solid #eee;
+        }
+        .section {
+            margin-bottom: 25px;
+            padding: 15px;
+            border-left: 4px solid;
+            border-radius: 4px;
+        }
+        .theory { border-color: #17a2b8; background-color: #f1f9fa; }
+        .question-block { border-color: #007bff; background-color: #f0f7ff; }
+        .diagram-block { border-color: #fd7e14; background-color: #fff8f2; text-align: center; }
+        .answer-block { border-color: #28a745; background-color: #f3fbf5; }
+        .explanation-block { border-color: #6c757d; background-color: #f8f9fa; }
+        .remarks-block { border-color: #ffc107; background-color: #fffbf2; }
+        
+        .section-title {
+            font-weight: bold;
+            color: #343a40;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        h1, h2, h3 { color: #004085; }
+        h1 { text-align: center; }
+        h2 { border-bottom: 2px solid #e9ecef; padding-bottom: 10px; }
+        .options { list-style-type: lower-alpha; padding-left: 25px; }
+        .answer { font-weight: bold; color: #155724; }
+
+        /* --- DIAGRAM STYLES --- */
+        .diagram-wrapper {
+            position: relative;
+            display: inline-block;
+            margin-top: 20px;
+            font-family: sans-serif;
+            font-size: 0.9em;
+        }
+        .line {
+            position: absolute;
+            background-color: #333;
+        }
+        .line.arrow::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-style: solid;
+        }
+        .h-line { height: 2px; }
+        .h-line.arrow::after { /* Right Arrow */
+            right: -1px; top: -3.5px;
+            border-width: 4px 0 4px 8px;
+            border-color: transparent transparent transparent #333;
+        }
+        .v-line { width: 2px; }
+        .v-line.arrow::after { /* Down Arrow */
+            bottom: -1px; left: -3.5px;
+            border-width: 8px 4px 0 4px;
+            border-color: #333 transparent transparent transparent;
+        }
+        .v-line.arrow.up::after { /* Up Arrow */
+            top: -1px; left: -3.5px;
+            border-width: 0 4px 8px 4px;
+            border-color: transparent transparent #333 transparent;
+        }
+        .point { position: absolute; font-weight: bold; }
+        .label { position: absolute; color: #555; }
+        .node-box {
+            border: 2px solid #333;
+            padding: 5px 10px;
+            background: #fff;
+            display: inline-block;
+        }
+        .compass { width: 150px; height: 150px; position: relative; }
+        .compass .line { top: 50%; left: 50%; transform-origin: center; }
+        .compass .label { font-weight: bold; position: absolute; }
+    </style>
+</head>
+<body>
+
+<!-- Start of Page 20 -->
+<div class="page">
+    <div class="page-header">Page 20 of 309</div>
+    <h1>DIRECTION SENSE TEST</h1>
+    <div class="section theory">
+        <div class="section-title">Theory: Introduction</div>
+        <h2>INTRODUCTION</h2>
+        <p>Directions Sense Test Questions are based on three principles:</p>
+        <ol class="options"><li>Calculation of Distance</li><li>Finding the Direction</li><li>Finding both the Distance and the Direction</li></ol>
+        <p>You can be asked to calculate the distance or the direction. The first thing to be done is to draw the basic direction map with the indication of all the directions. Based on the direction map, you can quickly answer the direction sense test verbal reasoning questions.</p>
+        <h2>SOME IMPORTANT TERMS</h2>
+        <p><strong>DISPLACEMENT:</strong> It is the shortest distance between the starting and the finishing point.</p>
+        <p><strong>DISTANCE:</strong> It is the actual length of path travelled by an object or person.</p>
+        <p><strong>DIRECTION:</strong> It is the measurement of position of one thing with respect to another.</p>
+        <p>There are two types of directions:</p>
+        <ol class="options"><li><strong>PRIME DIRECTIONS or MAIN DIRECTIONS:</strong> Based on the movement of the sun, they are of four types – North, South, East and West.</li><li><strong>CARDINAL DIRECTIONS:</strong> The directions between the Prime Directions are known as Cardinal directions. They are of four types.</li></ol>
+    </div>
+</div>
+<!-- End of Page 20 -->
+
+<!-- Start of Page 21 -->
+<div class="page">
+    <div class="page-header">Page 21 of 309</div>
+    <div class="section theory">
+        <div class="section-title">Theory: Directions and Angles</div>
+        <p>The four Cardinal Directions are North-East (NE), South-East (SE), South-West (SW) and North-West (NW). These are depicted in the diagram given below:</p>
+        <p>The angle formed between two main directions is 90º and the angle formed between a main direction and a cardinal direction is 45°.</p>
+        <h3>ANGLE OF MOVEMENT</h3>
+        <p><strong>a) Clockwise movement:</strong> Movement towards the right is called clockwise movement.</p>
+    </div>
+    <div class="section diagram-block">
+        <div class="section-title">Diagrams: Directions and Movement</div>
+        <div style="display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap;">
+            <div class="diagram-wrapper" style="width: 200px; height: 180px;">
+                <div class="compass">
+                    <div class="line" style="width: 100%; height: 2px; top: 50%; left: 0;"></div>
+                    <div class="line" style="width: 2px; height: 100%; top: 0; left: 50%;"></div>
+                    <div class="line" style="width: 100%; height: 2px; top: 50%; left: 0; transform: rotate(45deg);"></div>
+                    <div class="line" style="width: 100%; height: 2px; top: 50%; left: 0; transform: rotate(-45deg);"></div>
+                    <div class="label" style="top: -5px; left: 50%; transform: translateX(-50%);">N</div>
+                    <div class="label" style="bottom: -5px; left: 50%; transform: translateX(-50%);">S</div>
+                    <div class="label" style="top: 50%; right: -15px; transform: translateY(-50%);">E</div>
+                    <div class="label" style="top: 50%; left: -15px; transform: translateY(-50%);">W</div>
+                    <div class="label" style="top: 5px; right: 5px;">NE</div>
+                    <div class="label" style="bottom: 5px; right: 5px;">SE</div>
+                    <div class="label" style="bottom: 5px; left: 5px;">SW</div>
+                    <div class="label" style="top: 5px; left: 5px;">NW</div>
+                </div>
+            </div>
+            <div class="diagram-wrapper" style="width: 200px; height: 180px;">
+                <svg width="180" height="180" viewBox="0 0 180 180">
+                    <defs><marker id="arrow-cw" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#333" /></marker></defs>
+                    <line x1="90" y1="10" x2="90" y2="170" stroke="#333" stroke-width="2"/><line x1="10" y1="90" x2="170" y2="90" stroke="#333" stroke-width="2"/>
+                    <path d="M 150 50 A 60 60 0 1 1 130 150" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrow-cw)" />
+                    <text x="90" y="70" font-size="16" text-anchor="middle" font-weight="bold">Clockwise</text>
+                </svg>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End of Page 21 -->
+
+<!-- Start of Page 22 -->
+<div class="page">
+    <div class="page-header">Page 22 of 309</div>
+    <div class="section theory">
+        <div class="section-title">Theory: Anticlockwise Movement & Question Types</div>
+        <p><strong>b) Anticlockwise movement:</strong> Movement towards the left is called anticlockwise movement.</p>
+        <h2>TYPE 1 - BASED ON DISTANCE</h2>
+        <p>In these type of questions, distance of a point with respect to another point is to be calculated through directional movement.</p>
+    </div>
+    <div class="section diagram-block">
+        <div class="section-title">Diagram: Anticlockwise Movement</div>
+        <div class="diagram-wrapper" style="width: 250px; height: 200px;">
+            <svg width="220" height="200" viewBox="0 0 220 200">
+                <defs><marker id="arrow-acw" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 5 L 10 0 L 10 10 z" fill="#333" /></marker></defs>
+                <line x1="110" y1="10" x2="110" y2="190" stroke="#333" stroke-width="2"/><line x1="20" y1="100" x2="200" y2="100" stroke="#333" stroke-width="2"/><line x1="40" y1="30" x2="180" y2="170" stroke="#333" stroke-width="2"/><line x1="40" y1="170" x2="180" y2="30" stroke="#333" stroke-width="2"/>
+                <path d="M 180 30 A 80 80 0 1 1 30 180" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrow-acw)" />
+                <text x="110" y="25" text-anchor="middle">Anti-clock</text><text x="110" y="45" text-anchor="middle">wise</text>
+            </svg>
+        </div>
+    </div>
+    <div class="section question-block">
+        <div class="section-title">Question: Example 1</div>
+        <p>Nitin starts travelling towards south and covers a distance of 5 km. He then turns left and travels 8 km. Finally, he takes another left turn and travels 5 km. How far is he from the starting point?</p>
+        <ol class="options"><li>5 km</li><li>8 km</li><li>13 km</li><li>None of these</li></ol>
+    </div>
+    <div class="section remarks-block"><p><strong>Watch this video:</strong> <a href="https://youtu.be/PIQfrlDgXes">https://youtu.be/PIQfrlDgXes</a></p></div>
+</div>
+<!-- End of Page 22 -->
+
+<!-- Start of Page 23 -->
+<div class="page">
+    <div class="page-header">Page 23 of 309</div>
+    <div class="section explanation-block">
+        <div class="section-title">Explanation: Solution to Example 1</div>
+        <p>Let A be the starting and D be the ending point of Nitin. From the diagram it is clear that the path forms a rectangle. The distance from the starting point A to the ending point D is equal to the length of the opposite side BC, which is 8 km.</p>
+    </div>
+    <div class="section diagram-block">
+        <div class="section-title">Diagram: Example 1</div>
+        <div class="diagram-wrapper" style="height: 120px; width: 200px;">
+            <div class="point" style="top: 10px; left: 20px;">A</div>
+            <div class="point" style="top: 10px; right: 20px;">D</div>
+            <div class="point" style="bottom: 10px; left: 20px;">B</div>
+            <div class="point" style="bottom: 10px; right: 20px;">C</div>
+            <div class="line h-line" style="top: 15px; left: 40px; width: 150px; border-style: dotted;"></div>
+            <div class="line v-line" style="top: 25px; left: 25px; height: 50px;"></div>
+            <div class="line v-line" style="top: 25px; right: 25px; height: 50px;"></div>
+            <div class="line h-line" style="bottom: 15px; left: 40px; width: 150px;"></div>
+            <div class="label" style="top: 40px; left: 0;">5 km</div>
+            <div class="label" style="bottom: -5px; left: 50%; transform: translateX(-50%);">8 km</div>
+        </div>
+    </div>
+    <div class="section answer-block"><p>Correct answer: <span class="answer">b) 8 km</span></p></div>
+    <hr>
+    <div class="section question-block">
+        <div class="section-title">Question: Example 2</div>
+        <p>Raju drives 25 km North and turns left and travels 5 km and reaches point 'O'. He then turns right and covers another 5 km. Afterwards turns to East and drives 5 km. How much distance he has to travel to go back to the starting point?</p>
+        <ol class="options"><li>30 km</li><li>20 km</li><li>25 km</li><li>35 km</li></ol>
+        <p><strong>Source:</strong> (SSC-CGL 2015)</p>
+    </div>
+    <div class="section diagram-block">
+        <div class="section-title">Diagram: Solution to Example 2</div>
+        <div class="diagram-wrapper" style="height: 250px; width: 200px;">
+            <div class="point" style="top: 0px; left: 55px;">D</div><div class="point" style="top: 0px; right: 0;">C</div>
+            <div class="point" style="top: 50px; left: 0;">O</div><div class="point" style="top: 50px; right: 0;">B</div>
+            <div class="point" style="bottom: 0; right: 0;">A</div>
+            <div class="line h-line arrow" style="top: 5px; left: 0; width: 50px;"></div>
+            <div class="line v-line arrow" style="top: 10px; left: 0; height: 40px;"></div>
+            <div class="line h-line arrow" style="top: 55px; left: 5px; width: 140px;"></div>
+            <div class="line v-line arrow up" style="top: 60px; right: 5px; height: 150px;"></div>
+            <div class="label" style="top: -15px; left: 10px;">5 km</div><div class="label" style="top: 20px; left: -30px;">5 km</div>
+            <div class="label" style="top: 120px; right: 15px;">25 km</div>
+        </div>
+    </div>
+</div>
+<!-- End of Page 23 -->
+
+<!-- Start of Page 24 -->
+<div class="page">
+    <div class="page-header">Page 24 of 309</div>
+    <div class="section explanation-block">
+        <div class="section-title">Explanation: Solution to Example 2</div>
+        <p>A is the starting point. The final point is C. The distance to travel back is the straight line distance CA. This is the sum of the vertical segments: CB (5 km) and BA (25 km).</p>
+        <p>CA = CB + BA = 5 + 25 = 30 km</p>
+    </div>
+    <div class="section answer-block"><p>Correct answer: <span class="answer">a) 30 km</span></p></div>
+    <div class="section remarks-block"><p><strong>Watch this video:</strong> <a href="https://youtu.be/NLJ9v13nqFQ">https://youtu.be/NLJ9v13nqFQ</a></p></div>
+    <div class="section question-block">
+        <div class="section-title">Practice Question 1</div>
+        <p>Vijay travelled 12 km southward... How far was Vijay from the starting point?</p>
+        <p class="answer">Correct Answer: (d) 10 km</p>
+    </div>
+    <div class="section question-block">
+        <div class="section-title">Practice Question 2</div>
+        <p>Namita walks 14 m towards west... What is the shortest distance?</p>
+        <ol class="options"><li>10 m</li><li>24 m</li></ol>
+    </div>
+</div>
+<!-- End of Page 24 -->
+
+<!-- Start of Page 25 -->
+<div class="page">
+    <div class="page-header">Page 25 of 309</div>
+    <div class="section question-block">
+        <div class="section-title">Practice Question 2 (Continued)</div>
+        <ol class="options" start="3"><li>28 m</li><li>38 m</li></ol>
+        <p class="answer">Correct Answer: (b) 24 m</p>
+    </div>
+    <div class="section question-block">
+        <div class="section-title">Practice Question 3</div>
+        <p>Vijay travelled 12 km southwards... How far was Vijay from the starting point?</p>
+        <p class="answer">Correct Answer: (d) 10 km</p>
+    </div>
+    <div class="section question-block">
+        <div class="section-title">Practice Question 4</div>
+        <p>A walks 10 m in front and 10 m to the right... How far is he now from his starting point?</p>
+        <p class="answer">Correct Answer: (a) 5 m</p>
+    </div>
+</div>
+<!-- End of Page 25 -->
+
+<!-- Start of Page 26 -->
+<div class="page">
+    <div class="page-header">Page 26 of 309</div>
+    <div class="section question-block">
+        <div class="section-title">Practice Question 5</div>
+        <p>A man walks 1 km towards East... how far is he from his starting point?</p>
+        <p class="answer">Correct Answer: (c) 5 km</p>
+    </div>
+    <div class="section theory"><h2>TYPE 2 - BASED ON DIRECTION</h2></div>
+    <div class="section question-block">
+        <div class="section-title">Question: Example 1</div>
+        <p>I am facing North. I turn 100º in the clockwise direction and then 145º in the anti-clockwise direction. Which direction am I facing now?</p>
+        <ol class="options"><li>North-East</li><li>North-West</li><li>West</li><li>South</li></ol>
+    </div>
+    <div class="section diagram-block">
+        <div class="section-title">Diagram: Solution to Example 1</div>
+        <div class="diagram-wrapper" style="width: 200px; height: 200px;">
+            <svg width="200" height="200" viewBox="0 0 200 200">
+                <line x1="100" y1="10" x2="100" y2="190" stroke="#333" stroke-width="1" />
+                <line x1="100" y1="100" x2="175" y2="67" stroke="#333" stroke-width="1" />
+                <line x1="100" y1="100" x2="30" y2="30" stroke="#333" stroke-width="1" />
+                <path d="M 100 20 A 80 80 0 0 1 175 67" stroke="#555" stroke-width="1.5" fill="none"/>
+                <path d="M 175 67 A 80 80 0 0 1 30 30" stroke="#555" stroke-width="1.5" fill="none"/>
+                <text x="100" y="10" text-anchor="middle">N</text>
+                <text x="180" y="70">A</text><text x="20" y="30">B</text>
+                <text x="125" y="50" font-size="12">100°</text>
+                <text x="60" y="50" font-size="12">145°</text>
+            </svg>
+        </div>
+    </div>
+</div>
+<!-- End of Page 26 -->
+
+<!-- Start of Page 27 -->
+<div class="page">
+    <div class="page-header">Page 27 of 309</div>
+    <div class="section explanation-block">
+        <div class="section-title">Explanation: Solution to Example 1</div>
+        <p>The net rotation is 145° (anti-clockwise) - 100° (clockwise) = 45° anti-clockwise from North. A 45° anti-clockwise turn from North leads to the North-West direction.</p>
+    </div>
+    <div class="section answer-block"><p>Correct Answer: <span class="answer">(b) North-West</span></p></div>
+    <div class="section question-block">
+        <div class="section-title">Question: Example 2</div>
+        <p>A person walks towards his house at 8:00 am and observes his shadow to his right. In which direction is he walking?</p>
+        <p><strong>Source:</strong> (SSC (CPO) 2014)</p>
+    </div>
+    <div class="section explanation-block">
+        <div class="section-title">Explanation: Solution to Example 2</div>
+        <p>At 8 am the sun is in the East. The shadow is cast in the West. If the person's shadow is to his right, and his right is the West, he must be facing South.</p>
+    </div>
+    <div class="section diagram-block">
+        <div class="section-title">Diagram: Example 2</div>
+        <div style="display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap;">
+            <div class="diagram-wrapper" style="width: 380px; height: 150px;">
+                <div class="node-box" style="position: absolute; left: 0;">Shadow</div>
+                <div style="position: absolute; left: 80px; font-size: 1.2em;">Right &rarr;</div>
+                <div class="node-box" style="position: absolute; left: 165px;">Person</div>
+                <div style="position: absolute; right: 80px; font-size: 1.2em;">&larr; Left</div>
+                <div class="node-box" style="position: absolute; right: 0; font-size: 2em; background: #FFD700; border: none;">☀️</div>
+                <div class="node-box" style="position: absolute; top: 70px; left: 170px;">House</div>
+                <div class="line v-line arrow" style="top: 40px; left: 190px; height: 30px;"></div>
+            </div>
+        </div>
+    </div>
+    <div class="section answer-block"><p>Correct Answer: <span class="answer">(b) South</span></p></div>
+</div>
+<!-- End of Page 27 -->
+
+<!-- Start of Page 28 -->
+<div class="page">
+    <div class="page-header">Page 28 of 309</div>
+    <div class="section question-block">
+        <div class="section-title">Question: Example 3</div>
+        <p>Pratap starts from school and walks 7 km towards East... Which direction is he facing now?</p>
+        <p class="answer">Correct Answer: (a) South</p>
+        <p><strong>Source:</strong> (SSC (CGL) 2014)</p>
+    </div>
+    <div class="section diagram-block">
+        <div class="section-title">Diagram: Solution to Example 3</div>
+        <div class="diagram-wrapper" style="width: 300px; height: 150px;">
+            <div class="node-box" style="position: absolute; top: 50px; left: 0;">School</div>
+            <div class="line h-line arrow" style="top: 60px; left: 60px; width: 70px;"></div>
+            <div class="line v-line arrow up" style="top: 10px; left: 130px; height: 50px;"></div>
+            <div class="line h-line arrow" style="top: 10px; left: 132px; width: 50px;"></div>
+            <div class="line v-line arrow" style="top: 12px; left: 182px; height: 70px;"></div>
+            <div class="label" style="top: 40px; left: 85px;">7 km</div>
+            <div class="label" style="top: 25px; left: 140px;">4 km</div>
+            <div class="label" style="top: -5px; left: 150px;">2 km</div>
+            <div class="label" style="top: 40px; right: 70px;">3 km</div>
+        </div>
+    </div>
+    <div class="section question-block">
+        <div class="section-title">Question: Example 4</div>
+        <p>If South-East becomes North, North-East becomes West and so on. What will West become?</p>
+        <ol class="options"><li>North-East</li><li>North-West</li><li>South-East</li><li>South-West</li></ol>
+    </div>
+</div>
+<!-- End of Page 28 -->
+
+<!-- Start of Page 29 -->
+<div class="page">
+    <div class="page-header">Page 29 of 309</div>
+    <div class="section diagram-block">
+        <div class="section-title">Diagrams: Solution to Example 4</div>
+        <div style="display:flex; justify-content: space-around; align-items:center;">
+            <div><strong>Original</strong>
+                <div class="diagram-wrapper" style="width: 180px; height: 180px;">
+                    <div class="compass"><div class="line" style="width:100%;height:2px;top:50%;left:0;"></div><div class="line" style="width:2px;height:100%;top:0;left:50%;"></div><div class="line" style="width:100%;height:2px;top:50%;left:0;transform:rotate(45deg);"></div><div class="line" style="width:100%;height:2px;top:50%;left:0;transform:rotate(-45deg);"></div><div class="label" style="top:-5px;left:50%;transform:translateX(-50%);">N</div><div class="label" style="bottom:-5px;left:50%;transform:translateX(-50%);">S</div><div class="label" style="top:50%;right:-15px;transform:translateY(-50%);">E</div><div class="label" style="top:50%;left:-15px;transform:translateY(-50%);">W</div><div class="label" style="top:5px;right:5px;">NE</div><div class="label" style="bottom:5px;right:5px;">SE</div><div class="label" style="bottom:5px;left:5px;">SW</div><div class="label" style="top:5px;left:5px;">NW</div></div>
+                </div>
+            </div>
+            <div><strong>New</strong>
+                <div class="diagram-wrapper" style="width: 180px; height: 180px;">
+                    <div class="compass"><div class="line" style="width:100%;height:2px;top:50%;left:0;"></div><div class="line" style="width:2px;height:100%;top:0;left:50%;"></div><div class="line" style="width:100%;height:2px;top:50%;left:0;transform:rotate(45deg);"></div><div class="line" style="width:100%;height:2px;top:50%;left:0;transform:rotate(-45deg);"></div><div class="label" style="top:-5px;left:50%;transform:translateX(-50%);">SE</div><div class="label" style="bottom:-5px;left:50%;transform:translateX(-50%);">NW</div><div class="label" style="top:50%;right:-15px;transform:translateY(-50%);">N</div><div class="label" style="top:50%;left:-15px;transform:translateY(-50%);">S</div><div class="label" style="top:5px;right:5px;">E</div><div class="label" style="bottom:5px;right:5px;">NE</div><div class="label" style="bottom:5px;left:5px;">W</div><div class="label" style="top:5px;left:5px;">SW</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section explanation-block"><p>Each direction shifts 135° anti-clockwise. Applying this rotation to West, it moves to the position originally held by South-East.</p></div>
+    <div class="section answer-block"><p>Correct Answer: <span class="answer">c) South - East</span></p></div>
+    <div class="section question-block">
+        <div class="section-title">Practice Questions</div>
+        <p>1. Aditya's house faces East. From the back, he walks 50m, turns right, walks 50m, turns left, walks 25m. Direction from start?</p>
+        <p class="answer">Correct answer: (d) North-West</p>
+    </div>
+</div>
+<!-- End of Page 29 -->
+
+<!-- Start of Page 30 -->
+<div class="page">
+    <div class="page-header">Page 30 of 309</div>
+    <div class="section question-block">
+        <div class="section-title">Practice Question 2</div>
+        <p>Vijay travelled 12 km southward, then turned right and travelled 10 km, then turned right and travelled 12 km. How far was Vijay from the starting point?</p>
+        <ol class="options"><li>22 km</li><li>44 km</li><li>12 km</li><li>10 km</li></ol>
+        <p class="answer">Correct answer: (d) 10 km</p>
+    </div>
+    <div class="section question-block">
+        <div class="section-title">Practice Question 3</div>
+        <p>One morning after sunrise, Sumit and Teena were talking face to face. If Sumit's shadow was exactly to the right of Teena, which direction was Teena facing?</p>
+        <p class="answer">Correct Answer: (a) North</p>
+    </div>
+    <div class="section question-block">
+        <div class="section-title">Practice Question 4</div>
+        <p>At 3 o'clock, if the minute hand points towards north-east, then the hour hand will point towards the:</p>
+        <p class="answer">Correct answer: (d) South-east</p>
+    </div>
+</div>
+<!-- End of Page 30 -->
+
+<!-- Start of Page 31 -->
+<div class="page">
+    <div class="page-header">Page 31 of 309</div>
+    <div class="section question-block">
+        <div class="section-title">Practice Question 5</div>
+        <p>A man facing west turns 45º clockwise, then 180° clockwise, then 270° anti-clockwise. Which direction is he facing now?</p>
+        <p class="answer">Correct Answer: (d) South-west</p>
+    </div>
+    <div class="section theory"><h2>TYPE 3 - BASED ON DISTANCE AND DIRECTION</h2></div>
+    <div class="section question-block">
+        <div class="section-title">Question: Example 1</div>
+        <p>Aman walked 20 m South, turned left, walked 25 m, turned left, walked 20 m, turned right, walked 15 m. At what distance is he from the starting point and in which direction?</p>
+        <ol class="options"><li>40 m, West</li><li>40 m, East</li><li>45 m, North</li><li>45 m, East</li></ol>
+    </div>
+    <div class="section diagram-block">
+        <div class="section-title">Diagram: Solution to Example 1</div>
+        <div class="diagram-wrapper" style="width: 280px; height: 120px;">
+            <div class="point" style="top: 0; left: 0;">A</div>
+            <div class="point" style="bottom: 0; left: 0;">B</div>
+            <div class="point" style="bottom: 0; right: 60px;">C</div>
+            <div class="point" style="top: 0; right: 60px;">D</div>
+            <div class="point" style="top: 0; right: 0;">E</div>
+            <div class="line v-line" style="top: 10px; left: 5px; height: 70px;"></div>
+            <div class="line h-line" style="bottom: 5px; left: 10px; width: 180px;"></div>
+            <div class="line v-line" style="top: 10px; right: 65px; height: 70px;"></div>
+            <div class="line h-line" style="top: 5px; right: 10px; width: 50px;"></div>
+            <div class="label" style="top: 35px; left: -30px;">20 m</div>
+            <div class="label" style="bottom: -20px; left: 90px;">25 m</div>
+            <div class="label" style="top: -20px; right: 15px;">15 m</div>
+        </div>
+    </div>
+</div>
+<!-- End of Page 31 -->
+
+<!-- Start of Pages 32, 33, 34 -->
+<div class="page">
+    <div class="page-header">Page 32, 33, 34</div>
+    <div class="section explanation-block">
+        <div class="section-title">Explanation: Solution to Example 1</div>
+        <p>Aman starts at A, goes south 20m to B, left (east) 25m to C, left (north) 20m to D, and right (east) 15m to E. The 20m south and 20m north movements cancel each other out vertically. Horizontally, he moves 25m east and then another 15m east. His final position E is 25 + 15 = 40m to the East of his starting point A.</p>
+    </div>
+    <div class="section answer-block"><p>Correct Answer: <span class="answer">(b) 40 m, East</span></p></div>
+    <div class="section remarks-block"><p><strong>Watch this video:</strong> <a href="https://youtu.be/DAIgumpQYV0">https://youtu.be/DAIgumpQYV0</a></p></div>
+    <div class="section question-block">
+        <div class="section-title">Practice Questions</div>
+        <p>1. Sanjeev walks 10 m South, left 20m, right, moves 20m, right 20m, finally right 10m. How far and in which direction from start?</p>
+        <p class="answer">Correct Answer: (b) 20 m South</p>
+        <hr>
+        <p>2. Manick walked 40 m North, left 20m, left 40m. How far and in which direction from start?</p>
+        <ol class="options"><li>20 m East</li><li>20m North</li><li>20 m South</li><li>100m South</li><li>None of these</li></ol>
+        <p class="answer">Correct Answer: (e) None of these (Correct answer is 20m West)</p>
+        <hr>
+        <p>3. T is 15m north of M. H is 9m south G which is 15m east of M... what is the direction and distance of V with respect to T?</p>
+        <p class="answer">Correct Answer: (b)19m, south</p>
+        <hr>
+        <p>4. Point Q is 16m south of P. R is 5m west of Q... Point J is 9m south of V.</p>
+        <h4>A. In which direction is point V with respect to point Q?</h4>
+        <p class="answer">Correct Answer: a) North East</p>
+        <h4>B. If W is west of J and north of R, what is the distance between W and T?</h4>
+        <p class="answer">Correct Answer: a) 9 m</p>
+        <h4>C. In which direction and at what distance is point P with respect to point J?</h4>
+        <p class="answer">Correct Answer: e) 5m towards west</p>
+    </div>
+</div>
+<!-- End of Pages 32, 33, 34 -->
+
+</body>
+</html>

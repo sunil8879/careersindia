@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reasoning - Problems on Ages</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f0f2f5;
+            color: black;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* The 3D Box Container */
+        .container-3d {
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: white;
+            padding: 25px 40px;
+            border-radius: 12px;
+            border: 1px solid #ddd;
+            box-shadow: 
+                6px 6px 16px rgba(0, 0, 0, 0.15),
+                -6px -6px 16px rgba(255, 255, 255, 0.7);
+        }
+
+        /* Headers */
+        h1 {
+            color: #40E0D0; /* Turquoise */
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        h3 {
+            color: black;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            border-left: 4px solid #40E0D0;
+            padding-left: 10px;
+        }
+        
+        /* Content Block Styling */
+        .content-block {
+            margin-bottom: 25px;
+        }
+
+        .content-block p {
+            margin: 10px 0;
+        }
+
+        .content-block strong {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .content-block .notes {
+            background-color: #f8f9fa;
+            border-left: 3px solid #40E0D0;
+            padding: 10px 15px;
+            margin-top: 15px;
+            border-radius: 4px;
+        }
+        
+        .notes strong {
+            color: #40E0D0;
+        }
+        
+        .problem-format {
+            font-style: italic;
+        }
+
+        /* Horizontal Rule for Separation */
+        hr {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #40E0D0, rgba(0, 0, 0, 0));
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container-3d">
+        <h1>Problems on Ages</h1>
+
+        <!-- Core Concept -->
+        <div class="content-block">
+            <h3>Core Concept: Using Ratios and Constant Difference</h3>
+            <p><strong>Question</strong></p>
+            <p>What are the fundamental principles for solving age problems involving ratios?</p>
+            <p><strong>Answer</strong></p>
+            <p>Represent the present ages using the ratio and a variable (e.g., 3:5 becomes 3x and 5x). A key principle is that the difference in age between two people is always constant, regardless of whether you are considering the past, present, or future.</p>
+            <p><strong>Explanation</strong></p>
+            <ul>
+                <li><strong>Ratio to Variable:</strong> If the ratio of A's age to B's age is `a:b`, their present ages can be written as `ax` and `bx`.</li>
+                <li><strong>Constant Difference:</strong> If person A is 10 years older than person B today, they will also be 10 years older in 20 years, and they were 10 years older 5 years ago. This fact can be used to set up equations.</li>
+            </ul>
+            
+            <div class="notes">
+                <p><strong>Important Notes:</strong> The speaker emphasizes, "The moment you see a ratio, like 7:3, the first thing you should write down is 7x and 3x. This is your starting point. The second most important thing is the age difference. It never, ever changes. This is a very powerful tool to check your logic or find a shortcut."</p>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Question 1 -->
+        <div class="content-block">
+            <h3>Question 1: Sum of Ages and Future Ratio</h3>
+            <p><strong>Question</strong></p>
+            <p class="problem-format">The sum of the present ages of a father and his son is 60 years. Six years ago, the father's age was five times the age of the son. What will be the son's age after 6 years?</p>
+            <p><strong>Answer</strong></p>
+            <p>20 years.</p>
+            <p><strong>Explanation</strong></p>
+            <ol>
+                <li>Let the Father's present age be `F` and the Son's be `S`.</li>
+                <li>From the problem: `F + S = 60`. This means `F = 60 - S`.</li>
+                <li>Six years ago (Past): Father's age was `F - 6` and Son's age was `S - 6`.</li>
+                <li>The past condition is: `F - 6 = 5 * (S - 6)`.</li>
+                <li>Substitute the present-day relationship into the past equation:
+                    <ul>
+                        <li>`(60 - S) - 6 = 5S - 30`</li>
+                        <li>`54 - S = 5S - 30`</li>
+                        <li>`84 = 6S`</li>
+                        <li>`S = 14`</li>
+                    </ul>
+                </li>
+                <li>The son's *present* age is 14. The question asks for his age after 6 years, which is `14 + 6 = 20` years.</li>
+            </ol>
+             <div class="notes">
+                <p><strong>Important Notes:</strong> The speaker highlights a common mistake: "Be very careful! The question asks for the son's age *after* 6 years. You found S=14, which is the present age. 14 will be one of the options to trap you. Always re-read the final question before marking your answer."</p>
+            </div>
+        </div>
+        
+        <hr>
+
+        <!-- Question 2 -->
+        <div class="content-block">
+            <h3>Question 2: Finding Ages from a Product</h3>
+            <p><strong>Question</strong></p>
+            <p class="problem-format">The product of the ages of Ankit and Nikita is 240. If twice the age of Nikita is more than Ankit's age by 4 years, what is Nikita's age?</p>
+            <p><strong>Answer</strong></p>
+            <p>12 years.</p>
+            <p><strong>Explanation</strong></p>
+            <p>Let Ankit's age be `A` and Nikita's be `N`.</p>
+            <ol>
+                <li>From the problem, we have two equations:
+                    <ul>
+                        <li>Equation 1 (Product): `A * N = 240`</li>
+                        <li>Equation 2 (Difference): `2N = A + 4`, which can be rewritten as `A = 2N - 4`.</li>
+                    </ul>
+                </li>
+                <li>Substitute the value of A from Equation 2 into Equation 1:
+                    <ul>
+                        <li>`(2N - 4) * N = 240`</li>
+                        <li>`2N² - 4N = 240`</li>
+                        <li>`2N² - 4N - 240 = 0`</li>
+                        <li>Divide by 2: `N² - 2N - 120 = 0`</li>
+                    </ul>
+                </li>
+                <li>This is a quadratic equation. We need two numbers that multiply to -120 and add to -2. These numbers are -12 and +10.</li>
+                <li>Factoring gives: `(N - 12)(N + 10) = 0`.</li>
+                <li>The possible values for N are 12 or -10. Since age cannot be negative, Nikita's age is 12 years.</li>
+            </ol>
+        </div>
+
+        <hr>
+        
+        <!-- Question 3 -->
+        <div class="content-block">
+            <h3>Question 3: Past and Future Ratios</h3>
+            <p><strong>Question</strong></p>
+            <p class="problem-format">The ratio of the ages of Ram and Rahim 10 years ago was 1:3. The ratio of their ages five years hence will be 2:3. What is the ratio of their present ages?</p>
+            <p><strong>Answer</strong></p>
+            <p>3 : 5.</p>
+            <p><strong>Explanation</strong></p>
+            <ol>
+                <li>Let the ages of Ram and Rahim 10 years ago be `x` and `3x`.</li>
+                <li>Their present ages are therefore `x + 10` (Ram) and `3x + 10` (Rahim).</li>
+                <li>In 5 years (Future): Ram's age will be `(x + 10) + 5 = x + 15`. Rahim's age will be `(3x + 10) + 5 = 3x + 15`.</li>
+                <li>The future ratio is 2:3. So, `(x + 15) / (3x + 15) = 2 / 3`.</li>
+                <li>Cross-multiply to solve for x:
+                    <ul>
+                        <li>`3 * (x + 15) = 2 * (3x + 15)`</li>
+                        <li>`3x + 45 = 6x + 30`</li>
+                        <li>`15 = 3x`</li>
+                        <li>`x = 5`</li>
+                    </ul>
+                </li>
+                <li>Now find their present ages:
+                    <ul>
+                        <li>Ram's present age = `x + 10` = 5 + 10 = 15 years.</li>
+                        <li>Rahim's present age = `3x + 10` = 3(5) + 10 = 15 + 10 = 25 years.</li>
+                    </ul>
+                </li>
+                <li>The ratio of their present ages is 15 : 25. Simplifying by dividing by 5 gives <strong>3 : 5</strong>.</li>
+            </ol>
+        </div>
+
+    </div>
+
+</body>
+</html>

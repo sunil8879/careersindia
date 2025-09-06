@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reasoning - Number Series Completion</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f0f2f5;
+            color: black;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* The 3D Box Container */
+        .container-3d {
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: white;
+            padding: 25px 40px;
+            border-radius: 12px;
+            border: 1px solid #ddd;
+            box-shadow: 
+                6px 6px 16px rgba(0, 0, 0, 0.15),
+                -6px -6px 16px rgba(255, 255, 255, 0.7);
+        }
+
+        /* Headers */
+        h1 {
+            color: #40E0D0; /* Turquoise */
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        h3 {
+            color: black;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            border-left: 4px solid #40E0D0;
+            padding-left: 10px;
+        }
+        
+        /* Content Block Styling */
+        .content-block {
+            margin-bottom: 25px;
+        }
+
+        .content-block p {
+            margin: 10px 0;
+        }
+
+        .content-block strong {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .content-block .notes {
+            background-color: #f8f9fa;
+            border-left: 3px solid #40E0D0;
+            padding: 10px 15px;
+            margin-top: 15px;
+            border-radius: 4px;
+        }
+        
+        .notes strong {
+            color: #40E0D0;
+        }
+        
+        .series-format {
+            font-weight: bold;
+            font-size: 1.2em;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            background-color: #f0f2f5;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        /* Horizontal Rule for Separation */
+        hr {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #40E0D0, rgba(0, 0, 0, 0));
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container-3d">
+        <h1>Number Series Completion</h1>
+
+        <!-- Core Concept -->
+        <div class="content-block">
+            <h3>Core Concept: The Difference Method</h3>
+            <p><strong>Question</strong></p>
+            <p>What is the most effective first step to identify the pattern in a number series?</p>
+            <p><strong>Answer</strong></p>
+            <p>Calculate the difference between consecutive terms. If the first layer of differences doesn't reveal a pattern, calculate the difference of the differences (a "double difference").</p>
+            <p><strong>Explanation</strong></p>
+            <p>The speaker explains that most series problems are based on a hidden arithmetic or geometric progression. Finding the difference between the numbers is the fastest way to uncover this pattern.</p>
+            <ul>
+                <li><strong>Single Difference:</strong> The differences form a simple pattern (e.g., all 5s, or 2, 4, 6, 8...).</li>
+                <li><strong>Double Difference:</strong> The first set of differences is not simple, but the differences of that set are constant or follow a simple pattern. This often reveals a pattern based on squares or cubes.</li>
+            </ul>
+            
+            <div class="notes">
+                <p><strong>Important Notes:</strong> The speaker strongly advises, "Don't just stare at the series and try to guess. The first thing you must do is pick up your pen and find the difference. 90% of the time, the logic is hidden in the gap between the numbers. If the numbers are increasing very fast, think multiplication or squares/cubes. If they are increasing slowly, think addition."</p>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Question 1 -->
+        <div class="content-block">
+            <h3>Question 1: Constant Difference (Arithmetic Progression)</h3>
+            <p><strong>Question</strong></p>
+            <p class="series-format">2, 5, 8, 11, 14, ?</p>
+            <p><strong>Answer</strong></p>
+            <p>17</p>
+            <p><strong>Explanation</strong></p>
+            <p>We find the difference between each consecutive term:</p>
+            <ul>
+                <li>5 - 2 = 3</li>
+                <li>8 - 5 = 3</li>
+                <li>11 - 8 = 3</li>
+                <li>14 - 11 = 3</li>
+            </ul>
+            <p>The pattern is a constant addition of 3. Therefore, the next term is 14 + 3 = 17.</p>
+        </div>
+        
+        <hr>
+
+        <!-- Question 2 -->
+        <div class="content-block">
+            <h3>Question 2: Increasing Difference</h3>
+            <p><strong>Question</strong></p>
+            <p class="series-format">3, 7, 13, 21, 31, ?</p>
+            <p><strong>Answer</strong></p>
+            <p>43</p>
+            <p><strong>Explanation</strong></p>
+            <p>We find the first layer of differences:</p>
+            <ul>
+                <li>7 - 3 = 4</li>
+                <li>13 - 7 = 6</li>
+                <li>21 - 13 = 8</li>
+                <li>31 - 21 = 10</li>
+            </ul>
+            <p>The differences are increasing by 2 each time (4, 6, 8, 10...). The next difference should be 12. Therefore, the next term in the main series is 31 + 12 = 43.</p>
+        </div>
+
+        <hr>
+        
+        <!-- Question 3 -->
+        <div class="content-block">
+            <h3>Question 3: Double Difference (Square Pattern)</h3>
+            <p><strong>Question</strong></p>
+            <p class="series-format">1, 2, 6, 15, 31, ?</p>
+            <p><strong>Answer</strong></p>
+            <p>56</p>
+            <p><strong>Explanation</strong></p>
+            <p>The first layer of differences is calculated:</p>
+            <ul>
+                <li>2 - 1 = 1</li>
+                <li>6 - 2 = 4</li>
+                <li>15 - 6 = 9</li>
+                <li>31 - 15 = 16</li>
+            </ul>
+            <p>The differences (1, 4, 9, 16) are perfect squares (1², 2², 3², 4²). The next difference must be 5² = 25. Therefore, the next term is 31 + 25 = 56.</p>
+            <div class="notes">
+                <p><strong>Important Notes:</strong> "As soon as you see the differences 1, 4, 9, 16, your brain should immediately recognize these as squares," the speaker says. "This is why it's crucial to be familiar with squares up to at least 20. Recognizing these patterns quickly is the key to solving series problems fast."</p>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Question 4 -->
+        <div class="content-block">
+            <h3>Question 4: Cube Pattern</h3>
+            <p><strong>Question</strong></p>
+            <p class="series-format">1, 9, 36, 100, ?</p>
+            <p><strong>Answer</strong></p>
+            <p>225</p>
+            <p><strong>Explanation</strong></p>
+            <p>This series is tricky because the numbers themselves are squares, but the base of the squares follows a pattern. The series can be rewritten as:</p>
+            <ul>
+                <li>1 = 1² (where the base is 1³, or just 1)</li>
+                <li>9 = 3² (where the base is 1+2 = 3)</li>
+                <li>36 = 6² (where the base is 1+2+3 = 6)</li>
+                <li>100 = 10² (where the base is 1+2+3+4 = 10)</li>
+            </ul>
+            <p>The pattern is the square of the sum of consecutive natural numbers. The next term's base will be 1+2+3+4+5 = 15. Therefore, the next number in the series is 15² = 225.</p>
+             <div class="notes">
+                <p><strong>Important Notes:</strong> This example illustrates a more complex, multi-layered pattern. The speaker notes, "Sometimes the pattern is not in the numbers themselves, but in the *roots* of the numbers. If you see many perfect squares, rewrite them as squares and then look for a pattern in the base numbers."</p>
+            </div>
+        </div>
+        
+        <hr>
+
+        <!-- Question 5 -->
+        <div class="content-block">
+            <h3>Question 5: Multiplication and Addition Pattern</h3>
+            <p><strong>Question</strong></p>
+            <p class="series-format">5, 11, 23, 47, 95, ?</p>
+            <p><strong>Answer</strong></p>
+            <p>191</p>
+            <p><strong>Explanation</strong></p>
+            <p>The numbers are roughly doubling. This suggests a pattern involving multiplication by 2. Let's test this:</p>
+            <ul>
+                <li>5 * 2 = 10. To get 11, we add 1. (Pattern: *2 + 1)</li>
+                <li>11 * 2 = 22. To get 23, we add 1. (Pattern: *2 + 1)</li>
+                <li>23 * 2 = 46. To get 47, we add 1. (Pattern: *2 + 1)</li>
+                <li>47 * 2 = 94. To get 95, we add 1. (Pattern: *2 + 1)</li>
+            </ul>
+            <p>The consistent pattern is "multiply by 2, then add 1". Applying this to the last term: 95 * 2 + 1 = 190 + 1 = 191.</p>
+        </div>
+
+    </div>
+
+</body>
+</html>

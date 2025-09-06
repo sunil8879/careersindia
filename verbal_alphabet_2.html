@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verbal Reasoning Problems from Video</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #ffffff;
+            padding: 25px 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        h1, h2 {
+            color: #991a5c; /* Changed theme color for reasoning */
+            border-bottom: 2px solid #e1e8ed;
+            padding-bottom: 10px;
+        }
+        h3 {
+            color: #333;
+            margin-top: 25px;
+            font-size: 1.2em;
+        }
+        .question-block {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 35px;
+            background-color: #fdfdfd;
+            transition: box-shadow 0.3s ease;
+        }
+        .question-block:hover {
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .options ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .options li {
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+        .diagram {
+            background-color: #fff0f7;
+            border: 1px dashed #ffaccf;
+            padding: 15px;
+            margin: 20px 0;
+            font-family: 'Courier New', Courier, monospace;
+            white-space: pre;
+            overflow-x: auto;
+            text-align: left;
+            border-radius: 4px;
+            font-size: 1.1em;
+        }
+        .answer, .explanation, .remarks {
+            border-left: 5px solid;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 0 5px 5px 0;
+        }
+        .answer {
+            background-color: #e9f7ef;
+            border-color: #28a745;
+        }
+        .explanation {
+            background-color: #f0f5f9;
+            border-color: #4a90e2;
+        }
+        .remarks {
+            background-color: #fff8e1;
+            border-color: #ffc107;
+        }
+        .answer strong {
+            font-size: 1.1em;
+            color: #155724;
+        }
+        .video-container {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Verbal Reasoning: Alphabet Series Analysis</h1>
+
+        <div class="video-container">
+            <p>Based on the following video:</p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/6lFN3feSxJ4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+
+        <!-- Question 1 Block -->
+        <div class="question-block">
+            <h2>Question 1: Analogy (Simple Sequence)</h2>
+            
+            <h3>Theory</h3>
+            <div class="theory">
+                <p>Alphabet analogy problems require you to identify the relationship between the first pair of letter groups and apply the same relationship to the second pair to find the missing group.</p>
+            </div>
+
+            <h3>Question and Options</h3>
+            <div class="question">
+                <p>BC : DE :: EF : ?</p>
+            </div>
+            <div class="options">
+                <ul>
+                    <li>A) GH</li>
+                    <li>B) FG</li>
+                    <li>C) HI</li>
+                    <li>D) IJ</li>
+                </ul>
+            </div>
+
+            <h3>Diagrams</h3>
+            <div class="diagram">
+Pattern Analysis for BC : DE
+B -> C (+1, consecutive)
+D -> E (+1, consecutive)
+
+Relationship between pairs:
+The second pair (DE) starts with the letter immediately following the last letter of the first pair (C -> D).
+
+Applying the pattern to EF : ?
+E -> F (+1, consecutive)
+The answer must start with the letter immediately following F, which is G.
+The answer must be a consecutive pair.
+Result: G -> H (+1)
+</div>
+
+            <h3>Answer</h3>
+            <div class="answer">
+                <p><strong>A) GH</strong></p>
+            </div>
+
+            <h3>Explanation</h3>
+            <div class="explanation">
+                <ol>
+                    <li>The relationship between B and C is that they are consecutive letters.</li>
+                    <li>Similarly, D and E are consecutive letters.</li>
+                    <li>The connection between the two pairs is that 'D' comes immediately after 'C'.</li>
+                    <li>Following this logic, the missing pair must come immediately after 'F'. The letter after 'F' is 'G'.</li>
+                    <li>Since the pair must be consecutive letters, the answer is GH.</li>
+                </ol>
+            </div>
+
+            <h3>Additional Remarks</h3>
+            <div class="remarks">
+                <p>This is the most basic type of alphabet analogy, focusing on direct succession. Always check for simple consecutive patterns first.</p>
+            </div>
+        </div>
+        
+        <!-- Question 2 Block -->
+        <div class="question-block">
+            <h2>Question 2: Analogy (Consistent Gaps)</h2>
+            
+            <h3>Theory</h3>
+            <div class="theory">
+                <p>This type of analogy involves two layers of logic: the "internal pattern" (the gap between letters within a group) and the "external pattern" (the relationship between the groups themselves).</p>
+            </div>
+
+            <h3>Question and Options</h3>
+            <div class="question">
+                <p>CEG : HJL :: IKM : ?</p>
+            </div>
+            <div class="options">
+                <ul>
+                    <li>A) LNP</li>
+                    <li>B) MOP</li>
+                    <li>C) NPR</li>
+                    <li>D) OQS</li>
+                </ul>
+            </div>
+
+            <h3>Diagrams</h3>
+            <div class="diagram">
+Internal Pattern Analysis:
+C (+2) -> E (+2) -> G   (Skip one letter)
+H (+2) -> J (+2) -> L   (Skip one letter)
+I (+2) -> K (+2) -> M   (Skip one letter)
+
+External Pattern Analysis (Relationship between pairs):
+The second group (HJL) starts with H, which is the letter immediately after G from the first group.
+G -> H (+1)
+
+Applying to IKM : ?
+The answer must start with the letter after M, which is N.
+The answer must follow the internal (+2) pattern.
+N (+2) -> P (+2) -> R
+Result: NPR
+</div>
+
+            <h3>Answer</h3>
+            <div class="answer">
+                <p><strong>C) NPR</strong></p>
+            </div>
+
+            <h3>Explanation</h3>
+            <div class="explanation">
+                <ol>
+                    <li><strong>Internal Logic:</strong> In CEG, each letter is separated by one skipped letter (C, skip D, E, skip F, G). This is a "+2" jump pattern. The same applies to HJL and IKM.</li>
+                    <li><strong>External Logic:</strong> The first letter of the second group (H) is the very next letter after the last letter of the first group (G).</li>
+                    <li><strong>Application:</strong> The last letter of IKM is M. The next letter is N. Therefore, our answer must start with N.</li>
+                    <li>Applying the internal "+2" pattern to N gives us: N, skip O, P, skip Q, R. The result is NPR.</li>
+                </ol>
+            </div>
+
+            <h3>Additional Remarks</h3>
+            <div class="remarks">
+                <p>Always dissect the problem into its internal and external logic. Solving them separately simplifies complex-looking questions.</p>
+            </div>
+        </div>
+        
+        <!-- Question 3 Block -->
+        <div class="question-block">
+            <h2>Question 3: Analogy (Progressive Shift)</h2>
+            
+            <h3>Theory</h3>
+            <div class="theory">
+                <p>In this pattern, a different operation or "shift" is applied to each corresponding letter in the pair. The key is to find the pattern in the shifts themselves (e.g., +1, +2, +3 or +1, +3, +5).</p>
+            </div>
+
+            <h3>Question and Options</h3>
+            <div class="question">
+                <p>CAT : DDY :: BIG : ?</p>
+            </div>
+            <div class="options">
+                <ul>
+                    <li>A) CLL</li>
+                    <li>B) CLM</li>
+                    <li>C) CML</li>
+                    <li>D) LMC</li>
+                </ul>
+            </div>
+
+            <h3>Diagrams</h3>
+            <div class="diagram">
+Shift Pattern Analysis for CAT -> DDY:
+C -> D  (Shift of +1)
+A -> D  (Shift of +3)
+T -> Y  (Shift of +5)
+
+The pattern of the shifts is: +1, +3, +5 (consecutive odd numbers).
+
+Applying this shift pattern to BIG:
+B (+1) -> C
+I (+3) -> L  (I is 9th letter, 9+3=12, L is 12th)
+G (+5) -> L  (G is 7th letter, 7+5=12, L is 12th)
+
+Result: CLL
+</div>
+
+            <h3>Answer</h3>
+            <div class="answer">
+                <p><strong>A) CLL</strong></p>
+            </div>
+
+            <h3>Explanation</h3>
+            <div class="explanation">
+                <ol>
+                    <li>Compare the first letters: C becomes D, which is a shift of +1 position.</li>
+                    <li>Compare the second letters: A becomes D, which is a shift of +3 positions (A->B->C->D).</li>
+                    <li>Compare the third letters: T becomes Y, which is a shift of +5 positions (T->U->V->W->X->Y).</li>
+                    <li>The pattern of shifts is +1, +3, +5. We apply this same pattern to the word BIG.</li>
+                    <li>B + 1 = C.</li>
+                    <li>I + 3 = L.</li>
+                    <li>G + 5 = L.</li>
+                    <li>The resulting word is CLL.</li>
+                </ol>
+            </div>
+
+            <h3>Additional Remarks</h3>
+            <div class="remarks">
+                <p>When you see unrelated shifts, check if the shifts themselves form a logical sequence. This is a common advanced pattern.</p>
+            </div>
+        </div>
+
+        <!-- Question 4 Block -->
+        <div class="question-block">
+            <h2>Question 4: Odd One Out (Simple Gap)</h2>
+            
+            <h3>Theory</h3>
+            <div class="theory">
+                <p>In "Odd One Out" problems, you must find a common property or pattern shared by all but one of the options. The option that does not follow this pattern is the answer.</p>
+            </div>
+
+            <h3>Question and Options</h3>
+            <div class="question">
+                <p>Find the odd one out from the following:</p>
+            </div>
+            <div class="options">
+                <ul>
+                    <li>A) DE</li>
+                    <li>B) PQ</li>
+                    <li>C) TU</li>
+                    <li>D) MO</li>
+                </ul>
+            </div>
+
+            <h3>Diagrams</h3>
+            <div class="diagram">
+Analyzing the gap within each pair:
+
+A) D -> E  (+1 jump, consecutive)
+B) P -> Q  (+1 jump, consecutive)
+C) T -> U  (+1 jump, consecutive)
+D) M -> O  (+2 jump, skips letter N)
+
+The common pattern is a +1 jump. MO does not fit.
+</div>
+
+            <h3>Answer</h3>
+            <div class="answer">
+                <p><strong>D) MO</strong></p>
+            </div>
+
+            <h3>Explanation</h3>
+            <div class="explanation">
+                <ol>
+                    <li>In option A, D and E are consecutive letters in the alphabet.</li>
+                    <li>In option B, P and Q are consecutive letters.</li>
+                    <li>In option C, T and U are consecutive letters.</li>
+                    <li>In option D, M and O are not consecutive; the letter N is skipped between them.</li>
+                    <li>Therefore, MO is the odd one out as it is the only pair that is not consecutive.</li>
+                </ol>
+            </div>
+
+            <h3>Additional Remarks</h3>
+            <div class="remarks">
+                <p>The simplest property to check for in pairs is consecutiveness or a consistent gap. Start there before looking for more complex patterns.</p>
+            </div>
+        </div>
+        
+        <!-- Question 5 Block -->
+        <div class="question-block">
+            <h2>Question 5: Odd One Out (Positional Pairs)</h2>
+            
+            <h3>Theory</h3>
+            <div class="theory">
+                <p>This problem involves recognizing patterns that use both the forward alphabet (A=1, B=2...) and the reverse alphabet (Z=1, Y=2...). A common pattern is pairing letters that are equidistant from opposite ends of the alphabet (e.g., A and Z, B and Y).</p>
+            </div>
+
+            <h3>Question and Options</h3>
+            <div class="question">
+                <p>Find the odd one out from the following:</p>
+            </div>
+            <div class="options">
+                <ul>
+                    <li>A) ABZ</li>
+                    <li>B) CDX</li>
+                    <li>C) EFW</li>
+                    <li>D) GHT</li>
+                </ul>
+            </div>
+
+            <h3>Diagrams</h3>
+            <div class="diagram">
+Analyzing the pattern in each group:
+
+A) ABZ:
+   A is 1st from start. B is 2nd.
+   Z is 1st from end.
+   Pattern: First and last letters are positional opposites (A-Z).
+
+B) CDX:
+   C is 3rd from start. D is 4th.
+   X is 3rd from end.
+   Pattern: First and last letters are positional opposites (C-X).
+
+D) GHT:
+   G is 7th from start. H is 8th.
+   T is 7th from end.
+   Pattern: First and last letters are positional opposites (G-T).
+
+C) EFW:
+   E is 5th from start. F is 6th.
+   W is 4th from end.
+   The 5th letter from the end is V, not W.
+   This breaks the "positional opposite" pattern.
+</div>
+
+            <h3>Answer</h3>
+            <div class="answer">
+                <p><strong>C) EFW</strong></p>
+            </div>
+
+            <h3>Explanation</h3>
+            <div class="explanation">
+                <ol>
+                    <li>The pattern in the majority of options is that the first and third letters are a pair from opposite ends of the alphabet (A is 1st, Z is last; C is 3rd from start, X is 3rd from end; G is 7th from start, T is 7th from end).</li>
+                    <li>Additionally, the first two letters are always consecutive (AB, CD, GH).</li>
+                    <li>Let's check option C: E and F are consecutive, which fits the first part of the pattern. However, E is the 5th letter from the start. The 5th letter from the end is V. The group given is EFW, not EFV.</li>
+                    <li>Since EFW does not follow the positional pair rule, it is the odd one out.</li>
+                </ol>
+            </div>
+
+            <h3>Additional Remarks</h3>
+            <div class="remarks">
+                <p>Familiarity with reverse pairs (A-Z, B-Y, C-X, etc.) is extremely helpful for solving these types of problems quickly. They are a very common pattern in reasoning tests.</p>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

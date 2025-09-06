@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reasoning - Letter Analogy</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f0f2f5;
+            color: black;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* The 3D Box Container */
+        .container-3d {
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: white;
+            padding: 25px 40px;
+            border-radius: 12px;
+            border: 1px solid #ddd;
+            box-shadow: 
+                6px 6px 16px rgba(0, 0, 0, 0.15),
+                -6px -6px 16px rgba(255, 255, 255, 0.7);
+        }
+
+        /* Headers */
+        h1 {
+            color: #40E0D0; /* Turquoise */
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        h3 {
+            color: black;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            border-left: 4px solid #40E0D0;
+            padding-left: 10px;
+        }
+        
+        /* Content Block Styling */
+        .content-block {
+            margin-bottom: 25px;
+        }
+
+        .content-block p {
+            margin: 10px 0;
+        }
+
+        .content-block strong {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .content-block .notes {
+            background-color: #f8f9fa;
+            border-left: 3px solid #40E0D0;
+            padding: 10px 15px;
+            margin-top: 15px;
+            border-radius: 4px;
+        }
+        
+        .notes strong {
+            color: #40E0D0;
+        }
+        
+        .analogy-format {
+            font-weight: bold;
+            font-size: 1.2em;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+        }
+
+        /* Horizontal Rule for Separation */
+        hr {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #40E0D0, rgba(0, 0, 0, 0));
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container-3d">
+        <h1>Letter Analogy</h1>
+
+        <!-- Core Concept -->
+        <div class="content-block">
+            <h3>Core Concept: Positional Values and Opposite Pairs</h3>
+            <p><strong>Question</strong></p>
+            <p>What is the fundamental skill required to solve letter analogy problems?</p>
+            <p><strong>Answer</strong></p>
+            <p>You must memorize the positional value of each letter of the alphabet (A=1 to Z=26) and their corresponding "opposite pairs."</p>
+            <p><strong>Explanation</strong></p>
+            <p>The speaker explains two key concepts:</p>
+            <ul>
+                <li><strong>Positional Values:</strong> Every letter has a forward rank (A=1, B=2...) and a backward rank (Z=1, Y=2...).</li>
+                <li><strong>Opposite Pairs:</strong> An opposite pair consists of two letters whose positional values add up to 27. For example, A (1) and Z (26) are opposites (1+26=27). G (7) and T (20) are opposites (7+20=27).</li>
+            </ul>
+            <p>He provides mnemonics to remember these pairs, such as "<b>AZ</b>ad", "<b>B</b>o<b>Y</b>", "<b>C</b>ra<b>X</b>", "<b>D</b>e<b>W</b>", "<b>FU</b>n", "<b>G</b>T Road", etc.</p>
+            
+            <div class="notes">
+                <p><strong>Important Notes:</strong> The speaker strongly advises, "Before you attempt any letter-based reasoning, you MUST have the A-Z positions and opposite pairs memorized. This is not optional. Writing them down in the exam is too slow. If you see 'J', you should immediately think '10' and its opposite 'Q' (Jaipur Queen). This speed is essential."</p>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Question 1 -->
+        <div class="content-block">
+            <h3>Question 1: Simple Forward Movement</h3>
+            <p><strong>Question</strong></p>
+            <p class="analogy-format">ACEG : IKMO :: QSUW : ?</p>
+            <p><strong>Answer</strong></p>
+            <p>YACE</p>
+            <p><strong>Explanation</strong></p>
+            <p>First, analyze the pattern within the first group `ACEG`. The letters are skipping one position (A, skip B, C, skip D, E...). Then, find the relationship between the first and second groups.</p>
+            <ul>
+                <li>The last letter of the first group is G (position 7).</li>
+                <li>The first letter of the second group is I (position 9).</li>
+                <li>The relationship is a jump of +2 positions (G → H → I).</li>
+            </ul>
+            <p>Now, apply this logic to the second pair. The last letter of `QSUW` is W. We need to jump +2 positions from W.</p>
+            <p>W → X → Y. The next group must start with Y. Looking at the options, only `YACE` starts with Y and follows the "skip one letter" pattern.</p>
+        </div>
+        
+        <hr>
+
+        <!-- Question 2 -->
+        <div class="content-block">
+            <h3>Question 2: Opposite Letter Pairs</h3>
+            <p><strong>Question</strong></p>
+            <p class="analogy-format">FISH : EHRG :: JUNGLE : ?</p>
+            <p><strong>Answer</strong></p>
+            <p>ITMFKD</p>
+            <p><strong>Explanation</strong></p>
+            <p>The relationship is between each letter and its corresponding letter in the second word. Let's analyze the positional values.</p>
+            <ul>
+                <li>F → E (6 → 5, which is -1)</li>
+                <li>I → H (9 → 8, which is -1)</li>
+                <li>S → R (19 → 18, which is -1)</li>
+                <li>H → G (8 → 7, which is -1)</li>
+            </ul>
+            <p>The pattern is a simple "-1" for each letter. Now apply this to `JUNGLE`:</p>
+            <ul>
+                <li>J (10) - 1 = 9 (I)</li>
+                <li>U (21) - 1 = 20 (T)</li>
+                <li>N (14) - 1 = 13 (M)</li>
+                <li>G (7) - 1 = 6 (F)</li>
+                <li>L (12) - 1 = 11 (K)</li>
+                <li>E (5) - 1 = 4 (D)</li>
+            </ul>
+            <p>The resulting word is `ITMFKD`.</p>
+        </div>
+
+        <hr>
+        
+        <!-- Question 3 -->
+        <div class="content-block">
+            <h3>Question 3: Direct Opposite Pairs</h3>
+            <p><strong>Question</strong></p>
+            <p class="analogy-format">HAND : SZMW :: SILK : ?</p>
+            <p><strong>Answer</strong></p>
+            <p>HROP</p>
+            <p><strong>Explanation</strong></p>
+            <p>This analogy uses the "opposite letter pairs" concept directly.</p>
+            <ul>
+                <li>The opposite of H is S (High School).</li>
+                <li>The opposite of A is Z (Azad).</li>
+                <li>The opposite of N is M (Man).</li>
+                <li>The opposite of D is W (Dew).</li>
+            </ul>
+            <p>The pattern is to replace each letter with its opposite. Now apply this to `SILK`:</p>
+            <ul>
+                <li>Opposite of S is H (High School).</li>
+                <li>Opposite of I is R (Indian Railway).</li>
+                <li>Opposite of L is O (Love).</li>
+                <li>Opposite of K is P (Kamla Pasand / PK).</li>
+            </ul>
+            <p>The resulting word is `HROP`.</p>
+             <div class="notes">
+                <p><strong>Important Notes:</strong> The speaker highlights how recognizing opposites is a massive shortcut. "If you see HAND and SZMW, and you have memorized the pairs, you will instantly see H-S, A-Z, N-M, D-W. You won't need to write down numbers or calculate anything. You just see the pattern and apply it. This is why memorization is key."</p>
+            </div>
+        </div>
+        
+        <hr>
+
+        <!-- Question 4 -->
+        <div class="content-block">
+            <h3>Question 4: Complex Positional Logic</h3>
+            <p><strong>Question</strong></p>
+            <p class="analogy-format">CAT : DDY :: BIG : ?</p>
+            <p><strong>Answer</strong></p>
+            <p>CLL</p>
+            <p><strong>Explanation</strong></p>
+            <p>Let's convert the letters to their positional values to find the pattern.</p>
+            <ul>
+                <li>C (3) → D (4) = +1</li>
+                <li>A (1) → D (4) = +3</li>
+                <li>T (20) → Y (25) = +5</li>
+            </ul>
+            <p>The pattern is to add consecutive odd numbers (+1, +3, +5) to the positions of the letters. Now apply this pattern to `BIG`:</p>
+            <ul>
+                <li>B (2) + 1 = 3 (C)</li>
+                <li>I (9) + 3 = 12 (L)</li>
+                <li>G (7) + 5 = 12 (L)</li>
+            </ul>
+            <p>The resulting word is `CLL`.</p>
+        </div>
+
+    </div>
+
+</body>
+</html>

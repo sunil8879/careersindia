@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reasoning - Seating Arrangement</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f0f2f5;
+            color: black;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* The 3D Box Container */
+        .container-3d {
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: white;
+            padding: 25px 40px;
+            border-radius: 12px;
+            border: 1px solid #ddd;
+            box-shadow: 
+                6px 6px 16px rgba(0, 0, 0, 0.15),
+                -6px -6px 16px rgba(255, 255, 255, 0.7);
+        }
+
+        /* Headers */
+        h1 {
+            color: #40E0D0; /* Turquoise */
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        h3 {
+            color: black;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            border-left: 4px solid #40E0D0;
+            padding-left: 10px;
+        }
+        
+        /* Content Block Styling */
+        .content-block {
+            margin-bottom: 25px;
+        }
+
+        .content-block p {
+            margin: 10px 0;
+        }
+
+        .content-block strong {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .content-block .notes {
+            background-color: #f8f9fa;
+            border-left: 3px solid #40E0D0;
+            padding: 10px 15px;
+            margin-top: 15px;
+            border-radius: 4px;
+        }
+        
+        .notes strong {
+            color: #40E0D0;
+        }
+
+        /* Horizontal Rule for Separation */
+        hr {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #40E0D0, rgba(0, 0, 0, 0));
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container-3d">
+        <h1>Seating Arrangement</h1>
+
+        <!-- Core Concept -->
+        <div class="content-block">
+            <h3>Core Concept 1: Linear Arrangement (Facing North)</h3>
+            <p><strong>Question</strong></p>
+            <p>When people are sitting in a row facing North, how do you determine their left and right sides?</p>
+            <p><strong>Answer</strong></p>
+            <p>When everyone faces North (or "up" on your paper), their left and right sides are the same as your own left and right.</p>
+            <p><strong>Explanation</strong></p>
+            <p>The speaker establishes a simple rule for North-facing arrangements:</p>
+            <ul>
+                <li><strong>Right Side:</strong> Corresponds to your right hand.</li>
+                <li><strong>Left Side:</strong> Corresponds to your left hand.</li>
+            </ul>
+            <p>This makes visualization straightforward and is the standard assumption unless the problem specifies they are facing South.</p>
+            
+            <div class="notes">
+                <p><strong>Important Notes:</strong> The speaker advises, "Always draw a horizontal line to represent the row. If the problem doesn't say which direction they are facing, assume they are facing North. This is the standard convention and will prevent confusion. Your left is their left, your right is their right."</p>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Core Concept 2 -->
+        <div class="content-block">
+            <h3>Core Concept 2: Circular Arrangement (Facing Center)</h3>
+            <p><strong>Question</strong></p>
+            <p>When people are sitting around a circle facing the center, how do you determine their left and right?</p>
+            <p><strong>Answer</strong></p>
+            <p>Left is in the clockwise direction, and Right is in the anti-clockwise direction.</p>
+            <p><strong>Explanation</strong></p>
+            <p>For circular arrangements where people face inwards:</p>
+            <ul>
+                <li>To find the person to the <strong>left</strong> of someone, you move in the <strong>clockwise</strong> direction (like the hands of a clock).</li>
+                <li>To find the person to the <strong>right</strong> of someone, you move in the <strong>anti-clockwise</strong> direction (opposite to the hands of a clock).</li>
+            </ul>
+             <div class="notes">
+                <p><strong>Important Notes:</strong> "This is the most confusing part for beginners," the speaker warns. "It feels opposite to our intuition. Just memorize this rule: for 'facing center,' LEFT = CLOCKWISE and RIGHT = ANTI-CLOCKWISE. If they are facing *away* from the center, the rule reverses. But 99% of questions are about facing the center."</p>
+            </div>
+        </div>
+        
+        <hr>
+
+        <!-- Example 1: Linear Arrangement -->
+        <div class="content-block">
+            <h3>Example 1: Linear Arrangement</h3>
+            <p><strong>Question</strong></p>
+            <p>Five friends P, Q, R, S, and T are sitting in a row facing North. Here are the conditions:</p>
+            <ul>
+                <li>S is between T and Q.</li>
+                <li>Q is to the immediate left of R.</li>
+                <li>P is to the immediate left of T.</li>
+            </ul>
+            <p>Who is in the middle?</p>
+            <p><strong>Answer</strong></p>
+            <p>S.</p>
+            <p><strong>Explanation</strong></p>
+            <p>The speaker solves this by starting with the most definite clues and combining them:</p>
+            <ol>
+                <li><strong>"P is to the immediate left of T"</strong> gives us the block: `P T`</li>
+                <li><strong>"Q is to the immediate left of R"</strong> gives us the block: `Q R`</li>
+                <li><strong>"S is between T and Q"</strong> means the arrangement must be `T S Q`.</li>
+                <li>Now, we combine all the pieces: The `P T` block must connect to the `T S Q` block, giving `P T S Q`.</li>
+                <li>Finally, we attach the `Q R` block, which results in the final arrangement: <strong>P T S Q R</strong>.</li>
+            </ol>
+            <p>In this final arrangement of five people, the person in the middle is S.</p>
+            <div class="notes">
+                <p><strong>Important Notes:</strong> The speaker's strategy is key: "Don't just read the clues in order. Find the strongest, most concrete clues first. The clue 'S is between T and Q' has two possibilities (`T S Q` or `Q S T`), so it's a weak clue to start with. Start with 'immediate left/right' clues as they fix two people together without ambiguity."</p>
+            </div>
+        </div>
+
+        <hr>
+        
+        <!-- Example 2: Circular Arrangement -->
+        <div class="content-block">
+            <h3>Example 2: Circular Arrangement</h3>
+            <p><strong>Question</strong></p>
+            <p>Six friends are playing cards sitting in a circle facing the center. The conditions are:</p>
+            <ul>
+                <li>Kenny is to the left of Danny.</li>
+                <li>Bobby is between Michael and Johnny.</li>
+                <li>Roger is between Kenny and Johnny.</li>
+            </ul>
+            <p>Who is to the right of Michael?</p>
+            <p><strong>Answer</strong></p>
+            <p>Danny.</p>
+            <p><strong>Explanation</strong></p>
+            <p>The speaker builds the circular diagram step-by-step:</p>
+            <ol>
+                <li>Draw a circle with six spots. Place an initial person, for example, <strong>Danny</strong>.</li>
+                <li><strong>"Kenny is to the left of Danny"</strong>: Left is clockwise, so place <strong>Kenny</strong> in the spot clockwise to Danny.</li>
+                <li><strong>"Roger is between Kenny and Johnny"</strong>: This means the order must be `Kenny - Roger - Johnny` going clockwise. Place <strong>Roger</strong> next to Kenny, and <strong>Johnny</strong> next to Roger.</li>
+                <li><strong>"Bobby is between Michael and Johnny"</strong>: The order must be `Johnny - Bobby - Michael`. Place <strong>Bobby</strong> next to Johnny, and <strong>Michael</strong> in the last remaining spot next to Bobby.</li>
+                <li>The final clockwise arrangement is: Danny, Kenny, Roger, Johnny, Bobby, Michael.</li>
+            </ol>
+            <p>The question asks: Who is to the right of Michael? "Right" is anti-clockwise. The person in the anti-clockwise direction from Michael is Danny.</p>
+             <div class="notes">
+                <p><strong>Important Notes:</strong> "For circular problems, always fix one person's position first. It doesn't matter who you start with, just place them somewhere. This gives you a reference point," the speaker advises. "Then, use the clues to place everyone else relative to that person. If you get stuck, it means your initial placement might need to be adjusted based on a later clue."</p>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

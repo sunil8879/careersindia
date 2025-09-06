@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reasoning - Calendar Tricks</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f0f2f5;
+            color: black;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* The 3D Box Container */
+        .container-3d {
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: white;
+            padding: 25px 40px;
+            border-radius: 12px;
+            border: 1px solid #ddd;
+            box-shadow: 
+                6px 6px 16px rgba(0, 0, 0, 0.15),
+                -6px -6px 16px rgba(255, 255, 255, 0.7);
+        }
+
+        /* Headers */
+        h1 {
+            color: #40E0D0; /* Turquoise */
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        h3 {
+            color: black;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            border-left: 4px solid #40E0D0;
+            padding-left: 10px;
+        }
+        
+        /* Content Block Styling */
+        .content-block {
+            margin-bottom: 25px;
+        }
+
+        .content-block p {
+            margin: 10px 0;
+        }
+
+        .content-block strong {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .content-block .notes {
+            background-color: #f8f9fa;
+            border-left: 3px solid #40E0D0;
+            padding: 10px 15px;
+            margin-top: 15px;
+            border-radius: 4px;
+        }
+        
+        .notes strong {
+            color: #40E0D0;
+        }
+        
+        .code-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .code-table th, .code-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .code-table th {
+            background-color: #40E0D0;
+            color: white;
+        }
+
+        /* Horizontal Rule for Separation */
+        hr {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #40E0D0, rgba(0, 0, 0, 0));
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container-3d">
+        <h1>Calendar Tricks</h1>
+
+        <!-- Core Concept -->
+        <div class="content-block">
+            <h3>Core Concept: The Odd Day Method and Codes</h3>
+            <p><strong>Question</strong></p>
+            <p>How can you find the day of the week for any date without a calendar?</p>
+            <p><strong>Answer</strong></p>
+            <p>By using a formula that combines five key values: the date, month code, year, number of leap years, and century code. The final sum is divided by 7, and the remainder gives the day of the week.</p>
+            <p><strong>Explanation</strong></p>
+            <p>The speaker provides a set of codes that must be memorized:</p>
+            
+            <strong>Month Codes (Normal Year):</strong>
+            <table class="code-table">
+                <tr><th>Month</th><td>Jan</td><td>Feb</td><td>Mar</td><td>Apr</td><td>May</td><td>Jun</td><td>Jul</td><td>Aug</td><td>Sep</td><td>Oct</td><td>Nov</td><td>Dec</td></tr>
+                <tr><th>Code</th><td>0</td><td>3</td><td>3</td><td>6</td><td>1</td><td>4</td><td>6</td><td>2</td><td>5</td><td>0</td><td>3</td><td>5</td></tr>
+            </table>
+
+            <strong>Century Codes:</strong>
+            <table class="code-table">
+                 <tr><th>Century</th><td>1600s</td><td>1700s</td><td>1800s</td><td>1900s</td><td>2000s</td><td>2100s</td></tr>
+                <tr><th>Code</th><td>6</td><td>4</td><td>2</td><td>0</td><td>6</td><td>4</td></tr>
+            </table>
+
+            <strong>Day Codes (Remainders):</strong>
+            <table class="code-table">
+                <tr><th>Day</th><td>Sunday</td><td>Monday</td><td>Tuesday</td><td>Wednesday</td><td>Thursday</td><td>Friday</td><td>Saturday</td></tr>
+                <tr><th>Code</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr>
+            </table>
+
+            <div class="notes">
+                <p><strong>Important Notes:</strong> The speaker emphasizes, "This entire method depends on you memorizing these codes. The month codes (033614625035) look random, but you can memorize them in chunks like a phone number: 033, 614, 625, 035. The century code repeats every 400 years (6, 4, 2, 0). If you know these codes, any problem becomes a simple 30-second calculation."</p>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Main Formula -->
+        <div class="content-block">
+            <h3>The Five-Step Formula</h3>
+            <p>To find the day for any date (e.g., 26th January 1950), you sum five values:</p>
+            <ol>
+                <li><strong>Date:</strong> The day of the month (e.g., <strong>26</strong>).</li>
+                <li><strong>Month Code:</strong> The code for the given month from the table (e.g., January = <strong>0</strong>).</li>
+                <li><strong>Year:</strong> The last two digits of the year (e.g., for 1950, it's <strong>50</strong>).</li>
+                <li><strong>Leap Years:</strong> The number of leap years within that year part. Calculated as (Last two digits of year) / 4, ignoring the remainder (e.g., 50 / 4 = <strong>12</strong>).</li>
+                <li><strong>Century Code:</strong> The code for the century from the table (e.g., for the 1900s, it's <strong>0</strong>).</li>
+            </ol>
+            <p>Finally, <strong>Total Sum ÷ 7</strong>, and the remainder is your day code.</p>
+            <div class="notes">
+                <p><strong>Important Note on Leap Years:</strong> "For January or February of a leap year, you must subtract 1 from the final sum *before* dividing by 7. This is a special rule that only applies to those two months in a leap year. For any other month, or for any month in a normal year, you don't need to do anything."</p>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Question 1 -->
+        <div class="content-block">
+            <h3>Example 1: Finding the Day for a Historical Date</h3>
+            <p><strong>Question</strong></p>
+            <p>What was the day of the week on 26th January 1950?</p>
+            <p><strong>Answer</strong></p>
+            <p>Thursday.</p>
+            <p><strong>Explanation</strong></p>
+            <p>Let's apply the five-step formula:</p>
+            <ol>
+                <li><strong>Date:</strong> 26</li>
+                <li><strong>Month Code (Jan):</strong> 0</li>
+                <li><strong>Year:</strong> 50</li>
+                <li><strong>Leap Years (50/4):</strong> 12</li>
+                <li><strong>Century Code (1900s):</strong> 0</li>
+            </ol>
+            <p><strong>Total Sum</strong> = 26 + 0 + 50 + 12 + 0 = <strong>88</strong>.</p>
+            <p>Now, find the odd days by dividing by 7:</p>
+            <p>88 ÷ 7 gives a remainder of 4 (since 7 × 12 = 84, and 88 - 84 = 4).</p>
+            <p>The remainder is 4. Looking at the Day Codes table, a code of 4 corresponds to <strong>Thursday</strong>.</p>
+        </div>
+        
+        <hr>
+
+        <!-- Question 2 -->
+        <div class="content-block">
+            <h3>Example 2: A Date in the 21st Century</h3>
+            <p><strong>Question</strong></p>
+            <p>What was the day of the week on 2nd October 1869 (Gandhi's Birthday)?</p>
+            <p><strong>Answer</strong></p>
+            <p>Saturday.</p>
+            <p><strong>Explanation</strong></strong></p>
+            <p>Applying the five-step formula:</p>
+            <ol>
+                <li><strong>Date:</strong> 2</li>
+                <li><strong>Month Code (Oct):</strong> 0</li>
+                <li><strong>Year:</strong> 69</li>
+                <li><strong>Leap Years (69/4):</strong> 17</li>
+                <li><strong>Century Code (1800s):</strong> 2</li>
+            </ol>
+            <p><strong>Total Sum</strong> = 2 + 0 + 69 + 17 + 2 = <strong>90</strong>.</p>
+            <p>Find the odd days by dividing by 7:</p>
+            <p>90 ÷ 7 gives a remainder of 6 (since 7 × 12 = 84, and 90 - 84 = 6).</p>
+            <p>The remainder is 6. The Day Code for 6 is <strong>Saturday</strong>.</p>
+        </div>
+        
+    </div>
+
+</body>
+</html>

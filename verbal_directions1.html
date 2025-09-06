@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reasoning - Direction Sense Test</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f0f2f5;
+            color: black;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* The 3D Box Container */
+        .container-3d {
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: white;
+            padding: 25px 40px;
+            border-radius: 12px;
+            border: 1px solid #ddd;
+            box-shadow: 
+                6px 6px 16px rgba(0, 0, 0, 0.15),
+                -6px -6px 16px rgba(255, 255, 255, 0.7);
+        }
+
+        /* Headers */
+        h1 {
+            color: #40E0D0; /* Turquoise */
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        h3 {
+            color: black;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            border-left: 4px solid #40E0D0;
+            padding-left: 10px;
+        }
+        
+        /* Content Block Styling */
+        .content-block {
+            margin-bottom: 25px;
+        }
+
+        .content-block p {
+            margin: 10px 0;
+        }
+
+        .content-block strong {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .content-block .notes {
+            background-color: #f8f9fa;
+            border-left: 3px solid #40E0D0;
+            padding: 10px 15px;
+            margin-top: 15px;
+            border-radius: 4px;
+        }
+        
+        .notes strong {
+            color: #40E0D0;
+        }
+
+        /* Horizontal Rule for Separation */
+        hr {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #40E0D0, rgba(0, 0, 0, 0));
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container-3d">
+        <h1>Direction Sense Test</h1>
+
+        <!-- Core Concept -->
+        <div class="content-block">
+            <h3>Core Concept: Visualizing Directions and Turns</h3>
+            <p><strong>Question</strong></p>
+            <p>What is the most reliable method for solving direction-based problems?</p>
+            <p><strong>Answer</strong></p>
+            <p>The best method is to draw a simple diagram tracking the person's movement from a fixed starting point. Always start by drawing the standard cardinal directions (North, South, East, West).</p>
+            <p><strong>Explanation</strong></p>
+            <p>The speaker establishes the standard direction map and the rules for turning:</p>
+            <ul>
+                <li><strong>Directions:</strong> North (Up), South (Down), East (Right), West (Left).</li>
+                <li><strong>Right Turn:</strong> A 90-degree clockwise turn from the current direction.</li>
+                <li><strong>Left Turn:</strong> A 90-degree anti-clockwise turn from the current direction.</li>
+            </ul>
+            <p>By visually plotting each step on paper, you can accurately determine the final direction and position.</p>
+            
+            <div class="notes">
+                <p><strong>Important Notes:</strong> The speaker strongly advises, "Don't try to solve these questions mentally. It's very easy to get confused with left and right turns, especially when the direction changes multiple times. A simple, rough sketch is your best friend. It will prevent almost all errors and make the final answer obvious."</p>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Question 1 -->
+        <div class="content-block">
+            <h3>Question 1: Final Direction and Position</h3>
+            <p><strong>Question</strong></p>
+            <p>Sohail travels 8 km towards the North from his house. Then he takes a left turn and travels 6 km. Finally, he takes another left turn and travels 8 km. In which direction and how far is he from his house?</p>
+            <p><strong>Answer</strong></p>
+            <p>6 km to the West.</p>
+            <p><strong>Explanation</strong></p>
+            <p>Let's trace the path from his house (H):</p>
+            <ol>
+                <li><strong>Travels 8 km North:</strong> He moves 8 km up from H.</li>
+                <li><strong>Turns left and travels 6 km:</strong> From North, a left turn is West. He moves 6 km to the left.</li>
+                <li><strong>Turns left and travels 8 km:</strong> From West, a left turn is South. He moves 8 km down.</li>
+            </ol>
+            <p>Because he traveled 8 km North and then 8 km South, his final vertical position is the same as his starting point. He is only displaced horizontally by 6 km to the West.</p>
+        </div>
+        
+        <hr>
+
+        <!-- Question 2 -->
+        <div class="content-block">
+            <h3>Question 2: Finding the Starting Direction</h3>
+            <p><strong>Question</strong></p>
+            <p>A man is walking. After walking 10 km, he turns right. After some distance, he turns left. Finally, he turns left again. If he is now walking towards the North, in which direction did he start his journey?</p>
+            <p><strong>Answer</strong></p>
+            <p>North.</p>
+            <p><strong>Explanation</strong></p>
+            <p>The speaker recommends a "cancellation" shortcut for this type of problem:</p>
+            <ol>
+                <li>List the turns taken: <strong>Right, Left, Left</strong>.</li>
+                <li>A right turn and a left turn cancel each other out. So, `Right` + `Left` = Straight (no change).</li>
+                <li>After cancellation, we are left with only one turn: <strong>Left</strong>.</li>
+                <li>The question states his final direction is North. This means: `Starting Direction` + `One Left Turn` = `North`.</li>
+                <li>To find the starting direction, we work backward: What direction, when you turn left, makes you face North? The answer is East. If you are facing East and turn left, you will face North.</li>
+            </ol>
+             <p><em>Correction: The speaker seems to miscalculate the final step in the video. The correct answer based on the cancellation method is East. However, his final answer stated in the video is North. Let's follow a non-cancellation method: A person is walking North. If he had turned left, he must have come from the East. If he had turned left before that, he must have been going South. If he turned right before that, he must have started by going South. The logic gets complex; the cancellation method is generally more reliable, though the speaker's application seemed inconsistent in this specific example. The most likely intended answer based on the method described should be East.</em></p>
+        </div>
+
+        <hr>
+        
+        <!-- Question 3 -->
+        <div class="content-block">
+            <h3>Question 3: Shortest Distance Using Pythagoras Theorem</h3>
+            <p><strong>Question</strong></p>
+            <p>A person walks 10 km towards the North. From there, he walks 6 km towards the South. Then, he walks 3 km towards the East. How far and in which direction is he from the starting point?</p>
+            <p><strong>Answer</strong></p>
+            <p>5 km in the North-East direction.</p>
+            <p><strong>Explanation</strong></p>
+            <p>Let's break down the net movement:</p>
+            <ol>
+                <li><strong>North-South Movement:</strong> He walks 10 km North (+) and then 6 km South (-). His net movement is 10 - 6 = 4 km North.</li>
+                <li><strong>East-West Movement:</strong> He walks 3 km East.</li>
+                <li>This forms a right-angled triangle where the Northward movement (4 km) is the perpendicular and the Eastward movement (3 km) is the base.</li>
+                <li><strong>Shortest Distance (Hypotenuse):</strong> Using Pythagoras' theorem (a² + b² = c²):
+                    <ul>
+                        <li>c² = 4² + 3² = 16 + 9 = 25</li>
+                        <li>c = √25 = 5 km.</li>
+                    </ul>
+                </li>
+                <li><strong>Direction:</strong> Since his net movement is North and East, his final position is in the North-East direction from the starting point.</li>
+            </ol>
+             <div class="notes">
+                <p><strong>Important Notes:</strong> The speaker highlights the efficiency of calculating net displacement. "Instead of drawing a long line up and then a line back down, just figure out the final position. If he goes 10 North and 6 South, he is effectively 4 km North of where he started. This simplifies the diagram and makes it much easier to see the right-angled triangle."</p>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

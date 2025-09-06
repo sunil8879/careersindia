@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reasoning - Number Series</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f0f2f5;
+            color: black;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* The 3D Box Container */
+        .container-3d {
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: white;
+            padding: 25px 40px;
+            border-radius: 12px;
+            border: 1px solid #ddd;
+            box-shadow: 
+                6px 6px 16px rgba(0, 0, 0, 0.15),
+                -6px -6px 16px rgba(255, 255, 255, 0.7);
+        }
+
+        /* Headers */
+        h1 {
+            color: #40E0D0; /* Turquoise */
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        h3 {
+            color: black;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            border-left: 4px solid #40E0D0;
+            padding-left: 10px;
+        }
+        
+        /* Content Block Styling */
+        .content-block {
+            margin-bottom: 25px;
+        }
+
+        .content-block p {
+            margin: 10px 0;
+        }
+
+        .content-block strong {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .content-block .notes {
+            background-color: #f8f9fa;
+            border-left: 3px solid #40E0D0;
+            padding: 10px 15px;
+            margin-top: 15px;
+            border-radius: 4px;
+        }
+        
+        .notes strong {
+            color: #40E0D0;
+        }
+        
+        .series-format {
+            font-weight: bold;
+            font-size: 1.2em;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            background-color: #f0f2f5;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        /* Horizontal Rule for Separation */
+        hr {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #40E0D0, rgba(0, 0, 0, 0));
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container-3d">
+        <h1>Number Series</h1>
+
+        <!-- Core Concept -->
+        <div class="content-block">
+            <h3>Core Concept: Analyzing the Gap</h3>
+            <p><strong>Question</strong></p>
+            <p>What is the first and most important step to solve any number series problem?</p>
+            <p><strong>Answer</strong></p>
+            <p>Analyze the "gap" or difference between the consecutive numbers. The nature of this gap tells you which type of operation to look for.</p>
+            <p><strong>Explanation</strong></p>
+            <p>The speaker outlines a clear strategy based on the size of the gap:</p>
+            <ul>
+                <li><strong>Slowly Increasing Gap (Small Difference):</strong> The pattern is likely based on <strong>Addition</strong>. Check the difference between the numbers.</li>
+                <li><strong>Rapidly Increasing Gap (Large Difference):</strong> The pattern is likely based on <strong>Multiplication, Squares, or Cubes</strong>.</li>
+                <li><strong>Decreasing Gap:</strong> The pattern is likely based on <strong>Subtraction or Division</strong>.</li>
+            </ul>
+            
+            <div class="notes">
+                <p><strong>Important Notes:</strong> "This is the master key for number series," the speaker says. "Don't just randomly guess. Look at how fast the series is growing. If it goes from 5 to 100 in just a few steps, it's not addition, it's multiplication or squares. If it goes from 5 to 20 slowly, it's probably addition. Analyzing the gap is the first step to choosing the right tool."</p>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Question 1 -->
+        <div class="content-block">
+            <h3>Question 1: Simple Addition Pattern</h3>
+            <p><strong>Question</strong></p>
+            <p class="series-format">3, 6, 9, 12, 15, ?</p>
+            <p><strong>Answer</strong></p>
+            <p>18</p>
+            <p><strong>Explanation</strong></p>
+            <p>The gap between the numbers is small and constant. Let's find the difference:</p>
+            <ul>
+                <li>6 - 3 = 3</li>
+                <li>9 - 6 = 3</li>
+                <li>12 - 9 = 3</li>
+                <li>15 - 12 = 3</li>
+            </ul>
+            <p>The pattern is a constant addition of 3. Therefore, the next term is 15 + 3 = 18.</p>
+        </div>
+        
+        <hr>
+
+        <!-- Question 2 -->
+        <div class="content-block">
+            <h3>Question 2: Increasing Addition Pattern</h3>
+            <p><strong>Question</strong></p>
+            <p class="series-format">2, 5, 9, 14, 20, ?</p>
+            <p><strong>Answer</strong></p>
+            <p>27</p>
+            <p><strong>Explanation</strong></p>
+            <p>The gap is increasing, but not too rapidly. Let's find the difference:</p>
+            <ul>
+                <li>5 - 2 = 3</li>
+                <li>9 - 5 = 4</li>
+                <li>14 - 9 = 5</li>
+                <li>20 - 14 = 6</li>
+            </ul>
+            <p>The difference is increasing by 1 each time (+3, +4, +5, +6...). The next difference to add should be 7. Therefore, the next term is 20 + 7 = 27.</p>
+        </div>
+
+        <hr>
+        
+        <!-- Question 3 -->
+        <div class="content-block">
+            <h3>Question 3: Multiplication and Addition Pattern</h3>
+            <p><strong>Question</strong></p>
+            <p class="series-format">2, 5, 11, 23, 47, ?</p>
+            <p><strong>Answer</strong></p>
+            <p>95</p>
+            <p><strong>Explanation</strong></p>
+            <p>The gap is increasing rapidly, suggesting multiplication. The numbers seem to be roughly doubling.</p>
+            <ul>
+                <li>2 * 2 = 4. To get 5, we add 1. (Pattern: ×2 + 1)</li>
+                <li>5 * 2 = 10. To get 11, we add 1. (Pattern: ×2 + 1)</li>
+                <li>11 * 2 = 22. To get 23, we add 1. (Pattern: ×2 + 1)</li>
+                <li>23 * 2 = 46. To get 47, we add 1. (Pattern: ×2 + 1)</li>
+            </ul>
+            <p>The pattern is "multiply by 2, then add 1". Applying this to the last term: 47 * 2 + 1 = 94 + 1 = 95.</p>
+             <div class="notes">
+                <p><strong>Important Notes:</strong> "When you see the numbers are almost doubling, always test the 'times two' logic," the speaker advises. "Check `(number * 2) + something` or `(number * 2) - something`. This is a very, very common pattern in competitive exams."</p>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Question 4 -->
+        <div class="content-block">
+            <h3>Question 4: Square Pattern (n² - 1)</h3>
+            <p><strong>Question</strong></p>
+            <p class="series-format">3, 8, 15, 24, 35, ?</p>
+            <p><strong>Answer</strong></p>
+            <p>48</p>
+            <p><strong>Explanation</strong></p>
+            <p>The numbers are close to perfect squares. Let's examine their relationship to squares:</p>
+            <ul>
+                <li>3 = 2² - 1</li>
+                <li>8 = 3² - 1</li>
+                <li>15 = 4² - 1</li>
+                <li>24 = 5² - 1</li>
+                <li>35 = 6² - 1</li>
+            </ul>
+            <p>The pattern is <strong>n² - 1</strong>, where n starts from 2 and increases. The next term should be 7² - 1 = 49 - 1 = 48.</p>
+             <div class="notes">
+                <p><strong>Important Notes:</strong> "This is why you must memorize your squares!" the speaker insists. "If you see 8, 15, 24, 35... these numbers should scream 'squares' at you because they are right next to 9, 16, 25, 36. Recognizing this proximity is the key to solving the problem in seconds."</p>
+            </div>
+        </div>
+        
+        <hr>
+
+        <!-- Question 5 -->
+        <div class="content-block">
+            <h3>Question 5: Cube Pattern (n³ + 1)</h3>
+            <p><strong>Question</strong></p>
+            <p class="series-format">2, 9, 28, 65, 126, ?</p>
+            <p><strong>Answer</strong></p>
+            <p>217</p>
+            <p><strong>Explanation</strong></p>
+            <p>The gap is increasing very rapidly, suggesting cubes. The numbers are very close to perfect cubes.</p>
+            <ul>
+                <li>2 = 1³ + 1</li>
+                <li>9 = 2³ + 1</li>
+                <li>28 = 3³ + 1</li>
+                <li>65 = 4³ + 1</li>
+                <li>126 = 5³ + 1</li>
+            </ul>
+            <p>The pattern is <strong>n³ + 1</strong>, where n starts from 1. The next term should be 6³ + 1 = 216 + 1 = 217.</p>
+        </div>
+
+    </div>
+
+</body>
+</html>

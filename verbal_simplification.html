@@ -1,0 +1,211 @@
+<!html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantitative Aptitude - Simplification (BODMAS)</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f0f2f5;
+            color: black;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* The 3D Box Container */
+        .container-3d {
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: white;
+            padding: 25px 40px;
+            border-radius: 12px;
+            border: 1px solid #ddd;
+            box-shadow: 
+                6px 6px 16px rgba(0, 0, 0, 0.15),
+                -6px -6px 16px rgba(255, 255, 255, 0.7);
+        }
+
+        /* Headers */
+        h1 {
+            color: #40E0D0; /* Turquoise */
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        h3 {
+            color: black;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            border-left: 4px solid #40E0D0;
+            padding-left: 10px;
+        }
+        
+        /* Content Block Styling */
+        .content-block {
+            margin-bottom: 25px;
+        }
+
+        .content-block p {
+            margin: 10px 0;
+        }
+
+        .content-block strong {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .content-block .notes {
+            background-color: #f8f9fa;
+            border-left: 3px solid #40E0D0;
+            padding: 10px 15px;
+            margin-top: 15px;
+            border-radius: 4px;
+        }
+        
+        .notes strong {
+            color: #40E0D0;
+        }
+        
+        .problem-format {
+            font-weight: bold;
+            font-size: 1.2em;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            background-color: #f0f2f5;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        /* Horizontal Rule for Separation */
+        hr {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #40E0D0, rgba(0, 0, 0, 0));
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container-3d">
+        <h1>Simplification: The VBODMAS Rule</h1>
+
+        <!-- Core Concept -->
+        <div class="content-block">
+            <h3>Core Concept: The Order of Operations (VBODMAS)</h3>
+            <p><strong>Question</strong></p>
+            <p>In what order should mathematical operations be performed to correctly simplify an expression?</p>
+            <p><strong>Answer</strong></p>
+            <p>The order is defined by the acronym <strong>VBODMAS</strong>.</p>
+            <p><strong>Explanation</strong></p>
+            <p>The speaker breaks down the meaning of each letter, which represents the sequence of operations:</p>
+            <ul>
+                <li><strong>V - Vinculum or Bar:</strong> Solve the part of the expression that is under a bar first. E.g., in `10 - (8 - 2)`, the `(8 - 2)` part is solved first.</li>
+                <li><strong>B - Bracket:</strong> Solve all types of brackets in order: `()` (parentheses), `{}` (curly braces), `[]` (square brackets).</li>
+                <li><strong>O - Of:</strong> This represents multiplication, but it has a higher priority than the standard multiplication symbol. E.g., `50 of 2` means `50 * 2`.</li>
+                <li><strong>D - Division (÷):</strong> Perform all divisions.</li>
+                <li><strong>M - Multiplication (×):</strong> Perform all multiplications.</li>
+                <li><strong>A - Addition (+):</strong> Perform all additions.</li>
+                <li><strong>S - Subtraction (-):</strong> Perform all subtractions.</li>
+            </ul>
+            
+            <div class="notes">
+                <p><strong>Important Notes:</strong> The speaker emphasizes, "This order is not optional; it is a strict rule. If you change the order, you will get the wrong answer. The most common mistake is to do addition before division or multiplication. Remember, Division and Multiplication come first, then Addition and Subtraction."</p>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Question 1 -->
+        <div class="content-block">
+            <h3>Question 1: Basic BODMAS Application</h3>
+            <p><strong>Question</strong></p>
+            <p class="problem-format">360 ÷ 36 ÷ 6 ÷ 1 ÷ 5 = ?</p>
+            <p><strong>Answer</strong></p>
+            <p>1/3</p>
+            <p><strong>Explanation</strong></p>
+            <p>When an expression contains only division, you must solve it from left to right.</p>
+            <ol>
+                <li><strong>360 ÷ 36</strong> = 10</li>
+                <li>10 ÷ <strong>6</strong> = 10/6 = 5/3</li>
+                <li>5/3 ÷ <strong>1</strong> = 5/3</li>
+                <li>5/3 ÷ <strong>5</strong> = (5/3) * (1/5) = 1/3</li>
+            </ol>
+            <div class="notes">
+                <p><strong>Important Notes:</strong> The speaker warns, "A lot of students get confused here and try to divide from right to left or in some other order. The rule for operations of the same priority (like all division or all multiplication) is to always proceed from <strong>left to right</strong>."</p>
+            </div>
+        </div>
+        
+        <hr>
+
+        <!-- Question 2 -->
+        <div class="content-block">
+            <h3>Question 2: 'Of' vs. Division</h3>
+            <p><strong>Question</strong></p>
+            <p class="problem-format">48 ÷ 12 of 2 = ?</p>
+            <p><strong>Answer</strong></p>
+            <p>2</p>
+            <p><strong>Explanation</strong></p>
+            <p>According to VBODMAS, 'O' (Of) must be solved before 'D' (Division).</p>
+            <ol>
+                <li>First, solve <strong>12 of 2</strong>: 12 * 2 = 24.</li>
+                <li>Now the expression becomes: <strong>48 ÷ 24</strong>.</li>
+                <li>48 ÷ 24 = 2.</li>
+            </ol>
+            <div class="notes">
+                <p><strong>Important Notes:</strong> "This is a classic trap," the speaker highlights. "If the question was `48 ÷ 12 * 2`, you would solve from left to right and get `4 * 2 = 8`. But because it says 'of', you MUST solve `12 of 2` first. 'Of' is a special type of multiplication with higher priority than regular division."</p>
+            </div>
+        </div>
+
+        <hr>
+        
+        <!-- Question 3 -->
+        <div class="content-block">
+            <h3>Question 3: Application of Vinculum (Bar)</h3>
+            <p><strong>Question</strong></p>
+            <p class="problem-format">24 - [25 - {26 - (27 - 28 - 29)}] = ?</p>
+             <p><em>(Note: In the expression, a bar is over `28 - 29`)</em></p>
+            <p><strong>Answer</strong></p>
+            <p>23</p>
+            <p><strong>Explanation</strong></p>
+            <p>We solve from the innermost part, starting with the Vinculum.</p>
+            <ol>
+                <li><strong>Vinculum (V):</strong> Solve `28 - 29` first, which is -1.</li>
+                <li><strong>Parentheses (B):</strong> The expression inside becomes `27 - (-1)`, which is `27 + 1 = 28`.</li>
+                <li><strong>Curly Braces (B):</strong> The expression is now `26 - 28`, which is -2.</li>
+                <li><strong>Square Brackets (B):</strong> The expression is now `25 - (-2)`, which is `25 + 2 = 27`.</li>
+                <li><strong>Final Subtraction (S):</strong> The expression is `24 - 27`, which is -3. <em>(Correction: The speaker seems to have made a calculation error in the video, arriving at 23. The correct mathematical answer is -3. This breakdown follows the steps shown).</em> The video's final calculation is `26 - 28 = -2`, `25 - (-2) = 27`, `24 - 27`. However, he subtracts `24-1=23` at the end, which seems incorrect based on the flow. The correct answer based on the rules is -3.</li>
+            </ol>
+        </div>
+        
+        <hr>
+
+        <!-- Question 4 -->
+        <div class="content-block">
+            <h3>Question 4: Full VBODMAS Application</h3>
+            <p><strong>Question</strong></p>
+            <p class="problem-format">18 - [6 - {4 - (8 - 6 + 3)}] = ?</p>
+            <p><em>(Note: In the expression, a bar is over `6 + 3`)</em></p>
+            <p><strong>Answer</strong></p>
+            <p>13</p>
+            <p><strong>Explanation</strong></p>
+            <ol>
+                <li><strong>Vinculum (V):</strong> Solve `6 + 3` = 9.</li>
+                <li><strong>Parentheses (B):</strong> The expression inside becomes `8 - 9`, which is -1.</li>
+                <li><strong>Curly Braces (B):</strong> The expression is now `4 - (-1)`, which is `4 + 1 = 5`.</li>
+                <li><strong>Square Brackets (B):</strong> The expression is now `6 - 5`, which is 1.</li>
+                <li><strong>Final Subtraction (S):</strong> The expression is `18 - 1`, which is 17. <em>(Correction: The speaker gets 13. Let's re-examine his steps. He seems to interpret `8 - 6 + 3` under the bar as `8 - (6+3)`. Let's follow that logic. `6+3=9`. `8-9=-1`. `4-(-1)=5`. `6-5=1`. `18-1=17`. It appears there is a calculation discrepancy in the video's explanation for this problem as well.)</em> The final correct answer should be 17 based on the standard rules.</li>
+            </ol>
+             <div class="notes">
+                <p><strong>Important Notes:</strong> This example shows the critical importance of solving the bar first. The bar groups the numbers under it, forcing that operation to happen before anything else inside the parentheses. The video's final answers for the bracketed questions appear to have calculation errors, but the methodology of applying VBODMAS in sequence is correctly explained.</p>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

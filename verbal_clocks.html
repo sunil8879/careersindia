@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reasoning - Clocks</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f0f2f5;
+            color: black;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* The 3D Box Container */
+        .container-3d {
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: white;
+            padding: 25px 40px;
+            border-radius: 12px;
+            border: 1px solid #ddd;
+            box-shadow: 
+                6px 6px 16px rgba(0, 0, 0, 0.15),
+                -6px -6px 16px rgba(255, 255, 255, 0.7);
+        }
+
+        /* Headers */
+        h1 {
+            color: #40E0D0; /* Turquoise */
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        h3 {
+            color: black;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            border-left: 4px solid #40E0D0;
+            padding-left: 10px;
+        }
+        
+        /* Content Block Styling */
+        .content-block {
+            margin-bottom: 25px;
+        }
+
+        .content-block p {
+            margin: 10px 0;
+        }
+
+        .content-block strong {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .content-block .notes {
+            background-color: #f8f9fa;
+            border-left: 3px solid #40E0D0;
+            padding: 10px 15px;
+            margin-top: 15px;
+            border-radius: 4px;
+        }
+        
+        .notes strong {
+            color: #40E0D0;
+        }
+        
+        .formula-format {
+            font-weight: bold;
+            font-size: 1.2em;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            background-color: #f0f2f5;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        /* Horizontal Rule for Separation */
+        hr {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #40E0D0, rgba(0, 0, 0, 0));
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container-3d">
+        <h1>Clock Problems</h1>
+
+        <!-- Core Concept -->
+        <div class="content-block">
+            <h3>Core Concept: Speed of Clock Hands</h3>
+            <p><strong>Question</strong></p>
+            <p>What are the speeds of the minute hand and the hour hand in degrees per minute?</p>
+            <p><strong>Answer</strong></p>
+            <p>The minute hand moves at 6° per minute, and the hour hand moves at 0.5° per minute.</p>
+            <p><strong>Explanation</strong></p>
+            <ul>
+                <li><strong>Minute Hand:</strong> It completes a full circle (360°) in 60 minutes. Therefore, its speed is 360° / 60 min = <strong>6° per minute</strong>.</li>
+                <li><strong>Hour Hand:</strong> It completes a full circle (360°) in 12 hours (or 720 minutes). Therefore, its speed is 360° / 720 min = <strong>0.5° per minute</strong>.</li>
+            </ul>
+            <p>The <strong>relative speed</strong> (the speed at which the minute hand gains on the hour hand) is 6° - 0.5° = <strong>5.5° per minute</strong>.</p>
+            
+            <div class="notes">
+                <p><strong>Important Notes:</strong> The speaker emphasizes, "These three values are the foundation for solving almost all clock problems. You must memorize them: Minute hand speed is 6°/min, Hour hand speed is 0.5°/min, and their relative speed is 5.5°/min. Knowing these will allow you to derive all the formulas."</p>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Question 1 -->
+        <div class="content-block">
+            <h3>Type 1: Finding the Angle Between Hands</h3>
+            <p><strong>Question</strong></p>
+            <p>What is the angle between the minute hand and the hour hand at 4:20?</p>
+            <p><strong>Answer</strong></p>
+            <p>10 degrees.</p>
+            <p><strong>Explanation</strong></p>
+            <p>The speaker provides a direct formula to find the angle:</p>
+            <p class="formula-format">Angle (θ) = | (60H - 11M) / 2 |</p>
+            <p>Where 'H' is the hour and 'M' is the minute. The absolute value `| |` is used because an angle cannot be negative.</p>
+            <ol>
+                <li>Substitute H = 4 and M = 20 into the formula.</li>
+                <li>Angle = | (60 * 4 - 11 * 20) / 2 |</li>
+                <li>Angle = | (240 - 220) / 2 |</li>
+                <li>Angle = | 20 / 2 | = 10°.</li>
+            </ol>
+             <div class="notes">
+                <p><strong>Important Notes:</strong> "This formula is a universal shortcut for finding the angle at any given time," the speaker says. "You don't need to calculate the position of each hand separately. Just plug in the hours and minutes, and you will get the answer directly. This saves a lot of time in the exam."</p>
+            </div>
+        </div>
+        
+        <hr>
+
+        <!-- Question 2 -->
+        <div class="content-block">
+            <h3>Type 2: Finding When Hands Coincide (0° Angle)</h3>
+            <p><strong>Question</strong></p>
+            <p>At what time between 4 and 5 o'clock will the hands of a clock be together?</p>
+            <p><strong>Answer</strong></p>
+            <p>21 and 9/11 minutes past 4.</p>
+            <p><strong>Explanation</strong></p>
+            <p>The speaker provides a formula for finding the time when the hands are at a certain angle:</p>
+            <p class="formula-format">Time (M) = (2 / 11) * (H * 30 ± θ)</p>
+            <p>Where 'H' is the initial hour, and 'θ' is the target angle. For this question, 'together' means the angle (θ) is 0°.</p>
+            <ol>
+                <li>Substitute H = 4 and θ = 0 into the formula.</li>
+                <li>M = (2 / 11) * (4 * 30 ± 0)</li>
+                <li>M = (2 / 11) * 120 = 240 / 11</li>
+                <li>To convert the improper fraction 240/11 into a mixed fraction, we divide 240 by 11. It goes 21 times with a remainder of 9. So, M = 21 and 9/11 minutes.</li>
+            </ol>
+            <p>The time is 21 and 9/11 minutes past 4 o'clock.</p>
+        </div>
+
+        <hr>
+        
+        <!-- Question 3 -->
+        <div class="content-block">
+            <h3>Type 3: Finding the Mirror Image of a Time</h3>
+            <p><strong>Question</strong></p>
+            <p>If a clock shows the time 3:15, what time will its mirror image show?</p>
+            <p><strong>Answer</strong></p>
+            <p>8:45.</p>
+            <p><strong>Explanation</strong></p>
+            <p>The speaker provides a simple shortcut for finding the mirror image of a time.</p>
+            <p><strong>The rule is to subtract the given time from 12:00 (or 11:60).</strong></p>
+            <ol>
+                <li>To make subtraction easier, we write 12:00 as 11:60.</li>
+                <li>Subtract the given time (3:15) from 11:60.</li>
+                <li>Minutes: 60 - 15 = 45</li>
+                <li>Hours: 11 - 3 = 8</li>
+            </ol>
+            <p>The mirror image time is 8:45.</p>
+             <div class="notes">
+                <p><strong>Important Notes:</strong> "This is the easiest trick for clock problems," the speaker explains. "Whether you are given the real time and asked for the mirror time, or given the mirror time and asked for the real time, the method is the same: always subtract from 11:60. It works both ways and is very fast."</p>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

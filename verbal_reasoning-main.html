@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Course on Reasoning</title>
+    <style>
+        /* Global Styles & Background */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+            background-color: #f0f2f5; /* Fallback background */
+            /* Parrot Green Gridlines using repeating gradients */
+            background-image: 
+                repeating-linear-gradient(rgba(50, 205, 50, 0.4) 0 1px, transparent 1px 100%),
+                repeating-linear-gradient(90deg, rgba(50, 205, 50, 0.4) 0 1px, transparent 1px 100%);
+            background-size: 40px 40px;
+            color: black;
+            overflow-x: hidden;
+        }
+
+        /* 3D Main Box Container */
+        .main-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 20px;
+            padding: 30px 40px;
+            border: 1px solid #e0e0e0;
+            box-shadow: 
+                10px 10px 30px rgba(0, 0, 0, 0.15), 
+                -10px -10px 30px rgba(255, 255, 255, 0.8);
+        }
+
+        /* Header Style */
+        header h1 {
+            font-size: 3em;
+            color: #40E0D0; /* Turquoise */
+            text-align: center;
+            margin: 0 0 30px 0;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Chapter and Example Styling */
+        .chapter-title, .section-title {
+            font-size: 2.2em;
+            color: #40E0D0;
+            border-bottom: 3px solid #40E0D0;
+            padding-bottom: 10px;
+            margin-top: 50px;
+        }
+        .section-title {
+            font-size: 1.8em;
+            margin-top: 40px;
+        }
+
+        .example-block {
+            margin-top: 30px;
+        }
+        
+        .example-block strong {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .example-block p, .example-block ul, .example-block ol {
+            margin: 8px 0;
+        }
+        
+        .notes {
+            background-color: #f8f9fa;
+            border-left: 4px solid #40E0D0;
+            padding: 15px 20px;
+            margin-top: 15px;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .notes strong {
+            color: #40E0D0;
+        }
+        
+        .expression {
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        /* Horizontal Rule for Separation */
+        hr {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #40E0D0, rgba(0, 0, 0, 0));
+            margin: 50px 0;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 15px auto;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+        <header>
+            <h1>Complete Course on Reasoning</h1>
+        </header>
+
+        <!-- CHAPTER 1: BLOOD RELATIONS -->
+        <section id="chapter1">
+            <h2 class="chapter-title">Chapter 1: Blood Relations</h2>
+            
+            <h3 class="section-title">Type 1: Questions Based on Language</h3>
+            
+            <div class="example-block">
+                <p><strong>1. Question</strong></p>
+                <p>Introducing a man to her husband, a woman named Priya said, “His brother’s father is the only son of my grandfather.” How is Priya related to the man?</p>
+                <p><strong>2. Answer</strong></p>
+                <p>Sister</p>
+                <p><strong>3. Explanation</strong></p>
+                <p>This is solved by breaking down Priya's statement from her perspective:</p>
+                <ol>
+                    <li><strong>"my grandfather"</strong>: This refers to Priya's own grandfather.</li>
+                    <li><strong>"the only son of my grandfather"</strong>: The only son of Priya's grandfather must be Priya's father.</li>
+                    <li><strong>"His brother’s father"</strong>: This is the man's father.</li>
+                    <li>By equating the statements, we understand that the man's father is the same person as Priya's father. If they share the same father, Priya and the man are siblings. Therefore, Priya is his sister.</li>
+                </ol>
+                <p><strong>4. Important Notes</strong></p>
+                <div class="notes">
+                    <p><strong>Logic Technique:</strong> For these "pointing" or "introducing" problems, the key is to always start the analysis from the phrase containing "my" or "your." Work backward from that anchor point, resolving each relationship step by step from the speaker's perspective. This method untangles the puzzle logically and avoids confusion.</p>
+                </div>
+            </div>
+
+            <div class="example-block">
+                <p><strong>1. Question</strong></p>
+                <p>Pointing to a man in a photograph, a boy named Leo said, “His mother’s only daughter is my mother.” How is Leo related to the man in the photograph?</p>
+                <p><strong>2. Answer</strong></p>
+                <p>Nephew</p>
+                <p><strong>3. Explanation</strong></p>
+                <p>We solve this by deconstructing Leo's statement:</p>
+                <ol>
+                    <li><strong>"His mother's only daughter"</strong>: "His" refers to the man in the photograph. The only daughter of his mother is his sister.</li>
+                    <li><strong>"is my mother"</strong>: Leo is stating that the man's sister is his (Leo's) mother.</li>
+                    <li>Therefore, Leo is the son of the man's sister. The son of one's sister is their nephew.</li>
+                </ol>
+                <p><strong>4. Important Notes</strong></p>
+                <div class="notes">
+                    <p><strong>Logic Technique:</strong> The phrase "only daughter" is a critical piece of information that establishes a definite relationship (sister). Identifying these definitive clues is crucial. The logic flows from the man in the photo to his sister, and then from his sister to her son, Leo.</p>
+                </div>
+            </div>
+
+            <hr>
+            
+            <h3 class="section-title">Type 2: Relation Puzzles</h3>
+
+            <div class="example-block">
+                <p><strong>1. Question</strong></p>
+                <p>There are six members in a family. Alex is the father of David. Ethan is the grandfather of David. Bella is the daughter-in-law of Clara. Frank is the uncle of David. What is the relationship of Clara with Frank?</p>
+                <p><strong>2. Answer</strong></p>
+                <p>Data inadequate</p>
+                <p><strong>3. Explanation</strong></p>
+                <p>When we attempt to draw a family tree, we get two disconnected groups:</p>
+                <ul>
+                    <li><strong>Group 1:</strong> Ethan is the grandfather of David, and Alex is the father of David. This means Ethan is Alex's father. Frank is David's uncle, so Frank is Alex's brother. This forms one complete family branch: (Ethan → [Alex, Frank] → David).</li>
+                    <li><strong>Group 2:</strong> Bella is the daughter-in-law of Clara. This means Clara has a son, who is married to Bella. This forms a separate family unit.</li>
+                </ul>
+                <p>Since Clara (from Group 2) and Frank (from Group 1) are in completely separate family trees based on the given information, it is impossible to determine their relationship.</p>
+                <p><strong>4. Important Notes</strong></p>
+                <div class="notes">
+                    <p><strong>Logic Technique:</strong> The goal in puzzle questions is to create a single, unified family tree. If the provided clues result in two or more separate, unlinked family groups, you cannot determine relationships between individuals from different groups. In such cases, the answer is "Data inadequate."</p>
+                </div>
+            </div>
+            
+            <hr>
+
+            <h3 class="section-title">Type 3: Coded Relations</h3>
+
+            <div class="example-block">
+                <p><strong>1. Question</strong></p>
+                <p>Study the following codes: <br>
+                A $ B means A is the father of B <br>
+                A @ B means B is the mother of A <br>
+                A * B means A is the wife of B <br>
+                A # B means B is the daughter of A <br>
+                Given the expression `A * B $ C # D @ E`, how is ‘B’ related to ‘D’?</p>
+                <p><strong>2. Answer</strong></p>
+                <p>Grandfather</p>
+                <p><strong>3. Explanation</strong></p>
+                <p>We build the family tree by decoding the expression step-by-step:</p>
+                <ol>
+                    <li><strong>A * B:</strong> A is the wife of B. (A is female, B is male).</li>
+                    <li><strong>B $ C:</strong> B is the father of C. (C is B's child).</li>
+                    <li><strong>C # D:</strong> D is the daughter of C. (C is D's parent, and D is female).</li>
+                    <li><strong>D @ E:</strong> E is the mother of D. (This means C and E are a married couple, where C is the father and E is the mother of D).</li>
+                </ol>
+                <p>From the tree, B is the father of C, and C is the father of D. Therefore, B is the paternal grandfather of D.</p>
+                <p><strong>4. Important Notes</strong></p>
+                <div class="notes">
+                    <p><strong>Logic Technique:</strong> In coded relations, it is critical to pay attention to the direction of the relationship. For example, `A @ B` means `B is the mother of A`, not the other way around. Carefully translating each symbol into a generation and gender relationship is the key to building an accurate family tree and avoiding errors.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CHAPTER 2: DIRECTION SENSE TEST -->
+        <section id="chapter2">
+            <h2 class="chapter-title">Chapter 2: Direction Sense Test</h2>
+            
+            <h3 class="section-title">Type 1: Based on Distance</h3>
+            
+            <div class="example-block">
+                <p><strong>1. Question</strong></p>
+                <p>Nitin starts traveling towards the South and covers a distance of 5 km. He then turns left and travels 8 km. Finally, he takes another left turn and travels 5 km. How far is he from the starting point?</p>
+                <p><strong>2. Answer</strong></p>
+                <p>8 km</p>
+                <p><strong>3. Explanation</strong></p>
+                <p>Let's trace Nitin's path:</p>
+                <ol>
+                    <li>Starts at point A and moves 5 km South to point B.</li>
+                    <li>From South, a left turn is towards the East. He moves 8 km East to point C.</li>
+                    <li>From East, a left turn is towards the North. He moves 5 km North to point D.</li>
+                </ol>
+                <p>His 5 km Southward journey (A to B) is cancelled out by his 5 km Northward journey (C to D). This means his final point D is horizontally aligned with his starting point A. The only distance separating them is the 8 km he traveled East. Therefore, he is 8 km from his starting point.</p>
+                <p><strong>4. Important Notes</strong></p>
+                <div class="notes">
+                    <p><strong>Logic Technique:</strong> The most effective way to solve such problems is to track the net displacement on the North-South and East-West axes. Here, the net North-South movement is `(-5 km) + (+5 km) = 0 km`. The net East-West movement is `+8 km`. The final distance is the result of these net movements.</p>
+                </div>
+            </div>
+
+            <hr>
+            
+            <h3 class="section-title">Type 2: Based on Direction</h3>
+
+            <div class="example-block">
+                <p><strong>1. Question</strong></p>
+                <p>I am facing North. I turn 100° in the clockwise direction and then 145° in the anti-clockwise direction. Which direction am I facing now?</p>
+                <p><strong>2. Answer</strong></p>
+                <p>North-West</p>
+                <p><strong>3. Explanation</strong></p>
+                <p>We can calculate the net rotation:</p>
+                <ol>
+                    <li>Clockwise is positive (+100°), and anti-clockwise is negative (-145°).</li>
+                    <li>Net rotation = `+100° - 145° = -45°`.</li>
+                    <li>A negative rotation means an anti-clockwise turn from the starting direction.</li>
+                    <li>Starting from North, a 45° anti-clockwise turn leads to the North-West direction.</li>
+                </ol>
+                <p><strong>4. Important Notes</strong></p>
+                <div class="notes">
+                    <p><strong>Logic Technique:</strong> When multiple turns are involved, calculating the net rotation is far more efficient than plotting each turn individually. Treat one direction (e.g., clockwise) as positive and the other as negative, then find the sum to get the final effective turn.</p>
+                </div>
+            </div>
+            
+            <hr>
+
+            <h3 class="section-title">Type 3: Based on Distance and Direction</h3>
+
+            <div class="example-block">
+                <p><strong>1. Question</strong></p>
+                <p>Arun walked 20 m towards South. Then, he turned to his left and walked 25 m. He then turned to his left and walked 20 m. He again turned to his right and walked 15 m. At what distance is he from the starting point and in which direction?</p>
+                <p><strong>2. Answer</strong></p>
+                <p>40 m, East</p>
+                <p><strong>3. Explanation</strong></p>
+                <p>Let's trace Arun's path from a starting point (A):</p>
+                <ol>
+                    <li>Walks 20 m South from A to B.</li>
+                    <li>Turns left (East) and walks 25 m from B to C.</li>
+                    <li>Turns left (North) and walks 20 m from C to D. At this point, D is 25 m East of the start (A).</li>
+                    <li>Turns right (East) and walks another 15 m from D to E.</li>
+                </ol>
+                <p>His total distance from the starting point is the total eastward displacement: `25 m + 15 m = 40 m`. His final direction from the starting point is East.</p>
+                <p><strong>4. Important Notes</strong></p>
+                <div class="notes">
+                    <p><strong>Logic Technique:</strong> Drawing a clear diagram is crucial. The key insight is realizing that the initial 20m South and the subsequent 20m North movements cancel each other out on the vertical axis, simplifying the problem to a straight-line horizontal distance calculation.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CHAPTER 3: CODING-DECODING -->
+        <section id="chapter3">
+            <h2 class="chapter-title">Chapter 3: Coding-Decoding</h2>
+            
+            <h3 class="section-title">Type 1: Letter Coding</h3>
+            
+            <div class="example-block">
+                <p><strong>1. Question</strong></p>
+                <p>In a certain code, `GLAMOUR` is written as `IJCNMWP` and `MISRULE` is written as `OGUSSNC`. How will `TOPICAL` be written in that code?</p>
+                <p><strong>2. Answer</strong></p>
+                <p>VMRJACJ</p>
+                <p><strong>3. Explanation</strong></p>
+                <p>This is a mixed pattern based on letter positions. Analyzing `GLAMOUR` → `IJCNMWP` reveals the pattern: `+2, -2, +2, +1, -2, +2, -2`. Applying this same complex pattern to the word `TOPICAL` gives the result `VMRJACJ`.</p>
+                <p><strong>4. Important Notes</strong></p>
+                <div class="notes">
+                    <p><strong>Logic Technique:</strong> When a simple shift doesn't work, check for alternating or mixed patterns. Writing the positional values of the letters helps clarify the mathematical relationship. Providing two examples confirms the pattern is consistent.</p>
+                </div>
+            </div>
+
+            <hr>
+            
+            <h3 class="section-title">Type 2: Number Coding</h3>
+
+            <div class="example-block">
+                <p><strong>1. Question</strong></p>
+                <p>If each letter is assigned an even numerical value starting with A=2, B=4, etc., what is the total value for the word ‘LADY’?</p>
+                <p><strong>2. Answer</strong></p>
+                <p>84</p>
+                <p><strong>3. Explanation</strong></p>
+                <p>The rule is `Value = Position x 2`.<br> L(12)→24, A(1)→2, D(4)→8, Y(25)→50.<br> Total = `24 + 2 + 8 + 50 = 84`.</p>
+                <p><strong>4. Important Notes</strong></p>
+                <div class="notes">
+                    <p><strong>Logic Technique:</strong> First, clearly define the rule for converting letters to numbers. Then, apply it to each letter and perform the final calculation as required.</p>
+                </div>
+            </div>
+            
+            <hr>
+
+            <h3 class="section-title">Type 4: Chinese Coding</h3>
+
+            <div class="example-block">
+                <p><strong>1. Question</strong></p>
+                <p>‘Sue Re Nik’ means ‘She is Brave’; ‘Pi Sor Re Nik’ means ‘She is always smiling’; ‘Sor Re Zhi’ means ‘Is always cheerful’. What is the code for ‘smiling’?</p>
+                <p><strong>2. Answer</strong></p>
+                <p>Pi</p>
+                <p><strong>3. Explanation</strong></p>
+                <p>By comparing the sentences, we find common words and their codes. Comparing 1 and 2, 'She is' = 'Re Nik'. Comparing 2 and 3, 'is always' = 'Sor Re'. From this, we deduce 'is' = 'Re'. This allows us to find that 'smiling' is the only word left in sentence 2, and 'Pi' is the only code left.</p>
+                <p><strong>4. Important Notes</strong></p>
+                <div class="notes">
+                    <p><strong>Logic Technique:</strong> The key to Chinese Coding is systematic comparison and elimination. Compare two sentences at a time to find definite matches, and use those matches to decode the rest of the puzzle.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CHAPTER 4: MATRIX CODING -->
+        <section id="chapter4">
+            <h2 class="chapter-title">Chapter 4: Matrix Coding</h2>
+            
+            <div class="example-block">
+                <p><strong>1. Question</strong></p>
+                <p>Using the given matrices, identify the set of numbers for the word ‘MAPS’.</p>
+                <img src="https://i.imgur.com/Kx2aB1q.png" alt="Matrix Coding Example 1">
+                <p><strong>2. Answer</strong></p>
+                <p>68, 14, 00, 04</p>
+                <p><strong>3. Explanation</strong></p>
+                <p>We test the options. For option (b): M is at row 6, col 8 (68). A is at row 1, col 4 (14). P is at row 0, col 0 (00). S is at row 0, col 4 (04). All match.</p>
+                <p><strong>4. Important Notes</strong></p>
+                <div class="notes">
+                    <p><strong>Logic Technique:</strong> The fastest way to solve matrix problems is by **elimination**. Start with the first letter (M) and check the first number of each option. If it doesn't match, discard the entire option. This is much quicker than finding all possible codes.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CHAPTER 5: ALPHA-NUMERIC SEQUENCE -->
+        <section id="chapter5">
+            <h2 class="chapter-title">Chapter 5: Alpha-Numeric Sequence Puzzles</h2>
+
+            <div class="example-block">
+                <p><strong>1. Question</strong></p>
+                <p>Sequence: `$ = # F 3 * J S 8 5 % & @ P L V S α↑M U E 4 δ Q G © 9 3`. Which element is in the middle of the 10th from the left and 8th from the right?</p>
+                <p><strong>2. Answer</strong></p>
+                <p>S</p>
+                <p><strong>3. Explanation</strong></p>
+                <p>The 10th element from the left is '&'. The 8th from the right is 'E'. The elements between them are `@, P, L, V, S, α, ↑, M, U`. The middle element of this group is 'S'.</p>
+                <p><strong>4. Important Notes</strong></p>
+                <div class="notes">
+                    <p><strong>Logic Technique:</strong> For "middle element" questions, first find the two landmark positions. Then, carefully list or count the elements between them to find the exact center. Rushing the count is a common error.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CHAPTER 6: SEATING ARRANGEMENT -->
+        <section id="chapter6">
+            <h2 class="chapter-title">Chapter 6: Puzzle Test (Seating Arrangement)</h2>
+            
+            <h3 class="section-title">Type 1: Linear Arrangement</h3>
+            <div class="example-block">
+                <p><strong>1. Question</strong></p>
+                <p>Six people (A, B, C, D, E, F) sit in two rows of three. E is not at any end. D is second to the left of F. C is a neighbor of E and is sitting diagonally opposite to D. B is a neighbor of F. Who will sit opposite B?</p>
+                <p><strong>2. Answer</strong></p>
+                <p>E</p>
+                <p><strong>3. Explanation</strong></p>
+                <p>The clue "D is second to the left of F" in a three-person row fixes their positions as `D, _, F`. "B is the neighbor of F" places B in the middle, making one row `D, B, F`. "C is diagonally opposite to D" places C at the opposite end of the other row. "E is not at any end" and is C's neighbor, placing E in the middle. The final arrangement is Row 1: A, E, C; Row 2: D, B, F. Therefore, E is opposite B.</p>
+                <p><strong>4. Important Notes</strong></p>
+                <div class="notes">
+                    <p><strong>Logic Technique:</strong> Start with the most concrete information. A clue that fixes multiple positions at once (like "second to the left" in a short row) is the best anchor to build the rest of the arrangement around.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CHAPTER 7: MATHEMATICAL OPERATIONS -->
+        <section id="chapter7">
+            <h2 class="chapter-title">Chapter 7: Mathematical Operations</h2>
+            
+            <h3 class="section-title">Type 1: Symbol Substitution</h3>
+            <div class="example-block">
+                <p><strong>1. Question</strong></p>
+                <p>If `+` means `÷`, `-` means `x`, `x` means `+`, and `÷` means `-`, find the value of: <span class="expression">4 x 8 ÷ 2 + 2 x 3</span></p>
+                <p><strong>2. Answer</strong></p>
+                <p>14</p>
+                <p><strong>3. Explanation</strong></p>
+                <p>First, substitute the symbols: `4 + 8 - 2 ÷ 2 + 3`. Then solve using BODMAS: `4 + 8 - 1 + 3` → `12 - 1 + 3` → `11 + 3` → `14`.</p>
+                <p><strong>4. Important Notes</strong></p>
+                <div class="notes">
+                    <p><strong>Logic Technique:</strong> This is a two-step process: (1) carefully rewrite the expression with the new symbols, (2) strictly apply the BODMAS rule to the new expression.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CHAPTER 8: ALPHABET TEST -->
+        <section id="chapter8">
+            <h2 class="chapter-title">Chapter 8: Alphabet Test</h2>
+            <h3 class="section-title">Type 2: Letter-Word Problems</h3>
+            <div class="example-block">
+                <p><strong>1. Question</strong></p>
+                <p>How many such pairs of letters are there in `ENTHUSIASTIC` which have as many letters between them in the word as in the English alphabet?</p>
+                <p><strong>2. Answer</strong></p>
+                <p>Three</p>
+                <p><strong>3. Explanation</strong></p>
+                <p>The pairs are (E, H), (I, N), and (S, T). For example, in the word, there are two letters between E and H (N, T). In the alphabet, there are also two letters (F, G). This condition is met for three pairs.</p>
+                <p><strong>4. Important Notes</strong></p>
+                <div class="notes">
+                    <p><strong>Logic Technique:</strong> A fast method is to pick a letter and recite the alphabet forward from it, checking if the letter you say matches the letter in that position in the word. Repeat for all letters in both forward and backward directions.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CHAPTER 9: ANALOGY -->
+        <section id="chapter9">
+            <h2 class="chapter-title">Chapter 9: Analogy</h2>
+            <h3 class="section-title">Type 4: Number Analogy</h3>
+            <div class="example-block">
+                <p><strong>1. Question</strong></p>
+                <p>12 : 144</p>
+                <p>a) 22 : 464, b) 20 : 400, c) 15 : 135, d) 10 : 140</p>
+                <p><strong>2. Answer</strong></p>
+                <p>b) 20 : 400</p>
+                <p><strong>3. Explanation</strong></p>
+                <p>The relationship is `n : n²`. Since 12² = 144, we look for another pair that follows this rule. 20² = 400.</p>
+                <p><strong>4. Important Notes</strong></p>
+                <div class="notes">
+                    <p><strong>Logic Technique:</strong> Always check for fundamental mathematical relationships first: squares, cubes, and simple arithmetic. Recognizing that 144 is the square of 12 is the key.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CHAPTER 10: RANKING AND TIME SEQUENCE -->
+        <section id="chapter10">
+            <h2 class="chapter-title">Chapter 10: Ranking and Time Sequence Test</h2>
+            <h3 class="section-title">Type 3: Time Sequence Test</h3>
+            <div class="example-block">
+                <p><strong>1. Question</strong></p>
+                <p>Saturday was a holiday for Republic Day (Jan 26th). The 14th of the next month is Shivratri. What day was it on Feb 14th?</p>
+                <p><strong>2. Answer</strong></p>
+                <p>Thursday</p>
+                <p><strong>3. Explanation</strong></p>
+                <p>Days remaining in Jan: 31 - 26 = 5. Days in Feb: 14. Total days = 5 + 14 = 19. Odd days = 19 ÷ 7, remainder is 5. Counting 5 days after Saturday gives Thursday.</p>
+                <p><strong>4. Important Notes</strong></p>
+                <div class="notes">
+                    <p><strong>Logic Technique:</strong> The concept of "odd days" (the remainder after dividing total days by 7) is the fastest way to solve calendar problems. Add the odd days to the starting day to find the final day.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CHAPTER 11: CLASSIFICATION -->
+        <section id="chapter11">
+            <h2 class="chapter-title">Chapter 11: Classification (Odd One Out)</h2>
+            <h3 class="section-title">Type 2: Number Classification</h3>
+            <div class="example-block">
+                <p><strong>1. Question</strong></p>
+                <p>Choose the odd one out: `126`, `217`, `189`, `254`</p>
+                <p><strong>2. Answer</strong></p>
+                <p>254</p>
+                <p><strong>3. Explanation</strong></p>
+                <p>The common property is divisibility by 7. 126, 217, and 189 are all divisible by 7. 254 is not.</p>
+                <p><strong>4. Important Notes</strong></p>
+                <div class="notes">
+                    <p><strong>Logic Technique:</strong> For a set of seemingly random numbers, check for common mathematical properties like divisibility, sum of digits, or relationships to squares/cubes.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CHAPTER 12: SYLLOGISM -->
+        <section id="chapter12">
+            <h2 class="chapter-title">Chapter 12: Syllogism</h2>
+            <h3 class="section-title">Solved Examples</h3>
+            <div class="example-block">
+                <p><strong>1. Question</strong></p>
+                <p class="statement"><strong>Statements:</strong> I. Some years are decades. II. All centuries are decades. <strong>Conclusions:</strong> I. Some centuries are years. II. Some decades are years. III. No century is a year.</p>
+                <p><strong>2. Answer</strong></p>
+                <p>Either I or III and II follow.</p>
+                <p><strong>3. Explanation</strong></p>
+                <p>Conclusion II is definitely true ("Some years are decades" directly implies "Some decades are years"). Conclusions I and III are uncertain, but they form a complementary "Either/Or" pair because one must be true.</p>
+                <p><strong>4. Important Notes</strong></p>
+                <div class="notes">
+                    <p><strong>Logic Technique:</strong> An "Either/Or" case applies when two conclusions are individually uncertain, involve the same terms, and one is positive (Some) while the other is negative (No).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CHAPTER 13: LOGICAL VENN DIAGRAMS -->
+        <section id="chapter13">
+            <h2 class="chapter-title">Chapter 13: Logical Venn Diagrams</h2>
+            <h3 class="section-title">Type 2: Analysis Based on Venn Diagrams</h3>
+            <div class="example-block">
+                <p><strong>1. Question</strong></p>
+                <p>In the diagram, a triangle represents doctors, a circle players, and a rectangle artists. Which number represents doctors who are also players and artists?</p>
+                <img src="https://i.imgur.com/gKj5A6c.png" alt="Venn Diagram Analysis Example">
+                <p><strong>2. Answer</strong></p>
+                <p>5</p>
+                <p><strong>3. Explanation</strong></p>
+                <p>We need to find the region common to all three shapes. The number 5 is the only region located in the intersection of the triangle, circle, and rectangle.</p>
+                <p><strong>4. Important Notes</strong></p>
+                <div class="notes">
+                    <p><strong>Logic Technique:</strong> When analyzing a pre-drawn diagram, the word "and" implies finding the intersection (the common area) of the corresponding shapes.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CHAPTER 14: COUNTING FIGURES -->
+        <section id="chapter14">
+            <h2 class="chapter-title">Chapter 14: Counting Figures</h2>
+            <h3 class="section-title">Type 3: Counting the Number of Squares</h3>
+            <div class="example-block">
+                <p><strong>1. Question</strong></p>
+                <p><strong>Trick 2 (Asymmetrical Figure):</strong> How do you count squares in a 6x4 grid?</p>
+                <p><strong>2. Answer</strong></p>
+                <p>50</p>
+                <p><strong>3. Explanation</strong></p>
+                <p>Multiply the largest row and column numbers, then keep reducing each by one and adding the products: `(6x4) + (5x3) + (4x2) + (3x1) = 24 + 15 + 8 + 3 = 50`.</p>
+                <p><strong>4. Important Notes</strong></p>
+                <div class="notes">
+                    <p><strong>Logic Technique:</strong> This method systematically counts squares of all sizes in any m x n rectangle, from the largest possible down to 1x1 squares.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CHAPTER 15: CHARACTER PUZZLES -->
+        <section id="chapter15">
+            <h2 class="chapter-title">Chapter 15: Character Puzzles</h2>
+            <div class="example-block">
+                <p><strong>1. Question</strong></p>
+                <p>What comes in place of the ‘?’ in the figure?</p>
+                <img src="https://i.imgur.com/J3VzP1s.png" alt="Character Puzzle Example">
+                <p><strong>2. Answer</strong></p>
+                <p>35</p>
+                <p><strong>3. Explanation</strong></p>
+                <p>The logic is to find the central number by taking the square root of all surrounding numbers and then adding them. For the third figure: `√144 + √64 + √100 + √25 = 12 + 8 + 10 + 5 = 35`.</p>
+                <p><strong>4. Important Notes</strong></p>
+                <div class="notes">
+                    <p><strong>Logic Technique:</strong> If the outer numbers are all perfect squares, it's a very strong hint that the logic involves using their square roots. Pattern recognition is key.</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>

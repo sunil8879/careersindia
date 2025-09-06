@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reasoning - Direction Sense Test</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f0f2f5;
+            color: black;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* The 3D Box Container */
+        .container-3d {
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: white;
+            padding: 25px 40px;
+            border-radius: 12px;
+            border: 1px solid #ddd;
+            box-shadow: 
+                6px 6px 16px rgba(0, 0, 0, 0.15),
+                -6px -6px 16px rgba(255, 255, 255, 0.7);
+        }
+
+        /* Headers */
+        h1 {
+            color: #40E0D0; /* Turquoise */
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        h3 {
+            color: black;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            border-left: 4px solid #40E0D0;
+            padding-left: 10px;
+        }
+        
+        /* Content Block Styling */
+        .content-block {
+            margin-bottom: 25px;
+        }
+
+        .content-block p {
+            margin: 10px 0;
+        }
+
+        .content-block strong {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .content-block .notes {
+            background-color: #f8f9fa;
+            border-left: 3px solid #40E0D0;
+            padding: 10px 15px;
+            margin-top: 15px;
+            border-radius: 4px;
+        }
+        
+        .notes strong {
+            color: #40E0D0;
+        }
+
+        /* Horizontal Rule for Separation */
+        hr {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #40E0D0, rgba(0, 0, 0, 0));
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container-3d">
+        <h1>Direction Sense Test</h1>
+
+        <!-- Core Concept -->
+        <div class="content-block">
+            <h3>Core Concept: Directions and Turns</h3>
+            <p><strong>Question</strong></p>
+            <p>What are the fundamental rules for directions and turns?</p>
+            <p><strong>Answer</strong></p>
+            <p>Always draw a standard direction map. A left turn is a 90° anti-clockwise rotation, and a right turn is a 90° clockwise rotation from the current direction of travel.</p>
+            <p><strong>Explanation</strong></p>
+            <p>The speaker establishes the standard direction map:</p>
+            <ul>
+                <li><strong>North (N)</strong> - Up</li>
+                <li><strong>South (S)</strong> - Down</li>
+                <li><strong>East (E)</strong> - Right</li>
+                <li><strong>West (W)</strong> - Left</li>
+            </ul>
+            <p>He explains that if you are facing North, a right turn will make you face East. If you are facing East, a right turn will make you face South, and so on. This applies similarly for left (anti-clockwise) turns.</p>
+            
+            <div class="notes">
+                <p><strong>Important Notes:</strong> The speaker strongly advises, "The very first thing you should do in any direction question is to draw a small direction cross (+) on your paper. This will be your reference. Don't try to imagine the directions in your head, especially under exam pressure. A simple drawing prevents silly mistakes."</p>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Question 1 -->
+        <div class="content-block">
+            <h3>Question 1: Basic Movement and Final Direction</h3>
+            <p><strong>Question</strong></p>
+            <p>A man starts from a point, walks 2 km towards North, turns towards his right and walks 2 km, then turns right again and walks. What is the direction he is facing now?</p>
+            <p><strong>Answer</strong></p>
+            <p>South.</p>
+            <p><strong>Explanation</strong></p>
+            <ol>
+                <li>Starts and walks 2 km North (facing North).</li>
+                <li>Turns right from North, so he is now walking East.</li>
+                <li>Turns right again from East, so he is now walking South.</li>
+            </ol>
+            <p>His final direction of travel is South.</p>
+            
+            <div class="notes">
+                <p><strong>Important Notes:</strong> The speaker points out, "Notice the question asks for the direction he is *facing*, not his position relative to the start. For these questions, you only need to track the turns. He starts North -> Right (East) -> Right (South). The distances are extra information designed to confuse you."</p>
+            </div>
+        </div>
+        
+        <hr>
+
+        <!-- Question 2 -->
+        <div class="content-block">
+            <h3>Question 2: Finding Shortest Distance (Pythagoras Theorem)</h3>
+            <p><strong>Question</strong></p>
+            <p>A man walks 6 km South, then turns left and walks 8 km. How far is he from the starting point?</p>
+            <p><strong>Answer</strong></p>
+            <p>10 km.</p>
+            <p><strong>Explanation</strong></p>
+            <p>This problem forms a right-angled triangle.</p>
+            <ol>
+                <li>He walks 6 km South (this is the perpendicular side).</li>
+                <li>He turns left from South, which means he walks 8 km East (this is the base side).</li>
+                <li>The "shortest distance" from the starting point is the hypotenuse of this triangle.</li>
+            </ol>
+            <p>Using Pythagoras' theorem (a² + b² = c²):<br>
+            c² = 6² + 8² = 36 + 64 = 100<br>
+            c = √100 = 10 km.</p>
+            
+            <div class="notes">
+                <p><strong>Important Notes:</strong> "Whenever a question asks for the 'shortest distance' or 'how far is he from the start', it's a huge hint to use Pythagoras' theorem," the speaker explains. "Draw the path, connect the start and end points with a straight line, and you will almost always see a right-angled triangle."</p>
+            </div>
+        </div>
+
+        <hr>
+        
+        <!-- Question 3 -->
+        <div class="content-block">
+            <h3>Question 3: Shadow Concept</h3>
+            <p><strong>Question</strong></p>
+            <p>One morning after sunrise, Suresh was standing facing a pole. The shadow of the pole fell exactly to his right. Which direction was he facing?</p>
+            <p><strong>Answer</strong></strong></p>
+            <p>South.</p>
+            <p><strong>Explanation</strong></p>
+            <ol>
+                <li><strong>Time of day is "morning":</strong> In the morning, the sun is in the East.</li>
+                <li><strong>Shadow direction:</strong> Therefore, any shadow must fall towards the West.</li>
+                <li><strong>Pole's shadow:</strong> The pole's shadow is falling to the West.</li>
+                <li><strong>Suresh's position:</strong> The pole's shadow is to Suresh's *right*. If his right hand is pointing West, he must be facing South.</li>
+            </ol>
+            <p>We can verify this: If Suresh faces South, his right is West, his left is East, and North is behind him. This matches the conditions.</p>
+            
+            <div class="notes">
+                <p><strong>Important Notes:</strong> The speaker simplifies the rule: "Just remember two things. Morning means Sun in the East, so shadows are in the West. Evening means Sun in the West, so shadows are in the East. First, determine the shadow's direction. Then, figure out which way the person must be facing for that direction to be on their left or right."</p>
+            </div>
+        </div>
+        
+        <hr>
+        
+        <!-- Question 4 -->
+        <div class="content-block">
+            <h3>Question 4: Complex Movement and Final Position</h3>
+            <p><strong>Question</strong></p>
+            <p>A starts from a point and walks 5 km North, then turns left and walks 3 km. Then he turns left again and walks 5 km. In which direction is he from his starting point?</p>
+            <p><strong>Answer</strong></p>
+            <p>West.</p>
+            <p><strong>Explanation</strong></p>
+            <p>Let's trace the path from a starting point (O):</p>
+            <ol>
+                <li>Walks 5 km North (from O to A).</li>
+                <li>Turns left and walks 3 km West (from A to B).</li>
+                <li>Turns left again and walks 5 km South (from B to C).</li>
+            </ol>
+            <p>Because he walked 5 km North and then 5 km South, he is now at the same vertical level as his starting point. He is 3 km to the West of his starting point. Therefore, his final position (C) is directly to the West of his starting point (O).</p>
+            
+            <div class="notes">
+                <p><strong>Important Notes:</strong> "In this type of question, drawing the diagram is everything," the speaker insists. "When you draw it, you can visually see that the final point is exactly to the west of the starting point. The question is asking 'in which direction *from* the start', so you need to find the final position relative to the origin."</p>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

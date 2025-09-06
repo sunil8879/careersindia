@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reasoning - Coding-Decoding</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f0f2f5;
+            color: black;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* The 3D Box Container */
+        .container-3d {
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: white;
+            padding: 25px 40px;
+            border-radius: 12px;
+            border: 1px solid #ddd;
+            box-shadow: 
+                6px 6px 16px rgba(0, 0, 0, 0.15),
+                -6px -6px 16px rgba(255, 255, 255, 0.7);
+        }
+
+        /* Headers */
+        h1 {
+            color: #40E0D0; /* Turquoise */
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        h3 {
+            color: black;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            border-left: 4px solid #40E0D0;
+            padding-left: 10px;
+        }
+        
+        /* Content Block Styling */
+        .content-block {
+            margin-bottom: 25px;
+        }
+
+        .content-block p {
+            margin: 10px 0;
+        }
+
+        .content-block strong {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .content-block .notes {
+            background-color: #f8f9fa;
+            border-left: 3px solid #40E0D0;
+            padding: 10px 15px;
+            margin-top: 15px;
+            border-radius: 4px;
+        }
+        
+        .notes strong {
+            color: #40E0D0;
+        }
+        
+        .problem-format {
+            font-weight: bold;
+            font-size: 1.2em;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+        }
+
+        /* Horizontal Rule for Separation */
+        hr {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #40E0D0, rgba(0, 0, 0, 0));
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container-3d">
+        <h1>Coding-Decoding</h1>
+
+        <!-- Core Concept -->
+        <div class="content-block">
+            <h3>Core Concept: Alphabet Positional Values and Opposites</h3>
+            <p><strong>Question</strong></p>
+            <p>What is the most fundamental skill needed for solving letter-based coding-decoding problems?</p>
+            <p><strong>Answer</strong></p>
+            <p>The ability to quickly recall the positional value of every letter (A=1, B=2...) and its corresponding opposite letter.</p>
+            <p><strong>Explanation</strong></p>
+            <p>The speaker explains that almost all letter coding patterns are based on mathematical operations performed on these positional values.</p>
+            <ul>
+                <li><strong>Forward Position:</strong> Knowing that M=13, P=16, T=20, etc., is essential.</li>
+                <li><strong>Opposite Pairs:</strong> Two letters are opposites if their positional values sum to 27. For example, A(1) is opposite to Z(26), and G(7) is opposite to T(20). The speaker provides mnemonics like "<b>A</b> to <b>Z</b>", "<b>B</b>o<b>Y</b>", "<b>G</b>T Road", and "<b>L</b>o<b>VE</b>" to help remember these pairs.</li>
+            </ul>
+            
+            <div class="notes">
+                <p><strong>Important Notes:</strong> "This is not a suggestion, it's a requirement," the speaker insists. "If you have to write down the alphabet and count positions in the exam, you have already lost. You need to have these values and opposites at your fingertips. If I say 'K', you should instantly think '11' and its opposite 'P' (from PK or Kanpur)."</p>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Question 1 -->
+        div class="content-block">
+            <h3>Question 1: Simple Forward Pattern</h3>
+            <p><strong>Question</strong></p>
+            <p class="problem-format">In a certain code, `TEACHER` is written as `VGCEJGT`. How is `CHILDREN` written in that code?</p>
+            <p><strong>Answer</strong></p>
+            <p>EJKNFTGP</p>
+            <p><strong>Explanation</strong></p>
+            <p>First, we decode the relationship between `TEACHER` and `VGCEJGT` by writing down their positional values.</p>
+            <ul>
+                <li>T (20) → V (22) = +2</li>
+                <li>E (5) → G (7) = +2</li>
+                <li>A (1) → C (3) = +2</li>
+                <li>C (3) → E (5) = +2</li>
+                <li>H (8) → J (10) = +2</li>
+                <li>E (5) → G (7) = +2</li>
+                <li>R (18) → T (20) = +2</li>
+            </ul>
+            <p>The pattern is a consistent "+2" shift for every letter. Now, we apply this pattern to `CHILDREN`:</p>
+            <ul>
+                <li>C (3) + 2 = 5 (E)</li>
+                <li>H (8) + 2 = 10 (J)</li>
+                <li>I (9) + 2 = 11 (K)</li>
+                <li>L (12) + 2 = 14 (N)</li>
+                <li>D (4) + 2 = 6 (F)</li>
+                <li>R (18) + 2 = 20 (T)</li>
+                <li>E (5) + 2 = 7 (G)</li>
+                <li>N (14) + 2 = 16 (P)</li>
+            </ul>
+            <p>The resulting code is `EJKNFTGP`.</p>
+        </div>
+        
+        <hr>
+
+        <!-- Question 2 -->
+        <div class="content-block">
+            <h3>Question 2: Opposite Letter Pattern</h3>
+            <p><strong>Question</strong></p>
+            <p class="problem-format">If `FLOWER` is coded as `ULDVVI`, then how is `TERMINAL` coded?</p>
+            <p><strong>Answer</strong></p>
+            <p>GVRNRMZO</p>
+            <p><strong>Explanation</strong></p>
+            <p>The pattern is based on replacing each letter with its opposite pair.</p>
+            <ul>
+                <li>Opposite of F is U ("Fun")</li>
+                <li>Opposite of L is O ("Love")</li>
+                <li>Opposite of O is L ("Love")</li>
+                <li>Opposite of W is D ("Dew")</li>
+                <li>Opposite of E is V ("Eve" or "Love")</li>
+                <li>Opposite of R is I ("Indian Railway")</li>
+            </ul>
+            <p>Applying this opposite-pair logic to `TERMINAL`:</p>
+            <ul>
+                <li>Opposite of T is G ("GT Road")</li>
+                <li>Opposite of E is V</li>
+                <li>Opposite of R is I</li>
+                <li>Opposite of M is N ("Man")</li>
+                <li>Opposite of I is R</li>
+                <li>Opposite of N is M</li>
+                <li>Opposite of A is Z</li>
+                <li>Opposite of L is O</li>
+            </ul>
+            <p>The correct code is `GVRNRMZO`. <em>(Note: The speaker seems to have a typo in the video's written answer `GVRMRMZO`, but the logic for I→R is correct.)</em></p>
+            <div class="notes">
+                <p><strong>Important Notes:</strong> "When you see the original word and the code, and the letters look completely random, your first thought should be 'opposite pairs'," the speaker advises. "It's one of the most common patterns designed to look complex but is actually very simple if you've memorized the pairs."</p>
+            </div>
+        </div>
+
+        <hr>
+        
+        <!-- Question 3 -->
+        <div class="content-block">
+            <h3>Question 3: Criss-Cross Pattern</h3>
+            <p><strong>Question</strong></p>
+            <p class="problem-format">In a certain code, `THANKS` is written as `SKNTHA`. How is `STUPID` written?</p>
+            <p><strong>Answer</strong></p>
+            <p>DIPSTU</p>
+            <p><strong>Explanation</strong></p>
+            <p>This is not a mathematical pattern, but a positional one. The letters of the word are rearranged.</p>
+            <ol>
+                <li>The word `THANKS` is split into two halves: `THA` and `NKS`.</li>
+                <li>The second half, `NKS`, is reversed to become `SKN`.</li>
+                <li>The first half, `THA`, remains as it is.</li>
+                <li>The final code is the reversed second half followed by the first half: `SKN` + `THA` = `SKNTHA`.</li>
+            </ol>
+            <p>Now, apply the same logic to `STUPID`:</p>
+            <ol>
+                <li>Split into two halves: `STU` and `PID`.</li>
+                <li>Reverse the second half `PID` to get `DIP`.</li>
+                <li>Keep the first half `STU` as it is.</li>
+                <li>Combine them: `DIP` + `STU` = `DIPSTU`.</li>
+            </ol>
+             <div class="notes">
+                <p><strong>Important Notes:</strong> "If you can't find a mathematical pattern (+1, +2, opposites, etc.), then the next thing to check is rearrangement," the speaker says. "Look to see if the letters in the code are the same as the letters in the original word. If they are, it's a positional puzzle. Common patterns are full reversal, or splitting the word in half and swapping or reversing the halves."</p>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

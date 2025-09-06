@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reasoning - Order and Ranking</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f0f2f5;
+            color: black;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* The 3D Box Container */
+        .container-3d {
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: white;
+            padding: 25px 40px;
+            border-radius: 12px;
+            border: 1px solid #ddd;
+            box-shadow: 
+                6px 6px 16px rgba(0, 0, 0, 0.15),
+                -6px -6px 16px rgba(255, 255, 255, 0.7);
+        }
+
+        /* Headers */
+        h1 {
+            color: #40E0D0; /* Turquoise */
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        h3 {
+            color: black;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            border-left: 4px solid #40E0D0;
+            padding-left: 10px;
+        }
+        
+        /* Content Block Styling */
+        .content-block {
+            margin-bottom: 25px;
+        }
+
+        .content-block p {
+            margin: 10px 0;
+        }
+
+        .content-block strong {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .content-block .notes {
+            background-color: #f8f9fa;
+            border-left: 3px solid #40E0D0;
+            padding: 10px 15px;
+            margin-top: 15px;
+            border-radius: 4px;
+        }
+        
+        .notes strong {
+            color: #40E0D0;
+        }
+
+        /* Horizontal Rule for Separation */
+        hr {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #40E0D0, rgba(0, 0, 0, 0));
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container-3d">
+        <h1>Order and Ranking</h1>
+
+        <!-- Technique 1 -->
+        <div class="content-block">
+            <h3>Technique 1: Finding the Total Number in a Row</h3>
+            <p><strong>Question</strong></p>
+            <p>If a person's rank is given from both the left end and the right end of a row, how do you find the total number of people? <br><em>Example: Raman is 13th from the left and 16th from the right. Find the total number of people.</em></p>
+            <p><strong>Answer</strong></p>
+            <p>The formula is: <strong>Total = (Rank from Left + Rank from Right) - 1</strong>. <br>In the example: Total = (13 + 16) - 1 = 28.</p>
+            <p><strong>Explanation</strong></p>
+            <p>When you add the rank from the left and the rank from the right, the person in question is counted twice. You must subtract 1 to correct this double-counting and find the actual total number of unique individuals in the row.</p>
+            
+            <div class="notes">
+                <p><strong>Important Notes:</strong> The speaker emphasizes, "This is the most basic and most important formula in ranking. Never forget to subtract 1. Why? Because you counted the same person (Raman) when you counted from the left, and you counted him again when you counted from the right. To get the true total, you must remove that one extra count."</p>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Technique 2 -->
+        <div class="content-block">
+            <h3>Technique 2: Finding a Person's Rank from the Opposite End</h3>
+            <p><strong>Question</strong></p>
+            <p>If the total number of people and a person's rank from one end are given, how do you find their rank from the other end? <br><em>Example: In a class of 49 students, a boy is 18th from the top. What is his rank from the bottom?</em></p>
+            <p><strong>Answer</strong></p>
+            <p>The formula is: <strong>Rank from Other End = (Total - Given Rank) + 1</strong>. <br>In the example: Rank from Bottom = (49 - 18) + 1 = 31 + 1 = 32nd.</p>
+            <p><strong>Explanation</strong></p>
+            <p>When you subtract the given rank from the total (49 - 18 = 31), the result (31) tells you the number of students *below* that boy. To find his actual rank from the bottom, you must add 1 to include the boy himself.</p>
+            
+            <div class="notes">
+                <p><strong>Important Notes:</strong> The speaker clarifies the logic of the "+1": "Students often make a mistake here. They just subtract and give 31 as the answer. But 31 is the number of people *after* him. His own position is the next one. So you must always add 1 to get the correct rank."</p>
+            </div>
+        </div>
+        
+        <hr>
+
+        <!-- Technique 3 -->
+        <div class="content-block">
+            <h3>Technique 3: Interchanging Positions</h3>
+            <p><strong>Question</strong></p>
+            <p>This is a multi-part problem. <br><em>Example: In a row, Suresh is 7th from the left and Ramesh is 12th from the right. They interchange their positions. After interchanging, Suresh becomes 22nd from the left.</em></p>
+            
+            <p><strong>Part A: Find the total number of people.</strong></p>
+            <p><strong>Answer</strong></p>
+            <p>Formula: <strong>Total = (One person's NEW rank + Other person's OLD rank) - 1</strong>. <br>Total = (Suresh's New Rank [22] + Ramesh's Old Rank [12]) - 1 = 34 - 1 = 33.</p>
+            <p><strong>Explanation</strong></p>
+            <p>After they switch, Suresh is now in Ramesh's original spot. We know this spot is 22nd from the left and also 12th from the right. We can now use the formula from Technique 1 to find the total.</p>
+            <div class="notes">
+                <p><strong>Important Notes:</strong> The speaker stresses, "The key to finding the total in an interchange problem is to use one person's *new* position and the *other* person's *original* position. You have to take one value from before the interchange and one from after."</p>
+            </div>
+
+            <p><strong>Part B: Find the number of people between Suresh and Ramesh.</strong></p>
+            <p><strong>Answer</strong></p>
+            <p>Formula: <strong>People Between = (Difference in ranks of the SAME person) - 1</strong>. <br>People Between = (Suresh's New Rank [22] - Suresh's Old Rank [7]) - 1 = 15 - 1 = 14.</p>
+            <p><strong>Explanation</strong></p>
+            <p>Suresh moved from the 7th position to the 22nd position. The difference (15) includes his final spot. To find only the number of people *between* his old and new spots, we subtract 1.</p>
+            <div class="notes">
+                <p><strong>Important Notes:</strong> "This is another place students get confused," the speaker says. "The difference between the two positions tells you how many *places* he moved. But the number of *people* sitting between those two places is always one less than the difference."</p>
+            </div>
+
+            <p><strong>Part C: Find Ramesh's new position from the right.</strong></p>
+            <p><strong>Answer</strong></p>
+            <p>Ramesh's New Rank = (Ramesh's Old Rank [12] + People Between [14] + 1) = 27th from the right.</p>
+            <p><strong>Explanation</strong></p>
+            <p>Ramesh moved from his old position (12th from right) across the 14 people sitting between them, to land in Suresh's old spot. The number of places he moved is the number of people between them plus one (to land in the next spot). Since he was 12th from the right and moved 15 places further from the right, his new position is 12 + 15 = 27th from the right.</p>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reasoning - Number Analogy</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f0f2f5;
+            color: black;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* The 3D Box Container */
+        .container-3d {
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: white;
+            padding: 25px 40px;
+            border-radius: 12px;
+            border: 1px solid #ddd;
+            box-shadow: 
+                6px 6px 16px rgba(0, 0, 0, 0.15),
+                -6px -6px 16px rgba(255, 255, 255, 0.7);
+        }
+
+        /* Headers */
+        h1 {
+            color: #40E0D0; /* Turquoise */
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        h3 {
+            color: black;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            border-left: 4px solid #40E0D0;
+            padding-left: 10px;
+        }
+        
+        /* Content Block Styling */
+        .content-block {
+            margin-bottom: 25px;
+        }
+
+        .content-block p {
+            margin: 10px 0;
+        }
+
+        .content-block strong {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .content-block .notes {
+            background-color: #f8f9fa;
+            border-left: 3px solid #40E0D0;
+            padding: 10px 15px;
+            margin-top: 15px;
+            border-radius: 4px;
+        }
+        
+        .notes strong {
+            color: #40E0D0;
+        }
+        
+        .analogy-format {
+            font-weight: bold;
+            font-size: 1.2em;
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        /* Horizontal Rule for Separation */
+        hr {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #40E0D0, rgba(0, 0, 0, 0));
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container-3d">
+        <h1>Number Analogy</h1>
+
+        <!-- Core Concept -->
+        <div class="content-block">
+            <h3>Core Concept: Priority of Logical Patterns</h3>
+            <p><strong>Question</strong></p>
+            <p>When solving number analogies, in what order should we check for different mathematical relationships?</p>
+            <p><strong>Answer</strong></p>
+            <p>The speaker recommends a specific order of checking for patterns to find the solution efficiently.</p>
+            <p><strong>Explanation</strong></p>
+            <p>The recommended priority for checking patterns is:</p>
+            <ol>
+                <li><strong>Prime Numbers:</strong> Check if the numbers are prime.</li>
+                <li><strong>Cubes and Cube Roots (n³):</strong> Look for relationships involving cubes (e.g., n³ or n³ ± 1).</li>
+                <li><strong>Squares and Square Roots (n²):</strong> Look for relationships involving squares (e.g., n² or n² ± 1).</li>
+                <li><strong>Multiplication and Division (× / ÷):</strong> Check for simple multiplication or division relationships.</li>
+                <li><strong>Addition and Subtraction (+ / -):</strong> Check for simple addition or subtraction relationships.</li>
+                <li><strong>Digit Logic:</strong> If none of the above work, look for operations on the individual digits of the number (e.g., sum of digits, product of digits).</li>
+            </ol>
+            
+            <div class="notes">
+                <p><strong>Important Notes:</strong> The speaker emphasizes, "This priority order is the key to solving analogies quickly. Most students start with addition/subtraction, but squares and cubes are far more common in exams. Always check for cubes and squares first! This will save you a lot of time and help you find the intended logic faster."</p>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Question 1 -->
+        <div class="content-block">
+            <h3>Question 1: Square Relationship (n² : n)</h3>
+            <p><strong>Question</strong></p>
+            <p class="analogy-format">49 : 7 :: 64 : ?</p>
+            <p><strong>Answer</strong></p>
+            <p>8</p>
+            <p><strong>Explanation</strong></p>
+            <p>The relationship between the first pair is that the second number is the square root of the first number (√49 = 7). Alternatively, the first number is the square of the second (7² = 49). Applying the same logic to the second pair, the square root of 64 is 8.</p>
+        </div>
+        
+        <hr>
+
+        <!-- Question 2 -->
+        <div class="content-block">
+            <h3>Question 2: Cube Relationship (n : n³)</h3>
+            <p><strong>Question</strong></p>
+            <p class="analogy-format">3 : 27 :: 4 : ?</p>
+            <p><strong>Answer</strong></p>
+            <p>64</p>
+            <p><strong>Explanation</strong></p>
+            <p>The relationship is that the second number is the cube of the first number. 3³ = 27. Therefore, we must find the cube of the third number, which is 4³ = 64.</p>
+        </div>
+
+        <hr>
+        
+        <!-- Question 3 -->
+        <div class="content-block">
+            <h3>Question 3: n² + 1 Relationship</h3>
+            <p><strong>Question</strong></p>
+            <p class="analogy-format">7 : 50 :: 11 : ?</p>
+            <p><strong>Answer</strong></p>
+            <p>122</p>
+            <p><strong>Explanation</strong></p>
+            <p>The pattern is <strong>n : n² + 1</strong>. For the first pair, 7² + 1 = 49 + 1 = 50. Applying this to the second pair, we get 11² + 1 = 121 + 1 = 122.</p>
+            <div class="notes">
+                <p><strong>Important Notes:</strong> The speaker points out, "This is a very common pattern. You see the number 50 and you should immediately think of squares, specifically 7². The '+1' is a small extra step. Always be on the lookout for numbers that are very close to perfect squares or cubes."</p>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Question 4 -->
+        <div class="content-block">
+            <h3>Question 4: n³ - 1 Relationship</h3>
+            <p><strong>Question</strong></p>
+            <p class="analogy-format">5 : 124 :: 7 : ?</p>
+            <p><strong>Answer</strong></p>
+            <p>342</p>
+            <p><strong>Explanation</strong></p>
+            <p>The pattern is <strong>n : n³ - 1</strong>. For the first pair, 5³ - 1 = 125 - 1 = 124. Applying this to the second pair, we get 7³ - 1 = 343 - 1 = 342.</p>
+        </div>
+        
+        <hr>
+
+        <!-- Question 5 -->
+        <div class="content-block">
+            <h3>Question 5: n : n² - n Relationship</h3>
+            <p><strong>Question</strong></p>
+            <p class="analogy-format">8 : 56 :: 9 : ?</p>
+            <p><strong>Answer</strong></p>
+            <p>72</p>
+            <p><strong>Explanation</strong></p>
+            <p>There are two possible logics here, both leading to the same answer:</p>
+            <ol>
+                <li><strong>Logic 1 (Multiplication):</strong> The second number is the first number multiplied by the number before it. 8 * 7 = 56. Therefore, 9 * 8 = 72.</li>
+                <li><strong>Logic 2 (Square - n):</strong> The pattern is <strong>n : n² - n</strong>. For the first pair, 8² - 8 = 64 - 8 = 56. For the second pair, 9² - 9 = 81 - 9 = 72.</li>
+            </ol>
+             <div class="notes">
+                <p><strong>Important Notes:</strong> "Sometimes there can be two or more correct logics," the speaker explains. "As long as they both lead to the same answer in the options, either one is fine. `n * (n-1)` is the same as `n² - n`. The multiplication logic is often faster to spot."</p>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Question 6 -->
+        <div class="content-block">
+            <h3>Question 6: Digit Sum Logic</h3>
+            <p><strong>Question</strong></p>
+            <p class="analogy-format">63 : 9 :: 68 : ?</p>
+            <p><strong>Answer</strong></p>
+            <p>14</p>
+            <p><strong>Explanation</strong></p>
+            <p>After checking for squares, cubes, and simple arithmetic, which don't fit, we move to digit logic. The relationship is that the second number is the sum of the digits of the first number. For the first pair, 6 + 3 = 9. Applying this to the second number, the sum of the digits of 68 is 6 + 8 = 14.</p>
+            <div class="notes">
+                <p><strong>Important Notes:</strong> "Digit logic is your last resort," the speaker advises. "Only check for sum or product of digits after you have exhausted all the higher priority patterns like squares, cubes, and multiplication. In exams, the simpler arithmetic or square/cube patterns are more common."</p>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

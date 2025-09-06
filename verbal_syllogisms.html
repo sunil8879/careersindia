@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reasoning - Syllogism (Venn Diagram Method)</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f0f2f5;
+            color: black;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* The 3D Box Container */
+        .container-3d {
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: white;
+            padding: 25px 40px;
+            border-radius: 12px;
+            border: 1px solid #ddd;
+            box-shadow: 
+                6px 6px 16px rgba(0, 0, 0, 0.15),
+                -6px -6px 16px rgba(255, 255, 255, 0.7);
+        }
+
+        /* Headers */
+        h1 {
+            color: #40E0D0; /* Turquoise */
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        h3 {
+            color: black;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            border-left: 4px solid #40E0D0;
+            padding-left: 10px;
+        }
+        
+        /* Content Block Styling */
+        .content-block {
+            margin-bottom: 25px;
+        }
+
+        .content-block p {
+            margin: 10px 0;
+        }
+
+        .content-block strong {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .content-block .notes {
+            background-color: #f8f9fa;
+            border-left: 3px solid #40E0D0;
+            padding: 10px 15px;
+            margin-top: 15px;
+            border-radius: 4px;
+        }
+        
+        .notes strong {
+            color: #40E0D0;
+        }
+        
+        .statement-format {
+            font-style: italic;
+        }
+
+        /* Horizontal Rule for Separation */
+        hr {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #40E0D0, rgba(0, 0, 0, 0));
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container-3d">
+        <h1>Syllogism (Venn Diagram Method)</h1>
+
+        <!-- Core Concept -->
+        <div class="content-block">
+            <h3>Core Concept 1: The Role of Statements and Conclusions</h3>
+            <p><strong>Question</strong></p>
+            <p>What is the fundamental principle of solving syllogisms?</p>
+            <p><strong>Answer</strong></p>
+            <p>You must accept the given statements as 100% true, even if they contradict real-world facts. Your task is to judge the conclusions *only* based on the information provided in the statements, using a Venn diagram.</p>
+            <p><strong>Explanation</strong></p>
+            <p>The speaker explains that if a statement says "Some dogs are cats," you must accept it without question. You do not use your own knowledge. The main tool for evaluating conclusions is the Venn diagram, which visually represents the relationships given in the statements.</p>
+            
+            <div class="notes">
+                <p><strong>Important Notes:</strong> "This is the golden rule," the speaker insists. "We do not judge the statement; we only judge the conclusion. The statement is our universe of facts. Whatever is outside of it, we do not know. If you start applying your own logic, you will get the question wrong."</p>
+            </div>
+        </div>
+
+        <hr>
+        
+        <div class="content-block">
+            <h3>Core Concept 2: Key Relationships from Diagrams</h3>
+            <p><strong>Question</strong></p>
+            <p>What are the most important derivative rules to remember for "All" and "No" statements?</p>
+            <p><strong>Answer</strong></p>
+            <p>There are two critical inferences that save a lot of time.</p>
+            <p><strong>Explanation</strong></p>
+            <ol>
+                <li><strong>If 'All A are B' is true, then 'Some A are B' and 'Some B are A' are always true.</strong>
+                <br>If all mangoes in a basket are sweet, then it's also true that some mangoes from that basket are sweet.</li>
+                <li><strong>If 'No A is B' is true, then 'Some A are not B' and 'Some B are not A' are always true.</strong>
+                <br>If no mango in a basket is sweet, then it's also true that some (or any) mango you pick from it is not sweet.</li>
+            </ol>
+            
+            <div class="notes">
+                <p><strong>Important Notes:</strong> The speaker emphasizes this point with an analogy: "Think of a basket of mangoes. If I tell you ALL the mangoes are sweet, and you pick a few, are they sweet? Yes! So, 'All' implies 'Some'. Similarly, if I say NO mango is sweet, and you pick a few, are they sweet? No! So, 'No' implies 'Some Not'. Memorizing this saves you from confusion."</p>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Question 1 -->
+        <div class="content-block">
+            <h3>Question 1: Multiple "All" Statements</h3>
+            <p><strong>Question</strong></p>
+            <p class="statement-format"><strong>Statements:</strong><br>
+            1. All apples are bananas.<br>
+            2. All grapes are bananas.<br>
+            3. All bananas are nuts.<br>
+            <strong>Conclusions:</strong><br>
+            1. All apples are nuts.<br>
+            2. All grapes are nuts.</p>
+            <p><strong>Answer</strong></p>
+            <p>Both Conclusion 1 and Conclusion 2 follow.</p>
+            <p><strong>Explanation</strong></p>
+            <p>The diagram shows a large "Nuts" circle. Inside it is the "Bananas" circle. Inside the "Bananas" circle are two separate circles for "Apples" and "Grapes."</p>
+            <ul>
+                <li><strong>Conclusion 1:</strong> Since the "Apples" circle is inside "Bananas," and "Bananas" is inside "Nuts," it logically follows that the entire "Apples" circle is inside the "Nuts" circle. This is correct.</li>
+                <li><strong>Conclusion 2:</strong> Similarly, the "Grapes" circle is inside "Bananas," which is inside "Nuts." Therefore, the "Grapes" circle is also entirely inside the "Nuts" circle. This is correct.</li>
+            </ul>
+        </div>
+        
+        <hr>
+
+        <!-- Question 2 -->
+        <div class="content-block">
+            <h3>Question 2: Combining "All" and "Some"</h3>
+            <p><strong>Question</strong></p>
+            <p class="statement-format"><strong>Statements:</strong><br>
+            1. All beds are wood.<br>
+            2. Some chairs are beds.<br>
+            <strong>Conclusions:</strong><br>
+            1. Some woods are chairs.<br>
+            2. Some woods are beds.</p>
+            <p><strong>Answer</strong></p>
+            <p>Both Conclusion 1 and Conclusion 2 follow.</p>
+            <p><strong>Explanation</strong></p>
+            <p>The diagram shows a "Beds" circle completely inside a "Wood" circle. The "Chairs" circle overlaps with the "Beds" circle.</p>
+            <ul>
+                <li><strong>Conclusion 1:</strong> Since the "Chairs" circle overlaps with "Beds," and "Beds" is entirely a part of "Wood," the "Chairs" circle must also be overlapping with the "Wood" circle. This is correct.</li>
+                <li><strong>Conclusion 2:</strong> This is a direct inference. Since "All beds are wood," it must also be true that "Some woods are beds" (as explained in the core concepts). This is correct.</li>
+            </ul>
+        </div>
+        
+        <hr>
+
+        <!-- Question 3 -->
+        <div class="content-block">
+            <h3>Question 3: Positive Statements, Negative Conclusion</h3>
+            <p><strong>Question</strong></p>
+            <p class="statement-format"><strong>Statements:</strong><br>
+            1. Some mangoes are sweet.<br>
+            2. Some mangoes are bitter.<br>
+            <strong>Conclusions:</strong><br>
+            1. No sweet is bitter.<br>
+            2. Some sweets are not bitter.</p>
+            <p><strong>Answer</strong></p>
+            <p>Neither conclusion follows.</p>
+            <p><strong>Explanation</strong></p>
+            <p>The speaker provides a major shortcut here without drawing a diagram.</p>
+            <p>Both statements ("Some are..." and "Some are...") are positive. Both conclusions ("No is..." and "Some are not...") are negative. When all given statements are positive, no definite negative conclusion can ever be drawn.</p>
+             <div class="notes">
+                <p><strong>Important Notes:</strong> "This is a huge time-saver," the speaker says. "If you see that all your statements are positive (using 'All' or 'Some'), and the conclusion is negative (using 'No' or 'Some Not'), you can immediately mark it as wrong without even drawing a diagram. A positive world cannot give you a 100% certain negative outcome."</p>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Question 4 -->
+        <div class="content-block">
+            <h3>Question 4: Careful Diagramming</h3>
+            <p><strong>Question</strong></p>
+            <p class="statement-format"><strong>Statements:</strong><br>
+            1. Some chapters are physics.<br>
+            2. All science is physics.<br>
+            <strong>Conclusions:</strong><br>
+            1. All science is chapter.<br>
+            2. Some physics is science.</p>
+            <p><strong>Answer</strong></p>
+            <p>Only Conclusion 2 follows.</p>
+            <p><strong>Explanation</strong></p>
+            <p>This question tests the ability to draw the diagram correctly. "All science is physics" means the "Science" circle must be completely inside the "Physics" circle. "Some chapters are physics" means the "Chapters" circle overlaps with the "Physics" circle.</p>
+            <ul>
+                <li><strong>Conclusion 1:</strong> There is no guaranteed connection between the "Science" and "Chapter" circles. They are both related to "Physics" but not necessarily to each other. So, this is incorrect.</li>
+                <li><strong>Conclusion 2:</strong> Since "All science is physics," it is a definite conclusion that "Some physics is science." This is correct.</li>
+            </ul>
+             <div class="notes">
+                <p><strong>Important Notes:</strong> The speaker warns against a common mistake: "Many students will draw 'Physics' inside 'Science' because of the word order. Read carefully! 'All science is physics' means science is the smaller part. If you get the diagram wrong here, all your answers will be wrong."</p>
+            </div>
+        </div>
+        
+    </div>
+
+</body>
+</html>

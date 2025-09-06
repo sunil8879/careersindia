@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reasoning - Blood Relations</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f0f2f5;
+            color: black;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* The 3D Box Container */
+        .container-3d {
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: white;
+            padding: 25px 40px;
+            border-radius: 12px;
+            border: 1px solid #ddd;
+            box-shadow: 
+                6px 6px 16px rgba(0, 0, 0, 0.15),
+                -6px -6px 16px rgba(255, 255, 255, 0.7);
+        }
+
+        /* Headers */
+        h1 {
+            color: #40E0D0; /* Turquoise */
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        h3 {
+            color: black;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            border-left: 4px solid #40E0D0;
+            padding-left: 10px;
+        }
+        
+        /* Content Block Styling */
+        .content-block {
+            margin-bottom: 25px;
+        }
+
+        .content-block p {
+            margin: 10px 0;
+        }
+
+        .content-block strong {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .content-block .notes {
+            background-color: #f8f9fa;
+            border-left: 3px solid #40E0D0;
+            padding: 10px 15px;
+            margin-top: 15px;
+            border-radius: 4px;
+        }
+        
+        .notes strong {
+            color: #40E0D0;
+        }
+
+        /* Horizontal Rule for Separation */
+        hr {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #40E0D0, rgba(0, 0, 0, 0));
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container-3d">
+        <h1>Blood Relations</h1>
+
+        <!-- Core Concept -->
+        <div class="content-block">
+            <h3>Core Concept: Building a Family Tree Diagram</h3>
+            <p><strong>Question</strong></p>
+            <p>What is the most effective way to solve blood relation problems without getting confused?</p>
+            <p><strong>Answer</strong></p>
+            <p>By creating a visual family tree using a consistent set of symbols for gender and relationships.</p>
+            <p><strong>Explanation</strong></p>
+            <p>The speaker introduces a clear system of symbols to represent relationships visually:</p>
+            <ul>
+                <li><strong>Male:</strong> Represented by a <strong>Square (☐)</strong>.</li>
+                <li><strong>Female:</strong> Represented by a <strong>Circle (◯)</strong>.</li>
+                <li><strong>Married Couple (Husband & Wife):</strong> A <strong>Double Horizontal Line (═)</strong> connecting a square and a circle.</li>
+                <li><strong>Siblings (Brother & Sister):</strong> A <strong>Single Horizontal Line (—)</strong> connecting two shapes.</li>
+                <li><strong>Parent-Child (Generation Gap):</strong> A <strong>Vertical Line (|)</strong> connecting generations. Parents are on top, children are below.</li>
+            </ul>
+            
+            <div class="notes">
+                <p><strong>Important Notes:</strong> The speaker emphasizes, "This is the most important part. If you learn how to make the diagram correctly, you will never get a blood relation question wrong. The diagram makes everything clear. Don't try to solve these in your head; you will get confused. Draw the diagram every time."</p>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Type 1 Example -->
+        <div class="content-block">
+            <h3>Type 1: Indicating Form (Pointing Questions)</h3>
+            <p><strong>Question</strong></p>
+            <p>Pointing to a photograph, a woman says, "He is the son of the only son of my grandfather." How is the man in the photograph related to the woman?</p>
+            <p><strong>Answer</strong></p>
+            <p>Brother.</p>
+            <p><strong>Explanation</strong></p>
+            <p>To solve this, we work backward from the end of the statement:</p>
+            <ol>
+                <li><strong>"My grandfather"</strong>: This is the woman's grandfather.</li>
+                <li><strong>"The only son of my grandfather"</strong>: This must be the woman's father.</li>
+                <li><strong>"He is the son of [the woman's father]"</strong>: The man in the photograph is the son of the woman's father.</li>
+            </ol>
+            <p>If the man is the son of her father, he is her brother.</p>
+            
+            <div class="notes">
+                <p><strong>Important Notes:</strong> The speaker advises, "For these 'pointing' questions, the trick is to always start from the word 'my' or 'your' and work backward. Put yourself in the place of the speaker. Who is 'my grandfather'? Then who is his 'only son'? This step-by-step process makes it simple."</p>
+            </div>
+        </div>
+        
+        <hr>
+
+        <!-- Type 2 Example -->
+        <div class="content-block">
+            <h3>Type 2: Coded Blood Relations</h3>
+            <p><strong>Question</strong></p>
+            <p>Given the codes: `A + B` means A is the father of B; `A × B` means A is the sister of B; `A $ B` means A is the wife of B; `A % B` means A is the mother of B. <br>Which expression shows that M is the maternal grandmother of T?</p>
+            <p><strong>Answer</strong></p>
+            <p>The expression: <strong>M % N $ S + T</strong></p>
+            <p><strong>Explanation</strong></p>
+            <p>We need to find an expression where M is female and two generations above T. We test the options by drawing the family tree:</p>
+            <ul>
+                <li><strong>M % N</strong>: M is the mother of N (M is female, N is below M).</li>
+                <li><strong>N $ S</strong>: N is the wife of S (N is female, S is her husband).</li>
+                <li><strong>S + T</strong>: S is the father of T (T is the child of S and N).</li>
+            </ul>
+            <p>This diagram shows that M is the mother of N, and N is the mother of T. Therefore, M is the maternal grandmother of T.</p>
+            
+            <div class="notes">
+                <p><strong>Important Notes:</strong> The speaker points out a common trap: "In `A + B`, we know A is the father, but we do NOT know the gender of B. B could be a son or a daughter. Never assume the gender of the second person in the code unless it's defined by another relationship (like being a wife or husband). This is the number one mistake students make."</p>
+            </div>
+        </div>
+
+        <hr>
+        
+        <!-- Type 3 Example -->
+        <div class="content-block">
+            <h3>Type 3: Puzzle Form</h3>
+            <p><strong>Question</strong></p>
+            <p>In a family, B is the son of C but C is not his mother. A and C are a married couple. F is the brother of C. D is the son of A. E is the brother of D. How is E related to B?</p>
+            <p><strong>Answer</strong></p>
+            <p>Brother.</p>
+            <p><strong>Explanation</strong></p>
+            <p>We build the family tree step-by-step using the symbols:</p>
+            <ol>
+                <li><strong>"B is the son of C but C is not his mother"</strong>: This means C must be the father (a square). B is his son (a square below C).</li>
+                <li><strong>"A and C are a married couple"</strong>: C (father) is married to A. Therefore, A must be the mother (a circle).</li>
+                <li><strong>"F is the brother of C"</strong>: F is a sibling of C (both are squares connected by a single line).</li>
+                <li><strong>"D is the son of A"</strong>: D is another son of A and C.</li>
+                <li><strong>"E is the brother of D"</strong>: E is a sibling of D.</li>
+            </ol>
+            <p>The diagram shows that B, D, and E are all sons of the same parents (A and C). Therefore, E is the brother of B.</p>
+            
+            <div class="notes">
+                <p><strong>Important Notes:</strong> The speaker highlights the importance of deduction. "The clue 'C is not his mother' is the key. If C is a parent but not the mother, C *must* be the father. This is a logic puzzle hidden in a blood relation question. Always look for these deductive clues."</p>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reasoning - Data Interpretation (Pie Charts)</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f0f2f5;
+            color: black;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* The 3D Box Container */
+        .container-3d {
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: white;
+            padding: 25px 40px;
+            border-radius: 12px;
+            border: 1px solid #ddd;
+            box-shadow: 
+                6px 6px 16px rgba(0, 0, 0, 0.15),
+                -6px -6px 16px rgba(255, 255, 255, 0.7);
+        }
+
+        /* Headers */
+        h1 {
+            color: #40E0D0; /* Turquoise */
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        h3 {
+            color: black;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            border-left: 4px solid #40E0D0;
+            padding-left: 10px;
+        }
+        
+        /* Content Block Styling */
+        .content-block {
+            margin-bottom: 25px;
+        }
+
+        .content-block p {
+            margin: 10px 0;
+        }
+
+        .content-block strong {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .content-block .notes {
+            background-color: #f8f9fa;
+            border-left: 3px solid #40E0D0;
+            padding: 10px 15px;
+            margin-top: 15px;
+            border-radius: 4px;
+        }
+        
+        .notes strong {
+            color: #40E0D0;
+        }
+
+        /* Horizontal Rule for Separation */
+        hr {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #40E0D0, rgba(0, 0, 0, 0));
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container-3d">
+        <h1>Data Interpretation: Pie Charts</h1>
+
+        <!-- Core Concept -->
+        <div class="content-block">
+            <h3>Core Concept: Understanding Pie Chart Values</h3>
+            <p><strong>Question</strong></p>
+            <p>How do you relate the values given in a pie chart (either in degrees or percentages) to the actual numbers?</p>
+            <p><strong>Answer</strong></p>
+            <p>You must understand the total value representation. A complete pie chart represents <strong>100%</strong> or <strong>360 degrees (°)</strong>.</p>
+            <p><strong>Explanation</strong></p>
+            <p>The speaker establishes the two fundamental conversion factors:</p>
+            <ul>
+                <li><strong>Total Value (100%):</strong> If the total number of items is, for example, 1200, then 100% = 1200. To find the value of a 20% slice, you calculate 20% of 1200.</li>
+                <li><strong>Total Value (360°):</strong> A full circle is 360°. If the total number of items is 1200, then 360° = 1200. To find the value of a 90° slice, you use the formula: `(Slice in Degrees / 360) * Total Value`.</li>
+            </ul>
+            <p>The conversion between percentage and degrees is also crucial: <strong>100% = 360°</strong>, which simplifies to <strong>1% = 3.6°</strong>.</p>
+            
+            <div class="notes">
+                <p><strong>Important Notes:</strong> The speaker emphasizes, "This conversion is the heart of pie chart problems. Before you even look at the questions, check if the data is in degrees or percent. And always remember: 100% is the same as 360°. If you can switch between them easily, you can solve any question."</p>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Data Set for Questions -->
+        <div class="content-block">
+            <h3>Data Set for Questions</h3>
+            <p>The questions are based on a pie chart showing the percentage of students enrolled in different activities in a school. <strong>Total number of students = 1200</strong>.</p>
+            <ul>
+                <li>Swimming: 16%</li>
+                <li>Singing: 21%</li>
+                <li>Dancing: 24%</li>
+                <li>Craft: 25%</li>
+                <li>Dramatics: 14%</li>
+            </ul>
+        </div>
+
+        <hr>
+        
+        <!-- Question 1 -->
+        <div class="content-block">
+            <h3>Question 1: Finding an Absolute Value</h3>
+            <p><strong>Question</strong></p>
+            <p>How many students are enrolled in Swimming?</p>
+            <p><strong>Answer</strong></p>
+            <p>192 students.</p>
+            <p><strong>Explanation</strong></p>
+            <p>Swimming accounts for 16% of the total students. The calculation is:</p>
+            <p>Number of students in Swimming = 16% of 1200 = (16 / 100) * 1200 = 16 * 12 = 192.</p>
+        </div>
+        
+        <hr>
+
+        <!-- Question 2 -->
+        <div class="content-block">
+            <h3>Question 2: Finding a Ratio</h3>
+            <p><strong>Question</strong></p>
+            <p>What is the ratio of the number of students enrolled in Singing to the number of students enrolled in Dancing?</p>
+            <p><strong>Answer</strong></p>
+            <p>7 : 8.</p>
+            <p><strong>Explanation</strong></p>
+            <p>The ratio of the number of students is the same as the ratio of their percentages.</p>
+            <p>Ratio = (Percentage for Singing) : (Percentage for Dancing)<br>
+            Ratio = 21 : 24</p>
+            <p>To simplify, divide both numbers by their greatest common divisor, which is 3:<br>
+            (21 / 3) : (24 / 3) = 7 : 8.</p>
+            
+            <div class="notes">
+                <p><strong>Important Notes:</strong> "Here is a major time-saving trick," the speaker says. "When a question asks for a ratio or a percentage comparison, you DO NOT need to calculate the actual number of students. The ratio of the percentages is the final answer. Calculating 21% of 1200 and 24% of 1200 and then finding the ratio is a waste of time. Work directly with the percentages."</p>
+            </div>
+        </div>
+
+        <hr>
+        
+        <!-- Question 3 -->
+        <div class="content-block">
+            <h3>Question 3: Percentage of Another Value</h3>
+            <p><strong>Question</strong></p>
+            <p>The number of students enrolled in Craft is what percentage of the number of students enrolled in Dancing?</p>
+            <p><strong>Answer</strong></p>
+            <p>104.16% (approximately).</p>
+            <p><strong>Explanation</strong></p>
+            <p>The formula for "A is what % of B" is `(A / B) * 100`.</p>
+            <p>Percentage = (Number in Craft / Number in Dancing) * 100</p>
+            <p>Again, we can use the percentages directly instead of the absolute numbers:</p>
+            <p>Percentage = (25 / 24) * 100 = 1.0416 * 100 = 104.16%.</p>
+            
+            <div class="notes">
+                <p><strong>Important Notes:</strong> The speaker advises, "Pay close attention to the wording: 'what percentage of'. The value that comes after 'of' always goes in the denominator. Here it is 'of the number of students in Dancing', so 24 goes in the denominator."</p>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Question 4 -->
+        <div class="content-block">
+            <h3>Question 4: Converting to Degrees</h3>
+            <p><strong>Question</strong></p>
+            <p>What is the central angle (in degrees) for the sector representing Dramatics?</p>
+            <p><strong>Answer</strong></p>
+            <p>50.4 degrees.</p>
+            <p><strong>Explanation</strong></p>
+            <p>Dramatics accounts for 14% of the total. We need to find what 14% is in terms of the total 360°.</p>
+            <p>Angle = 14% of 360° = (14 / 100) * 360 = 1.4 * 36 = 50.4°.</p>
+            <p>Alternatively, using the conversion factor 1% = 3.6°:</p>
+            <p>Angle = 14 * 3.6° = 50.4°.</p>
+        </div>
+
+    </div>
+
+</body>
+</html>
