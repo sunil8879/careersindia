@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schools in Warangal</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #fbe9e7; /* Light Orange */
+            margin: 0;
+            padding: 20px;
+        }
+
+        #warangal-container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .warangal-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .warangal-header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3em;
+            color: #bf360c; /* Deep Orange */
+            font-weight: 700;
+        }
+
+        .warangal-school-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .warangal-school-card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .warangal-school-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .warangal-school-card h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.25em;
+            color: #d84315;
+            margin: 0 0 10px 0;
+        }
+        
+        .warangal-school-card .location {
+            font-size: 0.9em;
+            color: #ff8a65;
+            margin-bottom: 15px;
+        }
+        
+        .warangal-school-card .board-type {
+            font-size: 0.85em;
+            background-color: #fbe9e7;
+            color: #f4511e;
+            padding: 5px 10px;
+            border-radius: 15px;
+            display: inline-block;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .warangal-school-card .website-link a {
+            color: #e64a19;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9em;
+        }
+
+        .warangal-school-card .website-link a:hover {
+            text-decoration: underline;
+        }
+        
+        .warangal-school-card .website-link .website-na {
+            color: #ffccbc;
+            font-style: italic;
+            font-size: 0.9em;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="warangal-container">
+        <div class="warangal-header">
+            <h1>Warangal's Top Schools</h1>
+        </div>
+        <div class="warangal-school-grid">
+            
+            <div class="warangal-school-card">
+                <div>
+                    <h2>Delhi Public School, Warangal</h2>
+                    <p class="location">Warangal</p>
+                    <span class="board-type">CBSE</span>
+                </div>
+                <div class="website-link">
+                    <a href="https://www.dpswarangal.in" target="_blank">Visit Website</a>
+                </div>
+            </div>
+
+            <div class="warangal-school-card">
+                <div>
+                    <h2>Jain Heritage a Cambridge School, Warangal</h2>
+                    <p class="location">Warangal</p>
+                    <span class="board-type">IGCSE</span>
+                </div>
+                <div class="website-link">
+                    <span class="website-na">N/A</span>
+                </div>
+            </div>
+
+            <div class="warangal-school-card">
+                <div>
+                    <h2>Platinum Jubilee High School</h2>
+                    <p class="location">Warangal</p>
+                    <span class="board-type">CBSE</span>
+                </div>
+                <div class="website-link">
+                    <a href="https://www.pjhs.org" target="_blank">Visit Website</a>
+                </div>
+            </div>
+
+            <div class="warangal-school-card">
+                <div>
+                    <h2>St. Gabriel's High School, Warangal</h2>
+                    <p class="location">Warangal</p>
+                    <span class="board-type">STATE BOARD (SSC)</span>
+                </div>
+                <div class="website-link">
+                    <span class="website-na">N/A</span>
+                </div>
+            </div>
+            
+            <div class="warangal-school-card">
+                <div>
+                    <h2>Tejaswi High School, Warangal</h2>
+                    <p class="location">Warangal</p>
+                    <span class="board-type">STATE BOARD (SSC)</span>
+                </div>
+                <div class="website-link">
+                    <span class="website-na">N/A</span>
+                </div>
+            </div>
+            
+            <div class="warangal-school-card">
+                <div>
+                    <h2>Siddhartha Public School, Warangal</h2>
+                    <p class="location">Warangal</p>
+                    <span class="board-type">STATE BOARD (SSC)</span>
+                </div>
+                <div class="website-link">
+                    <span class="website-na">N/A</span>
+                </div>
+            </div>
+            
+            <div class="warangal-school-card">
+                <div>
+                    <h2>Greenwood High School, Warangal</h2>
+                    <p class="location">Warangal</p>
+                    <span class="board-type">CBSE</span>
+                </div>
+                <div class="website-link">
+                    <span class="website-na">N/A</span>
+                </div>
+            </div>
+
+            <div class="warangal-school-card">
+                <div>
+                    <h2>St. Peter's High School, Hanamkonda</h2>
+                    <p class="location">Hanamkonda, Warangal</p>
+                    <span class="board-type">STATE BOARD (SSC)</span>
+                </div>
+                <div class="website-link">
+                    <span class="website-na">N/A</span>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>
