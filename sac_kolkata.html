@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Abroad Consultants in Kolkata</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Russo+One&display=swap" rel="stylesheet">
+    <style>
+        /* CSS STYLES */
+        :root {
+            --bg-color: #1a1a1a;
+            --grid-line-color: rgba(57, 255, 20, 0.08); /* Parrot Green grid lines */
+            --primary-color: #39FF14; /* Parrot Green */
+            --text-color: #f0f0f0;
+            --card-bg-color: #2c2c2c;
+            --shadow-color: #000000;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            background-image:
+                linear-gradient(var(--grid-line-color) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-line-color) 1px, transparent 1px);
+            background-size: 40px 40px;
+            padding: 2rem;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* 3D Title Box Styling */
+        .title-box {
+            border: 2px solid var(--primary-color);
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+            background-color: rgba(44, 44, 44, 0.5);
+            backdrop-filter: blur(5px);
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 0 25px rgba(57, 255, 20, 0.3);
+            perspective: 1000px; /* For 3D effect */
+        }
+
+        .title-3d {
+            font-family: 'Russo One', sans-serif;
+            font-size: 3.5rem;
+            color: var(--text-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow:
+                0 1px 0 #ccc,
+                0 2px 0 #c9c9c9,
+                0 3px 0 #bbb,
+                0 4px 0 #b9b9b9,
+                0 5px 0 #aaa,
+                0 6px 1px rgba(0,0,0,.1),
+                0 0 5px rgba(0,0,0,.1),
+                0 1px 3px rgba(0,0,0,.3),
+                0 3px 5px rgba(0,0,0,.2),
+                0 5px 10px rgba(0,0,0,.25),
+                0 10px 10px rgba(0,0,0,.2),
+                0 20px 20px rgba(0,0,0,.15);
+            animation: float 5s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px) rotateX(0deg); }
+            50% { transform: translateY(-10px) rotateX(5deg); }
+            100% { transform: translateY(0px) rotateX(0deg); }
+        }
+
+        /* Search Bar Styling */
+        .search-container {
+            margin-bottom: 2.5rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        #search-bar {
+            width: 70%;
+            padding: 1rem;
+            font-size: 1.1rem;
+            background-color: var(--card-bg-color);
+            border: 2px solid var(--primary-color);
+            color: var(--text-color);
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        #search-bar:focus {
+            outline: none;
+            box-shadow: 0 0 20px var(--primary-color);
+            transform: scale(1.02);
+        }
+
+        #search-bar::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Consultant Grid Layout */
+        #consultant-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Consultant Card Styling */
+        .consultant-card {
+            background-color: var(--card-bg-color);
+            border: 1px solid rgba(57, 255, 20, 0.3);
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            opacity: 0;
+            animation: fadeIn 0.5s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .consultant-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 0 25px var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .consultant-card h2 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(57, 255, 20, 0.2);
+            padding-bottom: 0.5rem;
+        }
+
+        .consultant-card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .consultant-card strong {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .consultant-card a {
+            color: #87ceeb; /* Sky blue for links */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .consultant-card a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            .title-3d {
+                font-size: 2.5rem;
+            }
+            #search-bar {
+                width: 90%;
+            }
+            #consultant-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="title-box">
+            <h1 class="title-3d">Study Abroad Consultants in Kolkata</h1>
+        </header>
+
+        <div class="search-container">
+            <input type="text" id="search-bar" placeholder="Search by name or location (e.g., IDP or Park Street)...">
+        </div>
+
+        <main id="consultant-grid">
+            <!-- Consultant cards will be dynamically inserted here by JavaScript -->
+        </main>
+    </div>
+
+    <script>
+        // JAVASCRIPT LOGIC
+
+        // Data for 100 Study Abroad Consultants in Kolkata
+        // Note: This is sample data created for demonstration purposes and alphabetized.
+        const consultantsData = [
+            {
+                name: 'A.B. Global Education',
+                location: 'Camac Street',
+                website: 'https://www.abglobal.com',
+                services: 'USA, Canada, UK Applications, Visa Assistance',
+                year: '2010',
+                reviews: 'Google: 4.8/5'
+            },
+            {
+                name: 'Abroad Education Consultants (AEC)',
+                location: 'Park Street',
+                website: 'https://www.aecoverseas.com',
+                services: 'Career Counselling, University Selection, Visa',
+                year: '2006',
+                reviews: 'Google: 4.7/5'
+            },
+            {
+                name: 'Access Education',
+                location: 'Salt Lake',
+                website: 'https://www.accesseducation.com',
+                services: 'Australia & New Zealand Specialist',
+                year: '2008',
+                reviews: 'Google: 4.6/5'
+            },
+            {
+                name: 'Admit Abroad',
+                location: 'Elgin Road',
+                website: 'https://www.admitabroad.com',
+                services: 'University Selection, SOP/LOR, Visa Guidance',
+                year: '2015',
+                reviews: 'Google: 4.9/5'
+            },
+            {
+                name: 'AECC Global',
+                location: 'Park Street',
+                website: 'https://www.aeccglobal.in',
+                services: 'Global University Applications, Student Visas',
+                year: '2008',
+                reviews: 'Google: 4.5/5'
+            },
+            {
+                name: 'Affinity Education',
+                location: 'Dum Dum',
+                website: 'https://www.affinityeducation.com',
+                services: 'MBBS Abroad, Engineering, Management',
+                year: '2012',
+                reviews: 'Google: 4.7/5'
+            },
+            {
+                name: 'Aim Ladder',
+                location: 'Salt Lake Sector V',
+                website: 'https://www.aimladder.com',
+                services: 'Test Prep, Career Counselling',
+                year: '2016',
+                reviews: 'Google: 4.8/5'
+            },
+            {
+                name: 'Aims Global Education',
+                location: 'Bhowanipore',
+                website: 'https://www.aimsglobal.co.in',
+                services: 'IELTS, TOEFL, GRE coaching, Admissions',
+                year: '2004',
+                reviews: 'Google: 4.8/5'
+            },
+            {
+                name: 'AK Consultants',
+                location: 'Gariahat',
+                website: 'https://www.akconsultants.in',
+                services: 'Student Visa, Immigration Services',
+                year: '2011',
+                reviews: 'Just Dial: 4.6/5'
+            },
+            {
+                name: 'Albright Education',
+                location: 'Behala',
+                website: 'https://www.albrighteducation.com',
+                services: 'UK, USA, Canada admissions counselling',
+                year: '2014',
+                reviews: 'Google: 4.9/5'
+            },
+            {
+                name: 'Alpha Study Circle',
+                location: 'Shyambazar',
+                website: 'https://www.alphastudycircle.com',
+                services: 'Test Prep, Language Classes, Counselling',
+                year: '2005',
+                reviews: 'Google: 4.4/5'
+            },
+            {
+                name: 'Azent Overseas Education',
+                location: 'Park Street',
+                website: 'https://www.azent.com',
+                services: 'AI-Powered Counselling, Virtual Fairs',
+                year: '2019',
+                reviews: 'Google: 4.9/5'
+            },
+            {
+                name: 'Beacon Education',
+                location: 'Howrah',
+                website: 'https://www.beaconedu.in',
+                services: 'US, UK, Canada, Australia Admissions',
+                year: '2001',
+                reviews: 'Just Dial: 4.5/5'
+            },
+            {
+                name: 'Blue Sky Education',
+                location: 'Elgin Road',
+                website: 'https://www.blueskyedu.co',
+                services: 'Comprehensive Study Abroad Services',
+                year: '2013',
+                reviews: 'Google: 4.8/5'
+            },
+            {
+                name: 'Bright Path Overseas',
+                location: 'Tollygunge',
+                website: 'https://www.brightpath.com',
+                services: 'Counselling, Application Processing, Visa',
+                year: '2017',
+                reviews: 'Google: 4.9/5'
+            },
+            {
+                name: 'Campus Connection',
+                location: 'Jadavpur',
+                website: 'https://www.campusconnection.co.in',
+                services: 'Career Counselling, Profile Building',
+                year: '2009',
+                reviews: 'Google: 4.6/5'
+            },
+            {
+                name: 'Canam Consultants',
+                location: 'Park Street',
+                website: 'https://www.canamconsultants.com',
+                services: 'Canada Specialist, Study & Work Permits',
+                year: '1995',
+                reviews: 'Google: 4.5/5'
+            },
+            {
+                name: 'Career Crafters',
+                location: 'New Town',
+                website: 'https://www.careercrafters.info',
+                services: 'Psychometric Testing, University Shortlisting',
+                year: '2007',
+                reviews: 'Google: 4.8/5'
+            },
+            {
+                name: 'Career Launcher',
+                location: 'Multiple Locations',
+                website: 'https://www.careerlauncher.com/study-abroad',
+                services: 'Test Prep (GMAT, GRE), Admissions Consulting',
+                year: '1995',
+                reviews: 'Google: 4.4/5'
+            },
+            {
+                name: 'Careerline',
+                location: 'Salt Lake',
+                website: 'https://www.careerline.com',
+                services: 'Admissions, Test Prep, Visa Assistance',
+                year: '2002',
+                reviews: 'Google: 4.7/5'
+            },
+            {
+                name: 'Chopras Global (TC Global)',
+                location: 'Park Street',
+                website: 'https://www.tcglobal.com',
+                services: 'Global Ed, Learning, Investment',
+                year: '1995',
+                reviews: 'Trustpilot: 4.2/5'
+            },
+            {
+                name: 'Clear Perceptions',
+                location: 'Ballygunge',
+                website: 'https://www.clearperceptions.in',
+                services: 'Boutique Counselling for US & UK',
+                year: '2003',
+                reviews: 'Google: 5.0/5'
+            },
+            {
+                name: 'Collegepond',
+                location: 'Camac Street',
+                website: 'https://www.collegepond.com',
+                services: 'GRE/GMAT Prep, Admissions, Loan Assistance',
+                year: '2003',
+                reviews: 'Google: 4.9/5'
+            },
+            {
+                name: 'Compass Education',
+                location: 'Rajarhat',
+                website: 'https://www.compassedu.com',
+                services: 'University Shortlisting, Application Help',
+                year: '2018',
+                reviews: 'Google: 4.8/5'
+            },
+            {
+                name: 'Connect Overseas',
+                location: 'Lake Town',
+                website: 'https://www.connectoverseas.com',
+                services: 'IELTS, Student Visa, Admissions',
+                year: '2012',
+                reviews: 'Just Dial: 4.7/5'
+            },
+            {
+                name: 'DB International',
+                location: 'Park Street',
+                website: 'https://www.dbinternational.co.in',
+                services: 'Study in Europe, UK, Canada',
+                year: '2014',
+                reviews: 'Google: 4.6/5'
+            },
+            {
+                name: 'Dream Chasers',
+                location: 'Esplanade',
+                website: 'https://www.dreamchasers.com',
+                services: 'Career Counselling, Visa Filing',
+                year: '2015',
+                reviews: 'Google: 4.9/5'
+            },
+            {
+                name: 'Edu-Solutions',
+                location: 'Garia',
+                website: 'https://www.edu-solutions.net',
+                services: 'MBBS Abroad, Engineering Admissions',
+                year: '2009',
+                reviews: 'Google: 4.7/5'
+            },
+            {
+                name: 'EduAims',
+                location: 'Salt Lake Sector I',
+                website: 'https://www.eduaims.in',
+                services: 'Premium Counselling, Test Prep (GMAT/GRE/SAT)',
+                year: '2011',
+                reviews: 'Google: 4.9/5'
+            },
+            {
+                name: 'Educa Globe',
+                location: 'Hazra',
+                website: 'https://www.educaglobe.com',
+                services: 'Global University Applications',
+                year: '2013',
+                reviews: 'Google: 4.8/5'
+            },
+            {
+                name: 'Education Abroad',
+                location: 'Park Circus',
+                website: 'https://www.educationabroad.com',
+                services: 'Comprehensive Study Abroad Services',
+                year: '2007',
+                reviews: 'Google: 4.5/5'
+            },
+            {
+                name: 'Education Basket',
+                location: 'Camac Street',
+                website: 'https://www.educationbasket.in',
+                services: 'Counselling, Admissions, Visa',
+                year: '2016',
+                reviews: 'Google: 4.9/5'
+            },
+            {
+                name: 'Edwise International',
+                location: 'Multiple Locations',
+                website: 'https://www.edwiseinternational.com',
+                services: 'Comprehensive services for 16 countries',
+                year: '1991',
+                reviews: 'Google: 4.5/5'
+            },
+            {
+                name: 'EEC - Enbee Education Center',
+                location: 'Elgin Road',
+                website: 'https://www.eecglobal.com',
+                services: 'IELTS, TOEFL, PTE Coaching, Admissions',
+                year: '2001',
+                reviews: 'Google: 4.8/5'
+            },
+            {
+                name: 'Elite Overseas',
+                location: 'Kankurgachi',
+                website: 'https://www.eliteoverseas.com',
+                services: 'Student Visa, IELTS Coaching',
+                year: '2010',
+                reviews: 'Google: 4.7/5'
+            },
+            {
+                name: 'Erudite',
+                location: 'Salt Lake',
+                website: 'https://www.erudite.in',
+                services: 'Admissions Consulting, Test Prep',
+                year: '1998',
+                reviews: 'Google: 4.4/5'
+            },
+            {
+                name: 'Europe Study Centre',
+                location: 'Park Street',
+                website: 'https://www.europestudycentre.com',
+                services: 'Specialists in European Education',
+                year: '2008',
+                reviews: 'Google: 4.6/5'
+            },
+            {
+                name: 'Expert Overseas',
+                location: 'Bidhannagar',
+                website: 'https://www.expertoverseas.com',
+                services: 'Canada & Australia Immigration, Study Visa',
+                year: '2012',
+                reviews: 'Just Dial: 4.7/5'
+            },
+            {
+                name: 'Explore Education',
+                location: 'Ultadanga',
+                website: 'https://www.exploreeducation.net',
+                services: 'Counselling, Profile Building, Applications',
+                year: '2014',
+                reviews: 'Google: 4.8/5'
+            },
+            {
+                name: 'Fateh Education',
+                location: 'Elgin Road',
+                website: 'https://www.fateheducation.com',
+                services: 'UK & Ireland Specialist Education Consultants',
+                year: '2004',
+                reviews: 'Google: 4.9/5'
+            },
+            {
+                name: 'Future Abroad',
+                location: 'Chandni Chowk',
+                website: 'https://www.futureabroad.org',
+                services: 'Visa Services, University Application',
+                year: '2013',
+                reviews: 'Google: 4.7/5'
+            },
+            {
+                name: 'Future Link',
+                location: 'Dalhousie',
+                website: 'https://www.futurelink.com',
+                services: 'Global Education Counselling',
+                year: '2006',
+                reviews: 'Google: 4.5/5'
+            },
+            {
+                name: 'GeeBee Education',
+                location: 'Park Street',
+                website: 'https://www.geebeeworld.com',
+                services: 'IELTS, TOEFL, PTE coaching, Admissions',
+                year: '2001',
+                reviews: 'Google: 4.7/5'
+            },
+            {
+                name: 'Global Campus',
+                location: 'Salt Lake Sector II',
+                website: 'https://www.globalcampus.com',
+                services: 'University Admissions, Test Prep',
+                year: '2009',
+                reviews: 'Google: 4.8/5'
+            },
+            {
+                name: 'Global Education & Immigration',
+                location: 'Barasat',
+                website: 'https://www.gei-global.com',
+                services: 'Student Visa, PR Services',
+                year: '2011',
+                reviews: 'Just Dial: 4.6/5'
+            },
+            {
+                name: 'Global Reach',
+                location: 'Camac Street',
+                website: 'https://www.globalreach.in',
+                services: 'Australia Specialist, Student Visas',
+                year: '1991',
+                reviews: 'Google: 4.5/5'
+            },
+            {
+                name: 'Global Wings',
+                location: 'Ballygunge',
+                website: 'https://www.globalwings.co',
+                services: 'MBBS Abroad, Engineering, Management',
+                year: '2012',
+                reviews: 'Google: 4.9/5'
+            },
+            {
+                name: 'Grad-Dreams',
+                location: 'Salt Lake',
+                website: 'https://www.gdx.in',
+                services: 'Admissions, GRE/GMAT, Loans',
+                year: '2003',
+                reviews: 'Google: 4.9/5'
+            },
+            {
+                name: 'Gratis Learning',
+                location: 'Park Street',
+                website: 'https://www.gratislearning.in',
+                services: 'IELTS, PTE, Spoken English, Admissions',
+                year: '2014',
+                reviews: 'Google: 4.9/5'
+            },
+            {
+                name: 'GyanDhan',
+                location: 'Online / Kolkata Office',
+                website: 'https://www.gyandhan.com',
+                services: 'Education Loans, Admissions Counselling',
+                year: '2015',
+                reviews: 'Trustpilot: 4.7/5'
+            },
+            {
+                name: 'Horizon Education',
+                location: 'Rabindra Sadan',
+                website: 'https://www.horizonedu.co.in',
+                services: 'Comprehensive Study Abroad Services',
+                year: '2008',
+                reviews: 'Google: 4.6/5'
+            },
+            {
+                name: 'IAE Global',
+                location: 'Elgin Road',
+                website: 'https://www.iaeglobal.net',
+                services: 'Global Network of Universities, Free Counselling',
+                year: '1992',
+                reviews: 'Google: 4.7/5'
+            },
+            {
+                name: 'IDP Education',
+                location: 'Park Street',
+                website: 'https://www.idp.com/india/',
+                services: 'Co-owner of IELTS, Global University Network',
+                year: '1969',
+                reviews: 'Google: 4.6/5'
+            },
+            {
+                name: 'IMS',
+                location: 'Multiple Locations',
+                website: 'https://www.imsindia.com/study-abroad',
+                services: 'GMAT, GRE, SAT Test Prep & Admissions',
+                year: '1977',
+                reviews: 'Google: 4.5/5'
+            },
+            {
+                name: 'Imperial Overseas Education',
+                location: 'Camac Street',
+                website: 'https://www.imperial-overseas.com',
+                services: 'Comprehensive Counselling, Test Prep, Visa',
+                year: '2008',
+                reviews: 'Google: 4.9/5'
+            },
+            {
+                name: 'Indo-European',
+                location: 'Salt Lake',
+                website: 'https://www.indoeuropean.in',
+                services: 'Study in Europe, Language Training',
+                year: '2010',
+                reviews: 'Google: 4.7/5'
+            },
+            {
+                name: 'Inspirus Education',
+                location: 'Loudon Street',
+                website: 'https://www.inspiruseducation.com',
+                services: 'SAT, ACT, GMAT, GRE Coaching, Admissions',
+                year: '2000',
+                reviews: 'Google: 4.8/5'
+            },
+            {
+                name: 'International Placewell Consultants (IPC)',
+                location: 'Park Street',
+                website: 'https://www.educationoverseas.com',
+                services: 'Global Placements, Admissions',
+                year: '2002',
+                reviews: 'Just Dial: 4.6/5'
+            },
+            {
+                name: 'Jamboree Education',
+                location: 'Salt Lake',
+                website: 'https://www.jamboreeindia.com',
+                services: 'GMAT, GRE, SAT Coaching & Admissions',
+                year: '1993',
+                reviews: 'Google: 4.7/5'
+            },
+            {
+                name: 'KC Overseas Education',
+                location: 'Camac Street',
+                website: 'https://www.kcoverseas.com',
+                services: 'Global University Representation, Applications',
+                year: '1998',
+                reviews: 'Google: 4.6/5'
+            },
+            {
+                name: 'Krishna Consultants',
+                location: 'Park Street',
+                website: 'https://www.studies-overseas.com',
+                services: 'Comprehensive Services, Education Loans',
+                year: '1998',
+                reviews: 'Google: 4.7/5'
+            },
+            {
+                name: 'Landmark Immigration',
+                location: 'Salt Lake',
+                website: 'https://www.landmarkimmigration.com',
+                services: 'IELTS, PTE, Study Visa for Canada & Australia',
+                year: '2007',
+                reviews: 'Google: 4.8/5'
+            },
+            {
+                name: 'LeapScholar',
+                location: 'Online / Kolkata Hub',
+                website: 'https://leapscholar.com',
+                services: 'IELTS Prep, Counselling, Loans, Visa',
+                year: '2019',
+                reviews: 'Trustpilot: 4.5/5'
+            },
+            {
+                name: 'Leverage Edu',
+                location: 'Park Street Area',
+                website: 'https://leverageedu.com',
+                services: 'AI-based platform, Counselling, Finance',
+                year: '2017',
+                reviews: 'Google: 4.8/5'
+            },
+            {
+                name: 'Manya - The Princeton Review',
+                location: 'Camac Street',
+                website: 'https://www.manyagroup.com',
+                services: 'Test Prep (SAT, ACT, GMAT, GRE), Admissions',
+                year: '2002',
+                reviews: 'Google: 4.6/5'
+            },
+            {
+                name: 'Meridean Overseas',
+                location: 'Park Street',
+                website: 'https://www.meridean.org',
+                services: 'UK, Canada, USA, Australia Applications',
+                year: '2012',
+                reviews: 'Google: 4.8/5'
+            },
+            {
+                name: 'Mind-Tree',
+                location: 'Ballygunge',
+                website: 'https://www.mindtreeglobal.com',
+                services: 'Career Counselling, University Admissions',
+                year: '2010',
+                reviews: 'Google: 4.9/5'
+            },
+            {
+                name: 'N&N Chopra',
+                location: 'Shakespeare Sarani',
+                website: 'https://www.nnchopra.com',
+                services: 'Education, Immigration, and Investment',
+                year: '2001',
+                reviews: 'Google: 4.7/5'
+            },
+            {
+                name: 'Nebula Overseas',
+                location: 'Salt Lake Sector V',
+                website: 'https://www.nebulaoverseas.com',
+                services: 'Comprehensive Study Abroad Solutions',
+                year: '2015',
+                reviews: 'Google: 4.8/5'
+            },
+            {
+                name: 'NexGen Academy',
+                location: 'Sealdah',
+                website: 'https://www.nexgenacademy.com',
+                services: 'Language Training, IELTS, Admissions',
+                year: '2013',
+                reviews: 'Google: 4.6/5'
+            },
+            {
+                name: 'Odyssey',
+                location: 'Elgin Road',
+                website: 'https://www.odyssey.co.in',
+                services: 'Personalized Counselling, Application Strategy',
+                year: '2005',
+                reviews: 'Google: 4.9/5'
+            },
+            {
+                name: 'Overseas Education Centre',
+                location: 'Camac Street',
+                website: 'https://www.oecindia.com',
+                services: 'Counselling, Visa Assistance, Forex',
+                year: '1999',
+                reviews: 'Just Dial: 4.5/5'
+            },
+            {
+                name: 'Pace Education',
+                location: 'Park Street',
+                website: 'https://www.paceeducation.com',
+                services: 'CAT, GMAT, GRE coaching, Admissions',
+                year: '2001',
+                reviews: 'Google: 4.3/5'
+            },
+            {
+                name: 'Planet Education',
+                location: 'Park Street',
+                website: 'https://www.planeteducation.info',
+                services: 'Australia, NZ, UK, Canada, Ireland & USA',
+                year: '1999',
+                reviews: 'Google: 4.7/5'
+            },
+            {
+                name: 'Prime Education',
+                location: 'Bhowanipore',
+                website: 'https://www.primeeducation.com',
+                services: 'University Shortlisting, Visa Guidance',
+                year: '2008',
+                reviews: 'Google: 4.8/5'
+            },
+            {
+                name: 'Pyramid eServices',
+                location: 'Salt Lake',
+                website: 'https://www.pyramideservices.com',
+                services: 'Study Visa, IELTS, University Placement',
+                year: '2005',
+                reviews: 'Google: 4.8/5'
+            },
+            {
+                name: 'Red Pen',
+                location: 'Ballygunge',
+                website: 'https://www.theredpen.in',
+                services: 'Boarding School, UG, & PG Admissions',
+                year: '2011',
+                reviews: 'Google: 4.9/5'
+            },
+            {
+                name: 'Right Choice',
+                location: 'New Alipore',
+                website: 'https://www.rightchoice.com',
+                services: 'Career Counselling, Admission Assistance',
+                year: '2013',
+                reviews: 'Just Dial: 4.7/5'
+            },
+            {
+                name: 'SI-UK',
+                location: 'Park Street',
+                website: 'https://www.studyin-uk.in',
+                services: 'UK University Specialist, Oxbridge Applications',
+                year: '2006',
+                reviews: 'Google: 4.9/5'
+            },
+            {
+                name: 'SIEC Education',
+                location: 'Park Street',
+                website: 'https://www.siecindia.com',
+                services: 'Global Education, Test Preparation',
+                year: '1995',
+                reviews: 'Google: 4.6/5'
+            },
+            {
+                name: 'Sirius Global',
+                location: 'Elgin Road',
+                website: 'https://www.siriusglobal.com',
+                services: 'Premium Admissions Consulting for US/UK/Canada',
+                year: '2017',
+                reviews: 'Google: 5.0/5'
+            },
+            {
+                name: 'Sky High',
+                location: 'Sarat Bose Road',
+                website: 'https://www.skyhigh.com',
+                services: 'Visa, IELTS, University Applications',
+                year: '2014',
+                reviews: 'Google: 4.8/5'
+            },
+            {
+                name: 'Smart Overseas',
+                location: 'Dum Dum',
+                website: 'https://www.smartoverseas.com',
+                services: 'IELTS, PTE, Student Visa',
+                year: '2016',
+                reviews: 'Google: 4.9/5'
+            },
+            {
+                name: 'Study Abroad Expert',
+                location: 'Salt Lake Sector V',
+                website: 'https://www.studyabroadexpert.com',
+                services: 'Counselling, Application, Post-arrival',
+                year: '2012',
+                reviews: 'Google: 4.7/5'
+            },
+            {
+                name: 'Study Smart',
+                location: 'Park Street Area',
+                website: 'https://www.studysmart.co.in',
+                services: 'IELTS, PTE, UK & Ireland Applications',
+                year: '2009',
+                reviews: 'Google: 4.8/5'
+            },
+            {
+                name: 'Success Forum',
+                location: 'Hazra Road',
+                website: 'https://www.successforum.org',
+                services: 'GRE, GMAT, SAT Coaching, Admissions',
+                year: '2002',
+                reviews: 'Google: 4.7/5'
+            },
+            {
+                name: 'The Chopras',
+                location: 'Park Street',
+                website: 'https://www.thechopras.com',
+                services: 'Global Education, Career Pathways',
+                year: '1995',
+                reviews: 'Google: 4.3/5'
+            },
+            {
+                name: 'Triumphant Institute of Management Education (T.I.M.E.)',
+                location: 'Multiple Locations',
+                website: 'https://www.time4education.com/study-abroad',
+                services: 'GRE, GMAT Coaching, Admissions',
+                year: '1992',
+                reviews: 'Google: 4.4/5'
+            },
+            {
+                name: 'UEI Global',
+                location: 'Salt Lake',
+                website: 'https://www.uei-global.com',
+                services: 'Hospitality Management Courses Abroad',
+                year: '2007',
+                reviews: 'Google: 4.3/5'
+            },
+            {
+                name: 'Uni-Direction',
+                location: 'Bidhannagar',
+                website: 'https://www.unidirection.com',
+                services: 'Personalized Study Abroad Counselling',
+                year: '2015',
+                reviews: 'Google: 4.9/5'
+            },
+            {
+                name: 'UNIABROAD',
+                location: 'Salt Lake',
+                website: 'https://www.uniabroad.com',
+                services: 'AI-powered shortlisting, application tracking',
+                year: '2018',
+                reviews: 'Google: 4.9/5'
+            },
+            {
+                name: 'VDIEC Global',
+                location: 'Park Street',
+                website: 'https://www.vdiec.com',
+                services: 'Australian Education Specialist',
+                year: '1998',
+                reviews: 'Google: 4.6/5'
+            },
+            {
+                name: 'Vibrant Education',
+                location: 'Girish Park',
+                website: 'https://www.vibranteducation.org',
+                services: 'IELTS Coaching, Study Visa',
+                year: '2012',
+                reviews: 'Google: 4.8/5'
+            },
+            {
+                name: 'Videsh Study',
+                location: 'Camac Street',
+                website: 'https://www.videshstudy.com',
+                services: 'MBBS in Russia, China, Ukraine',
+                year: '2010',
+                reviews: 'Google: 4.7/5'
+            },
+            {
+                name: 'Vision Consultants',
+                location: 'Taltala',
+                website: 'https://www.visionconsultants.com',
+                services: 'Australia, Canada, UK, NZ Visas',
+                year: '2006',
+                reviews: 'Just Dial: 4.6/5'
+            },
+            {
+                name: 'Whizstorm',
+                location: 'Online / Kolkata Office',
+                website: 'https://www.whizstorm.com',
+                services: 'Online Platform, Application Assistance',
+                year: '2016',
+                reviews: 'Google: 4.9/5'
+            },
+            {
+                name: 'Worldview Education',
+                location: 'Alipore',
+                website: 'https://www.worldview.com',
+                services: 'Undergraduate, Postgraduate & MBA Admissions',
+                year: '2011',
+                reviews: 'Google: 4.8/5'
+            },
+            {
+                name: 'Y-Axis',
+                location: 'Park Street',
+                website: 'https://www.y-axis.com',
+                services: 'Immigration, Visas, Overseas Careers',
+                year: '1999',
+                reviews: 'Trustpilot: 4.3/5'
+            },
+            {
+                name: 'Yes Germany',
+                location: 'Salt Lake',
+                website: 'https://www.yesgermany.com',
+                services: 'German Education Specialist',
+                year: '2014',
+                reviews: 'Google: 4.9/5'
+            },
+            {
+                name: 'Zenith Education',
+                location: 'Jadavpur',
+                website: 'https://www.zenitheducation.info',
+                services: 'IELTS, PTE coaching, Student Visa',
+                year: '2010',
+                reviews: 'Google: 4.8/5'
+            }
+        ];
+
+        const consultantGrid = document.getElementById('consultant-grid');
+        const searchBar = document.getElementById('search-bar');
+
+        // Function to display consultants on the page
+        const displayConsultants = (consultants) => {
+            consultantGrid.innerHTML = ''; // Clear existing cards
+
+            if (consultants.length === 0) {
+                consultantGrid.innerHTML = `<p style="color: var(--primary-color); grid-column: 1 / -1; text-align: center; font-size: 1.2rem;">No consultants found matching your search.</p>`;
+                return;
+            }
+            
+            consultants.forEach((consultant, index) => {
+                const card = document.createElement('div');
+                card.className = 'consultant-card';
+                card.style.animationDelay = `${index * 0.05}s`; // Staggered animation effect
+                
+                card.innerHTML = `
+                    <h2>${consultant.name}</h2>
+                    <p><strong>Location:</strong> ${consultant.location}</p>
+                    <p><strong>Website:</strong> <a href="${consultant.website}" target="_blank" rel="noopener noreferrer">${consultant.website}</a></p>
+                    <p><strong>Services Offered:</strong> ${consultant.services}</p>
+                    <p><strong>Established:</strong> ${consultant.year}</p>
+                    <p><strong>Reviews:</strong> ${consultant.reviews}</p>
+                `;
+                consultantGrid.appendChild(card);
+            });
+        };
+
+        // Event listener for the search bar
+        searchBar.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            
+            const filteredConsultants = consultantsData.filter(consultant => {
+                const nameMatch = consultant.name.toLowerCase().includes(searchTerm);
+                const locationMatch = consultant.location.toLowerCase().includes(searchTerm);
+                return nameMatch || locationMatch;
+            });
+
+            displayConsultants(filteredConsultants);
+        });
+
+        // Initial display of all consultants
+        displayConsultants(consultantsData);
+
+    </script>
+</body>
+</html>

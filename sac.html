@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Study Abroad Consultants in India</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Russo+One&display=swap" rel="stylesheet">
+<style>
+    @import url('https://fonts.cdnfonts.com/css/impact');
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Russo+One&display=swap');
+
+    :root {
+        --white: #ffffff;
+        --light-turquoise: #7FFFD4;
+        --light-turquoise-dark: #004d00; /* For 3D shadow and borders */
+        --dark-text: #212529;
+        --light-gray: #f8f9fa;
+        --border-color: #dee2e6;
+        --shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: var(--white); /* MODIFIED: White background */
+        color: var(--dark-text); /* MODIFIED: Black font */
+        background-image: none;
+        padding: 2rem;
+        min-height: 100vh;
+        overflow: hidden;
+    }
+
+    .container {
+        max-width: 1600px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        height: calc(100vh - 4rem);
+    }
+
+    /* MODIFIED: Title box is light turquoise */
+    .title-box {
+        border: none;
+        padding: 1.5rem 2rem;
+        margin-bottom: 2rem;
+        background-color: var(--light-turquoise);
+        backdrop-filter: none;
+        border-radius: 15px;
+        text-align: center;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        perspective: none;
+    }
+
+    /* MODIFIED: The Intense 3D Impact Font Title */
+    .title-3d {
+        font-family: 'Impact', sans-serif;
+        font-size: 4rem;
+        font-weight: normal;
+        line-height: 1.1;
+        color: var(--white); /* MODIFIED: White font */
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        
+        /* The Intense, Layered 3D Text Shadow */
+        text-shadow: 
+            1px 1px 0px var(--light-turquoise-dark), 
+            2px 2px 0px var(--light-turquoise-dark), 
+            3px 3px 0px var(--light-turquoise-dark),
+            4px 4px 8px rgba(0,0,0,0.2);
+        animation: none;
+    }
+
+    .main-layout {
+        display: grid;
+        grid-template-columns: 300px 1fr;
+        gap: 2rem;
+        flex-grow: 1;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    /* MODIFIED: Left sidebar is light turquoise */
+    #sidebar {
+        background-color: var(--light-turquoise);
+        color: var(--white); /* Font inside is white */
+        border: 1px solid var(--light-turquoise-dark);
+        border-radius: 15px;
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        overflow-y: auto;
+    }
+
+    #sidebar h2 {
+        font-family: 'Russo One', sans-serif;
+        color: var(--white);
+        text-align: center;
+        border-bottom: 1px solid rgba(255,255,255,0.3);
+        padding-bottom: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .nav-button {
+        display: block;
+        width: 100%;
+        padding: 0.8rem;
+        font-size: 1rem;
+        font-weight: 600;
+        text-align: center;
+        color: var(--white);
+        background-color: var(--light-turquoise);
+        border: 1px solid var(--light-turquoise-dark);
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        transform: none;
+    }
+    .nav-button:hover {
+        background-color: var(--light-turquoise-dark);
+        color: var(--white);
+        border-color: var(--light-turquoise-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 12px rgba(0,0,0,0.3);
+    }
+    .top-20-button {
+        background-color: var(--white);
+        color: var(--dark-text);
+    }
+    .top-20-button:hover {
+        background-color: var(--light-gray);
+        color: var(--dark-text);
+    }
+
+    #state-select {
+        width: 100%;
+        padding: 0.8rem;
+        font-size: 1rem;
+        font-family: 'Poppins', sans-serif;
+        background-color: var(--light-turquoise);
+        color: var(--white);
+        border: 1px solid var(--light-turquoise-dark);
+        border-radius: 8px;
+        cursor: pointer;
+    }
+
+    /* MODIFIED: Right content area is white */
+    #content-area {
+        position: relative;
+        height: 100%;
+        border-radius: 15px;
+        overflow: hidden;
+        background-color: var(--white);
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow);
+    }
+
+    #placeholder {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        text-align: center;
+        font-size: 1.5rem;
+        color: #aaa;
+    }
+    #placeholder svg { width: 80px; height: 80px; margin-bottom: 1rem; opacity: 0.5; color: #ccc; }
+
+    #content-iframe, #top-20-content {
+        width: 100%;
+        height: 100%;
+        border: none;
+        border-radius: 15px;
+        display: none;
+    }
+    
+    #top-20-content {
+        overflow-y: auto;
+        padding: 2rem;
+        color: var(--dark-text);
+    }
+    
+    .top-consultant-card {
+        background-color: var(--white);
+        border-left: 5px solid var(--light-turquoise);
+        border-radius: 10px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        box-shadow: var(--shadow);
+        border: 1px solid var(--border-color);
+        display: grid;
+        grid-template-columns: 50px 1fr;
+        gap: 1.5rem;
+        align-items: center;
+    }
+    .rank {
+        font-family: 'Russo One', sans-serif;
+        font-size: 2.5rem;
+        color: var(--light-turquoise);
+        text-align: center;
+    }
+    .consultant-details h3 { color: var(--dark-text); margin-bottom: 0.5rem; }
+    .consultant-details p { font-size: 0.9rem; line-height: 1.6; color: #555; }
+
+    @media (max-width: 900px) {
+        .main-layout { grid-template-columns: 1fr; height: auto; }
+        #sidebar { margin-bottom: 2rem; }
+        #content-area { height: 80vh; }
+        .title-3d { font-size: 3rem; }
+    }
+/* Makes the city buttons and the state dropdown white with black text */
+.nav-button, #state-select {
+    background-color: var(--white);
+    color: var(--dark-text);
+}
+</style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="title-box">
+            <h1 class="title-3d">Top Study Abroad Consultants in India</h1>
+        </header>
+
+        <div class="main-layout">
+            <aside id="sidebar">
+                <h2>Quick Navigation</h2>
+                
+                <button class="nav-button" data-location="mumbai">Mumbai</button>
+                <button class="nav-button" data-location="delhi">Delhi</button>
+                <button class="nav-button" data-location="kolkata">Kolkata</button>
+                <button class="nav-button" data-location="chennai">Chennai</button>
+                <button class="nav-button" data-location="ahmedabad">Ahmedabad</button>
+                <button class="nav-button" data-location="hyderabad">Hyderabad</button>
+                <button class="nav-button" data-location="bengaluru">Bengaluru</button>
+                <button class="nav-button" data-location="pune">Pune</button>
+
+                <select id="state-select">
+                    <option value="">Select a State/UT</option>
+                    <!-- Options will be populated by JS -->
+                </select>
+
+                <button id="top-20-btn" class="nav-button top-20-button">ALL TIME TOP 20 CONSULTANTS</button>
+            </aside>
+            <main id="content-area">
+                <div id="placeholder">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
+                      <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"/>
+                    </svg>
+                    <p>Select a location from the left to view consultants</p>
+                </div>
+                <iframe id="content-iframe" title="Consultant Details"></iframe>
+                <div id="top-20-content"></div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cityButtons = document.querySelectorAll('.nav-button[data-location]');
+            const stateSelect = document.getElementById('state-select');
+            const top20Button = document.getElementById('top-20-btn');
+            const contentArea = document.getElementById('content-area');
+            const placeholder = document.getElementById('placeholder');
+            const contentIframe = document.getElementById('content-iframe');
+            const top20ContentDiv = document.getElementById('top-20-content');
+
+            const statesAndUTs = [
+                'Andhra Pradesh', 'Arunachal Pradesh', 'Assam', 'Bihar', 'Chhattisgarh', 'Goa', 'Gujarat', 
+                'Haryana', 'Himachal Pradesh', 'Jharkhand', 'Karnataka', 'Kerala', 'Madhya Pradesh', 
+                'Maharashtra', 'Manipur', 'Meghalaya', 'Mizoram', 'Nagaland', 'Odisha', 'Punjab', 
+                'Rajasthan', 'Sikkim', 'Tamil Nadu', 'Telangana', 'Tripura', 'Uttar Pradesh', 'Uttarakhand', 'West Bengal',
+                'Andaman and Nicobar Islands', 'Chandigarh', 'Dadra and Nagar Haveli and Daman and Diu', 
+                'Jammu and Kashmir', 'Ladakh', 'Lakshadweep', 'Puducherry'
+            ];
+            
+            // Populate dropdown
+            statesAndUTs.forEach(state => {
+                const option = document.createElement('option');
+                option.value = state;
+                option.textContent = state;
+                stateSelect.appendChild(option);
+            });
+
+            function loadContent(url) {
+                placeholder.style.display = 'none';
+                top20ContentDiv.style.display = 'none';
+                
+                contentIframe.src = url;
+                contentIframe.style.display = 'block';
+            }
+
+            function displayTop20() {
+                placeholder.style.display = 'none';
+                contentIframe.style.display = 'none';
+
+                const top20Data = [
+                    { rank: 1, name: 'IDP Education', year: '1969', presence: '150+ locations', students: '50,000+', reviews: '10,000+', rating: '4.6 (Google)', employees: '5,000+' },
+                    { rank: 2, name: 'Edwise International', year: '1991', presence: '120+ locations', students: '40,000+', reviews: '8,000+', rating: '4.5 (Google)', employees: '1,000+' },
+                    { rank: 3, name: 'KC Overseas Education', year: '1998', presence: '65+ locations', students: '35,000+', reviews: '7,000+', rating: '4.6 (Google)', employees: '800+' },
+                    { rank: 4, name: 'LeapScholar', year: '2019', presence: 'Online + Hubs', students: '30,000+', reviews: '12,000+', rating: '4.5 (Trustpilot)', employees: '1,500+' },
+                    { rank: 5, name: 'Leverage Edu', year: '2017', presence: 'Online + Hubs', students: '28,000+', reviews: '15,000+', rating: '4.8 (Google)', employees: '1,200+' },
+                    { rank: 6, name: 'Y-Axis', year: '1999', presence: '50+ locations', students: '25,000+', reviews: '20,000+', rating: '4.3 (Trustpilot)', employees: '1,500+' },
+                    { rank: 7, name: 'Canam Consultants', year: '1995', presence: '30+ locations', students: '20,000+', reviews: '6,000+', rating: '4.5 (Google)', employees: '600+' },
+                    { rank: 8, name: 'AECC Global', year: '2008', presence: '45+ locations', students: '18,000+', reviews: '5,000+', rating: '4.6 (Google)', employees: '500+' },
+                    { rank: 9, name: 'SI-UK', year: '2006', presence: '40+ locations', students: '15,000+', reviews: '4,000+', rating: '4.9 (Google)', employees: '400+' },
+                    { rank: 10, name: 'The Chopras (TC Global)', year: '1995', presence: '35+ locations', students: '14,000+', reviews: '5,500+', rating: '4.2 (Trustpilot)', employees: '500+' },
+                    { rank: 11, name: 'GeeBee Education', year: '2001', presence: '20+ locations', students: '12,000+', reviews: '4,500+', rating: '4.7 (Google)', employees: '300+' },
+                    { rank: 12, name: 'Azent Overseas Education', year: '2019', presence: '15+ locations', students: '10,000+', reviews: '3,000+', rating: '4.9 (Google)', employees: '400+' },
+                    { rank: 13, name: 'Imperial Overseas Education', year: '2008', presence: '10+ locations', students: '9,000+', reviews: '3,500+', rating: '4.9 (Google)', employees: '200+' },
+                    { rank: 14, name: 'Manya - The Princeton Review', year: '2002', presence: '45+ locations', students: '8,000+', reviews: '6,000+', rating: '4.6 (Google)', employees: '700+' },
+                    { rank: 15, name: 'SIEC Education', year: '1995', presence: '30+ locations', students: '7,500+', reviews: '3,000+', rating: '4.6 (Google)', employees: '300+' },
+                    { rank: 16, name: 'Global Reach', year: '1991', presence: '40+ locations', students: '7,000+', reviews: '3,200+', rating: '4.5 (Google)', employees: '400+' },
+                    { rank: 17, name: 'Collegepond', year: '2003', presence: '10+ locations', students: '6,000+', reviews: '2,500+', rating: '4.9 (Google)', employees: '150+' },
+                    { rank: 18, name: 'Fateh Education', year: '2004', presence: '8 locations', students: '5,000+', reviews: '2,000+', rating: '4.9 (Google)', employees: '100+' },
+                    { rank: 19, name: 'UNIABROAD', year: '2018', presence: 'Online + Hubs', students: '4,500+', reviews: '1,800+', rating: '4.9 (Google)', employees: '200+' },
+                    { rank: 20, name: 'Krishna Consultants', year: '1998', presence: '15+ locations', students: '4,000+', reviews: '2,200+', rating: '4.7 (Google)', employees: '250+' }
+                ];
+
+                let contentHTML = `<h2>ALL TIME TOP 20 STUDY ABROAD CONSULTANTS</h2>`;
+                top20Data.forEach(consultant => {
+                    contentHTML += `
+                        <div class="top-consultant-card">
+                            <div class="rank">#${consultant.rank}</div>
+                            <div class="consultant-details">
+                                <h3>${consultant.name}</h3>
+                                <p>
+                                    <strong>Established:</strong> ${consultant.year} | 
+                                    <strong>Presence:</strong> ${consultant.presence}<br>
+                                    <strong>Students Served (Last Year):</strong> ${consultant.students} | 
+                                    <strong>Employees:</strong> ${consultant.employees}<br>
+                                    <strong>Reviews:</strong> ${consultant.reviews} | 
+                                    <strong>Rating:</strong> ${consultant.rating}
+                                </p>
+                            </div>
+                        </div>
+                    `;
+                });
+                top20ContentDiv.innerHTML = contentHTML;
+                top20ContentDiv.style.display = 'block';
+            }
+
+            cityButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const location = button.dataset.location;
+                    const url = `sac_${location}.html`;
+                    loadContent(url);
+                });
+            });
+
+            stateSelect.addEventListener('change', (e) => {
+                const state = e.target.value;
+                if (state) {
+                    const filename = state.toLowerCase().replace(/ /g, '_');
+                    const url = `sac_${filename}.html`;
+                    loadContent(url);
+                }
+            });
+
+            top20Button.addEventListener('click', displayTop20);
+        });
+    </script>
+</body>
+</html>

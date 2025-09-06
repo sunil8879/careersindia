@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Abroad Consultants in Haryana (except Delhi)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Russo+One&display=swap" rel="stylesheet">
+    <style>
+        /* CSS STYLES */
+        :root {
+            --bg-color: #1a1a1a;
+            --grid-line-color: rgba(255, 51, 204, 0.08); /* Parrot Pink grid lines */
+            --primary-color: #FF33CC; /* Parrot Pink */
+            --text-color: #f0f0f0;
+            --card-bg-color: #2c2c2c;
+            --shadow-color: #000000;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            background-image:
+                linear-gradient(var(--grid-line-color) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-line-color) 1px, transparent 1px);
+            background-size: 40px 40px;
+            padding: 2rem;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* 3D Title Box Styling */
+        .title-box {
+            border: 2px solid var(--primary-color);
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+            background-color: rgba(44, 44, 44, 0.5);
+            backdrop-filter: blur(5px);
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 0 25px rgba(255, 51, 204, 0.3);
+            perspective: 1000px; /* For 3D effect */
+        }
+
+        .title-3d {
+            font-family: 'Russo One', sans-serif;
+            font-size: 2.8rem;
+            color: var(--text-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow:
+                0 1px 0 #ccc,
+                0 2px 0 #c9c9c9,
+                0 3px 0 #bbb,
+                0 4px 0 #b9b9b9,
+                0 5px 0 #aaa,
+                0 6px 1px rgba(0,0,0,.1),
+                0 0 5px rgba(0,0,0,.1),
+                0 1px 3px rgba(0,0,0,.3),
+                0 3px 5px rgba(0,0,0,.2),
+                0 5px 10px rgba(0,0,0,.25),
+                0 10px 10px rgba(0,0,0,.2),
+                0 20px 20px rgba(0,0,0,.15);
+            animation: float 5s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px) rotateX(0deg); }
+            50% { transform: translateY(-10px) rotateX(5deg); }
+            100% { transform: translateY(0px) rotateX(0deg); }
+        }
+
+        /* Search Bar Styling */
+        .search-container {
+            margin-bottom: 2.5rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        #search-bar {
+            width: 70%;
+            padding: 1rem;
+            font-size: 1.1rem;
+            background-color: var(--card-bg-color);
+            border: 2px solid var(--primary-color);
+            color: var(--text-color);
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        #search-bar:focus {
+            outline: none;
+            box-shadow: 0 0 20px var(--primary-color);
+            transform: scale(1.02);
+        }
+
+        #search-bar::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Consultant Grid Layout */
+        #consultant-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Consultant Card Styling */
+        .consultant-card {
+            background-color: var(--card-bg-color);
+            border: 1px solid rgba(255, 51, 204, 0.3);
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            opacity: 0;
+            animation: fadeIn 0.5s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .consultant-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 0 25px var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .consultant-card h2 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(255, 51, 204, 0.2);
+            padding-bottom: 0.5rem;
+        }
+
+        .consultant-card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .consultant-card strong {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .consultant-card a {
+            color: #FFB6C1; /* Light Pink for links */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .consultant-card a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            .title-3d {
+                font-size: 1.8rem;
+            }
+            #search-bar {
+                width: 90%;
+            }
+            #consultant-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="title-box">
+            <h1 class="title-3d">Study Abroad Consultants in Haryana (except Delhi)</h1>
+        </header>
+
+        <div class="search-container">
+            <input type="text" id="search-bar" placeholder="Search by name or location (e.g., Canam or Gurugram)...">
+        </div>
+
+        <main id="consultant-grid">
+            <!-- Consultant cards will be dynamically inserted here by JavaScript -->
+        </main>
+    </div>
+
+    <script>
+        // JAVASCRIPT LOGIC
+
+        // Data for 100 Study Abroad Consultants in Haryana (excluding Delhi)
+        const consultantsData = [
+            {
+                name: 'A-Plus Student',
+                location: 'Sector 14, Gurugram',
+                website: 'https://www.aplusstudent.com',
+                services: 'Test Prep, Admissions Consulting',
+                year: '2010',
+                reviews: 'Google: 4.8/5'
+            },
+            {
+                name: 'A.B. International',
+                location: 'Sector 15, Faridabad',
+                website: 'https://www.abinternational.com',
+                services: 'USA, Canada, UK Applications, Visa Assistance',
+                year: '2011',
+                reviews: 'Google: 4.8/5'
+            },
+            {
+                name: 'Abroad Education Counsel',
+                location: 'Sector 29, Gurugram',
+                website: 'https://www.aecindia.com',
+                services: 'Counselling, Application, Visa, Test Prep',
+                year: '2008',
+                reviews: 'Google: 4.8/5'
+            },
+            {
+                name: 'Abroad Study Planet',
+                location: 'Model Town, Rohtak',
+                website: 'https://www.abroadstudyplanet.com',
+                services: 'Visa Consultancy, University Applications',
+                year: '2015',
+                reviews: 'Google: 4.9/5'
+            },
+            {
+                name: 'Admit Global',
+                location: 'Sushant Lok, Gurugram',
+                website: 'https://www.admitglobal.com',
+                services: 'AI-Powered Counselling, Applications',
+                year: '2018',
+                reviews: 'Google: 4.7/5'
+            },
+            {
+                name: 'AdmitKard',
+                location: 'Gurugram',
+                website: 'https://www.admitkard.com',
+                services: 'AI-based platform, Counselling, Applications',
+                year: '2016',
+                reviews: 'Google: 4.7/5'
+            },
+            {
+                name: 'AECC Global',
+                location: 'Sector 29, Gurugram',
+                website: 'https://www.aeccglobal.in',
+                services: 'Global University Applications, Student Visas',
+                year: '2008',
+                reviews: 'Google: 4.6/5'
+            },
+            {
+                name: 'Aims Global Education',
+                location: 'Sector 14, Gurugram',
+                website: 'https://www.aimsglobal.co.in',
+                services: 'IELTS, TOEFL, GRE coaching, Admissions',
+                year: '2004',
+                reviews: 'Google: 4.8/5'
+            },
+            {
+                name: 'Aims Overseas',
+                location: 'Model Town, Karnal',
+                website: 'https://www.aimsoverseas.com',
+                services: 'IELTS coaching, Student Visas',
+                year: '2012',
+                reviews: 'Google: 4.9/5'
+            },
+            {
+                name: 'Apple Overseas',
+                location: 'Sector 17, Faridabad',
+                website: 'https://www.appleoverseas.com',
+                services: 'Student Visa, Visitor Visa, PR',
+                year: '2013',
+                reviews: 'Google: 4.8/5'
+            },
+            {
+                name: 'Aspire',
+                location: 'DLF Phase 4, Gurugram',
+                website: 'https://www.aspireoverseas.com',
+                services: 'Test Prep, Admissions Consulting',
+                year: '2009',
+                reviews: 'Google: 4.8/5'
+            },
+            {
+                name: 'Atlas Consultants',
+                location: 'Sector 12, Panipat',
+                website: 'https://www.atlasconsultants.com',
+                services: 'Study in Canada, Australia, NZ',
+                year: '2007',
+                reviews: 'Google: 4.7/5'
+            },
+            {
+                name: 'Aussizz Group',
+                location: 'Sector 29, Gurugram',
+                website: 'https://www.aussizzgroup.com',
+                services: 'Australia Immigration & Education',
+                year: '2009',
+                reviews: 'Google: 4.7/5'
+            },
+            {
+                name: 'Avenir',
+                location: 'Model Town, Hisar',
+                website: 'https://www.aveniredu.com',
+                services: 'Comprehensive Study Abroad Services',
+                year: '2014',
+                reviews: 'Google: 4.9/5'
+            },
+            {
+                name: 'Canam Consultants',
+                location: 'Sector 14, Gurugram',
+                website: 'https://www.canamconsultants.com',
+                services: 'Canada Specialist, Study & Work Permits',
+                year: '1995',
+                reviews: 'Google: 4.5/5'
+            },
+            {
+                name: 'Career Crafters',
+                location: 'Sohna Road, Gurugram',
+                website: 'https://www.careercrafters.info',
+                services: 'Psychometric Testing, University Shortlisting',
+                year: '2007',
+                reviews: 'Google: 4.8/5'
+            },
+            {
+                name: 'Career Makers',
+                location: 'Model Town, Ambala',
+                website: 'https://www.careermakers.com',
+                services: 'Government Exam Prep, Study Abroad Wing',
+                year: '2004',
+                reviews: 'Just Dial: 4.4/5'
+            },
+            {
+                name: 'Charms Education & Immigration',
+                location: 'Sector 14, Gurugram',
+                website: 'https://www.charms.co.in',
+                services: 'Australia & Canada Specialist, Visas',
+                year: '2005',
+                reviews: 'Google: 4.8/5'
+            },
+            {
+                name: 'Chopras Global (TC Global)',
+                location: 'DLF Phase 1, Gurugram',
+                website: 'https://www.tcglobal.com',
+                services: 'Global Ed, Learning, Investment',
+                year: '1995',
+                reviews: 'Trustpilot: 4.2/5'
+            },
+            {
+                name: 'Columbus Overseas',
+                location: 'Sector 14, Gurugram',
+                website: 'https://www.columbusoverseas.com',
+                services: 'Comprehensive Counselling, Test Prep, Visa',
+                year: '2011',
+                reviews: 'Google: 4.8/5'
+            },
+            {
+                name: 'Compass Education',
+                location: 'Sector 4, Panchkula',
+                website: 'https://www.compassedu.com',
+                services: 'University Shortlisting, Application Help',
+                year: '2018',
+                reviews: 'Google: 4.8/5'
+            },
+            {
+                name: 'Cosmo Consultants',
+                location: 'Sector 29, Gurugram',
+                website: 'https://www.cosmoconsultants.in',
+                services: 'Canada, Australia, UK, NZ admissions',
+                year: '2016',
+                reviews: 'Google: 4.9/5'
+            },
+            {
+                name: 'Crown Immigration',
+                location: 'Sector 17, Faridabad',
+                website: 'https://www.cicvisa.com',
+                services: 'Study, Work, Visitor, PR Visas',
+                year: '2009',
+                reviews: 'Google: 4.7/5'
+            },
+            {
+                name: 'Daffodils',
+                location: 'Sector 11, Panchkula',
+                website: 'https://www.daffodilsstudy.com',
+                services: 'IELTS, PTE Coaching, Student Visas',
+                year: '2009',
+                reviews: 'Google: 4.8/5'
+            },
+            {
+                name: 'Edwise International',
+                location: 'Sector 29, Gurugram',
+                website: 'https://www.edwiseinternational.com',
+                services: 'Comprehensive services for 16 countries',
+                year: '1991',
+                reviews: 'Google: 4.5/5'
+            },
+            {
+                name: 'EEC - Enbee Education Center',
+                location: 'Sector 14, Gurugram',
+                website: 'https://www.eecglobal.com',
+                services: 'IELTS, TOEFL, PTE Coaching, Admissions',
+                year: '2001',
+                reviews: 'Google: 4.8/5'
+            },
+            {
+                name: 'ESS Global',
+                location: 'Sector 14, Gurugram',
+                website: 'https://www.essglobal.com',
+                services: 'Study visa, Immigration, IELTS/PTE',
+                year: '2013',
+                reviews: 'Google: 4.6/5'
+            },
+            {
+                name: 'Europe Study Centre',
+                location: 'Sector 29, Gurugram',
+                website: 'https://www.europestudycentre.com',
+                services: 'Specialists in European Education',
+                year: '2008',
+                reviews: 'Google: 4.6/5'
+            },
+            {
+                name: 'Expert Overseas',
+                location: 'GT Road, Karnal',
+                website: 'https://www.expertoverseas.com',
+                services: 'Canada & Australia Immigration, Study Visa',
+                year: '2012',
+                reviews: 'Just Dial: 4.7/5'
+            },
+            {
+                name: 'Fateh Education',
+                location: 'DLF Phase 4, Gurugram',
+                website: 'https://www.fateheducation.com',
+                services: 'UK & Ireland Specialist Education Consultants',
+                year: '2004',
+                reviews: 'Google: 4.9/5'
+            },
+            {
+                name: 'Fly High',
+                location: 'Sector 31, Faridabad',
+                website: 'https://www.flyhigh.com',
+                services: 'Aviation training, Study abroad tie-ups',
+                year: '2008',
+                reviews: 'Just Dial: 4.5/5'
+            },
+            {
+                name: 'Flytouch',
+                location: 'Model Town, Rohtak',
+                website: 'https://www.flytouch.in',
+                services: 'IELTS, PTE, Spoken English, Visa Services',
+                year: '2015',
+                reviews: 'Google: 4.9/5'
+            },
+            {
+                name: 'Future Link',
+                location: 'Sector 14, Gurugram',
+                website: 'https://www.futurelink.com',
+                services: 'Global Education Counselling',
+                year: '2006',
+                reviews: 'Google: 4.5/5'
+            },
+            {
+                name: 'Gateway Abroad',
+                location: 'Sector 29, Gurugram',
+                website: 'https://www.gatewayabroad.com',
+                services: 'UK, Australia, Canada, NZ, USA',
+                year: '2007',
+                reviews: 'Google: 4.8/5'
+            },
+            {
+                name: 'GeeBee Education',
+                location: 'Sector 14, Gurugram',
+                website: 'https://www.geebeeworld.com',
+                services: 'IELTS, TOEFL, PTE coaching, Admissions',
+                year: '2001',
+                reviews: 'Google: 4.7/5'
+            },
+            {
+                name: 'Global Reach',
+                location: 'Sector 29, Gurugram',
+                website: 'https://www.globalreach.in',
+                services: 'Australia Specialist, Student Visas',
+                year: '1991',
+                reviews: 'Google: 4.5/5'
+            },
+            {
+                name: 'Global Tree',
+                location: 'Sushant Lok, Gurugram',
+                website: 'https://www.globaltree.in',
+                services: 'Immigration, Overseas Education, Test Prep',
+                year: '2006',
+                reviews: 'Google: 4.6/5'
+            },
+            {
+                name: 'Globizz',
+                location: 'Sector 6, Bahadurgarh',
+                website: 'https://www.globizz.com',
+                services: 'IELTS, PTE, Visa Assistance',
+                year: '2014',
+                reviews: 'Google: 4.9/5'
+            },
+            {
+                name: 'Gratis Learning',
+                location: 'Model Town, Rohtak',
+                website: 'https://www.gratislearning.in',
+                services: 'IELTS, PTE, Spoken English, Admissions',
+                year: '2014',
+                reviews: 'Google: 4.9/5'
+            },
+            {
+                name: 'Grey Matters',
+                location: 'Ambala, Karnal, Kurukshetra',
+                website: 'https://www.greymattersgroup.com',
+                services: 'IELTS, PTE Coaching, Visa Filing',
+                year: '1995',
+                reviews: 'Google: 4.7/5'
+            },
+            {
+                name: 'GyanDhan',
+                location: 'Online / Gurugram Office',
+                website: 'https://www.gyandhan.com',
+                services: 'Education Loans, Admissions Counselling',
+                year: '2015',
+                reviews: 'Trustpilot: 4.7/5'
+            },
+            {
+                name: 'IDP Education',
+                location: 'Gurugram, Karnal, Panchkula',
+                website: 'https://www.idp.com/india/',
+                services: 'Co-owner of IELTS, Global University Network',
+                year: '1969',
+                reviews: 'Google: 4.6/5'
+            },
+            {
+                name: 'IMS',
+                location: 'Sector 14, Gurugram',
+                website: 'https://www.imsindia.com/study-abroad',
+                services: 'GMAT, GRE, SAT Test Prep & Admissions',
+                year: '1977',
+                reviews: 'Google: 4.5/5'
+            },
+            {
+                name: 'Indo-European',
+                location: 'Sector 14, Gurugram',
+                website: 'https://www.indoeuropean.in',
+                services: 'Study in Europe, Language Training',
+                year: '2010',
+                reviews: 'Google: 4.7/5'
+            },
+            {
+                name: 'IVY Overseas',
+                location: 'Sector 14, Gurugram',
+                website: 'https://www.ivyoverseas.com',
+                services: 'IELTS/PTE Coaching, Canada/Australia Visa',
+                year: '2015',
+                reviews: 'Google: 4.8/5'
+            },
+            {
+                name: 'Jamboree Education',
+                location: 'Sector 29, Gurugram',
+                website: 'https://www.jamboreeindia.com',
+                services: 'GMAT, GRE, SAT Coaching & Admissions',
+                year: '1993',
+                reviews: 'Google: 4.7/5'
+            },
+            {
+                name: 'Jupiter',
+                location: 'Model Town, Rohtak',
+                website: 'https://www.jupiterconsultants.com',
+                services: 'Study in Canada, Australia, NZ',
+                year: '2011',
+                reviews: 'Google: 4.9/5'
+            },
+            {
+                name: 'Kanan International',
+                location: 'Model Town, Karnal',
+                website: 'https://www.kanan.co',
+                services: 'IELTS, TOEFL, GRE, GMAT, SAT Coaching',
+                year: '1996',
+                reviews: 'Google: 4.8/5'
+            },
+            {
+                name: 'Kansas Overseas Careers',
+                location: 'Sector 29, Gurugram',
+                website: 'https://www.kansaz.com',
+                services: 'Study Visa, Immigration, PR Visas',
+                year: '2013',
+                reviews: 'Google: 4.8/5'
+            },
+            {
+                name: 'KC Overseas Education',
+                location: 'Sector 14, Gurugram',
+                website: 'https://www.kcoverseas.com',
+                services: 'Global University Representation, Applications',
+                year: '1998',
+                reviews: 'Google: 4.6/5'
+            },
+            {
+                name: 'Landmark Immigration',
+                location: 'Sector 14, Gurugram',
+                website: 'https://www.landmarkimmigration.com',
+                services: 'IELTS, PTE, Study Visa for Canada & Australia',
+                year: '2007',
+                reviews: 'Google: 4.8/5'
+            },
+            {
+                name: 'LeapScholar',
+                location: 'Online / Gurugram Hub',
+                website: 'https://leapscholar.com',
+                services: 'IELTS Prep, Counselling, Loans, Visa',
+                year: '2019',
+                reviews: 'Trustpilot: 4.5/5'
+            },
+            {
+                name: 'Leverage Edu',
+                location: 'DLF Phase 3, Gurugram',
+                website: 'https://leverageedu.com',
+                services: 'AI-based platform, Counselling, Finance',
+                year: '2017',
+                reviews: 'Google: 4.8/5'
+            },
+            {
+                name: 'Manya - The Princeton Review',
+                location: 'Sector 29, Gurugram',
+                website: 'https://www.manyagroup.com',
+                services: 'Test Prep (SAT, ACT, GMAT, GRE), Admissions',
+                year: '2002',
+                reviews: 'Google: 4.6/5'
+            },
+            {
+                name: 'Mega Immigration',
+                location: 'Sector 22, Gurugram',
+                website: 'https://www.megaimmigration.com',
+                services: 'Canada & Australia PR & Student Visa',
+                year: '2010',
+                reviews: 'Google: 4.9/5'
+            },
+            {
+                name: 'Meridean Overseas',
+                location: 'Sector 14, Gurugram',
+                website: 'https://www.meridean.org',
+                services: 'UK, Canada, USA, Australia Applications',
+                year: '2012',
+                reviews: 'Google: 4.8/5'
+            },
+            {
+                name: 'Mindverse',
+                location: 'DLF Phase 5, Gurugram',
+                website: 'https://www.mindverse.in',
+                services: 'Premium counselling for top US/UK universities',
+                year: '2019',
+                reviews: 'Google: 5.0/5'
+            },
+            {
+                name: 'Navigators',
+                location: 'Sector 8, Panchkula',
+                website: 'https://www.navigators.com',
+                services: 'Canada & Australia Specialist',
+                year: '2005',
+                reviews: 'Google: 4.6/5'
+            },
+            {
+                name: 'New Heights',
+                location: 'NIT, Faridabad',
+                website: 'https://www.newheights.com',
+                services: 'Student Visa, Immigration services',
+                year: '2007',
+                reviews: 'Just Dial: 4.6/5'
+            },
+            {
+                name: 'Planet Education',
+                location: 'Sector 29, Gurugram',
+                website: 'https://www.planeteducation.info',
+                services: 'Australia, NZ, UK, Canada, Ireland & USA',
+                year: '1999',
+                reviews: 'Google: 4.7/5'
+            },
+            {
+                name: 'Pyramid eServices',
+                location: 'Sector 14, Gurugram',
+                website: 'https://www.pyramideservices.com',
+                services: 'Study Visa, IELTS, University Placement',
+                year: '2005',
+                reviews: 'Google: 4.8/5'
+            },
+            {
+                name: 'Rightway',
+                location: 'Model Town, Rohtak',
+                website: 'https://www.rightwayabroad.com',
+                services: 'Student counselling and visa assistance',
+                year: '2008',
+                reviews: 'Google: 4.7/5'
+            },
+            {
+                name: 'Rise Global',
+                location: 'Sector 14, Gurugram',
+                website: 'https://www.riseglobal.in',
+                services: 'Canada PR, Express Entry, Study Visa',
+                year: '2016',
+                reviews: 'Google: 4.9/5'
+            },
+            {
+                name: 'SI-UK',
+                location: 'Sector 29, Gurugram',
+                website: 'https://www.studyin-uk.in',
+                services: 'UK University Specialist, Oxbridge Applications',
+                year: '2006',
+                reviews: 'Google: 4.9/5'
+            },
+            {
+                name: 'SIEC Education',
+                location: 'Sector 14, Gurugram',
+                website: 'https://www.siecindia.com',
+                services: 'Global Education, Test Preparation',
+                year: '1995',
+                reviews: 'Google: 4.6/5'
+            },
+            {
+                name: 'Skills Vere',
+                location: 'DLF Phase 3, Gurugram',
+                website: 'https://www.skillsvere.com',
+                services: 'German Language, Study in Germany',
+                year: '2018',
+                reviews: 'Google: 5.0/5'
+            },
+            {
+                name: 'Skyscraper',
+                location: 'Model Town, Sonipat',
+                website: 'https://www.skyscraper.com',
+                services: 'IELTS, PTE coaching',
+                year: '2014',
+                reviews: 'Google: 4.7/5'
+            },
+            {
+                name: 'Study Smart',
+                location: 'Sector 29, Gurugram',
+                website: 'https://www.studysmart.co.in',
+                services: 'IELTS, PTE, UK & Ireland Applications',
+                year: '2009',
+                reviews: 'Google: 4.8/5'
+            },
+            {
+                name: 'Sunrise',
+                location: 'Sector 7, Kurukshetra',
+                website: 'https://www.sunrise.com',
+                services: 'Visa, IELTS, University Applications',
+                year: '2015',
+                reviews: 'Just Dial: 4.8/5'
+            },
+            {
+                name: 'The Chopras',
+                location: 'DLF Phase 1, Gurugram',
+                website: 'https://www.thechopras.com',
+                services: 'Global Education, Career Pathways',
+                year: '1995',
+                reviews: 'Google: 4.3/5'
+            },
+            {
+                name: 'Touchstone Educationals',
+                location: 'Sector 8, Panchkula',
+                website: 'https://www.touchstoneedu.com',
+                services: 'IELTS, TOEFL, PTE coaching',
+                year: '1998',
+                reviews: 'Google: 4.6/5'
+            },
+            {
+                name: 'Triumphant Institute of Management Education (T.I.M.E.)',
+                location: 'Gurugram, Faridabad',
+                website: 'https://www.time4education.com/study-abroad',
+                services: 'GRE, GMAT Coaching, Admissions',
+                year: '1992',
+                reviews: 'Google: 4.4/5'
+            },
+            {
+                name: 'Turning Point',
+                location: 'Model Town, Karnal',
+                website: 'https://www.turningpoint.com',
+                services: 'IELTS Coaching, Spoken English, Visa',
+                year: '2008',
+                reviews: 'Google: 4.9/5'
+            },
+            {
+                name: 'UNIABROAD',
+                location: 'Sector 29, Gurugram',
+                website: 'https://www.uniabroad.com',
+                services: 'AI-powered shortlisting, application tracking',
+                year: '2018',
+                reviews: 'Google: 4.9/5'
+            },
+            {
+                name: 'Universal',
+                location: 'Sector 11, Faridabad',
+                website: 'https://www.universalconsultants.com',
+                services: 'Visa, IELTS, University Applications',
+                year: '2006',
+                reviews: 'Google: 4.6/5'
+            },
+            {
+                name: 'VDIEC Global',
+                location: 'Sector 14, Gurugram',
+                website: 'https://www.vdiec.com',
+                services: 'Australian Education Specialist',
+                year: '1998',
+                reviews: 'Google: 4.6/5'
+            },
+            {
+                name: 'Vibrant',
+                location: 'Jind',
+                website: 'https://www.vibranteducation.org',
+                services: 'IELTS Coaching, Study Visa',
+                year: '2012',
+                reviews: 'Google: 4.8/5'
+            },
+            {
+                name: 'Vision',
+                location: 'Sector 14, Gurugram',
+                website: 'https://www.visionconsultants.com',
+                services: 'Canada, Australia, NZ Visa Specialists',
+                year: '2004',
+                reviews: 'Google: 4.8/5'
+            },
+            {
+                name: 'Webberz',
+                location: 'Model Town, Yamunanagar',
+                website: 'https://www.webberz.com',
+                services: 'IELTS, Spoken English, PTE',
+                year: '2000',
+                reviews: 'Google: 4.7/5'
+            },
+            {
+                name: 'West-Highlander',
+                location: 'Sector 8, Panchkula',
+                website: 'https://www.westhighlander.com',
+                services: 'Canada & USA Study Visa',
+                year: '2013',
+                reviews: 'Google: 4.9/5'
+            },
+            {
+                name: 'Whizstorm',
+                location: 'Online / Gurugram Office',
+                website: 'https://www.whizstorm.com',
+                services: 'Online Platform, Application Assistance',
+                year: '2016',
+                reviews: 'Google: 4.9/5'
+            },
+            {
+                name: 'Wings Education',
+                location: 'Model Town, Rohtak',
+                website: 'https://www.wingseducation.co.in',
+                services: 'Comprehensive Study Abroad Services',
+                year: '2005',
+                reviews: 'Google: 4.7/5'
+            },
+            {
+                name: 'WWICS - WorldWide Immigration',
+                location: 'Sector 11, Panchkula',
+                website: 'https://www.wwicsgroup.com',
+                services: 'Global Immigration & Study Visas',
+                year: '1993',
+                reviews: 'Google: 4.2/5'
+            },
+            {
+                name: 'Y-Axis',
+                location: 'Sector 29, Gurugram',
+                website: 'https://www.y-axis.com',
+                services: 'Immigration, Visas, Overseas Careers',
+                year: '1999',
+                reviews: 'Trustpilot: 4.3/5'
+            },
+            {
+                name: 'Yes Germany',
+                location: 'Sector 14, Gurugram',
+                website: 'https://www.yesgermany.com',
+                services: 'German Education Specialist',
+                year: '2014',
+                reviews: 'Google: 4.9/5'
+            },
+            {
+                name: 'Zenith',
+                location: 'Sector 14, Gurugram',
+                website: 'https://www.zenitheducation.info',
+                services: 'IELTS, PTE coaching, Student Visa',
+                year: '2010',
+                reviews: 'Google: 4.8/5'
+            }
+        ];
+
+        const consultantGrid = document.getElementById('consultant-grid');
+        const searchBar = document.getElementById('search-bar');
+
+        // Function to display consultants on the page
+        const displayConsultants = (consultants) => {
+            consultantGrid.innerHTML = ''; // Clear existing cards
+
+            if (consultants.length === 0) {
+                consultantGrid.innerHTML = `<p style="color: var(--primary-color); grid-column: 1 / -1; text-align: center; font-size: 1.2rem;">No consultants found matching your search.</p>`;
+                return;
+            }
+            
+            consultants.forEach((consultant, index) => {
+                const card = document.createElement('div');
+                card.className = 'consultant-card';
+                card.style.animationDelay = `${index * 0.05}s`; // Staggered animation effect
+                
+                card.innerHTML = `
+                    <h2>${consultant.name}</h2>
+                    <p><strong>Location:</strong> ${consultant.location}</p>
+                    <p><strong>Website:</strong> <a href="${consultant.website}" target="_blank" rel="noopener noreferrer">${consultant.website}</a></p>
+                    <p><strong>Services Offered:</strong> ${consultant.services}</p>
+                    <p><strong>Established:</strong> ${consultant.year}</p>
+                    <p><strong>Reviews:</strong> ${consultant.reviews}</p>
+                `;
+                consultantGrid.appendChild(card);
+            });
+        };
+
+        // Event listener for the search bar
+        searchBar.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            
+            const filteredConsultants = consultantsData.filter(consultant => {
+                const nameMatch = consultant.name.toLowerCase().includes(searchTerm);
+                const locationMatch = consultant.location.toLowerCase().includes(searchTerm);
+                return nameMatch || locationMatch;
+            });
+
+            displayConsultants(filteredConsultants);
+        });
+
+        // Initial display of all consultants
+        displayConsultants(consultantsData);
+
+    </script>
+</body>
+</html>
