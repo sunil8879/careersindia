@@ -1,0 +1,1842 @@
+const mdesCollegesInMumbai = [
+  {
+    "name": "Industrial Design Centre (IDC), IIT Bombay",
+    "location": "Powai, Mumbai",
+    "feesAndDuration": "Approx. ₹3 - 4 Lakhs for 2 Years. Duration: 2 Years.",
+    "nirfRanking": "IIT Bombay is ranked 3rd in Engineering (2023). IDC is a department within it.",
+    "accreditations": "Institute of National Importance, AICTE Approved",
+    "establishmentYear": 1969,
+    "website": "https://www.idc.iitb.ac.in/"
+  },
+  {
+    "name": "National Institute of Design (NID), Mumbai Campus",
+    "location": "Kurla, Mumbai",
+    "feesAndDuration": "Primarily offers short-term courses and is a newer center. Check website for specific PG programs. Duration: Varies.",
+    "nirfRanking": "NID Ahmedabad is ranked 1st in Design (2023). The Mumbai campus is an extension.",
+    "accreditations": "Institute of National Importance",
+    "establishmentYear": 2015,
+    "website": "https://www.nid.edu/admissions"
+  },
+  {
+    "name": "Pearl Academy, Mumbai",
+    "location": "Andheri East, Mumbai",
+    "feesAndDuration": "Approx. ₹12 - 15 Lakhs for 2 Years. Duration: 2 Years (Post-Graduate Diploma Program).",
+    "nirfRanking": "N/A (Private Institute)",
+    "accreditations": "Affiliated with Mumbai University's Garware Institute of Career Education and Development (GICED), Offers international degree options.",
+    "establishmentYear": 1993,
+    "website": "https://pearlacademy.com/campuses/mumbai/"
+  },
+  {
+    "name": "ISDI School of Design & Innovation",
+    "location": "Lower Parel, Mumbai",
+    "feesAndDuration": "Approx. ₹12 - 16 Lakhs for 2 Years. Duration: 2 Years (PG Diploma).",
+    "nirfRanking": "N/A (Private Institute)",
+    "accreditations": "Collaboration with Parsons School of Design, The New School, New York. Part of Atlas SkillTech University (UGC recognized).",
+    "establishmentYear": 2013,
+    "website": "https://www.isdi.in/"
+  },
+  {
+    "name": "Whistling Woods International (WWI)",
+    "location": "Film City, Goregaon East, Mumbai",
+    "feesAndDuration": "Approx. ₹10 - 20 Lakhs for 2 Years. Duration: 2 Years (MA / PG Diploma).",
+    "nirfRanking": "N/A (Private Institute)",
+    "accreditations": "Affiliated with Tata Institute of Social Sciences (TISS).",
+    "establishmentYear": 2006,
+    "website": "https://www.whistlingwoods.net/"
+  },
+  {
+    "name": "Sir J.J. Institute of Applied Art",
+    "location": "Fort, Mumbai",
+    "feesAndDuration": "Highly subsidized government fees. Approx. < ₹1 Lakh for 2 years. Duration: 2 Years (Master of Fine Arts).",
+    "nirfRanking": "N/A",
+    "accreditations": "Government of Maharashtra, Affiliated to University of Mumbai.",
+    "establishmentYear": 1935,
+    "website": "http://www.jjiaa.org/"
+  },
+  {
+    "name": "Rachana Sansad School of Design",
+    "location": "Prabhadevi, Mumbai",
+    "feesAndDuration": "Varies by course. Approx. ₹4 - 6 Lakhs for 2 Years. Duration: 2 Years (PG Programs).",
+    "nirfRanking": "N/A",
+    "accreditations": "Affiliated with University of Mumbai for degree courses, offers autonomous diplomas.",
+    "establishmentYear": 1960,
+    "website": "https://www.rachanasansad.edu.in/"
+  },
+  {
+    "name": "ITM Institute of Design and Media (ITM-IDM)",
+    "location": "Nerul, Navi Mumbai",
+    "feesAndDuration": "Approx. ₹8 - 10 Lakhs for 2 Years. Duration: 2 Years.",
+    "nirfRanking": "N/A",
+    "accreditations": "Part of ITM Group of Institutions, AICTE approved for some programs.",
+    "establishmentYear": 2010,
+    "website": "https://www.itm.edu/idm/"
+  },
+  {
+    "name": "Amity University, Mumbai",
+    "location": "Panvel, Mumbai-Pune Expressway (MMR)",
+    "feesAndDuration": "Approx. ₹4 - 5 Lakhs for 2 Years. Duration: 2 Years (M.Des).",
+    "nirfRanking": "N/A",
+    "accreditations": "UGC Recognized, Member of AIU.",
+    "establishmentYear": 2014,
+    "website": "https://www.amity.edu/mumbai/"
+  },
+  {
+    "name": "Ecole Intuit Lab",
+    "location": "Prabhadevi, Mumbai",
+    "feesAndDuration": "Varies. Duration: 18 months to 2 Years (Master's level programs).",
+    "nirfRanking": "N/A (French Private Institute)",
+    "accreditations": "French Ministry of Higher Education recognized diploma (RNCP Level 7).",
+    "establishmentYear": 2011,
+    "website": "https://ecole-intuit-lab.co.in/"
+  },
+  {
+    "name": "DY Patil International University, School of Design",
+    "location": "Akurdi, Pune (Often considered by Mumbai students, though not in MMR)",
+    "feesAndDuration": "Approx. ₹8 - 10 Lakhs for 2 Years. Duration: 2 Years (M.Des).",
+    "nirfRanking": "N/A",
+    "accreditations": "UGC Recognized.",
+    "establishmentYear": 2018,
+    "website": "https://dypiu.ac.in/school-of-design"
+  },
+  {
+    "name": "INIFD (International Institute of Fashion Design)",
+    "location": "Multiple centers in Mumbai (Andheri, Thane, Vashi)",
+    "feesAndDuration": "Varies by center and specialization. Duration: 1-2 Years (PG Diploma).",
+    "nirfRanking": "N/A",
+    "accreditations": "Partnerships with London School of Trends, offers certificate courses.",
+    "establishmentYear": 1995,
+    "website": "https://www.inifd.edu.in/"
+  },
+  {
+    "name": "FX School",
+    "location": "Andheri West, Mumbai",
+    "feesAndDuration": "Varies significantly by course. Duration: 1-2 Years (Advanced Diploma / Professional Courses).",
+    "nirfRanking": "N/A",
+    "accreditations": "Private vocational training institute, industry-recognized certifications.",
+    "establishmentYear": 2008,
+    "website": "https://www.fxschool.in/"
+  },
+  {
+    "name": "Frameboxx Animation & Visual Effects",
+    "location": "Multiple centers (Andheri, Thane, etc.)",
+    "feesAndDuration": "Varies. Duration: 1-2 Years (Expert / Master Programs).",
+    "nirfRanking": "N/A",
+    "accreditations": "Private training institute, often affiliated with universities like YCMOU for degree programs.",
+    "establishmentYear": 2008,
+    "website": "https://www.frameboxx.in/"
+  },
+  {
+    "name": "MAAC (Maya Academy of Advanced Cinematics)",
+    "location": "Multiple centers across Mumbai",
+    "feesAndDuration": "Varies. Duration: 18-24 months for advanced diploma programs.",
+    "nirfRanking": "N/A",
+    "accreditations": "Private training institute, part of Aptech Ltd.",
+    "establishmentYear": 2001,
+    "website": "https://www.maacindia.com/"
+  },
+  {
+    "name": "Arena Animation",
+    "location": "Multiple centers across Mumbai",
+    "feesAndDuration": "Varies. Duration: 18-24 months for advanced diploma programs.",
+    "nirfRanking": "N/A",
+    "accreditations": "Private training institute, part of Aptech Ltd.",
+    "establishmentYear": 1996,
+    "website": "https://www.arena-multimedia.com/"
+  },
+  {
+    "name": "FAD International",
+    "location": "Bandra, Mumbai",
+    "feesAndDuration": "Varies. Duration: 1 Year (PG Diploma in Fashion, Style etc.).",
+    "nirfRanking": "N/A",
+    "accreditations": "Partnerships with international universities like University of Northampton.",
+    "establishmentYear": 2007,
+    "website": "https://www.fadinternational.com/"
+  },
+  {
+    "name": "Indian School of Design and Innovation (ISDI) - Part of Atlas SkillTech University",
+    "location": "Lower Parel, Mumbai",
+    "feesAndDuration": "Approx. ₹12 - 16 Lakhs for 2 Years. Duration: 2 Years (PG Diploma).",
+    "nirfRanking": "N/A",
+    "accreditations": "UGC recognized via Atlas SkillTech University.",
+    "establishmentYear": 2013,
+    "website": "https://atlasuniversity.edu.in/isdi/"
+  },
+  {
+    "name": "Garware Institute of Career Education and Development (GICED)",
+    "location": "Kalina, University of Mumbai",
+    "feesAndDuration": "Affordable university fees. Duration: 1-2 Years (PG Diplomas).",
+    "nirfRanking": "N/A",
+    "accreditations": "Part of the University of Mumbai.",
+    "establishmentYear": 1984,
+    "website": "https://mu.ac.in/garware-institute-of-career-education-and-development"
+  },
+  {
+    "name": "Istituto Marangoni",
+    "location": "Worli, Mumbai",
+    "feesAndDuration": "Premium fees, varies by course. Duration: 1 Year (Master's level professional courses).",
+    "nirfRanking": "N/A (Italian Private Institute)",
+    "accreditations": "Recognized by Italian and UK education systems.",
+    "establishmentYear": 2017,
+    "website": "https://www.istitutomarangoni.com/en/schools/mumbai-school-of-fashion-art-design"
+  },
+  {
+    "name": "SOFT - School of Fashion Technology (Mumbai Outreach)",
+    "location": "Programs and workshops in Mumbai, main campus in Pune.",
+    "feesAndDuration": "Varies. Check website for specific Mumbai programs. Main M.Des in Pune.",
+    "nirfRanking": "N/A",
+    "accreditations": "Affiliated to Savitribai Phule Pune University.",
+    "establishmentYear": 1998,
+    "website": "https://soft.ac.in/"
+  },
+  {
+    "name": "B. D. Somani Institute of Art and Fashion Technology",
+    "location": "Cuffe Parade, Mumbai",
+    "feesAndDuration": "Varies. Duration: 1-2 Years (Advanced Diploma programs).",
+    "nirfRanking": "N/A",
+    "accreditations": "Affiliated with the Garware Institute of Career Education and Development (GICED), University of Mumbai.",
+    "establishmentYear": 1999,
+    "website": "http://www.bdsomani.com/"
+  },
+  {
+    "name": "SNDT Women's University, Department of Communication Media",
+    "location": "Juhu, Mumbai",
+    "feesAndDuration": "Affordable university fees. Duration: 2 Years (MA in Communication Media).",
+    "nirfRanking": "N/A",
+    "accreditations": "UGC Recognized, NAAC Accredited.",
+    "establishmentYear": 1916,
+    "website": "https://sndt.ac.in/"
+  }
+];
+
+
+
+
+
+
+
+const mdesCollegesInDelhiNCR = [
+  {
+    "name": "National Institute of Fashion Technology (NIFT), Delhi",
+    "location": "Hauz Khas, New Delhi",
+    "feesAndDuration": "Approx. ₹5 - 6 Lakhs for 2 Years. Duration: 2 Years (M.Des).",
+    "nirfRanking": "Ranked 1st in Fashion Technology (2023).",
+    "accreditations": "Set up under an act of the Indian Parliament (NIFT Act 2006), Institute of National Importance.",
+    "establishmentYear": 1986,
+    "website": "https://www.nift.ac.in/delhi/"
+  },
+  {
+    "name": "Department of Design, IIT Delhi",
+    "location": "Hauz Khas, New Delhi",
+    "feesAndDuration": "Approx. ₹3 - 4 Lakhs for 2 Years. Duration: 2 Years.",
+    "nirfRanking": "IIT Delhi is ranked 2nd in Engineering (2023). The Dept. of Design is a key department within it.",
+    "accreditations": "Institute of National Importance, AICTE Approved.",
+    "establishmentYear": 1994,
+    "website": "http://design.iitd.ac.in/"
+  },
+  {
+    "name": "National Institute of Design (NID), Kurukshetra",
+    "location": "Kurukshetra, Haryana (Considered within the broader NCR influence for design aspirants)",
+    "feesAndDuration": "Approx. ₹8 - 10 Lakhs for 2 Years. Duration: 2 Years.",
+    "nirfRanking": "Part of the NID network; NID Ahmedabad is ranked 1st in Design (2023).",
+    "accreditations": "Institute of National Importance.",
+    "establishmentYear": 2016,
+    "website": "https://nidk.ac.in/"
+  },
+  {
+    "name": "Pearl Academy, Delhi-NCR",
+    "location": "Naraina and Noida, Delhi-NCR",
+    "feesAndDuration": "Approx. ₹12 - 16 Lakhs for 2 Years. Duration: 2 Years (Post-Graduate Diploma Program).",
+    "nirfRanking": "N/A (Private Institute)",
+    "accreditations": "Partnerships with international universities, offers professional diplomas.",
+    "establishmentYear": 1993,
+    "website": "https://pearlacademy.com/"
+  },
+  {
+    "name": "Indian Institute of Art and Design (IIAD)",
+    "location": "Okhla, New Delhi",
+    "feesAndDuration": "Approx. ₹10 - 12 Lakhs for 2 Years. Duration: 2 Years (MA Program).",
+    "nirfRanking": "N/A (Private Institute)",
+    "accreditations": "In collaboration with Kingston University, London. Offers a Kingston University MA degree.",
+    "establishmentYear": 2015,
+    "website": "https://www.iiad.edu.in/"
+  },
+  {
+    "name": "School of Planning and Architecture (SPA), Delhi",
+    "location": "ITO, New Delhi",
+    "feesAndDuration": "Approx. ₹3 - 4 Lakhs for 2 Years. Duration: 2 Years (Master of Industrial Design).",
+    "nirfRanking": "Ranked 4th in Architecture (2023).",
+    "accreditations": "Institute of National Importance, AICTE Approved.",
+    "establishmentYear": 1959,
+    "website": "http://spa.ac.in/"
+  },
+  {
+    "name": "Sushant University (formerly Ansal University), School of Design",
+    "location": "Gurugram, Haryana",
+    "feesAndDuration": "Approx. ₹6 - 8 Lakhs for 2 Years. Duration: 2 Years (M.Des).",
+    "nirfRanking": "N/A",
+    "accreditations": "UGC Recognized.",
+    "establishmentYear": 2012,
+    "website": "https://sushantuniversity.edu.in/school-of-design"
+  },
+  {
+    "name": "Amity University, Noida",
+    "location": "Sector 125, Noida",
+    "feesAndDuration": "Approx. ₹4 - 6 Lakhs for 2 Years. Duration: 2 Years (M.Des).",
+    "nirfRanking": "N/A",
+    "accreditations": "UGC Recognized, NAAC 'A+' Grade.",
+    "establishmentYear": 2005,
+    "website": "https://www.amity.edu/noida/"
+  },
+  {
+    "name": "GD Goenka University, School of Design",
+    "location": "Sohna Road, Gurugram",
+    "feesAndDuration": "Approx. ₹5 - 7 Lakhs for 2 Years. Duration: 2 Years (M.Des / MSc Design).",
+    "nirfRanking": "N/A",
+    "accreditations": "UGC Recognized, NCHMCT, BCI.",
+    "establishmentYear": 2013,
+    "website": "https://www.gdgoenkauniversity.com/school-of-fashion-design"
+  },
+  {
+    "name": "Sharda University, School of Design",
+    "location": "Greater Noida, Uttar Pradesh",
+    "feesAndDuration": "Approx. ₹4 - 5 Lakhs for 2 Years. Duration: 2 Years (M.Des).",
+    "nirfRanking": "N/A",
+    "accreditations": "UGC Recognized, NAAC 'A+' Grade.",
+    "establishmentYear": 2009,
+    "website": "https://www.sharda.ac.in/"
+  },
+  {
+    "name": "College of Art, Delhi",
+    "location": "Tilak Marg, New Delhi",
+    "feesAndDuration": "Highly subsidized government fees. Approx. < ₹50,000 for 2 years. Duration: 2 Years (Master of Fine Arts).",
+    "nirfRanking": "N/A",
+    "accreditations": "Affiliated to University of Delhi (status may be subject to change).",
+    "establishmentYear": 1942,
+    "website": "http://delhiarts.org/"
+  },
+  {
+    "name": "Jamia Millia Islamia, Faculty of Fine Arts",
+    "location": "Okhla, New Delhi",
+    "feesAndDuration": "Highly subsidized government fees. Approx. < ₹50,000 for 2 years. Duration: 2 Years (M.F.A.).",
+    "nirfRanking": "Ranked 3rd among Universities (2023).",
+    "accreditations": "Central University, NAAC 'A++' Grade.",
+    "establishmentYear": 1920,
+    "website": "https://www.jmi.ac.in/faa"
+  },
+  {
+    "name": "IMS Design and Innovation Academy (DIA)",
+    "location": "Sector 62, Noida",
+    "feesAndDuration": "Varies by specialization. Duration: 2 Years (PG Diploma).",
+    "nirfRanking": "N/A",
+    "accreditations": "Affiliated with CCS University for degree programs.",
+    "establishmentYear": 2005,
+    "website": "https://www.diaindia.co.in/"
+  },
+  {
+    "name": "Apeejay Institute of Design (AID)",
+    "location": "Tughlakabad Institutional Area, New Delhi",
+    "feesAndDuration": "Approx. ₹6 - 8 Lakhs for 2 Years. Duration: 2 Years.",
+    "nirfRanking": "N/A",
+    "accreditations": "Affiliated to Apeejay Stya University.",
+    "establishmentYear": 1991,
+    "website": "https://aid.edu.in/"
+  },
+  {
+    "name": "WLC College India (WLCI)",
+    "location": "Multiple centers, including Noida.",
+    "feesAndDuration": "Varies. Duration: 1-2 Years (Professional / PG Diploma programs).",
+    "nirfRanking": "N/A",
+    "accreditations": "Private vocational training institute with international partnerships.",
+    "establishmentYear": 1996,
+    "website": "https://www.wlci.in/"
+  },
+  {
+    "name": "MAAC (Maya Academy of Advanced Cinematics)",
+    "location": "Multiple centers across Delhi-NCR (e.g., Pitampura, South Ex, Noida).",
+    "feesAndDuration": "Varies based on course. Duration: 18-24 months for advanced diploma programs.",
+    "nirfRanking": "N/A",
+    "accreditations": "Private training institute, part of Aptech Ltd.",
+    "establishmentYear": 2001,
+    "website": "https://www.maacindia.com/"
+  },
+  {
+    "name": "Arena Animation",
+    "location": "Multiple centers across Delhi-NCR (e.g., Connaught Place, Preet Vihar).",
+    "feesAndDuration": "Varies. Duration: 18-24 months for advanced diploma programs.",
+    "nirfRanking": "N/A",
+    "accreditations": "Private training institute, part of Aptech Ltd.",
+    "establishmentYear": 1996,
+    "website": "https://www.arena-multimedia.com/"
+  },
+  {
+    "name": "Frameboxx Animation & Visual Effects",
+    "location": "Multiple centers in Delhi-NCR.",
+    "feesAndDuration": "Varies. Duration: 1-2 Years (Expert / Master Programs).",
+    "nirfRanking": "N/A",
+    "accreditations": "Private training institute, partners with universities for degree options.",
+    "establishmentYear": 2008,
+    "website": "https://www.frameboxx.in/"
+  },
+  {
+    "name": "Lisa School of Design",
+    "location": "Hauz Khas Village, New Delhi",
+    "feesAndDuration": "Varies. Offers Master's level programs. Duration: 2 Years.",
+    "nirfRanking": "N/A (French Private Institute)",
+    "accreditations": "Part of a French network of design schools, offers internationally recognized diplomas.",
+    "establishmentYear": 2014,
+    "website": "https://www.lisaadelhi.com/"
+  },
+  {
+    "name": "International School of Design (INSD)",
+    "location": "Multiple centers in Delhi-NCR.",
+    "feesAndDuration": "Varies by center. Offers Master's/PG Diploma programs. Duration: 2 Years.",
+    "nirfRanking": "N/A",
+    "accreditations": "Private institute with university affiliations for certification.",
+    "establishmentYear": 2011,
+    "website": "https://www.insd.edu.in/"
+  },
+  {
+    "name": "The Design Village (TDV)",
+    "location": "Sector 8, Noida",
+    "feesAndDuration": "Approx. ₹10 - 12 Lakhs for 2 Years. Duration: 2 Years (M.Des).",
+    "nirfRanking": "N/A",
+    "accreditations": "In collaboration with Shri Venkateshwara University for degrees.",
+    "establishmentYear": 2014,
+    "website": "https://www.thedesignvillage.org/"
+  },
+  {
+    "name": "JD Institute of Fashion Technology",
+    "location": "Multiple campuses in Delhi-NCR.",
+    "feesAndDuration": "Varies. Offers Post Graduate Diplomas. Duration: 2 Years.",
+    "nirfRanking": "N/A",
+    "accreditations": "Private institute with affiliations to various Indian and international bodies.",
+    "establishmentYear": 1988,
+    "website": "https://www.jdinstitute.co/"
+  },
+  {
+    "name": "Galgotias University, School of Design",
+    "location": "Greater Noida, Uttar Pradesh",
+    "feesAndDuration": "Approx. ₹3 - 4 Lakhs for 2 Years. Duration: 2 Years (M.Des).",
+    "nirfRanking": "N/A",
+    "accreditations": "UGC Recognized.",
+    "establishmentYear": 2011,
+    "website": "https://www.galgotiasuniversity.edu.in/"
+  },
+  {
+    "name": "Manav Rachna International Institute of Research and Studies",
+    "location": "Faridabad, Haryana",
+    "feesAndDuration": "Approx. ₹4 - 5 Lakhs for 2 Years. Duration: 2 Years (M.Sc. Design).",
+    "nirfRanking": "N/A",
+    "accreditations": "Deemed-to-be-University, NAAC 'A++' Grade.",
+    "establishmentYear": 1997,
+    "website": "https://manavrachna.edu.in/"
+  }
+];
+
+
+
+
+
+const mdesCollegesInKolkata = [
+  {
+    "name": "Department of Design, IIT Kharagpur",
+    "location": "Kharagpur, West Bengal (The most sought-after option for students from Kolkata)",
+    "feesAndDuration": "Approx. ₹3 - 5 Lakhs for 2 Years. Duration: 2 Years.",
+    "nirfRanking": "IIT Kharagpur is ranked 6th in Engineering (2023). Its Design department is highly reputed.",
+    "accreditations": "Institute of National Importance, AICTE Approved.",
+    "establishmentYear": 1951,
+    "website": "http://www.diitkgp.org/"
+  },
+  {
+    "name": "National Institute of Fashion Technology (NIFT), Kolkata",
+    "location": "Salt Lake City, Kolkata",
+    "feesAndDuration": "Approx. ₹5 - 6 Lakhs for 2 Years. Duration: 2 Years (M.Des).",
+    "nirfRanking": "NIFT is ranked 1st in Fashion Technology nationally (2023).",
+    "accreditations": "Set up under an act of the Indian Parliament (NIFT Act 2006), Institute of National Importance.",
+    "establishmentYear": 1995,
+    "website": "https://www.nift.ac.in/kolkata/"
+  },
+  {
+    "name": "Rabindra Bharati University, Faculty of Visual Arts",
+    "location": "B.T. Road, Kolkata",
+    "feesAndDuration": "Highly subsidized government fees. Approx. < ₹25,000 for 2 Years. Duration: 2 Years (MFA in Applied Art).",
+    "nirfRanking": "N/A",
+    "accreditations": "State University, UGC Recognized, NAAC 'A' Grade.",
+    "establishmentYear": 1962,
+    "website": "https://www.rbu.ac.in/"
+  },
+  {
+    "name": "Jadavpur University, Dept. of Film Studies & Others",
+    "location": "Jadavpur, Kolkata",
+    "feesAndDuration": "Highly subsidized government fees. Approx. < ₹30,000 for 2 Years. Duration: 2 Years (MA in Film Studies).",
+    "nirfRanking": "Ranked 4th among Universities in India (2023).",
+    "accreditations": "State University, NAAC 'A' Grade, Institute of Eminence (IoE) status.",
+    "establishmentYear": 1955,
+    "website": "http://www.jaduniv.edu.in/"
+  },
+  {
+    "name": "Amity University, Kolkata",
+    "location": "New Town, Kolkata",
+    "feesAndDuration": "Approx. ₹3.5 - 5 Lakhs for 2 Years. Duration: 2 Years (M.Des).",
+    "nirfRanking": "N/A",
+    "accreditations": "UGC Recognized, NAAC Accredited.",
+    "establishmentYear": 2015,
+    "website": "https://www.amity.edu/kolkata/"
+  },
+  {
+    "name": "Pearl Academy, Kolkata",
+    "location": "VIP Road, Kolkata",
+    "feesAndDuration": "Approx. ₹8 - 10 Lakhs for 2 Years. Duration: 2 Years (Post-Graduate Diploma Program).",
+    "nirfRanking": "N/A (Private Institute)",
+    "accreditations": "Offers professional diplomas; has international partnerships.",
+    "establishmentYear": 1993,
+    "website": "https://pearlacademy.com/campuses/kolkata/"
+  },
+  {
+    "name": "Sister Nivedita University (SNU), School of Design",
+    "location": "New Town, Kolkata",
+    "feesAndDuration": "Approx. ₹4 - 6 Lakhs for 2 Years. Duration: 2 Years (M.Des / M.Sc).",
+    "nirfRanking": "N/A",
+    "accreditations": "UGC Recognized.",
+    "establishmentYear": 2017,
+    "website": "https://snuniv.ac.in/"
+  },
+  {
+    "name": "Techno India University, West Bengal",
+    "location": "Salt Lake City, Kolkata",
+    "feesAndDuration": "Varies. Offers M.Sc. in Animation and other design-related PG courses. Duration: 2 Years.",
+    "nirfRanking": "N/A",
+    "accreditations": "UGC Recognized, AICTE Approved.",
+    "establishmentYear": 2012,
+    "website": "https://www.technoindiauniversity.ac.in/"
+  },
+  {
+    "name": "NSHM Knowledge Campus, Kolkata",
+    "location": "Tollygunge, Kolkata",
+    "feesAndDuration": "Approx. ₹4 - 6 Lakhs for 2 Years. Duration: 2 Years (M.Sc in various media & design fields).",
+    "nirfRanking": "N/A",
+    "accreditations": "Affiliated to MAKAUT, AICTE Approved.",
+    "establishmentYear": 1996,
+    "website": "https://www.nshm.com/"
+  },
+  {
+    "name": "iLEAD (Institute of Leadership, Entrepreneurship and Development)",
+    "location": "Topsia, Kolkata",
+    "feesAndDuration": "Approx. ₹4 - 5 Lakhs for 2 Years. Duration: 2 Years (M.Sc in Media Science).",
+    "nirfRanking": "N/A",
+    "accreditations": "Affiliated to MAKAUT.",
+    "establishmentYear": 2010,
+    "website": "https://ilead.net.in/"
+  },
+  {
+    "name": "Brainware University",
+    "location": "Barasat, Kolkata",
+    "feesAndDuration": "Varies. Offers M.Sc in Multimedia and Animation. Duration: 2 Years.",
+    "nirfRanking": "N/A",
+    "accreditations": "UGC Recognized.",
+    "establishmentYear": 2016,
+    "website": "https://www.brainwareuniversity.ac.in/"
+  },
+  {
+    "name": "INIFD (International Institute of Fashion Design), Salt Lake",
+    "location": "Salt Lake, Kolkata",
+    "feesAndDuration": "Varies. Duration: 1-2 Years (PG Diploma in Fashion/Interior Design).",
+    "nirfRanking": "N/A",
+    "accreditations": "Partnerships with London School of Trends, offers certificate courses.",
+    "establishmentYear": 1995,
+    "website": "https://inifdsaltlake.com/"
+  },
+  {
+    "name": "JD Institute of Fashion Technology",
+    "location": "Multiple centers in Kolkata",
+    "feesAndDuration": "Varies. Offers Post Graduate Diplomas. Duration: 1-2 Years.",
+    "nirfRanking": "N/A",
+    "accreditations": "Private institute with affiliations to various Indian and international bodies.",
+    "establishmentYear": 1988,
+    "website": "https://www.jdinstitute.co/"
+  },
+  {
+    "name": "MAAC (Maya Academy of Advanced Cinematics)",
+    "location": "Multiple centers in Kolkata (e.g., Park Street, Salt Lake)",
+    "feesAndDuration": "Varies based on course. Duration: 18-24 months for advanced diploma programs.",
+    "nirfRanking": "N/A",
+    "accreditations": "Private training institute, part of Aptech Ltd.",
+    "establishmentYear": 2001,
+    "website": "https://www.maacindia.com/"
+  },
+  {
+    "name": "Arena Animation",
+    "location": "Multiple centers in Kolkata (e.g., Kankurgachi, Rashbehari)",
+    "feesAndDuration": "Varies. Duration: 18-24 months for advanced diploma programs.",
+    "nirfRanking": "N/A",
+    "accreditations": "Private training institute, part of Aptech Ltd.",
+    "establishmentYear": 1996,
+    "website": "https://www.arena-multimedia.com/"
+  },
+  {
+    "name": "Frameboxx Animation & Visual Effects",
+    "location": "Multiple centers in Kolkata",
+    "feesAndDuration": "Varies. Duration: 1-2 Years (Expert / Master Programs).",
+    "nirfRanking": "N/A",
+    "accreditations": "Private training institute with industry-recognized certifications.",
+    "establishmentYear": 2008,
+    "website": "https://www.frameboxx.in/"
+  },
+  {
+    "name": "Hi-Tech Animation",
+    "location": "Multiple centers in Kolkata",
+    "feesAndDuration": "Varies. Duration: 1-2 Years (Professional / Advanced Courses).",
+    "nirfRanking": "N/A",
+    "accreditations": "Private training institute affiliated with MAKAUT for degree programs.",
+    "establishmentYear": 2009,
+    "website": "https://www.hitech-animation.com/"
+  },
+  {
+    "name": "Adamas University",
+    "location": "Barasat, Kolkata",
+    "feesAndDuration": "Varies. Offers MA in Communication and Journalism. Duration: 2 Years.",
+    "nirfRanking": "N/A",
+    "accreditations": "UGC Recognized.",
+    "establishmentYear": 2014,
+    "website": "https://adamasuniversity.ac.in/"
+  },
+  {
+    "name": "Indian College of Arts and Draftsmanship",
+    "location": "Dum Dum, Kolkata",
+    "feesAndDuration": "Varies. Duration: 2 Years (MFA - Masters in Fine Arts).",
+    "nirfRanking": "N/A",
+    "accreditations": "Affiliated to Rabindra Bharati University.",
+    "establishmentYear": 1893,
+    "website": "http://icad.edu.in/"
+  }
+];
+
+
+
+const mdesCollegesInChennai = [
+  {
+    "name": "Department of Design, IIT Madras",
+    "location": "Guindy, Chennai",
+    "feesAndDuration": "Approx. ₹3 - 4 Lakhs for 2 Years. Duration: 2 Years.",
+    "nirfRanking": "IIT Madras is ranked 1st in Overall & Engineering categories (2023). Its Dept. of Design is highly prestigious.",
+    "accreditations": "Institute of National Importance, AICTE Approved.",
+    "establishmentYear": 1959,
+    "website": "https://doms.iitm.ac.in/index.php/academics/m-des"
+  },
+  {
+    "name": "National Institute of Fashion Technology (NIFT), Chennai",
+    "location": "Taramani, Chennai",
+    "feesAndDuration": "Approx. ₹5 - 6 Lakhs for 2 Years. Duration: 2 Years (M.Des).",
+    "nirfRanking": "NIFT is ranked 1st in Fashion Technology nationally (2023).",
+    "accreditations": "Set up under an act of the Indian Parliament (NIFT Act 2006), Institute of National Importance.",
+    "establishmentYear": 1995,
+    "website": "https://www.nift.ac.in/chennai/"
+  },
+  {
+    "name": "Vellore Institute of Technology (VIT), Chennai Campus",
+    "location": "Vandalur-Kelambakkam Road, Chennai",
+    "feesAndDuration": "Approx. ₹5 - 6 Lakhs for 2 Years. Duration: 2 Years (M.Des in Industrial Design).",
+    "nirfRanking": "Ranked 11th among Engineering Institutions (2023).",
+    "accreditations": "Institute of Eminence (IoE), UGC Recognized, NAAC 'A++' Grade.",
+    "establishmentYear": 2010,
+    "website": "https://chennai.vit.ac.in/academics/schools/vitsod/"
+  },
+  {
+    "name": "SRM Institute of Science and Technology, School of Design",
+    "location": "Kattankulathur, Chennai",
+    "feesAndDuration": "Approx. ₹4 - 5 Lakhs for 2 Years. Duration: 2 Years (M.Des).",
+    "nirfRanking": "Ranked 18th among Universities (2023).",
+    "accreditations": "Deemed-to-be-University, UGC Recognized, NAAC 'A++' Grade.",
+    "establishmentYear": 1985,
+    "website": "https://www.srmist.edu.in/college-of-engineering-and-technology/school-of-design/"
+  },
+  {
+    "name": "Hindustan Institute of Technology & Science (HITS)",
+    "location": "Padur, Old Mahabalipuram Road, Chennai",
+    "feesAndDuration": "Approx. ₹3 - 4 Lakhs for 2 Years. Duration: 2 Years (M.Des).",
+    "nirfRanking": "N/A",
+    "accreditations": "Deemed-to-be-University, UGC Recognized, NAAC 'A' Grade.",
+    "establishmentYear": 1985,
+    "website": "https://hindustanuniv.ac.in/"
+  },
+  {
+    "name": "Sathyabama Institute of Science and Technology",
+    "location": "Jeppiaar Nagar, Rajiv Gandhi Salai, Chennai",
+    "feesAndDuration": "Approx. ₹3 - 4 Lakhs for 2 Years. Duration: 2 Years (M.Des).",
+    "nirfRanking": "Ranked 39th among Universities (2023).",
+    "accreditations": "Deemed-to-be-University, UGC Recognized, NAAC 'A++' Grade.",
+    "establishmentYear": 1987,
+    "website": "https://www.sathyabama.ac.in/"
+  },
+  {
+    "name": "DOT School of Design",
+    "location": "Ambattur, Chennai",
+    "feesAndDuration": "Varies by specialization. Duration: 2 Years (M.Des).",
+    "nirfRanking": "N/A (Private Institute)",
+    "accreditations": "Affiliated with Alagappa University for degree programs.",
+    "establishmentYear": 2020,
+    "website": "https://www.dotsod.in/"
+  },
+  {
+    "name": "ICAT Design & Media College",
+    "location": "San Thome, Mylapore, Chennai",
+    "feesAndDuration": "Varies. Offers Post Graduate Diplomas. Duration: 1-2 Years.",
+    "nirfRanking": "N/A",
+    "accreditations": "Affiliated to Bharathiar University for degree programs, offers its own diplomas.",
+    "establishmentYear": 2004,
+    "website": "https://www.icat.ac.in/"
+  },
+  {
+    "name": "Government College of Fine Arts, Chennai",
+    "location": "Egmore, Chennai",
+    "feesAndDuration": "Highly subsidized government fees. Approx. < ₹50,000 for 2 years. Duration: 2 Years (MFA in Applied Art, etc.).",
+    "nirfRanking": "N/A",
+    "accreditations": "Affiliated to the University of Madras.",
+    "establishmentYear": 1850,
+    "website": "http://www.artscollegechennai.com/"
+  },
+  {
+    "name": "Pearl Academy, Chennai",
+    "location": "Adyar, Chennai",
+    "feesAndDuration": "Approx. ₹8 - 10 Lakhs for 2 Years. Duration: 2 Years (Post-Graduate Diploma Program).",
+    "nirfRanking": "N/A (Private Institute)",
+    "accreditations": "Offers professional diplomas; has international partnerships.",
+    "establishmentYear": 1993,
+    "website": "https://pearlacademy.com/campuses/chennai/"
+  },
+  {
+    "name": "Loyola College, Department of Visual Communication",
+    "location": "Nungambakkam, Chennai",
+    "feesAndDuration": "Varies. Offers M.A. in Media Arts. Duration: 2 Years.",
+    "nirfRanking": "Ranked 7th among Colleges (2023).",
+    "accreditations": "Autonomous, Affiliated to University of Madras, NAAC 'A++' Grade.",
+    "establishmentYear": 1925,
+    "website": "https://www.loyolacollege.edu/"
+  },
+  {
+    "name": "M.O.P. Vaishnav College for Women",
+    "location": "Nungambakkam, Chennai",
+    "feesAndDuration": "Varies. Offers M.A. in Communication. Duration: 2 Years.",
+    "nirfRanking": "Ranked 38th among Colleges (2023).",
+    "accreditations": "Autonomous, Affiliated to University of Madras, NAAC 'A' Grade.",
+    "establishmentYear": 1992,
+    "website": "https://mopvc.edu.in/"
+  },
+  {
+    "name": "Vels Institute of Science, Technology & Advanced Studies (VISTAS)",
+    "location": "Pallavaram, Chennai",
+    "feesAndDuration": "Varies. Offers PG courses in media and design. Duration: 2 Years.",
+    "nirfRanking": "N/A",
+    "accreditations": "Deemed-to-be-University, UGC Recognized.",
+    "establishmentYear": 1992,
+    "website": "https://www.velsuniv.ac.in/"
+  },
+  {
+    "name": "Crescent School of Architecture",
+    "location": "Vandalur, Chennai",
+    "feesAndDuration": "Varies. Offers M.Arch programs, with focus areas in design. Duration: 2 Years.",
+    "nirfRanking": "N/A",
+    "accreditations": "Part of B.S. Abdur Rahman Crescent Institute of Science and Technology, AICTE Approved.",
+    "establishmentYear": 2010,
+    "website": "https://crescent.education/csa/"
+  },
+  {
+    "name": "INIFD (International Institute of Fashion Design), Chennai",
+    "location": "Anna Nagar, Chennai",
+    "feesAndDuration": "Varies. Duration: 1-2 Years (PG Diploma in Fashion/Interior Design).",
+    "nirfRanking": "N/A",
+    "accreditations": "Partnerships with London School of Trends, offers certificate courses.",
+    "establishmentYear": 1995,
+    "website": "https://inifdchennai.com/"
+  },
+  {
+    "name": "JD Institute of Fashion Technology",
+    "location": "Anna Nagar, Chennai",
+    "feesAndDuration": "Varies. Offers Post Graduate Diplomas. Duration: 1-2 Years.",
+    "nirfRanking": "N/A",
+    "accreditations": "Private institute with various national and international affiliations.",
+    "establishmentYear": 1988,
+    "website": "https://jdinstitute.co/"
+  },
+  {
+    "name": "MAAC (Maya Academy of Advanced Cinematics)",
+    "location": "Multiple centers in Chennai (e.g., Vadapalani, Anna Nagar)",
+    "feesAndDuration": "Varies by course. Duration: 18-24 months for advanced diploma programs.",
+    "nirfRanking": "N/A",
+    "accreditations": "Private training institute, part of Aptech Ltd.",
+    "establishmentYear": 2001,
+    "website": "https://www.maacindia.com/"
+  },
+  {
+    "name": "Arena Animation",
+    "location": "Multiple centers in Chennai (e.g., T. Nagar, Velachery)",
+    "feesAndDuration": "Varies. Duration: 18-24 months for advanced diploma programs.",
+    "nirfRanking": "N/A",
+    "accreditations": "Private training institute, part of Aptech Ltd.",
+    "establishmentYear": 1996,
+    "website": "https://www.arena-multimedia.com/"
+  },
+  {
+    "name": "Madras Christian College (MCC)",
+    "location": "Tambaram, Chennai",
+    "feesAndDuration": "Varies. Offers M.A. in Communication. Duration: 2 Years.",
+    "nirfRanking": "Ranked 16th among Colleges (2023).",
+    "accreditations": "Autonomous, Affiliated to University of Madras, NAAC 'A++' Grade.",
+    "establishmentYear": 1837,
+    "website": "https://www.mcc.edu.in/"
+  }
+];
+
+
+
+const mdesCollegesInAhmedabad = [
+  {
+    "name": "National Institute of Design (NID), Ahmedabad",
+    "location": "Paldi, Ahmedabad",
+    "feesAndDuration": "Approx. ₹8 - 11 Lakhs for 2.5 Years. Duration: 2.5 Years.",
+    "nirfRanking": "Ranked 1st in Design (2023).",
+    "accreditations": "Institute of National Importance under the NID Act, 2014.",
+    "establishmentYear": 1961,
+    "website": "https://www.nid.edu/"
+  },
+  {
+    "name": "CEPT University",
+    "location": "University Road, Navrangpura, Ahmedabad",
+    "feesAndDuration": "Approx. ₹10 - 15 Lakhs for 2 Years. Duration: 2 Years (Offers M.Des and various M.Arch programs).",
+    "nirfRanking": "Ranked 5th in Architecture (2023).",
+    "accreditations": "UGC Recognized, State Private University, NAAC 'A' Grade.",
+    "establishmentYear": 1962,
+    "website": "https://cept.ac.in/"
+  },
+  {
+    "name": "Anant National University",
+    "location": "Sanand, Ahmedabad",
+    "feesAndDuration": "Approx. ₹8 - 10 Lakhs for 2 Years. Duration: 2 Years (M.Des).",
+    "nirfRanking": "N/A",
+    "accreditations": "UGC Recognized, State Private University.",
+    "establishmentYear": 2016,
+    "website": "https://anu.edu.in/"
+  },
+  {
+    "name": "Unitedworld Institute of Design (UID), Karnavati University",
+    "location": "Uvarsad, Gandhinagar",
+    "feesAndDuration": "Approx. ₹15 - 20 Lakhs for 2 Years. Duration: 2 Years (M.Des).",
+    "nirfRanking": "N/A",
+    "accreditations": "Part of Karnavati University, a UGC Recognized State Private University.",
+    "establishmentYear": 2011,
+    "website": "https://karnavatiuniversity.edu.in/uid/"
+  },
+  {
+    "name": "National Institute of Design (NID), Gandhinagar",
+    "location": "Gandhinagar",
+    "feesAndDuration": "Approx. ₹8 - 11 Lakhs for 2.5 Years. Duration: 2.5 Years.",
+    "nirfRanking": "Part of the NID network, which is ranked 1st in Design (2023).",
+    "accreditations": "Institute of National Importance under the NID Act, 2014.",
+    "establishmentYear": 2004,
+    "website": "https://www.nid.edu/"
+  },
+  {
+    "name": "MICA (Mudra Institute of Communications, Ahmedabad)",
+    "location": "Shela, Ahmedabad",
+    "feesAndDuration": "Approx. ₹20 - 23 Lakhs for 2 Years. Duration: 2 Years (PGDM-C, relevant for Strategic Design).",
+    "nirfRanking": "Ranked 37th in Management (2023).",
+    "accreditations": "AICTE Approved.",
+    "establishmentYear": 1991,
+    "website": "https://www.mica.ac.in/"
+  },
+  {
+    "name": "GLS University, School of Design",
+    "location": "Ellisbridge, Ahmedabad",
+    "feesAndDuration": "Approx. ₹5 - 7 Lakhs for 2 Years. Duration: 2 Years (M.Des).",
+    "nirfRanking": "N/A",
+    "accreditations": "Part of GLS University, a UGC Recognized State Private University.",
+    "establishmentYear": 2015,
+    "website": "https://glsuniversity.ac.in/design/"
+  },
+  {
+    "name": "Swarrnim Startup & Innovation University",
+    "location": "Bhoyan Rathod, Gandhinagar",
+    "feesAndDuration": "Approx. ₹3 - 4 Lakhs for 2 Years. Duration: 2 Years (M.Des).",
+    "nirfRanking": "N/A",
+    "accreditations": "UGC Recognized, State Private University.",
+    "establishmentYear": 2017,
+    "website": "https://www.swarrnim.edu.in/"
+  },
+  {
+    "name": "Navrachana University",
+    "location": "Vadodara (Often considered by Ahmedabad students)",
+    "feesAndDuration": "Approx. ₹5 - 7 Lakhs for 2 Years. Duration: 2 Years (Master of Design).",
+    "nirfRanking": "N/A",
+    "accreditations": "UGC Recognized, State Private University.",
+    "establishmentYear": 2009,
+    "website": "https://nuv.ac.in/"
+  },
+  {
+    "name": "C. N. College of Fine Arts",
+    "location": "Ambawadi, Ahmedabad",
+    "feesAndDuration": "Highly subsidized government fees. Duration: 2 Years (MFA - Masters in Fine Arts / Applied Arts).",
+    "nirfRanking": "N/A",
+    "accreditations": "Affiliated with Gujarat University.",
+    "establishmentYear": 1956,
+    "website": "http://cnfinearts.org/"
+  },
+  {
+    "name": "Silver Oak University, School of Design",
+    "location": "Gota, Ahmedabad",
+    "feesAndDuration": "Varies. Offers M.Des programs. Duration: 2 Years.",
+    "nirfRanking": "N/A",
+    "accreditations": "UGC Recognized, State Private University.",
+    "establishmentYear": 2009,
+    "website": "https://silveroakuni.ac.in/"
+  },
+  {
+    "name": "INIFD (International Institute of Fashion Design), Ahmedabad",
+    "location": "Multiple centers (e.g., Satellite, Drive In Road)",
+    "feesAndDuration": "Varies. Duration: 1-2 Years (PG Diploma in Fashion/Interior Design).",
+    "nirfRanking": "N/A",
+    "accreditations": "Partnerships with London School of Trends, offers certificate courses.",
+    "establishmentYear": 1995,
+    "website": "https://inifdahmedabad.com/"
+  },
+  {
+    "name": "JD Institute of Fashion Technology",
+    "location": "Bodakdev, Ahmedabad",
+    "feesAndDuration": "Varies. Offers Post Graduate Diplomas. Duration: 1-2 Years.",
+    "nirfRanking": "N/A",
+    "accreditations": "Private institute with various national and international affiliations.",
+    "establishmentYear": 1988,
+    "website": "https://www.jdinstitute.co/"
+  },
+  {
+    "name": "MAAC (Maya Academy of Advanced Cinematics)",
+    "location": "Multiple centers in Ahmedabad (e.g., Satellite, C.G. Road)",
+    "feesAndDuration": "Varies by course. Duration: 18-24 months for advanced diploma programs.",
+    "nirfRanking": "N/A",
+    "accreditations": "Private training institute, part of Aptech Ltd.",
+    "establishmentYear": 2001,
+    "website": "https://www.maacindia.com/"
+  },
+  {
+    "name": "Arena Animation",
+    "location": "Multiple centers in Ahmedabad",
+    "feesAndDuration": "Varies. Duration: 18-24 months for advanced diploma programs.",
+    "nirfRanking": "N/A",
+    "accreditations": "Private training institute, part of Aptech Ltd.",
+    "establishmentYear": 1996,
+    "website": "https://www.arena-multimedia.com/"
+  },
+  {
+    "name": "BRDS (Bhanwar Rathore Design Studio)",
+    "location": "Multiple locations in Ahmedabad",
+    "feesAndDuration": "Primarily a coaching institute for entrance exams, but offers some professional courses. Varies.",
+    "nirfRanking": "N/A (Coaching Institute)",
+    "accreditations": "N/A",
+    "establishmentYear": 2005,
+    "website": "https://brds.in/"
+  }
+];
+
+
+
+
+const mdesCollegesInHyderabad = [
+  {
+    "name": "Department of Design, IIT Hyderabad",
+    "location": "Kandi, Sangareddy (Hyderabad Metropolitan Region)",
+    "feesAndDuration": "Approx. ₹3 - 5 Lakhs for 2 Years. Duration: 2 Years.",
+    "nirfRanking": "IIT Hyderabad is ranked 3rd in Innovation and 8th in Engineering (2023). Its Design department is highly acclaimed.",
+    "accreditations": "Institute of National Importance, AICTE Approved.",
+    "establishmentYear": 2008,
+    "website": "https://design.iith.ac.in/"
+  },
+  {
+    "name": "National Institute of Fashion Technology (NIFT), Hyderabad",
+    "location": "Madhapur, Hyderabad",
+    "feesAndDuration": "Approx. ₹5 - 6 Lakhs for 2 Years. Duration: 2 Years (M.Des).",
+    "nirfRanking": "NIFT is ranked 1st in Fashion Technology nationally (2023).",
+    "accreditations": "Set up under an act of the Indian Parliament (NIFT Act 2006), Institute of National Importance.",
+    "establishmentYear": 1995,
+    "website": "https://www.nift.ac.in/hyderabad/"
+  },
+  {
+    "name": "Woxsen University, School of Arts & Design",
+    "location": "Sadasivpet, Hyderabad",
+    "feesAndDuration": "Approx. ₹10 - 12 Lakhs for 2 Years. Duration: 2 Years (M.Des).",
+    "nirfRanking": "N/A",
+    "accreditations": "UGC Recognized, State Private University, Member of AACSB.",
+    "establishmentYear": 2014,
+    "website": "https://woxsen.edu.in/school-of-arts-design/"
+  },
+  {
+    "name": "Jawaharlal Nehru Architecture and Fine Arts University (JNAFAU)",
+    "location": "Masab Tank, Hyderabad",
+    "feesAndDuration": "Highly subsidized government fees. Approx. < ₹1.5 Lakhs for 2 years. Duration: 2 Years (MFA in Applied Art).",
+    "nirfRanking": "N/A",
+    "accreditations": "State University, UGC Recognized.",
+    "establishmentYear": 1940,
+    "website": "https://www.jnafau.ac.in/"
+  },
+  {
+    "name": "University of Hyderabad, Sarojini Naidu School of Arts & Communication",
+    "location": "Gachibowli, Hyderabad",
+    "feesAndDuration": "Highly subsidized central university fees. Approx. < ₹50,000 for 2 years. Duration: 2 Years (M.A. Communication, M.F.A.).",
+    "nirfRanking": "Ranked 10th among Universities in India (2023).",
+    "accreditations": "Institute of Eminence (IoE), Central University, NAAC 'A++' Grade.",
+    "establishmentYear": 1974,
+    "website": "https://snsc.uohyd.ac.in/"
+  },
+  {
+    "name": "Hamstech College of Creative Education",
+    "location": "Multiple centers (e.g., Panjagutta, Jubilee Hills), Hyderabad",
+    "feesAndDuration": "Varies. Offers Post Graduate programs and diplomas. Duration: 1-2 Years.",
+    "nirfRanking": "N/A",
+    "accreditations": "Partnerships with various national and international bodies for certification.",
+    "establishmentYear": 1992,
+    "website": "https://www.hamstech.com/"
+  },
+  {
+    "name": "ICAT Design & Media College",
+    "location": "Banjara Hills, Hyderabad",
+    "feesAndDuration": "Varies. Offers Post Graduate Diplomas. Duration: 1-2 Years.",
+    "nirfRanking": "N/A",
+    "accreditations": "Affiliated to Bharathiar University for degree programs, offers its own diplomas.",
+    "establishmentYear": 2004,
+    "website": "https://www.icat.ac.in/"
+  },
+  {
+    "name": "Pearl Academy, Hyderabad",
+    "location": "Banjara Hills, Hyderabad",
+    "feesAndDuration": "Approx. ₹8 - 10 Lakhs for 2 Years. Duration: 2 Years (Post-Graduate Diploma Program).",
+    "nirfRanking": "N/A",
+    "accreditations": "Offers professional diplomas; has international partnerships.",
+    "establishmentYear": 1993,
+    "website": "https://pearlacademy.com/campuses/hyderabad/"
+  },
+  {
+    "name": "Annapurna College of Film and Media (formerly AISFM)",
+    "location": "Banjara Hills, Hyderabad",
+    "feesAndDuration": "Varies. Offers M.A. and PG Diplomas in film and media. Duration: 2 Years.",
+    "nirfRanking": "N/A",
+    "accreditations": "Affiliated to Jawaharlal Nehru Architecture and Fine Arts University (JNAFAU).",
+    "establishmentYear": 2011,
+    "website": "https://www.annapurnacollege.com/"
+  },
+  {
+    "name": "Roots Collegium",
+    "location": "Somajiguda, Hyderabad",
+    "feesAndDuration": "Varies. Offers advanced diplomas in design. Duration: 1-2 Years.",
+    "nirfRanking": "N/A",
+    "accreditations": "Private institute with university affiliations for degree programs.",
+    "establishmentYear": 1991,
+    "website": "https://rootscollegium.com/"
+  },
+  {
+    "name": "INIFD (International Institute of Fashion Design), Hyderabad",
+    "location": "Multiple centers (e.g., Himayatnagar, Jubilee Hills)",
+    "feesAndDuration": "Varies. Duration: 1-2 Years (PG Diploma in Fashion/Interior Design).",
+    "nirfRanking": "N/A",
+    "accreditations": "Partnerships with London School of Trends, offers certificate courses.",
+    "establishmentYear": 1995,
+    "website": "https://www.inifd.edu.in/"
+  },
+  {
+    "name": "JD Institute of Fashion Technology",
+    "location": "Banjara Hills, Hyderabad",
+    "feesAndDuration": "Varies. Offers Post Graduate Diplomas. Duration: 1-2 Years.",
+    "nirfRanking": "N/A",
+    "accreditations": "Private institute with various national and international affiliations.",
+    "establishmentYear": 1988,
+    "website": "https://www.jdinstitute.co/"
+  },
+  {
+    "name": "MAAC (Maya Academy of Advanced Cinematics)",
+    "location": "Multiple centers in Hyderabad (e.g., Dilsukhnagar, Jubilee Hills, Kukatpally)",
+    "feesAndDuration": "Varies by course. Duration: 18-24 months for advanced diploma programs.",
+    "nirfRanking": "N/A",
+    "accreditations": "Private training institute, part of Aptech Ltd.",
+    "establishmentYear": 2001,
+    "website": "https://www.maacindia.com/"
+  },
+  {
+    "name": "Arena Animation",
+    "location": "Multiple centers in Hyderabad (e.g., Ameerpet, Dilsukhnagar)",
+    "feesAndDuration": "Varies. Duration: 18-24 months for advanced diploma programs.",
+    "nirfRanking": "N/A",
+    "accreditations": "Private training institute, part of Aptech Ltd.",
+    "establishmentYear": 1996,
+    "website": "https://www.arena-multimedia.com/"
+  },
+  {
+    "name": "Frameboxx Animation & Visual Effects",
+    "location": "Multiple centers in Hyderabad",
+    "feesAndDuration": "Varies. Duration: 1-2 Years (Expert / Master Programs).",
+    "nirfRanking": "N/A",
+    "accreditations": "Private training institute with industry-recognized certifications.",
+    "establishmentYear": 2008,
+    "website": "https://www.frameboxx.in/"
+  },
+  {
+    "name": "Creative Multimedia College of Fine Arts",
+    "location": "Dilsukhnagar, Hyderabad",
+    "feesAndDuration": "Varies. Offers advanced courses in animation, VFX, and gaming. Duration: 1-2 Years.",
+    "nirfRanking": "N/A",
+    "accreditations": "Private training institute affiliated with JNAFAU for degree programs.",
+    "establishmentYear": 1998,
+    "website": "https://www.creativemultimedia.net/"
+  }
+];
+
+const mdesCollegesInBengaluru = [
+  {
+    "name": "Srishti Manipal Institute of Art, Design and Technology",
+    "location": "Yelahanka, Bengaluru",
+    "feesAndDuration": "Approx. ₹10 - 15 Lakhs for 2 Years. Duration: 2 Years.",
+    "nirfRanking": "N/A (Private Institute). It is a constituent unit of Manipal Academy of Higher Education (MAHE), which is ranked 6th among Universities (2023).",
+    "accreditations": "Part of MAHE (Institute of Eminence - IoE), UGC Recognized.",
+    "establishmentYear": 1996,
+    "website": "https://srishtimanipalinstitute.in/"
+  },
+  {
+    "name": "National Institute of Design (NID), Bengaluru Campus",
+    "location": "Yeshwanthpur, Bengaluru",
+    "feesAndDuration": "Approx. ₹8 - 11 Lakhs for 2.5 Years. Duration: 2.5 Years.",
+    "nirfRanking": "Part of the NID network; NID Ahmedabad is ranked 1st in Design (2023).",
+    "accreditations": "Institute of National Importance under the NID Act, 2014.",
+    "establishmentYear": 2006,
+    "website": "https://www.nid.edu/"
+  },
+  {
+    "name": "National Institute of Fashion Technology (NIFT), Bengaluru",
+    "location": "HSR Layout, Bengaluru",
+    "feesAndDuration": "Approx. ₹5 - 6 Lakhs for 2 Years. Duration: 2 Years (M.Des).",
+    "nirfRanking": "NIFT is ranked 1st in Fashion Technology nationally (2023).",
+    "accreditations": "Set up under an act of the Indian Parliament (NIFT Act 2006), Institute of National Importance.",
+    "establishmentYear": 1996,
+    "website": "https://www.nift.ac.in/bengaluru/"
+  },
+  {
+    "name": "IIIT Bangalore (International Institute of Information Technology)",
+    "location": "Electronic City, Bengaluru",
+    "feesAndDuration": "Approx. ₹6 - 8 Lakhs for 2 Years. Duration: 2 Years (M.Des in EPD).",
+    "nirfRanking": "Ranked 74th in Engineering (2023).",
+    "accreditations": "Deemed to be University, AICTE Approved.",
+    "establishmentYear": 1999,
+    "website": "https://www.iiitb.ac.in/"
+  },
+  {
+    "name": "RV University, School of Design",
+    "location": "Mysuru Road, Bengaluru",
+    "feesAndDuration": "Approx. ₹8 - 10 Lakhs for 2 Years. Duration: 2 Years (M.Des).",
+    "nirfRanking": "N/A (New University, from the group behind RVCE which is highly ranked).",
+    "accreditations": "State Private University, recognized by the Govt. of Karnataka.",
+    "establishmentYear": 2021,
+    "website": "https://rvu.edu.in/school-of-design/"
+  },
+  {
+    "name": "PES University, Department of Design",
+    "location": "Ring Road, Banashankari, Bengaluru",
+    "feesAndDuration": "Approx. ₹8 - 10 Lakhs for 2 Years. Duration: 2 Years (M.Des).",
+    "nirfRanking": "Ranked in the 101-150 band for Universities (2023).",
+    "accreditations": "UGC Recognized, AICTE Approved, NAAC 'A' Grade.",
+    "establishmentYear": 1972,
+    "website": "https://pes.edu/department/design/"
+  },
+  {
+    "name": "Jain University, School of Design, Media and Creative Arts",
+    "location": "Jayanagar, Bengaluru",
+    "feesAndDuration": "Approx. ₹6 - 8 Lakhs for 2 Years. Duration: 2 Years (M.Sc in various design fields).",
+    "nirfRanking": "Ranked 68th among Universities (2023).",
+    "accreditations": "Deemed-to-be University, UGC Recognized, NAAC 'A++' Grade.",
+    "establishmentYear": 1990,
+    "website": "https://www.jainuniversity.ac.in/"
+  },
+  {
+    "name": "Pearl Academy, Bengaluru",
+    "location": "Residency Road, Bengaluru",
+    "feesAndDuration": "Approx. ₹12 - 15 Lakhs for 2 Years. Duration: 2 Years (Post-Graduate Diploma Program).",
+    "nirfRanking": "N/A (Private Institute)",
+    "accreditations": "Offers professional diplomas; has international partnerships.",
+    "establishmentYear": 1993,
+    "website": "https://pearlacademy.com/campuses/bengaluru/"
+  },
+  {
+    "name": "M. S. Ramaiah University of Applied Sciences (MSRUAS), Faculty of Art and Design",
+    "location": "MSR Nagar, Bengaluru",
+    "feesAndDuration": "Approx. ₹5 - 7 Lakhs for 2 Years. Duration: 2 Years (M.Des).",
+    "nirfRanking": "N/A",
+    "accreditations": "UGC Recognized, NAAC 'A' Grade.",
+    "establishmentYear": 2013,
+    "website": "https://www.msruas.ac.in/fad"
+  },
+  {
+    "name": "Christ University",
+    "location": "Hosur Road, Bengaluru",
+    "feesAndDuration": "Varies. Offers M.A. in Media and Communication Studies. Duration: 2 Years.",
+    "nirfRanking": "Ranked in the 101-150 band for Universities (2023).",
+    "accreditations": "Deemed-to-be University, UGC Recognized, NAAC 'A+' Grade.",
+    "establishmentYear": 1969,
+    "website": "https://christuniversity.in/"
+  },
+  {
+    "name": "CMR University, School of Design",
+    "location": "HRBR Layout, Kalyan Nagar, Bengaluru",
+    "feesAndDuration": "Approx. ₹5 - 7 Lakhs for 2 Years. Duration: 2 Years (M.Des).",
+    "nirfRanking": "N/A",
+    "accreditations": "UGC Recognized, State Private University.",
+    "establishmentYear": 2013,
+    "website": "https://www.cmr.edu.in/schools/school-of-design/"
+  },
+  {
+    "name": "ICAT Design & Media College",
+    "location": "Bommanahalli, Bengaluru",
+    "feesAndDuration": "Varies. Offers Post Graduate Diplomas. Duration: 1-2 Years.",
+    "nirfRanking": "N/A",
+    "accreditations": "Affiliated to Bengaluru City University for degree programs, offers its own diplomas.",
+    "establishmentYear": 2004,
+    "website": "https://www.icat.ac.in/"
+  },
+  {
+    "name": "LISAA School of Design",
+    "location": "HSR Layout, Bengaluru",
+    "feesAndDuration": "Varies. Offers Master's level/PG programs. Duration: 2 Years.",
+    "nirfRanking": "N/A (French Private Institute)",
+    "accreditations": "Affiliated with Bengaluru City University; offers internationally recognized diplomas.",
+    "establishmentYear": 2013,
+    "website": "https://www.lisaabangalore.com/"
+  },
+  {
+    "name": "REVA University, School of Arts, Humanities and Social Sciences",
+    "location": "Yelahanka, Bengaluru",
+    "feesAndDuration": "Varies. Offers MA in Journalism and Communication. Duration: 2 Years.",
+    "nirfRanking": "N/A",
+    "accreditations": "UGC Recognized, State Private University.",
+    "establishmentYear": 2012,
+    "website": "https://reva.edu.in/"
+  },
+  {
+    "name": "JD Institute of Fashion Technology",
+    "location": "Multiple centers (e.g., Lavelle Road), Bengaluru",
+    "feesAndDuration": "Varies. Offers Post Graduate Diplomas. Duration: 1-2 Years.",
+    "nirfRanking": "N/A",
+    "accreditations": "Private institute with affiliations to various Indian and international bodies.",
+    "establishmentYear": 1988,
+    "website": "https://www.jdinstitute.co/"
+  },
+  {
+    "name": "INIFD (International Institute of Fashion Design)",
+    "location": "Multiple centers in Bengaluru",
+    "feesAndDuration": "Varies. Duration: 1-2 Years (PG Diploma in Fashion/Interior Design).",
+    "nirfRanking": "N/A",
+    "accreditations": "Partnerships with London School of Trends, offers certificate courses.",
+    "establishmentYear": 1995,
+    "website": "https://www.inifd.edu.in/"
+  },
+  {
+    "name": "MAAC (Maya Academy of Advanced Cinematics)",
+    "location": "Multiple centers in Bengaluru (e.g., Jayanagar, Malleswaram)",
+    "feesAndDuration": "Varies by course. Duration: 18-24 months for advanced diploma programs.",
+    "nirfRanking": "N/A",
+    "accreditations": "Private training institute, part of Aptech Ltd.",
+    "establishmentYear": 2001,
+    "website": "https://www.maacindia.com/"
+  },
+  {
+    "name": "Arena Animation",
+    "location": "Multiple centers in Bengaluru (e.g., Koramangala, Indiranagar)",
+    "feesAndDuration": "Varies. Duration: 18-24 months for advanced diploma programs.",
+    "nirfRanking": "N/A",
+    "accreditations": "Private training institute, part of Aptech Ltd.",
+    "establishmentYear": 1996,
+    "website": "https://www.arena-multimedia.com/"
+  },
+  {
+    "name": "Animaster College",
+    "location": "Sheshadripuram, Bengaluru",
+    "feesAndDuration": "Varies. Offers advanced/PG diploma programs. Duration: 1-2 Years.",
+    "nirfRanking": "N/A",
+    "accreditations": "Affiliated with Bengaluru City University for degree programs.",
+    "establishmentYear": 2003,
+    "website": "https://www.animaster.com/"
+  },
+  {
+    "name": "Vogue Institute of Art and Design",
+    "location": "Apparel Park, Doddaballapur, Bengaluru",
+    "feesAndDuration": "Varies. Offers MBA/PGDM in design-related fields. Duration: 2 Years.",
+    "nirfRanking": "N/A",
+    "accreditations": "Affiliated to Bengaluru North University.",
+    "establishmentYear": 1996,
+    "website": "https://www.voguefashioninstitute.com/"
+  },
+  {
+    "name": "Whistling Woods International (Bengaluru Campus - now closed, but good to know)",
+    "location": "Previously operated in Bengaluru, campus now closed. Main campus in Mumbai.",
+    "feesAndDuration": "N/A",
+    "nirfRanking": "N/A",
+    "accreditations": "N/A",
+    "establishmentYear": null,
+    "website": "https://www.whistlingwoods.net/"
+  }
+];
+
+
+const mdesCollegesInPune = [
+  {
+    "name": "MIT World Peace University (WPU), School of Design",
+    "location": "Loni Kalbhor, Pune",
+    "feesAndDuration": "Approx. ₹12 - 14 Lakhs for 2 Years. Duration: 2 Years (M.Des).",
+    "nirfRanking": "N/A (Private University).",
+    "accreditations": "UGC Recognized, State Private University, NAAC 'A+' Grade.",
+    "establishmentYear": 1983,
+    "website": "https://design.mitwpu.edu.in/"
+  },
+  {
+    "name": "Symbiosis Institute of Design (SID)",
+    "location": "Viman Nagar, Pune",
+    "feesAndDuration": "Approx. ₹16 - 18 Lakhs for 2 Years. Duration: 2 Years (M.Des).",
+    "nirfRanking": "N/A (Private Design Institute). Part of Symbiosis International (Deemed University), which is ranked 32nd among Universities (2023).",
+    "accreditations": "Part of Symbiosis International (Deemed University), UGC Recognized, NAAC 'A++' Grade.",
+    "establishmentYear": 2006,
+    "website": "https://www.sid.edu.in/"
+  },
+  {
+    "name": "FLAME University, School of Design, Art & Performance",
+    "location": "Lavale, Pune",
+    "feesAndDuration": "Approx. ₹15 - 18 Lakhs for 2 Years. Duration: 2 Years (PG Diploma in Design).",
+    "nirfRanking": "N/A (Private University).",
+    "accreditations": "UGC Recognized, State Private University.",
+    "establishmentYear": 2007,
+    "website": "https://www.flame.edu.in/academics/flame-school-of-design-art-and-performance"
+  },
+  {
+    "name": "Vishwakarma University, Department of Art & Design",
+    "location": "Kondhwa, Pune",
+    "feesAndDuration": "Approx. ₹6 - 8 Lakhs for 2 Years. Duration: 2 Years (M.Des).",
+    "nirfRanking": "N/A (Private University).",
+    "accreditations": "UGC Recognized, State Private University.",
+    "establishmentYear": 2017,
+    "website": "https://www.vupune.ac.in/art-design"
+  },
+  {
+    "name": "MIT Art, Design and Technology University (MIT-ADT)",
+    "location": "Rajbaug, Loni Kalbhor, Pune",
+    "feesAndDuration": "Approx. ₹8 - 10 Lakhs for 2 Years. Duration: 2 Years (M.Des).",
+    "nirfRanking": "N/A (Private University).",
+    "accreditations": "UGC Recognized, State Private University.",
+    "establishmentYear": 2015,
+    "website": "https://mituniversity.edu.in/"
+  },
+  {
+    "name": "Ajeenkya DY Patil University, School of Design",
+    "location": "Charholi Budruk, via Lohegaon, Pune",
+    "feesAndDuration": "Approx. ₹10 - 12 Lakhs for 2 Years. Duration: 2 Years (M.Des).",
+    "nirfRanking": "N/A (Private University).",
+    "accreditations": "UGC Recognized, State Private University.",
+    "establishmentYear": 2015,
+    "website": "https://adypu.edu.in/school-of-design/"
+  },
+  {
+    "name": "SOFT - School of Fashion Technology",
+    "location": "Narhe, Pune",
+    "feesAndDuration": "Approx. ₹5 - 7 Lakhs for 2 Years. Duration: 2 Years (M.Des).",
+    "nirfRanking": "N/A",
+    "accreditations": "Affiliated to Savitribai Phule Pune University (SPPU).",
+    "establishmentYear": 1998,
+    "website": "https://soft.ac.in/"
+  },
+  {
+    "name": "Dr. D. Y. Patil College of Applied Arts & Crafts",
+    "location": "Akurdi, Pimpri-Chinchwad, Pune",
+    "feesAndDuration": "Varies. Duration: 2 Years (MFA - Master of Fine Arts in Applied Art).",
+    "nirfRanking": "Parent university (Dr. D. Y. Patil Vidyapeeth) is ranked 15th among Universities (2023).",
+    "accreditations": "Part of Dr. D. Y. Patil Vidyapeeth (Deemed-to-be-University), NAAC 'A++' Grade.",
+    "establishmentYear": 2006,
+    "website": "http://fineart.dypvp.edu.in/"
+  },
+  {
+    "name": "Savitribai Phule Pune University (SPPU), Lalit Kala Kendra",
+    "location": "Ganeshkhind, Pune",
+    "feesAndDuration": "Highly subsidized government fees. Approx. < ₹50,000 for 2 Years. Duration: 2 Years (MFA - Master of Fine Arts).",
+    "nirfRanking": "Ranked 19th among Universities (2023).",
+    "accreditations": "State University, UGC Recognized, NAAC 'A++' Grade.",
+    "establishmentYear": 1949,
+    "website": "http://www.unipune.ac.in/"
+  },
+  {
+    "name": "Suryadatta Group of Institutes, School of Design",
+    "location": "Bavdhan, Pune",
+    "feesAndDuration": "Varies. Offers M.Sc. in Fashion and Interior Design. Duration: 2 Years.",
+    "nirfRanking": "N/A",
+    "accreditations": "Affiliated to SPPU, AICTE Approved for some courses.",
+    "establishmentYear": 1999,
+    "website": "https://www.suryadatta.org/"
+  },
+  {
+    "name": "INIFD (International Institute of Fashion Design)",
+    "location": "Multiple centers (e.g., Deccan, Kothrud), Pune",
+    "feesAndDuration": "Varies. Duration: 1-2 Years (PG Diploma in Fashion/Interior Design).",
+    "nirfRanking": "N/A",
+    "accreditations": "Partnerships with London School of Trends, offers certificate courses.",
+    "establishmentYear": 1995,
+    "website": "https://www.inifd.edu.in/"
+  },
+  {
+    "name": "JD Institute of Fashion Technology",
+    "location": "Camp, Pune",
+    "feesAndDuration": "Varies. Offers Post Graduate Diplomas. Duration: 1-2 Years.",
+    "nirfRanking": "N/A",
+    "accreditations": "Private institute with various national and international affiliations.",
+    "establishmentYear": 1988,
+    "website": "https://www.jdinstitute.co/"
+  },
+  {
+    "name": "FAD International",
+    "location": "Koregaon Park, Pune",
+    "feesAndDuration": "Varies. Duration: 1 Year (PG Diploma in Fashion, Style etc.).",
+    "nirfRanking": "N/A",
+    "accreditations": "Partnerships with international universities for certifications.",
+    "establishmentYear": 2007,
+    "website": "https://www.fadinternational.com/"
+  },
+  {
+    "name": "MAAC (Maya Academy of Advanced Cinematics)",
+    "location": "Multiple centers in Pune (e.g., Camp, Kothrud, Pimpri)",
+    "feesAndDuration": "Varies by course. Duration: 18-24 months for advanced diploma programs.",
+    "nirfRanking": "N/A",
+    "accreditations": "Private training institute, part of Aptech Ltd.",
+    "establishmentYear": 2001,
+    "website": "https://www.maacindia.com/"
+  },
+  {
+    "name": "Arena Animation",
+    "location": "Multiple centers in Pune (e.g., Deccan Gymkhana, FC Road)",
+    "feesAndDuration": "Varies. Duration: 18-24 months for advanced diploma programs.",
+    "nirfRanking": "N/A",
+    "accreditations": "Private training institute, part of Aptech Ltd.",
+    "establishmentYear": 1996,
+    "website": "https://www.arena-multimedia.com/"
+  },
+  {
+    "name": "Frameboxx Animation & Visual Effects",
+    "location": "Multiple centers in Pune",
+    "feesAndDuration": "Varies. Duration: 1-2 Years (Expert / Master Programs).",
+    "nirfRanking": "N/A",
+    "accreditations": "Private training institute with industry-recognized certifications.",
+    "establishmentYear": 2008,
+    "website": "https://www.frameboxx.in/"
+  },
+  {
+    "name": "Symbiosis Centre for Media & Communication (SCMC)",
+    "location": "Viman Nagar, Pune",
+    "feesAndDuration": "Varies. Offers M.A. in Mass Communication. Duration: 2 Years.",
+    "nirfRanking": "Part of Symbiosis International (Deemed University), which is ranked 32nd among Universities (2023).",
+    "accreditations": "Part of Symbiosis International (Deemed University), UGC Recognized.",
+    "establishmentYear": 2008,
+    "website": "https://www.scmc.edu.in/"
+  }
+];
+
+
+
+const mdesCollegesIndia = [
+  // Institutes of National Importance (IITs, NIDs, NIFTs, IIITs)
+  {
+    "name": "Department of Design, IIT Guwahati",
+    "location": "Guwahati, Assam",
+    "feesAndDuration": "Approx. ₹3 - 5 Lakhs for 2 Years. Duration: 2 Years.",
+    "nirfRanking": "IIT Guwahati is ranked 7th in Engineering (2023).",
+    "accreditations": "Institute of National Importance, AICTE Approved.",
+    "establishmentYear": 1994,
+    "website": "https://www.iitg.ac.in/design/"
+  },
+  {
+    "name": "IIITDM Jabalpur (Indian Institute of Information Technology, Design and Manufacturing)",
+    "location": "Jabalpur, Madhya Pradesh",
+    "feesAndDuration": "Approx. ₹3 - 4 Lakhs for 2 Years. Duration: 2 Years (M.Des).",
+    "nirfRanking": "Ranked 82nd in Engineering (2023).",
+    "accreditations": "Institute of National Importance.",
+    "establishmentYear": 2005,
+    "website": "https://www.iiitdmj.ac.in/"
+  },
+  {
+    "name": "IIITDM Kancheepuram (Indian Institute of Information Technology, Design and Manufacturing)",
+    "location": "Kancheepuram, Tamil Nadu",
+    "feesAndDuration": "Approx. ₹3 - 4 Lakhs for 2 Years. Duration: 2 Years (M.Des).",
+    "nirfRanking": "Ranked in 101-150 band for Engineering (2023).",
+    "accreditations": "Institute of National Importance.",
+    "establishmentYear": 2007,
+    "website": "https://www.iiitdm.ac.in/"
+  },
+  {
+    "name": "National Institute of Design (NID), Vijayawada",
+    "location": "Vijayawada, Andhra Pradesh",
+    "feesAndDuration": "Approx. ₹8 - 10 Lakhs for 2.5 Years. Duration: 2.5 Years.",
+    "nirfRanking": "Part of the NID network; NID Ahmedabad is ranked 1st in Design (2023).",
+    "accreditations": "Institute of National Importance.",
+    "establishmentYear": 2015,
+    "website": "https://nidv.ac.in/"
+  },
+  {
+    "name": "National Institute of Design (NID), Bhopal",
+    "location": "Bhopal, Madhya Pradesh",
+    "feesAndDuration": "Approx. ₹8 - 10 Lakhs for 2.5 Years. Duration: 2.5 Years.",
+    "nirfRanking": "Part of the NID network; NID Ahmedabad is ranked 1st in Design (2023).",
+    "accreditations": "Institute of National Importance.",
+    "establishmentYear": 2019,
+    "website": "https://nidb.ac.in/"
+  },
+  {
+    "name": "National Institute of Design (NID), Jorhat",
+    "location": "Jorhat, Assam",
+    "feesAndDuration": "Approx. ₹8 - 10 Lakhs for 2.5 Years. Duration: 2.5 Years.",
+    "nirfRanking": "Part of the NID network; NID Ahmedabad is ranked 1st in Design (2023).",
+    "accreditations": "Institute of National Importance.",
+    "establishmentYear": 2019,
+    "website": "https://nidj.ac.in/"
+  },
+  {
+    "name": "Department of Design, IIT Kanpur",
+    "location": "Kanpur, Uttar Pradesh",
+    "feesAndDuration": "Approx. ₹3 - 5 Lakhs for 2 Years. Duration: 2 Years.",
+    "nirfRanking": "IIT Kanpur is ranked 4th in Engineering (2023).",
+    "accreditations": "Institute of National Importance.",
+    "establishmentYear": 1959,
+    "website": "https://www.iitk.ac.in/design/"
+  },
+  {
+    "name": "National Institute of Fashion Technology (NIFT), Kangra",
+    "location": "Kangra, Himachal Pradesh",
+    "feesAndDuration": "Approx. ₹5 - 6 Lakhs for 2 Years. Duration: 2 Years (M.Des).",
+    "nirfRanking": "NIFT is ranked 1st in Fashion Technology nationally (2023).",
+    "accreditations": "Institute of National Importance.",
+    "establishmentYear": 2009,
+    "website": "https://www.nift.ac.in/kangra/"
+  },
+  {
+    "name": "National Institute of Fashion Technology (NIFT), Bhubaneswar",
+    "location": "Bhubaneswar, Odisha",
+    "feesAndDuration": "Approx. ₹5 - 6 Lakhs for 2 Years. Duration: 2 Years (M.Des).",
+    "nirfRanking": "NIFT is ranked 1st in Fashion Technology nationally (2023).",
+    "accreditations": "Institute of National Importance.",
+    "establishmentYear": 2010,
+    "website": "https://www.nift.ac.in/bhubaneswar/"
+  },
+  {
+    "name": "National Institute of Fashion Technology (NIFT), Jodhpur",
+    "location": "Jodhpur, Rajasthan",
+    "feesAndDuration": "Approx. ₹5 - 6 Lakhs for 2 Years. Duration: 2 Years (M.Des).",
+    "nirfRanking": "NIFT is ranked 1st in Fashion Technology nationally (2023).",
+    "accreditations": "Institute of National Importance.",
+    "establishmentYear": 2010,
+    "website": "https://www.nift.ac.in/jodhpur/"
+  },
+  {
+    "name": "National Institute of Fashion Technology (NIFT), Kannur",
+    "location": "Kannur, Kerala",
+    "feesAndDuration": "Approx. ₹5 - 6 Lakhs for 2 Years. Duration: 2 Years (M.Des).",
+    "nirfRanking": "NIFT is ranked 1st in Fashion Technology nationally (2023).",
+    "accreditations": "Institute of National Importance.",
+    "establishmentYear": 2008,
+    "website": "https://www.nift.ac.in/kannur/"
+  },
+  {
+    "name": "National Institute of Fashion Technology (NIFT), Patna",
+    "location": "Patna, Bihar",
+    "feesAndDuration": "Approx. ₹5 - 6 Lakhs for 2 Years. Duration: 2 Years (M.Des).",
+    "nirfRanking": "NIFT is ranked 1st in Fashion Technology nationally (2023).",
+    "accreditations": "Institute of National Importance.",
+    "establishmentYear": 2008,
+    "website": "https://www.nift.ac.in/patna/"
+  },
+
+  // Reputable Private Universities & Colleges
+  {
+    "name": "Manipal School of Design, MAHE",
+    "location": "Manipal, Karnataka",
+    "feesAndDuration": "Approx. ₹8 - 10 Lakhs for 2 Years. Duration: 2 Years.",
+    "nirfRanking": "Manipal Academy of Higher Education (MAHE) is ranked 6th among Universities (2023).",
+    "accreditations": "Institute of Eminence (IoE), UGC Recognized, NAAC 'A++' Grade.",
+    "establishmentYear": 1953,
+    "website": "https://manipal.edu/fod.html"
+  },
+  {
+    "name": "Lovely Professional University (LPU), School of Design",
+    "location": "Jalandhar, Punjab",
+    "feesAndDuration": "Approx. ₹6 - 8 Lakhs for 2 Years. Duration: 2 Years (M.Des/M.Sc Design).",
+    "nirfRanking": "Ranked 38th among Universities (2023).",
+    "accreditations": "UGC Recognized.",
+    "establishmentYear": 2005,
+    "website": "https://www.lpu.in/"
+  },
+  {
+    "name": "Chandigarh University, University Institute of Design",
+    "location": "Mohali, Punjab",
+    "feesAndDuration": "Approx. ₹4 - 6 Lakhs for 2 Years. Duration: 2 Years (M.Des).",
+    "nirfRanking": "Ranked 27th among Universities (2023).",
+    "accreditations": "UGC Recognized, NAAC 'A+' Grade.",
+    "establishmentYear": 2012,
+    "website": "https://www.cuchd.in/"
+  },
+  {
+    "name": "Vellore Institute of Technology (VIT), Vellore",
+    "location": "Vellore, Tamil Nadu",
+    "feesAndDuration": "Approx. ₹5 - 6 Lakhs for 2 Years. Duration: 2 Years (M.Des in Industrial Design).",
+    "nirfRanking": "Ranked 11th among Engineering Institutions (2023).",
+    "accreditations": "Institute of Eminence (IoE), UGC Recognized, NAAC 'A++' Grade.",
+    "establishmentYear": 1984,
+    "website": "https://vit.ac.in/"
+  },
+  {
+    "name": "Kalinga Institute of Industrial Technology (KIIT), School of Fashion Technology",
+    "location": "Bhubaneswar, Odisha",
+    "feesAndDuration": "Approx. ₹8 - 10 Lakhs for 2 Years. Duration: 2 Years (M.Des).",
+    "nirfRanking": "Ranked 16th among Universities (2023).",
+    "accreditations": "Institute of Eminence (IoE), UGC Recognized, NAAC 'A++' Grade.",
+    "establishmentYear": 1992,
+    "website": "https://ksom.ac.in/programs/m-des-fashion-design/"
+  },
+  {
+    "name": "Amrita Vishwa Vidyapeetham",
+    "location": "Coimbatore, Tamil Nadu",
+    "feesAndDuration": "Varies. Offers M.A. in Communication. Duration: 2 Years.",
+    "nirfRanking": "Ranked 7th among Universities (2023).",
+    "accreditations": "Deemed-to-be University, NAAC 'A++' Grade.",
+    "establishmentYear": 1994,
+    "website": "https://www.amrita.edu/"
+  },
+  {
+    "name": "Arch College of Design & Business",
+    "location": "Jaipur, Rajasthan",
+    "feesAndDuration": "Approx. ₹8 - 10 Lakhs for 2 Years. Duration: 2 Years (M.Des).",
+    "nirfRanking": "N/A (Private College).",
+    "accreditations": "Affiliated to University of Rajasthan for degrees.",
+    "establishmentYear": 2000,
+    "website": "https://www.archedu.org/"
+  },
+  {
+    "name": "World University of Design (WUD)",
+    "location": "Sonipat, Haryana",
+    "feesAndDuration": "Approx. ₹6 - 8 Lakhs for 2 Years. Duration: 2 Years (M.Des).",
+    "nirfRanking": "N/A (Private University).",
+    "accreditations": "UGC Recognized, State Private University.",
+    "establishmentYear": 2018,
+    "website": "https://worlduniversityofdesign.ac.in/"
+  },
+  {
+    "name": "UPES (University of Petroleum and Energy Studies), School of Design",
+    "location": "Dehradun, Uttarakhand",
+    "feesAndDuration": "Approx. ₹10 - 12 Lakhs for 2 Years. Duration: 2 Years (M.Des).",
+    "nirfRanking": "Ranked 54th among Universities (2023).",
+    "accreditations": "UGC Recognized, NAAC 'A' Grade.",
+    "establishmentYear": 2003,
+    "website": "https://www.upes.ac.in/school-of-design"
+  },
+  {
+    "name": "Avantika University",
+    "location": "Ujjain, Madhya Pradesh",
+    "feesAndDuration": "Approx. ₹8 - 10 Lakhs for 2 Years. Duration: 2 Years (M.Des).",
+    "nirfRanking": "N/A (Private University).",
+    "accreditations": "UGC Recognized, State Private University.",
+    "establishmentYear": 2017,
+    "website": "https://www.avantikauniversity.edu.in/"
+  },
+  {
+    "name": "DJ Academy of Design",
+    "location": "Coimbatore, Tamil Nadu",
+    "feesAndDuration": "Approx. ₹8 - 10 Lakhs for 2 Years. Duration: 2 Years (PG Diploma).",
+    "nirfRanking": "N/A (Private College).",
+    "accreditations": "Autonomous PG Diploma, AICTE Approved.",
+    "establishmentYear": 2004,
+    "website": "https://www.djad.in/"
+  },
+  {
+    "name": "Poornima University, School of Design & Arts",
+    "location": "Jaipur, Rajasthan",
+    "feesAndDuration": "Approx. ₹3 - 4 Lakhs for 2 Years. Duration: 2 Years (M.Des).",
+    "nirfRanking": "N/A (Private University).",
+    "accreditations": "UGC Recognized, State Private University.",
+    "establishmentYear": 2012,
+    "website": "https://www.poornima.edu.in/"
+  },
+  {
+    "name": "IICD (Indian Institute of Crafts & Design)",
+    "location": "Jaipur, Rajasthan",
+    "feesAndDuration": "Approx. ₹6 - 7 Lakhs for 2 Years. Duration: 2 Years (M.Des).",
+    "nirfRanking": "N/A (Autonomous Institute).",
+    "accreditations": "Recognized as a private university by UGC.",
+    "establishmentYear": 1995,
+    "website": "https://www.iicd.ac.in/"
+  },
+
+  // Central & State Universities
+  {
+    "name": "Banaras Hindu University (BHU), Faculty of Visual Arts",
+    "location": "Varanasi, Uttar Pradesh",
+    "feesAndDuration": "Highly subsidized fees. Approx. < ₹20,000 for 2 Years. Duration: 2 Years (MFA in Applied Arts).",
+    "nirfRanking": "Ranked 5th among Universities (2023).",
+    "accreditations": "Central University, Institute of Eminence (IoE), NAAC 'A' Grade.",
+    "establishmentYear": 1916,
+    "website": "https://www.bhu.ac.in/Site/Home/fac-visualarts"
+  },
+  {
+    "name": "Visva-Bharati University, Kala Bhavana",
+    "location": "Santiniketan, West Bengal",
+    "feesAndDuration": "Highly subsidized fees. Approx. < ₹25,000 for 2 Years. Duration: 2 Years (MFA).",
+    "nirfRanking": "N/A",
+    "accreditations": "Central University, Institute of National Importance.",
+    "establishmentYear": 1921,
+    "website": "https://visvabharati.ac.in/KalaBhavana.html"
+  },
+  {
+    "name": "Maharaja Sayajirao University of Baroda, Faculty of Fine Arts",
+    "location": "Vadodara, Gujarat",
+    "feesAndDuration": "Highly subsidized fees. Approx. < ₹30,000 for 2 Years. Duration: 2 Years (MFA in Applied Arts).",
+    "nirfRanking": "N/A",
+    "accreditations": "State University, NAAC 'A+' Grade.",
+    "establishmentYear": 1949,
+    "website": "https://www.msubaroda.ac.in/faculty/faculty-of-fine-arts"
+  },
+  {
+    "name": "University of Lucknow, College of Arts & Crafts",
+    "location": "Lucknow, Uttar Pradesh",
+    "feesAndDuration": "Highly subsidized fees. Duration: 2 Years (MFA in Applied Arts).",
+    "nirfRanking": "N/A",
+    "accreditations": "State University, NAAC 'A++' Grade.",
+    "establishmentYear": 1867,
+    "website": "https://www.lkouniv.ac.in/en/page/college-of-arts-crafts"
+  },
+  {
+    "name": "Kurukshetra University, Institute of Integrated & Honors Studies",
+    "location": "Kurukshetra, Haryana",
+    "feesAndDuration": "Varies. Offers M.Sc. in Graphic & Animation. Duration: 2 Years.",
+    "nirfRanking": "N/A",
+    "accreditations": "State University, NAAC 'A+' Grade.",
+    "establishmentYear": 1956,
+    "website": "https://www.kuk.ac.in/"
+  },
+  {
+    "name": "Chitkara University, Chitkara School of Art & Design",
+    "location": "Rajpura, Punjab",
+    "feesAndDuration": "Approx. ₹5 - 7 Lakhs for 2 Years. Duration: 2 Years (M.Des).",
+    "nirfRanking": "Ranked in 101-150 band for Universities (2023).",
+    "accreditations": "UGC Recognized, State Private University.",
+    "establishmentYear": 2010,
+    "website": "https://www.chitkara.edu.in/csad/"
+  },
+  {
+    "name": "Kerala University of Digital Sciences, Innovation and Technology",
+    "location": "Thiruvananthapuram, Kerala",
+    "feesAndDuration": "Approx. ₹4 - 5 Lakhs for 2 Years. Duration: 2 Years (M.Des).",
+    "nirfRanking": "N/A",
+    "accreditations": "State University.",
+    "establishmentYear": 2020,
+    "website": "https://duk.ac.in/"
+  },
+  {
+    "name": "Devi Ahilya Vishwavidyalaya (DAVV), School of Design",
+    "location": "Indore, Madhya Pradesh",
+    "feesAndDuration": "Varies. Duration: 2 Years (M.Des).",
+    "nirfRanking": "Ranked in 101-150 band for Universities (2023).",
+    "accreditations": "State University, NAAC 'A+' Grade.",
+    "establishmentYear": 1964,
+    "website": "https://www.dauniv.ac.in/"
+  },
+  {
+    "name": "Tezpur University, Department of Design",
+    "location": "Tezpur, Assam",
+    "feesAndDuration": "Approx. ₹1.5 - 2 Lakhs for 2 Years. Duration: 2 Years (M.Des).",
+    "nirfRanking": "Ranked 69th among Universities (2023).",
+    "accreditations": "Central University, NAAC 'A' Grade.",
+    "establishmentYear": 1994,
+    "website": "http://www.tezu.ernet.in/ddesign/"
+  },
+  {
+    "name": "Graphic Era University",
+    "location": "Dehradun, Uttarakhand",
+    "feesAndDuration": "Varies. Offers MA in Animation and Media Arts. Duration: 2 Years.",
+    "nirfRanking": "Ranked 55th among Universities (2023).",
+    "accreditations": "Deemed-to-be University, UGC Recognized, NAAC 'A+' Grade.",
+    "establishmentYear": 1993,
+    "website": "https://www.geu.ac.in/"
+  },
+  {
+    "name": "Central University of Rajasthan",
+    "location": "Ajmer, Rajasthan",
+    "feesAndDuration": "Approx. < ₹1 Lakh for 2 Years. Duration: 2 Years (M.A. in Digital Society).",
+    "nirfRanking": "N/A",
+    "accreditations": "Central University, NAAC 'A' Grade.",
+    "establishmentYear": 2009,
+    "website": "https://curaj.ac.in/"
+  },
+  {
+    "name": "Glocal University, School of Art & Design",
+    "location": "Saharanpur, Uttar Pradesh",
+    "feesAndDuration": "Approx. ₹2 - 3 Lakhs for 2 Years. Duration: 2 Years (M.Des).",
+    "nirfRanking": "N/A",
+    "accreditations": "UGC Recognized, State Private University.",
+    "establishmentYear": 2012,
+    "website": "https://www.glocaluniversity.edu.in/"
+  },
+  {
+    "name": "Atal Bihari Vajpayee Hindi Vishwavidyalaya",
+    "location": "Bhopal, Madhya Pradesh",
+    "feesAndDuration": "Varies. Offers PG courses in design and art. Duration: 2 Years.",
+    "nirfRanking": "N/A",
+    "accreditations": "State University.",
+    "establishmentYear": 2011,
+    "website": "https://abvhv.edu.in/"
+  },
+  {
+    "name": "Rishihood University, School of Creativity",
+    "location": "Sonipat, Haryana",
+    "feesAndDuration": "Approx. ₹6 - 8 Lakhs for 2 Years. Duration: 2 Years (M.Des).",
+    "nirfRanking": "N/A",
+    "accreditations": "UGC Recognized, State Private University.",
+    "establishmentYear": 2020,
+    "website": "https://rishihood.edu.in/school-of-creativity/"
+  },
+  {
+    "name": "Jagran Lakecity University",
+    "location": "Bhopal, Madhya Pradesh",
+    "feesAndDuration": "Approx. ₹4 - 5 Lakhs for 2 Years. Duration: 2 Years (M.Des).",
+    "nirfRanking": "N/A",
+    "accreditations": "UGC Recognized, State Private University.",
+    "establishmentYear": 2013,
+    "website": "https://jlu.edu.in/"
+  },
+  {
+    "name": "Manipal University Jaipur",
+    "location": "Jaipur, Rajasthan",
+    "feesAndDuration": "Approx. ₹5 - 6 Lakhs for 2 Years. Duration: 2 Years (M.Des).",
+    "nirfRanking": "N/A",
+    "accreditations": "UGC Recognized, NAAC 'A+' Grade.",
+    "establishmentYear": 2011,
+    "website": "https://jaipur.manipal.edu/"
+  },
+  {
+    "name": "Parul University",
+    "location": "Vadodara, Gujarat",
+    "feesAndDuration": "Approx. ₹3 - 4 Lakhs for 2 Years. Duration: 2 Years (M.Des).",
+    "nirfRanking": "N/A",
+    "accreditations": "UGC Recognized, NAAC 'A++' Grade.",
+    "establishmentYear": 2003,
+    "website": "https://www.paruluniversity.ac.in/"
+  },
+  {
+    "name": "IIIT Allahabad",
+    "location": "Prayagraj, Uttar Pradesh",
+    "feesAndDuration": "Varies. Offers M.Tech in HCI, related to interaction design. Duration: 2 Years.",
+    "nirfRanking": "Ranked 89th in Engineering (2023).",
+    "accreditations": "Institute of National Importance.",
+    "establishmentYear": 1999,
+    "website": "https://www.iiita.ac.in/"
+  },
+  {
+    "name": "Central Institute of Technology (CIT), Kokrajhar",
+    "location": "Kokrajhar, Assam",
+    "feesAndDuration": "Approx. ₹1.5 - 2 Lakhs for 2 Years. Duration: 2 Years (M.Des).",
+    "nirfRanking": "N/A",
+    "accreditations": "Deemed-to-be University, AICTE Approved.",
+    "establishmentYear": 2006,
+    "website": "https://www.cit.ac.in/"
+  }
+];
