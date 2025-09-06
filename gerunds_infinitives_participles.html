@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Grammar: Non-Finite Verbs</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            /* Blue and white gridline background */
+            background-color: #f0f8ff; 
+            background-image: 
+                repeating-linear-gradient(to right, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 30px),
+                repeating-linear-gradient(to bottom, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 30px);
+            background-size: 30px 30px;
+        }
+
+        /* Header Styling */
+        header {
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        header h1 {
+            display: inline-block;
+            background-color: #0056b3;
+            color: white;
+            padding: 20px 40px;
+            border: 3px solid white;
+            border-radius: 15px;
+            /* 3D Box Effect */
+            box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.4), inset 2px 2px 5px rgba(255, 255, 255, 0.3);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-size: 2.2em;
+            margin: 0;
+        }
+
+        /* Main Container for Two-Column Layout */
+        .container {
+            display: flex;
+            max-width: 1400px;
+            margin: 20px auto;
+            background: #ffffff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.15);
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 80vh;
+        }
+
+        /* Left Navigation Column */
+        .nav-column {
+            flex: 1;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+            background-color: #f8f9fa;
+            height: 80vh;
+            overflow-y: auto;
+        }
+
+        .nav-column ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-column li a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: #0056b3;
+            border-radius: 5px;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 0.95em;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .nav-column li a:hover,
+        .nav-column li a.active {
+            background-color: #0056b3;
+            color: #fff;
+        }
+
+        /* Right Content Column */
+        .content-column {
+            flex: 3;
+            padding: 25px 35px;
+            height: 100%;
+            overflow-y: auto;
+        }
+
+        .content-section {
+            display: none;
+        }
+        
+        .content-section.active {
+            display: block;
+        }
+        
+        h2 {
+            font-size: 1.8em;
+            color: #0056b3;
+            border-bottom: 3px solid #0056b3;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        
+        h3 {
+            font-size: 1.4em;
+            color: #333;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        
+        .rule {
+            background-color: #e7f3fe;
+            border: 1px solid #b3d7f7;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 5px;
+        }
+
+        .example-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .example-list li {
+            margin-bottom: 20px;
+            border-left: 4px solid #0056b3;
+            padding-left: 15px;
+        }
+        
+        .explanation {
+            font-style: italic;
+            color: #555;
+            margin-top: 5px;
+        }
+        
+        .feature {
+            font-weight: bold;
+            text-decoration: underline;
+            color: #0056b3;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #0056b3;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>ADVANCED GRAMMAR: NON-FINITE VERBS</h1>
+    </header>
+
+    <div class="container">
+        <nav class="nav-column">
+            <ul>
+                <li><a href="#definition" class="nav-link active">What are Non-Finite Verbs?</a></li>
+                <li><a href="#gerunds" class="nav-link">Gerunds</a></li>
+                <li><a href="#participles" class="nav-link">Participles</a></li>
+                <li><a href="#infinitives" class="nav-link">Infinitives</a></li>
+                <li><a href="#identification-guide" class="nav-link">Quick Identification Guide</a></li>
+            </ul>
+        </nav>
+
+        <main class="content-column">
+            <section id="definition" class="content-section active">
+                <h2>What are Non-Finite Verbs?</h2>
+                <div class="rule">
+                    <strong>Concept:</strong> Non-finite verbs are verb forms that **do not** act as the main verb of a clause. They do not show tense (past/present/future) and do not change form to agree with a subject. Instead, they function as other parts of speech, such as nouns, adjectives, or adverbs.
+                </div>
+                <h3>Finite vs. Non-Finite Verbs</h3>
+                <ul>
+                    <li><strong>Finite Verb:</strong> The main verb that shows tense. Every sentence must have one.
+                        <ul><li>Example: He <span class="feature">plays</span> cricket. (Present tense) / He <span class="feature">played</span> cricket. (Past tense)</li></ul>
+                    </li>
+                    <li><strong>Non-Finite Verb:</strong> A verb form used in a different role.
+                        <ul>
+                            <li>Example: He likes <span class="feature">playing</span> cricket. (Here, 'likes' is the finite verb, and 'playing' is a non-finite gerund acting as a noun).</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3>The Three Types of Non-Finite Verbs</h3>
+                <ol class="example-list">
+                    <li><strong>Gerunds:</strong> Verb + ing, functioning as a noun. (e.g., <span class="feature">Swimming</span> is good exercise.)</li>
+                    <li><strong>Participles:</strong> Verb + ing (present) or Verb + ed/en (past), functioning as an adjective. (e.g., The <span class="feature">running</span> water. A <span class="feature">broken</span> window.)</li>
+                    <li><strong>Infinitives:</strong> to + verb, functioning as a noun, adjective, or adverb. (e.g., He wants <span class="feature">to swim</span>.)</li>
+                </ol>
+            </section>
+            
+            <section id="gerunds" class="content-section">
+                <h2>Gerunds</h2>
+                <div class="rule">
+                    <p><strong>Concept:</strong> A gerund is a verb form that ends in **-ing** and functions as a **noun** in a sentence.</p>
+                    <p><strong>Syntax:</strong> Verb + ing (e.g., `running`, `singing`, `thinking`). It can be a single word or part of a gerund phrase.</p>
+                    <p><strong>How to Identify:</strong> The best trick is the **pronoun substitution test**. If you can replace the -ing word or phrase with a pronoun like `it` or `something` and the sentence still makes sense, it's a gerund. Ask the question **"What?"** in relation to the verb.</p>
+                </div>
+                <h3>20 Examples of Gerunds:</h3>
+                <ul class="example-list">
+                    <li><span class="feature">Swimming</span> is my favorite hobby.
+                        <div class="explanation"><strong>Explanation (Subject):</strong> The gerund 'Swimming' acts as the subject of the verb 'is'. (What is my favorite hobby? -> Swimming).</div></li>
+                    <li>He enjoys <span class="feature">playing the guitar</span>.
+                        <div class="explanation"><strong>Explanation (Direct Object):</strong> The gerund phrase 'playing the guitar' is the direct object of the verb 'enjoys'. (He enjoys what? -> playing the guitar).</div></li>
+                    <li>She is good at <span class="feature">painting</span>.
+                        <div class="explanation"><strong>Explanation (Object of Preposition):</strong> The gerund 'painting' is the object of the preposition 'at'.</div></li>
+                    <li>My biggest challenge is <span class="feature">managing my time</span>.
+                        <div class="explanation"><strong>Explanation (Subject Complement):</strong> The gerund phrase renames the subject 'challenge'. (My challenge is what? -> managing my time).</div></li>
+                    <li><span class="feature">Eating healthy food</span> is crucial for good health.
+                        <div class="explanation"><strong>Explanation (Subject):</strong> The entire gerund phrase acts as the subject of the verb 'is'.</div></li>
+                    <li>I have always disliked <span class="feature">waking up early</span>.
+                        <div class="explanation"><strong>Explanation (Direct Object):</strong> The phrase is the object of the verb 'disliked'.</div></li>
+                    <li>Thank you for <span class="feature">helping me</span>.
+                        <div class="explanation"><strong>Explanation (Object of Preposition):</strong> The phrase is the object of the preposition 'for'.</div></li>
+                    <li>His worst habit is <span class="feature">interrupting others</span>.
+                        <div class="explanation"><strong>Explanation (Subject Complement):</strong> The phrase renames the subject 'habit'.</div></li>
+                    <li><span class="feature">Traveling to new countries</span> broadens the mind.
+                        <div class="explanation"><strong>Explanation (Subject):</strong> The gerund phrase is the subject of the verb 'broadens'.</div></li>
+                    <li>The police arrested him for <span class="feature">speeding</span>.
+                        <div class="explanation"><strong>Explanation (Object of Preposition):</strong> 'speeding' is the object of 'for'.</div></li>
+                    <li>He admitted <span class="feature">stealing the money</span>.
+                        <div class="explanation"><strong>Explanation (Direct Object):</strong> The phrase is the object of the verb 'admitted'.</div></li>
+                    <li><span class="feature">Learning</span> is a lifelong process.
+                        <div class="explanation"><strong>Explanation (Subject):</strong> 'Learning' is the subject of 'is'.</div></li>
+                    <li>She is tired of <span class="feature">arguing</span>.
+                        <div class="explanation"><strong>Explanation (Object of Preposition):</strong> 'arguing' is the object of 'of'.</div></li>
+                    <li>My job involves <span class="feature">attending many meetings</span>.
+                        <div class="explanation"><strong>Explanation (Direct Object):</strong> The phrase is the object of the verb 'involves'.</div></li>
+                    <li>One of his duties is <span class="feature">locking the doors</span> at night.
+                        <div class="explanation"><strong>Explanation (Subject Complement):</strong> The phrase renames the subject 'One'.</div></li>
+                    <li><span class="feature">Public speaking</span> can be a nerve-wracking experience.
+                        <div class="explanation"><strong>Explanation (Subject):</strong> The gerund phrase acts as the subject.</div></li>
+                    <li>He suggested <span class="feature">going to the movies</span>.
+                        <div class="explanation"><strong>Explanation (Direct Object):</strong> The phrase is the object of the verb 'suggested'.</div></li>
+                    <li>We celebrated by <span class="feature">having a party</span>.
+                        <div class="explanation"><strong>Explanation (Object of Preposition):</strong> The phrase is the object of 'by'.</div></li>
+                    <li><span class="feature">Understanding the instructions</span> was the first step.
+                        <div class="explanation"><strong>Explanation (Subject):</strong> The gerund phrase is the subject of the verb 'was'.</div></li>
+                    <li>She finished <span class="feature">writing the report</span>.
+                        <div class="explanation"><strong>Explanation (Direct Object):</strong> The phrase is the object of the verb 'finished'.</div></li>
+                </ul>
+            </section>
+            
+            <section id="participles" class="content-section">
+                <h2>Participles</h2>
+                <div class="rule">
+                    <p><strong>Concept:</strong> A participle is a verb form that functions as an **adjective**, modifying a noun or pronoun.</p>
+                    <p><strong>Syntax:</strong> There are two types:
+                        <ul>
+                            <li><strong>Present Participle:</strong> Ends in **-ing**. Describes an active or ongoing quality. (e.g., the `running` water)</li>
+                            <li><strong>Past Participle:</strong> Ends in **-ed, -en, -t, -n,** etc. Describes a passive or completed quality. (e.g., a `broken` window)</li>
+                        </ul>
+                    </p>
+                    <p><strong>How to Identify:</strong> Ask the adjective questions **"Which one?"** or **"What kind?"** about a noun. If the word or phrase answers the question, it's a participle.</p>
+                </div>
+                <h3>20 Examples of Participles:</h3>
+                <ul class="example-list">
+                    <li>The <span class="feature">crying</span> baby needs her mother.
+                        <div class="explanation"><strong>Explanation (Present Participle):</strong> 'crying' acts as an adjective modifying the noun 'baby'. (Which baby? The crying one).</div></li>
+                    <li>A <span class="feature">broken</span> window needs to be repaired.
+                        <div class="explanation"><strong>Explanation (Past Participle):</strong> 'broken' acts as an adjective modifying the noun 'window'. (What kind of window? A broken one).</div></li>
+                    <li>The man <span class="feature">wearing the red shirt</span> is my brother.
+                        <div class="explanation"><strong>Explanation (Present Participle Phrase):</strong> The phrase modifies 'man', telling us which man.</div></li>
+                    <li>The car, <span class="feature">damaged in the storm</span>, is now in the garage.
+                        <div class="explanation"><strong>Explanation (Past Participle Phrase):</strong> The phrase modifies 'car', telling us about its condition.</div></li>
+                    <li>This is a very <span class="feature">interesting</span> book.
+                        <div class="explanation"><strong>Explanation (Present Participle):</strong> 'interesting' acts as a simple adjective modifying 'book'.</div></li>
+                    <li>I was very <span class="feature">interested</span> in the topic.
+                        <div class="explanation"><strong>Explanation (Past Participle):</strong> 'interested' acts as a predicate adjective modifying the pronoun 'I'.</div></li>
+                    <li><span class="feature">Blinded by the bright sun</span>, the driver couldn't see the road.
+                        <div class="explanation"><strong>Explanation (Past Participle Phrase):</strong> The phrase modifies 'driver'.</div></li>
+                    <li>I read an article <span class="feature">written by a famous journalist</span>.
+                        <div class="explanation"><strong>Explanation (Past Participle Phrase):</strong> The phrase modifies 'article'.</div></li>
+                    <li>The <span class="feature">barking</span> dog kept everyone awake.
+                        <div class="explanation"><strong>Explanation (Present Participle):</strong> 'barking' modifies 'dog'.</div></li>
+                    <li>He is a <span class="feature">retired</span> officer.
+                        <div class="explanation"><strong>Explanation (Past Participle):</strong> 'retired' modifies 'officer'.</div></li>
+                    <li><span class="feature">Having finished his work</span>, he went home.
+                        <div class="explanation"><strong>Explanation (Perfect Participle Phrase):</strong> This advanced structure modifies 'he', explaining the prior action.</div></li>
+                    <li>The <span class="feature">fallen</span> leaves covered the ground.
+                        <div class="explanation"><strong>Explanation (Past Participle):</strong> 'fallen' modifies 'leaves'.</div></li>
+                    <li>I saw the children <span class="feature">playing in the park</span>.
+                        <div class="explanation"><strong>Explanation (Present Participle Phrase):</strong> The phrase modifies 'children'.</div></li>
+                    <li>The treasure, <span class="feature">hidden for centuries</span>, was finally found.
+                        <div class="explanation"><strong>Explanation (Past Participle Phrase):</strong> The phrase modifies 'treasure'.</div></li>
+                    <li>The movie was <span class="feature">boring</span>.
+                        <div class="explanation"><strong>Explanation (Present Participle):</strong> 'boring' acts as a predicate adjective describing 'movie'.</div></li>
+                    <li>I was <span class="feature">bored</span> during the movie.
+                        <div class="explanation"><strong>Explanation (Past Participle):</strong> 'bored' acts as a predicate adjective describing 'I'.</div></li>
+                    <li>Look at the <span class="feature">smiling</span> girl.
+                        <div class="explanation"><strong>Explanation (Present Participle):</strong> 'smiling' modifies 'girl'.</div></li>
+                    <li>We ate <span class="feature">fried</span> chicken for dinner.
+                        <div class="explanation"><strong>Explanation (Past Participle):</strong> 'fried' modifies 'chicken'.</div></li>
+                    <li>The team, <span class="feature">encouraged by the crowd</span>, played better.
+                        <div class="explanation"><strong>Explanation (Past Participle Phrase):</strong> The phrase modifies 'team'.</div></li>
+                    <li>He is a <span class="feature">charming</span> man.
+                        <div class="explanation"><strong>Explanation (Present Participle):</strong> 'charming' acts as a simple adjective modifying 'man'.</div></li>
+                </ul>
+            </section>
+
+            <section id="infinitives" class="content-section">
+                <h2>Infinitives</h2>
+                <div class="rule">
+                    <p><strong>Concept:</strong> An infinitive is the base form of a verb preceded by the word **`to`**. It is the most versatile non-finite verb, able to function as a **noun, an adjective, or an adverb**.</p>
+                    <p><strong>Syntax:</strong> to + base verb (e.g., `to run`, `to eat`).</p>
+                    <p><strong>How to Identify:</strong> Look for the `to + verb` structure. To determine its function, ask a "Wh-" question:
+                        <ul>
+                            <li>**"What?"** → It's a Noun.</li>
+                            <li>**"Which one?" or "What kind?"** → It's an Adjective.</li>
+                            <li>**"Why?"** → It's an Adverb.</li>
+                        </ul>
+                    </p>
+                </div>
+                <h3>20 Examples of Infinitives:</h3>
+                <ul class="example-list">
+                    <li><span class="feature">To succeed</span> requires hard work.
+                        <div class="explanation"><strong>Explanation (Noun - Subject):</strong> The infinitive is the subject of the verb 'requires'. (What requires hard work?).</div></li>
+                    <li>He wants <span class="feature">to leave</span> now.
+                        <div class="explanation"><strong>Explanation (Noun - Direct Object):</strong> The infinitive is the object of the verb 'wants'. (He wants what?).</div></li>
+                    <li>His dream is <span class="feature">to become a pilot</span>.
+                        <div class="explanation"><strong>Explanation (Noun - Subject Complement):</strong> The infinitive phrase renames the subject 'dream'. (His dream is what?).</div></li>
+                    <li>I have a decision <span class="feature">to make</span>.
+                        <div class="explanation"><strong>Explanation (Adjective):</strong> The infinitive modifies the noun 'decision'. (Which decision?).</div></li>
+                    <li>This is the best way <span class="feature">to solve the problem</span>.
+                        <div class="explanation"><strong>Explanation (Adjective):</strong> The infinitive phrase modifies the noun 'way'. (What kind of way?).</div></li>
+                    <li>He studied hard <span class="feature">to pass the exam</span>.
+                        <div class="explanation"><strong>Explanation (Adverb):</strong> The infinitive phrase modifies the verb 'studied', answering the question 'Why?'.</div></li>
+                    <li>She was happy <span class="feature">to help</span>.
+                        <div class="explanation"><strong>Explanation (Adverb):</strong> The infinitive modifies the adjective 'happy', explaining why she was happy.</div></li>
+                    <li>His only ambition in life is <span class="feature">to earn a lot of money</span>.
+                        <div class="explanation"><strong>Explanation (Noun - Subject Complement):</strong> Renames the subject 'ambition'.</div></li>
+                    <li>He is the man <span class="feature">to call</span> in an emergency.
+                        <div class="explanation"><strong>Explanation (Adjective):</strong> Modifies the noun 'man'.</div></li>
+                    <li>She went to the market <span class="feature">to buy some vegetables</span>.
+                        <div class="explanation"><strong>Explanation (Adverb):</strong> Modifies the verb 'went', explaining the purpose.</div></li>
+                    <li><span class="feature">To forgive</span> is divine.
+                        <div class="explanation"><strong>Explanation (Noun - Subject):</strong> The infinitive is the subject of the verb 'is'.</div></li>
+                    <li>She promised <span class="feature">to return</span> the book.
+                        <div class="explanation"><strong>Explanation (Noun - Direct Object):</strong> The infinitive phrase is the object of 'promised'.</div></li>
+                    <li>He has the ability <span class="feature">to lead the team</span>.
+                        <div class="explanation"><strong>Explanation (Adjective):</strong> The phrase modifies the noun 'ability'.</div></li>
+                    <li>The water is not safe <span class="feature">to drink</span>.
+                        <div class="explanation"><strong>Explanation (Adverb):</strong> The infinitive modifies the adjective 'safe'.</div></li>
+                    <li>He agreed <span class="feature">to sign the contract</span>.
+                        <div class="explanation"><strong>Explanation (Noun - Direct Object):</strong> The phrase is the object of 'agreed'.</div></li>
+                    <li>That is a difficult question <span class="feature">to answer</span>.
+                        <div class="explanation"><strong>Explanation (Adjective):</strong> Modifies the noun 'question'.</div></li>
+                    <li>We must work together <span class="feature">to achieve our goals</span>.
+                        <div class="explanation"><strong>Explanation (Adverb):</strong> Modifies the verb 'work', explaining why.</div></li>
+                    <li>I need someone <span class="feature">to talk to</span>.
+                        <div class="explanation"><strong>Explanation (Adjective):</strong> Modifies the pronoun 'someone'.</div></li>
+                    <li>He refused <span class="feature">to admit his mistake</span>.
+                        <div class="explanation"><strong>Explanation (Noun - Direct Object):</strong> The phrase is the object of the verb 'refused'.</div></li>
+                    <li>The candidate was asked <span class="feature">to wait</span> outside.
+                        <div class="explanation"><strong>Explanation (Noun - Retained Object in Passive Voice):</strong> Part of the main verb construction.</div></li>
+                </ul>
+            </section>
+            
+             <section id="identification-guide" class="content-section">
+                <h2>Quick Identification Guide</h2>
+                <p>Use this table as a quick reference to identify the type of non-finite verb.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Non-Finite Type</th>
+                            <th>Form</th>
+                            <th>Function</th>
+                            <th>How to Identify (Question)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Gerund</strong></td>
+                            <td>Verb + ing</td>
+                            <td>Noun</td>
+                            <td>Ask **"What?"** Can be replaced by "it" or "something".</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Participle</strong></td>
+                            <td>-ing (Present)<br>-ed/-en (Past)</td>
+                            <td>Adjective</td>
+                            <td>Ask **"Which one?"** or **"What kind?"** about a noun.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Infinitive</strong></td>
+                            <td>to + Verb</td>
+                            <td>Noun, Adjective, or Adverb</td>
+                            <td>Ask **"What?"** (Noun), **"Which one?"** (Adjective), or **"Why?"** (Adverb).</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-column a');
+            const contentSections = document.querySelectorAll('.content-section');
+            const contentColumn = document.querySelector('.content-column');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    navLinks.forEach(nav => nav.classList.remove('active'));
+                    this.classList.add('active');
+                    const targetId = this.getAttribute('href');
+                    contentSections.forEach(section => {
+                        if ('#' + section.id === targetId) {
+                            section.classList.add('active');
+                        } else {
+                            section.classList.remove('active');
+                        }
+                    });
+                    contentColumn.scrollTop = 0;
+                });
+            });
+            
+             const firstLink = document.querySelector('.nav-column a');
+             if(firstLink) {
+                firstLink.classList.add('active');
+                document.querySelector(firstLink.getAttribute('href')).classList.add('active');
+             }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Grammar made easy</title>
+  <style>
+    @import url('https://fonts.cdnfonts.com/css/impact');
+
+    /* Basic Styles */
+    body {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        color: black; /* Font color is black everywhere */
+        
+        /* --- NEW: Shinier Background with Gridlines --- */
+        background-color: #f5fffa; /* A very light, mint-like base color */
+        background-image:
+            repeating-linear-gradient(to right, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 40px),
+            repeating-linear-gradient(to bottom, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 40px);
+        background-size: 40px 40px;
+    }
+
+    /* Header Styling */
+    header {
+        padding: 2rem 1rem;
+        text-align: center;
+    }
+
+    /* MODIFIED: The Intense 3D Impact Font Title */
+    header h1 {
+        display: inline-block;
+        font-family: 'Impact', sans-serif;
+        font-size: 4em;
+        font-weight: normal;
+        line-height: 1.0;
+        color: white;
+        background-color: #40E0D0; /* Solid Turquoise background */
+        padding: 20px 40px;
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+        margin: 0;
+        /* The Intense, Layered 3D Text Shadow */
+        text-shadow: 
+            1px 1px 0px rgba(0,0,0,0.2), 
+            2px 2px 0px rgba(0,0,0,0.2), 
+            3px 3px 0px rgba(0,0,0,0.2),
+            4px 4px 0px rgba(0,0,0,0.2),
+            5px 5px 0px rgba(0,0,0,0.2),
+            6px 6px 12px rgba(0,0,0,0.4);
+    }
+
+    /* Main 3-Column Container */
+    .main-container {
+        display: flex;
+        max-width: 1600px;
+        margin: 10px auto;
+        background: rgba(255, 255, 255, 0.9); /* Slightly transparent white for a glassy effect */
+        backdrop-filter: blur(5px); /* Adds to the glassy effect */
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        height: 75vh;
+    }
+
+    /* Side Navigation Columns */
+    .side-column {
+        flex: 1;
+        padding: 20px;
+        overflow-y: auto;
+    }
+    .side-column.left {
+        border-right: 1px solid #ddd;
+    }
+    .side-column.right {
+        border-left: 1px solid #ddd;
+    }
+
+    /* Middle Content Column */
+    .middle-column {
+        flex: 2;
+        padding: 25px 35px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #f8f9fa;
+    }
+
+    #initial-message {
+        text-align: center;
+        color: #555;
+        font-size: 1.2em;
+    }
+    #initial-message h2 {
+        color: #0056b3;
+        border: none;
+    }
+    
+    /* --- NEW: Dazzling 3D Dashboard Button Style --- */
+    .dash-button {
+        display: block;
+        padding: 12px 15px;
+        margin-bottom: 10px;
+        text-decoration: none;
+        color: black; /* Font color for buttons is black */
+        background: linear-gradient(145deg, #50f0e0, #40E0D0); /* Shiny Turquoise Gradient */
+        border: 1px solid #30c0b0;
+        border-radius: 8px;
+        text-align: center;
+        font-weight: bold;
+        font-size: 0.95em;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15), inset 0 -2px 2px rgba(0, 0, 0, 0.1);
+        text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+    }
+
+    .dash-button:hover {
+        background: linear-gradient(145deg, #60fff0, #50f0e0); /* Brighter gradient on hover */
+        transform: translateY(-3px);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2), 0 0 10px rgba(64, 224, 208, 0.4); /* Pop-out effect + glow */
+    }
+    
+    .dash-button.active {
+        background: #39e75f; /* Parrot Green */
+        border-color: #28a745;
+        transform: translateY(1px);
+        box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2), inset 0 2px 4px rgba(0, 0, 0, 0.25); /* More pronounced inset shadow */
+    }
+
+    /* Middle Tabs Styling */
+    .tabs-container {
+        display: flex;
+        gap: 20px;
+        margin-top: 25px;
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .tab-link {
+        padding: 18px 35px;
+        font-size: 1em;
+    }
+    
+    .tab-link.hidden {
+        display: none;
+    }
+    
+    /* Bottom Center Button */
+    .bottom-container {
+        text-align: center;
+        padding: 20px;
+    }
+    .bottom-container .dash-button {
+        display: inline-block;
+        width: 300px;
+    }
+</style>
+</head>
+<body>
+
+    <header>
+        <h1>ENGLISH GRAMMAR MADE EASY</h1>
+    </header>
+
+    <div class="main-container">
+        <nav class="side-column left">
+            <!-- First 16 links -->
+            <a href="nouns.html" class="dash-button topic-link" data-sections="definition,types,plural,identify">Nouns</a>
+            <a href="verbs.html" class="dash-button topic-link" data-sections="definition,types,forms,identify">Verbs</a>
+            <a href="adjectives.html" class="dash-button topic-link" data-sections="definition,types,degrees,identify">Adjectives</a>
+            <a href="adverbs.html" class="dash-button topic-link" data-sections="definition,types,tip,identify">Adverbs</a>
+            <a href="pronouns.html" class="dash-button topic-link" data-sections="definition,types,identify">Pronouns</a>
+            <a href="prepositions.html" class="dash-button topic-link" data-sections="definition,common,identify">Prepositions</a>
+            <a href="conjunctions.html" class="dash-button topic-link" data-sections="definition,clause-phrase,types,identify">Conjunctions</a>
+            <a href="interjections.html" class="dash-button topic-link" data-sections="definition,types,identify">Interjections</a>
+            <a href="phrases.html" class="dash-button topic-link" data-sections="definition,noun-phrase,verb-phrase,adjective-phrase,adverb-phrase,prepositional-phrase,infinitive-phrase,gerund-phrase,participial-phrase">Phrases</a>
+            <a href="clauses.html" class="dash-button topic-link" data-sections="definition,independent-clause,dependent-clause,noun-clause,adjective-clause,adverb-clause">Clauses</a>
+            <a href="sub_pred.html" class="dash-button topic-link" data-sections="definition,identify,examples,unusual-position">Subject & Predicate</a>
+            <a href="sub_verb_agreement.html" class="dash-button topic-link" data-sections="definition,rule1">Subject-Verb Agreement</a>
+            <a href="modals.html" class="dash-button topic-link" data-sections="definition,can,could,may,might,shall,should,will,would,must,ought-to,need,dare">Modals</a>
+            <a href="articles.html" class="dash-button topic-link" data-sections="definition,indefinite-article,definite-article,omission-article">Articles</a>
+            <a href="active_passive.html" class="dash-button topic-link" data-sections="definition,active-voice,passive-voice,conversion-rules,active-to-passive,passive-to-active">Active & Passive Voice</a>
+            <a href="object_complement.html" class="dash-button topic-link" data-sections="analyze,direct-object,indirect-object,subject-complement,object-complement">Objects & Complements</a>
+        </nav>
+
+        <main class="middle-column">
+            <div id="initial-message">
+                <h2>Welcome to Your Grammar Dashboard</h2>
+                <p>Select a topic from the left or right columns to begin.</p>
+            </div>
+            <div class="tabs-container">
+                <a href="#" class="dash-button tab-link hidden" id="tab-def">Definition & Concept</a>
+                <a href="#" class="dash-button tab-link hidden" id="tab-types">Different Types / Rules</a>
+                <a href="#" class="dash-button tab-link hidden" id="tab-tricks">Tricks to Identify</a>
+                <a href="#" class="dash-button tab-link hidden" id="tab-ex">Examples</a>
+            </div>
+        </main>
+
+        <nav class="side-column right">
+            <!-- Next 16 links -->
+            <a href="tenses.html" class="dash-button topic-link" data-sections="simple-present,identify">Tenses</a>
+            <a href="direct_indirect.html" class="dash-button topic-link" data-sections="definition,rules,direct-to-indirect,indirect-to-direct">Direct-Indirect Speech</a>
+            <a href="types_of_sentences.html" class="dash-button topic-link" data-sections="declarative,simple">Types of Sentences</a>
+            <a href="conditionals.html" class="dash-button topic-link" data-sections="definition,zero,first,second,third,mixed">Conditionals</a>
+            <a href="gerunds_infinitives_participles.html" class="dash-button topic-link" data-sections="definition,gerunds,participles,infinitives">Gerunds, Participles, Infinitives</a>
+            <a href="parallelism.html" class="dash-button topic-link" data-sections="definition,rules,identify,examples">Parallelism</a>
+            <a href="question_tags.html" class="dash-button topic-link" data-sections="definition,rules,identify,examples">Question Tags</a>
+            <a href="inversions.html" class="dash-button topic-link" data-sections="definition,rules,identify,examples">Inversion</a>
+            <a href="determiners_quantifiers.html" class="dash-button topic-link" data-sections="definition,rules,identify,examples">Determiners & Quantifiers</a>
+            <a href="phrasal_verbs.html" class="dash-button topic-link" data-sections="definition,rules,identify,examples">Phrasal Verbs</a>
+            <a href="one_word_substitution.html" class="dash-button topic-link" data-sections="definition,examples">One-Word Substitution</a>
+            <a href="paronyms_homophones.html" class="dash-button topic-link" data-sections="definition,identify,homophones,paronyms">Paronyms & Homophones</a>
+            <a href="parajumbles.html" class="dash-button topic-link" data-sections="definition,strategies,examples">Para Jumbles</a>
+            <a href="cloze_test.html" class="dash-button topic-link" data-sections="definition,strategies,examples">Cloze Test</a>
+           <a href="important_vocabulary.html" class="dash-button topic-link" data-sections="definition,rules,examples">Vocabulary Builder</a>
+            <a href="idioms.html" class="dash-button topic-link" data-sections="definition,strategies,cat-a">Idioms</a>
+        </nav>
+    </div>
+    
+    <div class="bottom-container">
+        <!-- Last link -->
+        <a href="advanced_terminologies.html" class="dash-button topic-link" data-sections="collocation,subjunctive,predicate-nominative,dangling-modifier">Advanced Terminologies</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const topicLinks = document.querySelectorAll('.topic-link');
+            const tabDef = document.getElementById('tab-def');
+            const tabTypes = document.getElementById('tab-types');
+            const tabTricks = document.getElementById('tab-tricks');
+            const tabEx = document.getElementById('tab-ex');
+            const allTabs = [tabDef, tabTypes, tabTricks, tabEx];
+            const initialMessage = document.getElementById('initial-message');
+
+            const tabMappings = {
+                'tab-def': ['definition', 'analyze', 'collocation', 'strategies', 'active-voice', 'declarative', 'simple-present'],
+                'tab-types': ['types', 'plural', 'forms', 'degrees', 'common', 'clause-phrase', 'rules', 'rule1', 'can', 'simple', 'zero', 'gerunds', 'homophones'],
+                'tab-tricks': ['identify', 'tip', 'conversion-rules'],
+                'tab-ex': ['examples', 'unusual-position', 'direct-to-indirect', 'active-to-passive', 'cat-a']
+            };
+
+            topicLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+
+                    // Handle active state for topic links
+                    topicLinks.forEach(nav => nav.classList.remove('active'));
+                    this.classList.add('active');
+
+                    // Show selected topic message
+                    initialMessage.innerHTML = `<h2>Topic Selected: ${this.textContent}</h2><p>Use the tabs below to navigate to specific sections of the topic.</p>`;
+                    
+                    const baseUrl = this.getAttribute('href');
+                    const availableSections = this.getAttribute('data-sections').split(',');
+
+                    // Hide all tabs initially
+                    allTabs.forEach(tab => tab.classList.add('hidden'));
+
+                    // Function to check and show a tab
+                    const showTabIfNeeded = (tab, mappingKey) => {
+                        for (const section of tabMappings[mappingKey]) {
+                            if (availableSections.includes(section)) {
+                                tab.href = `${baseUrl}#${section}`;
+                                tab.classList.remove('hidden');
+                                return; // Stop after finding the first match
+                            }
+                        }
+                    };
+
+                    showTabIfNeeded(tabDef, 'tab-def');
+                    showTabIfNeeded(tabTypes, 'tab-types');
+                    showTabIfNeeded(tabTricks, 'tab-tricks');
+                    showTabIfNeeded(tabEx, 'tab-ex');
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,1568 @@
+
+const germany = [
+  {
+    "Scholarship Name": "DAAD Development-Related Postgraduate Courses (EPOS)",
+    "Host Country and University": "Germany, at a range of German universities offering specific EPOS courses.",
+    "Website": "https://www.daad.in/en/find-funding/daad-scholarships-for-postgraduate-studies/",
+    "Level of Study": "Postgraduate (Master's and PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must hold a four-year Bachelor's degree with results well above average.",
+      "Standardized Test Scores": "English proficiency is required (IELTS Band 6, TOEFL 550 PBT, 213 CBT, 80 iBT). Some courses may be in German and require German language proficiency.",
+      "Field of Study": "A specific list of postgraduate courses focused on development in fields like Engineering, Regional Planning, Agricultural Sciences, Health Sciences, and Social Sciences.",
+      "Other": "Must have at least two years of proven, relevant professional experience. Must be a citizen of a developing country (including India)."
+    },
+    "Application Deadline": "Varies by course, but typically between August and October of the previous year.",
+    "Value/Inclusions": "A fully-funded scholarship that provides a monthly stipend (€934 for Master's, €1,200 for PhD), payments towards health, accident and personal liability insurance cover, and travel allowance. Under certain circumstances, scholars may receive a monthly rent subsidy and a monthly allowance for accompanying family members.",
+    "Application Process": "Apply directly to the respective university offering the EPOS course. Do not apply to the DAAD directly. The university's selection committee nominates candidates to the DAAD.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A detailed statement of motivation is required.",
+      "Letters of Recommendation (LORs)": "A letter of recommendation from your current employer is required.",
+      "Academic Transcripts": "Required.",
+      "Proof of English proficiency (TOEFL/IELTS scores)": "Required.",
+      "CV or Resume": "A hand-signed CV (Europass format) is required.",
+      "Passport copy": "Required."
+    },
+    "How old the scholarship is": "The DAAD and its scholarship programs have been running for many decades; the EPOS program is a long-standing initiative.",
+    "Age limit": "Your academic degree should normally not be more than six years old.",
+    "Establishment date of the University": "Not applicable (multiple universities)"
+  },
+  {
+    "Scholarship Name": "Heinrich Böll Foundation Scholarships",
+    "Host Country and University": "Germany, at any state-recognized university in Germany.",
+    "Website": "https://www.boell.de/en/foundation/scholarships",
+    "Level of Study": "Postgraduate (Master's and PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must have an excellent academic record and be socially and politically engaged.",
+      "Standardized Test Scores": "Proof of German language proficiency (DSH 2 or TestDaF 4) is required, as the selection process is in German.",
+      "Field of Study": "All subjects.",
+      "Other": "Open to all nationalities. Applicants are expected to have a strong interest in the foundation's core values: ecology, sustainability, democracy, human rights, and self-determination."
+    },
+    "Application Deadline": "There are two application deadlines per year: March 1 and September 1.",
+    "Value/Inclusions": "For Master's students, a monthly stipend of €934. For PhD students, a monthly stipend of €1,200, plus a €100 monthly mobility allowance. Does not cover tuition fees (which are often zero anyway).",
+    "Application Process": "Apply through the foundation's online application portal. The process is multi-staged and includes an online application, an interview with a liaison lecturer, and a final selection workshop in Berlin.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A detailed letter of motivation is required.",
+      "Letters of Recommendation (LORs)": "One academic reference is required.",
+      "Academic Transcripts": "Required.",
+      "Proof of German proficiency": "A certificate is required.",
+      "CV or Resume": "Required.",
+      "Passport copy": "Required."
+    },
+    "How old the scholarship is": "The Heinrich Böll Foundation was established in 1997.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "Not applicable (multiple universities)"
+  },
+  {
+    "Scholarship Name": "Konrad-Adenauer-Stiftung (KAS) Scholarships",
+    "Host Country and University": "Germany, at any German university.",
+    "Website": "https://www.kas.de/en/web/begabtenfoerderung-und-kultur/auslaenderfoerderung",
+    "Level of Study": "Postgraduate (Master's and PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must have an above-average academic record.",
+      "Standardized Test Scores": "Good knowledge of the German language (B2 level) is a prerequisite.",
+      "Field of Study": "All subjects, except Medicine.",
+      "Other": "Open to international students. Applicants should be actively engaged in voluntary work and interested in political issues."
+    },
+    "Application Deadline": "The deadline is typically July 15 each year for study commencing the following winter semester.",
+    "Value/Inclusions": "A monthly stipend of €934 for Master's students and €1,200 for PhD students for two years. Also includes a wide range of seminars and personal mentoring.",
+    "Application Process": "Submit an application directly to the KAS office in your home region or apply from within Germany if you are already studying there.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A letter of motivation is required.",
+      "Letters of Recommendation (LORs)": "An academic and a character reference are required.",
+      "Academic Transcripts": "Required.",
+      "Proof of German proficiency": "Required.",
+      "CV or Resume": "Required.",
+      "Passport copy": "Required."
+    },
+    "How old the scholarship is": "The foundation was established in 1955.",
+    "Age limit": "Applicants should be no older than 30 when they apply.",
+    "Establishment date of the University": "Not applicable (multiple universities)"
+  },
+  {
+    "Scholarship Name": "Friedrich Ebert Stiftung - Scholarship for International Students",
+    "Host Country and University": "Germany, at any state-recognized university or technical college in Germany.",
+    "Website": "https://www.fes.de/studienfoerderung/bewerbung/stipendien-fuer-internationale-studierende",
+    "Level of Study": "Undergraduate (Bachelor's) and Postgraduate (Master's and PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Requires outstanding academic merit.",
+      "Standardized Test Scores": "Sufficient German language skills are required (DSH-2, TestDaF 4, or C1 certificate).",
+      "Field of Study": "All academic subjects.",
+      "Other": "Open to international students. Applicants should demonstrate a commitment to the values of social democracy."
+    },
+    "Application Deadline": "Varies. For Master's students, the deadline is typically November 30 for the following summer semester and May 31 for the following winter semester.",
+    "Value/Inclusions": "A monthly basic amount of €934 for Master's students, plus health insurance costs. PhD students receive €1,200 per month.",
+    "Application Process": "Apply through the online portal. The process includes a self-application, two expert reports from university professors, and two selection interviews.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A letter of motivation is required.",
+      "Letters of Recommendation (LORs)": "Two expert reports are needed.",
+      "Academic Transcripts": "Required.",
+      "Proof of German proficiency": "Required.",
+      "CV or Resume": "Required.",
+      "Passport copy": "Required."
+    },
+    "How old the scholarship is": "The foundation has been providing scholarships since 1925.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "Not applicable (multiple universities)"
+  },
+  {
+    "Scholarship Name": "Deutschlandstipendium (Germany Scholarship)",
+    "Host Country and University": "Germany, at participating German universities.",
+    "Website": "https://www.deutschlandstipendium.de/deutschlandstipendium/de/services/english.html",
+    "Level of Study": "Undergraduate and Postgraduate",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Based on outstanding academic merit and social commitment.",
+      "Standardized Test Scores": "As required by the university for the chosen course.",
+      "Field of Study": "All subjects.",
+      "Other": "Open to all students of all nationalities enrolled at a German university."
+    },
+    "Application Deadline": "Varies by university. You apply directly to the university.",
+    "Value/Inclusions": "€300 per month. €150 is provided by the German government, and the other €150 is contributed by private sponsors (e.g., companies, foundations, or private individuals).",
+    "Application Process": "Apply directly to the university where you are enrolled or plan to enroll. The university's international office will have the specific details and application forms.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A letter of motivation is often required.",
+      "Academic Transcripts": "Required.",
+      "CV or Resume": "Required.",
+      "Other documents as specified by the university.": true
+    },
+    "How old the scholarship is": "The Deutschlandstipendium was established in 2011.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "Not applicable (multiple universities)"
+  },
+  {
+    "Scholarship Name": "Bayer Foundation - Otto Bayer Fellowships for Drug Discovery Sciences",
+    "Host Country and University": "Global, including Germany.",
+    "Website": "https://www.bayer-foundation.com/fellowships-stiftung",
+    "Level of Study": "Postgraduate (Master's, PhD) and Postdoctoral.",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must have an outstanding academic record.",
+      "Standardized Test Scores": "English proficiency as required by the host institution.",
+      "Field of Study": "Drug Discovery Sciences, including Pharmacy, Biochemistry, Molecular Biology, and Computational Life Sciences.",
+      "Other": "Open to all nationalities. This is for students from Germany wishing to study abroad or international students wishing to study in Germany."
+    },
+    "Application Deadline": "The application portal is typically open from February to early April.",
+    "Value/Inclusions": "Up to €20,000 to fund a specific study or research project. The amount is based on a detailed cost plan.",
+    "Application Process": "Apply online through the Bayer Foundation portal. Requires a detailed description of your research project.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A detailed project plan and motivation statement are required.",
+      "Letters of Recommendation (LORs)": "Two letters of recommendation are needed.",
+      "Academic Transcripts": "Required.",
+      "Proof of English proficiency (TOEFL/IELTS scores)": "Required for the host institution.",
+      "CV or Resume": "Required.",
+      "Confirmation letter from the host institution in Germany.": "Required."
+    },
+    "How old the scholarship is": "The Bayer Foundation has a long history of supporting science, with these specific fellowships running for many years.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "Not applicable (multiple universities)"
+  },
+  {
+    "Scholarship Name": "KAAD Scholarships for Developing Countries",
+    "Host Country and University": "Germany, at any German university.",
+    "Website": "https://www.kaad.de/en/stipendien/",
+    "Level of Study": "Postgraduate (Master's and PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must have a university degree and professional experience from your home country.",
+      "Standardized Test Scores": "German language skills are required before applying (the KAAD provides a language course).",
+      "Field of Study": "All fields, with a preference for subjects that can contribute to development in your home country.",
+      "Other": "Must be a citizen of a developing country in Asia, Africa, or Latin America (including India). Must be a Christian (usually Catholic). Must demonstrate a commitment to social and religious engagement."
+    },
+    "Application Deadline": "There are two selection rounds per year. You must apply through a KAAD Partner Committee in your home country.",
+    "Value/Inclusions": "A comprehensive package including a monthly stipend, travel costs, and language course fees.",
+    "Application Process": "Contact the KAAD Partner Committee in India to begin the application process. You cannot apply directly to the KAAD in Germany.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "Required, focusing on your development-oriented goals.",
+      "Letters of Recommendation (LORs)": "Required.",
+      "Academic Transcripts": "Required.",
+      "Proof of German proficiency": "Eventually required.",
+      "CV or Resume": "Required.",
+      "Passport copy": "Required."
+    },
+    "How old the scholarship is": "KAAD was founded in 1958.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "Not applicable (multiple universities)"
+  },
+  {
+    "Scholarship Name": "Heidelberg University - CSC PhD Scholarship",
+    "Host Country and University": "Germany, Heidelberg University.",
+    "Website": "https://www.uni-heidelberg.de/en/study/funding/scholarship/scholarships-for-phd-students",
+    "Level of Study": "Doctoral (PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must hold an excellent Master's degree and be admitted to a PhD program at Heidelberg University.",
+      "Standardized Test Scores": "As required by the specific doctoral program.",
+      "Field of Study": "Varies, with a focus on Natural Sciences, Mathematics, and Computer Science, but other fields can be included.",
+      "Other": "This is a joint scholarship with the China Scholarship Council (CSC), primarily for Chinese students. *This entry is included to show an example of a common scholarship model in Germany: joint programs with other countries. Students should look for similar 'DAAD-UGC' or other India-specific joint programs.*"
+    },
+    "Application Deadline": "Varies. Students first need admission to the university.",
+    "Value/Inclusions": "The CSC provides a monthly stipend, travel, and health insurance. Heidelberg University often waives tuition fees if any were applicable.",
+    "Application Process": "Apply for PhD admission at Heidelberg University. Then, apply to the China Scholarship Council.",
+    "How old the scholarship is": "Joint CSC scholarships have been running for over a decade.",
+    "Age limit": "Typically under 35 for PhD applicants.",
+    "Establishment date of the University": "1386"
+  },
+  {
+    "Scholarship Name": "RWTH Aachen University - RWTH IIT Madras Junior Research Fellowship",
+    "Host Country and University": "Germany, RWTH Aachen University.",
+    "Website": "https://www.rwth-aachen.de/go/id/dyiv/lidx/1",
+    "Level of Study": "Doctoral and Postdoctoral Research Stays",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must be an enrolled student or researcher at IIT Madras.",
+      "Standardized Test Scores": "Good English proficiency is required.",
+      "Field of Study": "STEM fields.",
+      "Other": "This is an exchange fellowship specifically for students from IIT Madras."
+    },
+    "Application Deadline": "Varies. Applications are typically coordinated through the International Office at IIT Madras.",
+    "Value/Inclusions": "A monthly stipend to cover living costs for a short-term research stay (3-6 months) in Aachen.",
+    "Application Process": "Apply through the relevant offices at IIT Madras, who will coordinate with RWTH Aachen.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A research proposal is required.",
+      "Letters of Recommendation (LORs)": "A letter from your supervisor at IIT Madras is needed.",
+      "Academic Transcripts": "Required.",
+      "CV or Resume": "Required."
+    },
+    "How old the scholarship is": "This partnership and its fellowships have been active for several years.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1870"
+  },
+  {
+    "Scholarship Name": "Humboldt Research Fellowship for Postdoctoral Researchers",
+    "Host Country and University": "Germany, at any research institution in Germany.",
+    "Website": "https://www.humboldt-foundation.de/en/apply/sponsorship-programmes/humboldt-research-fellowship",
+    "Level of Study": "Postdoctoral",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must have a PhD or equivalent, completed within the last four years. Must have a strong academic publication record.",
+      "Standardized Test Scores": "Language skills in German or English are required, depending on the research proposal.",
+      "Field of Study": "All disciplines.",
+      "Other": "Open to researchers of all nationalities (except Germany)."
+    },
+    "Application Deadline": "Applications can be submitted at any time.",
+    "Value/Inclusions": "A monthly fellowship of €2,670. Includes a travel allowance and language course funding. The fellowship duration is 6-24 months.",
+    "Application Process": "Find an academic host at a German research institution. Develop a research plan together with your host. Apply online through the Humboldt Foundation's portal.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A detailed research outline is the core of the application.",
+      "Letters of Recommendation (LORs)": "Two expert reviews are required.",
+      "Academic Transcripts": "PhD certificate required.",
+      "CV or Resume": "A full CV is required.",
+      "List of Publications": "Required."
+    },
+    "How old the scholarship is": "The Alexander von Humboldt Foundation was established in 1860.",
+    "Age limit": "PhD completion should not be more than four years ago.",
+    "Establishment date of the University": "Not applicable (multiple institutions)"
+  },
+  {
+    "Scholarship Name": "Technical University of Munich (TUM) - Master's Scholarships for International Students",
+    "Host Country and University": "Germany, Technical University of Munich.",
+    "Website": "https://www.tum.de/en/studies/fees-and-financial-aid/scholarships/tum-scholarships",
+    "Level of Study": "Postgraduate (Master's)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Based on outstanding academic merit demonstrated in your Master's program application.",
+      "Standardized Test Scores": "As required for admission to the Master's program.",
+      "Field of Study": "All Master's programs.",
+      "Other": "Open to all international students who have received an offer of admission."
+    },
+    "Application Deadline": "No separate application. Students are considered based on their Master's program application. Deadlines are typically May 31 for the winter semester.",
+    "Value/Inclusions": "A one-time stipend of €500 to €1,500. This is a smaller grant, not a full scholarship.",
+    "Application Process": "All international students admitted to a Master's program at TUM are automatically considered.",
+    "Required Documents": {
+      "All documents submitted for the Master's application are used for consideration.": true
+    },
+    "How old the scholarship is": "This is a well-established grant for high-achieving students.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1868"
+  },
+  {
+    "Scholarship Name": "Ludwig Maximilian University of Munich (LMU) - LMU Research Fellowships",
+    "Host Country and University": "Germany, Ludwig Maximilian University of Munich.",
+    "Website": "https://www.lmu.de/en/research/research-funding/lmu-research-fellowships/",
+    "Level of Study": "Postdoctoral",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must have a PhD completed within the last three years and a strong research track record.",
+      "Standardized Test Scores": "Excellent English proficiency is required.",
+      "Field of Study": "All fields represented at LMU.",
+      "Other": "Open to outstanding international early-career researchers."
+    },
+    "Application Deadline": "The call for applications is announced on the website, typically with a deadline in November.",
+    "Value/Inclusions": "A prestigious two-year fellowship that includes a competitive salary, a research budget of €25,000, and the opportunity to lead an independent research project.",
+    "Application Process": "Apply online through the LMU portal. Requires a detailed research proposal and a letter of support from an LMU professor.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A 5-page research proposal is required.",
+      "Letters of Recommendation (LORs)": "Two letters of recommendation are needed.",
+      "Academic Transcripts": "PhD certificate required.",
+      "CV or Resume": "Required.",
+      "List of Publications": "Required."
+    },
+    "How old the scholarship is": "This is a key component of LMU's 'LMUexcellent' strategy, running for about a decade.",
+    "Age limit": "PhD should have been awarded within the last 3 years.",
+    "Establishment date of the University": "1472"
+  },
+  {
+    "Scholarship Name": "ESMT Berlin MBA Scholarships for Indian Students",
+    "Host Country and University": "Germany, ESMT Berlin.",
+    "Website": "https://esmt.berlin/degrees/mba/fees-and-financing/mba-scholarships",
+    "Level of Study": "Postgraduate (MBA)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must be admitted to the ESMT MBA program. A strong GMAT score and academic background are required.",
+      "Standardized Test Scores": "GMAT/GRE and English proficiency tests are required for admission.",
+      "Field of Study": "Master of Business Administration.",
+      "Other": "ESMT offers several scholarships for which Indian students are eligible, such as the 'Women in Leadership Scholarship' and region-specific awards."
+    },
+    "Application Deadline": "Varies by admission round. It is best to apply in earlier rounds (deadlines from October to May) for better scholarship consideration.",
+    "Value/Inclusions": "Partial tuition fee waivers, typically ranging from €5,000 to €15,000.",
+    "Application Process": "In the online MBA application form, there is a section for scholarships. You must complete the required scholarship essays.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "Scholarship-specific essays are required.",
+      "Letters of Recommendation (LORs)": "Two references are required for the MBA application.",
+      "Academic Transcripts": "Required.",
+      "Proof of English proficiency (TOEFL/IELTS scores)": "Required.",
+      "CV or Resume": "Required.",
+      "Passport copy": "Required."
+    },
+    "How old the scholarship is": "The school and its scholarships have been active since the early 2000s.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "2002"
+  },
+  {
+    "Scholarship Name": "Frankfurt School of Finance & Management - Master's Scholarships",
+    "Host Country and University": "Germany, Frankfurt School of Finance & Management.",
+    "Website": "https://www.frankfurt-school.de/en/home/programmes/master/financing",
+    "Level of Study": "Postgraduate (Master's)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must be admitted to a Master's program at Frankfurt School. Based on outstanding academic results in the Bachelor's degree and the overall application.",
+      "Standardized Test Scores": "GMAT/GRE and English proficiency tests are required for admission.",
+      "Field of Study": "Master in Management, Master of Finance, etc.",
+      "Other": "Open to all international students."
+    },
+    "Application Deadline": "No separate application. You are automatically considered when you apply for a Master's program by the priority deadline, typically June 30.",
+    "Value/Inclusions": "Partial tuition fee waivers of 25%, 50%, or 75%.",
+    "Application Process": "Apply for admission to a Master's program. The scholarship decision is communicated along with the admission offer.",
+    "Required Documents": {
+      "All documents submitted for the Master's application are used for consideration.": true
+    },
+    "How old the scholarship is": "The school has a well-established merit scholarship program.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1957"
+  },
+  {
+    "Scholarship Name": "Universität Hamburg - Merit Scholarships for International Students",
+    "Host Country and University": "Germany, Universität Hamburg.",
+    "Website": "https://www.uni-hamburg.de/en/internationales/studieren-an-der-uhh/finanzierung-des-studiums/merit-scholarships.html",
+    "Level of Study": "Undergraduate (Bachelor's) and Postgraduate (Master's)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must be enrolled at the university for at least two semesters and have very good to excellent academic performance.",
+      "Standardized Test Scores": "N/A for the scholarship itself.",
+      "Field of Study": "All subjects.",
+      "Other": "This is a scholarship for currently enrolled international students. Not for first-semester applicants. Must also be involved in social or intercultural activities."
+    },
+    "Application Deadline": "There are two deadlines per year: April 15 and October 15.",
+    "Value/Inclusions": "A maximum monthly stipend of €934. The total funding amount can be up to €12,000.",
+    "Application Process": "Submit a detailed application through the university's international office.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A letter of motivation is required.",
+      "Letters of Recommendation (LORs)": "One letter from a professor at Universität Hamburg is required.",
+      "Academic Transcripts": "Required.",
+      "CV or Resume": "Required.",
+      "Proof of financial need (if applicable)": "A financial plan is needed to show how you will cover the rest of your expenses."
+    },
+    "How old the scholarship is": "This has been a key support mechanism for enrolled international students for many years.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1919"
+  },
+  {
+    "Scholarship Name": "Rosa Luxemburg Stiftung - Scholarships for International Students",
+    "Host Country and University": "Germany, at any German university.",
+    "Website": "https://www.rosalux.de/en/foundation/studienwerk",
+    "Level of Study": "Postgraduate (Master's and PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Requires a very good degree from a German or foreign university.",
+      "Standardized Test Scores": "Excellent German language skills (C1 level) are required for the application.",
+      "Field of Study": "All subjects, with a preference for social sciences, law, and economics.",
+      "Other": "Open to all nationalities. Applicants must demonstrate a strong commitment to the values of democratic socialism."
+    },
+    "Application Deadline": "The deadlines are April 1 and October 1 each year.",
+    "Value/Inclusions": "A monthly stipend (€934 for Master's, €1350 for PhD) plus health insurance. A one-time startup grant may also be provided.",
+    "Application Process": "Apply online through the foundation's portal. The process is competitive and includes interviews.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A detailed statement on your socio-political commitment and motivation.",
+      "Letters of Recommendation (LORs)": "An expert opinion from a university lecturer is required.",
+      "Academic Transcripts": "Required.",
+      "Proof of German proficiency": "Required.",
+      "CV or Resume": "Required.",
+      "Passport copy": "Required."
+    },
+    "How old the scholarship is": "The foundation was established in 1990.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "Not applicable (multiple universities)"
+  },
+  {
+    "Scholarship Name": "Friedrich Naumann Foundation for Freedom - International Scholarships",
+    "Host Country and University": "Germany, at any German university.",
+    "Website": "https://www.freiheit.org/scholarships-0",
+    "Level of Study": "Postgraduate (Master's and PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Requires an excellent academic record.",
+      "Standardized Test Scores": "A German language certificate (at least B2) is required for the application.",
+      "Field of Study": "All subjects.",
+      "Other": "For international students with a commitment to liberal values and politics."
+    },
+    "Application Deadline": "The deadlines are April 30 and October 31 each year.",
+    "Value/Inclusions": "A monthly stipend of up to €934 for Master's students. PhD students receive more. Includes a seminar program.",
+    "Application Process": "Apply online via the foundation's application portal.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A detailed letter of motivation is required.",
+      "Letters of Recommendation (LORs)": "Expert reports are needed.",
+      "Academic Transcripts": "Required.",
+      "Proof of German proficiency": "Required.",
+      "CV or Resume": "Required.",
+      "Passport copy": "Required."
+    },
+    "How old the scholarship is": "The foundation was established in 1958.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "Not applicable (multiple universities)"
+  },
+  {
+    "Scholarship Name": "Hanns Seidel Foundation - Scholarship Program for International Students",
+    "Host Country and University": "Germany, at any German university.",
+    "Website": "https://www.hss.de/s/scholarships/",
+    "Level of Study": "Postgraduate (Master's and PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Requires above-average academic performance.",
+      "Standardized Test Scores": "German language proficiency is required.",
+      "Field of Study": "All subjects.",
+      "Other": "Open to international students who are socially and politically active."
+    },
+    "Application Deadline": "Varies. Students should contact the foundation directly for the current deadlines.",
+    "Value/Inclusions": "A monthly stipend, seminar programs, and networking opportunities.",
+    "Application Process": "The application process involves a written application and a selection interview.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "Required.",
+      "Letters of Recommendation (LORs)": "Required.",
+      "Academic Transcripts": "Required.",
+      "Proof of German proficiency": "Required.",
+      "CV or Resume": "Required.",
+      "Passport copy": "Required."
+    },
+    "How old the scholarship is": "The foundation was established in 1967.",
+    "Age limit": "Applicants should generally be under 32.",
+    "Establishment date of the University": "Not applicable (multiple universities)"
+  },
+  {
+    "Scholarship Name": "SBW Berlin Scholarship for International Students",
+    "Host Country and University": "Germany, at a university in Berlin or Potsdam.",
+    "Website": "https://sbw.berlin/en/scholarship/",
+    "Level of Study": "Undergraduate and Postgraduate",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must have a good academic record and be eligible for admission to a university in Berlin or Potsdam.",
+      "Standardized Test Scores": "Language skills for the chosen course (English or German).",
+      "Field of Study": "All subjects.",
+      "Other": "For international students from Eastern Europe, Africa, Asia, and South America who come from financially disadvantaged backgrounds. Applicants must intend to return to their home country to work on charitable projects."
+    },
+    "Application Deadline": "The deadlines are typically May 15 and November 15.",
+    "Value/Inclusions": "A full scholarship covering tuition fees, accommodation in a student village, a monthly living stipend, and a travel allowance.",
+    "Application Process": "Apply online through the SBW Berlin portal. The application is very detailed and focuses on the applicant's social and charitable project ideas.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A detailed project description and motivation letter are central to the application.",
+      "Letters of Recommendation (LORs)": "Two letters of recommendation are required.",
+      "Academic Transcripts": "Required.",
+      "Proof of Language Proficiency": "Required.",
+      "CV or Resume": "Required.",
+      "Passport copy": "Required.",
+      "Proof of financial need (if applicable)": "A key eligibility criterion; detailed financial information is required."
+    },
+    "How old the scholarship is": "This is a newer scholarship, established by the SBW foundation.",
+    "Age limit": "Between 18 and 30 years old.",
+    "Establishment date of the University": "Not applicable (multiple universities)"
+  },
+  {
+    "Scholarship Name": "DAAD - Study Visits by Groups of Foreign Students",
+    "Host Country and University": "Germany, at various universities.",
+    "Website": "https://www.daad.de/en/studying-in-germany/scholarships/daad-scholarships/study-visits-by-groups-of-foreign-students/",
+    "Level of Study": "Undergraduate and Postgraduate",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must be a student group from the second semester onwards, led by a university teacher.",
+      "Standardized Test Scores": "N/A.",
+      "Field of Study": "All disciplines.",
+      "Other": "This funds a group of 10-15 students from an Indian university to visit Germany for 7-12 days for academic purposes (e.g., visiting labs, attending seminars)."
+    },
+    "Application Deadline": "Deadlines are February 1, May 1, and November 1.",
+    "Value/Inclusions": "A daily flat rate of €50 per person to cover living costs, plus funding for health insurance and travel.",
+    "Application Process": "The application must be submitted by a university teacher from the home (Indian) institution on behalf of the student group.",
+    "Required Documents": {
+      "A detailed itinerary and justification for the study visit.": true,
+      "List of participants.": true
+    },
+    "How old the scholarship is": "This is a long-standing DAAD program.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "Not applicable (multiple universities)"
+  },
+  {
+    "Scholarship Name": "Goethe-Institut - Goethe-Talent Scholarship",
+    "Host Country and University": "Germany, at a Goethe-Institut.",
+    "Website": "https://www.goethe.de/en/spr/kup/for/kur/ksp.html",
+    "Level of Study": "Language Course",
+    "Eligibility Criteria": {
+      "Academic Requirements": "N/A.",
+      "Standardized Test Scores": "N/A.",
+      "Field of Study": "German Language.",
+      "Other": "For talented musicians and artists to attend an intensive German language course in Germany."
+    },
+    "Application Deadline": "Varies. Check with the Goethe-Institut in India.",
+    "Value/Inclusions": "Covers the cost of the language course, accommodation, and sometimes travel.",
+    "Application Process": "Apply through your local Goethe-Institut in India.",
+    "Required Documents": {
+      "Proof of artistic talent (portfolio, recordings, etc.).": true,
+      "Letter of motivation.": true
+    },
+    "How old the scholarship is": "The Goethe-Institut has offered scholarships for many decades.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "Not applicable (language institute)"
+  },
+  {
+    "Scholarship Name": "Karlsruhe Institute of Technology (KIT) - Graduate School Scholarships",
+    "Host Country and University": "Germany, Karlsruhe Institute of Technology.",
+    "Website": "https://www.kit.edu/english/research_funding_and_scholarships.php",
+    "Level of Study": "Doctoral (PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Requires an excellent Master's degree.",
+      "Standardized Test Scores": "English proficiency is required.",
+      "Field of Study": "STEM fields.",
+      "Other": "Open to international students. Scholarships are often tied to specific research groups or graduate schools within KIT."
+    },
+    "Application Deadline": "Varies by graduate school and research project.",
+    "Value/Inclusions": "A monthly stipend (typically around €1,468 or a work contract), plus health insurance and travel support.",
+    "Application Process": "Apply directly to a specific graduate school or for a PhD position advertised by a professor or institute at KIT.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A research proposal or letter of motivation is required.",
+      "Letters of Recommendation (LORs)": "Two references are usually required.",
+      "Academic Transcripts": "Required.",
+      "Proof of English proficiency": "Required.",
+      "CV or Resume": "Required.",
+      "Passport copy": "Required."
+    },
+    "How old the scholarship is": "These scholarships are part of the university's ongoing research funding.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "2009 (merger of institutions dating back to 1825)"
+  },
+  {
+    "Scholarship Name": "HHL Leipzig Graduate School of Management - MBA Scholarships for Women in Business",
+    "Host Country and University": "Germany, HHL Leipzig Graduate School of Management.",
+    "Website": "https://www.hhl.de/programs/master-in-management-mba/financing-options/",
+    "Level of Study": "Postgraduate (MBA)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must have a strong first degree and GMAT score.",
+      "Standardized Test Scores": "GMAT/GRE and English proficiency tests (TOEFL/IELTS) are required.",
+      "Field of Study": "Master of Business Administration.",
+      "Other": "For outstanding female candidates of all nationalities who demonstrate strong leadership potential."
+    },
+    "Application Deadline": "Several application rounds, typically ending in May or June.",
+    "Value/Inclusions": "A partial tuition fee waiver, up to €16,500.",
+    "Application Process": "Apply for admission to the HHL MBA program and submit the scholarship application at the same time.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A specific scholarship essay is required.",
+      "Letters of Recommendation (LORs)": "Two references are needed for the MBA application.",
+      "Academic Transcripts": "Required.",
+      "GMAT/GRE scores": "Required.",
+      "CV or Resume": "Required.",
+      "Proof of English proficiency": "Required."
+    },
+    "How old the scholarship is": "HHL has offered scholarships for women for over a decade.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1898"
+  },
+  {
+    "Scholarship Name": "WHU - Otto Beisheim School of Management - MBA Scholarships",
+    "Host Country and University": "Germany, WHU - Otto Beisheim School of Management.",
+    "Website": "https://www.whu.edu/en/programs/mba-programs/full-time-mba/fees-and-financing/",
+    "Level of Study": "Postgraduate (MBA)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Excellent academic background and GMAT/GRE score.",
+      "Standardized Test Scores": "GMAT/GRE and English proficiency tests are required.",
+      "Field of Study": "Master of Business Administration.",
+      "Other": "Various scholarships available for international students, women in business, and those from specific industries."
+    },
+    "Application Deadline": "Varies by admission round, but early application is recommended.",
+    "Value/Inclusions": "Partial tuition fee waivers, ranging from €5,000 to €20,000.",
+    "Application Process": "Complete the scholarship section within the main MBA application form.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "Specific scholarship essays are required.",
+      "Letters of Recommendation (LORs)": "Two are required.",
+      "Academic Transcripts": "Required.",
+      "GMAT/GRE scores": "Required.",
+      "CV or Resume": "Required.",
+      "Proof of English proficiency": "Required."
+    },
+    "How old the scholarship is": "The school has a well-established scholarship program.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1984"
+  },
+  {
+    "Scholarship Name": "Max Planck Institute - International Max Planck Research Schools (IMPRS)",
+    "Host Country and University": "Germany, at various Max Planck Institutes.",
+    "Website": "https://www.mpg.de/en/imprs",
+    "Level of Study": "Doctoral (PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "An excellent Master's degree in a relevant field.",
+      "Standardized Test Scores": "English proficiency is required.",
+      "Field of Study": "Primarily in the fields of Biology, Chemistry, Physics, and Neuroscience, but varies by school.",
+      "Other": "Open to all nationalities."
+    },
+    "Application Deadline": "Varies by the specific IMPRS. Calls for applications are typically in the fall.",
+    "Value/Inclusions": "This is not a scholarship, but a fully funded PhD position. It includes a monthly work contract or stipend (around €1,500 - €2,000 net), health insurance, and all social security benefits. There are no tuition fees.",
+    "Application Process": "Apply directly to the specific International Max Planck Research School of your choice through their online portal.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A detailed letter of motivation is required.",
+      "Letters of Recommendation (LORs)": "Two or three references are required.",
+      "Academic Transcripts": "Required.",
+      "Proof of English proficiency": "Required.",
+      "CV or Resume": "Required."
+    },
+    "How old the scholarship is": "The IMPRS program was launched in 2000.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "Not applicable (research institute)"
+  },
+  {
+    "Scholarship Name": "Helmholtz Association - Helmholtz Graduate Schools & Research Schools",
+    "Host Country and University": "Germany, at Helmholtz Centers.",
+    "Website": "https://www.helmholtz.de/en/jobs-talent/doctoral-researchers/",
+    "Level of Study": "Doctoral (PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "An excellent Master's degree in a relevant scientific or technical field.",
+      "Standardized Test Scores": "English proficiency is required.",
+      "Field of Study": "Energy, Earth & Environment, Health, Aeronautics, Space and Transport, Matter, and Key Technologies.",
+      "Other": "Open to all nationalities."
+    },
+    "Application Deadline": "Varies. Applicants apply for specific, advertised PhD positions.",
+    "Value/Inclusions": "Fully funded PhD positions with a work contract, typically based on the public service salary scale (TVöD E13), resulting in a net monthly income of around €1,800 - €2,200.",
+    "Application Process": "Search for open PhD positions on the Helmholtz jobs portal and apply directly for the position.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A cover letter explaining your suitability for the specific project.",
+      "Letters of Recommendation (LORs)": "Often required.",
+      "Academic Transcripts": "Required.",
+      "Proof of English proficiency": "Required.",
+      "CV or Resume": "Required."
+    },
+    "How old the scholarship is": "The Helmholtz Association was formally established in 1995, but its research centers are much older.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "Not applicable (research association)"
+  },
+  {
+    "Scholarship Name": "Leibniz Graduate School Scholarships",
+    "Host Country and University": "Germany, at Leibniz Institutes.",
+    "Website": "https://www.leibniz-gemeinschaft.de/en/careers/scientific-career/doctoral-candidates",
+    "Level of Study": "Doctoral (PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "An excellent Master's degree.",
+      "Standardized Test Scores": "English proficiency required.",
+      "Field of Study": "Varies by graduate school, covering Humanities, Social Sciences, Life Sciences, Natural Sciences, and Engineering.",
+      "Other": "Open to all nationalities."
+    },
+    "Application Deadline": "Varies by the specific Leibniz Graduate School.",
+    "Value/Inclusions": "Fully funded PhD positions with a work contract and social security benefits.",
+    "Application Process": "Apply directly to an open call from a specific Leibniz Graduate School.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A letter of motivation is required.",
+      "Letters of Recommendation (LORs)": "Required.",
+      "Academic Transcripts": "Required.",
+      "CV or Resume": "Required."
+    },
+    "How old the scholarship is": "Leibniz Graduate Schools were established as part of the Joint Initiative for Research and Innovation in the mid-2000s.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "Not applicable (research association)"
+  },
+  {
+    "Scholarship Name": "DAAD - University Summer Courses",
+    "Host Country and University": "Germany, at various German universities.",
+    "Website": "https://www.daad.de/en/studying-in-germany/scholarships/daad-scholarships/university-summer-courses-offered-in-germany-for-foreign-students-and-graduates/",
+    "Level of Study": "Undergraduate and Postgraduate",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must have completed at least two years of a Bachelor's degree.",
+      "Standardized Test Scores": "Must be able to follow lectures in German and collaborate in teams. Requires proof of German language skills (at least A2 level).",
+      "Field of Study": "German Language and Culture.",
+      "Other": "Open to students from all disciplines."
+    },
+    "Application Deadline": "Typically December 1 of the preceding year.",
+    "Value/Inclusions": "A one-off scholarship payment of €1,134 and a country-specific travel allowance.",
+    "Application Process": "Apply online through the DAAD portal.",
+    "Required Documents": {
+      "Academic Transcripts": "Required.",
+      "Proof of German proficiency": "Required.",
+      "CV or Resume": "Required.",
+      "Letter of Motivation": "Required."
+    },
+    "How old the scholarship is": "This is a very long-standing DAAD summer program.",
+    "Age limit": "Must be at least 18 years old.",
+    "Establishment date of the University": "Not applicable (multiple universities)"
+  },
+  {
+    "Scholarship Name": "Jacobs University - Merit-Based Scholarships",
+    "Host Country and University": "Germany, Jacobs University Bremen.",
+    "Website": "https://www.jacobs-university.de/study/undergraduate/fees-financing/scholarships",
+    "Level of Study": "Undergraduate",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Based on the applicant's school grade point average (GPA). Requires a very strong academic record.",
+      "Standardized Test Scores": "SAT/ACT scores are strongly recommended. English proficiency tests (TOEFL/IELTS) are required.",
+      "Field of Study": "All undergraduate programs.",
+      "Other": "Open to all nationalities."
+    },
+    "Application Deadline": "No separate application. You are automatically considered when you apply for admission by the early (November) or rolling (June) deadlines.",
+    "Value/Inclusions": "Up to €8,000 per year, renewable for three years.",
+    "Application Process": "Apply for admission to Jacobs University via the Common Application or the university's portal. All applicants are automatically considered for a merit-based scholarship.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "Required as part of the admission application.",
+      "Letters of Recommendation (LORs)": "One is required.",
+      "Academic Transcripts": "Required.",
+      "Proof of English proficiency": "Required."
+    },
+    "How old the scholarship is": "The university has offered merit scholarships since its inception.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "2001"
+  },
+  {
+    "Scholarship Name": "Ulm University - International PhD Program in Molecular Medicine",
+    "Host Country and University": "Germany, Ulm University.",
+    "Website": "https://www.uni-ulm.de/en/med/i-grad-mm/phd-program/",
+    "Level of Study": "Doctoral (PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "An excellent Master of Science (or equivalent) degree in a relevant life sciences field.",
+      "Standardized Test Scores": "English proficiency is required.",
+      "Field of Study": "Molecular Medicine, Biology, Biochemistry, and related fields.",
+      "Other": "Open to all nationalities."
+    },
+    "Application Deadline": "The call is typically open from September to November.",
+    "Value/Inclusions": "Fully funded PhD positions with a work contract (TV-L E13, 65%) and no tuition fees.",
+    "Application Process": "Apply online through the specific portal for the graduate school.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A letter of motivation is required.",
+      "Letters of Recommendation (LORs)": "Two references are required.",
+      "Academic Transcripts": "Required.",
+      "Proof of English proficiency": "Required.",
+      "CV or Resume": "Required."
+    },
+    "How old the scholarship is": "This graduate school and its funding have been available for over 15 years.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1967"
+  },
+  {
+    "Scholarship Name": "Heidelberg Institute for Theoretical Studies (HITS) - Postdoctoral Fellowships",
+    "Host Country and University": "Germany, HITS in Heidelberg.",
+    "Website": "https://www.h-its.org/jobs/",
+    "Level of Study": "Postdoctoral",
+    "Eligibility Criteria": {
+      "Academic Requirements": "An outstanding PhD in a relevant field (e.g., computer science, mathematics, physics, biology).",
+      "Standardized Test Scores": "Excellent English proficiency is required.",
+      "Field of Study": "Computational research in life sciences, natural sciences, and mathematics.",
+      "Other": "Open to all nationalities."
+    },
+    "Application Deadline": "Varies. Applicants apply for specific, advertised postdoctoral positions.",
+    "Value/Inclusions": "Fully funded positions with a competitive work contract based on the German public service salary scale, including social security and health insurance.",
+    "Application Process": "Search for open positions on the HITS careers page and apply directly for the position of interest.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A cover letter detailing your research experience and interests.",
+      "Letters of Recommendation (LORs)": "Contact information for references is usually required.",
+      "Academic Transcripts": "PhD certificate required.",
+      "CV or Resume": "Required.",
+      "List of Publications": "Required."
+    },
+    "How old the scholarship is": "HITS was established in 2010 and has offered fellowships since.",
+    "Age limit": "Typically for early-career researchers.",
+    "Establishment date of the University": "Not applicable (research institute)"
+  },
+  {
+    "Scholarship Name": "Dresden International PhD Program (DIPP)",
+    "Host Country and University": "Germany, various research institutes in Dresden.",
+    "Website": "https://www.dresden-ipp.de/",
+    "Level of Study": "Doctoral (PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "An excellent Master's degree in a relevant life sciences or biomedical field.",
+      "Standardized Test Scores": "Excellent English proficiency is required.",
+      "Field of Study": "Cell and Developmental Biology, Computational Biology, Biophysics, Regenerative Medicine.",
+      "Other": "Open to all nationalities."
+    },
+    "Application Deadline": "Calls for applications are typically held twice a year, with deadlines in the spring and fall.",
+    "Value/Inclusions": "A fully funded PhD position with a work contract, health insurance, and social security benefits. Net monthly income is approximately €1,600 - €2,000.",
+    "Application Process": "Apply online through the DIPP application portal. Shortlisted candidates are invited for an interview week in Dresden.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A letter of motivation is required.",
+      "Letters of Recommendation (LORs)": "Two references are required.",
+      "Academic Transcripts": "Required.",
+      "Proof of English proficiency": "Required.",
+      "CV or Resume": "Required."
+    },
+    "How old the scholarship is": "The DIPP has been running for over 20 years.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "Not applicable (joint program of research institutes)"
+  },
+  {
+    "Scholarship Name": "Hertie School - Dean's Scholarship",
+    "Host Country and University": "Germany, Hertie School in Berlin.",
+    "Website": "https://www.hertie-school.org/en/admissions/financing-your-studies/scholarships",
+    "Level of Study": "Postgraduate (Master's)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must be admitted to a Master's program at the Hertie School. Based on outstanding academic merit.",
+      "Standardized Test Scores": "English proficiency tests are required for admission.",
+      "Field of Study": "Master of Public Policy, Master of International Affairs, Master of Data Science for Public Policy.",
+      "Other": "Open to all nationalities."
+    },
+    "Application Deadline": "No separate application. You are automatically considered if you apply for a Master's program by the priority deadline, typically November 30.",
+    "Value/Inclusions": "A partial tuition fee waiver of 25% to 75%.",
+    "Application Process": "Apply for admission to a Master's program. All applicants are automatically considered for merit-based scholarships.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "Your motivation letter for the course is used for assessment.",
+      "Letters of Recommendation (LORs)": "Two references are required for admission.",
+      "Academic Transcripts": "Required.",
+      "CV or Resume": "Required.",
+      "Proof of English proficiency": "Required."
+    },
+    "How old the scholarship is": "The school has offered merit scholarships for many years.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "2003"
+  },
+  {
+    "Scholarship Name": "Kühne Logistics University (KLU) - Master's Scholarships",
+    "Host Country and University": "Germany, KLU in Hamburg.",
+    "Website": "https://www.the-klu.org/admissions/financing-your-studies/",
+    "Level of Study": "Postgraduate (Master's)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must be admitted to a Master's program at KLU. Based on outstanding academic performance.",
+      "Standardized Test Scores": "English proficiency is required. GMAT/GRE is not required but can strengthen the application.",
+      "Field of Study": "MSc in Global Logistics and Supply Chain Management, MSc in Management.",
+      "Other": "Open to all nationalities."
+    },
+    "Application Deadline": "Varies by scholarship. Some are automatic, while others require an application by deadlines in March or May.",
+    "Value/Inclusions": "Partial tuition fee waivers, ranging from 25% to 100%.",
+    "Application Process": "For some scholarships, you are automatically considered. For others, a separate application with a scholarship essay is required after applying for the program.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A scholarship essay is often required.",
+      "Letters of Recommendation (LORs)": "Required for admission.",
+      "Academic Transcripts": "Required.",
+      "CV or Resume": "Required."
+    },
+    "How old the scholarship is": "KLU has offered a range of scholarships since its establishment.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "2010"
+  },
+  {
+    "Scholarship Name": "GISMA Business School - Principal's Scholarship for Entrepreneurship",
+    "Host Country and University": "Germany, GISMA Business School in Potsdam/Berlin.",
+    "Website": "https://www.gisma.com/admissions/fees-and-funding/scholarships",
+    "Level of Study": "Postgraduate (Master's and MBA)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Strong academic record.",
+      "Standardized Test Scores": "English proficiency is required.",
+      "Field of Study": "Business and Management related programs.",
+      "Other": "For students who can demonstrate entrepreneurial talent and ambition."
+    },
+    "Application Deadline": "Varies by intake. You should apply at least 4 weeks before the program start date.",
+    "Value/Inclusions": "A partial tuition fee waiver, up to 30%.",
+    "Application Process": "Complete a scholarship application form which includes an essay on your entrepreneurial background and goals.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A specific scholarship essay is required.",
+      "Academic Transcripts": "Required for admission.",
+      "CV or Resume": "Required."
+    },
+    "How old the scholarship is": "This is one of several scholarships GISMA has introduced in recent years.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1999"
+  },
+  {
+    "Scholarship Name": "Berlin International University of Applied Sciences - President's Scholarship",
+    "Host Country and University": "Germany, Berlin International.",
+    "Website": "https://www.berlin-international.de/en/admissions/tuition-fees-financing/scholarships/",
+    "Level of Study": "Undergraduate",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Based on excellent high school grades.",
+      "Standardized Test Scores": "English proficiency is required.",
+      "Field of Study": "Architecture, Interior Architecture, Graphic Design & Visual Communication, Business Administration.",
+      "Other": "For new international students."
+    },
+    "Application Deadline": "The deadline is typically in mid-January.",
+    "Value/Inclusions": "A 25% tuition fee waiver for the first year.",
+    "Application Process": "Submit a portfolio (for design programs) and a letter of motivation along with your application for admission.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A letter of motivation is required.",
+      "Academic Transcripts": "Required.",
+      "Creative Portfolio": "For design programs.",
+      "CV or Resume": "Required."
+    },
+    "How old the scholarship is": "The university has offered these scholarships for several years.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "2012"
+  },
+  {
+    "Scholarship Name": "Free University of Berlin - Postdoc Fellowships",
+    "Host Country and University": "Germany, Free University of Berlin.",
+    "Website": "https://www.fu-berlin.de/en/research/support/funding/drs/drs-pro/index.html",
+    "Level of Study": "Postdoctoral",
+    "Eligibility Criteria": {
+      "Academic Requirements": "An outstanding PhD in a relevant field.",
+      "Standardized Test Scores": "Excellent English is required.",
+      "Field of Study": "Varies, based on specific calls. Often in humanities and social sciences.",
+      "Other": "For international researchers. Often requires alignment with a specific research program or cluster at the university."
+    },
+    "Application Deadline": "Varies depending on the specific fellowship call.",
+    "Value/Inclusions": "A full-time research position with a competitive salary based on the German public sector pay scale.",
+    "Application Process": "Apply for a specific fellowship advertised on the university's research funding pages.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A detailed research proposal is the core of the application.",
+      "Letters of Recommendation (LORs)": "Usually required.",
+      "CV or Resume": "Required.",
+      "List of Publications": "Required."
+    },
+    "How old the scholarship is": "These fellowships are part of ongoing research initiatives at the university.",
+    "Age limit": "Typically for early-career postdocs (e.g., within 4 years of PhD).",
+    "Establishment date of the University": "1948"
+  },
+  {
+    "Scholarship Name": "Stibet DAAD Scholarships (at various universities)",
+    "Host Country and University": "Germany, at many German universities.",
+    "Website": "Search for 'Stibet DAAD' on the website of your chosen German university's International Office.",
+    "Level of Study": "Undergraduate, Master's, and PhD",
+    "Eligibility Criteria": {
+      "Academic Requirements": "For currently enrolled students with good to excellent academic records.",
+      "Standardized Test Scores": "N/A.",
+      "Field of Study": "All subjects.",
+      "Other": "For international students who are already enrolled at the university and are well-advanced in their studies (e.g., in their 2nd or 3rd year). Often requires social or intercultural engagement."
+    },
+    "Application Deadline": "Varies by university. Deadlines are typically once per semester.",
+    "Value/Inclusions": "A one-time grant or a monthly stipend for a few months, typically ranging from €250 to €750 per month.",
+    "Application Process": "Apply directly to the International Office of the university where you are studying.",
+    "Required Documents": {
+      "Application Form": "Provided by the university.",
+      "Letter of Motivation": "Often required.",
+      "Academic Transcripts": "From your studies at the German university.",
+      "CV": "Required."
+    },
+    "How old the scholarship is": "The Stibet program is a long-standing DAAD initiative to support international students.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "Not applicable (multiple universities)"
+  },
+  {
+    "Scholarship Name": "German Research Foundation (DFG) - Coordinated PhD Programs",
+    "Host Country and University": "Germany, at universities with DFG-funded Research Training Groups (RTGs).",
+    "Website": "https://www.dfg.de/en/research_funding/programmes/coordinated_programmes/research_training_groups/index.html",
+    "Level of Study": "Doctoral (PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "An excellent Master's degree in a relevant field.",
+      "Standardized Test Scores": "English proficiency is required.",
+      "Field of Study": "A wide range of specific research topics defined by each Research Training Group.",
+      "Other": "Open to all nationalities."
+    },
+    "Application Deadline": "Varies. Applicants apply to specific, advertised positions within an RTG.",
+    "Value/Inclusions": "Fully funded PhD positions with a work contract or stipend, providing a competitive net salary, health insurance, and social security.",
+    "Application Process": "Search the DFG database for Research Training Groups in your field and look for open positions on their individual websites. Apply directly to the RTG.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A cover letter tailored to the research program.",
+      "Letters of Recommendation (LORs)": "Usually required.",
+      "Academic Transcripts": "Required.",
+      "CV or Resume": "Required."
+    },
+    "How old the scholarship is": "DFG is the main research funding organization in Germany, established in its current form in 1951.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "Not applicable (multiple universities)"
+  },
+  {
+    "Scholarship Name": "Green Talents Award",
+    "Host Country and University": "Germany, various research institutions.",
+    "Website": "https://www.greentalents.de/",
+    "Level of Study": "Master's, PhD, Postdoctoral, and Young Professionals.",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Excellent academic record.",
+      "Standardized Test Scores": "Excellent English proficiency.",
+      "Field of Study": "Sustainable Development.",
+      "Other": "For non-German citizens. Must have a strong focus on sustainable development in your research or work."
+    },
+    "Application Deadline": "The application deadline is typically in mid-May.",
+    "Value/Inclusions": "This is not a full scholarship, but a prestigious award. Winners are invited to a two-week science forum in Germany (all expenses paid). The award also includes a fully funded research stay of up to three months at a German institution of your choice in the following year.",
+    "Application Process": "Apply online through the Green Talents portal.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "Detailed essays on your motivation and research are required.",
+      "Letters of Recommendation (LORs)": "One is required.",
+      "Academic Transcripts": "Required.",
+      "CV or Resume": "Required."
+    },
+    "How old the scholarship is": "The competition was launched in 2009.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "Not applicable (multiple institutions)"
+  },
+  {
+    "Scholarship Name": "Marie Skłodowska-Curie Actions (MSCA) - Doctoral Networks",
+    "Host Country and University": "EU, including many positions in Germany.",
+    "Website": "https://marie-sklodowska-curie-actions.ec.europa.eu/actions/doctoral-networks",
+    "Level of Study": "Doctoral (PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must have a Master's degree and be eligible for PhD studies.",
+      "Standardized Test Scores": "English proficiency is required.",
+      "Field of Study": "All research fields.",
+      "Other": "Open to all nationalities. You must not have resided or carried out your main activity in Germany for more than 12 months in the 3 years immediately before the recruitment date."
+    },
+    "Application Deadline": "Varies. You apply for specific PhD positions advertised by the networks.",
+    "Value/Inclusions": "A fully funded, high-paying PhD position with a generous monthly living allowance, mobility allowance, and family allowance (if applicable). Includes a work contract with full social security.",
+    "Application Process": "Search for open MSCA PhD positions on the EURAXESS Jobs portal and apply directly to the project.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A motivation letter is required.",
+      "Letters of Recommendation (LORs)": "Typically two are required.",
+      "Academic Transcripts": "Required.",
+      "CV or Resume": "Required."
+    },
+    "How old the scholarship is": "The MSCA programme has been running under various names since 1996.",
+    "Age limit": "No age limit, but you must be an early-stage researcher (in the first four years of your research career).",
+    "Establishment date of the University": "Not applicable (multiple universities)"
+  },
+  {
+    "Scholarship Name": "Falling Walls - Young Innovators of the Year",
+    "Host Country and University": "Germany, Berlin (Conference).",
+    "Website": "https://falling-walls.com/lab/apply/",
+    "Level of Study": "Bachelor's, Master's, PhD, Postdoc, Young Professionals.",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must be enrolled in, have recently graduated from, or be working at a university/research institution.",
+      "Standardized Test Scores": "English proficiency.",
+      "Field of Study": "All disciplines.",
+      "Other": "This is a competition where you present your innovative idea in 3 minutes. Winners from local labs get to compete in the final in Berlin."
+    },
+    "Application Deadline": "Varies by the local 'Falling Walls Lab' in your region. Check the website for a lab near you.",
+    "Value/Inclusions": "Winners of local labs receive a travel grant to attend the final in Berlin. The global winner receives the title and a cash prize.",
+    "Application Process": "Apply to a local Falling Walls Lab. If you win, you proceed to the final.",
+    "Required Documents": {
+      "A short abstract of your innovative idea.": true
+    },
+    "How old the scholarship is": "The Falling Walls Lab was initiated in 2011.",
+    "Age limit": "Must be 18 or older.",
+    "Establishment date of the University": "Not applicable (competition)"
+  },
+  {
+    "Scholarship Name": "German Chancellor Fellowship",
+    "Host Country and University": "Germany, at a host institution of your choice.",
+    "Website": "https://www.humboldt-foundation.de/en/apply/sponsorship-programmes/german-chancellor-fellowship",
+    "Level of Study": "Professional/Leadership Development.",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must have a first academic degree (Bachelor's or equivalent).",
+      "Standardized Test Scores": "English or German proficiency.",
+      "Field of Study": "All non-academic fields, such as business, media, public administration, and the arts.",
+      "Other": "For aspiring leaders from Brazil, China, India, Russia, South Africa, and the USA. Must have some initial leadership experience."
+    },
+    "Application Deadline": "October 15 each year.",
+    "Value/Inclusions": "A monthly fellowship of €2,000, €2,300 or €2,600, depending on your qualifications. Includes an intensive language course, travel allowance, and extensive alumni networking.",
+    "Application Process": "Find a host in Germany and develop a project proposal. Apply online through the Humboldt Foundation portal.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A detailed project plan and motivation statement.",
+      "Letters of Recommendation (LORs)": "Two to three are required.",
+      "CV or Resume": "Required.",
+      "Letter from your host in Germany.": "Required."
+    },
+    "How old the scholarship is": "The program has been running for over 30 years.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "Not applicable (multiple institutions)"
+  },
+  {
+    "Scholarship Name": "Heidelberg University - Graduate Academy Scholarships",
+    "Host Country and University": "Germany, Heidelberg University.",
+    "Website": "https://www.graduateacademy.uni-heidelberg.de/foerderung/promotion/abschlussfoerderung_en.html",
+    "Level of Study": "Doctoral (PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "For doctoral candidates in the final phase of their PhD at Heidelberg University.",
+      "Standardized Test Scores": "N/A.",
+      "Field of Study": "All subjects.",
+      "Other": "This is a 'completion scholarship' for students who are already studying at the university and need funding for the last 6-12 months of their research."
+    },
+    "Application Deadline": "Deadlines are typically in February and July.",
+    "Value/Inclusions": "A monthly stipend to cover living costs during the final phase of the PhD.",
+    "Application Process": "Apply directly through the Graduate Academy's portal.",
+    "Required Documents": {
+      "A project timeline for completion.": true,
+      "A letter of support from your supervisor.": true,
+      "Academic Transcripts": "from your doctoral studies.",
+      "CV": "Required."
+    },
+    "How old the scholarship is": "The Graduate Academy and its funding programs are well-established.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1386"
+  },
+  {
+    "Scholarship Name": "Bayhost - Scholarships for study in Bavaria",
+    "Host Country and University": "Germany, at universities in the state of Bavaria.",
+    "Website": "https://www.bayhost.de/en/scholarships",
+    "Level of Study": "Postgraduate (Master's and PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Excellent academic record.",
+      "Standardized Test Scores": "Varies by program.",
+      "Field of Study": "All subjects.",
+      "Other": "For students from Central, Eastern and Southeastern Europe. *This is included as an example of state-level scholarships. Students should search for similar programs for their specific German state of interest (e.g., 'Baden-Württemberg Scholarship').*"
+    },
+    "Application Deadline": "Typically December 1 for the one-year scholarship program.",
+    "Value/Inclusions": "A monthly stipend to cover living costs.",
+    "Application Process": "Apply online through the Bayhost portal.",
+    "How old the scholarship is": "Bayhost has been funding students for over 20 years.",
+    "Age limit": "Typically under 30 for Master's, 35 for PhDs.",
+    "Establishment date of the University": "Not applicable (multiple universities)"
+  },
+
+  {
+    "Scholarship Name": "RWTH Aachen University - Master's Scholarships for International Students",
+    "Host Country and University": "Germany, RWTH Aachen University.",
+    "Website": "https://www.rwth-aachen.de/go/id/bkvw/lidx/1",
+    "Level of Study": "Postgraduate (Master's)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must be enrolled in a Master's program at RWTH and have excellent academic results.",
+      "Standardized Test Scores": "N/A for the scholarship.",
+      "Field of Study": "All Master's programs.",
+      "Other": "This is a scholarship for currently enrolled students, often based on financial need and academic merit."
+    },
+    "Application Deadline": "Varies. Students should check with the university's International Office.",
+    "Value/Inclusions": "A monthly stipend to help cover living costs, typically for one or two semesters.",
+    "Application Process": "Apply directly through the university's scholarship portal once you are an enrolled student.",
+    "Required Documents": {
+      "Letter of motivation.": true,
+      "Academic Transcripts from RWTH.": true,
+      "CV": "Required.",
+      "Proof of financial need (if applicable).": true
+    },
+    "How old the scholarship is": "University-funded scholarships for enrolled students are a common feature.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1870"
+  },
+  {
+    "Scholarship Name": "Humboldt University - International Research Fellowships",
+    "Host Country and University": "Germany, Humboldt University of Berlin.",
+    "Website": "https://www.humboldt-university.de/en/research/support-for-researchers/funding/calls-for-proposals",
+    "Level of Study": "Postdoctoral",
+    "Eligibility Criteria": {
+      "Academic Requirements": "An outstanding PhD and a strong, independent research profile.",
+      "Standardized Test Scores": "Excellent English or German proficiency.",
+      "Field of Study": "Varies by the specific fellowship call.",
+      "Other": "Open to international researchers."
+    },
+    "Application Deadline": "Varies depending on the specific fellowship program.",
+    "Value/Inclusions": "A full research position with a competitive salary and research budget.",
+    "Application Process": "Apply to specific calls for fellowships advertised by the university's research departments or graduate schools.",
+    "Required Documents": {
+      "A detailed research proposal.": true,
+      "CV with a list of publications.": true,
+      "Letters of recommendation.": true
+    },
+    "How old the scholarship is": "These fellowships are tied to ongoing, often externally funded, research projects.",
+    "Age limit": "Typically for early-career postdocs.",
+    "Establishment date of the University": "1810"
+  },
+  {
+    "Scholarship Name": "University of Freiburg - FRIAS Fellowships",
+    "Host Country and University": "Germany, University of Freiburg (Freiburg Institute for Advanced Studies).",
+    "Website": "https://www.frias.uni-freiburg.de/en/fellowships",
+    "Level of Study": "Postdoctoral and Senior Researchers.",
+    "Eligibility Criteria": {
+      "Academic Requirements": "PhD plus at least two years of postdoctoral experience for junior fellows.",
+      "Standardized Test Scores": "English proficiency is required.",
+      "Field of Study": "All disciplines.",
+      "Other": "Open to researchers of all nationalities."
+    },
+    "Application Deadline": "The main call for applications is typically in the fall.",
+    "Value/Inclusions": "A generous fellowship stipend/salary, a research cost contribution, and travel allowances. Provides an excellent interdisciplinary research environment.",
+    "Application Process": "Apply online through the FRIAS application portal.",
+    "Required Documents": {
+      "A project proposal.": true,
+      "CV and list of publications.": true,
+      "Letters of recommendation.": true
+    },
+    "How old the scholarship is": "FRIAS was founded in 2008 as part of Germany's Excellence Initiative.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1457"
+  },
+  {
+    "Scholarship Name": "University of Konstanz - Zukunftskolleg Fellowships",
+    "Host Country and University": "Germany, University of Konstanz.",
+    "Website": "https://www.uni-konstanz.de/zukunftskolleg/fellowships/",
+    "Level of Study": "Postdoctoral",
+    "Eligibility Criteria": {
+      "Academic Requirements": "An excellent PhD and a strong research proposal.",
+      "Standardized Test Scores": "English proficiency.",
+      "Field of Study": "All disciplines represented at the university.",
+      "Other": "For early-career researchers (within 2 years of PhD). Open to all nationalities."
+    },
+    "Application Deadline": "Calls are typically twice a year.",
+    "Value/Inclusions": "A 2-year postdoctoral position with a competitive salary, research budget, and access to a vibrant research community.",
+    "Application Process": "Apply online via the university's portal for the Zukunftskolleg.",
+    "Required Documents": {
+      "Research proposal.": true,
+      "CV.": true,
+      "Letters of recommendation.": true
+    },
+    "How old the scholarship is": "The Zukunftskolleg was established in 2007.",
+    "Age limit": "Must be within 2 years of completing your PhD.",
+    "Establishment date of the University": "1966"
+  },
+  {
+    "Scholarship Name": "Georg Forster Research Fellowship (for experienced researchers)",
+    "Host Country and University": "Germany, at any research institution.",
+    "Website": "https://www.humboldt-foundation.de/en/apply/sponsorship-programmes/georg-forster-research-fellowship",
+    "Level of Study": "Postdoctoral (experienced).",
+    "Eligibility Criteria": {
+      "Academic Requirements": "PhD completed within the last 12 years. Must have your own, clearly defined research profile.",
+      "Standardized Test Scores": "English or German proficiency.",
+      "Field of Study": "All disciplines, with a focus on research relevant to the development of your home country.",
+      "Other": "Must be a citizen of a developing or emerging country (including India)."
+    },
+    "Application Deadline": "Applications can be submitted at any time.",
+    "Value/Inclusions": "A monthly fellowship of €3,170. Includes travel allowance and language course funding.",
+    "Application Process": "Find a host, develop a proposal, and apply online.",
+    "Required Documents": {
+      "Research proposal.": true,
+      "CV.": true,
+      "List of publications.": true,
+      "Expert reviews.": true
+    },
+    "How old the scholarship is": "This is a long-standing program of the Humboldt Foundation.",
+    "Age limit": "PhD completion should be within the last 12 years.",
+    "Establishment date of the University": "Not applicable (multiple institutions)"
+  },
+  {
+    "Scholarship Name": "DAAD - Research Grants for Doctoral Programmes",
+    "Host Country and University": "Germany, at any German university.",
+    "Website": "https://www.daad.de/en/studying-in-germany/scholarships/daad-scholarships/research-grants-doctoral-programmes-in-germany/",
+    "Level of Study": "Doctoral (PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "An excellent Master's degree (not more than 6 years old).",
+      "Standardized Test Scores": "Language skills according to the requirements of the host institution.",
+      "Field of Study": "All disciplines.",
+      "Other": "For international students planning to do a full PhD in Germany."
+    },
+    "Application Deadline": "Varies by country. For India, the deadline is typically in October.",
+    "Value/Inclusions": "A monthly stipend of €1,200, travel allowance, health insurance, and research allowances.",
+    "Application Process": "Apply online through the DAAD portal.",
+    "Required Documents": {
+      "Research proposal.": true,
+      "Letter of supervision from a German professor.": true,
+      "Academic transcripts.": true,
+      "CV.": true,
+      "Letters of recommendation.": true
+    },
+    "How old the scholarship is": "This is a core, long-standing DAAD scholarship program.",
+    "Age limit": "Master's degree should not be more than 6 years old.",
+    "Establishment date of the University": "Not applicable (multiple universities)"
+  },
+  {
+    "Scholarship Name": "Mannheim Business School (MBS) - MBA Scholarships",
+    "Host Country and University": "Germany, Mannheim Business School.",
+    "Website": "https://www.mannheim-business-school.com/en/mba-master-programs/mannheim-full-time-mba/fees-financing",
+    "Level of Study": "Postgraduate (MBA)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "A good first degree and at least 3 years of postgraduate work experience.",
+      "Standardized Test Scores": "A strong GMAT/GRE score and English proficiency are required.",
+      "Field of Study": "Master of Business Administration.",
+      "Other": "Several scholarships are available, including awards for women, entrepreneurs, and students from specific regions."
+    },
+    "Application Deadline": "Varies by admission round. Early application is strongly recommended.",
+    "Value/Inclusions": "Partial tuition fee waivers, from €5,000 up to €20,000.",
+    "Application Process": "Apply for admission to the MBA program and submit the scholarship application form, which often includes specific essays.",
+    "Required Documents": {
+      "Scholarship essays.": true,
+      "All documents for the MBA application (transcripts, GMAT, LORs, etc.).": true
+    },
+    "How old the scholarship is": "The school has a well-established scholarship program for its MBA students.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1907 (University of Mannheim)"
+  },
+  {
+    "Scholarship Name": "DLGS - Dresden Leibniz Graduate School Fellowships",
+    "Host Country and University": "Germany, IOER and TU Dresden.",
+    "Website": "https://dlgs.ioer.de/scholarships/",
+    "Level of Study": "Doctoral (PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "An excellent Master's degree in a relevant field.",
+      "Standardized Test Scores": "Excellent English proficiency.",
+      "Field of Study": "Spatial sciences, social sciences, economics, and environmental sciences, with a focus on sustainability transitions.",
+      "Other": "Open to all nationalities."
+    },
+    "Application Deadline": "The call for applications is typically open in the summer with a deadline in mid-September.",
+    "Value/Inclusions": "A fully funded PhD position with a monthly stipend of €1,365, health insurance, and travel support.",
+    "Application Process": "Apply online through the DLGS application portal.",
+    "Required Documents": {
+      "Letter of motivation.": true,
+      "Research proposal on a given topic.": true,
+      "Academic transcripts.": true,
+      "CV.": true,
+      "Two letters of recommendation.": true
+    },
+    "How old the scholarship is": "DLGS was established in 2008.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1828 (TU Dresden)"
+  },
+  {
+    "Scholarship Name": "IMPRS for Solar System Science",
+    "Host Country and University": "Germany, University of Göttingen & Max Planck Institute for Solar System Research.",
+    "Website": "https://www.mps.mpg.de/solar-system-school",
+    "Level of Study": "Doctoral (PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "An excellent Master of Science degree in physics or a related field.",
+      "Standardized Test Scores": "English proficiency is required.",
+      "Field of Study": "Solar System Science, including planetary science, solar physics, and astrophysics.",
+      "Other": "Open to all nationalities."
+    },
+    "Application Deadline": "The application deadline is typically November 1.",
+    "Value/Inclusions": "A fully funded PhD position with a work contract, entailing a net monthly income of around €1,800 - €2,000.",
+    "Application Process": "Apply online through the school's application portal.",
+    "Required Documents": {
+      "Letter of motivation.": true,
+      "Academic transcripts.": true,
+      "CV.": true,
+      "Contact details for two referees.": true
+    },
+    "How old the scholarship is": "This IMPRS was founded in 2002.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1734 (University of Göttingen)"
+  },
+  {
+    "Scholarship Name": "DAAD - Helmut Schmidt Programme (Public Policy and Good Governance)",
+    "Host Country and University": "Germany, at eight specific German universities.",
+    "Website": "https://www.daad.de/en/studying-in-germany/scholarships/daad-scholarships/helmut-schmidt-programme-masters-scholarships-for-public-policy-and-good-governance/",
+    "Level of Study": "Postgraduate (Master's)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "A first university degree with above-average grades in social and political sciences, law, economics, or public administration.",
+      "Standardized Test Scores": "English or German proficiency, depending on the chosen course.",
+      "Field of Study": "Public Policy, Good Governance, and related fields.",
+      "Other": "For graduates from developing countries (including India) who want to actively contribute to the social and economic development of their home countries."
+    },
+    "Application Deadline": "The application period is from June 1 to July 31.",
+    "Value/Inclusions": "A monthly stipend of €934, health insurance, travel allowance, and a German language course.",
+    "Application Process": "Apply directly to your chosen university (or up to two universities). Do not apply to the DAAD.",
+    "Required Documents": {
+      "Letter of motivation.": true,
+      "Academic transcripts.": true,
+      "CV (Europass format).": true,
+      "Letters of recommendation.": true
+    },
+    "How old the scholarship is": "This is a long-standing DAAD program.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "Not applicable (multiple universities)"
+  },
+  {
+    "Scholarship Name": "Baden-Württemberg-STIPENDIUM for University Students",
+    "Host Country and University": "Germany, at universities in the state of Baden-Württemberg.",
+    "Website": "https://www.bw-stipendium.de/en/students",
+    "Level of Study": "Undergraduate and Postgraduate",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Requires very good academic qualifications.",
+      "Standardized Test Scores": "As required by the host university.",
+      "Field of Study": "All subjects.",
+      "Other": "This is an exchange scholarship. It is for students from partner universities of Baden-Württemberg institutions to study in BW, and for BW students to study abroad."
+    },
+    "Application Deadline": "Varies. You must apply through your home university's international office.",
+    "Value/Inclusions": "A monthly stipend for a study period of 3 to 11 months.",
+    "Application Process": "If your Indian university is a partner of a university in Baden-Württemberg (e.g., Heidelberg, KIT, Stuttgart), you can apply through your home university's international office.",
+    "Required Documents": {
+      "Varies by home university.": true
+    },
+    "How old the scholarship is": "The program was founded in 2001.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "Not applicable (multiple universities)"
+  },
+  {
+    "Scholarship Name": "Humboldt University - Caroline von Humboldt Grant Programme",
+    "Host Country and University": "Germany, Humboldt University of Berlin.",
+    "Website": "https://frauenbeauftragte.hu-berlin.de/en/funding/cvh/grant",
+    "Level of Study": "Doctoral (final phase) and Postdoctoral",
+    "Eligibility Criteria": {
+      "Academic Requirements": "For female PhD candidates in their final year or female postdoctoral researchers.",
+      "Standardized Test Scores": "N/A.",
+      "Field of Study": "All subjects.",
+      "Other": "Specifically for outstanding female researchers to help them complete their research and advance their careers."
+    },
+    "Application Deadline": "Typically in the spring.",
+    "Value/Inclusions": "A monthly stipend to cover living costs for a period of up to one year.",
+    "Application Process": "Apply directly through the university's office for women's advancement.",
+    "Required Documents": {
+      "Project description.": true,
+      "CV.": true,
+      "Letters of recommendation.": true
+    },
+    "How old the scholarship is": "This grant is a key part of the university's gender equality initiatives.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1810"
+  },
+  {
+    "Scholarship Name": "DAAD - Research Stays for University Academics and Scientists",
+    "Host Country and University": "Germany, at any German university or research institute.",
+    "Website": "https://www.daad.de/en/studying-in-germany/scholarships/daad-scholarships/research-stays-for-university-academics-and-scientists/",
+    "Level of Study": "Postdoctoral / Faculty",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must hold a PhD and be working at a university or research institute in your home country.",
+      "Standardized Test Scores": "Language skills according to the project.",
+      "Field of Study": "All disciplines.",
+      "Other": "To carry out a research project in Germany for 1 to 3 months."
+    },
+    "Application Deadline": "Varies by country. For India, the deadline is typically in October.",
+    "Value/Inclusions": "A monthly payment of €2,000 for assistant teachers/lecturers and €2,150 for professors, plus a travel allowance.",
+    "Application Process": "Apply online via the DAAD portal.",
+    "Required Documents": {
+      "Research proposal.": true,
+      "Timeline for the research stay.": true,
+      "Letter of invitation from a host in Germany.": true,
+      "CV and list of publications.": true
+    },
+    "How old the scholarship is": "This is a classic, long-running DAAD program for faculty exchange.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "Not applicable (multiple universities)"
+  },
+  {
+    "Scholarship Name": "Coffee Circle Scholarship",
+    "Host Country and University": "Global, including Germany.",
+    "Website": "https://www.coffeecircle.com/en/scholarship",
+    "Level of Study": "Undergraduate and Postgraduate",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must be an enrolled student.",
+      "Standardized Test Scores": "N/A.",
+      "Field of Study": "All fields.",
+      "Other": "For students who are financing their studies through part-time jobs and can demonstrate commitment."
+    },
+    "Application Deadline": "Typically in late October.",
+    "Value/Inclusions": "A one-time payment of €1,000.",
+    "Application Process": "Submit an online application including a short essay.",
+    "Required Documents": {
+      "An essay on your motivation and work experience.": true,
+      "Proof of enrolment.": true
+    },
+    "How old the scholarship is": "This is a newer scholarship from a private company.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "Not applicable (multiple universities)"
+  },
+  {
+    "Scholarship Name": "Amelia Earhart Fellowship",
+    "Host Country and University": "Global, including Germany.",
+    "Website": "https://www.zonta.org/Web/Programs/Education/Amelia_Earhart_Fellowship/Web/Programs/Education/Amelia_Earhart_Fellowship.aspx",
+    "Level of Study": "Doctoral (PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must be registered in a full-time PhD program and have a superior academic record.",
+      "Standardized Test Scores": "N/A.",
+      "Field of Study": "Aerospace engineering and space sciences.",
+      "Other": "For women of any nationality."
+    },
+    "Application Deadline": "November 15.",
+    "Value/Inclusions": "USD 10,000.",
+    "Application Process": "Apply online through the Zonta International website.",
+    "Required Documents": {
+      "Research proposal/abstract.": true,
+      "Academic transcripts.": true,
+      "Three letters of recommendation.": true,
+      "CV.": true
+    },
+    "How old the scholarship is": "The fellowship was established in 1938.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "Not applicable (multiple universities)"
+  },
+
+  {
+    "Scholarship Name": "Schlumberger Foundation Faculty for the Future Fellowships",
+    "Host Country and University": "Global, including top universities in Germany.",
+    "Website": "https://www.facultyforthefuture.net/",
+    "Level of Study": "PhD and Postdoctoral.",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Excellent academic record.",
+      "Standardized Test Scores": "As required by the host university.",
+      "Field of Study": "STEM (Science, Technology, Engineering, and Mathematics).",
+      "Other": "For women from developing and emerging economies (including India). Must pledge to return to their home country upon degree completion to contribute to research and teaching."
+    },
+    "Application Deadline": "The application window is typically from early September to early November.",
+    "Value/Inclusions": "Up to USD 50,000 per year for PhDs and USD 40,000 for Post-docs. Renewable based on performance.",
+    "Application Process": "Apply online through the Faculty for the Future portal.",
+    "Required Documents": {
+      "Online application form": true,
+      "CV": true,
+      "Research proposal": true,
+      "Budget details": true,
+      "Letters of recommendation": true,
+      "Letter of admission to a host university": true
+    },
+    "How old the scholarship is": "The program was launched in 2004.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "Not applicable (multiple universities)"
+  },
+  {
+    "Scholarship Name": "Einstein International Postdoctoral Fellowship",
+    "Host Country and University": "Germany, at a university or research institution in Berlin.",
+    "Website": "https://www.einsteinfoundation.de/en/programmes/einstein-fellowship/",
+    "Level of Study": "Postdoctoral",
+    "Eligibility Criteria": {
+      "Academic Requirements": "An outstanding PhD and a strong research proposal.",
+      "Standardized Test Scores": "English proficiency is required.",
+      "Field of Study": "All disciplines.",
+      "Other": "For postdoctoral researchers from outside Germany. The research must be conducted in collaboration with a professor at a Berlin institution."
+    },
+    "Application Deadline": "Varies. Applications are submitted by the host professor at the Berlin institution.",
+    "Value/Inclusions": "A fellowship of up to €100,000 per year for up to five years, covering the fellow's salary and project costs.",
+    "Application Process": "You must first secure the support of a host professor at a Berlin university who will then apply on your behalf.",
+    "Required Documents": {
+      "A detailed research proposal.": true,
+      "Your CV and publication list.": true,
+      "The host professor's application.": true
+    },
+    "How old the scholarship is": "The Einstein Foundation was established in 2009.",
+    "Age limit": "No specific age limit.",
+    "Establishment of the University": "Not applicable (multiple universities)"
+  },
+  {
+    "Scholarship Name": "Re-invitation Programme for Former Scholarship Holders",
+    "Host Country and University": "Germany, at any German university or research institute.",
+    "Website": "https://www.daad.de/en/studying-in-germany/scholarships/daad-scholarships/re-invitation-programme-for-former-scholarship-holders/",
+    "Level of Study": "Postdoctoral / Faculty",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must have previously held a DAAD research scholarship for more than six months.",
+      "Standardized Test Scores": "Language skills according to the project.",
+      "Field of Study": "All disciplines.",
+      "Other": "For former DAAD scholars to return to Germany for a short-term research stay."
+    },
+    "Application Deadline": "Varies by country. For India, the deadline is typically in October.",
+    "Value/Inclusions": "A monthly payment of €2,000 for assistant teachers/lecturers and €2,150 for professors, plus a travel allowance.",
+    "Application Process": "Apply online via the DAAD portal.",
+    "Required Documents": {
+      "Research proposal.": true,
+      "Timeline for the research stay.": true,
+      "Letter of invitation from a host in Germany.": true,
+      "CV and list of publications.": true
+    },
+    "How old the scholarship is": "This is a long-standing program for DAAD alumni.",
+    "Age limit": "At least three years must have passed since the end of the previous DAAD-funded stay.",
+    "Establishment date of the University": "Not applicable (multiple universities)"
+  },
+  {
+    "Scholarship Name": "Boehringer Ingelheim Fonds - PhD Fellowships",
+    "Host Country and University": "Global, including top labs in Germany.",
+    "Website": "https://www.bifonds.de/fellowships-grants/phd-fellowships.html",
+    "Level of Study": "Doctoral (PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "An excellent Master's degree in a relevant field.",
+      "Standardized Test Scores": "English proficiency.",
+      "Field of Study": "Basic biomedical research.",
+      "Other": "For outstanding junior scientists who wish to pursue an ambitious PhD project. Open to all nationalities."
+    },
+    "Application Deadline": "Deadlines are February 1, June 1, and October 1.",
+    "Value/Inclusions": "A competitive monthly stipend (e.g., €1,950), a country allowance, travel allowance, and participation in exclusive seminars. The fellowship is initially granted for 2 years and can be extended.",
+    "Application Process": "Apply online through the BIF portal. The application is a two-step process.",
+    "Required Documents": {
+      "Detailed research proposal.": true,
+      "Letters of recommendation.": true,
+      "Academic transcripts.": true,
+      "CV.": true
+    },
+    "How old the scholarship is": "The foundation was established in 1983.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "Not applicable (multiple universities)"
+  },
+  {
+    "Scholarship Name": "EMBO Postdoctoral Fellowships",
+    "Host Country and University": "Europe, including Germany.",
+    "Website": "https://www.embo.org/funding/fellowships-grants-and-career-support/postdoctoral-fellowships/",
+    "Level of Study": "Postdoctoral",
+    "Eligibility Criteria": {
+      "Academic Requirements": "A PhD and at least one first-author publication.",
+      "Standardized Test Scores": "English proficiency.",
+      "Field of Study": "Life Sciences.",
+      "Other": "For researchers who wish to work in a laboratory in an EMBC Member State (Germany is a member)."
+    },
+    "Application Deadline": "There are two evaluation rounds per year, with deadlines in February and August.",
+    "Value/Inclusions": "A competitive salary/stipend, a travel allowance, and benefits for fellows with children.",
+    "Application Process": "Apply online through the EMBO portal.",
+    "Required Documents": {
+      "Research plan.": true,
+      "CV.": true,
+      "Letters of reference.": true
+    },
+    "How old the scholarship is": "EMBO has been offering fellowships since the 1960s.",
+    "Age limit": "Applicants must apply within two years of receiving their PhD.",
+    "Establishment date of the University": "Not applicable (multiple universities)"
+  }
+]

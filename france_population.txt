@@ -1,0 +1,219 @@
+{
+  "description": "Estimated Indian Population in France by Region. Note: French law prohibits collecting data on ethnicity. Figures are estimates based on 'Indian Nationality' (not ancestry) and are concentrated at the regional level. City-level data is generally unavailable. Overseas regions have unique historical populations not captured by nationality data.",
+  "source": "Estimates based on data from INSEE (Institut national de la statistique et des études économiques) and the Embassy of India in Paris.",
+  "data": [
+    {
+      "rank": 1,
+      "country": "France",
+      "region": "Île-de-France (Paris Region)",
+      "region_indian_population": "~45,000 (Nationals)",
+      "percentage_of_total_region_population": "Not publicly available",
+      "cities_and_areas": [
+        {
+          "city": "Paris",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "The main hub. The La Chapelle neighborhood in the 10th arrondissement is known as 'Little India'."
+        },
+        {
+          "city": "Seine-Saint-Denis (Département)",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "Suburbs like La Courneuve have significant Indian and South Asian communities."
+        },
+        {
+          "city": "Val-d'Oise (Département)",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "Suburbs like Sarcelles have a diverse population including many from the Indian subcontinent."
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "country": "France",
+      "region": "Auvergne-Rhône-Alpes",
+      "region_indian_population": "~5,000 (Nationals)",
+      "percentage_of_total_region_population": "Not publicly available",
+      "cities_and_areas": [
+        {
+          "city": "Lyon",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "The primary center for the Indian community in the region, including professionals and students."
+        },
+        {
+          "city": "Grenoble",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "A hub for science and technology, attracting Indian researchers and students."
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "country": "France",
+      "region": "Provence-Alpes-Côte d'Azur",
+      "region_indian_population": "~4,000 (Nationals)",
+      "percentage_of_total_region_population": "Not publicly available",
+      "cities_and_areas": [
+        {
+          "city": "Marseille",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "A major port city with a diverse population and a notable Indian community."
+        },
+        {
+          "city": "Nice",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "The main city on the French Riviera, with a community in the service and tourism sectors."
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "country": "France",
+      "region": "Occitanie",
+      "region_indian_population": "~3,000 (Nationals)",
+      "percentage_of_total_region_population": "Not publicly available",
+      "cities_and_areas": [
+        {
+          "city": "Toulouse",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "A major aerospace hub (Airbus), attracting many Indian engineers and IT professionals."
+        },
+        {
+          "city": "Montpellier",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "A major university city with a population of Indian students."
+        }
+      ]
+    },
+    {
+      "rank": 5,
+      "country": "France",
+      "region": "Grand Est",
+      "region_indian_population": "~2,500 (Nationals)",
+      "percentage_of_total_region_population": "Not publicly available",
+      "cities_and_areas": [
+        {
+          "city": "Strasbourg",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "A major European hub with international institutions and a university."
+        }
+      ]
+    },
+    {
+      "rank": 6,
+      "country": "France",
+      "region": "Hauts-de-France",
+      "region_indian_population": "~2,000 (Nationals)",
+      "percentage_of_total_region_population": "Not publicly available",
+      "cities_and_areas": [
+        {
+          "city": "Lille",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "A major city and economic hub near the Belgian border."
+        }
+      ]
+    },
+    {
+      "rank": 7,
+      "country": "France",
+      "region": "Nouvelle-Aquitaine",
+      "region_indian_population": "~2,000 (Nationals)",
+      "percentage_of_total_region_population": "Not publicly available",
+      "cities_and_areas": [
+        {
+          "city": "Bordeaux",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "Known for its wine industry and as a university city."
+        }
+      ]
+    },
+    {
+      "comment": "For the remaining mainland regions (Brittany, Normandy, Pays de la Loire, Centre-Val de Loire, Bourgogne-Franche-Comté, Corsica), the population of Indian nationals is very small and dispersed, typically concentrated in the regional capital cities like Rennes, Rouen, Nantes, Orléans, and Dijon.",
+      "region": "Other Mainland Regions",
+      "region_indian_population": "<1,500 per region"
+    }
+  ],
+  "overseas_regions": [
+    {
+      "rank": 1,
+      "country": "France",
+      "region": "Réunion",
+      "region_indian_population": "~220,000 (Ancestry)",
+      "percentage_of_total_region_population": "~25%",
+      "comment": "SPECIAL CASE: This figure represents people of Indian origin ('Malbars'), most of whom are French citizens for generations. The number of 'Indian nationals' is very small. This is the largest Indian diaspora community in France.",
+      "cities_and_areas": [
+        {
+          "city": "Saint-Denis",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "The capital and largest city of Réunion."
+        },
+        {
+          "city": "Saint-Paul",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "One of the oldest and largest communes on the island."
+        },
+        {
+          "city": "Saint-Pierre",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "The main city in the south of the island."
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "country": "France",
+      "region": "Guadeloupe",
+      "region_indian_population": "~50,000 (Ancestry)",
+      "percentage_of_total_region_population": "~12%",
+      "comment": "SPECIAL CASE: This represents the Indo-Guadeloupean community, descendants of indentured laborers who are French citizens.",
+      "cities_and_areas": [
+        {
+          "city": "Capesterre-Belle-Eau",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "A commune with a historically significant East Indian population."
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "country": "France",
+      "region": "Martinique",
+      "region_indian_population": "~25,000 (Ancestry)",
+      "percentage_of_total_region_population": "~6%",
+      "comment": "SPECIAL CASE: Represents the Indo-Martiniquais community, descendants of indentured laborers who are French citizens.",
+      "cities_and_areas": []
+    },
+    {
+      "rank": 4,
+      "country": "France",
+      "region": "French Guiana",
+      "region_indian_population": "~3,000 (Ancestry/Nationals)",
+      "percentage_of_total_region_population": "~1%",
+      "comment": "A smaller and more recent community compared to the other overseas departments.",
+      "cities_and_areas": []
+    },
+    {
+      "rank": 5,
+      "country": "France",
+      "region": "Mayotte",
+      "region_indian_population": "Negligible",
+      "percentage_of_total_region_population": "Not publicly available",
+      "comment": "Has a historic connection to the Comoros archipelago with some Indian trading families, but the number is very small.",
+      "cities_and_areas": []
+    }
+  ]
+}

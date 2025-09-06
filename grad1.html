@@ -1,0 +1,632 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses After Graduation - Careers India</title>
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
+
+<style>
+    :root {
+        --primary-color: #0056b3;
+        --secondary-color: #007bff;
+        --accent-color: #ff6f61;
+        --text-dark: #343a49;
+        --text-light: #6c757d;
+        --bg-light: #f8f9fa;
+        --bg-white: #ffffff;
+        --border-color: #dee2e6;
+        --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+        --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: var(--bg-light);
+        color: var(--text-dark);
+        line-height: 1.6;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    /* --- Filter Controls Styling --- */
+    .filter-container {
+        max-width: 1100px;
+        margin: 40px auto;
+        padding: 30px;
+        background-color: var(--bg-white);
+        border-radius: 12px;
+        box-shadow: var(--shadow-md);
+        text-align: center;
+    }
+    .filter-container h1 {
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        margin-bottom: 5px;
+    }
+    .filter-container p {
+        color: var(--text-light);
+        margin-bottom: 20px;
+    }
+    #course-search {
+        width: 100%;
+        padding: 15px;
+        font-size: 1.1em;
+        border-radius: 8px;
+        border: 2px solid var(--border-color);
+        margin-top: 20px;
+        margin-bottom: 20px;
+        transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    #course-search:focus {
+        outline: none;
+        border-color: var(--secondary-color);
+        box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+    }
+    #category-filters {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+    #category-filters .filter-btn {
+        padding: 10px 20px;
+        border: 1px solid var(--secondary-color);
+        background-color: var(--bg-white);
+        color: var(--secondary-color);
+        border-radius: 50px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+    #category-filters .filter-btn:hover {
+        background-color: var(--secondary-color);
+        color: var(--bg-white);
+    }
+    #category-filters .filter-btn.active {
+        background-color: var(--primary-color);
+        color: var(--bg-white);
+        border-color: var(--primary-color);
+    }
+    #no-results {
+        display: none;
+        text-align: center;
+        padding: 40px;
+        font-size: 1.2em;
+        color: var(--text-light);
+    }
+
+    /* --- Course List Styling --- */
+    .course-list-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 20px;
+        margin-top: 40px;
+    }
+    .course-item {
+        background: var(--bg-white);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        padding: 20px;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .course-item:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-md);
+    }
+    .course-item h3 {
+        margin: 0;
+        font-size: 1.1rem;
+    }
+    .course-item a {
+        text-decoration: none;
+        color: var(--primary-color);
+        font-weight: 600;
+    }
+    .course-item a:hover {
+        text-decoration: underline;
+    }
+
+    /* --- Back to Top Button --- */
+    #back-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: none;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: var(--accent-color);
+        color: white;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        box-shadow: var(--shadow-md);
+        z-index: 1000;
+    }
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- FILTER CONTROLS -->
+    <div class="filter-container">
+        <h1>Courses After Graduation</h1>
+        <p>Explore Master's degrees, PG Diplomas, and Professional Certifications to specialize your career.</p>
+
+        <input type="text" id="course-search" onkeyup="filterCourses()" placeholder="e.g., 'MBA Finance', 'Data Science', 'CA', 'M.Tech Civil'...">
+
+        <div id="category-filters">
+            <button class="filter-btn active" onclick="filterByCategory('all')">All Courses</button>
+            <button class="filter-btn" onclick="filterByCategory('management-commerce')">MBA / M.Com</button>
+            <button class="filter-btn" onclick="filterByCategory('engineering')">Engineering (M.Tech)</button>
+            <button class="filter-btn" onclick="filterByCategory('science')">Science (M.Sc.)</button>
+            <button class="filter-btn" onclick="filterByCategory('arts-humanities')">Arts & Humanities (M.A.)</button>
+            <button class="filter-btn" onclick="filterByCategory('pg-diploma')">PG Diplomas</button>
+            <button class="filter-btn" onclick="filterByCategory('professional-certs')">Professional Certs</button>
+            <button class="filter-btn" onclick="filterByCategory('law')">Law (LL.M)</button>
+            <button class="filter-btn" onclick="filterByCategory('design')">Design (M.Des)</button>
+            <button class="filter-btn" onclick="filterByCategory('medical-pg')">Medical PG (MD/MS)</button>
+            <button class="filter-btn" onclick="filterByCategory('education')">Education</button>
+        </div>
+    </div>
+    
+    <div id="no-results">
+        <p>😔<br>No courses match your search criteria.</p>
+    </div>
+
+    <!-- COURSE LIST -->
+    <div class="course-list-container" id="course-list">
+        <!-- Management & Commerce -->
+        <div class="course-item" data-category="management-commerce"><h3><a href="grad.html#grad-master-of-business-administration-mba" target="_blank">Master of Business Administration (MBA) - General</a></h3></div>
+        <div class="course-item" data-category="management-commerce"><h3><a href="grad.html#grad-mba-finance" target="_blank">MBA in Finance</a></h3></div>
+        <div class="course-item" data-category="management-commerce"><h3><a href="grad.html#grad-mba-marketing" target="_blank">MBA in Marketing</a></h3></div>
+        <div class="course-item" data-category="management-commerce"><h3><a href="grad.html#grad-mba-human-resource-management-hrm" target="_blank">MBA in Human Resource Management (HRM)</a></h3></div>
+        <div class="course-item" data-category="management-commerce"><h3><a href="grad.html#grad-mba-operations-management" target="_blank">MBA in Operations Management</a></h3></div>
+        <div class="course-item" data-category="management-commerce"><h3><a href="grad.html#grad-mba-business-analytics" target="_blank">MBA in Business Analytics</a></h3></div>
+        <div class="course-item" data-category="management-commerce"><h3><a href="grad.html#grad-mba-data-analytics" target="_blank">MBA in Data Analytics</a></h3></div>
+        <div class="course-item" data-category="management-commerce"><h3><a href="grad.html#grad-mba-information-technology-it" target="_blank">MBA in Information Technology (IT)</a></h3></div>
+        <div class="course-item" data-category="management-commerce"><h3><a href="grad.html#grad-master-of-commerce-mcom" target="_blank">Master of Commerce (M.Com) - General</a></h3></div>
+        <div class="course-item" data-category="management-commerce"><h3><a href="grad.html#grad-mcom-accounting" target="_blank">M.Com - Accounting</a></h3></div>
+        <div class="course-item" data-category="management-commerce"><h3><a href="grad.html#grad-mcom-finance" target="_blank">M.Com - Finance</a></h3></div>
+        <div class="course-item" data-category="management-commerce"><h3><a href="grad.html#grad-mcom-banking-and-insurance" target="_blank">M.Com - Banking and Insurance</a></h3></div>
+        <div class="course-item" data-category="management-commerce"><h3><a href="grad.html#grad-mcom-business-economics" target="_blank">M.Com - Business Economics</a></h3></div>
+        <div class="course-item" data-category="management-commerce"><h3><a href="grad.html#grad-mcom-financial-management" target="_blank">M.Com - Financial Management</a></h3></div>
+        <div class="course-item" data-category="management-commerce"><h3><a href="grad.html#grad-mcom-international-business" target="_blank">M.Com - International Business</a></h3></div>
+        <div class="course-item" data-category="management-commerce"><h3><a href="grad.html#grad-mcom-taxation" target="_blank">M.Com - Taxation</a></h3></div>
+        <div class="course-item" data-category="management-commerce"><h3><a href="grad.html#grad-mcom-e-commerce" target="_blank">M.Com - E-Commerce</a></h3></div>
+        <div class="course-item" data-category="management-commerce"><h3><a href="grad.html#grad-mcom-human-resource-management" target="_blank">M.Com - Human Resource Management</a></h3></div>
+        <div class="course-item" data-category="management-commerce"><h3><a href="grad.html#grad-mcom-marketing" target="_blank">M.Com - Marketing</a></h3></div>
+        <div class="course-item" data-category="management-commerce"><h3><a href="grad.html#grad-mcom-computer-applications" target="_blank">M.Com - Computer Applications</a></h3></div>
+        <div class="course-item" data-category="management-commerce"><h3><a href="grad.html#grad-master-of-financial-management-mfm" target="_blank">Master of Financial Management (MFM)</a></h3></div>
+        <div class="course-item" data-category="management-commerce"><h3><a href="grad.html#grad-master-of-human-resource-management-mhrm" target="_blank">Master of Human Resource Management (MHRM)</a></h3></div>
+        <div class="course-item" data-category="management-commerce"><h3><a href="grad.html#grad-master-of-international-business-mib" target="_blank">Master of International Business (MIB)</a></h3></div>
+        <div class="course-item" data-category="management-commerce"><h3><a href="grad.html#grad-master-of-business-economics-mbe" target="_blank">Master of Business Economics (MBE)</a></h3></div>
+        <div class="course-item" data-category="management-commerce"><h3><a href="grad.html#grad-master-of-management-studies-mms" target="_blank">Master of Management Studies (MMS)</a></h3></div>
+        <div class="course-item" data-category="management-commerce"><h3><a href="grad.html#grad-master-of-retail-management-mrm" target="_blank">Master of Retail Management (MRM)</a></h3></div>
+        <div class="course-item" data-category="management-commerce"><h3><a href="grad.html#grad-master-of-tourism-administration-mta" target="_blank">Master of Tourism Administration (MTA)</a></h3></div>
+        <div class="course-item" data-category="management-commerce"><h3><a href="grad.html#grad-master-of-travel-tourism-management-mttm" target="_blank">Master of Travel and Tourism Management (MTTM)</a></h3></div>
+        <div class="course-item" data-category="management-commerce"><h3><a href="grad.html#grad-master-of-hospital-administration-mha" target="_blank">Master of Hospital Administration (MHA)</a></h3></div>
+
+        <!-- Science (M.Sc.) -->
+        <div class="course-item" data-category="science"><h3><a href="grad.html#grad-master-of-science-msc" target="_blank">Master of Science (M.Sc.) - General Overview</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="grad.html#grad-msc-agriculture" target="_blank">M.Sc. - Agriculture</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="grad.html#grad-msc-agroforestry" target="_blank">M.Sc. - Agroforestry</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="grad.html#grad-msc-analytical-chemistry" target="_blank">M.Sc. - Analytical Chemistry</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="grad.html#grad-msc-anatomy" target="_blank">M.Sc. - Anatomy</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="grad.html#grad-msc-animal-husbandry" target="_blank">M.Sc. - Animal Husbandry</a></h3></div>
+        <div class="course-item" data-category="arts-humanities"><h3><a href="grad.html#grad-msc-anthropology" target="_blank">M.Sc. - Anthropology</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="grad.html#grad-msc-applied-geology" target="_blank">M.Sc. - Applied Geology</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="grad.html#grad-msc-applied-mathematics" target="_blank">M.Sc. - Applied Mathematics</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="grad.html#grad-msc-applied-microbiology" target="_blank">M.Sc. - Applied Microbiology</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="grad.html#grad-msc-aquaculture" target="_blank">M.Sc. - Aquaculture</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="grad.html#grad-msc-astronomy" target="_blank">M.Sc. - Astronomy</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="grad.html#grad-msc-biochemistry" target="_blank">M.Sc. - Biochemistry</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="grad.html#grad-msc-bioinformatics" target="_blank">M.Sc. - Bioinformatics</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="grad.html#grad-msc-biology" target="_blank">M.Sc. - Biology</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="grad.html#grad-msc-biomedical-science" target="_blank">M.Sc. - Biomedical Science</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="grad.html#grad-msc-biophysics" target="_blank">M.Sc. - Biophysics</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="grad.html#grad-msc-biotechnology" target="_blank">M.Sc. - Biotechnology</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="grad.html#grad-msc-botany" target="_blank">M.Sc. - Botany</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="grad.html#grad-msc-chemistry" target="_blank">M.Sc. - Chemistry</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="grad.html#grad-msc-clinical-research" target="_blank">M.Sc. - Clinical Research</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="grad.html#grad-msc-computer-science" target="_blank">M.Sc. - Computer Science</a></h3></div>
+        <div class="course-item" data-category="arts-humanities"><h3><a href="grad.html#grad-msc-criminology" target="_blank">M.Sc. - Criminology</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="grad.html#grad-msc-data-science" target="_blank">M.Sc. - Data Science</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="grad.html#grad-msc-environmental-science" target="_blank">M.Sc. - Environmental Science</a></h3></div>
+        <div class="course-item" data-category="design"><h3><a href="grad.html#grad-msc-fashion-technology" target="_blank">M.Sc. - Fashion Technology</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="grad.html#grad-msc-food-science-and-technology" target="_blank">M.Sc. - Food Science and Technology</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="grad.html#grad-msc-forensic-science" target="_blank">M.Sc. - Forensic Science</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="grad.html#grad-msc-forestry" target="_blank">M.Sc. - Forestry</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="grad.html#grad-msc-genetics" target="_blank">M.Sc. - Genetics</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="grad.html#grad-msc-geography" target="_blank">M.Sc. - Geography</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="grad.html#grad-msc-geology" target="_blank">M.Sc. - Geology</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="grad.html#grad-msc-horticulture" target="_blank">M.Sc. - Horticulture</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="grad.html#grad-msc-human-genetics" target="_blank">M.Sc. - Human Genetics</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="grad.html#grad-msc-information-technology-it" target="_blank">M.Sc. - Information Technology (IT)</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="grad.html#grad-msc-instrumentation" target="_blank">M.Sc. - Instrumentation</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="grad.html#grad-msc-marine-biology" target="_blank">M.Sc. - Marine Biology</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="grad.html#grad-msc-materials-science" target="_blank">M.Sc. - Materials Science</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="grad.html#grad-msc-mathematics" target="_blank">M.Sc. - Mathematics</a></h3></div>
+        <div class="course-item" data-category="medical-pg"><h3><a href="grad.html#grad-msc-medical-lab-technology" target="_blank">M.Sc. - Medical Lab Technology</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="grad.html#grad-msc-microbiology" target="_blank">M.Sc. - Microbiology</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="grad.html#grad-msc-molecular-biology" target="_blank">M.Sc. - Molecular Biology</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="grad.html#grad-msc-nanoscience" target="_blank">M.Sc. - Nanoscience</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="grad.html#grad-msc-neuroscience" target="_blank">M.Sc. - Neuroscience</a></h3></div>
+        <div class="course-item" data-category="medical-pg"><h3><a href="grad.html#grad-msc-nursing" target="_blank">M.Sc. - Nursing</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="grad.html#grad-msc-nutrition-and-dietetics" target="_blank">M.Sc. - Nutrition and Dietetics</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="grad.html#grad-msc-operations-research" target="_blank">M.Sc. - Operations Research</a></h3></div>
+        <div class="course-item" data-category="medical-pg"><h3><a href="grad.html#grad-msc-optometry" target="_blank">M.Sc. - Optometry</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="grad.html#grad-msc-pharmaceutical-chemistry" target="_blank">M.Sc. - Pharmaceutical Chemistry</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="grad.html#grad-msc-physics" target="_blank">M.Sc. - Physics</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="grad.html#grad-msc-physiology" target="_blank">M.Sc. - Physiology</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="grad.html#grad-msc-plant-pathology" target="_blank">M.Sc. - Plant Pathology</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="grad.html#grad-msc-polymer-science" target="_blank">M.Sc. - Polymer Science</a></h3></div>
+        <div class="course-item" data-category="arts-humanities"><h3><a href="grad.html#grad-msc-psychology" target="_blank">M.Sc. - Psychology</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="grad.html#grad-msc-quantum-computing" target="_blank">M.Sc. - Quantum Computing</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="grad.html#grad-msc-remote-sensing-and-gis" target="_blank">M.Sc. - Remote Sensing and GIS</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="grad.html#grad-msc-robotics" target="_blank">M.Sc. - Robotics</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="grad.html#grad-msc-soil-science" target="_blank">M.Sc. - Soil Science</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="grad.html#grad-msc-statistics" target="_blank">M.Sc. - Statistics</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="grad.html#grad-msc-textile-chemistry" target="_blank">M.Sc. - Textile Chemistry</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="grad.html#grad-msc-toxicology" target="_blank">M.Sc. - Toxicology</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="grad.html#grad-msc-wildlife-biology" target="_blank">M.Sc. - Wildlife Biology</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="grad.html#grad-msc-zoology" target="_blank">M.Sc. - Zoology</a></h3></div>
+
+        <!-- Engineering (M.Tech) -->
+        <div class="course-item" data-category="engineering"><h3><a href="grad.html#grad-master-of-technology-meng" target="_blank">M.Tech./M.E. - General Overview</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="grad.html#grad-mtech-aerospace-engineering" target="_blank">M.Tech. - Aerospace Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="grad.html#grad-mtech-agricultural-engineering" target="_blank">M.Tech. - Agricultural Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="grad.html#grad-mtech-artificial-intelligence" target="_blank">M.Tech. - Artificial Intelligence</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="grad.html#grad-mtech-automobile-engineering" target="_blank">M.Tech. - Automobile Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="grad.html#grad-mtech-biochemical-engineering" target="_blank">M.Tech. - Biochemical Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="grad.html#grad-mtech-biomedical-engineering" target="_blank">M.Tech. - Biomedical Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="grad.html#grad-mtech-bioprocess-engineering" target="_blank">M.Tech. - Bioprocess Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="grad.html#grad-mtech-biotechnology-engineering" target="_blank">M.Tech. - Biotechnology Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="grad.html#grad-mtech-ceramic-engineering" target="_blank">M.Tech. - Ceramic Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="grad.html#grad-mtech-chemical-engineering" target="_blank">M.Tech. - Chemical Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="grad.html#grad-mtech-civil-engineering" target="_blank">M.Tech. - Civil Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="grad.html#grad-mtech-communication-engineering" target="_blank">M.Tech. - Communication Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="grad.html#grad-mtech-cse" target="_blank">M.Tech. - Computer Science and Engineering (CSE)</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="grad.html#grad-mtech-control-and-automation" target="_blank">M.Tech. - Control and Automation</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="grad.html#grad-mtech-cyber-security" target="_blank">M.Tech. - Cyber Security</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="grad.html#grad-mtech-data-science-and-analytics" target="_blank">M.Tech. - Data Science & Analytics</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="grad.html#grad-mtech-design-engineering" target="_blank">M.Tech. - Design Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="grad.html#grad-mtech-digital-forensics" target="_blank">M.Tech. - Digital Forensics</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="grad.html#grad-mtech-earthquake-engineering" target="_blank">M.Tech. - Earthquake Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="grad.html#grad-mtech-electrical-engineering" target="_blank">M.Tech. - Electrical Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="grad.html#grad-mtech-ece" target="_blank">M.Tech. - Electronics & Communication Engineering (ECE)</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="grad.html#grad-mtech-energy-engineering" target="_blank">M.Tech. - Energy Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="grad.html#grad-mtech-environmental-engineering-standalone" target="_blank">M.Tech. - Environmental Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="grad.html#grad-mtech-food-technology-engineering" target="_blank">M.Tech. - Food Technology Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="grad.html#grad-mtech-geoinformatics" target="_blank">M.Tech. - Geoinformatics</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="grad.html#grad-mtech-industrial-engineering" target="_blank">M.Tech. - Industrial Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="grad.html#grad-mtech-information-technology" target="_blank">M.Tech. - Information Technology</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="grad.html#grad-mtech-instrumentation-engineering" target="_blank">M.Tech. - Instrumentation Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="grad.html#grad-mtech-integrated-electronics-and-circuits" target="_blank">M.Tech. - Integrated Electronics and Circuits</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="grad.html#grad-mtech-manufacturing-technology" target="_blank">M.Tech. - Manufacturing Technology</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="grad.html#grad-mtech-marine-engineering" target="_blank">M.Tech. - Marine Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="grad.html#grad-mtech-materials-engineering" target="_blank">M.Tech. - Materials Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="grad.html#grad-mtech-mechanical-engineering" target="_blank">M.Tech. - Mechanical Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="grad.html#grad-mtech-mechatronics" target="_blank">M.Tech. - Mechatronics</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="grad.html#grad-mtech-metallurgical-engineering" target="_blank">M.Tech. - Metallurgical Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="grad.html#grad-mtech-mining-engineering" target="_blank">M.Tech. - Mining Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="grad.html#grad-mtech-nanotechnology" target="_blank">M.Tech. - Nanotechnology</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="grad.html#grad-mtech-nuclear-engineering" target="_blank">M.Tech. - Nuclear Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="grad.html#grad-mtech-petroleum-engineering" target="_blank">M.Tech. - Petroleum Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="grad.html#grad-mtech-polymer-technology" target="_blank">M.Tech. - Polymer Technology</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="grad.html#grad-mtech-production-engineering" target="_blank">M.Tech. - Production Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="grad.html#grad-mtech-renewable-energy-technologies" target="_blank">M.Tech. - Renewable Energy Technologies</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="grad.html#grad-mtech-robotics-and-automation" target="_blank">M.Tech. - Robotics and Automation</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="grad.html#grad-mtech-software-engineering" target="_blank">M.Tech. - Software Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="grad.html#grad-mtech-structural-engineering" target="_blank">M.Tech. - Structural Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="grad.html#grad-mtech-systems-engineering" target="_blank">M.Tech. - Systems Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="grad.html#grad-mtech-telecommunication-engineering" target="_blank">M.Tech. - Telecommunication Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="grad.html#grad-mtech-textile-engineering" target="_blank">M.Tech. - Textile Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="grad.html#grad-mtech-thermal-engineering" target="_blank">M.Tech. - Thermal Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="grad.html#grad-mtech-vlsi-design" target="_blank">M.Tech. - VLSI Design</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="grad.html#grad-mtech-water-resources-engineering-standalone" target="_blank">M.Tech. - Water Resources Engineering</a></h3></div>
+grad.html - Part 2 of 2
+code
+Html
+download
+content_copy
+expand_less
+IGNORE_WHEN_COPYING_START
+IGNORE_WHEN_COPYING_END
+<!-- Arts & Humanities (M.A.) -->
+        <div class="course-item" data-category="arts-humanities"><h3><a href="grad.html#grad-master-of-arts-humanities-social-sciences" target="_blank">Master of Arts (M.A.) - General Overview</a></h3></div>
+        <div class="course-item" data-category="arts-humanities"><h3><a href="grad.html#grad-ma-anthropology" target="_blank">M.A. - Anthropology</a></h3></div>
+        <div class="course-item" data-category="arts-humanities"><h3><a href="grad.html#grad-ma-archaeology" target="_blank">M.A. - Archaeology</a></h3></div>
+        <div class="course-item" data-category="arts-humanities"><h3><a href="grad.html#grad-ma-buddhist-studies" target="_blank">M.A. - Buddhist Studies</a></h3></div>
+        <div class="course-item" data-category="arts-humanities"><h3><a href="grad.html#grad-ma-child-development" target="_blank">M.A. - Child Development</a></h3></div>
+        <div class="course-item" data-category="arts-humanities"><h3><a href="grad.html#grad-ma-classical-languages" target="_blank">M.A. - Classical Languages</a></h3></div>
+        <div class="course-item" data-category="arts-humanities"><h3><a href="grad.html#grad-ma-comparative-literature" target="_blank">M.A. - Comparative Literature</a></h3></div>
+        <div class="course-item" data-category="arts-humanities"><h3><a href="grad.html#grad-ma-criminology" target="_blank">M.A. - Criminology</a></h3></div>
+        <div class="course-item" data-category="arts-humanities"><h3><a href="grad.html#grad-ma-dance" target="_blank">M.A. - Dance</a></h3></div>
+        <div class="course-item" data-category="arts-humanities"><h3><a href="grad.html#grad-ma-development-studies" target="_blank">M.A. - Development Studies</a></h3></div>
+        <div class="course-item" data-category="arts-humanities"><h3><a href="grad.html#grad-ma-economics" target="_blank">M.A. - Economics</a></h3></div>
+        <div class="course-item" data-category="education"><h3><a href="grad.html#grad-ma-education" target="_blank">M.A. - Education</a></h3></div>
+        <div class="course-item" data-category="arts-humanities"><h3><a href="grad.html#grad-ma-english-literature" target="_blank">M.A. - English Literature</a></h3></div>
+        <div class="course-item" data-category="arts-humanities"><h3><a href="grad.html#grad-ma-environmental-studies" target="_blank">M.A. - Environmental Studies</a></h3></div>
+        <div class="course-item" data-category="arts-humanities"><h3><a href="grad.html#grad-ma-film-studies" target="_blank">M.A. - Film Studies</a></h3></div>
+        <div class="course-item" data-category="arts-humanities"><h3><a href="grad.html#grad-ma-fine-arts" target="_blank">M.A. - Fine Arts</a></h3></div>
+        <div class="course-item" data-category="arts-humanities"><h3><a href="grad.html#grad-ma-folklore" target="_blank">M.A. - Folklore</a></h3></div>
+        <div class="course-item" data-category="arts-humanities"><h3><a href="grad.html#grad-ma-foreign-languages" target="_blank">M.A. - Foreign Languages</a></h3></div>
+        <div class="course-item" data-category="arts-humanities"><h3><a href="grad.html#grad-ma-gender-studies" target="_blank">M.A. - Gender Studies</a></h3></div>
+        <div class="course-item" data-category="arts-humanities"><h3><a href="grad.html#grad-ma-geography" target="_blank">M.A. - Geography</a></h3></div>
+        <div class="course-item" data-category="arts-humanities"><h3><a href="grad.html#grad-ma-hindi-literature" target="_blank">M.A. - Hindi Literature</a></h3></div>
+        <div class="course-item" data-category="arts-humanities"><h3><a href="grad.html#grad-ma-history" target="_blank">M.A. - History</a></h3></div>
+        <div class="course-item" data-category="arts-humanities"><h3><a href="grad.html#grad-ma-international-relations" target="_blank">M.A. - International Relations</a></h3></div>
+        <div class="course-item" data-category="arts-humanities"><h3><a href="grad.html#grad-ma-journalism-and-mass-communication" target="_blank">M.A. - Journalism and Mass Communication</a></h3></div>
+        <div class="course-item" data-category="arts-humanities"><h3><a href="grad.html#grad-ma-labour-studies" target="_blank">M.A. - Labour Studies</a></h3></div>
+        <div class="course-item" data-category="arts-humanities"><h3><a href="grad.html#grad-ma-linguistics" target="_blank">M.A. - Linguistics</a></h3></div>
+        <div class="course-item" data-category="arts-humanities"><h3><a href="grad.html#grad-ma-music" target="_blank">M.A. - Music</a></h3></div>
+        <div class="course-item" data-category="arts-humanities"><h3><a href="grad.html#grad-ma-museology-and-archival-studies" target="_blank">M.A. - Museology and Archival Studies</a></h3></div>
+        <div class="course-item" data-category="arts-humanities"><h3><a href="grad.html#grad-ma-peace-and-conflict-studies" target="_blank">M.A. - Peace and Conflict Studies</a></h3></div>
+        <div class="course-item" data-category="arts-humanities"><h3><a href="grad.html#grad-ma-performing-arts" target="_blank">M.A. - Performing Arts</a></h3></div>
+        <div class="course-item" data-category="arts-humanities"><h3><a href="grad.html#grad-ma-philosophy" target="_blank">M.A. - Philosophy</a></h3></div>
+        <div class="course-item" data-category="arts-humanities"><h3><a href="grad.html#grad-ma-political-science" target="_blank">M.A. - Political Science</a></h3></div>
+        <div class="course-item" data-category="arts-humanities"><h3><a href="grad.html#grad-ma-population-studies" target="_blank">M.A. - Population Studies</a></h3></div>
+        <div class="course-item" data-category="arts-humanities"><h3><a href="grad.html#grad-ma-psychology" target="_blank">M.A. - Psychology</a></h3></div>
+        <div class="course-item" data-category="arts-humanities"><h3><a href="grad.html#grad-ma-public-administration" target="_blank">M.A. - Public Administration</a></h3></div>
+        <div class="course-item" data-category="arts-humanities"><h3><a href="grad.html#grad-ma-public-policy" target="_blank">M.A. - Public Policy</a></h3></div>
+        <div class="course-item" data-category="arts-humanities"><h3><a href="grad.html#grad-ma-rural-development" target="_blank">M.A. - Rural Development</a></h3></div>
+        <div class="course-item" data-category="arts-humanities"><h3><a href="grad.html#grad-ma-sociology" target="_blank">M.A. - Sociology</a></h3></div>
+        <div class="course-item" data-category="arts-humanities"><h3><a href="grad.html#grad-ma-social-work" target="_blank">M.A. - Social Work</a></h3></div>
+        <div class="course-item" data-category="arts-humanities"><h3><a href="grad.html#grad-ma-theatre-arts" target="_blank">M.A. - Theatre Arts</a></h3></div>
+        <div class="course-item" data-category="arts-humanities"><h3><a href="grad.html#grad-ma-translation-and-interpretation" target="_blank">M.A. - Translation and Interpretation</a></h3></div>
+        <div class="course-item" data-category="arts-humanities"><h3><a href="grad.html#grad-ma-womens-studies" target="_blank">M.A. - Women's Studies</a></h3></div>
+        <div class="course-item" data-category="arts-humanities"><h3><a href="grad.html#grad-master-of-social-work-msw" target="_blank">Master of Social Work (MSW)</a></h3></div>
+        <div class="course-item" data-category="arts-humanities"><h3><a href="grad.html#grad-master-of-development-studies-mds" target="_blank">Master of Development Studies (MDS)</a></h3></div>
+
+        <!-- Education -->
+        <div class="course-item" data-category="education"><h3><a href="grad.html#grad-master-of-education-med" target="_blank">Master of Education (M.Ed.)</a></h3></div>
+        <div class="course-item" data-category="education"><h3><a href="grad.html#grad-master-of-physical-education-mped" target="_blank">Master of Physical Education (M.P.Ed.)</a></h3></div>
+        <div class="course-item" data-category="education"><h3><a href="grad.html#grad-master-of-library-and-information-science-mlisc" target="_blank">Master of Library and Information Science (MLISc)</a></h3></div>
+        
+        <!-- Law -->
+        <div class="course-item" data-category="law"><h3><a href="grad.html#grad-master-of-laws-llm" target="_blank">Master of Laws (LL.M.) - General Overview</a></h3></div>
+        <div class="course-item" data-category="law"><h3><a href="grad.html#grad-llm-constitutional-law" target="_blank">LL.M. - Constitutional Law</a></h3></div>
+        <div class="course-item" data-category="law"><h3><a href="grad.html#grad-llm-corporate-law" target="_blank">LL.M. - Corporate Law</a></h3></div>
+        <div class="course-item" data-category="law"><h3><a href="grad.html#grad-llm-criminal-law" target="_blank">LL.M. - Criminal Law</a></h3></div>
+        <div class="course-item" data-category="law"><h3><a href="grad.html#grad-llm-environmental-law" target="_blank">LL.M. - Environmental Law</a></h3></div>
+        <div class="course-item" data-category="law"><h3><a href="grad.html#grad-llm-human-rights-law" target="_blank">LL.M. - Human Rights Law</a></h3></div>
+        <div class="course-item" data-category="law"><h3><a href="grad.html#grad-llm-intellectual-property-law" target="_blank">LL.M. - Intellectual Property Law</a></h3></div>
+        <div class="course-item" data-category="law"><h3><a href="grad.html#grad-llm-international-law" target="_blank">LL.M. - International Law</a></h3></div>
+        <div class="course-item" data-category="law"><h3><a href="grad.html#grad-llm-tax-law" target="_blank">LL.M. - Tax Law</a></h3></div>
+        <div class="course-item" data-category="law"><h3><a href="grad.html#grad-master-of-legislative-law-ml" target="_blank">Master of Legislative Law (ML)</a></h3></div>
+        
+        <!-- Design -->
+        <div class="course-item" data-category="design"><h3><a href="grad.html#grad-master-of-design-mdes" target="_blank">Master of Design (M.Des) - General Overview</a></h3></div>
+        <div class="course-item" data-category="design"><h3><a href="grad.html#grad-mdes-product-design" target="_blank">M.Des - Product Design</a></h3></div>
+        <div class="course-item" data-category="design"><h3><a href="grad.html#grad-mdes-graphic-design" target="_blank">M.Des - Graphic Design</a></h3></div>
+        <div class="course-item" data-category="design"><h3><a href="grad.html#grad-mdes-fashion-design" target="_blank">M.Des - Fashion Design</a></h3></div>
+        <div class="course-item" data-category="design"><h3><a href="grad.html#grad-mdes-textile-design" target="_blank">M.Des - Textile Design</a></h3></div>
+        <div class="course-item" data-category="design"><h3><a href="grad.html#grad-mdes-ceramic-and-glass-design" target="_blank">M.Des - Ceramic and Glass Design</a></h3></div>
+        <div class="course-item" data-category="design"><h3><a href="grad.html#grad-mdes-animation-film-design" target="_blank">M.Des - Animation Film Design</a></h3></div>
+        <div class="course-item" data-category="design"><h3><a href="grad.html#grad-mdes-digital-game-design" target="_blank">M.Des - Digital Game Design</a></h3></div>
+        <div class="course-item" data-category="design"><h3><a href="grad.html#grad-mdes-strategic-design-management" target="_blank">M.Des - Strategic Design Management</a></h3></div>
+        <div class="course-item" data-category="design"><h3><a href="grad.html#grad-master-of-fine-arts-mfa" target="_blank">Master of Fine Arts (MFA)</a></h3></div>
+        <div class="course-item" data-category="design"><h3><a href="grad.html#grad-master-of-performing-arts-mpa" target="_blank">Master of Performing Arts (MPA)</a></h3></div>
+        <div class="course-item" data-category="design"><h3><a href="grad.html#grad-master-of-visual-arts-mva" target="_blank">Master of Visual Arts (MVA)</a></h3></div>
+        
+        <!-- Medical PG & Pharma -->
+        <div class="course-item" data-category="medical-pg"><h3><a href="grad.html#grad-master-of-pharmacy-mpharm" target="_blank">Master of Pharmacy (M.Pharm)</a></h3></div>
+        <div class="course-item" data-category="medical-pg"><h3><a href="grad.html#grad-master-of-public-health-mph" target="_blank">Master of Public Health (MPH)</a></h3></div>
+        <div class="course-item" data-category="medical-pg"><h3><a href="grad.html#grad-master-of-science-in-clinical-research-mscr" target="_blank">Master of Science in Clinical Research (MSCR)</a></h3></div>
+        <div class="course-item" data-category="medical-pg"><h3><a href="grad.html#grad-master-of-sports-physiotherapy-msp" target="_blank">Master of Sports Physiotherapy (MSP)</a></h3></div>
+
+        <!-- PG Diplomas -->
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-post-graduate-diploma-programs" target="_blank">PGDM - General Overview</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgdm-business-analytics" target="_blank">PGDM in Business Analytics</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgdm-data-science" target="_blank">PGDM in Data Science</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgdm-digital-marketing" target="_blank">PGDM in Digital Marketing</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgdm-finance" target="_blank">PGDM in Finance</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgdm-human-resource-management" target="_blank">PGDM in Human Resource Management</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgdm-international-business" target="_blank">PGDM in International Business</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgdm-logistics-and-supply-chain-management" target="_blank">PGDM in Logistics & Supply Chain Management</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgdm-marketing" target="_blank">PGDM in Marketing</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgdm-operations-management" target="_blank">PGDM in Operations Management</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgdm-rural-management" target="_blank">PGDM in Rural Management</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgdm-agri-business-management" target="_blank">PGDM in Agri-Business Management</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgdm-hospital-management" target="_blank">PGDM in Hospital Management</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgdm-event-management" target="_blank">PGDM in Event Management</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgdm-retail-management" target="_blank">PGDM in Retail Management</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgdm-financial-planning" target="_blank">PGDM in Financial Planning</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgdm-investment-banking" target="_blank">PGDM in Investment Banking</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgdm-risk-management" target="_blank">PGDM in Risk Management</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgdm-project-management" target="_blank">PGDM in Project Management</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgdm-ngo-management" target="_blank">PGDM in NGO Management</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgdm-public-relations-management" target="_blank">PGDM in Public Relations Management</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgdm-industrial-relations-and-personnel-management" target="_blank">PGDM in Industrial Relations and Personnel Management</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgdm-entrepreneurship-development" target="_blank">PGDM in Entrepreneurship Development</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgdca" target="_blank">PG Diploma in Computer Applications (PGDCA)</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgd-cyber-security" target="_blank">PG Diploma in Cyber Security</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgd-data-science" target="_blank">PG Diploma in Data Science</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgd-artificial-intelligence-and-machine-learning" target="_blank">PG Diploma in Artificial Intelligence & Machine Learning</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgd-web-development" target="_blank">PG Diploma in Web Development</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgd-software-development" target="_blank">PG Diploma in Software Development</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgd-cloud-computing" target="_blank">PG Diploma in Cloud Computing</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgd-blockchain-technology" target="_blank">PG Diploma in Blockchain Technology</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgd-embedded-systems" target="_blank">PG Diploma in Embedded Systems</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgd-internet-of-things-iot" target="_blank">PG Diploma in Internet of Things (IoT)</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgd-hardware-and-networking" target="_blank">PG Diploma in Hardware and Networking</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgd-journalism-and-mass-communication" target="_blank">PG Diploma in Journalism and Mass Communication</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgd-public-relations-and-advertising" target="_blank">PG Diploma in Public Relations and Advertising</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgd-digital-marketing-media-arts" target="_blank">PG Diploma in Digital Marketing (Media/Arts)</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgd-film-and-tv-production" target="_blank">PG Diploma in Film and TV Production</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgd-animation-and-vfx" target="_blank">PG Diploma in Animation and VFX</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgd-graphic-design" target="_blank">PG Diploma in Graphic Design</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgd-interior-design" target="_blank">PG Diploma in Interior Design</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgd-fashion-design" target="_blank">PG Diploma in Fashion Design</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgd-photography" target="_blank">PG Diploma in Photography</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgd-sound-engineering" target="_blank">PG Diploma in Sound Engineering</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgd-event-management-media-arts" target="_blank">PG Diploma in Event Management (Media/Arts)</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgd-sports-journalism" target="_blank">PG Diploma in Sports Journalism</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgd-clinical-research" target="_blank">PG Diploma in Clinical Research</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgd-hospital-administration" target="_blank">PG Diploma in Hospital Administration</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgd-medical-laboratory-technology-advanced" target="_blank">PG Diploma in Medical Laboratory Technology (Advanced)</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgd-dietetics-and-public-health-nutrition" target="_blank">PG Diploma in Dietetics and Public Health Nutrition</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgd-healthcare-management" target="_blank">PG Diploma in Healthcare Management</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgd-radiography-and-imaging-techniques" target="_blank">PG Diploma in Radiography and Imaging Techniques</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgd-perfusion-technology" target="_blank">PG Diploma in Perfusion Technology</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgd-cardiac-technology" target="_blank">PG Diploma in Cardiac Technology</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgd-dialysis-technology" target="_blank">PG Diploma in Dialysis Technology</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgd-child-health" target="_blank">PG Diploma in Child Health</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgd-guidance-and-counseling" target="_blank">PG Diploma in Guidance and Counseling</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgd-educational-management" target="_blank">PG Diploma in Educational Management</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgd-rehabilitation-psychology" target="_blank">PG Diploma in Rehabilitation Psychology</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgd-human-rights" target="_blank">PG Diploma in Human Rights</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgd-international-relations" target="_blank">PG Diploma in International Relations</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgd-rural-development" target="_blank">PG Diploma in Rural Development</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgd-criminology-and-police-administration" target="_blank">PG Diploma in Criminology and Police Administration</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgd-labour-law-and-administrative-law" target="_blank">PG Diploma in Labour Law and Administrative Law</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgd-environmental-health-and-hygiene" target="_blank">PG Diploma in Environmental Health & Hygiene</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgd-social-work" target="_blank">PG Diploma in Social Work</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgd-disaster-management" target="_blank">PG Diploma in Disaster Management</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgd-geoinformatics" target="_blank">PG Diploma in Geoinformatics</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgd-sustainable-development" target="_blank">PG Diploma in Sustainable Development</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgd-water-resources-management" target="_blank">PG Diploma in Water Resources Management</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgd-renewable-energy" target="_blank">PG Diploma in Renewable Energy</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgd-quality-control-and-assurance" target="_blank">PG Diploma in Quality Control and Assurance</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgd-industrial-safety" target="_blank">PG Diploma in Industrial Safety</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgd-environmental-management" target="_blank">PG Diploma in Environmental Management</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgd-forensic-science" target="_blank">PG Diploma in Forensic Science</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgd-counselling" target="_blank">PG Diploma in Counselling</a></h3></div>
+        <div class="course-item" data-category="pg-diploma"><h3><a href="grad.html#grad-pgd-foreign-languages-advanced" target="_blank">PG Diploma in Foreign Languages (Advanced)</a></h3></div>
+        
+        <!-- Professional Certifications -->
+        <div class="course-item" data-category="professional-certs"><h3><a href="grad.html#grad-professional-certifications-specialized-training" target="_blank">Overview of Prof. Certifications</a></h3></div>
+        <div class="course-item" data-category="professional-certs"><h3><a href="grad.html#grad-cert-ca" target="_blank">Chartered Accountancy (CA)</a></h3></div>
+        <div class="course-item" data-category="professional-certs"><h3><a href="grad.html#grad-cert-cs" target="_blank">Company Secretary (CS)</a></h3></div>
+        <div class="course-item" data-category="professional-certs"><h3><a href="grad.html#grad-cert-cma-india" target="_blank">Cost and Management Accountancy (CMA - India)</a></h3></div>
+        <div class="course-item" data-category="professional-certs"><h3><a href="grad.html#grad-cert-cfa" target="_blank">Chartered Financial Analyst (CFA)</a></h3></div>
+        <div class="course-item" data-category="professional-certs"><h3><a href="grad.html#grad-cert-cpa" target="_blank">Certified Public Accountant (CPA)</a></h3></div>
+        <div class="course-item" data-category="professional-certs"><h3><a href="grad.html#grad-cert-frm" target="_blank">Financial Risk Manager (FRM)</a></h3></div>
+        <div class="course-item" data-category="professional-certs"><h3><a href="grad.html#grad-cert-cma-us" target="_blank">Certified Management Accountant (CMA - US)</a></h3></div>
+        <div class="course-item" data-category="professional-certs"><h3><a href="grad.html#grad-cert-cfp" target="_blank">Certified Financial Planner (CFP)</a></h3></div>
+        <div class="course-item" data-category="professional-certs"><h3><a href="grad.html#grad-cert-bat" target="_blank">Business Accounting and Taxation (BAT)</a></h3></div>
+        <div class="course-item" data-category="professional-certs"><h3><a href="grad.html#grad-cert-nism" target="_blank">NISM Certifications</a></h3></div>
+        <div class="course-item" data-category="professional-certs"><h3><a href="grad.html#grad-cert-tally" target="_blank">Tally ERP 9 / Prime Certification</a></h3></div>
+        <div class="course-item" data-category="professional-certs"><h3><a href="grad.html#grad-cert-gst" target="_blank">GST Certification Course</a></h3></div>
+        <div class="course-item" data-category="professional-certs"><h3><a href="grad.html#grad-cert-sap-fico" target="_blank">SAP FICO Certification</a></h3></div>
+        <div class="course-item" data-category="professional-certs"><h3><a href="grad.html#grad-cert-investment-banking" target="_blank">Investment Banking (Specialized Training)</a></h3></div>
+        <div class="course-item" data-category="professional-certs"><h3><a href="grad.html#grad-cert-equity-research" target="_blank">Equity Research (Specialized Training)</a></h3></div>
+        <div class="course-item" data-category="professional-certs"><h3><a href="grad.html#grad-cert-derivatives-and-futures-trading" target="_blank">Derivatives and Futures Trading</a></h3></div>
+        <div class="course-item" data-category="professional-certs"><h3><a href="grad.html#grad-cert-chrp" target="_blank">Certified Human Resources Professional (CHRP) - General</a></h3></div>
+        <div class="course-item" data-category="professional-certs"><h3><a href="grad.html#grad-chrp-recruitment-and-selection" target="_blank">CHRP - Recruitment and Selection</a></h3></div>
+        <div class="course-item" data-category="professional-certs"><h3><a href="grad.html#grad-chrp-compensation-and-benefits" target="_blank">CHRP - Compensation and Benefits</a></h3></div>
+        <div class="course-item" data-category="professional-certs"><h3><a href="grad.html#grad-chrp-learning-and-development" target="_blank">CHRP - Learning and Development</a></h3></div>
+        <div class="course-item" data-category="professional-certs"><h3><a href="grad.html#grad-cert-advanced-graphic-design" target="_blank">Advanced Graphic Design Certification</a></h3></div>
+        <div class="course-item" data-category="professional-certs"><h3><a href="grad.html#grad-cert-video-editing-advanced" target="_blank">Video Editing Certification (Advanced)</a></h3></div>
+        <div class="course-item" data-category="professional-certs"><h3><a href="grad.html#grad-cert-motion-graphics" target="_blank">Motion Graphics Certification</a></h3></div>
+        <div class="course-item" data-category="professional-certs"><h3><a href="grad.html#grad-cert-photography-advanced" target="_blank">Photography Certification (Advanced)</a></h3></div>
+        <div class="course-item" data-category="professional-certs"><h3><a href="grad.html#grad-cert-film-production-specialized" target="_blank">Film Production Certification (Specialized)</a></h3></div>
+        <div class="course-item" data-category="professional-certs"><h3><a href="grad.html#grad-cert-vfx" target="_blank">VFX Certification</a></h3></div>
+        <div class="course-item" data-category="professional-certs"><h3><a href="grad.html#grad-cert-advanced-foreign-language" target="_blank">Advanced Foreign Language Certification</a></h3></div>
+        <div class="course-item" data-category="professional-certs"><h3><a href="grad.html#grad-cert-translation-and-interpretation-certified" target="_blank">Translation and Interpretation Certification</a></h3></div>
+        <div class="course-item" data-category="professional-certs"><h3><a href="grad.html#grad-cert-public-speaking-advanced" target="_blank">Public Speaking Certification (Advanced)</a></h3></div>
+        <div class="course-item" data-category="professional-certs"><h3><a href="grad.html#grad-cert-nutrition-and-dietetics-advanced" target="_blank">Nutrition and Dietetics Certification (Advanced)</a></h3></div>
+        <div class="course-item" data-category="professional-certs"><h3><a href="grad.html#grad-cert-yoga-teacher-training-advanced" target="_blank">Yoga Teacher Training (Advanced)</a></h3></div>
+        <div class="course-item" data-category="professional-certs"><h3><a href="grad.html#grad-cert-fitness-trainer-certifications" target="_blank">Fitness Trainer Certifications</a></h3></div>
+        <div class="course-item" data-category="professional-certs"><h3><a href="grad.html#grad-cert-counselling-skills-specialized" target="_blank">Counselling Skills Certification (Specialized)</a></h3></div>
+        <div class="course-item" data-category="professional-certs"><h3><a href="grad.html#grad-cert-medical-coding" target="_blank">Medical Coding Certification</a></h3></div>
+        <div class="course-item" data-category="professional-certs"><h3><a href="grad.html#grad-cert-medical-transcription" target="_blank">Medical Transcription Certification</a></h3></div>
+        <div class="course-item" data-category="professional-certs"><h3><a href="grad.html#grad-cert-supply-chain-management-advanced" target="_blank">Supply Chain Management Certification (Advanced)</a></h3></div>
+        <div class="course-item" data-category="professional-certs"><h3><a href="grad.html#grad-cert-logistics-and-warehousing" target="_blank">Logistics and Warehousing Certification</a></h3></div>
+        <div class="course-item" data-category="professional-certs"><h3><a href="grad.html#grad-cert-export-import-procedures-advanced" target="_blank">Export-Import Procedures Certification (Advanced)</a></h3></div>
+        <div class="course-item" data-category="professional-certs"><h3><a href="grad.html#grad-cert-entrepreneurship-development-program-edp" target="_blank">Entrepreneurship Development Program (EDP)</a></h3></div>
+        <div class="course-item" data-category="professional-certs"><h3><a href="grad.html#grad-cert-sustainability-certifications" target="_blank">Sustainability Certifications</a></h3></div>
+        <div class="course-item" data-category="professional-certs"><h3><a href="grad.html#grad-cert-iot-specialist" target="_blank">IoT Specialist Certification</a></h3></div>
+        <div class="course-item" data-category="professional-certs"><h3><a href="grad.html#grad-cert-drone-operation-and-maintenance" target="_blank">Drone Operation and Maintenance Certification</a></h3></div>
+        <div class="course-item" data-category="professional-certs"><h3><a href="grad.html#grad-cert-robotics-programming" target="_blank">Robotics Programming Certification</a></h3></div>
+
+    </div>
+</div>
+
+<button id="back-to-top" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+
+<script>
+    // --- LIVE SEARCH FILTER FUNCTION ---
+    function filterCourses() {
+        const input = document.getElementById('course-search');
+        const filter = input.value.toUpperCase();
+        const courseList = document.getElementById('course-list');
+        const courseItems = courseList.getElementsByClassName('course-item');
+        const noResults = document.getElementById('no-results');
+        let visibleCount = 0;
+
+        for (let i = 0; i < courseItems.length; i++) {
+            const a = courseItems[i].getElementsByTagName("a")[0];
+            const txtValue = a.textContent || a.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                courseItems[i].style.display = "";
+                visibleCount++;
+            } else {
+                courseItems[i].style.display = "none";
+            }
+        }
+        noResults.style.display = visibleCount === 0 ? "block" : "none";
+    }
+
+    // --- CATEGORY FILTER FUNCTION ---
+    function filterByCategory(category) {
+        const courseItems = document.querySelectorAll('.course-item');
+        const buttons = document.querySelectorAll('#category-filters .filter-btn');
+        const noResults = document.getElementById('no-results');
+        let visibleCount = 0;
+
+        buttons.forEach(button => {
+            if (button.getAttribute('onclick') === `filterByCategory('${category}')`) {
+                button.classList.add('active');
+            } else {
+                button.classList.remove('active');
+            }
+        });
+
+        courseItems.forEach(item => {
+            if (category === 'all' || item.dataset.category === category) {
+                item.style.display = "";
+                visibleCount++;
+            } else {
+                item.style.display = "none";
+            }
+        });
+        
+        noResults.style.display = visibleCount === 0 ? "block" : "none";
+        document.getElementById('course-search').value = ""; // Clear search bar
+    }
+
+    // --- BACK TO TOP BUTTON SCRIPT ---
+    const topButton = document.getElementById("back-to-top");
+    window.onscroll = function() {
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            topButton.style.display = "block";
+        } else {
+            topButton.style.display = "none";
+        }
+    };
+    topButton.onclick = function() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    };
+</script>
+
+</body>
+</html>

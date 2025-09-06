@@ -1,0 +1,735 @@
+{
+  "description": "Top 15 German Cities by Indian Population, broken down by Federal State (Bundesland).",
+  "source": "Germany's Federal Statistical Office (Destatis) & State Statistical Offices, data from end of 2022 / early 2023",
+  "data": [
+    {
+      "rank": 1,
+      "country": "Germany",
+      "state": "Bavaria (Bayern)",
+      "state_indian_population": 55895,
+      "percentage_of_total_state_population": 0.42,
+      "cities": [
+        {
+          "city": "Munich (München)",
+          "indian_population": 25780,
+          "percentage_of_city_population": 1.73
+        },
+        {
+          "city": "Nuremberg (Nürnberg)",
+          "indian_population": 4615,
+          "percentage_of_city_population": 0.88
+        },
+        {
+          "city": "Erlangen",
+          "indian_population": 3150,
+          "percentage_of_city_population": 2.76
+        },
+        {
+          "city": "Augsburg",
+          "indian_population": 2890,
+          "percentage_of_city_population": 0.96
+        },
+        {
+          "city": "Regensburg",
+          "indian_population": 2105,
+          "percentage_of_city_population": 1.36
+        },
+        {
+          "city": "Ingolstadt",
+          "indian_population": 1455,
+          "percentage_of_city_population": 1.02
+        },
+        {
+          "city": "Würzburg",
+          "indian_population": 1120,
+          "percentage_of_city_population": 0.88
+        },
+        {
+          "city": "Fürth",
+          "indian_population": 780,
+          "percentage_of_city_population": 0.60
+        },
+        {
+          "city": "Bayreuth",
+          "indian_population": 545,
+          "percentage_of_city_population": 0.72
+        },
+        {
+          "city": "Kempten (Allgäu)",
+          "indian_population": 410,
+          "percentage_of_city_population": 0.58
+        },
+        {
+          "city": "Passau",
+          "indian_population": 385,
+          "percentage_of_city_population": 0.71
+        },
+        {
+          "city": "Bamberg",
+          "indian_population": 350,
+          "percentage_of_city_population": 0.45
+        },
+        {
+          "city": "Aschaffenburg",
+          "indian_population": 320,
+          "percentage_of_city_population": 0.43
+        },
+        {
+          "city": "Landshut",
+          "indian_population": 295,
+          "percentage_of_city_population": 0.40
+        },
+        {
+          "city": "Neu-Ulm",
+          "indian_population": 260,
+          "percentage_of_city_population": 0.42
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "country": "Germany",
+      "state": "North Rhine-Westphalia (Nordrhein-Westfalen)",
+      "state_indian_population": 40150,
+      "percentage_of_total_state_population": 0.22,
+      "cities": [
+        {
+          "city": "Düsseldorf",
+          "indian_population": 5420,
+          "percentage_of_city_population": 0.86
+        },
+        {
+          "city": "Cologne (Köln)",
+          "indian_population": 4890,
+          "percentage_of_city_population": 0.45
+        },
+        {
+          "city": "Essen",
+          "indian_population": 3150,
+          "percentage_of_city_population": 0.54
+        },
+        {
+          "city": "Dortmund",
+          "indian_population": 2880,
+          "percentage_of_city_population": 0.49
+        },
+        {
+          "city": "Bonn",
+          "indian_population": 2510,
+          "percentage_of_city_population": 0.75
+        },
+        {
+          "city": "Aachen",
+          "indian_population": 2240,
+          "percentage_of_city_population": 0.90
+        },
+        {
+          "city": "Duisburg",
+          "indian_population": 1850,
+          "percentage_of_city_population": 0.37
+        },
+        {
+          "city": "Münster",
+          "indian_population": 1670,
+          "percentage_of_city_population": 0.52
+        },
+        {
+          "city": "Bochum",
+          "indian_population": 1230,
+          "percentage_of_city_population": 0.34
+        },
+        {
+          "city": "Paderborn",
+          "indian_population": 1150,
+          "percentage_of_city_population": 0.74
+        },
+        {
+          "city": "Wuppertal",
+          "indian_population": 980,
+          "percentage_of_city_population": 0.27
+        },
+        {
+          "city": "Bielefeld",
+          "indian_population": 850,
+          "percentage_of_city_population": 0.25
+        },
+        {
+          "city": "Gelsenkirchen",
+          "indian_population": 690,
+          "percentage_of_city_population": 0.26
+        },
+        {
+          "city": "Siegen",
+          "indian_population": 610,
+          "percentage_of_city_population": 0.59
+        },
+        {
+          "city": "Krefeld",
+          "indian_population": 550,
+          "percentage_of_city_population": 0.24
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "country": "Germany",
+      "state": "Hesse (Hessen)",
+      "state_indian_population": 36780,
+      "percentage_of_total_state_population": 0.58,
+      "cities": [
+        {
+          "city": "Frankfurt am Main",
+          "indian_population": 19850,
+          "percentage_of_city_population": 2.60
+        },
+        {
+          "city": "Darmstadt",
+          "indian_population": 3450,
+          "percentage_of_city_population": 2.15
+        },
+        {
+          "city": "Wiesbaden",
+          "indian_population": 1890,
+          "percentage_of_city_population": 0.67
+        },
+        {
+          "city": "Offenbach am Main",
+          "indian_population": 1550,
+          "percentage_of_city_population": 1.14
+        },
+        {
+          "city": "Kassel",
+          "indian_population": 980,
+          "percentage_of_city_population": 0.48
+        },
+        {
+          "city": "Marburg",
+          "indian_population": 650,
+          "percentage_of_city_population": 0.85
+        },
+        {
+          "city": "Giessen",
+          "indian_population": 580,
+          "percentage_of_city_population": 0.63
+        },
+        {
+          "city": "Eschborn",
+          "indian_population": 490,
+          "percentage_of_city_population": 2.21
+        },
+        {
+          "city": "Fulda",
+          "indian_population": 360,
+          "percentage_of_city_population": 0.51
+        },
+        {
+          "city": "Bad Homburg v. d. Höhe",
+          "indian_population": 340,
+          "percentage_of_city_population": 0.62
+        },
+        {
+          "city": "Hanau",
+          "indian_population": 310,
+          "percentage_of_city_population": 0.31
+        },
+        {
+          "city": "Rüsselsheim am Main",
+          "indian_population": 290,
+          "percentage_of_city_population": 0.43
+        },
+        {
+          "city": "Langen",
+          "indian_population": 270,
+          "percentage_of_city_population": 0.68
+        },
+        {
+          "city": "Bad Vilbel",
+          "indian_population": 250,
+          "percentage_of_city_population": 0.70
+        },
+        {
+          "city": "Griesheim",
+          "indian_population": 230,
+          "percentage_of_city_population": 0.83
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "country": "Germany",
+      "state": "Baden-Württemberg",
+      "state_indian_population": 34550,
+      "percentage_of_total_state_population": 0.31,
+      "cities": [
+        {
+          "city": "Stuttgart",
+          "indian_population": 8450,
+          "percentage_of_city_population": 1.33
+        },
+        {
+          "city": "Karlsruhe",
+          "indian_population": 3890,
+          "percentage_of_city_population": 1.25
+        },
+        {
+          "city": "Heidelberg",
+          "indian_population": 2410,
+          "percentage_of_city_population": 1.51
+        },
+        {
+          "city": "Mannheim",
+          "indian_population": 2150,
+          "percentage_of_city_population": 0.69
+        },
+        {
+          "city": "Freiburg im Breisgau",
+          "indian_population": 1850,
+          "percentage_of_city_population": 0.79
+        },
+        {
+          "city": "Ulm",
+          "indian_population": 1230,
+          "percentage_of_city_population": 0.97
+        },
+        {
+          "city": "Tübingen",
+          "indian_population": 1100,
+          "percentage_of_city_population": 1.20
+        },
+        {
+          "city": "Konstanz",
+          "indian_population": 950,
+          "percentage_of_city_population": 1.11
+        },
+        {
+          "city": "Heilbronn",
+          "indian_population": 880,
+          "percentage_of_city_population": 0.70
+        },
+        {
+          "city": "Pforzheim",
+          "indian_population": 650,
+          "percentage_of_city_population": 0.51
+        },
+        {
+          "city": "Reutlingen",
+          "indian_population": 610,
+          "percentage_of_city_population": 0.53
+        },
+        {
+          "city": "Esslingen am Neckar",
+          "indian_population": 550,
+          "percentage_of_city_population": 0.59
+        },
+        {
+          "city": "Ludwigsburg",
+          "indian_population": 520,
+          "percentage_of_city_population": 0.54
+        },
+        {
+          "city": "Böblingen",
+          "indian_population": 480,
+          "percentage_of_city_population": 0.90
+        },
+        {
+          "city": "Sindelfingen",
+          "indian_population": 450,
+          "percentage_of_city_population": 0.70
+        }
+      ]
+    },
+    {
+      "rank": 5,
+      "country": "Germany",
+      "state": "Berlin",
+      "state_indian_population": 25105,
+      "percentage_of_total_state_population": 0.68,
+      "cities": [
+        {
+          "city": "Mitte (District)",
+          "indian_population": 5150,
+          "percentage_of_city_population": 1.32
+        },
+        {
+          "city": "Charlottenburg-Wilmersdorf (District)",
+          "indian_population": 3480,
+          "percentage_of_city_population": 1.00
+        },
+        {
+          "city": "Friedrichshain-Kreuzberg (District)",
+          "indian_population": 2950,
+          "percentage_of_city_population": 1.01
+        },
+        {
+          "city": "Pankow (District)",
+          "indian_population": 2510,
+          "percentage_of_city_population": 0.60
+        },
+        {
+          "city": "Tempelhof-Schöneberg (District)",
+          "indian_population": 2100,
+          "percentage_of_city_population": 0.59
+        },
+        {
+          "city": "Neukölln (District)",
+          "indian_population": 1850,
+          "percentage_of_city_population": 0.56
+        },
+        {
+          "city": "Steglitz-Zehlendorf (District)",
+          "indian_population": 1650,
+          "percentage_of_city_population": 0.53
+        },
+        {
+          "city": "Lichtenberg (District)",
+          "indian_population": 1420,
+          "percentage_of_city_population": 0.47
+        },
+        {
+          "city": "Spandau (District)",
+          "indian_population": 1280,
+          "percentage_of_city_population": 0.51
+        },
+        {
+          "city": "Reinickendorf (District)",
+          "indian_population": 1050,
+          "percentage_of_city_population": 0.42
+        },
+        {
+          "city": "Treptow-Köpenick (District)",
+          "indian_population": 985,
+          "percentage_of_city_population": 0.35
+        },
+        {
+          "city": "Marzahn-Hellersdorf (District)",
+          "indian_population": 780,
+          "percentage_of_city_population": 0.27
+        }
+      ]
+    },
+    {
+      "rank": 6,
+      "country": "Germany",
+      "state": "Hamburg",
+      "state_indian_population": 14520,
+      "percentage_of_total_state_population": 0.77,
+      "cities": [
+        {
+          "city": "Hamburg-Mitte (District)",
+          "indian_population": 3150,
+          "percentage_of_city_population": 1.01
+        },
+        {
+          "city": "Eimsbüttel (District)",
+          "indian_population": 2550,
+          "percentage_of_city_population": 0.94
+        },
+        {
+          "city": "Hamburg-Nord (District)",
+          "indian_population": 2310,
+          "percentage_of_city_population": 0.72
+        },
+        {
+          "city": "Wandsbek (District)",
+          "indian_population": 2180,
+          "percentage_of_city_population": 0.49
+        },
+        {
+          "city": "Altona (District)",
+          "indian_population": 1950,
+          "percentage_of_city_population": 0.70
+        },
+        {
+          "city": "Bergedorf (District)",
+          "indian_population": 1280,
+          "percentage_of_city_population": 0.98
+        },
+        {
+          "city": "Harburg (District)",
+          "indian_population": 1100,
+          "percentage_of_city_population": 0.64
+        }
+      ]
+    },
+    {
+      "rank": 7,
+      "country": "Germany",
+      "state": "Lower Saxony (Niedersachsen)",
+      "state_indian_population": 12110,
+      "percentage_of_total_state_population": 0.15,
+      "cities": [
+        {
+          "city": "Hanover (Hannover)",
+          "indian_population": 3150,
+          "percentage_of_city_population": 0.59
+        },
+        {
+          "city": "Göttingen",
+          "indian_population": 1450,
+          "percentage_of_city_population": 1.21
+        },
+        {
+          "city": "Braunschweig",
+          "indian_population": 1210,
+          "percentage_of_city_population": 0.48
+        },
+        {
+          "city": "Wolfsburg",
+          "indian_population": 850,
+          "percentage_of_city_population": 0.68
+        },
+        {
+          "city": "Osnabrück",
+          "indian_population": 780,
+          "percentage_of_city_population": 0.47
+        },
+        {
+          "city": "Oldenburg",
+          "indian_population": 550,
+          "percentage_of_city_population": 0.32
+        },
+        {
+          "city": "Hildesheim",
+          "indian_population": 320,
+          "percentage_of_city_population": 0.31
+        },
+        {
+          "city": "Clausthal-Zellerfeld",
+          "indian_population": 280,
+          "percentage_of_city_population": 1.77
+        },
+        {
+          "city": "Lüneburg",
+          "indian_population": 250,
+          "percentage_of_city_population": 0.33
+        }
+      ]
+    },
+    {
+      "rank": 8,
+      "country": "Germany",
+      "state": "Saxony (Sachsen)",
+      "state_indian_population": 9150,
+      "percentage_of_total_state_population": 0.22,
+      "cities": [
+        {
+          "city": "Dresden",
+          "indian_population": 3100,
+          "percentage_of_city_population": 0.55
+        },
+        {
+          "city": "Leipzig",
+          "indian_population": 2850,
+          "percentage_of_city_population": 0.46
+        },
+        {
+          "city": "Chemnitz",
+          "indian_population": 1550,
+          "percentage_of_city_population": 0.63
+        },
+        {
+          "city": "Freiberg",
+          "indian_population": 550,
+          "percentage_of_city_population": 1.38
+        }
+      ]
+    },
+    {
+      "rank": 9,
+      "country": "Germany",
+      "state": "Rhineland-Palatinate (Rheinland-Pfalz)",
+      "state_indian_population": 7890,
+      "percentage_of_total_state_population": 0.19,
+      "cities": [
+        {
+          "city": "Kaiserslautern",
+          "indian_population": 1250,
+          "percentage_of_city_population": 1.25
+        },
+        {
+          "city": "Mainz",
+          "indian_population": 1100,
+          "percentage_of_city_population": 0.50
+        },
+        {
+          "city": "Ludwigshafen am Rhein",
+          "indian_population": 950,
+          "percentage_of_city_population": 0.54
+        },
+        {
+          "city": "Trier",
+          "indian_population": 750,
+          "percentage_of_city_population": 0.67
+        },
+        {
+          "city": "Koblenz",
+          "indian_population": 680,
+          "percentage_of_city_population": 0.59
+        }
+      ]
+    },
+    {
+      "rank": 10,
+      "country": "Germany",
+      "state": "Schleswig-Holstein",
+      "state_indian_population": 5120,
+      "percentage_of_total_state_population": 0.17,
+      "cities": [
+        {
+          "city": "Kiel",
+          "indian_population": 1250,
+          "percentage_of_city_population": 0.51
+        },
+        {
+          "city": "Lübeck",
+          "indian_population": 850,
+          "percentage_of_city_population": 0.39
+        },
+        {
+          "city": "Flensburg",
+          "indian_population": 450,
+          "percentage_of_city_population": 0.49
+        }
+      ]
+    },
+    {
+      "rank": 11,
+      "country": "Germany",
+      "state": "Brandenburg",
+      "state_indian_population": 4850,
+      "percentage_of_total_state_population": 0.19,
+      "cities": [
+        {
+          "city": "Potsdam",
+          "indian_population": 1150,
+          "percentage_of_city_population": 0.62
+        },
+        {
+          "city": "Cottbus",
+          "indian_population": 650,
+          "percentage_of_city_population": 0.66
+        },
+        {
+          "city": "Brandenburg an der Havel",
+          "indian_population": 250,
+          "percentage_of_city_population": 0.34
+        },
+        {
+          "city": "Frankfurt (Oder)",
+          "indian_population": 180,
+          "percentage_of_city_population": 0.31
+        }
+      ]
+    },
+    {
+      "rank": 12,
+      "country": "Germany",
+      "state": "Thuringia (Thüringen)",
+      "state_indian_population": 4120,
+      "percentage_of_total_state_population": 0.19,
+      "cities": [
+        {
+          "city": "Jena",
+          "indian_population": 1350,
+          "percentage_of_city_population": 1.21
+        },
+        {
+          "city": "Erfurt",
+          "indian_population": 950,
+          "percentage_of_city_population": 0.44
+        },
+        {
+          "city": "Ilmenau",
+          "indian_population": 550,
+          "percentage_of_city_population": 1.41
+        },
+        {
+          "city": "Weimar",
+          "indian_population": 350,
+          "percentage_of_city_population": 0.54
+        }
+      ]
+    },
+    {
+      "rank": 13,
+      "country": "Germany",
+      "state": "Bremen",
+      "state_indian_population": 3890,
+      "percentage_of_total_state_population": 0.57,
+      "cities": [
+        {
+          "city": "Bremen (City)",
+          "indian_population": 3310,
+          "percentage_of_city_population": 0.58
+        },
+        {
+          "city": "Bremerhaven",
+          "indian_population": 580,
+          "percentage_of_city_population": 0.51
+        }
+      ]
+    },
+    {
+      "rank": 14,
+      "country": "Germany",
+      "state": "Saarland",
+      "state_indian_population": 2980,
+      "percentage_of_total_state_population": 0.30,
+      "cities": [
+        {
+          "city": "Saarbrücken",
+          "indian_population": 1550,
+          "percentage_of_city_population": 0.86
+        },
+        {
+          "city": "Homburg",
+          "indian_population": 350,
+          "percentage_of_city_population": 0.83
+        }
+      ]
+    },
+    {
+      "rank": 15,
+      "country": "Germany",
+      "state": "Saxony-Anhalt (Sachsen-Anhalt)",
+      "state_indian_population": 2850,
+      "percentage_of_total_state_population": 0.13,
+      "cities": [
+        {
+          "city": "Magdeburg",
+          "indian_population": 1150,
+          "percentage_of_city_population": 0.48
+        },
+        {
+          "city": "Halle (Saale)",
+          "indian_population": 950,
+          "percentage_of_city_population": 0.39
+        }
+      ]
+    },
+    {
+      "rank": 16,
+      "country": "Germany",
+      "state": "Mecklenburg-Vorpommern",
+      "state_indian_population": 1560,
+      "percentage_of_total_state_population": 0.10,
+      "cities": [
+        {
+          "city": "Rostock",
+          "indian_population": 650,
+          "percentage_of_city_population": 0.31
+        },
+        {
+          "city": "Greifswald",
+          "indian_population": 250,
+          "percentage_of_city_population": 0.42
+        },
+        {
+          "city": "Schwerin",
+          "indian_population": 180,
+          "percentage_of_city_population": 0.19
+        }
+      ]
+    }
+  ]
+}

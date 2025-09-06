@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JOBS BY CATEGORY</title>
+  <style>
+    /* --- Main Body & Grid Background --- */
+    body {
+    margin: 0;
+    padding: 20px;
+    height: 100vh;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    background-color: turquoise;
+    /* THIS IS THE CORRECTED LINE for semi-transparent black gridlines */
+    background-image: linear-gradient(rgba(0,0,0,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.15) 1px, transparent 1px);
+    background-size: 40px 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    /* --- Glassmorphism Content Box --- */
+    .content {
+      background: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 40px;
+      text-align: center;
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+      backdrop-filter: blur(8px); /* The "glass" effect */
+      -webkit-backdrop-filter: blur(8px);
+      width: 90%;
+      max-width: 600px;
+    }
+
+    /* --- Beveled Title Box --- */
+    .title-box {
+      background: #0a0a23;
+      border-radius: 15px;
+      padding: 20px 30px;
+      margin-bottom: 40px;
+      /* The Bevel Effect */
+      box-shadow: 
+        inset 6px 6px 12px #060614, 
+        inset -6px -6px 12px #101032;
+    }
+
+    /* --- 3D Title --- */
+    h1 {
+      font-size: 48px;
+      margin: 0;
+      font-weight: 900;
+      text-shadow: none; color: white;
+    }
+
+    /* --- Beveled Main Button --- */
+    .button {
+     background: turquoise;
+      color: black;/* Light blue text */
+      padding: 18px 35px;
+      margin: 10px;
+      border: none;
+      cursor: pointer;
+      font-size: 20px;
+      font-weight: 700;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      /* Matching Bevel Effect */
+      box-shadow: 
+        6px 6px 12px #060614, 
+        -6px -6px 12px #101032;
+    }
+
+    .button:hover {
+      color: #ffffff;
+      box-shadow: 
+        4px 4px 8px #060614, 
+        -4px -4px 8px #101032;
+    }
+
+    .button:active {
+        /* Press-in effect */
+        box-shadow: 
+        inset 6px 6px 12px #060614, 
+        inset -6px -6px 12px #101032;
+        color: #00bfff;
+    }
+
+    /* --- Hidden Tabs Container --- */
+    .tabs {
+      display: none;
+      margin-top: 30px;
+      text-align: center;
+    }
+    
+    /* --- 3D Beveled Link Buttons --- */
+    .tabs a {
+      display: block;
+      width: 80%;
+      max-width: 350px;
+      margin: 20px auto; /* Increased margin for better spacing */
+      padding: 18px;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 700;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+
+      /* Matching the main button style */
+      background: #32CD32; /* Parrot Green */
+      
+      color: #ade8f4;
+      border: none;
+      /* The 3D Bevel Effect */
+    
+        box-shadow: 8px 8px 16px #1e7e1e, -8px -8px 16px #5bff5b;
+    }
+
+    .tabs a:hover {
+      color: #ffffff;
+      /* Subtle hover effect */
+      box-shadow: 
+        4px 4px 8px #060614, 
+        -4px -4px 8px #101032;
+    }
+
+    .tabs a:active {
+      color: #00bfff;
+      /* "Pressed In" effect using inset shadows */
+      box-shadow: 
+        inset 6px 6px 12px #060614, 
+        inset -6px -6px 12px #101032;
+    }
+  </style>
+  <script>
+    function showTabs() {
+      document.getElementById("tabs").style.display = "block";
+    }
+  </script>
+</head>
+<body>
+
+ 
+
+  <div class="content">
+    <h1>JOBS BY CATEGORY</h1>
+    <button class="button" onclick="showTabs()">EXPLORE</button>
+    <div class="tabs" id="tabs">
+      <a href="blue.html" target="_blank">Blue Collar Jobs in India</a>
+      <a href="white.html" target="_blank">White Collar Jobs in India</a>
+      <a href="remote1.html" target="_blank">Remote Jobs in India</a>
+    </div>
+  </div>
+
+</body>
+</html>

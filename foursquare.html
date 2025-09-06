@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>College Finder (OpenStreetMap)</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    input, button { padding: 10px; margin: 5px; }
+    .results { margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <h2>Find Colleges by City and Course</h2>
+
+  <label>City: <input type="text" id="city" placeholder="e.g. Bengaluru"></label><br>
+  <label>Course: <input type="text" id="course" placeholder="e.g. Engineering"></label><br>
+  <button onclick="findColleges()">Search</button>
+
+  <div class="results" id="results"></div>
+
+  <script>
+    async function findColleges() {
+      const city = document.getElementById("city").value.trim();
+      const course = document.getElementById("course").value.trim();
+      const resultsDiv = document.getElementById("results");
+      resultsDiv.innerHTML = "Searching...";
+
+      if (!city) {
+        resultsDiv.innerHTML = "Please enter a city.";
+        return;
+      }
+
+      const query = `${course} college in ${city}`;
+      const url = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(query)}&format=json&limit=10`;
+
+      try {
+        const response = await fetch(url, {
+          headers: { 'User-Agent': 'YourAppName/1.0' }
+        });
+        const data = await response.json();
+
+        if (data.length === 0) {
+          resultsDiv.innerHTML = "No results found.";
+          return;
+        }
+
+        let html = "<h3>Results:</h3><ul>";
+        data.forEach(item => {
+          html += `<li><strong>${item.display_name}</strong><br>Latitude: ${item.lat}, Longitude: ${item.lon}</li>`;
+        });
+        html += "</ul>";
+        resultsDiv.innerHTML = html;
+
+      } catch (error) {
+        resultsDiv.innerHTML = "Error fetching data.";
+        console.error(error);
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF--8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Grammar Solutions</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            /* Blue and white gridline background */
+            background-color: #f0f8ff; 
+            background-image: 
+                repeating-linear-gradient(to right, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 30px),
+                repeating-linear-gradient(to bottom, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 30px);
+            background-size: 30px 30px;
+        }
+
+        /* Header Styling */
+        header {
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        header h1 {
+            display: inline-block;
+            background-color: #0056b3;
+            color: white;
+            padding: 20px 40px;
+            border: 3px solid white;
+            border-radius: 15px;
+            /* 3D Box Effect */
+            box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.4), inset 2px 2px 5px rgba(255, 255, 255, 0.3);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-size: 2.2em;
+            margin: 0;
+        }
+
+        /* Main Container for Two-Column Layout */
+        .container {
+            display: flex;
+            max-width: 1400px;
+            margin: 20px auto;
+            background: #ffffff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.15);
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 80vh;
+        }
+
+        /* Left Navigation Column */
+        .nav-column {
+            flex: 1;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+            background-color: #f8f9fa;
+            overflow-y: auto;
+        }
+
+        .nav-column h2 {
+            font-size: 1.5em;
+            color: #0056b3;
+            border-bottom: 2px solid #0056b3;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        
+        .nav-column ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-column li a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: #0056b3;
+            border-radius: 5px;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 0.95em;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .nav-column li a:hover,
+        .nav-column li a.active {
+            background-color: #0056b3;
+            color: #fff;
+        }
+
+        /* Right Content Column */
+        .content-column {
+            flex: 3;
+            padding: 25px 35px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        #initial-message {
+            text-align: center;
+            color: #777;
+        }
+
+        #initial-message h2 {
+            border: none;
+        }
+
+        .tabs-container {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            width: 100%;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .tab-link {
+            padding: 15px 30px;
+            border: 2px solid #ddd;
+            background-color: #f0f0f0;
+            color: #aaa;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 8px;
+            pointer-events: none; /* Disabled by default */
+            transition: all 0.3s ease;
+        }
+
+        .tab-link:not(.disabled) {
+            border-color: #0056b3;
+            background-color: #e7f3fe;
+            color: #0056b3;
+            pointer-events: auto; /* Enabled when not disabled */
+        }
+        
+        .tab-link:not(.disabled):hover {
+            background-color: #0056b3;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>ENGLISH GRAMMAR SOLUTIONS</h1>
+    </header>
+
+    <div class="container">
+        <nav class="nav-column">
+            <h2>Topic</h2>
+            <ul>
+                <!-- Basic Grammar -->
+                <li><a href="nouns.html" data-sections="definition,types,plural,identify">Nouns</a></li>
+                <li><a href="verbs.html" data-sections="definition,types,forms,identify">Verbs</a></li>
+                <li><a href="adjectives.html" data-sections="definition,types,degrees,identify">Adjectives</a></li>
+                <li><a href="adverbs.html" data-sections="definition,types,tip,identify">Adverbs</a></li>
+                <li><a href="pronouns.html" data-sections="definition,types,identify">Pronouns</a></li>
+                <li><a href="prepositions.html" data-sections="definition,common,identify">Prepositions</a></li>
+                <li><a href="conjunctions.html" data-sections="definition,clause-phrase,types,identify">Conjunctions</a></li>
+                <li><a href="interjections.html" data-sections="definition,types,identify">Interjections</a></li>
+                <li><a href="articles.html" data-sections="definition,indefinite-article,definite-article,omission-article">Articles</a></li>
+                <li><a href="tenses.html" data-sections="simple-present,present-continuous,present-perfect,present-perfect-continuous,simple-past,past-continuous,past-perfect,past-perfect-continuous,simple-future,future-continuous,future-perfect,future-perfect-continuous,identify">Tenses</a></li>
+                <li><a href="active_passive.html" data-sections="definition,active-voice,passive-voice,conversion-rules,active-to-passive,passive-to-active">Active & Passive Voice</a></li>
+                <li><a href="sub_pred.html" data-sections="definition,identify,examples,unusual-position">Subject & Predicate</a></li>
+                <li><a href="sub_verb_agreement.html" data-sections="definition,rule1,rule2,rule3,rule4,rule5,rule6,rule7,rule8,rule9,rule10,rule11,rule12,rule13,rule14,rule15,rule16,rule17,rule18,rule19,rule20,rule21,rule22,rule23,rule24,rule25,rule26">Subject-Verb Agreement</a></li>
+                <li><a href="advanced_terminologies.html" data-sections="collocation,subjunctive,predicate-nominative,dangling-modifier">Advanced Terminologies</a></li>
+                <li><a href="direct_indirect.html" data-sections="definition,rules,sentence-types,direct-to-indirect,indirect-to-direct">Direct-Indirect Speech</a></li>
+                <li><a href="modals.html" data-sections="definition,can,could,may,might,shall,should,will,would,must,ought-to,need,dare">Modals</a></li>
+
+                <!-- Practice Sets (as per your filenames) -->
+                <li><a href="competitive1.html" data-sections="question-tags">Question Tags Practice</a></li>
+                <li><a href="competitive2.html" data-sections="parallelism">Parallelism Practice</a></li>
+                <li><a href="competitive3.html" data-sections="inversion">Inversion Practice</a></li>
+                <li><a href="competitive4.html" data-sections="determiners">Determiners Practice</a></li>
+                <li><a href="competitive5.html" data-sections="non-finite">Non-Finite Verbs Practice</a></li>
+                <li><a href="competitive6.html" data-sections="phrasal-verbs,confusing-words,one-word">Vocabulary Practice</a></li>
+            </ul>
+        </nav>
+
+        <main class="content-column">
+            <div id="initial-message">
+                <h2>Welcome to English Grammar Solutions</h2>
+                <p>Please select a topic from the left to activate the navigation tabs.</p>
+            </div>
+            <div class="tabs-container">
+                <a href="#" class="tab-link disabled" id="tab-def">Definition & Concept</a>
+                <a href="#" class="tab-link disabled" id="tab-types">Different Types</a>
+                <a href="#" class="tab-link disabled" id="tab-tricks">Tricks to Identify</a>
+                <a href="#" class="tab-link disabled" id="tab-ex">Examples</a>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const topicLinks = document.querySelectorAll('.nav-column a');
+            const tabDef = document.getElementById('tab-def');
+            const tabTypes = document.getElementById('tab-types');
+            const tabTricks = document.getElementById('tab-tricks');
+            const tabEx = document.getElementById('tab-ex');
+            const initialMessage = document.getElementById('initial-message');
+
+            const tabMappings = {
+                'tab-def': ['definition', 'analyze', 'collocation', 'strategies', 'active-voice'],
+                'tab-types': ['types', 'plural', 'forms', 'degrees', 'common', 'clause-phrase', 'rules', 'rule1'],
+                'tab-tricks': ['identify', 'tip', 'conversion-rules'],
+                'tab-ex': ['examples', 'unusual-position', 'direct-to-indirect', 'indirect-to-direct', 'question-tags', 'parallelism', 'inversion', 'determiners', 'non-finite', 'phrasal-verbs', 'confusing-words', 'one-word']
+            };
+
+            topicLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    topicLinks.forEach(nav => nav.classList.remove('active'));
+                    this.classList.add('active');
+                    initialMessage.innerHTML = `<h2>Topic Selected: ${this.textContent}</h2><p>Use the tabs below to navigate to specific sections of the topic.</p>`;
+                    
+                    const baseUrl = this.getAttribute('href');
+                    const availableSections = this.getAttribute('data-sections').split(',');
+
+                    [tabDef, tabTypes, tabTricks, tabEx].forEach(tab => {
+                        const tabId = tab.id;
+                        let found = false;
+                        for (const section of tabMappings[tabId]) {
+                            if (availableSections.includes(section)) {
+                                tab.href = `${baseUrl}#${section}`;
+                                tab.classList.remove('disabled');
+                                found = true;
+                                break;
+                            }
+                        }
+                        if (!found) {
+                            tab.href = "#";
+                            tab.classList.add('disabled');
+                        }
+                    });
+
+                    // Special case for practice sets to enable only the "Examples" tab
+                    if (baseUrl.startsWith('competitive')) {
+                        [tabDef, tabTypes, tabTricks].forEach(t => t.classList.add('disabled'));
+                        tabEx.href = `${baseUrl}#${availableSections[0]}`;
+                        tabEx.classList.remove('disabled');
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
