@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Grammar: Tags, Parallelism & Inversion</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            /* Blue and white gridline background */
+            background-color: #f0f8ff; 
+            background-image: 
+                repeating-linear-gradient(to right, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 30px),
+                repeating-linear-gradient(to bottom, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 30px);
+            background-size: 30px 30px;
+        }
+
+        /* Header Styling */
+        header {
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        header h1 {
+            display: inline-block;
+            background-color: #0056b3;
+            color: white;
+            padding: 20px 40px;
+            border: 3px solid white;
+            border-radius: 15px;
+            /* 3D Box Effect */
+            box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.4), inset 2px 2px 5px rgba(255, 255, 255, 0.3);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-size: 2.2em;
+            margin: 0;
+        }
+
+        /* Main Container for Two-Column Layout */
+        .container {
+            display: flex;
+            max-width: 1400px;
+            margin: 20px auto;
+            background: #ffffff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.15);
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        /* Left Navigation Column */
+        .nav-column {
+            flex: 1;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+            background-color: #f8f9fa;
+            height: 80vh;
+            overflow-y: auto;
+        }
+
+        .nav-column ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-column li a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: #0056b3;
+            border-radius: 5px;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 0.95em;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .nav-column li a:hover,
+        .nav-column li a.active {
+            background-color: #0056b3;
+            color: #fff;
+        }
+
+        /* Right Content Column */
+        .content-column {
+            flex: 3;
+            padding: 25px 35px;
+            height: 80vh; /* Set a height to enable scrolling */
+            overflow-y: auto; /* Enable vertical scrollbar */
+        }
+
+        .content-section {
+            display: none;
+        }
+        
+        .content-section.active {
+            display: block;
+        }
+        
+        h2 {
+            font-size: 1.8em;
+            color: #0056b3;
+            border-bottom: 3px solid #0056b3;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        
+        h3 {
+            font-size: 1.4em;
+            color: #333;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        
+        .rule {
+            background-color: #e7f3fe;
+            border: 1px solid #b3d7f7;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 5px;
+        }
+
+        .example-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .example-list li {
+            margin-bottom: 20px;
+            border-left: 4px solid #0056b3;
+            padding-left: 15px;
+        }
+        
+        .explanation {
+            font-style: italic;
+            color: #555;
+            margin-top: 5px;
+        }
+        
+        .feature {
+            font-weight: bold;
+            color: #0056b3;
+        }
+        
+        .correct { color: green; font-weight: bold; }
+        .incorrect { color: red; font-weight: bold; }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>ADVANCED GRAMMAR: TAGS, PARALLELISM & INVERSION</h1>
+    </header>
+
+    <div class="container">
+        <nav class="nav-column">
+            <ul>
+                <li><a href="#question-tags" class="nav-link active">Question Tags</a></li>
+                <li><a href="#parallelism" class="nav-link">Parallelism</a></li>
+                <li><a href="#inversion" class="nav-link">Inversion</a></li>
+            </ul>
+        </nav>
+
+        <main class="content-column">
+            <section id="question-tags" class="content-section active">
+                <h2>Question Tags</h2>
+                <div class="rule">
+                    <strong>Concept:</strong> A question tag is a short question added to the end of a statement for confirmation.
+                    <br><strong>Core Rule:</strong> Positive Statement + Negative Tag. Negative Statement + Positive Tag.
+                </div>
+                <h3>50 Examples:</h3>
+                <ul class="example-list">
+                    <!-- Simple Tenses -->
+                    <li>He is a doctor, <span class="feature">isn't he?</span><div class="explanation">Positive statement with 'is' takes negative tag 'isn't'.</div></li>
+                    <li>She isn't coming, <span class="feature">is she?</span><div class="explanation">Negative statement with 'isn't' takes positive tag 'is'.</div></li>
+                    <li>They play cricket, <span class="feature">don't they?</span><div class="explanation">Simple present verb takes 'do/don't' in the tag.</div></li>
+                    <li>He likes coffee, <span class="feature">doesn't he?</span><div class="explanation">Singular present verb takes 'does/doesn't' in the tag.</div></li>
+                    <li>You don't know the answer, <span class="feature">do you?</span><div class="explanation">Negative 'don't know' takes positive 'do'.</div></li>
+                    <li>She went to the market, <span class="feature">didn't she?</span><div class="explanation">Simple past verb takes 'did/didn't' in the tag.</div></li>
+                    <li>They didn't complete the task, <span class="feature">did they?</span><div class="explanation">Negative 'didn't complete' takes positive 'did'.</div></li>
+                    <!-- Continuous Tenses -->
+                    <li>We are studying, <span class="feature">aren't we?</span><div class="explanation">Helping verb 'are' is used in the tag.</div></li>
+                    <li>He was sleeping, <span class="feature">wasn't he?</span><div class="explanation">Helping verb 'was' is used in the tag.</div></li>
+                    <li>They weren't playing, <span class="feature">were they?</span><div class="explanation">Negative 'weren't' takes positive 'were'.</div></li>
+                    <!-- Perfect Tenses -->
+                    <li>She has finished her work, <span class="feature">hasn't she?</span><div class="explanation">Helping verb 'has' is used in the tag.</div></li>
+                    <li>They have arrived, <span class="feature">haven't they?</span><div class="explanation">Helping verb 'have' is used in the tag.</div></li>
+                    <li>He hadn't left, <span class="feature">had he?</span><div class="explanation">Negative 'hadn't' takes positive 'had'.</div></li>
+                    <li>You had seen it before, <span class="feature">hadn't you?</span><div class="explanation">Helping verb 'had' is used in the tag.</div></li>
+                    <!-- Modals -->
+                    <li>He can swim, <span class="feature">can't he?</span><div class="explanation">Modal 'can' is used in the tag.</div></li>
+                    <li>She will come tomorrow, <span class="feature">won't she?</span><div class="explanation">The negative tag for 'will' is 'won't'.</div></li>
+                    <li>We should go now, <span class="feature">shouldn't we?</span><div class="explanation">Modal 'should' is used in the tag.</div></li>
+                    <li>They must follow the rules, <span class="feature">mustn't they?</span><div class="explanation">Modal 'must' is used in the tag.</div></li>
+                    <li>You couldn't do it, <span class="feature">could you?</span><div class="explanation">Negative 'couldn't' takes positive 'could'.</div></li>
+                    <li>It wouldn't be a problem, <span class="feature">would it?</span><div class="explanation">Negative 'wouldn't' takes positive 'would'.</div></li>
+                    <!-- Special Cases -->
+                    <li>I am late, <span class="feature">aren't I?</span><div class="explanation"><strong>Special Case:</strong> The tag for 'I am' is 'aren't I?'.</div></li>
+                    <li>I'm not bothering you, <span class="feature">am I?</span><div class="explanation"><strong>Special Case:</strong> The tag for 'I am not' is the standard 'am I?'.</div></li>
+                    <li>Let's start the meeting, <span class="feature">shall we?</span><div class="explanation"><strong>Special Case:</strong> Suggestions with 'Let's' always take the tag 'shall we?'.</div></li>
+                    <li>Close the door, <span class="feature">will you?</span><div class="explanation"><strong>Special Case:</strong> Imperatives (commands/requests) take the tag 'will you?' or 'won't you?'.</div></li>
+                    <li>Please help me, <span class="feature">won't you?</span><div class="explanation"><strong>Special Case:</strong> Polite requests often use 'won't you?'.</div></li>
+                    <li>Everybody has come, <span class="feature">haven't they?</span><div class="explanation"><strong>Special Case:</strong> Indefinite pronouns like 'everybody' are singular in the statement ('has') but take a plural pronoun ('they') in the tag.</div></li>
+                    <li>Someone is at the door, <span class="feature">aren't they?</span><div class="explanation"><strong>Special Case:</strong> 'Someone' is singular ('is') but takes the plural 'they' in the tag. The verb 'are' matches 'they'.</div></li>
+                    <li>Nobody called, <span class="feature">did they?</span><div class="explanation"><strong>Special Case:</strong> 'Nobody' is negative, so it takes a positive tag. It also uses the plural pronoun 'they'.</div></li>
+                    <li>Nothing was lost, <span class="feature">was it?</span><div class="explanation"><strong>Special Case:</strong> 'Nothing' is negative and refers to a thing, so it takes a positive tag with the pronoun 'it'.</div></li>
+                    <li>He hardly ever speaks, <span class="feature">does he?</span><div class="explanation"><strong>Special Case:</strong> Negative adverbs like 'hardly', 'seldom', 'rarely' make the statement negative, requiring a positive tag.</div></li>
+                    <li>She seldom visits, <span class="feature">does she?</span><div class="explanation"><strong>Special Case:</strong> 'seldom' is negative, so the tag is positive.</div></li>
+                    <li>This is your car, <span class="feature">isn't it?</span><div class="explanation"><strong>Special Case:</strong> The subject 'This' takes the pronoun 'it' in the tag.</div></li>
+                    <li>Those are my books, <span class="feature">aren't they?</span><div class="explanation"><strong>Special Case:</strong> The subject 'Those' takes the pronoun 'they' in the tag.</div></li>
+                    <li>There is a problem, <span class="feature">isn't there?</span><div class="explanation"><strong>Special Case:</strong> Sentences starting with 'There' use 'there' as the subject in the tag.</div></li>
+                    <li>There were many people, <span class="feature">weren't there?</span><div class="explanation"><strong>Special Case:</strong> The verb and subject 'there' are repeated from the statement.</div></li>
+                    <li>He has a car, <span class="feature">doesn't he?</span><div class="explanation"><strong>Special Case:</strong> When 'has' is the main verb (meaning possession), the tag uses 'do/does'.</div></li>
+                    <li>They have lunch at 1 PM, <span class="feature">don't they?</span><div class="explanation"><strong>Special Case:</strong> When 'have' is a main verb, use 'do/don't'.</div></li>
+                    <li>He used to live here, <span class="feature">didn't he?</span><div class="explanation"><strong>Special Case:</strong> For 'used to', the tag is 'didn't'.</div></li>
+                    <li>You ought to go, <span class="feature">shouldn't you?</span><div class="explanation"><strong>Special Case:</strong> The tag for 'ought to' is usually 'shouldn't'.</div></li>
+                    <li>One must do one's duty, <span class="feature">mustn't one?</span><div class="explanation">The subject 'one' is repeated in the tag.</div></li>
+                    <li>The jury has given its verdict, <span class="feature">hasn't it?</span><div class="explanation">A collective noun acting as a unit is singular ('it').</div></li>
+                    <li>The team are fighting, <span class="feature">aren't they?</span><div class="explanation">A collective noun acting as individuals is plural ('they').</div></li>
+                    <li>A few people were present, <span class="feature">weren't they?</span><div class="explanation">'A few' is positive, so it takes a negative tag.</div></li>
+                    <li>Few people were present, <span class="feature">were they?</span><div class="explanation">'Few' is negative, so it takes a positive tag.</div></li>
+                    <li>A little sugar was added, <span class="feature">wasn't it?</span><div class="explanation">'A little' is positive.</div></li>
+                    <li>Little progress has been made, <span class="feature">has it?</span><div class="explanation">'Little' is negative.</div></li>
+                    <li>The sun is a star, <span class="feature">isn't it?</span><div class="explanation">Standard positive statement with 'is'.</div></li>
+                    <li>Dogs can't fly, <span class="feature">can they?</span><div class="explanation">Standard negative statement with 'can't'.</div></li>
+                    <li>She reads a lot, <span class="feature">doesn't she?</span><div class="explanation">Simple present singular verb.</div></li>
+                    <li>You wrote this, <span class="feature">didn't you?</span><div class="explanation">Simple past verb.</div></li>
+                </ul>
+            </section>
+            
+            <section id="parallelism" class="content-section">
+                <h2>Parallelism (Parallel Structure)</h2>
+                <div class="rule">
+                    <strong>Concept:</strong> Parallelism is the principle that items in a list or comparison must have the same grammatical form (e.g., noun with noun, -ing with -ing, clause with clause). This creates balance and clarity.
+                </div>
+                <h3>50 Examples (25 Incorrect vs. Correct Pairs):</h3>
+                <ul class="example-list">
+                    <li><span class="incorrect">Incorrect:</span> She likes swimming, hiking, and <span class="feature">to ride</span> a bicycle.
+                        <div class="explanation"><strong>Error:</strong> Mixes gerunds (-ing forms) with an infinitive (to + verb).</div>
+                    </li>
+                    <li><span class="correct">Correct:</span> She likes swimming, hiking, and <span class="feature">riding</span> a bicycle.
+                        <div class="explanation"><strong>Correction:</strong> All items in the list are now parallel gerunds.</div>
+                    </li>
+                    <li><span class="incorrect">Incorrect:</span> The report was written clearly, concisely, and <span class="feature">it was accurate</span>.
+                        <div class="explanation"><strong>Error:</strong> Mixes adverbs with a clause.</div>
+                    </li>
+                    <li><span class="correct">Correct:</span> The report was written clearly, concisely, and <span class="feature">accurately</span>.
+                        <div class="explanation"><strong>Correction:</strong> All three items are now adverbs modifying the verb 'written'.</div>
+                    </li>
+                    <li><span class="incorrect">Incorrect:</span> He was asked to stop talking, to put away his phone, and <span class="feature">that he should pay attention</span>.
+                        <div class="explanation"><strong>Error:</strong> Mixes infinitives with a noun clause.</div>
+                    </li>
+                    <li><span class="correct">Correct:</span> He was asked to stop talking, to put away his phone, and <span class="feature">to pay attention</span>.
+                        <div class="explanation"><strong>Correction:</strong> The structure is now a parallel list of three infinitive phrases.</div>
+                    </li>
+                    <li><span class="incorrect">Incorrect:</span> The manager is not only a good leader but also <span class="feature">he is a great mentor</span>.
+                        <div class="explanation"><strong>Error:</strong> Correlative conjunctions join a noun phrase (`a good leader`) with a clause.</div>
+                    </li>
+                    <li><span class="correct">Correct:</span> The manager is not only a good leader but also <span class="feature">a great mentor</span>.
+                        <div class="explanation"><strong>Correction:</strong> Both items are now parallel noun phrases.</div>
+                    </li>
+                    <li><span class="incorrect">Incorrect:</span> To succeed is <span class="feature">opening</span> a new opportunity.
+                        <div class="explanation"><strong>Error:</strong> Compares an infinitive (`To succeed`) with a gerund (`opening`).</div>
+                    </li>
+                    <li><span class="correct">Correct:</span> To succeed is <span class="feature">to open</span> a new opportunity.
+                        <div class="explanation"><strong>Correction:</strong> Both sides of the linking verb 'is' are now parallel infinitives.</div>
+                    </li>
+                    <li><span class="incorrect">Incorrect:</span> The witness spoke calmly and <span class="feature">with confidence</span>.
+                        <div class="explanation"><strong>Error:</strong> Mixes an adverb (`calmly`) with a prepositional phrase.</div>
+                    </li>
+                    <li><span class="correct">Correct:</span> The witness spoke calmly and <span class="feature">confidently</span>.
+                        <div class="explanation"><strong>Correction:</strong> Both items are now parallel adverbs.</div>
+                    </li>
+                    <li><span class="incorrect">Incorrect:</span> My friend is kind, generous, and <span class="feature">likes to help</span>.
+                        <div class="explanation"><strong>Error:</strong> Mixes adjectives (`kind`, `generous`) with a verb phrase.</div>
+                    </li>
+                    <li><span class="correct">Correct:</span> My friend is kind, generous, and <span class="feature">helpful</span>.
+                        <div class="explanation"><strong>Correction:</strong> All items in the list are now parallel adjectives.</div>
+                    </li>
+                    <li><span class="incorrect">Incorrect:</span> He is a man of great intelligence and <span class="feature">who has a lot of courage</span>.
+                        <div class="explanation"><strong>Error:</strong> Mixes a prepositional phrase with a relative clause.</div>
+                    </li>
+                    <li><span class="correct">Correct:</span> He is a man of great intelligence and <span class="feature">of great courage</span>.
+                        <div class="explanation"><strong>Correction:</strong> Both items are now parallel prepositional phrases.</div>
+                    </li>
+                    <li><span class="incorrect">Incorrect:</span> The company's objectives are to increase profits, reducing costs, and <span class="feature">to improve quality</span>.
+                         <div class="explanation"><strong>Error:</strong> Mixes infinitives with a gerund.</div>
+                    </li>
+                    <li><span class="correct">Correct:</span> The company's objectives are to increase profits, to reduce costs, and <span class="feature">to improve quality</span>.
+                         <div class="explanation"><strong>Correction:</strong> All items are now parallel infinitives.</div>
+                    </li>
+                    <li><span class="incorrect">Incorrect:</span> What you say is less important than <span class="feature">the way you are acting</span>.
+                         <div class="explanation"><strong>Error:</strong> Compares a noun clause (`What you say`) with a noun phrase.</div>
+                    </li>
+                    <li><span class="correct">Correct:</span> What you say is less important than <span class="feature">what you do</span>.
+                         <div class="explanation"><strong>Correction:</strong> Both items are now parallel noun clauses.</div>
+                    </li>
+                    <li><span class="incorrect">Incorrect:</span> The teacher told the students that they should study hard and <span class="feature">to complete their assignments</span>.</li>
+                    <li><span class="correct">Correct:</span> The teacher told the students that they should study hard and <span class="feature">complete their assignments</span>.</li>
+                    <li><span class="incorrect">Incorrect:</span> His new car is sleek, fast, and <span class="feature">has a lot of power</span>.</li>
+                    <li><span class="correct">Correct:</span> His new car is sleek, fast, and <span class="feature">powerful</span>.</li>
+                    <li><span class="incorrect">Incorrect:</span> The presentation was both informative and <span class="feature">it was also entertaining</span>.</li>
+                    <li><span class="correct">Correct:</span> The presentation was both informative and <span class="feature">entertaining</span>.</li>
+                    <li><span class="incorrect">Incorrect:</span> They decided to paint the house, repairing the roof, and <span class="feature">to fix the fence</span>.</li>
+                    <li><span class="correct">Correct:</span> They decided to paint the house, repair the roof, and <span class="feature">fix the fence</span>.</li>
+                    <li><span class="incorrect">Incorrect:</span> The candidate's experience is better than <span class="feature">his opponent</span>.</li>
+                    <li><span class="correct">Correct:</span> The candidate's experience is better than <span class="feature">his opponent's</span>. (or `that of his opponent`)</li>
+                    <li><span class="incorrect">Incorrect:</span> She is a writer, a mother, and <span class="feature">works as a teacher</span>.</li>
+                    <li><span class="correct">Correct:</span> She is a writer, a mother, and <span class="feature">a teacher</span>.</li>
+                    <li><span class="incorrect">Incorrect:</span> I would rather work at home than <span class="feature">going to the office</span>.</li>
+                    <li><span class="correct">Correct:</span> I would rather work at home than <span class="feature">go to the office</span>.</li>
+                    <li><span class="incorrect">Incorrect:</span> He is either a fool or <span class="feature">is a madman</span>.</li>
+                    <li><span class="correct">Correct:</span> He is either a fool or <span class="feature">a madman</span>.</li>
+                    <li><span class="incorrect">Incorrect:</span> The city is famous for its museums, its parks, and <span class="feature">you can visit the old castle</span>.</li>
+                    <li><span class="correct">Correct:</span> The city is famous for its museums, its parks, and <span class="feature">its old castle</span>.</li>
+                    <li><span class="incorrect">Incorrect:</span> The benefits of exercise include strengthening the heart, to lose weight, and <span class="feature">improving your mood</span>.</li>
+                    <li><span class="correct">Correct:</span> The benefits of exercise include strengthening the heart, losing weight, and <span class="feature">improving your mood</span>.</li>
+                    <li><span class="incorrect">Incorrect:</span> He is a politician with a strong will and <span class="feature">who is very determined</span>.</li>
+                    <li><span class="correct">Correct:</span> He is a politician with a strong will and <span class="feature">great determination</span>.</li>
+                    <li><span class="incorrect">Incorrect:</span> The manager praised the team for their hard work and <span class="feature">because they were dedicated</span>.</li>
+                    <li><span class="correct">Correct:</span> The manager praised the team for their hard work and <span class="feature">their dedication</span>.</li>
+                    <li><span class="incorrect">Incorrect:</span> It is easier to tell the truth than <span class="feature">living with a lie</span>.</li>
+                    <li><span class="correct">Correct:</span> It is easier to tell the truth than <span class="feature">to live with a lie</span>.</li>
+                    <li><span class="incorrect">Incorrect:</span> The storm was powerful, destructive, and <span class="feature">lasted for hours</span>.</li>
+                    <li><span class="correct">Correct:</span> The storm was powerful, destructive, and <span class="feature">long-lasting</span>.</li>
+                    <li><span class="incorrect">Incorrect:</span> The instructions were to assemble the parts, connecting the wires, and <span class="feature">to test the device</span>.</li>
+                    <li><span class="correct">Correct:</span> The instructions were to assemble the parts, connect the wires, and <span class="feature">test the device</span>.</li>
+                </ul>
+            </section>
+            
+            <section id="inversion" class="content-section">
+                <h2>Inversion</h2>
+                <div class="rule">
+                    <strong>Concept:</strong> Inversion is the reversal of the normal subject-verb word order. The verb (or helping verb) comes before the subject.
+                </div>
+                <h3>Where and How It Is Used</h3>
+                <ul>
+                    <li>**In Questions:** (e.g., `Are you coming?`)</li>
+                    <li>**After Negative/Limiting Adverbs:** When a sentence begins with an expression like `No sooner`, `Hardly`, `Never`, or `Not only`, the helping verb and subject must be inverted for formal emphasis.</li>
+                    <li>**In Conditional Sentences:** To form formal conditional clauses without 'if'.</li>
+                </ul>
+                <h3>50 Examples:</h3>
+                <ul class="example-list">
+                    <!-- Questions -->
+                    <li>Are you ready?</li>
+                    <li>Did he finish the report?</li>
+                    <li>Have they arrived yet?</li>
+                    <li>Will she accept the offer?</li>
+                    <li>Where is the nearest station?</li>
+                    <!-- Negative Adverbials -->
+                    <li><span class="feature">Hardly had I</span> left the house when it started to rain.</li>
+                    <li><span class="feature">No sooner did he</span> see the police than he ran away.</li>
+                    <li><span class="feature">Not only does he</span> play the guitar, but he also sings.</li>
+                    <li><span class="feature">Never have I</span> seen such a beautiful sight.</li>
+                    <li><span class="feature">Seldom do we</span> get a chance to see him.</li>
+                    <li><span class="feature">Scarcely had the movie</span> started when the power went out.</li>
+                    <li>Under no circumstances <span class="feature">should you</span> leave this building.</li>
+                    <li>At no time <span class="feature">were the students</span> allowed to use their phones.</li>
+                    <li>In no way <span class="feature">can he</span> be held responsible for the accident.</li>
+                    <li>Little <span class="feature">did I</span> know about the surprise they had planned.</li>
+                    <li>Not until I saw it with my own eyes <span class="feature">did I</span> believe it.</li>
+                    <li>Rarely <span class="feature">do we</span> see such talent.</li>
+                    <li>Hardly ever <span class="feature">does she</span> complain.</li>
+                    <li>No sooner <span class="feature">had the teacher</span> entered the class than the students became silent.</li>
+                    <li>Never again <span class="feature">will I</span> trust him.</li>
+                    <li>Not a single word <span class="feature">did she</span> say.</li>
+                    <li>Not only <span class="feature">is he</span> intelligent, but he is also hardworking.</li>
+                    <li>Under no circumstances <span class="feature">are you</span> to enter this room.</li>
+                    <li>Only after finishing his homework <span class="feature">was he</span> allowed to play.</li>
+                    <li>Only then <span class="feature">did I</span> understand the problem.</li>
+                    <li>Only in this way <span class="feature">can you</span> succeed.</li>
+                    <li>Scarcely <span class="feature">had I</span> finished reading when she called.</li>
+                    <li>Seldom <span class="feature">has a</span> politician been so honest.</li>
+                    <li>Rarely <span class="feature">does it</span> snow in this part of the country.</li>
+                    <li>Little <span class="feature">did she</span> realize the danger she was in.</li>
+                    <!-- Conditional Inversion -->
+                    <li><span class="feature">Had I known</span> the truth, I would have acted differently. (Instead of 'If I had known...')</li>
+                    <li><span class="feature">Were I</span> you, I would not accept the offer. (Instead of 'If I were you...')</li>
+                    <li><span class="feature">Should you</span> need any help, do not hesitate to ask. (Instead of 'If you should need...')</li>
+                    <li><span class="feature">Had he</span> studied harder, he would have passed.</li>
+                    <li><span class="feature">Were the government</span> to announce the policy, there would be protests.</li>
+                    <li><span class="feature">Should the train</span> be late, we will miss our flight.</li>
+                    <li><span class="feature">Had I</span> been there, this would not have happened.</li>
+                    <li><span class="feature">Were she</span> to apologize, I would forgive her.</li>
+                    <li><span class="feature">Should you</span> change your mind, please let me know.</li>
+                    <!-- Inversion after So/Such and Adverbials of Place -->
+                    <li>So beautiful <span class="feature">was the painting</span> that I couldn't take my eyes off it.</li>
+                    <li>So fast <span class="feature">did he run</span> that no one could catch him.</li>
+                    <li>Such <span class="feature">was the force</span> of the storm that trees were uprooted.</li>
+                    <li>On the hill <span class="feature">stands a</span> large castle.</li>
+                    <li>Around the corner <span class="feature">came the</span> bus.</li>
+                    <li>Down the street <span class="feature">marched the</span> soldiers.</li>
+                    <li>So great <span class="feature">was his</span> courage that he was awarded a medal.</li>
+                    <li>So confusing <span class="feature">were the</span> instructions that nobody could understand them.</li>
+                    <li>Along the river <span class="feature">ran the</span> children.</li>
+                    <li>Into the room <span class="feature">walked the</span> mysterious stranger.</li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const contentSections = document.querySelectorAll('.content-section');
+            const contentColumn = document.querySelector('.content-column');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+
+                    navLinks.forEach(nav => nav.classList.remove('active'));
+                    contentSections.forEach(section => section.classList.remove('active'));
+
+                    this.classList.add('active');
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        targetSection.classList.add('active');
+                        contentColumn.scrollTop = 0; // Scroll to top of content area on click
+                    }
+                });
+            });
+            // Auto-activate the first link on page load
+            document.querySelector('.nav-link').classList.add('active');
+            document.querySelector('.content-section').classList.add('active');
+        });
+    </script>
+
+</body>
+</html>

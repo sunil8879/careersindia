@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verbal Reasoning - Dice Problems</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f0f2f5; /* Light gray background to make the box pop */
+            color: black; /* Default text color */
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* The 3D Box Container */
+        .container-3d {
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: white;
+            padding: 25px 40px;
+            border-radius: 12px;
+            /* 3D shadow effect */
+            border: 1px solid #ddd;
+            box-shadow: 
+                6px 6px 16px rgba(0, 0, 0, 0.15),
+                -6px -6px 16px rgba(255, 255, 255, 0.7);
+        }
+
+        /* Headers */
+        h1, h2 {
+            color: #40E0D0; /* Turquoise */
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        h2 {
+            font-size: 1.8em;
+            border-bottom: 2px solid #40E0D0;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+
+        h3 {
+            color: black;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            border-left: 4px solid #40E0D0;
+            padding-left: 10px;
+        }
+        
+        /* Content Block Styling */
+        .content-block {
+            margin-bottom: 25px;
+        }
+
+        .content-block p {
+            margin: 10px 0;
+        }
+
+        .content-block strong {
+            font-weight: 600; /* Bolder text for labels */
+            color: #333; /* Darker black for labels */
+        }
+        
+        .content-block ul {
+            list-style-type: none;
+            padding-left: 20px;
+            margin-top: 5px;
+        }
+
+        .content-block li {
+            margin-bottom: 8px;
+        }
+        
+        .content-block li::before {
+            content: '•';
+            color: #40E0D0; /* Turquoise bullet point */
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        
+        /* Horizontal Rule for Separation */
+        hr {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #40E0D0, rgba(0, 0, 0, 0));
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container-3d">
+        <h1>Dice Problems</h1>
+        
+        <!-- Key Rules Section -->
+        <div class="content-block">
+            <h3>Key Rules for Solving Dice Problems</h3>
+            <ul>
+                <li><strong>Rule 1 (One Common Face):</strong> When two positions of a die show only one common face, the other faces are opposite to each other in a clockwise direction starting from the common face. The remaining unseen number is opposite the common number.</li>
+                <li><strong>Rule 2 (Two Common Faces):</strong> When two positions of a die show two common faces, the third, non-common faces are always opposite each other.</li>
+                <li><strong>Rule 3 (No Common Face):</strong>
+                    <ul>
+                        <li><strong>Standard Dice:</strong> If the sum of any two adjacent faces is NOT 7, it is a standard die. The sum of opposite faces is always 7 (1 is opposite 6, 2 is opposite 5, 3 is opposite 4).</li>
+                        <li><strong>Non-Standard Dice:</strong> If the sum of any two adjacent faces IS 7, it is a non-standard die. In this case, the top face is opposite the top face, the front is opposite the front, and the side is opposite the side of the other position.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        
+        <h2>Example Questions</h2>
+
+        <!-- Question 1 -->
+        <div class="content-block">
+            <h3>Question 1</h3>
+            <p><strong>QUESTION:</strong> Two positions of a die are shown: (6, 4, 1) and (5, 2, 3). Find the number opposite to 4.</p>
+            <p><strong>ANSWER:</strong> 2</p>
+            <p><strong>EXPLANATION:</strong> There are no common faces. We check if it's a standard die. In the first position, 6 + 1 = 7. Since adjacent faces sum to 7, it is a non-standard die. We apply the rule for non-standard dice: the corresponding faces are opposite. The front face (4) is opposite the other front face (2).</p>
+        </div>
+
+        <hr>
+
+        <!-- Question 2 -->
+        <div class="content-block">
+            <h3>Question 2</h3>
+            <p><strong>QUESTION:</strong> Two positions of a die are shown: (1, 6, 3) and (4, 5, 2). Find the number opposite to 2.</p>
+            <p><strong>ANSWER:</strong> 6</p>
+            <p><strong>EXPLANATION:</strong> There are no common faces. In the first position, 1 + 6 = 7, and in the second, 5 + 2 = 7. This confirms it is a non-standard die. Applying the rule, corresponding faces are opposite: Top (1) is opposite Top (4), Side (3) is opposite Side (5), and Front (6) is opposite Front (2).</p>
+        </div>
+        
+        <hr>
+
+        <!-- Question 3 -->
+        <div class="content-block">
+            <h3>Question 3</h3>
+            <p><strong>QUESTION:</strong> Two positions of a die are shown: (2, 6, 4) and (1, 5, 3). Find the number opposite to 6.</p>
+            <p><strong>ANSWER:</strong> 1</p>
+            <p><strong>EXPLANATION:</strong> There are no common faces. We check the sums of adjacent faces: 2+6=8, 6+4=10, 2+4=6. None sum to 7, so this is a standard die. In a standard die, opposite faces must sum to 7. Therefore, the number opposite to 6 is 1 (since 6 + 1 = 7).</p>
+        </div>
+
+        <hr>
+        
+        <!-- Question 4 -->
+        <div class="content-block">
+            <h3>Question 4</h3>
+            <p><strong>QUESTION:</strong> Two positions of a die are shown: (3, 5, 1) and (3, 4, 2). Find the number opposite to 3.</p>
+            <p><strong>ANSWER:</strong> 6</p>
+            <p><strong>EXPLANATION:</strong> The number 3 is the only common face. We use the clockwise rule. Starting from 3 in the first die, we go clockwise: 3 → 5 → 1. In the second die: 3 → 4 → 2. This means 5 is opposite 4, and 1 is opposite 2. The only remaining number, 6, must be opposite the common face, 3.</p>
+        </div>
+
+        <hr>
+
+        <!-- Question 5 -->
+        <div class="content-block">
+            <h3>Question 5</h3>
+            <p><strong>QUESTION:</strong> Two positions of a die are shown: (1, 2, 3) and (1, 5, 4). Find the number opposite to 1.</p>
+            <p><strong>ANSWER:</strong> 6</p>
+            <p><strong>EXPLANATION:</strong> The number 1 is the only common face. Applying the clockwise rule: from the first die, we have 1 → 2 → 3. From the second die, we have 1 → 5 → 4. Therefore, 2 is opposite 5, and 3 is opposite 4. The remaining number, 6, is opposite the common face, 1.</p>
+        </div>
+        
+        <hr>
+        
+        <!-- Question 6 -->
+        <div class="content-block">
+            <h3>Question 6</h3>
+            <p><strong>QUESTION:</strong> Two positions of a die are shown: (6, 3, 2) and (6, 5, 4). Find the number opposite to 6.</p>
+            <p><strong>ANSWER:</strong> 1</p>
+            <p><strong>EXPLANATION:</strong> The number 6 is the only common face. Following the clockwise rule: 6 → 3 → 2 and 6 → 5 → 4. This tells us that 3 is opposite 5, and 2 is opposite 4. The unseen number, 1, must be opposite the common face, 6.</p>
+        </div>
+
+        <hr>
+
+        <!-- Question 7 -->
+        <div class="content-block">
+            <h3>Question 7</h3>
+            <p><strong>QUESTION:</strong> Two positions of a die are shown: (6, 1, 4) and (1, 5, 6). Find the number opposite to 4.</p>
+            <p><strong>ANSWER:</strong> 5</p>
+            <p><strong>EXPLANATION:</strong> The numbers 1 and 6 are common to both positions. According to Rule 2, when two faces are common, the remaining non-common faces are opposite each other. Here, the remaining faces are 4 and 5, so 4 is opposite 5.</p>
+        </div>
+        
+        <hr>
+
+        <!-- Question 8 -->
+        <div class="content-block">
+            <h3>Question 8</h3>
+            <p><strong>QUESTION:</strong> Two positions of a die are shown with letters: (A, B, C) and (C, D, B). Find the face opposite to C.</p>
+            <p><strong>ANSWER:</strong> Cannot be determined.</p>
+            <p><strong>EXPLANATION:</strong> The letters B and C are common to both positions. Using Rule 2, we can determine that the non-common faces, A and D, are opposite each other. However, this method does not provide information about the faces opposite to the common letters (B and C). The opposite of C could be either of the two unseen letters (e.g., E or F).</p>
+        </div>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grammar Rules: Direct & Indirect Speech</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            /* Blue and white gridline background */
+            background-color: #f0f8ff; 
+            background-image: 
+                repeating-linear-gradient(to right, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 30px),
+                repeating-linear-gradient(to bottom, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 30px);
+            background-size: 30px 30px;
+        }
+
+        /* Header Styling */
+        header {
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        header h1 {
+            display: inline-block;
+            background-color: #0056b3;
+            color: white;
+            padding: 20px 40px;
+            border: 3px solid white;
+            border-radius: 15px;
+            /* 3D Box Effect */
+            box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.4), inset 2px 2px 5px rgba(255, 255, 255, 0.3);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-size: 2.2em;
+            margin: 0;
+        }
+
+        /* Main Container for Two-Column Layout */
+        .container {
+            display: flex;
+            max-width: 1400px;
+            margin: 20px auto;
+            background: #ffffff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.15);
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        /* Left Navigation Column */
+        .nav-column {
+            flex: 1;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+            background-color: #f8f9fa;
+            height: 80vh;
+            overflow-y: auto;
+        }
+
+        .nav-column ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            position: sticky;
+            top: 20px;
+        }
+
+        .nav-column li a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: #0056b3;
+            border-radius: 5px;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 0.95em;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .nav-column li a:hover,
+        .nav-column li a.active {
+            background-color: #0056b3;
+            color: #fff;
+        }
+
+        /* Right Content Column */
+        .content-column {
+            flex: 3;
+            padding: 25px 35px;
+            height: 80vh; /* Set a height to enable scrolling */
+            overflow-y: auto; /* Enable vertical scrollbar */
+        }
+
+        .content-section {
+            display: none;
+        }
+        
+        .content-section.active {
+            display: block;
+        }
+        
+        h2 {
+            font-size: 1.8em;
+            color: #0056b3;
+            border-bottom: 3px solid #0056b3;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        
+        h3 {
+            font-size: 1.4em;
+            color: #333;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        
+        .rule {
+            background-color: #e7f3fe;
+            border: 1px solid #b3d7f7;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 5px;
+        }
+
+        .example-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .example-list li {
+            margin-bottom: 20px;
+            border-left: 4px solid #0056b3;
+            padding-left: 15px;
+        }
+        
+        .explanation {
+            font-style: italic;
+            color: #555;
+            margin-top: 5px;
+        }
+        
+        .speech-label {
+            font-weight: bold;
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .direct-speech { color: #28a745; } /* Green */
+        .indirect-speech { color: #dc3545; } /* Red */
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #0056b3;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>DIRECT & INDIRECT SPEECH (REPORTED SPEECH)</h1>
+    </header>
+
+    <div class="container">
+        <nav class="nav-column">
+            <ul>
+                <li><a href="#definition" class="nav-link active">What is Speech?</a></li>
+                <li><a href="#rules" class="nav-link">General Rules of Conversion</a></li>
+                <li><a href="#sentence-types" class="nav-link">Rules for Sentence Types</a></li>
+                <li><a href="#direct-to-indirect" class="nav-link">Direct to Indirect Examples</a></li>
+                <li><a href="#indirect-to-direct" class="nav-link">Indirect to Direct Examples</a></li>
+            </ul>
+        </nav>
+
+        <main class="content-column">
+            <section id="definition" class="content-section active">
+                <h2>What is Direct & Indirect Speech?</h2>
+                <p>There are two ways to convey a message spoken by a person:</p>
+                <ul>
+                    <li><strong>Direct Speech:</strong> Quoting the exact words of the speaker. It is enclosed in quotation marks ("...").</li>
+                    <li><strong>Indirect Speech (Reported Speech):</strong> Reporting the speaker's message in your own words. It is not enclosed in quotation marks.</li>
+                </ul>
+                <div class="rule">
+                    <span class="speech-label direct-speech">Direct:</span> Ram said, "I am busy now."<br>
+                    <span class="speech-label indirect-speech">Indirect:</span> Ram said that he was busy then.
+                </div>
+            </section>
+            
+            <section id="rules" class="content-section">
+                <h2>General Rules for Conversion (Direct to Indirect)</h2>
+                <h3>Rule 1: Change of Reporting Verb</h3>
+                <p>The reporting verb (e.g., `said`, `told`) changes based on the type of sentence being reported.</p>
+                <ul>
+                    <li>`said to` often changes to `told` (for statements).</li>
+                    <li>`said` can remain `said` or change to `asked`, `ordered`, `exclaimed`, etc.</li>
+                </ul>
+                <h3>Rule 2: Change of Pronouns</h3>
+                <p>Pronouns are changed according to the perspective of the reporter.</p>
+                <table>
+                    <tr><th>Person</th><th>Rule</th><th>Example</th></tr>
+                    <tr><td>First Person (I, me, my, we)</td><td>Changes according to the <strong>Subject</strong> of the reporting verb.</td><td>He said, "<strong>I</strong> am fine." → He said that <strong>he</strong> was fine.</td></tr>
+                    <tr><td>Second Person (you, your)</td><td>Changes according to the <strong>Object</strong> of the reporting verb.</td><td>She said to me, "<strong>You</strong> are lucky." → She told me that <strong>I</strong> was lucky.</td></tr>
+                    <tr><td>Third Person (he, she, it, they)</td><td><strong>No Change</strong>.</td><td>He said, "<strong>She</strong> is working." → He said that <strong>she</strong> was working.</td></tr>
+                </table>
+                 <h3>Rule 3: Change of Tense (Backshift)</h3>
+                <p>If the reporting verb is in the past tense (e.g., `said`), the tense of the reported speech is shifted back.</p>
+                 <table>
+                    <tr><th>Direct Speech Tense</th><th>Indirect Speech Tense</th></tr>
+                    <tr><td>Simple Present (V1/V1+s)</td><td>Simple Past (V2)</td></tr>
+                    <tr><td>Present Continuous (is/am/are + V-ing)</td><td>Past Continuous (was/were + V-ing)</td></tr>
+                    <tr><td>Present Perfect (has/have + V3)</td><td>Past Perfect (had + V3)</td></tr>
+                    <tr><td>Simple Past (V2)</td><td>Past Perfect (had + V3)</td></tr>
+                    <tr><td>Past Continuous (was/were + V-ing)</td><td>Past Perfect Continuous (had been + V-ing)</td></tr>
+                    <tr><td>Future (will)</td><td>Conditional (would)</td></tr>
+                    <tr><td>Can / May</td><td>Could / Might</td></tr>
+                </table>
+                <div class="note"><strong>Exception:</strong> No tense change occurs if the reporting verb is in the present/future tense (e.g., `he says`) or if the reported speech is a universal truth (e.g., `The sun rises in the east`).</div>
+                <h3>Rule 4: Change of Time and Place Adverbs</h3>
+                <table>
+                    <tr><th>Direct Speech</th><th>Indirect Speech</th></tr>
+                    <tr><td>now</td><td>then</td></tr>
+                    <tr><td>today</td><td>that day</td></tr>
+                    <tr><td>yesterday</td><td>the previous day / the day before</td></tr>
+                    <tr><td>tomorrow</td><td>the next day / the following day</td></tr>
+                    <tr><td>ago</td><td>before</td></tr>
+                    <tr><td>here</td><td>there</td></tr>
+                    <tr><td>this / these</td><td>that / those</td></tr>
+                </table>
+                <h3>Rule 5: Punctuation Changes</h3>
+                <ul>
+                    <li>Quotation marks ("...") are removed.</li>
+                    <li>A conjunction like `that`, `if`, or `whether` is usually added after the reporting verb.</li>
+                </ul>
+            </section>
+
+            <section id="sentence-types" class="content-section">
+                <h2>Rules for Different Sentence Types</h2>
+                <h3>1. Statements (Assertive Sentences)</h3>
+                <ul>
+                    <li>The reporting verb `said to` changes to `told`. `said` remains `said`.</li>
+                    <li>The conjunction `that` is used to connect the reporting clause with the reported speech.</li>
+                </ul>
+                 <h3>2. Questions (Interrogative Sentences)</h3>
+                <ul>
+                    <li>The reporting verb `said to` changes to `asked`, `inquired`, or `demanded`.</li>
+                    <li>For Yes/No questions, the conjunction is `if` or `whether`.</li>
+                    <li>For Wh-questions (what, where, why), the Wh-word itself acts as the conjunction.</li>
+                    <li>The question format is changed to a statement format (Subject + Verb).</li>
+                </ul>
+                <h3>3. Commands & Requests (Imperative Sentences)</h3>
+                <ul>
+                    <li>The reporting verb changes to `ordered`, `commanded`, `requested`, `advised`, `forbade`, etc., based on the meaning.</li>
+                    <li>The main verb of the reported speech is changed to an infinitive (`to + V1`). For negative commands, use `not to + V1`.</li>
+                </ul>
+                <h3>4. Exclamations & Wishes (Exclamatory Sentences)</h3>
+                <ul>
+                    <li>The reporting verb changes to `exclaimed with joy`, `exclaimed with sorrow`, `wished`, etc.</li>
+                    <li>The exclamatory sentence is changed into an assertive statement using the conjunction `that`.</li>
+                </ul>
+            </section>
+            
+            <section id="direct-to-indirect" class="content-section">
+                <h2>10 Examples: Direct to Indirect Speech</h2>
+                <ul class="example-list">
+                    <li>
+                        <span class="speech-label direct-speech">Direct:</span> He said to me, "I am writing a letter now."<br>
+                        <span class="speech-label indirect-speech">Indirect:</span> He told me that he was writing a letter then.<br>
+                        <div class="explanation"><strong>Explanation:</strong> `said to` -> `told`. `that` is added. `I` (1st person) -> `he` (subject). `am writing` (Present Cont.) -> `was writing` (Past Cont.). `now` -> `then`.</div>
+                    </li>
+                    <li>
+                        <span class="speech-label direct-speech">Direct:</span> She said, "My brother will arrive tomorrow."<br>
+                        <span class="speech-label indirect-speech">Indirect:</span> She said that her brother would arrive the next day.<br>
+                        <div class="explanation"><strong>Explanation:</strong> `that` is added. `My` (1st person) -> `her` (subject 'she'). `will arrive` (Future) -> `would arrive` (Conditional). `tomorrow` -> `the next day`.</div>
+                    </li>
+                    <li>
+                        <span class="speech-label direct-speech">Direct:</span> The teacher said to the students, "Are you listening to me?"<br>
+                        <span class="speech-label indirect-speech">Indirect:</span> The teacher asked the students if they were listening to her.<br>
+                        <div class="explanation"><strong>Explanation:</strong> `said to` -> `asked`. It's a Yes/No question, so `if` is used. `you` (2nd person) -> `they` (object 'students'). `me` (1st person) -> `her` (subject 'teacher'). `Are listening` (Present Cont.) -> `were listening` (Past Cont.). The question is changed to a statement.</div>
+                    </li>
+                    <li>
+                        <span class="speech-label direct-speech">Direct:</span> He said, "Where do you live?"<br>
+                        <span class="speech-label indirect-speech">Indirect:</span> He asked where I lived.<br>
+                        <div class="explanation"><strong>Explanation:</strong> `said` -> `asked`. The Wh-word `Where` is the conjunction. `you` changes to `I` (assuming he asked me). `do live` (Simple Present) -> `lived` (Simple Past). The question becomes a statement.</div>
+                    </li>
+                    <li>
+                        <span class="speech-label direct-speech">Direct:</span> The captain said to the soldiers, "March forward."<br>
+                        <span class="speech-label indirect-speech">Indirect:</span> The captain commanded the soldiers to march forward.<br>
+                        <div class="explanation"><strong>Explanation:</strong> `said to` -> `commanded`. It's a command, so the verb `March` becomes an infinitive `to march`.</div>
+                    </li>
+                    <li>
+                        <span class="speech-label direct-speech">Direct:</span> She said to him, "Please help me."<br>
+                        <span class="speech-label indirect-speech">Indirect:</span> She requested him to help her.<br>
+                        <div class="explanation"><strong>Explanation:</strong> `said to` -> `requested` (due to 'Please'). The verb `help` becomes `to help`. `me` -> `her`.</div>
+                    </li>
+                     <li>
+                        <span class="speech-label direct-speech">Direct:</span> They said, "Alas! We have lost the match."<br>
+                        <span class="speech-label indirect-speech">Indirect:</span> They exclaimed with sorrow that they had lost the match.<br>
+                        <div class="explanation"><strong>Explanation:</strong> `said` -> `exclaimed with sorrow` (due to 'Alas!'). `We` -> `they`. `have lost` (Present Perfect) -> `had lost` (Past Perfect).</div>
+                    </li>
+                     <li>
+                        <span class="speech-label direct-speech">Direct:</span> My friend said, "I bought this car yesterday."<br>
+                        <span class="speech-label indirect-speech">Indirect:</span> My friend said that he had bought that car the previous day.<br>
+                        <div class="explanation"><strong>Explanation:</strong> `I` -> `he`. `bought` (Simple Past) -> `had bought` (Past Perfect). `this` -> `that`. `yesterday` -> `the previous day`.</div>
+                    </li>
+                     <li>
+                        <span class="speech-label direct-speech">Direct:</span> The teacher says, "Honesty is the best policy."<br>
+                        <span class="speech-label indirect-speech">Indirect:</span> The teacher says that honesty is the best policy.<br>
+                        <div class="explanation"><strong>Explanation:</strong> No change in tense because the reporting verb `says` is in the present tense, and the reported speech is a universal truth.</div>
+                    </li>
+                     <li>
+                        <span class="speech-label direct-speech">Direct:</span> He said, "I can solve this puzzle."<br>
+                        <span class="speech-label indirect-speech">Indirect:</span> He said that he could solve that puzzle.<br>
+                        <div class="explanation"><strong>Explanation:</strong> `I` -> `he`. `can` -> `could`. `this` -> `that`.</div>
+                    </li>
+                </ul>
+            </section>
+            
+            <section id="indirect-to-direct" class="content-section">
+                <h2>10 Examples: Indirect to Direct Speech</h2>
+                <ul class="example-list">
+                    <li>
+                        <span class="speech-label indirect-speech">Indirect:</span> He told me that he was busy then.<br>
+                        <span class="speech-label direct-speech">Direct:</span> He said to me, "I am busy now."<br>
+                        <div class="explanation"><strong>Explanation:</strong> Invert the rules: `told` -> `said to`. Add quotation marks. `he` -> `I`. `was busy` (Past Cont.) -> `am busy` (Present Cont.). `then` -> `now`.</div>
+                    </li>
+                    <li>
+                        <span class="speech-label indirect-speech">Indirect:</span> She asked me if I could help her.<br>
+                        <span class="speech-label direct-speech">Direct:</span> She said to me, "Can you help me?"<br>
+                        <div class="explanation"><strong>Explanation:</strong> `asked` -> `said to`. Remove `if`. `I could` -> `Can you`. `her` -> `me`. Add a question mark.</div>
+                    </li>
+                    <li>
+                        <span class="speech-label indirect-speech">Indirect:</span> The teacher advised the students not to waste their time.<br>
+                        <span class="speech-label direct-speech">Direct:</span> The teacher said to the students, "Do not waste your time."<br>
+                        <div class="explanation"><strong>Explanation:</strong> `advised` -> `said to`. The infinitive `not to waste` becomes a negative command `Do not waste`. `their` -> `your`.</div>
+                    </li>
+                    <li>
+                        <span class="speech-label indirect-speech">Indirect:</span> He asked me where I lived.<br>
+                        <span class="speech-label direct-speech">Direct:</span> He said to me, "Where do you live?"<br>
+                        <div class="explanation"><strong>Explanation:</strong> `asked` -> `said to`. The statement `I lived` becomes a question `do you live`. The tense shifts from past back to present.</div>
+                    </li>
+                    <li>
+                        <span class="speech-label indirect-speech">Indirect:</span> They exclaimed with joy that they had won the game.<br>
+                        <span class="speech-label direct-speech">Direct:</span> They said, "Hurray! We have won the game."<br>
+                        <div class="explanation"><strong>Explanation:</strong> `exclaimed with joy` is represented by `Hurray!`. `they had won` (Past Perfect) -> `We have won` (Present Perfect).</div>
+                    </li>
+                     <li>
+                        <span class="speech-label indirect-speech">Indirect:</span> My father ordered me to go to my room.<br>
+                        <span class="speech-label direct-speech">Direct:</span> My father said to me, "Go to your room."<br>
+                        <div class="explanation"><strong>Explanation:</strong> `ordered` -> `said to`. The infinitive `to go` becomes the base verb `Go` in a command.</div>
+                    </li>
+                     <li>
+                        <span class="speech-label indirect-speech">Indirect:</span> She said that her mother would arrive the next day.<br>
+                        <span class="speech-label direct-speech">Direct:</span> She said, "My mother will arrive tomorrow."<br>
+                        <div class="explanation"><strong>Explanation:</strong> `her` -> `My`. `would arrive` -> `will arrive`. `the next day` -> `tomorrow`.</div>
+                    </li>
+                     <li>
+                        <span class="speech-label indirect-speech">Indirect:</span> He said that the Earth moves around the Sun.<br>
+                        <span class="speech-label direct-speech">Direct:</span> He said, "The Earth moves around the Sun."<br>
+                        <div class="explanation"><strong>Explanation:</strong> Since it's a universal truth, the tense remains the same in both forms. Just add punctuation.</div>
+                    </li>
+                     <li>
+                        <span class="speech-label indirect-speech">Indirect:</span> She requested him to wait there.<br>
+                        <span class="speech-label direct-speech">Direct:</span> She said to him, "Please wait here."<br>
+                        <div class="explanation"><strong>Explanation:</strong> `requested` implies `Please`. `to wait` becomes `wait`. `there` becomes `here`.</div>
+                    </li>
+                     <li>
+                        <span class="speech-label indirect-speech">Indirect:</span> I told them that they had to finish that work.<br>
+                        <span class="speech-label direct-speech">Direct:</span> I said to them, "You have to finish this work."<br>
+                        <div class="explanation"><strong>Explanation:</strong> `told` -> `said to`. `they had to` -> `You have to`. `that work` -> `this work`.</div>
+                    </li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const contentSections = document.querySelectorAll('.content-section');
+            const contentColumn = document.querySelector('.content-column');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+
+                    navLinks.forEach(nav => nav.classList.remove('active'));
+                    contentSections.forEach(section => section.classList.remove('active'));
+
+                    this.classList.add('active');
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        targetSection.classList.add('active');
+                        contentColumn.scrollTop = 0; // Scroll to top of content area on click
+                    }
+                });
+            });
+            // Auto-activate the first link on page load
+            document.querySelector('.nav-link').classList.add('active');
+            document.querySelector('.content-section').classList.add('active');
+        });
+    </script>
+
+</body>
+</html>

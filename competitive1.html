@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Grammar Concepts: Part 1</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            /* Blue and white gridline background */
+            background-color: #f0f8ff; 
+            background-image: 
+                repeating-linear-gradient(to right, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 30px),
+                repeating-linear-gradient(to bottom, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 30px);
+            background-size: 30px 30px;
+        }
+
+        /* Header Styling */
+        header {
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        header h1 {
+            display: inline-block;
+            background-color: #0056b3;
+            color: white;
+            padding: 20px 40px;
+            border: 3px solid white;
+            border-radius: 15px;
+            /* 3D Box Effect */
+            box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.4), inset 2px 2px 5px rgba(255, 255, 255, 0.3);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-size: 2.2em;
+            margin: 0;
+        }
+
+        /* Main Container for Two-Column Layout */
+        .container {
+            display: flex;
+            max-width: 1400px;
+            margin: 20px auto;
+            background: #ffffff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.15);
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        /* Left Navigation Column */
+        .nav-column {
+            flex: 1;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+            background-color: #f8f9fa;
+            height: 80vh;
+            overflow-y: auto;
+        }
+
+        .nav-column ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-column li a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: #0056b3;
+            border-radius: 5px;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 0.95em;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .nav-column li a:hover,
+        .nav-column li a.active {
+            background-color: #0056b3;
+            color: #fff;
+        }
+
+        /* Right Content Column */
+        .content-column {
+            flex: 3;
+            padding: 25px 35px;
+            height: 80vh; /* Set a height to enable scrolling */
+            overflow-y: auto; /* Enable vertical scrollbar */
+        }
+
+        .content-section {
+            display: none;
+        }
+        
+        .content-section.active {
+            display: block;
+        }
+        
+        h2 {
+            font-size: 1.8em;
+            color: #0056b3;
+            border-bottom: 3px solid #0056b3;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        
+        h3 {
+            font-size: 1.4em;
+            color: #333;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        
+        .rule {
+            background-color: #e7f3fe;
+            border: 1px solid #b3d7f7;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 5px;
+        }
+
+        .example-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .example-list li {
+            margin-bottom: 20px;
+            border-left: 4px solid #0056b3;
+            padding-left: 15px;
+        }
+        
+        .explanation {
+            font-style: italic;
+            color: #555;
+            margin-top: 5px;
+        }
+        
+        .feature {
+            font-weight: bold;
+            text-decoration: underline;
+            color: #0056b3;
+        }
+
+        .correct { color: green; font-weight: bold; }
+        .incorrect { color: red; font-weight: bold; }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>ADVANCED GRAMMAR CONCEPTS: PART 1</h1>
+    </header>
+
+    <div class="container">
+        <nav class="nav-column">
+            <ul>
+                <li><a href="#conditionals" class="nav-link active">1. Conditionals</a></li>
+                <li><a href="#non-finite" class="nav-link">2. Non-Finite Verbs</a></li>
+                <li><a href="#parallelism" class="nav-link">3. Parallelism</a></li>
+                <li><a href="#question-tags" class="nav-link">4. Question Tags</a></li>
+                <li><a href="#inversion" class="nav-link">5. Inversion</a></li>
+                <li><a href="#determiners" class="nav-link">6. Determiners & Quantifiers</a></li>
+            </ul>
+        </nav>
+
+        <main class="content-column">
+            <section id="conditionals" class="content-section active">
+                <h2>1. Conditionals</h2>
+                <div class="rule">
+                    <strong>Concept:</strong> Conditional sentences express a condition and its result. They consist of an 'if' clause (the condition) and a main clause (the result). Mastering the tense pairing for each type is crucial.
+                </div>
+                <h3>Where and How They Are Used</h3>
+                <ul>
+                    <li><strong>Zero Conditional:</strong> For scientific facts and general truths.</li>
+                    <li><strong>First Conditional:</strong> For real and possible future situations.</li>
+                    <li><strong>Second Conditional:</strong> For hypothetical or unreal situations in the present or future.</li>
+                    <li><strong>Third Conditional:</strong> For hypothetical or unreal situations in the past (expressing regret).</li>
+                    <li><strong>Mixed Conditional:</strong> To connect an unreal past condition with a present result.</li>
+                </ul>
+                <h3>20 Examples:</h3>
+                <ul class="example-list">
+                    <!-- Zero Conditional -->
+                    <li>If you <span class="feature">heat</span> ice, it <span class="feature">melts</span>.
+                        <div class="explanation"><strong>Explanation (Zero):</strong> This is a scientific fact. The structure is `If + Simple Present, ... Simple Present`.</div>
+                    </li>
+                    <li>When the sun <span class="feature">goes down</span>, it <span class="feature">gets</span> dark.
+                         <div class="explanation"><strong>Explanation (Zero):</strong> This is a general truth that always happens.</div>
+                    </li>
+                    <li>Plants <span class="feature">die</span> if they <span class="feature">don't get</span> enough water.
+                         <div class="explanation"><strong>Explanation (Zero):</strong> This is a general, factual statement about plants.</div>
+                    </li>
+                    <li>If you <span class="feature">mix</span> red and blue, you <span class="feature">get</span> purple.
+                         <div class="explanation"><strong>Explanation (Zero):</strong> This is a fact that is always true.</div>
+                    </li>
+                    <!-- First Conditional -->
+                    <li>If it <span class="feature">rains</span> tomorrow, we <span class="feature">will stay</span> at home.
+                        <div class="explanation"><strong>Explanation (First):</strong> This describes a real and possible future situation. The structure is `If + Simple Present, ... will + V1`.</div>
+                    </li>
+                    <li>You <span class="feature">will miss</span> the bus unless you <span class="feature">hurry</span>.
+                        <div class="explanation"><strong>Explanation (First):</strong> This shows a likely future consequence of a present action. 'Unless' means 'if not'.</div>
+                    </li>
+                    <li>If I <span class="feature">see</span> her, I <span class="feature">will give</span> her your message.
+                        <div class="explanation"><strong>Explanation (First):</strong> This is a possible future plan dependent on a condition.</div>
+                    </li>
+                    <li>If the team <span class="feature">plays</span> well, they <span class="feature">will win</span> the championship.
+                         <div class="explanation"><strong>Explanation (First):</strong> This is a prediction about a likely future event.</div>
+                    </li>
+                    <!-- Second Conditional -->
+                    <li>If I <span class="feature">were</span> a millionaire, I <span class="feature">would travel</span> the world.
+                        <div class="explanation"><strong>Explanation (Second):</strong> This is a hypothetical/unreal present situation (I am not a millionaire). The structure is `If + Simple Past, ... would + V1`. Note the use of `were` for all subjects.</div>
+                    </li>
+                    <li>If he <span class="feature">studied</span> harder, he <span class="feature">would get</span> better grades.
+                         <div class="explanation"><strong>Explanation (Second):</strong> This describes an imaginary present situation and its probable result.</div>
+                    </li>
+                     <li>What <span class="feature">would you do</span> if you <span class="feature">found</span> a wallet full of money?
+                         <div class="explanation"><strong>Explanation (Second):</strong> This asks about a hypothetical future situation.</div>
+                    </li>
+                    <li>If I <span class="feature">knew</span> her number, I <span class="feature">would call</span> her.
+                         <div class="explanation"><strong>Explanation (Second):</strong> This implies I do not know her number now, so it's an unreal present condition.</div>
+                    </li>
+                    <!-- Third Conditional -->
+                    <li>If you <span class="feature">had studied</span> harder, you <span class="feature">would have passed</span> the exam.
+                        <div class="explanation"><strong>Explanation (Third):</strong> This is a hypothetical/unreal past situation (you did not study). It expresses regret. The structure is `If + Past Perfect, ... would have + V3`.</div>
+                    </li>
+                    <li>We <span class="feature">would have missed</span> the flight if we <span class="feature">had not taken</span> a taxi.
+                        <div class="explanation"><strong>Explanation (Third):</strong> This describes an unreal past event and its imaginary past result.</div>
+                    </li>
+                     <li>If I <span class="feature">had known</span> you were coming, I <span class="feature">would have baked</span> a cake.
+                        <div class="explanation"><strong>Explanation (Third):</strong> This expresses regret about a past situation.</div>
+                    </li>
+                     <li>She <span class="feature">would not have been</span> tired if she <span class="feature">had gone</span> to bed earlier.
+                        <div class="explanation"><strong>Explanation (Third):</strong> This describes an imaginary past condition and its result.</div>
+                    </li>
+                     <!-- Mixed Conditional -->
+                    <li>If he <span class="feature">had taken</span> the medicine, he <span class="feature">would be</span> healthy now.
+                        <div class="explanation"><strong>Explanation (Mixed):</strong> This connects an unreal past condition (`had taken`) with a present result (`would be`).</div>
+                    </li>
+                     <li>If I <span class="feature">had won</span> the lottery last year, I <span class="feature">would be</span> rich now.
+                        <div class="explanation"><strong>Explanation (Mixed):</strong> This shows the present result of a hypothetical past event.</div>
+                    </li>
+                     <li>If I <span class="feature">were</span> more disciplined, I <span class="feature">would have finished</span> the project yesterday.
+                        <div class="explanation"><strong>Explanation (Mixed):</strong> This connects a general unreal present state (`were disciplined`) with a past result (`would have finished`).</div>
+                    </li>
+                    <li>She <span class="feature">would not be</span> in trouble if she <span class="feature">had listened</span> to my advice.
+                         <div class="explanation"><strong>Explanation (Mixed):</strong> This shows the present consequence of not following advice in the past.</div>
+                    </li>
+                </ul>
+            </section>
+            
+            <section id="non-finite" class="content-section">
+                <h2>2. Non-Finite Verbs (Gerunds, Participles, Infinitives)</h2>
+                <div class="rule">
+                    <strong>Concept:</strong> Non-finite verbs are verb forms that do not show tense and do not act as the main verb of a clause. They function as other parts of speech.
+                </div>
+                <h3>Where and How They Are Used</h3>
+                <ul>
+                    <li><strong>Gerunds (-ing):</strong> Function as nouns (subjects, objects).</li>
+                    <li><strong>Participles (-ing or -ed/-en):</strong> Function as adjectives.</li>
+                    <li><strong>Infinitives (to + verb):</strong> Function as nouns, adjectives, or adverbs.</li>
+                </ul>
+                <h3>20 Examples:</h3>
+                <ul class="example-list">
+                     <!-- Gerunds -->
+                    <li><span class="feature">Running every morning</span> is good for your health.
+                        <div class="explanation"><strong>Explanation (Gerund):</strong> The phrase `Running every morning` acts as the noun subject of the verb 'is'.</div>
+                    </li>
+                    <li>He enjoys <span class="feature">playing the guitar</span>.
+                         <div class="explanation"><strong>Explanation (Gerund):</strong> The phrase `playing the guitar` acts as the noun object of the verb 'enjoys'.</div>
+                    </li>
+                     <li>I am tired of <span class="feature">listening to your complaints</span>.
+                         <div class="explanation"><strong>Explanation (Gerund):</strong> The phrase acts as the noun object of the preposition 'of'.</div>
+                    </li>
+                     <li>Her favorite hobby is <span class="feature">painting landscapes</span>.
+                         <div class="explanation"><strong>Explanation (Gerund):</strong> The phrase acts as a predicate nominative, renaming the subject 'hobby'.</div>
+                    </li>
+                     <li>He was fined for <span class="feature">parking his car illegally</span>.
+                         <div class="explanation"><strong>Explanation (Gerund):</strong> The phrase is the object of the preposition 'for'.</div>
+                    </li>
+                    <li><span class="feature">Seeing</span> is <span class="feature">believing</span>.
+                         <div class="explanation"><strong>Explanation (Gerund):</strong> 'Seeing' acts as the subject, and 'believing' acts as the subject complement.</div>
+                    </li>
+                    <li>She is good at <span class="feature">solving puzzles</span>.
+                         <div class="explanation"><strong>Explanation (Gerund):</strong> The phrase is the object of the preposition 'at'.</div>
+                    </li>
+                    <!-- Participles -->
+                     <li>The man <span class="feature">wearing the blue hat</span> is my uncle.
+                        <div class="explanation"><strong>Explanation (Participle):</strong> The participial phrase `wearing the blue hat` acts as an adjective modifying the noun 'man'.</div>
+                    </li>
+                     <li>The car, <span class="feature">damaged in the accident</span>, was towed away.
+                        <div class="explanation"><strong>Explanation (Participle):</strong> The participial phrase `damaged in the accident` acts as an adjective modifying the noun 'car'.</div>
+                    </li>
+                     <li><span class="feature">Blinded by the light</span>, the driver swerved.
+                        <div class="explanation"><strong>Explanation (Participle):</strong> The phrase acts as an adjective modifying 'driver'.</div>
+                    </li>
+                     <li>I read an article <span class="feature">written by a famous journalist</span>.
+                        <div class="explanation"><strong>Explanation (Participle):</strong> The phrase acts as an adjective modifying 'article'.</div>
+                    </li>
+                     <li>The students <span class="feature">working on the project</span> are very talented.
+                        <div class="explanation"><strong>Explanation (Participle):</strong> The phrase acts as an adjective describing 'students'.</div>
+                    </li>
+                     <li><span class="feature">Having finished his work</span>, he went home.
+                        <div class="explanation"><strong>Explanation (Participle - Perfect):</strong> This perfect participial phrase modifies 'he'.</div>
+                    </li>
+                    <li>The <span class="feature">crying</span> baby was hungry.
+                         <div class="explanation"><strong>Explanation (Participle):</strong> The participle 'crying' acts as a simple adjective modifying 'baby'.</div>
+                    </li>
+                     <!-- Infinitives -->
+                     <li><span class="feature">To win the game</span> is his only goal.
+                        <div class="explanation"><strong>Explanation (Infinitive):</strong> The infinitive phrase `To win the game` acts as the noun subject of the sentence.</div>
+                    </li>
+                     <li>He works hard <span class="feature">to support his family</span>.
+                        <div class="explanation"><strong>Explanation (Infinitive):</strong> The phrase acts as an adverb, explaining *why* he works hard.</div>
+                    </li>
+                     <li>This is the best way <span class="feature">to solve the problem</span>.
+                        <div class="explanation"><strong>Explanation (Infinitive):</strong> The phrase acts as an adjective, modifying the noun 'way'.</div>
+                    </li>
+                     <li>She wants <span class="feature">to learn Spanish</span>.
+                        <div class="explanation"><strong>Explanation (Infinitive):</strong> The phrase acts as the noun object of the verb 'wants'.</div>
+                    </li>
+                     <li>He was sad <span class="feature">to hear the bad news</span>.
+                        <div class="explanation"><strong>Explanation (Infinitive):</strong> The phrase acts as an adverb, modifying the adjective 'sad'.</div>
+                    </li>
+                    <li>The decision <span class="feature">to move to a new city</span> was difficult.
+                         <div class="explanation"><strong>Explanation (Infinitive):</strong> The phrase acts as an adjective, describing the noun 'decision'.</div>
+                    </li>
+                </ul>
+            </section>
+            
+            <section id="parallelism" class="content-section">
+                <h2>3. Parallelism (Parallel Structure)</h2>
+                <div class="rule">
+                    <strong>Concept:</strong> Parallelism is the principle that words, phrases, and clauses in a list or comparison must have the same grammatical form or structure.
+                </div>
+                 <h3>Where and How It Is Used</h3>
+                <p>Ensure that items joined by coordinating conjunctions (`and`, `but`, `or`), correlative conjunctions (`either...or`, `not only...but also`), or in comparisons are grammatically balanced.</p>
+                <h3>20 Examples (10 Correct vs. Incorrect Pairs):</h3>
+                <ul class="example-list">
+                    <li><span class="incorrect">Incorrect:</span> She likes swimming, hiking, and <span class="feature">to ride</span> a bicycle.
+                        <div class="explanation"><strong>Explanation:</strong> This is not parallel. It mixes gerunds (`swimming`, `hiking`) with an infinitive (`to ride`).</div>
+                    </li>
+                    <li><span class="correct">Correct:</span> She likes swimming, hiking, and <span class="feature">riding</span> a bicycle.
+                        <div class="explanation"><strong>Explanation:</strong> This is parallel because all items in the list are now gerunds.</div>
+                    </li>
+                     <li><span class="incorrect">Incorrect:</span> The report was written clearly, concisely, and <span class="feature">it was accurate</span>.
+                        <div class="explanation"><strong>Explanation:</strong> This mixes adverbs (`clearly`, `concisely`) with a clause.</div>
+                    </li>
+                    <li><span class="correct">Correct:</span> The report was written clearly, concisely, and <span class="feature">accurately</span>.
+                        <div class="explanation"><strong>Explanation:</strong> All three items are now adverbs modifying the verb 'written'.</div>
+                    </li>
+                     <li><span class="incorrect">Incorrect:</span> He was asked to stop talking, to put away his phone, and <span class="feature">that he should pay attention</span>.
+                        <div class="explanation"><strong>Explanation:</strong> This mixes infinitives (`to stop`, `to put away`) with a clause.</div>
+                    </li>
+                    <li><span class="correct">Correct:</span> He was asked to stop talking, to put away his phone, and <span class="feature">to pay attention</span>.
+                        <div class="explanation"><strong>Explanation:</strong> The structure is now a parallel list of three infinitive phrases.</div>
+                    </li>
+                     <li><span class="incorrect">Incorrect:</span> The manager is not only a good leader but also <span class="feature">he is a great mentor</span>.
+                        <div class="explanation"><strong>Explanation:</strong> The structure `not only...but also` joins a noun phrase (`a good leader`) with a clause.</div>
+                    </li>
+                    <li><span class="correct">Correct:</span> The manager is not only a good leader but also <span class="feature">a great mentor</span>.
+                        <div class="explanation"><strong>Explanation:</strong> Both items are now parallel noun phrases.</div>
+                    </li>
+                     <li><span class="incorrect">Incorrect:</span> To succeed is <span class="feature">opening</span> a new opportunity.
+                        <div class="explanation"><strong>Explanation:</strong> This compares an infinitive (`To succeed`) with a gerund (`opening`).</div>
+                    </li>
+                    <li><span class="correct">Correct:</span> To succeed is <span class="feature">to open</span> a new opportunity.
+                        <div class="explanation"><strong>Explanation:</strong> Both sides of the linking verb 'is' are now parallel infinitives.</div>
+                    </li>
+                    <li><span class="incorrect">Incorrect:</span> My friend is kind, generous, and <span class="feature">likes to help</span>.</li>
+                    <li><span class="correct">Correct:</span> My friend is kind, generous, and <span class="feature">helpful</span>.</li>
+                     <li><span class="incorrect">Incorrect:</span> The company's objectives are to increase profits, reducing costs, and <span class="feature">to improve quality</span>.</li>
+                    <li><span class="correct">Correct:</span> The company's objectives are to increase profits, to reduce costs, and <span class="feature">to improve quality</span>.</li>
+                     <li><span class="incorrect">Incorrect:</span> The witness spoke calmly and <span class="feature">with confidence</span>.</li>
+                    <li><span class="correct">Correct:</span> The witness spoke calmly and <span class="feature">confidently</span>.</li>
+                     <li><span class="incorrect">Incorrect:</span> Either we will go to the movies or <span class="feature">to the park</span>.</li>
+                    <li><span class="correct">Correct:</span> We will go either to the movies or <span class="feature">to the park</span>.</li>
+                     <li><span class="incorrect">Incorrect:</span> He is a man of great intelligence and <span class="feature">who has a lot of courage</span>.</li>
+                    <li><span class="correct">Correct:</span> He is a man of great intelligence and <span class="feature">of great courage</span>.</li>
+                </ul>
+            </section>
+            
+             <section id="question-tags" class="content-section">
+                <h2>4. Question Tags</h2>
+                <div class="rule">
+                    <strong>Concept:</strong> A question tag is a short question added to the end of a statement to ask for confirmation.
+                </div>
+                <h3>Where and How They Are Used</h3>
+                <ul>
+                    <li>**Basic Rule:** A positive statement takes a negative tag, and a negative statement takes a positive tag.</li>
+                    <li>The tag uses the same helping verb (or `do`/`does`/`did`) as the statement and a pronoun that matches the subject.</li>
+                </ul>
+                <h3>20 Examples:</h3>
+                <ul class="example-list">
+                    <li>He is a doctor, <span class="feature">isn't he?</span>
+                        <div class="explanation"><strong>Explanation (Basic Rule):</strong> The statement is positive (`is`), so the tag is negative (`isn't`).</div>
+                    </li>
+                    <li>She isn't coming to the party, <span class="feature">is she?</span>
+                        <div class="explanation"><strong>Explanation (Basic Rule):</strong> The statement is negative (`isn't`), so the tag is positive (`is`).</div>
+                    </li>
+                    <li>They have finished their work, <span class="feature">haven't they?</span>
+                        <div class="explanation"><strong>Explanation (Basic Rule):</strong> The helping verb `have` is used in the negative tag.</div>
+                    </li>
+                    <li>You don't like coffee, <span class="feature">do you?</span>
+                         <div class="explanation"><strong>Explanation (Basic Rule):</strong> The negative statement with `don't` takes a positive tag with `do`.</div>
+                    </li>
+                     <li>He plays the guitar well, <span class="feature">doesn't he?</span>
+                        <div class="explanation"><strong>Explanation (Basic Rule):</strong> The main verb is in the simple present, so the tag uses `doesn't`.</div>
+                    </li>
+                    <li>She went to the store yesterday, <span class="feature">didn't she?</span>
+                        <div class="explanation"><strong>Explanation (Basic Rule):</strong> The main verb is in the simple past, so the tag uses `didn't`.</div>
+                    </li>
+                    <li>We will succeed, <span class="feature">won't we?</span>
+                         <div class="explanation"><strong>Explanation (Basic Rule):</strong> The tag for `will` is `won't`.</div>
+                    </li>
+                    <li>You can't do this, <span class="feature">can you?</span>
+                         <div class="explanation"><strong>Explanation (Basic Rule):</strong> The tag for `can't` is `can`.</div>
+                    </li>
+                    <li>He should study harder, <span class="feature">shouldn't he?</span>
+                        <div class="explanation"><strong>Explanation (Basic Rule):</strong> The modal `should` is repeated in the tag.</div>
+                    </li>
+                    <li>They weren't happy, <span class="feature">were they?</span>
+                        <div class="explanation"><strong>Explanation (Basic Rule):</strong> The negative `weren't` gets a positive `were` tag.</div>
+                    </li>
+                    <li>I am right, <span class="feature">aren't I?</span>
+                        <div class="explanation"><strong>Explanation (Special Case):</strong> The question tag for `I am` is `aren't I?`, not `amn't I?`.</div>
+                    </li>
+                    <li>Let's go for a walk, <span class="feature">shall we?</span>
+                        <div class="explanation"><strong>Explanation (Special Case):</strong> For statements starting with `Let's`, the tag is always `shall we?`.</div>
+                    </li>
+                     <li>Close the door, <span class="feature">will you?</span>
+                        <div class="explanation"><strong>Explanation (Special Case):</strong> For commands or imperatives, the tag is usually `will you?` or `won't you?`.</div>
+                    </li>
+                     <li>Everybody is here, <span class="feature">aren't they?</span>
+                        <div class="explanation"><strong>Explanation (Special Case):</strong> Indefinite pronouns like `Everybody` and `Someone` are singular in the statement (`is`) but take a plural pronoun (`they`) in the tag.</div>
+                    </li>
+                     <li>Nobody called, <span class="feature">did they?</span>
+                        <div class="explanation"><strong>Explanation (Special Case):</strong> Words like `Nobody` and `No one` are negative, so they take a positive tag. They also use the plural pronoun `they`.</div>
+                    </li>
+                     <li>He hardly ever comes late, <span class="feature">does he?</span>
+                        <div class="explanation"><strong>Explanation (Special Case):</strong> Words like `hardly`, `scarcely`, `seldom`, and `rarely` are negative, so they require a positive tag.</div>
+                    </li>
+                     <li>This is your book, <span class="feature">isn't it?</span>
+                        <div class="explanation"><strong>Explanation (Special Case):</strong> For subjects `This` or `That`, the pronoun in the tag is `it`.</div>
+                    </li>
+                     <li>There is a problem, <span class="feature">isn't there?</span>
+                        <div class="explanation"><strong>Explanation (Special Case):</strong> For statements starting with `There`, the subject of the tag is also `there`.</div>
+                    </li>
+                     <li>Something is wrong, <span class="feature">isn't it?</span>
+                        <div class="explanation"><strong>Explanation (Special Case):</strong> For subjects `Something` or `Nothing`, the pronoun in the tag is `it`.</div>
+                    </li>
+                     <li>I am not wrong, <span class="feature">am I?</span>
+                        <div class="explanation"><strong>Explanation (Special Case):</strong> While the positive `I am` takes `aren't I?`, the negative `I am not` takes the normal positive tag `am I?`.</div>
+                    </li>
+                </ul>
+            </section>
+            
+            <section id="inversion" class="content-section">
+                <h2>5. Inversion</h2>
+                <div class="rule">
+                    <strong>Concept:</strong> Inversion is the reversal of the normal subject-verb word order. Instead of `Subject + Verb`, the order becomes `Verb + Subject`.
+                </div>
+                 <h3>Where and How It Is Used</h3>
+                <ul>
+                    <li>**In Questions:** The helping verb comes before the subject. (e.g., `Are you coming?`)</li>
+                    <li>**After Negative/Limiting Adverbs:** When a sentence begins with a negative adverbial (like `No sooner`, `Hardly`, `Scarcely`, `Never`, `Not only`), the helping verb and subject must be inverted for formal emphasis.</li>
+                </ul>
+                <h3>20 Examples:</h3>
+                <ul class="example-list">
+                    <li><span class="incorrect">Standard:</span> You are coming. <span class="correct">Inverted (Question):</span> <span class="feature">Are you</span> coming?
+                        <div class="explanation"><strong>Explanation (Question):</strong> The helping verb `Are` moves before the subject `you` to form a question.</div>
+                    </li>
+                     <li><span class="incorrect">Standard:</span> He can swim. <span class="correct">Inverted (Question):</span> <span class="feature">Can he</span> swim?
+                        <div class="explanation"><strong>Explanation (Question):</strong> The modal verb `Can` is inverted with the subject `he`.</div>
+                    </li>
+                    <li><span class="correct">Inverted:</span> <span class="feature">Hardly had I</span> left the house when it started to rain.
+                        <div class="explanation"><strong>Explanation (Negative Adverbial):</strong> The negative adverb `Hardly` at the beginning forces the inversion of the helping verb `had` and the subject `I`.</div>
+                    </li>
+                     <li><span class="correct">Inverted:</span> <span class="feature">No sooner did he</span> see the police than he ran away.
+                        <div class="explanation"><strong>Explanation (Negative Adverbial):</strong> `No sooner` triggers the inversion. The past tense is shown with `did`, and the main verb is in its base form (`see`).</div>
+                    </li>
+                    <li><span class="correct">Inverted:</span> <span class="feature">Not only does he</span> play the guitar, but he also sings.
+                        <div class="explanation"><strong>Explanation (Negative Adverbial):</strong> `Not only` at the beginning requires inversion. The helping verb `does` comes before the subject `he`.</div>
+                    </li>
+                     <li><span class="correct">Inverted:</span> <span class="feature">Never have I</span> seen such a beautiful sight.
+                        <div class="explanation"><strong>Explanation (Negative Adverbial):</strong> The adverb `Never` forces the helping verb `have` before the subject `I`.</div>
+                    </li>
+                     <li><span class="correct">Inverted:</span> <span class="feature">Seldom do we</span> get a chance to see him.
+                        <div class="explanation"><strong>Explanation (Negative Adverbial):</strong> The limiting adverb `Seldom` inverts the helping verb `do` and the subject `we`.</div>
+                    </li>
+                     <li><span class="correct">Inverted:</span> <span class="feature">Scarcely had the movie</span> started when the power went out.
+                        <div class="explanation"><strong>Explanation (Negative Adverbial):</strong> `Scarcely` inverts the helping verb `had` and the subject `the movie`.</div>
+                    </li>
+                     <li><span class="correct">Inverted:</span> Under no circumstances <span class="feature">should you</span> leave the building.
+                        <div class="explanation"><strong>Explanation (Negative Adverbial):</strong> The negative phrase `Under no circumstances` requires inversion of `should` and `you`.</div>
+                    </li>
+                     <li><span class="correct">Inverted:</span> So beautiful <span class="feature">was the painting</span> that I couldn't take my eyes off it.
+                        <div class="explanation"><strong>Explanation (Adjective Phrase):</strong> When a sentence starts with `So + Adjective`, inversion is used for emphasis.</div>
+                    </li>
+                    <li><span class="correct">Inverted:</span> Only after finishing his homework <span class="feature">was he</span> allowed to play.</li>
+                    <li><span class="correct">Inverted:</span> Rarely <span class="feature">have we</span> seen such a display of talent.</li>
+                    <li><span class="correct">Inverted:</span> In no way <span class="feature">can he</span> be held responsible.</li>
+                    <li><span class="correct">Inverted:</span> Little <span class="feature">did I</span> know about the surprise party.</li>
+                    <li><span class="correct">Inverted:</span> Not until I saw him with my own eyes <span class="feature">did I</span> believe it.</li>
+                    <li><span class="correct">Inverted:</span> So fast <span class="feature">did he run</span> that no one could catch him.</li>
+                    <li><span class="correct">Inverted:</span> At no time <span class="feature">were the students</span> allowed to use their phones.</li>
+                    <li><span class="correct">Inverted:</span> On the hill <span class="feature">stands a</span> large castle. (Place Adverbial)</li>
+                    <li><span class="correct">Inverted:</span> Not a single word <span class="feature">did she</span> say.</li>
+                    <li><span class="correct">Inverted:</span> Had I known the truth, I would have acted differently. (Conditional Inversion)</li>
+                </ul>
+            </section>
+            
+            <section id="determiners" class="content-section">
+                <h2>6. Determiners & Quantifiers</h2>
+                <div class="rule">
+                    <strong>Concept:</strong> Determiners are words that introduce a noun (e.g., `a`, `the`, `my`, `this`). Quantifiers are a type of determiner that express quantity. The choice of quantifier depends on whether the noun is countable or uncountable.
+                </div>
+                <h3>Where and How They Are Used</h3>
+                <ul class="example-list">
+                    <!-- Some vs Any -->
+                    <li>I have <span class="feature">some</span> water.
+                        <div class="explanation"><strong>Explanation (Some):</strong> `Some` is used in positive statements with both countable and uncountable nouns.</div>
+                    </li>
+                    <li>I don't have <span class="feature">any</span> water.
+                        <div class="explanation"><strong>Explanation (Any):</strong> `Any` is used in negative statements.</div>
+                    </li>
+                    <li>Do you have <span class="feature">any</span> water?
+                        <div class="explanation"><strong>Explanation (Any):</strong> `Any` is also used in questions.</div>
+                    </li>
+                    <li>Would you like <span class="feature">some</span> tea?
+                        <div class="explanation"><strong>Explanation (Some):</strong> `Some` can be used in questions that are offers or requests.</div>
+                    </li>
+                    <!-- Much vs Many -->
+                    <li>I don't have <span class="feature">much</span> time.
+                        <div class="explanation"><strong>Explanation (Much):</strong> `Much` is used with singular, uncountable nouns (like 'time', 'money', 'sugar').</div>
+                    </li>
+                     <li>There are <span class="feature">many</span> books on the shelf.
+                        <div class="explanation"><strong>Explanation (Many):</strong> `Many` is used with plural, countable nouns (like 'books', 'people', 'cars').</div>
+                    </li>
+                    <li>How <span class="feature">much</span> money do you have?
+                        <div class="explanation"><strong>Explanation (Much):</strong> Used for uncountable 'money'.</div>
+                    </li>
+                    <li>How <span class="feature">many</span> dollars do you have?
+                        <div class="explanation"><strong>Explanation (Many):</strong> Used for countable 'dollars'.</div>
+                    </li>
+                    <!-- Little / A little / The little -->
+                    <li>He has <span class="feature">little</span> hope of winning.
+                        <div class="explanation"><strong>Explanation (Little):</strong> Means 'almost none' (negative meaning). It is used with uncountable nouns.</div>
+                    </li>
+                    <li>He has <span class="feature">a little</span> hope of winning.
+                        <div class="explanation"><strong>Explanation (A little):</strong> Means 'a small amount, but some' (positive meaning).</div>
+                    </li>
+                    <li><span class="feature">The little</span> hope he had was shattered by the news.
+                        <div class="explanation"><strong>Explanation (The little):</strong> Means 'the small amount that existed'. It refers to a specific, small quantity.</div>
+                    </li>
+                    <li>There is <span class="feature">a little</span> milk left in the jug.
+                         <div class="explanation"><strong>Explanation (A little):</strong> There is a small but sufficient amount.</div>
+                    </li>
+                    <!-- Few / A few / The few -->
+                    <li>There are <span class="feature">few</span> honest politicians.
+                        <div class="explanation"><strong>Explanation (Few):</strong> Means 'almost none' (negative meaning). It is used with plural countable nouns.</div>
+                    </li>
+                     <li>There are <span class="feature">a few</span> honest politicians.
+                        <div class="explanation"><strong>Explanation (A few):</strong> Means 'a small number, but some' (positive meaning).</div>
+                    </li>
+                     <li><span class="feature">The few</span> friends he has are all very loyal.
+                        <div class="explanation"><strong>Explanation (The few):</strong> Means 'the small number that he has'. It refers to a specific, small group.</div>
+                    </li>
+                    <li>She has <span class="feature">a few</span> good ideas.
+                        <div class="explanation"><strong>Explanation (A few):</strong> She has a small but positive number of ideas.</div>
+                    </li>
+                    <!-- Each vs Every -->
+                     <li><span class="feature">Each</span> student was given a different task.
+                        <div class="explanation"><strong>Explanation (Each):</strong> Refers to individual members of a group, one by one. Used for two or more.</div>
+                    </li>
+                     <li><span class="feature">Every</span> student in the class passed the exam.
+                        <div class="explanation"><strong>Explanation (Every):</strong> Refers to all members of a group together. Used for three or more.</div>
+                    </li>
+                     <li><span class="feature">Each</span> of the two brothers received a prize.
+                        <div class="explanation"><strong>Explanation (Each):</strong> 'Each' can be used for a group of two. 'Every' cannot.</div>
+                    </li>
+                    <li>I have read <span class="feature">every</span> book in this library.
+                         <div class="explanation"><strong>Explanation (Every):</strong> Refers to all the books collectively.</div>
+                    </li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const contentSections = document.querySelectorAll('.content-section');
+            const contentColumn = document.querySelector('.content-column');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+
+                    navLinks.forEach(nav => nav.classList.remove('active'));
+                    contentSections.forEach(section => section.classList.remove('active'));
+
+                    this.classList.add('active');
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        targetSection.classList.add('active');
+                        contentColumn.scrollTop = 0; // Scroll to top of content area on click
+                    }
+                });
+            });
+            // Auto-activate the first link on page load
+            document.querySelector('.nav-link').classList.add('active');
+            document.querySelector('.content-section').classList.add('active');
+        });
+    </script>
+
+</body>
+</html>

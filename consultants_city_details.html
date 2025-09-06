@@ -1,0 +1,1621 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultant Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white; /* White page background */
+            color: green; /* Green font for content */
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .consultant-item {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #ccc;
+        }
+        .consultant-item:last-child {
+            border-bottom: none;
+        }
+        h1 {
+            color: #0056b3; /* Blue for heading */
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+        }
+        strong {
+            color: #004d00; /* Darker green for strong tags */
+        }
+        a {
+            color: #007bff; /* Blue for links for better visibility */
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .no-data {
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div id="details-container">
+        <!-- Consultant details will be populated here -->
+    </div>
+
+    <script>
+        // This large string contains the consultant data section from study.txt
+        // In a real application, this would be fetched or come from a database.
+        // For this static example, it's embedded.
+        const rawConsultantDataString = `
+STUDY ABROAD CONSULTANTS 
+TIER 1:
+Mumbai, Maharashtra
+• Yocket, Location: Mumbai, Website: https://yocket.com, Services: University shortlisting, application assistance, visa guidance, test preparation, and student community support., Year Founded: 2015, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• Edwise International, Location: Mumbai, Website: https://edwiseinternational.com, Services: Career counseling, university selection, application and visa assistance, test preparation, and financial aid guidance., Year Founded: 1991, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• IDP Education, Location: Mumbai, Website: https://idp.com/india, Services: University applications, visa assistance, IELTS coaching, and pre-departure support., Year Founded: 1969, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• GeeBee Education, Location: Mumbai, Website: https://geebeeworld.com, Services: Career counseling, university selection, application and visa assistance, and test preparation., Year Founded: 2001, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• Imperial Overseas Education Consultants, Location: Mumbai, Website: https://imperial-overseas.com, Services: Personalized counseling, test preparation, application and visa assistance, and financial planning., Year Founded: 2008, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• AVF Consultants, Location: Mumbai, Website: https://studyandworkabroad.in, Services: Career counseling, university selection, application and visa assistance, and test preparation., Year Founded: 2003, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• KC Overseas Education, Location: Mumbai, Website: https://studies-overseas.com, Services: University applications, visa assistance, test preparation, and financial aid guidance., Year Founded: 1998, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• Harjai Global Gurukul, Location: Mumbai, Website: https://harjaieducation.com, Services: Career counseling, university selection, application and visa assistance, and test preparation., Year Founded: 2001, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• EDU-World, Location: Mumbai, Website: https://edu-world.in, Services: University applications, visa assistance, test preparation, and financial aid guidance., Year Founded: 2005, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• Grad-Dreams Education Consulting, Location: Mumbai, Website: https://gdx.in, Services: Career counseling, university selection, application and visa assistance, and test preparation., Year Founded: 2003, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+Delhi, National Capital Territory
+• Yocket, Location: Delhi, Website: https://yocket.com, Services: University shortlisting, application assistance, visa guidance, test preparation, and student community support., Year Founded: 2015, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• TC Global (formerly The Chopras), Location: Delhi, Website: https://tcglobal.com, Services: Career counseling, university selection, application and visa assistance, and test preparation., Year Founded: 1995, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• Fateh Education, Location: Delhi, Website: https://fateheducation.com, Services: University applications, visa assistance, test preparation, and financial aid guidance., Year Founded: 2004, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• IDP Education, Location: Delhi, Website: https://idp.com/india, Services: University applications, visa assistance, IELTS coaching, and pre-departure support., Year Founded: 1969, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• Edwise International, Location: Delhi, Website: https://edwiseinternational.com, Services: Career counseling, university selection, application and visa assistance, test preparation, and financial aid guidance., Year Founded: 1991, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• Colluni, Location: Delhi, Website: https://colluni.com, Services: University applications, visa assistance, test preparation, and financial aid guidance., Year Founded: 2005, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• Infinite Opportunities Abroad, Location: Delhi, Website: https://infiniteopportunitiesabroad.com, Services: Career counseling, university selection, application and visa assistance, and test preparation., Year Founded: 2008, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• Canam Consultants, Location: Delhi, Website: https://canamgroup.com, Services: University applications, visa assistance, test preparation, and financial aid guidance., Year Founded: 1996, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• EdNet Consultants, Location: Delhi, Website: https://ednetconsultants.com, Services: Career counseling, university selection, application and visa assistance, and test preparation., Year Founded: 2004, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• AECC Global, Location: Delhi, Website: https://www.aeccglobal.com, Services: Study abroad counseling, application & admission support, visa assistance, scholarship guidance, IELTS coaching., Year Founded: 2008, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+Kolkata, West Bengal
+• Yocket, Location: Kolkata, Website: https://yocket.com, Services: University shortlisting, application assistance, visa guidance, test preparation, and student community support., Year Founded: 2015, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• AECC Global, Location: Kolkata, Website: https://www.aeccglobal.com, Services: Study abroad counseling, application support, scholarship assistance, and visa services., Year Founded: 2008, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• Global Reach, Location: Kolkata, Website: https://www.globalreach.in, Services: University selection, application processing, visa assistance, and pre-departure briefings., Year Founded: 1991, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• Study Overseas Help, Location: Kolkata, Website: https://www.studyoverseashelp.com, Services: Personalized counseling, university applications, visa guidance, and test preparation., Year Founded: 2010, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• OCS Kolkata, Location: Kolkata, Website: https://www.ocskolkata.com, Services: Career counseling, university selection, application assistance, and visa services., Year Founded: 2005, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• Eduaims, Location: Kolkata, Website: https://www.eduaims.in, Services: Test preparation, admissions counseling, visa assistance, and career guidance., Year Founded: 2012, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• Transglobal Overseas Education, Location: Kolkata, Website: https://www.transglobaloverseas.com, Services: University applications, visa support, test preparation, and pre-departure services., Year Founded: 2013, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• IDP Education Kolkata, Location: Kolkata, Website: https://www.idp.com/india, Services: IELTS coaching, university applications, visa assistance, and pre-departure briefings., Year Founded: 1969, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• Bluesky Educational Services Pvt Ltd, Location: Kolkata, Website: https://www.blueskyeducation.co.in, Services: Study abroad counseling, application support, visa services, and test preparation., Year Founded: 2004, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• SIEC Education, Location: Kolkata, Website: https://www.siecindia.com, Services: University selection, application processing, visa assistance, and test preparation., Year Founded: 1995, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+Chennai, Tamil Nadu
+• IDP Education, Location: Nungambakkam, Chennai, Website: https://www.idp.com/india, Services: IELTS coaching, university applications, visa support, and pre-departure services, Year Founded: 1969, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• Edwise International, Location: T. Nagar, Chennai, Website: https://www.edwiseinternational.com, Services: Counseling, application processing, financial assistance, and visa guidance, Year Founded: 1991, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• Y-Axis Overseas Careers, Location: Cathedral Road, Chennai, Website: https://www.y-axis.com, Services: Immigration consultancy, study abroad counseling, job search assistance, Year Founded: 1999, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• Canam Consultants, Location: Nungambakkam, Chennai, Website: https://www.canamgroup.com, Services: Admission guidance, visa filing, travel assistance, Year Founded: 1995, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• Global Opportunities, Location: Alwarpet, Chennai, Website: https://www.global-opportunities.net, Services: University selection, application support, scholarship guidance, Year Founded: 2001, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• Manya Group (The Princeton Review), Location: Anna Nagar, Chennai, Website: https://www.manyagroup.com, Services: Test prep, admissions consulting, visa counseling, Year Founded: 2001, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• Study Metro, Location: Kilpauk, Chennai, Website: https://www.studymetro.com, Services: Course selection, documentation, visa services, Year Founded: 2011, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• AECC Global, Location: Nungambakkam, Chennai, Website: https://www.aeccglobal.in, Services: Study abroad counseling, application support, scholarship help, Year Founded: 2008, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• BroadMind Group, Location: Anna Nagar, Chennai, Website: https://www.broadmindgroup.com, Services: Career counseling, test prep, admission guidance, Year Founded: 2010, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• Zentora Overseas Careers, Location: Ashok Nagar, Chennai, Website: https://www.zentora.com, Services: Immigration, student visas, overseas education counseling, Year Founded: 2012, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+Ahmedabad, Gujarat
+• AECC Global, Location: 102-104, 323 Corporate Park, Near Samudra Complex, Chimanlal Girdharlal Rd, Navrangpura, Ahmedabad, Website: https://www.aeccglobal.in, Services: Study abroad counseling, application support, scholarship assistance, and visa services., Year Founded: 2008, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• Global Tree, Location: C-803, The First, Behind Keshavbaugh Party Plot, Vastrapur, Ahmedabad, Website: https://globaltree.in, Services: University selection, application processing, visa assistance, and pre-departure briefings., Year Founded: 2006, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• Unixperts, Location: 2nd Floor, Shri Vardhaman Building, Opp City Centre Building, Swastik Cross Road, Navrangpura, Ahmedabad, Website: https://unixperts.com, Services: Personalized counseling, application assistance, visa guidance, and career planning., Year Founded: 2010, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• Global Colliance, Location: 303, Addor Aspire, University Rd, Opp. Old Passport Office, Panjrapole, Ahmedabad, Website: https://globalcolliance.com, Services: Career counseling, profile evaluation, course and university selection, test preparation, SOP guidance, application process assistance, financial aid guidance, interview preparation, visa assistance, and pre-departure orientation., Year Founded: 2008, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• Pyramid Consultants, Location: 301, Sankalp Square, Drive In Rd, Above Saffron Restaurant, Memnagar, Ahmedabad, Website: https://www.pyramidconsultants.com, Services: University applications, visa support, test preparation, and pre-departure services., Year Founded: 2003, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• Rao Consultants, Location: Ahmedabad, Website: https://www.raoconsultants.com, Services: Comprehensive services including university selection, application assistance, visa processing, and post-landing support., Year Founded: 2002, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• Edwise International, Location: 304, Campus Corner, Near Som Lalit College, St. Xaviers College Char Rasta, Navrangpura, Ahmedabad, Website: https://www.edwiseinternational.com, Services: Study guidance, IELTS coaching, university applications, visa assistance, and pre-departure briefings., Year Founded: 1991, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• Edugo Abroad, Location: Ahmedabad, Website: https://edugoabroad.com, Services: Expert guidance, university selection, visa assistance, and more for aspiring international students., Year Founded: 2010, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• Fateh Education, Location: 4A, 1st Floor, RE11 Ahmedabad Near Vikramnagar, Iscon, Ambli road, Ambli, Ahmedabad, Website: https://www.fateheducation.com, Services: Personalized guidance, university and course selection, visa navigation, test preparation guidance, and pre-departure preparation., Year Founded: 2004, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+Hyderabad, Telangana
+• Yocket, Location: Hyderabad, Website: https://yocket.com, Services: University shortlisting, application assistance, visa guidance, test preparation, and student community support., Year Founded: 2015, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• IDP Education, Location: Hyderabad, Website: https://idp.com/india, Services: University applications, visa assistance, IELTS coaching, and pre-departure support., Year Founded: 1969, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• Edwise International, Location: Hyderabad, Website: https://edwiseinternational.com, Services: Career counseling, university selection, application and visa assistance, test preparation, and financial aid guidance., Year Founded: 1991, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• Sowrya Consultancy, Location: Hyderabad, Website: https://sowrya.com, Services: Comprehensive counseling, university selection, visa assistance, and test preparation for multiple countries., Year Founded: 2006, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• IVY Overseas, Location: Hyderabad, Website: https://ivyoverseas.com, Services: Personalized counseling, application assistance, visa guidance, and career planning., Year Founded: 2007, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• Global Tree, Location: Hyderabad, Website: https://globaltree.in, Services: Study abroad counseling, test preparation, visa services, and immigration assistance., Year Founded: 2006, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• Krishna Consultants (KC Overseas), Location: Hyderabad, Website: https://studies-overseas.com, Services: University applications, visa assistance, test preparation, and financial aid guidance., Year Founded: 1998, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• Prosper Overseas, Location: Hyderabad, Website: https://prosperoverseas.com, Services: Career counseling, university selection, application and visa assistance, and test preparation., Year Founded: 2001, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• IDI Overseas, Location: Hyderabad, Website: https://idioverseas.com, Services: University applications, visa assistance, test preparation, and financial aid guidance., Year Founded: 2005, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• Global Opportunities, Location: Hyderabad, Website: https://global-opportunities.net, Services: Career counseling, university selection, application and visa assistance, and test preparation., Year Founded: 2000, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+Bengaluru, Karnataka
+• Yocket, Location: Koramangala, Bengaluru, Website: https://yocket.com, Services: University search, admission counseling, visa support, SOP/LOR assistance, community forums., Year Founded: 2015, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• IDP Education, Location: Bengaluru, Website: https://idp.com/india, Services: University and course guidance, visa processing, IELTS coaching, pre-departure briefing., Year Founded: 1969, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• Manya Group (The Princeton Review), Location: Jayanagar, Bengaluru, Website: https://manyagroup.com, Services: Test prep (GRE, GMAT, SAT), admissions consulting, visa guidance, profile evaluation., Year Founded: 2002, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• Edwise International, Location: Richmond Road, Bengaluru, Website: https://edwiseinternational.com, Services: Admissions, financial aid, visa services, IELTS/GRE coaching., Year Founded: 1991, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• iSchoolConnect, Location: Bengaluru (Online-first), Website: https://ischoolconnect.com, Services: AI-driven profile analysis, university recommendations, SOP builder, visa help., Year Founded: 2017, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• The SmartMove2UK, Location: Koramangala, Bengaluru, Website: https://smartmove2uk.com, Services: UK student visa guidance, university tie-ups, legal compliance, dependent visas., Year Founded: 2009, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• AECC Global, Location: Koramangala, Bengaluru, Website: https://aeccglobal.com, Services: Counseling for Australia, UK, Canada; visa help, university application, IELTS coaching., Year Founded: 2008, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• Canam Consultants, Location: Bengaluru, Website: https://canamgroup.com, Services: Study abroad advisory, college applications, education loans, visa filing., Year Founded: 1996, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• Overseas Education Centre (OEC), Location: Brigade Road, Bengaluru, Website: https://oecglobal.com, Services: University selection, admissions, visa filing, travel arrangements., Year Founded: 2003, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• Krishna Consultants (KC Overseas), Location: Indiranagar, Bengaluru, Website: https://studies-overseas.com, Services: University admissions, visa support, scholarship help, language test coaching., Year Founded: 1998, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+Pune, Maharashtra
+• Yocket, Location: Pune, Website: https://yocket.com, Services: University shortlisting, application assistance, visa guidance, test preparation, and student community support., Year Founded: 2015, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• Edwise International, Location: Pune, Website: https://www.edwiseinternational.com/study-abroad-consultant/pune.html, Services: Career counseling, university selection, application and visa assistance, test preparation, and financial aid guidance., Year Founded: 1991, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• Study Smart, Location: Pune, Website: https://studysmart.co.in/city/pune, Services: Personalized counseling, application assistance, visa guidance, and career planning., Year Founded: 2011, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• Dilip Oak's Academy, Location: Pune, Website: https://www.dilipoakacademy.com, Services: Test preparation (GRE, TOEFL, IELTS), admissions counseling, and visa assistance., Year Founded: 1996, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• Jamboree Education, Location: Pune, Website: https://www.jamboreeindia.com/study-abroad-consulting-pune, Services: Test preparation (GMAT, GRE, SAT), admissions counseling, and visa assistance., Year Founded: 1993, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• Imperial Overseas Education Consultants, Location: Pune, Website: https://www.imperial-overseas.com/study-abroad-consultants-pune, Services: University applications, visa assistance, test preparation, and financial aid guidance., Year Founded: 2010, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• Onebounce Education Consultants, Location: Pune, Website: https://www.onebouncesac.com, Services: Study abroad counseling, application support, visa services, and test preparation., Year Founded: 2015, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• Canam Consultants, Location: Pune, Website: https://www.canamgroup.com, Services: Career counseling, university selection, application and visa assistance, and test preparation., Year Founded: 1996, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• Global Opportunities, Location: Pune, Website: https://www.global-opportunities.net, Services: University applications, visa assistance, test preparation, and financial aid guidance., Year Founded: 2000, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+• GeeBee Education, Location: Pune, Website: https://www.geebeeworld.com, Services: Personalized counseling, application assistance, visa guidance, and career planning., Year Founded: 2001, Rating: N/A (Please check Just Dial/Google/etc. for current reviews)
+
+TIER 2
+Agra, Uttar Pradesh
+1. Azent Overseas Education Ltd.
+Location: Agra
+Website: azent.com
+Services: University selection, visa assistance, test prep
+Year Founded: Not specified
+Reviews: 4.5/5 (Google)
+2. International Training and Consulting Services Pvt. Ltd.
+Location: Agra
+Website: Not specified
+Services: Career counseling, admission guidance
+Year Founded: Not specified
+Reviews: 4.3/5 (Justdial)
+3. Caston Consultancies LLP
+Location: Agra
+Website: Not specified
+Services: Study abroad counseling, visa services
+Year Founded: Not specified
+Reviews: 4.2/5 (Justdial)
+4. Turito India Pvt. Ltd.
+Location: Agra
+Website: turito.com
+Services: Test preparation, admission counseling
+Year Founded: Not specified
+Reviews: 4.4/5 (Google)
+5. Jamboree Education Pvt. Ltd.
+Location: Agra
+Website: jamboreeindia.com
+Services: Test prep (GRE, GMAT, SAT), admissions counseling
+Year Founded: Not specified
+Reviews: 4.6/5 (Google)
+6. Infocus Overseas Education Consultants
+Location: Agra
+Website: Not specified
+Services: University selection, visa assistance
+Year Founded: Not specified
+Reviews: 4.3/5 (Justdial)
+7. Phoenix Global Resettlement Services Pvt. Ltd.
+Location: Agra
+Website: phoenixgrs.com
+Services: Immigration services, study abroad counseling
+Year Founded: Not specified
+Reviews: 4.5/5 (Google)
+8. Nationwide Immigration Services Pvt. Ltd.
+Location: Agra
+Website: nationwidevisas.com
+Services: Immigration consultancy, study abroad services
+Year Founded: Not specified
+Reviews: 4.4/5 (Google)
+9. The Hope Overseas Education Consultants
+Location: Agra
+Website: Not specified
+Services: Study abroad counseling, visa services
+Year Founded: Not specified
+Reviews: 4.2/5 (Justdial)
+10. Career Gyan Pvt. Ltd.
+Location: Agra
+Website: Not specified
+Services: Career counseling, overseas education guidance
+Year Founded: Not specified
+Reviews: 4.3/5 (Justdial)
+
+Ajmer, Rajasthan
+1. Global Reach
+Location: Ajmer
+Website: globalreach.in
+Services: University admissions, visa assistance, test prep
+Year Founded: Not specified
+Reviews: 4.6/5 (Google)
+2. Edwise International
+Location: Ajmer
+Website: edwiseinternational.com
+Services: Overseas education consultancy, test preparation
+Year Founded: Not specified
+Reviews: 4.5/5 (Google)
+3. IDP Education
+Location: Ajmer
+Website: idp.com
+Services: University applications, visa processing
+Year Founded: Not specified
+Reviews: 4.7/5 (Google)
+4. Study Overseas Global
+Location: Ajmer
+Website: studyoverseasglobal.com
+Services: Education counseling, visa services
+Year Founded: Not specified
+Reviews: 4.4/5 (Google)
+5. The Chopras
+Location: Ajmer
+Website: thechopras.com
+Services: Study abroad consultancy, test prep
+Year Founded: Not specified
+Reviews: 4.3/5 (Google)
+6. Y-Axis Overseas Careers
+Location: Ajmer
+Website: y-axis.com
+Services: Immigration services, overseas education
+Year Founded: Not specified
+Reviews: 4.5/5 (Google)
+7. Canam Consultants
+Location: Ajmer
+Website: canamgroup.com
+Services: University admissions, visa assistance
+Year Founded: Not specified
+Reviews: 4.6/5 (Google)
+8. AECC Global
+Location: Ajmer
+Website: aeccglobal.com
+Services: Education counseling, test preparation
+Year Founded: Not specified
+Reviews: 4.5/5 (Google)
+9. Krishna Consultants
+Location: Ajmer
+Website: studies-overseas.com
+Services: Study abroad services, test prep
+Year Founded: Not specified
+Reviews: 4.4/5 (Google)
+10. Manya Group
+Location: Ajmer
+Website: manyagroup.com
+Services: Test preparation, admissions counseling
+Year Founded: Not specified
+Reviews: 4.6/5 (Google)
+
+Aligarh, Uttar Pradesh
+1. Al-Eshal Overseas Education
+Location: Aligarh
+Website: al-eshal.com
+Services: Study abroad consultancy, university admissions, visa assistance
+Year Founded: 2010
+Reviews: 4.5/5 (Justdial)
+2. MEO Immigration
+Location: Aligarh
+Website: meoimmigration.com
+Services: Study abroad consultancy, visa services
+Year Founded: Not specified
+Reviews: 4.3/5 (Google)
+3. Nayee Disha - MBBS Abroad Consultants
+Location: Greater Noida (serving Aligarh)
+Website: Not specified
+Services: MBBS abroad consultancy
+Year Founded: Not specified
+Reviews: 4.2/5 (Justdial)
+4. Global Opportunities
+Location: Serving Aligarh
+Website: global-opportunities.net
+Services: University admissions, visa assistance
+Year Founded: Not specified
+Reviews: 4.4/5 (Google)
+5. Edwise International
+Location: Serving Aligarh
+Website: edwiseinternational.com
+Services: Overseas education consultancy, test preparation
+Year Founded: Not specified
+Reviews: 4.6/5 (Google)
+6. IDP Education
+Location: Serving Aligarh
+Website: idp.com
+Services: University applications, visa processing
+Year Founded: Not specified
+Reviews: 4.7/5 (Google)
+7. Y-Axis Overseas Careers
+Location: Serving Aligarh
+Website: y-axis.com
+Services: Immigration services, overseas education
+Year Founded: Not specified
+Reviews: 4.5/5 (Google)
+8. Canam Consultants
+Location: Serving Aligarh
+Website: canamgroup.com
+Services: University admissions, visa assistance
+Year Founded: Not specified
+Reviews: 4.6/5 (Google)
+9. Krishna Consultants
+Location: Serving Aligarh
+Website: studies-overseas.com
+Services: Study abroad services, test prep
+Year Founded: Not specified
+Reviews: 4.4/5 (Google)
+10. Manya Group
+Location: Serving Aligarh
+Website: manyagroup.com
+Services: Test preparation, admissions counseling
+Year Founded: Not specified
+Reviews: 4.6/5 (Google)
+
+Amravati, Maharashtra
+1. KC Overseas Education
+Location: Amravati
+Website: studies-overseas.com
+Services: University selection, visa assistance
+Year Founded: Not specified
+Reviews: 4.5/5 (Google)
+2. Krishna Consultants
+Location: Amravati
+Website: Not specified
+Services: Study abroad consultancy, test prep
+Year Founded: Not specified
+Reviews: 4.4/5 (Google)
+3. DB Careers
+Location: Amravati
+Website: Not specified
+Services: Career counseling, overseas education
+Year Founded: Not specified
+Reviews: 4.3/5 (Justdial)
+4. Shree Radhe Krishn Education
+Location: Amravati
+Website: Not specified
+Services: Education consultancy, visa services
+Year Founded: Not specified
+Reviews: 4.2/5 (Justdial)
+5. ikounselor
+Location: Amravati
+Website: Not specified
+Services: Study abroad counseling, test preparation
+Year Founded: Not specified
+Reviews: 4.3/5 (Google)
+6. Study Abroad Solution
+Location: Amravati
+Website: Not specified
+Services: University admissions, visa assistance
+Year Founded: Not specified
+Reviews: 4.4/5 (Google)
+7. Superb Enterprises
+Location: Amravati
+Website: Not specified
+Services: Overseas education consultancy, document attestation
+Year Founded: Not specified
+Reviews: 4.5/5 (Google)
+8. Edwise International
+Location: Serving Amravati
+Website: edwiseinternational.com
+Services: Overseas education consultancy, test preparation
+Year Founded: Not specified
+Reviews: 4.6/5 (Google)
+9. IDP Education
+Location: Serving Amravati
+Website: idp.com
+Services: University applications, visa processing
+Year Founded: Not specified
+Reviews: 4.7/5 (Google)
+10. Y-Axis Overseas Careers
+Location: Serving Amravati
+Website: y-axis.com
+Services: Immigration services, overseas education
+Year Founded: Not specified
+Reviews: 4.5/5 (Google)
+
+Amritsar, Punjab
+1. Canam Consultants
+Location: Amritsar
+Website: canamgroup.com
+Services: University admissions, visa assistance
+Year Founded: Not specified
+Reviews: 4.6/5 (Google)
+2. Edwise International
+Location: Amritsar
+Website: edwiseinternational.com
+Services: Overseas education consultancy, test preparation
+Year Founded: Not specified
+Reviews: 4.5/5 (Google)
+3. IDP Education
+Location: Amritsar
+Website: idp.com
+Services: University applications, visa processing
+Year Founded: Not specified
+Reviews: 4.7/5 (Google)
+4. Global Opportunities
+Location: Amritsar
+Website: global-opportunities.net
+Services: University admissions, visa assistance
+Year Founded: Not specified
+Reviews: 4.4/5 (Google)
+5. The Chopras
+Location: Amritsar
+Website: thechopras.com
+Services: Study abroad consultancy, test prep
+Year Founded: Not specified
+Reviews: 4.3/5 (Google)
+6. Y-Axis Overseas Careers
+Location: Amritsar
+Website: y-axis.com
+Services: Immigration services, overseas education
+Year Founded: Not specified
+Reviews: 4.5/5 (Google)
+7. Krishna Consultants
+Location: Amritsar
+Website: studies-overseas.com
+Services: Study abroad services, test prep
+Year Founded: Not specified
+Reviews: 4.4/5 (Google)
+8. Manya Group
+Location: Amritsar
+Website: manyagroup.com
+Services: Test preparation, admissions counseling
+Year Founded: Not specified
+Reviews: 4.6/5 (Google)
+9. AECC Global
+Location: Amritsar
+Website: aeccglobal.com
+Services: Education counseling, test preparation
+Year Founded: Not specified
+Reviews: 4.5/5 (Google)
+10. Study Overseas Global
+Location: Amritsar
+Website: studyoverseasglobal.com
+Services: Education counseling, visa services
+Year Founded: Not specified
+Reviews: 4.4/5 (Google)
+
+Asansol, West Bengal
+1. Azent Overseas Education Ltd.
+Location: Asansol
+Website: azent.com
+Services: University admissions, visa assistance
+Year Founded: Not specified
+Reviews: 4.5/5 (Google)
+2. International Training and Consulting Services Pvt. Ltd.
+Location: Asansol
+Website: Not specified
+Services: Study abroad consultancy, test preparation
+Year Founded: Not specified
+Reviews: 4.3/5 (Justdial)
+3. Caston Consultancies LLP
+Location: Asansol
+Website: Not specified
+Services: Overseas education consultancy
+Year Founded: Not specified
+Reviews: 4.2/5 (Google)
+4. Turito India Pvt. Ltd.
+Location: Asansol
+Website: turito.com
+Services: Test preparation, admissions counseling
+Year Founded: Not specified
+Reviews: 4.4/5 (Google)
+5. Jamboree Education Pvt. Ltd.
+Location: Asansol
+Website: jamboreeindia.com
+Services: Test preparation, study abroad consultancy
+Year Founded: Not specified
+Reviews: 4.6/5 (Google)
+6. Infocus Overseas Education Consultants
+Location: Asansol
+Website: Not specified
+Services: University admissions, visa services
+Year Founded: Not specified
+Reviews: 4.3/5 (Justdial)
+7. Phoenix Global Resettlement Services Pvt. Ltd.
+Location: Asansol
+Website: phoenixgrs.com
+Services: Immigration services, overseas education
+Year Founded: Not specified
+Reviews: 4.5/5 (Google)
+8. Nationwide Immigration Services Pvt. Ltd.
+Location: Asansol
+Website: nationwidevisas.com
+Services: Immigration consultancy, study abroad services
+Year Founded: Not specified
+Reviews: 4.4/5 (Google)
+9. The Hope Overseas Education Consultants
+Location: Asansol
+Website: Not specified
+Services: Study abroad consultancy
+Year Founded: Not specified
+Reviews: 4.2/5 (Justdial)
+10. Career Gyan Pvt. Ltd.
+Location: Asansol
+Website: careergyan.in
+Services: Career counseling, overseas education
+Year Founded: Not specified
+Reviews: 4.3/5 (Google)
+
+Aurangabad, Maharashtra
+1. MKS Overseas Education
+Location: Nirala Bazaar, Aurangabad
+Website: mksoverseas.com
+Services Offered: Admissions, Visa Processing, IELTS Coaching
+Year Founded: 2012
+Reviews: 4.6/5 (Google)
+2. Edu Abroad Consultants
+Location: CIDCO, Aurangabad
+Website: Not available
+Services Offered: Foreign university admissions, SOP writing
+Year Founded: 2015
+Reviews: 4.4/5 (Justdial)
+3. Vidhyarthi Overseas
+Location: Usmanpura, Aurangabad
+Website: vidhyarthioverseas.com
+Services Offered: Study in Canada, Australia, New Zealand
+Year Founded: 2010
+Reviews: 4.5/5 (Google)
+4. Global Reach
+Location: Jalna Road, Aurangabad
+Website: globalreach.in
+Services Offered: Counseling, Application Support, Visa
+Year Founded: 1991
+Reviews: 4.7/5 (Google)
+5. AEC Consultants
+Location: Nirala Bazaar, Aurangabad
+Website: aecoverseas.com
+Services Offered: UG/PG Admissions, Visa Guidance, Test Prep
+Year Founded: 2006
+Reviews: 4.6/5 (Google)
+6. IELTS Aurangabad (by Mahendra’s EduWorld)
+Location: Nirala Bazaar, Aurangabad
+Website: Not available
+Services Offered: IELTS, TOEFL, PTE, Admission Help
+Year Founded: 2014
+Reviews: 4.5/5 (Justdial)
+7. IDP Education Aurangabad
+Location: Prozone Mall, Chikalthana
+Website: idp.com
+Services Offered: University shortlisting, Visa, IELTS
+Year Founded: 1969 (Global)
+Reviews: 4.8/5 (Google)
+8. Canam Consultants
+Location: Nirala Bazaar, Aurangabad
+Website: canamgroup.com
+Services Offered: Application processing, Visa, Counseling
+Year Founded: 1996
+Reviews: 4.7/5 (Google)
+9. Way2Abroad
+Location: Garkheda, Aurangabad
+Website: way2abroad.org
+Services Offered: Europe-focused study programs, Visa Help
+Year Founded: 2016
+Reviews: 4.4/5 (Google)
+10. Global Study Link
+Location: Nirala Bazaar, Aurangabad
+Website: globalstudylink.co.uk
+Services Offered: Study Abroad, Visa, Loan Assistance
+Year Founded: 2008
+Reviews: 4.6/5 (Google)
+
+Bareilly, Uttar Pradesh
+1. Global Pathways
+Location: Civil Lines, Bareilly
+Website: globalpathways.co.in
+Services Offered: Study abroad counseling, IELTS/TOEFL, Visa guidance
+Year Founded: 2011
+Reviews: 4.6/5 (Google)
+2. The Next Education Consultancy
+Location: Model Town, Bareilly
+Website: thenexteducation.com
+Services Offered: Admissions, SOP/LOR help, Visa
+Year Founded: 2014
+Reviews: 4.5/5 (Google)
+3. Renaissance Education Pvt. Ltd.
+Location: Rajendra Nagar, Bareilly
+Website: renaissanceeducation.in
+Services Offered: UG/PG admissions, test prep, visa
+Year Founded: 2010
+Reviews: 4.4/5 (Justdial)
+4. Career Wings Education
+Location: Civil Lines, Bareilly
+Website: Not available
+Services Offered: Counseling, university application, visa support
+Year Founded: 2012
+Reviews: 4.3/5 (Justdial)
+5. Way2University
+Location: Rampur Garden, Bareilly
+Website: way2university.com
+Services Offered: Overseas education, test preparation, visa assistance
+Year Founded: 2015
+Reviews: 4.5/5 (Google)
+6. Foreign Shores Education Services
+Location: Stadium Road, Bareilly
+Website: foreignshores.in
+Services Offered: Higher education consultancy, immigration help
+Year Founded: 2009
+Reviews: 4.2/5 (Justdial)
+7. Manya – The Princeton Review
+Location: Serving Bareilly (online/remote)
+Website: manyagroup.com
+Services Offered: GRE/GMAT/SAT coaching, admission help
+Year Founded: 2001
+Reviews: 4.7/5 (Google)
+8. IDP Education (Remote Services)
+Location: Online / Nearest in Lucknow
+Website: idp.com
+Services Offered: University selection, visa, English proficiency tests
+Year Founded: 1969 (Global)
+Reviews: 4.8/5 (Google)
+9. Edwise International (Remote Services)
+Location: Online / Nearest in Delhi
+Website: edwiseinternational.com
+Services Offered: Counseling, admissions, coaching
+Year Founded: 1991
+Reviews: 4.6/5 (Google)
+10. Canam Consultants (Remote Services)
+Location: Online / Nearest in Delhi
+Website: canamgroup.com
+Services Offered: Application processing, SOP, visa
+Year Founded: 1996
+Reviews: 4.7/5 (Google)
+
+Belgaum, Karnataka
+1. Transcend Institute of Foreign Studies
+Location: Belgaum
+Website: transcendifs.com
+Services Offered: Study abroad consultancy
+Year Founded: Not specified
+Reviews: Not available
+2. Educhampion Services Pvt. Ltd.
+Location: Belgaum
+Website: Not specified
+Services Offered: Study abroad consultancy
+Year Founded: Not specified
+Reviews: Not available
+3. Maven Consulting Services
+Location: Belgaum
+Website: mavenconsultingservices.com
+Services Offered: Study abroad consultancy
+Year Founded: Not specified
+Reviews: Not available
+4. Leverage Edu
+Location: Belgaum
+Website: leverageedu.com
+Services Offered: Study abroad consultancy
+Year Founded: Not specified
+Reviews: Not available
+5. Kadamb Overseas
+Location: Belgaum
+Website: kadamboverseas.com
+Services Offered: Study abroad consultancy
+Year Founded: Not specified
+Reviews: Not available
+6. Sansadhan
+Location: Belgaum
+Website: sansadhan.com
+Services Offered: Study abroad consultancy
+Year Founded: Not specified
+Reviews: Not available
+7. IDP Education
+Location: Belgaum
+Website: idp.com
+Services Offered: Study abroad consultancy
+Year Founded: Not specified
+Reviews: Not available
+8. Study Abroad Solutions
+Location: Belgaum
+Website: Not specified
+Services Offered: Study abroad consultancy
+Year Founded: Not specified
+Reviews: Not available
+9. Global Reach
+Location: Belgaum
+Website: globalreach.in
+Services Offered: Study abroad consultancy
+Year Founded: Not specified
+Reviews: Not available
+10. Canam Consultants
+Location: Belgaum
+Website: canamgroup.com
+Services Offered: Study abroad consultancy
+Year Founded: Not specified
+Reviews: Not available
+
+Bhavnagar, Gujarat
+Name	Location	Website	Services Offered	Year Founded	Review Score	Reviewed By
+MBBS Expert Consultancy	Bhavnagar	mbbsexpert.in	MBBS admission guidance in India & abroad	Not specified	Not specified	Not specified
+The Viza House	Bhavnagar	thevizahouse.com	Study abroad counseling, visa assistance, IELTS coaching	Not specified	Not specified	Not specified
+Beyond Mentor	Bhavnagar	beyondmentor.com	Study abroad counseling, visa assistance, IELTS coaching	Not specified	Not specified	Not specified
+CareerPlus	Bhavnagar	careerplus.com	MBBS, BAMS, BDS, BUMS admissions guidance	Not specified	Not specified	Not specified
+Shalom Education	Bhavnagar	shalomeducation.in	MBBS admission guidance in India & abroad	Not specified	Not specified	Not specified
+Edwise International	Bhavnagar	edwiseinternational.com	Study abroad counseling, visa assistance, test preparation	1991	Not specified	Not specified
+SIEC India	Bhavnagar	siecindia.com	Study abroad counseling, visa assistance, test preparation	Not specified	Not specified	Not specified
+Flytouch Overseas	Bhavnagar	flytouchoverseas.com	Study abroad counseling, visa assistance, test preparation	Not specified	Not specified	Not specified
+Oceanic Consultants	Bhavnagar	oceanicconsultants.com	Study abroad counseling, visa assistance, test preparation	Not specified	Not specified	Not specified
+LeapScholar	Bhavnagar	leapscholar.com	Study abroad counseling, visa assistance, test preparation	Not specified	Not specified	Not specified
+
+Bhiwandi, Maharashtra
+Name	Location	Website	Services Offered	Year Founded	Review Score	Reviewed By
+MBBS Expert Consultancy	Bhiwandi	mbbsexpert.in	MBBS admission guidance in India & abroad	Not specified	Not specified	Not specified
+The Viza House	Bhiwandi	thevizahouse.com	Study abroad counseling, visa assistance, IELTS coaching	Not specified	Not specified	Not specified
+Beyond Mentor	Bhiwandi	beyondmentor.com	Study abroad counseling, visa assistance, IELTS coaching	Not specified	Not specified	Not specified
+CareerPlus	Bhiwandi	careerplus.com	MBBS, BAMS, BDS, BUMS admissions guidance	Not specified	Not specified	Not specified
+Shalom Education	Bhiwandi	shalomeducation.in	MBBS admission guidance in India & abroad	Not specified	Not specified	Not specified
+Edwise International	Bhiwandi	edwiseinternational.com	Study abroad counseling, visa assistance, test preparation	1991	Not specified	Not specified
+SIEC India	Bhiwandi	siecindia.com	Study abroad counseling, visa assistance, test preparation	Not specified	Not specified	Not specified
+Flytouch Overseas	Bhiwandi	flytouchoverseas.com	Study abroad counseling, visa assistance, test preparation	Not specified	Not specified	Not specified
+Oceanic Consultants	Bhiwandi	oceanicconsultants.com	Study abroad counseling, visa assistance, test preparation	Not specified	Not specified	Not specified
+LeapScholar	Bhiwandi	leapscholar.com	Study abroad counseling, visa assistance, test preparation	Not specified	Not specified	Not specified
+
+Bhopal, Madhya Pradesh
+Name	Location	Website	Services Offered	Year Founded	Review Score	Reviewed By
+IDP Education	Bhopal	idp.com/india/study-abroad-consultants/bhopal/	Study abroad counseling, visa assistance, test preparation	Not specified	Not specified	Not specified
+MBBS Expert Consultancy	Bhopal	mbbsexpert.in	MBBS admission guidance in India & abroad	Not specified	Not specified	Not specified
+The Viza House	Bhopal	thevizahouse.com	Study abroad counseling, visa assistance, IELTS coaching	Not specified	Not specified	Not specified
+Beyond Mentor	Bhopal	beyondmentor.com	Study abroad counseling, visa assistance, IELTS coaching	Not specified	Not specified	Not specified
+CareerPlus	Bhopal	careerplus.com	MBBS, BAMS, BDS, BUMS admissions guidance	Not specified	Not specified	Not specified
+Shalom Education	Bhopal	shalomeducation.in	MBBS admission guidance in India & abroad	Not specified	Not specified	Not specified
+Edwise International	Bhopal	edwiseinternational.com	Study abroad counseling, visa assistance, test preparation	1991	Not specified	Not specified
+SIEC India	Bhopal	siecindia.com	Study abroad counseling, visa assistance, test preparation	Not specified	Not specified	Not specified
+Flytouch Overseas	Bhopal	flytouchoverseas.com	Study abroad counseling, visa assistance, test preparation	Not specified	Not specified	Not specified
+Oceanic Consultants	Bhopal	oceanicconsultants.com	Study abroad counseling, visa assistance, test preparation	Not specified	Not specified	Not specified
+
+Bhubaneswar, Odisha
+Name	Location	Website	Services Offered	Year Founded	Review Score	Reviewed By
+Kadamb Overseas Pvt. Ltd.	Bhubaneswar	kadamboverseas.com	Study abroad counseling, visa assistance, IELTS coaching	Not specified	Not specified	Not specified
+The Viza House	Bhubaneswar	thevizahouse.com	Study abroad counseling, visa assistance, IELTS coaching	Not specified	Not specified	Not specified
+Beyond Mentor	Bhubaneswar	beyondmentor.com	Study abroad counseling, visa assistance, IELTS coaching	Not specified	Not specified	Not specified
+CareerPlus	Bhubaneswar	careerplus.com	MBBS, BAMS, BDS, BUMS admissions guidance	Not specified	Not specified	Not specified
+Shalom Education	Bhubaneswar	shalomeducation.in	MBBS admission guidance in India & abroad	Not specified	Not specified	Not specified
+Edwise International	Bhubaneswar	edwiseinternational.com	Study abroad counseling, visa assistance, test preparation	1991	Not specified	Not specified
+SIEC India	Bhubaneswar	siecindia.com	Study abroad counseling, visa assistance, test preparation	Not specified	Not specified	Not specified
+Flytouch Overseas	Bhubaneswar	flytouchoverseas.com	Study abroad counseling, visa assistance, test preparation	Not specified	Not specified	Not specified
+Oceanic Consultants	Bhubaneswar	oceanicconsultants.com	Study abroad counseling, visa assistance, test preparation	Not specified	Not specified	Not specified
+LeapScholar	Bhubaneswar	leapscholar.com	Study abroad counseling, visa assistance, test preparation	Not specified	Not specified	Not specified
+
+Chandigarh, UT
+Global Opportunities	Sector 35, Chandigarh	global-opportunities.net	Admissions, visa, scholarships	2001	4.5/5	Students (Google)
+Jupiter Consultants	Sector 17A, Chandigarh	jupiterconsultants.in	Admissions, visa, loans	2005	4.6/5	Students (Google)
+TC Global	Sector 17, Chandigarh	tcglobal.com	University selection, visa	1995	4.4/5	Students (Google)
+Canam Consultants	Sector 34, Chandigarh	canamgroup.com	Admissions, visa, scholarships	1996	4.3/5	Students (Google)
+Edge Overseas	Sector 17, Chandigarh	edgeoverseas.com	Admissions, visa	2000	4.2/5	Students (Google)
+Blue Mountain International	Sector 17, Chandigarh	bluemountaininternational.com	Admissions, visa, scholarships	2002	4.1/5	Students (Google)
+Abroad Gateway	Sector 17, Chandigarh	abroadgateway.com	Admissions, visa, counseling	2003	4.0/5	Students (Google)
+Indo European	Sector 34, Chandigarh	indoeuropean.in	Admissions, visa, scholarships	2004	3.9/5	Students (Google)
+AECC Global	Sector 8C, Chandigarh	aeccglobal.in	Admissions, visa, scholarships	2006	3.8/5	Students (Google)
+Oceanic Consultants	Sector 34, Chandigarh	oceanicconsultants.com	Admissions, visa, test prep	2007	3.7/5	Students (Google)
+
+Coimbatore, Tamil Nadu
+Kovai Study Abroad	Peelamedu, Coimbatore	kovaistudyabroad.com	MBBS admissions, visa, counseling	2010	4.6/5	Students (Facebook)
+Edwise International	RS Puram, Coimbatore	edwiseinternational.com	Admissions, visa, scholarships	1991	4.5/5	Students (Google)
+IDP Education	RS Puram, Coimbatore	idp.com/india	Admissions, visa, test prep	1969	4.4/5	Students (Google)
+Amogha Overseas	Peelamedu, Coimbatore	amoghaoverseas.com	Counseling, documentation	2012	4.3/5	Students (Google)
+Edroots International	RS Puram, Coimbatore	edroots.com	Admissions, visa, test prep	2005	4.2/5	Students (Google)
+GoStudy	Peelamedu, Coimbatore	go.study	Admissions, visa, scholarships	2014	4.1/5	Students (Google)
+Vibedu	RS Puram, Coimbatore	vibedu.com	Counseling, test prep, visa	2016	4.0/5	Students (Google)
+Aide Overseas	Peelamedu, Coimbatore	aideoverseas.com	Counseling, documentation	2013	3.9/5	Students (Google)
+Avis Worldwide	RS Puram, Coimbatore	avisworldwide.com	Admissions, visa, test prep	2000	3.8/5	Students (Google)
+Flyn Study Abroad	Peelamedu, Coimbatore	flynstudy.com	Counseling, documentation	2015	3.7/5	Students (Google)
+
+Dehradun, Uttarakhand
+FD Overseas Education	Rajpur Road, Dehradun	fdoverseas.com	Admissions, visa, scholarships	2008	4.7/5	Students (Google)
+Jamboree Education	Kanwali Road, Dehradun	jamboreeindia.com	Test prep, admissions, visa	1993	4.6/5	Students (Google)
+IMFS	Rajpur Road, Dehradun	imfs.co.in	Admissions, visa, test prep	1997	4.5/5	Students (Google)
+SIEC India	Subhash Road, Dehradun	siecindia.com	Counseling, admissions, visa	1995	4.4/5	Students (Google)
+Career Brick Consultant	Kanwali Road, Dehradun	careerbrick.com	Counseling, admissions, visa	2010	4.3/5	Students (Google)
+Sehdev Travel & Study Abroad	Rajpur Road, Dehradun	sehdevstudyabroad.com	Admissions, visa, travel	2012	4.2/5	Students (Google)
+Oyster Worldwide Education	Chakrata Road, Dehradun	oysterworldwide.com	Admissions, visa, internships	2015	4.1/5	Students (Google)
+Global Reach Overseas	Rajpur Road, Dehradun	globalreachoverseas.com	Admissions, visa, counseling	2016	4.0/5	Students (Google)
+Go Overseas	Kanwali Road, Dehradun	gooverseas.in	Admissions, visa, test prep	2018	3.9/5	Students (Google)
+Overseas Study Partner	Rajpur Road, Dehradun	overseasstudypartner.com	Counseling, admissions, visa	2017	3.8/5	Students (Google)
+
+Dhanbad, Jharkhand
+Eduvision Overseas	Dhanbad	eduvisionoverseas.com	Admissions, visa, counseling	2010	4.5/5	Students (Google)
+Overseas Education Center	Dhanbad	overseasedu.in	Admissions, visa, scholarships	2008	4.3/5	Students (Google)
+Edwise International	Dhanbad	edwiseinternational.com	Admissions, visa	1991	4.2/5	Students (Google)
+Edexcel Consultants	Dhanbad	edexcelconsultants.com	Visa, admissions	2012	4.1/5	Students (Google)
+Study Buddy Overseas	Dhanbad	studybuddyoverseas.com	Counseling, admissions	2015	4.0/5	Students (Google)
+Skylark Overseas Education	Dhanbad	skylarkoverseas.com	Admissions, visa, scholarships	2011	3.9/5	Students (Google)
+Global Wings Overseas	Dhanbad	globalwingsoverseas.com	Admissions, visa	2014	3.8/5	Students (Google)
+Abroad Pathways	Dhanbad	abroadpathways.com	Counseling, admissions	2013	3.7/5	Students (Google)
+Oceanic Consultants	Dhanbad	oceanicconsultants.com	Admissions, visa	2007	3.6/5	Students (Google)
+Wisdom Overseas Education	Dhanbad	wisdomoverseas.in	Visa, counseling	2016	3.5/5	Students (Google)
+
+Durg-Bhilai, Chhattisgarh
+The Education Hub	Bhilai	theeducationhub.co.in	Admissions, visa	2013	4.4/5	Students (Google)
+Study Abroad Solutions	Durg	studyabroadsolutions.in	Counseling, admissions	2015	4.3/5	Students (Google)
+Global Gateway	Bhilai	globalgateway.in	Admissions, visa, scholarships	2012	4.2/5	Students (Google)
+Overseas Education Center	Durg	overseasedu.in	Admissions, visa	2008	4.1/5	Students (Google)
+Edwise International	Durg	edwiseinternational.com	Admissions, visa	1991	4.0/5	Students (Google)
+Bright Future Overseas	Bhilai	brightfutureoverseas.com	Visa, admissions	2014	3.9/5	Students (Google)
+Skylark Overseas Education	Durg	skylarkoverseas.com	Admissions, visa	2011	3.8/5	Students (Google)
+Global Wings Overseas	Bhilai	globalwingsoverseas.com	Admissions, visa	2014	3.7/5	Students (Google)
+Career Path Overseas	Durg	careerpathoverseas.com	Counseling, admissions	2016	3.6/5	Students (Google)
+Oceanic Consultants	Bhilai	oceanicconsultants.com	Admissions, visa	2007	3.5/5	Students (Google)
+
+Faridabad, Haryana
+Global Opportunities	Faridabad	global-opportunities.net	Admissions, visa, scholarships	2001	4.6/5	Students (Google)
+Jupiter Consultants	Faridabad	jupiterconsultants.in	Admissions, visa	2005	4.5/5	Students (Google)
+TC Global	Faridabad	tcglobal.com	University selection, visa	1995	4.4/5	Students (Google)
+Canam Consultants	Faridabad	canamgroup.com	Admissions, visa, scholarships	1996	4.3/5	Students (Google)
+Edge Overseas	Faridabad	edgeoverseas.com	Admissions, visa	2000	4.2/5	Students (Google)
+Blue Mountain International	Faridabad	bluemountaininternational.com	Admissions, visa, scholarships	2002	4.1/5	Students (Google)
+Abroad Gateway	Faridabad	abroadgateway.com	Admissions, visa, counseling	2003	4.0/5	Students (Google)
+Indo European	Faridabad	indoeuropean.in	Admissions, visa, scholarships	2004	3.9/5	Students (Google)
+AECC Global	Faridabad	aeccglobal.in	Admissions, visa, scholarships	2006	3.8/5	Students (Google)
+Oceanic Consultants	Faridabad	oceanicconsultants.com	Admissions, visa, test prep	2007	3.7/5	Students (Google)
+
+Ghaziabad, Uttar Pradesh
+KC Overseas Education	Indirapuram	studies-overseas.com	Counseling, Test Prep, University Selection, Visa Processing, Scholarships	N/A	N/A	N/A
+GeeBee Education	Ghaziabad	geebeeworld.com	Admissions, Visa Assistance, Test Prep	~2002	N/A	N/A
+Counsel for International Education	Ghaziabad	cie-edu.com	Counseling, Admissions, Visa Processing	N/A	N/A	N/A
+IDP Education	Ghaziabad	idp.com	University Selection, Visa Assistance, Test Prep	N/A	N/A	N/A
+Leverage Edu	Ghaziabad	leverageedu.com	Course Shortlisting, Applications, Visas, Education Loans	N/A	N/A	N/A
+Admissify	Ghaziabad	admissify.com	Personalized Counseling, Visa Assistance	N/A	N/A	N/A
+ABGyan	Ghaziabad	abgyan.com	Admissions, Visa Assistance, Cultural Adaptation	N/A	N/A	N/A
+
+Guntur, Andhra Pradesh
+Abroad Campus	Guntur	abroadcampus.com	Admissions, Visa Assistance, Counseling	N/A	N/A	N/A
+IVY Overseas	Guntur	ivyoverseas.com	Admissions, Visa Assistance, Counseling	N/A	N/A	N/A
+Exxeella Education Group	Guntur	exxeella.com	Course Selection, Visa Applications	N/A	N/A	N/A
+Global Degrees	Guntur	globaldegrees.in	Admissions, Visa Assistance, Counseling	N/A	N/A	N/A
+KC Overseas Education	Guntur	studies-overseas.com	Counseling, Test Prep, University Selection, Visa Processing, Scholarships	N/A	N/A	N/A
+IDP Education	Guntur	idp.com	University Selection, Visa Assistance, Test Prep	N/A	N/A	N/A
+Global Tree	Guntur	globaltree.in	Admissions, Test Prep, Visa Assistance	N/A	N/A	N/A
+
+Guwahati, Assam
+IDP Education	Guwahati	idp.com	University Selection, Visa Assistance, Test Prep	N/A	N/A	N/A
+Manya Education	Guwahati	manyagroup.com	Admissions Consulting, Test Prep	N/A	N/A	N/A
+EdMaster	Guwahati	edmaster.co	Admissions, Visa Assistance, Counseling	N/A	N/A	N/A
+Blue Sky Education	Guwahati	blueskyeducation.co.in	Admissions, Visa Assistance, Counseling	N/A	N/A	N/A
+Admissify	Guwahati	admissify.com	Personalized Counseling, Visa Assistance	N/A	N/A	N/A
+
+Gwalior, Madhya Pradesh
+IDP Education	Gwalior	idp.com	University Selection, Visa Assistance, Test Prep	N/A	N/A	N/A
+Study Abroad Solution	Gwalior	studyabroadsolution.com	Admissions, Visa Assistance, Counseling	N/A	N/A	N/A
+Cosmo Consultants	Gwalior	cosmoconsultants.in	Admissions, Visa Assistance, Counseling	N/A	N/A	N/A
+IMFS	Gwalior	imfs.co.in	Admissions, Visa Assistance, Counseling	N/A	N/A	N/A
+Leverage Edu	Gwalior	leverageedu.com	Course Shortlisting, Applications, Visas, Education Loans	N/A	N/A	N/A
+Unisys Educational Research	Gwalior	unisys.global	Admissions, Visa Assistance, Counseling	N/A	N/A	N/A
+
+Hubli-Dharwad, Karnataka
+IDP Education	Hubli	idp.com	University Selection, Visa Assistance, Test Prep	N/A	N/A	N/A
+NK Education	Hubballi	nkeduindia.com	Admissions, Visa Assistance, Counseling	N/A	N/A	N/A
+Kadamb Overseas	Hubballi-Dharwad	kadamboverseas.com	Admissions, Visa Assistance, Counseling	N/A	N/A	N/A
+Edusphere Overseas	Dharwad	edusphereoverseas.com	Admissions, Visa Assistance, Counseling	N/A	N/A	N/A
+
+Indore, Madhya Pradesh
+IDP Education	Indore	idp.com	Counseling, University Selection, Visa Assistance, Test Prep	N/A	N/A	N/A
+Jamboree Education	Indore	jamboreeindia.com	Admissions, Test Prep, Visa Assistance	N/A	N/A	N/A
+Leap Scholar	Indore	leapscholar.com	Course Selection, Applications, Visa Assistance	N/A	N/A	N/A
+Lakshya Overseas	Indore	lakshyaoverseas.com	Admissions, Visa Assistance, Counseling	N/A	N/A	N/A
+Izonn Immigration	Indore	izonnimmigration.com	University Guidance, Scholarships, Living Costs Assistance	N/A	N/A	N/A
+
+Jabalpur, Madhya Pradesh
+KC Overseas Education	Jabalpur	studies-overseas.com	Counseling, Test Preparation, University Selection, Visa Processing	N/A	N/A	N/A
+IMFS	Jabalpur	imfs.co.in	Admissions, Visa Assistance, Counseling	N/A	N/A	N/A
+Study Abroad Solution	Jabalpur	studyabroadsolution.com	University and Course Selection, Admissions, Visa Assistance	N/A	N/A	N/A
+RK Global	Jabalpur	rk-global.com	IELTS/TOEFL Coaching, International Education Guidance	N/A	N/A	N/A
+
+Jalandhar, Punjab
+Pyramid eServices	Jalandhar	pyramideservices.com	Student Visa, Spouse Visa, Counseling	N/A	N/A	N/A
+Canam Consultants	Jalandhar	canamgroup.com	Course Selection, University Applications, Visa Assistance	N/A	N/A	N/A
+KC Overseas Education	Jalandhar	studies-overseas.com	Counseling, Test Preparation, University Selection, Visa Processing	N/A	N/A	N/A
+IDP Education	Jalandhar	idp.com	Counseling, University Selection, Visa Assistance, Test Prep	N/A	N/A	N/A
+Trivedi Overseas	Jalandhar	trivedioverseas.com	Study Visa Assistance, Counseling	N/A	N/A	N/A
+Visionway Immigration	Jalandhar	visionwayimmigration.com	Immigration Consulting, Study Abroad Services	N/A	N/A	N/A
+
+Jamnagar, Gujarat
+StudyWise International	Jamnagar	studywiseinternational.com	Personalized Guidance, University Applications, Visa Assistance	N/A	N/A	N/A
+Trans Globe	Jamnagar	transglobeedu.com	Overseas Education Consulting, IELTS Coaching	N/A	N/A	N/A
+Manya Group	Jamnagar	manyagroup.com	Admissions Consulting, Test Prep	N/A	N/A	N/A
+iNXT Consultancy	Jamnagar	inxt.in	Global Education Opportunities, Counseling	N/A	N/A	N/A
+Soplor Consultants	Jamnagar	soplor.com	Application Assistance, Personalized Support	N/A	N/A	N/A
+
+Jamshedpur, Jharkhand
+MindMap Immigration	Jamshedpur	mindmapimmigration.com	Overseas Education Services, IELTS Exam Preparation	N/A	N/A	N/A
+Intello Academy	Jamshedpur	intelloacademy.com	Study Abroad Education, Entrance Exam Preparations	N/A	N/A	N/A
+Maruti Overseas	Jamshedpur	britishschooloflanguages.com	Admission Consulting, Visa Assistance	N/A	N/A	N/A
+Zealand Immigration	Jamshedpur	zealandimmigration.net	Student Visa, Spouse Visa, Work Visa, Visitor Visa	N/A	N/A	N/A
+Alliance Consultants	Jamshedpur	exportersindia.com	Educational Consultancy, Study Abroad Services	N/A	N/A	N/A
+
+Jhansi, Uttar Pradesh
+Leverage Edu	Jhansi	leverageedu.com	Program Selection, Application Assistance, Visa Processing	N/A	N/A	N/A
+Kadamb Overseas	Jhansi	kadamboverseas.com	Admission Guidance, Visa Assistance	N/A	N/A	N/A
+MBBS Expert Consultancy	Jhansi	mbbsexpert.in	MBBS Admissions in India and Abroad	N/A	N/A	N/A
+
+Kochi, Kerala
+Edwings Overseas Educational Consultants	Kochi	edwingsabroad.com	Course selection, University applications, Visa assistance, Pre-departure briefing	2014	N/A	N/A
+Magic Wings Education	Kochi	magicwingseducation.com	Course selection, University applications, Visa assistance, Scholarship guidance	N/A	N/A	N/A
+Vidhyarthi Mithram	Kochi	vidhyarthimithram.com	Course selection, University applications, Visa assistance	N/A	N/A	N/A
+IDP Education	Kochi	idp.com	Course selection, University applications, Visa assistance, IELTS preparation	N/A	N/A	N/A
+Fly Abroad Educational Consultant	Kochi	flyabroadeducation.com	Course selection, University applications, Visa assistance	N/A	N/A	N/A
+AECC Global	Kochi	aeccglobal.in	Course selection, University applications, Visa assistance	N/A	N/A	N/A
+Edabroad	Kochi	edabroad.in	Course selection, University applications, Visa assistance	N/A	N/A	N/A
+
+Karnal, Haryana
+Kanan International	Karnal	kanankarnal.com	IELTS coaching, Visa assistance, University applications	N/A	4.6/5	Student Testimonials
+IDP Education	Karnal	idp.com	Course selection, University applications, Visa assistance, IELTS preparation	N/A	N/A	N/A
+AECC Global	Karnal	aeccglobal.in	Course selection, University applications, Visa assistance	N/A	N/A	N/A
+
+Kozhikode (Calicut), Kerala
+Edroots International	Calicut	edroots.com	Career counselling, course selection, application processing, test preparation, visa guidance, pre-and post-departure guidance	N/A	N/A	N/A
+S'Chambers Overseas Education Consultants	Calicut	schambersedu.com	Expert guidance for students across Kerala to study abroad	N/A	N/A	N/A
+Bayroot Study Abroad Consultants	Calicut	bayroot.in	Career counselling, university selection, visa assistance	N/A	N/A	N/A
+KC Overseas Education	Calicut	studies-overseas.com	Course, country, university selection, student counselling	N/A	N/A	N/A
+EdWest Education	Calicut	edwestedu.com	Comprehensive overseas education consultation services	N/A	N/A	N/A
+Eazylink Academy	Calicut	eazylink.in	Admission guidance, visa assistance	N/A	N/A	N/A
+IDP Education	Calicut	idp.com	Course selection, university applications, visa assistance, IELTS preparation	N/A	N/A	N/A
+GeeBee Education	Calicut	geebeeworld.com	University and course selection, test preparation, application, documentation and admission assistance, visa guidance, finance, accommodation, post-arrival formalities	N/A	N/A	N/A
+
+Lucknow, Uttar Pradesh
+IDP Education	Lucknow	idp.com	Course selection, university applications, visa assistance, IELTS preparation	N/A	N/A	N/A
+My Mentor	Lucknow	my-mentor.co.in	IELTS, TOEFL, PTE, GRE, GMAT, SAT exam preparation	N/A	N/A	N/A
+Jamboree Education	Lucknow	jamboreeindia.com	Admissions, test prep, visa assistance	N/A	N/A	N/A
+Ambitio	Lucknow	ambitio.club	AI-driven approach, personalized guidance	N/A	N/A	N/A
+Fateh Education	Lucknow	fateheducation.com	Admission guidance, visa assistance, scholarship support	2004	N/A	N/A
+Meridean Overseas	Lucknow	meridean.org	Course selection, university applications, visa assistance	N/A	N/A	N/A
+MSM Unify	Lucknow	msmunify.com	Admission guidance, visa assistance, scholarship support	N/A	N/A	N/A
+
+Ludhiana, Punjab
+GeeBee Education	Ludhiana	geebeeworld.com	University and course selection, test preparation, application, documentation and admission assistance, visa guidance, finance, accommodation, post-arrival formalities	N/A	N/A	N/A
+Pyramid eServices	Ludhiana	pyramideservices.com	Student visa, spouse visa, counseling	N/A	N/A	N/A
+IDP Education	Ludhiana	idp.com	Course selection, university applications, visa assistance, IELTS preparation	N/A	N/A	N/A
+AECC Global	Ludhiana	aeccglobal.in	Course selection, university applications, visa assistance	N/A	N/A	N/A
+Leap Scholar	Ludhiana	leapscholar.com	Course selection, university applications, visa assistance	N/A	N/A	N/A
+KC Overseas Education	Ludhiana	studies-overseas.com	Course, country, university selection, student counselling	N/A	N/A	N/A
+SIEC Education	Ludhiana	siecindia.com	Course selection, university applications, visa assistance	N/A	N/A	N/A
+Canam Consultants	Ludhiana	canamgroup.com	Course selection, university applications, visa assistance	N/A	N/A	N/A
+
+Madurai, Tamil Nadu
+BroadMind Group	Madurai	broadmindgroup.com	Career counselling, course selection, university applications, visa assistance	N/A	N/A	N/A
+KC Overseas Education	Madurai	studies-overseas.com	Course, country, university selection, student counselling	N/A	N/A	N/A
+Glopass	Madurai	glopass.in	Professional guidance for students seeking higher education in Europe's top universities	N/A	N/A	N/A
+AKC Go Abroad	Madurai	akcgo.com	Career counselling, course and country selection, scholarship assistance, application process, bank loan assistance, forex services, visa & travel assistance	N/A	N/A	N/A
+PR Study Abroad	Madurai	sulekha.com	Admission guidance, visa assistance	N/A	5.0/5	4 reviews
+IDP Education	Madurai	idp.com	Course selection, university applications, visa assistance, IELTS preparation	N/A	N/A	N/A
+
+Mangalore, Karnataka
+Edroots International	Mangalore	edroots.com	Career counselling, selection of program, university, and application processing	N/A	N/A	N/A
+IDP Education	Mangalore	idp.com	Course selection, university applications, visa assistance, IELTS preparation	N/A	N/A	N/A
+Anfield Study Abroad	Mangalore	anfieldstudyabroad.com	Expert counseling and visa assistance	N/A	N/A	N/A
+Edusphere Overseas	Mangalore	edusphereoverseas.com	Free guidance to students aspiring for overseas education	N/A	N/A	N/A
+IMFS	Mangalore	imfs.co.in	Study abroad consultancy services	N/A	N/A	N/A
+
+Meerut, Uttar Pradesh
+IDP Education	Meerut	idp.com	Course selection, University applications, Visa assistance, IELTS preparation	N/A	N/A	N/A
+KC Overseas Education	Meerut	studies-overseas.com	Career counseling, Test preparation, Course selection, Visa processing, Pre-departure support	N/A	N/A	N/A
+Leverage Edu	Meerut	leverageedu.com	Course shortlisting, Applications, Visas, Education loans	N/A	N/A	N/A
+MEO Immigration	Meerut	meoimmigration.com	Expert guidance, Personalized plans, Seamless support	N/A	N/A	N/A
+Elena Abroad Education	Meerut	sulekha.com	Entrance exam training, Visa assistance, Immigration services	2010	N/A	N/A
+
+Mysuru, Karnataka
+KC Overseas Education	Mysuru	studies-overseas.com	Career counseling, Test preparation, Course selection, Visa processing, Pre-departure support	N/A	N/A	N/A
+IDP Education	Mysuru	idp.com	Course selection, University applications, Visa assistance, IELTS preparation	N/A	N/A	N/A
+UNIABROAD	Mysuru	uniabroad.io	Course selection, University applications, Visa assistance	N/A	N/A	N/A
+Manya - The Princeton Review	Mysuru	manyagroup.com	Admissions consulting for UG, MBA, MIM, PhD	N/A	N/A	N/A
+SI-UK India	Mysuru	studyin-uk.ca	UK university applications, Visa assistance	N/A	N/A	N/A
+
+Nagpur, Maharashtra
+KC Overseas Education	Nagpur	studies-overseas.com	Career counseling, Test preparation, Course selection, Visa processing, Pre-departure support	N/A	N/A	N/A
+IDP Education	Nagpur	idp.com	Course selection, University applications, Visa assistance, IELTS preparation	N/A	N/A	N/A
+GeeBee Education	Nagpur	geebeeworld.com	University and course selection, Test preparation, Application assistance, Visa guidance	N/A	N/A	N/A
+Manya - The Princeton Review	Nagpur	manyagroup.com	Admissions consulting for UG, MBA, MIM, PhD	N/A	N/A	N/A
+Pace Consultant	Nagpur	pace-consultant.com	Study abroad consulting, Visa assistance	N/A	N/A	N/A
+
+Nashik, Maharashtra
+KC Overseas Education	Nashik	studies-overseas.com	Career counseling, Test preparation, Course selection, Visa processing, Pre-departure support	N/A	N/A	N/A
+IDP Education	Nashik	idp.com	Course selection, University applications, Visa assistance, IELTS preparation	N/A	N/A	N/A
+GeeBee Education	Nashik	geebeeworld.com	University and course selection, Test preparation, Application assistance, Visa guidance	N/A	N/A	N/A
+Study Smart	Nashik	studysmart.co.in	Study abroad consulting, IELTS coaching, Visa assistance	N/A	N/A	N/A
+Edwise International	Nashik	edwiseinternational.com	Career counseling, University applications, Visa assistance	1991	N/A	N/A
+
+Nellore, Andhra Pradesh
+IMFS	Nellore	imfs.co.in	Study abroad counseling, Test preparation, Visa assistance	1997	N/A	N/A
+Global Degrees	Nellore	globaldegrees.in	University selection, Visa processing, Career guidance	N/A	N/A	N/A
+SIG Overseas	Nellore	sigoverseas.com	Study abroad consulting, Visa assistance	N/A	N/A	N/A
+Leverage Edu	Nellore	leverageedu.com	Course shortlisting, Applications, Visas, Education loans	N/A	N/A	N/A
+Aegis Overseas	Nellore	aegisoverseas.com	Study abroad consulting, Visa assistance	N/A	N/A	N/A
+
+Noida, Uttar Pradesh
+IDP Education	Noida	idp.com	University selection, Admissions, Visa assistance, IELTS coaching	N/A	N/A	N/A
+KC Overseas Education	Noida	studies-overseas.com	Career counseling, Test preparation, Course selection, Visa processing, Pre-departure support	N/A	N/A	N/A
+GeeBee Education	Noida	geebeeworld.com	Admission counseling, University partnerships, Visa guidance	N/A	N/A	N/A
+Innvictis Edutech	Noida	innvictisedutech.com	Career counseling, Personalized mentorship, Overseas education guidance	N/A	N/A	N/A
+Espire Education	Noida	espireeducation.com	Study abroad guidance, University selection, Visa assistance	N/A	N/A	N/A
+
+Patna, Bihar
+IDP Education	Patna	idp.com	University selection, Admissions, Visa assistance, IELTS coaching	N/A	N/A	N/A
+IMFS	Patna	imfs.co.in	Study abroad counseling, Test preparation, Visa assistance	N/A	N/A	N/A
+BP Career	Patna	bpcareer.in	Study abroad consultancy, Admission guidance, Visa assistance	N/A	N/A	N/A
+Shine Overseas Education	Patna	shineoverseaseducation.com	University representation, Admission guidance	N/A	N/A	N/A
+Kemway Consultancy	Patna	ambitio.club	MBBS, MBA admissions, Visa assistance, IELTS/TOEFL guidance	N/A	N/A	N/A
+
+Prayagraj, Uttar Pradesh
+IDP Education	Prayagraj	idp.com	University selection, Admissions, Visa assistance, IELTS coaching	N/A	N/A	N/A
+British School of Language	Prayagraj	britishschooloflanguages.com	Study abroad consultancy, Language training	N/A	N/A	N/A
+Samriddhi Shikshan Sansthan	Prayagraj	prayagrajonline.in	Study abroad guidance, Admissions assistance	N/A	N/A	N/A
+Pragati Welfare Foundation	Prayagraj	prayagrajonline.in	Overseas education consultancy	N/A	N/A	N/A
+Eduni Abroad	Prayagraj	prayagrajonline.in	Study abroad consultancy	N/A	N/A	N/A
+
+Raipur, Chhattisgarh
+AEC Overseas	Raipur	aecoverseas.com	Study abroad guidance, University selection, Visa assistance	2006	N/A	N/A
+IDP Education	Raipur	idp.com	University selection, Admissions, Visa assistance, IELTS coaching	N/A	N/A	N/A
+GeeBee Education	Raipur	geebeeworld.com	Admission counseling, University partnerships, Visa guidance	N/A	N/A	N/A
+Manya - The Princeton Review	Raipur	manyagroup.com	Admissions consulting for UG, MBA, MIM, PhD	N/A	N/A	N/A
+Study Abroad Solution	Raipur	studyabroadsolution.com	Course selection, University selection, Visa processing	N/A	N/A	N/A
+
+Rajkot, Gujarat
+KC Overseas Education	Rajkot	studies-overseas.com	Career counseling, Test preparation, Course selection, Visa processing, Pre-departure support	N/A	N/A	N/A
+GeeBee Education	Rajkot	geebeeworld.com	Admission counseling, University partnerships, Visa guidance	N/A	N/A	N/A
+Global Colliance	Rajkot	globalcolliance.com	University selection, Visa assistance, Career counseling	N/A	N/A	N/A
+Saarthi Education	Rajkot	saarthieducation.com	Study abroad consultancy, University selection, Visa assistance	N/A	N/A	N/A
+Kanan International	Rajkot	kanan.co	Admission assistance, Visa, Loan, Travel, Accommodation	N/A	N/A	N/A
+
+Ranchi, Jharkhand
+ACHIVIA	Ranchi	achivia.in	Study abroad consultancy, University selection, Visa assistance	N/A	N/A	N/A
+EPA Global	Ranchi	britishschooloflanguages.com	Study abroad consultancy	N/A	5.0	15 Reviews
+Kadamb Overseas	Ranchi	kadamboverseas.com	Education consultancy for Europe	N/A	N/A	N/A
+Sulekha	Ranchi	sulekha.com	List of overseas education consultants	N/A	N/A	N/A
+
+Rourkela, Odisha
+OnSpot Visa Consultancy	Rourkela	onspotvisa.com	Student visa documentation, Application, Approval	N/A	N/A	N/A
+Group Ex Services	Rourkela	placementindia.com	Education consultancy, Overseas educational consultants	N/A	N/A	N/A
+Maa Samaleswari Education	Rourkela	placementindia.com	Education consultancy services	N/A	N/A	N/A
+
+Salem, Tamil Nadu
+Edwise International	Salem	edwiseinternational.com	Career counseling, test prep, admission, visa assistance	1991	4.3/5	Google Reviews
+AECC Global	Salem	aeccglobal.in	Admission & visa assistance, scholarships, pre-departure	Not specified	4.0/5	Google Reviews
+Study Abroad Zone	Salem	studyabroadzone.com	Application help, university selection, financial aid	Not specified	4.1/5	Google Reviews
+Overseas Education Consultants	Salem	Various local agencies	Visa guidance, admission, test prep	Not specified	Not specified	N/A
+
+Shimla, Himachal Pradesh
+Edwise International	Shimla	edwiseinternational.com	Career counseling, test prep, admission, visa assistance	1991	4.3/5	Google Reviews
+AECC Global	Shimla	aeccglobal.in	Admission & visa assistance, scholarships, pre-departure	Not specified	4.0/5	Google Reviews
+Local Consultants	Shimla	Not listed	Student visa help, university selection	Not specified	Not specified	N/A
+
+Srinagar, Jammu and Kashmir
+Edwise International	Srinagar	edwiseinternational.com	Career counseling, test prep, admission, visa assistance	1991	4.3/5	Google Reviews
+AECC Global	Srinagar	aeccglobal.in	Admission & visa assistance, scholarships, pre-departure	Not specified	4.0/5	Google Reviews
+Kashmir Overseas Ed.	Srinagar	Not specified	Study abroad counseling, visa assistance	Not specified	Not specified	N/A
+Local Education Agents	Srinagar	Not specified	Visa guidance, test prep, admissions	Not specified	Not specified	N/A
+
+Surat, Gujarat
+1. Anex Overseas
+Location: Surat
+Website: anexoverseas.com
+Services Offered: Student visa profile analysis, application & admission assistance, pre-departure guidance, career counselling, financial aid & scholarship assistance, post-arrival assistance, forex assistance, course/university selection, visa guidance, interview preparation, SOP drafting.
+Year Founded: 2019
+Review Score: Not specified
+Reviewed By: Not specified
+2. Edwise International
+Location: Surat
+Website: edwiseinternational.com
+Services Offered: Aptitude testing, test preparation (IELTS, TOEFL, PTE, GMAT, GRE, SAT, ACT), career counselling, admission guidance, financial assistance, visa services, travel assistance, forex assistance, course and university selection, application and admission guidance, accommodation assistance, bank loans, international student insurance.
+Year Founded: 1991
+Review Score: Not specified
+Reviewed By: Not specified
+3. Study Smart
+Location: Surat
+Website: studysmart.co.in
+Services Offered: IELTS and PTE training, international scholarships, forex, travel, and health insurance assistance, country, university, and course selection, fee payments, application to education loan, pre-departure orientation, student visa application, post-landing and accommodation support, student counselling, admission guidance, visa application preparation.
+Year Founded: Not specified
+Review Score: Not specified
+Reviewed By: Not specified
+4. AECC Global
+Location: Surat
+Website: aeccglobal.in
+Services Offered: Profile assessment, university and course selection, application and admission assistance, visa guidance, scholarship assistance, pre-departure briefing, post-arrival support.
+Year Founded: Not specified
+Review Score: Not specified
+Reviewed By: Not specified
+
+Thane, Maharashtra
+1. Edwise International
+Location: Thane
+Website: edwiseinternational.com
+Services Offered: Aptitude testing, test preparation (IELTS, TOEFL, PTE, GMAT, GRE, SAT, ACT), career counselling, admission guidance, financial assistance, visa services, travel assistance, forex assistance, course and university selection, application and admission assistance, accommodation assistance, bank loans, international student insurance.
+Year Founded: 1991
+Review Score: Not specified
+Reviewed By: Not specified
+2. AECC Global
+Location: Thane
+Website: aeccglobal.in
+Services Offered: Profile assessment, university and course selection, application and admission assistance, visa guidance, scholarship assistance, pre-departure briefing, post-arrival support.
+Year Founded: Not specified
+Review Score: Not specified
+Reviewed By: Not specified
+
+Thiruvananthapuram, Kerala
+1. Blu Sky Global Education
+Location: Thiruvananthapuram
+Website: Not specified
+Services Offered: University selection, career counselling, scholarship guidance, financial assistance.
+Year Founded: Not specified
+Review Score: Not specified
+Reviewed By: Not specified
+2. Salve Maria
+Location: Thiruvananthapuram
+Website: Not specified
+Services Offered: Transparent and efficient services for international education.
+Year Founded: Not specified
+Review Score: Not specified
+Reviewed By: Not specified
+3. Leobiss International
+Location: Thiruvananthapuram
+Website: Not specified
+Services Offered: Specializes in international education, particularly for medical studies abroad.
+Year Founded: Not specified
+Review Score: Not specified
+Reviewed By: Not specified
+4. Universal Study
+Location: Thiruvananthapuram
+Website: Not specified
+Services Offered: University selection, career counselling, scholarship guidance, financial assistance.
+Year Founded: Not specified
+Review Score: Not specified
+Reviewed By: Not specified
+
+Tiruchirappalli, Tamil Nadu
+(Data for Tiruchirappalli is limited in study.txt beyond noting it's a Tier 2 city. Generic advice would be to check national players like IDP, Edwise, or use online portals if local specific data is not found in the file.)
+
+Tirunelveli, Tamil Nadu
+1. AECC Global
+Location: Tirunelveli
+Website: aeccglobal.in
+Services Offered: Profile assessment, university and course selection, application and admission assistance, visa guidance, scholarship assistance, pre-departure briefing, post-arrival support.
+Year Founded: Not specified
+Review Score: Not specified
+Reviewed By: Not specified
+2. Insha Education Solutions
+Location: Tirunelveli
+Website: inshaeducation.com
+Services Offered: Career planning, scholarship assistance, study abroad guidance.
+Year Founded: Not specified
+Review Score: Not specified
+Reviewed By: Not specified
+
+Udaipur, Rajasthan
+Edwise International	Udaipur	edwiseinternational.com	Counseling, admissions, visa help	1991	4.3/5	Google Reviews
+Y-Axis	Udaipur	y-axis.in	Visa consulting, test prep, admissions	1999	4.2/5	Google Reviews
+Overseas Study Consultants	Udaipur	Local offices	Admissions, test coaching, visa assistance	N/A	N/A	Local feedback
+Study Abroad Zone	Udaipur	studyabroadzone.com	Application assistance, test prep	N/A	4.1/5	Google Reviews
+
+Vadodara, Gujarat
+Edwise International	Vadodara	edwiseinternational.com	Counseling, visa, admission	1991	4.3/5	Google Reviews
+Manya Group	Vadodara	manyagroup.com	Test prep, admissions, visa	2002	4.4/5	Google Reviews
+Global Opportunities	Vadodara	Local contact	Overseas education counseling	N/A	N/A	Local reviews
+Overseas Education Vadodara	Vadodara	Local contact	Visa, admissions	N/A	N/A	Local feedback
+
+Varanasi, Uttar Pradesh
+Edwise International	Varanasi	edwiseinternational.com	Study counseling, admission, visa help	1991	4.3/5	Google Reviews
+Study Abroad Global	Varanasi	Local	Admissions, visa assistance	N/A	N/A	Local feedback
+Overseas Ed. Consultants	Varanasi	Local	Counseling, admission	N/A	N/A	Local reviews
+
+Vijayawada, Andhra Pradesh
+Edwise International	Vijayawada	edwiseinternational.com	Career counseling, admission, visa	1991	4.3/5	Google Reviews
+Global Opportunities	Vijayawada	Local	Overseas education counseling	N/A	N/A	Local feedback
+Overseas Education Vijayawada	Vijayawada	Local	Visa assistance, admission	N/A	N/A	Local feedback
+
+Visakhapatnam, Andhra Pradesh
+Edwise International	Visakhapatnam	edwiseinternational.com	Study counseling, admissions, visa help	1991	4.3/5	Google Reviews
+AECC Global	Visakhapatnam	aeccglobal.in	Admission & visa assistance, scholarships	N/A	4.0/5	Google Reviews
+Overseas Study Consultants	Visakhapatnam	Local	Counseling, admission	N/A	N/A	Local feedback
+
+Warangal, Telangana
+Edwise International	Warangal	edwiseinternational.com	Admissions, visa, test prep	1991	4.3/5	Google Reviews
+Local Consultants	Warangal	Local	Visa, admission assistance	N/A	N/A	Local reviews
+
+Bhagalpur, Bihar
+Edwise International	Bhagalpur	edwiseinternational.com	Study counseling, visa, admissions	1991	4.3/5	Google Reviews
+Local Study Consultants	Bhagalpur	Local	Visa help, admission	N/A	N/A	Local feedback
+
+Bilaspur, Chhattisgarh
+Edwise International	Bilaspur	edwiseinternational.com	Admissions, visa, test prep	1991	4.3/5	Google Reviews
+Local Study Agents	Bilaspur	Local	Counseling, visa assistance	N/A	N/A	Local feedback
+
+Bokaro Steel City, Jharkhand
+Edwise International	Bokaro	edwiseinternational.com	Study abroad counseling, visa, admissions	1991	4.3/5	Google Reviews
+Local Consultants	Bokaro	Local	Admission, visa guidance	N/A	N/A	Local feedback
+
+Cuttack, Odisha
+Edwise International	Cuttack	edwiseinternational.com	Counseling, admission, visa help	1991	4.3/5	Google Reviews
+Local Consultants	Cuttack	Local	Visa assistance, admission	N/A	N/A	Local reviews
+
+Durgapur, West Bengal
+Edwise International	Durgapur	edwiseinternational.com	Counseling, visa, admission help	1991	4.3/5	Google Reviews
+Overseas Education Durgapur	Durgapur	Local	Admission, test prep, visa assistance	N/A	N/A	Local feedback
+Global Opportunities	Durgapur	Local	Overseas study counseling	N/A	N/A	Local reviews
+
+Erode, Tamil Nadu
+Edwise International	Erode	edwiseinternational.com	Study abroad counseling, visa	1991	4.3/5	Google Reviews
+Local Study Consultants	Erode	Local	Admissions, visa assistance	N/A	N/A	Local feedback
+
+Gaya, Bihar
+Edwise International	Gaya	edwiseinternational.com	Visa, admission help	1991	4.3/5	Google Reviews
+Local Consultants	Gaya	Local	Counseling, visa	N/A	N/A	Local feedback
+
+Gorakhpur, Uttar Pradesh
+Edwise International	Gorakhpur	edwiseinternational.com	Admission, visa, test prep	1991	4.3/5	Google Reviews
+Local Study Agents	Gorakhpur	Local	Visa, admission counseling	N/A	N/A	Local feedback
+
+Haldia, West Bengal
+Edwise International	Haldia	edwiseinternational.com	Counseling, admissions	1991	4.3/5	Google Reviews
+Local Consultants	Haldia	Local	Visa and admission help	N/A	N/A	Local feedback
+
+Hisar, Haryana
+Edwise International	Hisar	edwiseinternational.com	Admission, visa assistance	1991	4.3/5	Google Reviews
+Local Study Abroad Agents	Hisar	Local	Visa, admission	N/A	N/A	Local feedback
+
+Howrah, West Bengal
+Edwise International	Howrah	edwiseinternational.com	Counseling, visa, admission help	1991	4.3/5	Google Reviews
+Local Consultants	Howrah	Local	Admissions, visa	N/A	N/A	Local feedback
+
+Kakinada, Andhra Pradesh
+Edwise International	Kakinada	edwiseinternational.com	Visa, admission counseling	1991	4.3/5	Google Reviews
+Local Education Agents	Kakinada	Local	Overseas education consulting	N/A	N/A	Local feedback
+
+Kalyan-Dombivli, Maharashtra
+Edwise International	Kalyan-Dombivli	edwiseinternational.com	Study abroad counseling, visa	1991	4.3/5	Google Reviews
+Y-Axis	Kalyan-Dombivli	y-axis.in	Visa consulting, admission help	1999	4.2/5	Google Reviews
+Overseas Consultants	Kalyan-Dombivli	Local	Visa and admission	N/A	N/A	Local reviews
+
+Karimnagar, Telangana
+Edwise International	Karimnagar	edwiseinternational.com	Visa, admissions counseling	1991	4.3/5	Google Reviews
+Local Study Agents	Karimnagar	Local	Visa assistance, admission	N/A	N/A	Local feedback
+
+Kolhapur, Maharashtra
+Edwise International	Kolhapur	edwiseinternational.com	Visa, admission counseling	1991	4.3/5	Google Reviews
+Local Consultants	Kolhapur	Local	Visa, admission	N/A	N/A	Local feedback
+
+Kollam, Kerala
+Edwise International	Kollam	edwiseinternational.com	Counseling, visa assistance	1991	4.3/5	Google Reviews
+Local Agents	Kollam	Local	Study abroad consulting	N/A	N/A	Local reviews
+
+Kottayam, Kerala
+Edwise International	Kottayam	edwiseinternational.com	Admission, visa	1991	4.3/5	Google Reviews
+Local Consultants	Kottayam	Local	Study abroad	N/A	N/A	Local feedback
+
+Malappuram, Kerala
+Edwise International	Malappuram	edwiseinternational.com	Visa, counseling	1991	4.3/5	Google Reviews
+Y-Axis Malappuram	Malappuram	https://www.y-axis.in	Visa, Immigration, Admissions	1999	4.0/5	Google Reviews
+EduMalappuram	Malappuram	N/A	Study Abroad & IELTS Coaching	N/A	N/A	Local feedback
+Local Consultants	Malappuram	Local	Admissions, visa assistance	N/A	N/A	Local feedback
+
+Moradabad, Uttar Pradesh
+Edwise International	Moradabad	edwiseinternational.com	Admission, visa	1991	4.3/5	Google Reviews
+Local Study Agents	Moradabad	Local	Visa, counseling	N/A	N/A	Local feedback
+
+Muzaffarpur, Bihar
+Edwise International	Muzaffarpur	edwiseinternational.com	Visa, admission counseling	1991	4.3/5	Google Reviews
+Local Agents	Muzaffarpur	Local	Study abroad consulting	N/A	N/A	Local reviews
+
+Nanded, Maharashtra
+Edwise International	Nanded	edwiseinternational.com	Visa, admission counseling	1991	4.3/5	Google Reviews
+Local Consultants	Nanded	Local	Visa, admission	N/A	N/A	Local feedback
+
+Panipat, Haryana
+Edwise International	Panipat	edwiseinternational.com	Visa, admissions	1991	4.3/5	Google Reviews
+Local Study Agents	Panipat	Local	Counseling, visa	N/A	N/A	Local feedback
+
+Puducherry, Union Territory
+Edwise International	Puducherry	edwiseinternational.com	Visa, admission counseling	1991	4.3/5	Google Reviews
+Local Consultants	Puducherry	Local	Visa, admissions	N/A	N/A	Local reviews
+
+Saharanpur, Uttar Pradesh
+Edwise International	Saharanpur	edwiseinternational.com	Admission, visa counseling	1991	4.3/5	Google Reviews
+Local Study Agents	Saharanpur	Local	Visa, admissions	N/A	N/A	Local feedback
+
+Sangli-Miraj & Kupwad, Maharashtra
+Edwise International	Sangli	edwiseinternational.com	Visa, admission counseling	1991	4.3/5	Google Reviews
+Local Consultants	Sangli	Local	Study abroad counseling	N/A	N/A	Local feedback
+
+Satara, Maharashtra
+Edwise International	Satara	edwiseinternational.com	Visa, admissions	1991	4.3/5	Google Reviews
+Local Agents	Satara	Local	Visa, admission assistance	N/A	N/A	Local feedback
+
+Siliguri, West Bengal
+Y-Axis	Siliguri	y-axis.in	Visa, immigration, counseling	1999	4.2/5	Google Reviews
+Edwise International	Siliguri	edwiseinternational.com	Admission, visa	1991	4.3/5	Google Reviews
+
+Solapur, Maharashtra
+Edwise International	Solapur	edwiseinternational.com	Visa, admission counseling	1991	4.3/5	Google Reviews
+Local Consultants	Solapur	Local	Study abroad assistance	N/A	N/A	Local reviews
+
+Thrissur, Kerala
+Edwise International	Thrissur	edwiseinternational.com	Visa, admissions	1991	4.3/5	Google Reviews
+Local Study Agents	Thrissur	Local	Visa, admission counseling	N/A	N/A	Local feedback
+
+Tirupati, Andhra Pradesh
+Edwise International	Tirupati	edwiseinternational.com	Visa, admission counseling	1991	4.3/5	Google Reviews
+Local Consultants	Tirupati	Local	Study abroad assistance	N/A	N/A	Local reviews
+
+Tumakuru, Karnataka
+Edwise International	Tumakuru	edwiseinternational.com	Visa, admission counseling	1991	4.3/5	Google Reviews
+Local Agents	Tumakuru	Local	Visa, admission assistance	N/A	N/A	Local feedback
+
+TIER 3 
+Adilabad, Telangana
+Global Study Experts	Adilabad	N/A	Visa consulting, admission help	N/A	N/A	Local feedback
+Study Abroad Hub	Adilabad	N/A	Counseling, documentation	N/A	N/A	Local feedback
+
+Alappuzha, Kerala
+Edwise International	Alappuzha	edwiseinternational.com	Visa & admission consulting	1991	4.3/5	Google Reviews
+Global Opportunities	Alappuzha	N/A	Counseling, test prep	N/A	N/A	Local reviews
+
+Ambala, Haryana
+Y-Axis	Ambala	y-axis.in	Visa, immigration, admission help	1999	4.2/5	Google Reviews
+Study Abroad Ambala	Ambala	N/A	Admission & visa assistance	N/A	N/A	Local feedback
+
+Anantapur, Andhra Pradesh
+EduWorld Consultants	Anantapur	N/A	Counseling, application help	N/A	N/A	Local feedback
+Career Abroad	Anantapur	N/A	Study abroad counseling	N/A	N/A	Local feedback
+
+Arrah, Bihar
+Global Edu Consultants	Arrah	N/A	Visa, admission assistance	N/A	N/A	Local feedback
+Study Abroad Arrah	Arrah	N/A	Counseling & guidance	N/A	N/A	Local feedback
+
+Bahraich, Uttar Pradesh
+Abroad Pathways	Bahraich	N/A	Visa and admission counseling	N/A	N/A	Local feedback
+Study Gate	Bahraich	N/A	Study abroad help	N/A	N/A	Local feedback
+
+Balasore, Odisha
+Edwise International	Balasore	edwiseinternational.com	Admission & visa consulting	1991	4.3/5	Google Reviews
+Overseas Education World	Balasore	N/A	Admission help & test prep	N/A	N/A	Local feedback
+
+Bardhaman, West Bengal
+Global Study Hub	Bardhaman	N/A	Admission counseling	N/A	N/A	Local feedback
+Overseas Dreams	Bardhaman	N/A	Visa & admission guidance	N/A	N/A	Local feedback
+
+Bastar, Chhattisgarh
+Study Link Consultants	Bastar	N/A	Counseling & documentation	N/A	N/A	Local feedback
+Abroad Study Center	Bastar	N/A	Visa & admission help	N/A	N/A	Local feedback
+
+Bathinda, Punjab
+Edwise International	Bathinda	edwiseinternational.com	Visa & admission consulting	1991	4.3/5	Google Reviews
+Career Abroad Punjab	Bathinda	N/A	Study abroad counseling	N/A	N/A	Local feedback
+
+Begusarai, Bihar
+Global Edu Consultants	Begusarai	N/A	Admission & visa assistance	N/A	N/A	Local feedback
+Study Abroad Begusarai	Begusarai	N/A	Counseling, documentation	N/A	N/A	Local feedback
+
+Belur, Karnataka
+EduWorld Consultants	Belur	N/A	Visa & admission consulting	N/A	N/A	Local feedback
+Study Abroad Hub	Belur	N/A	Counseling, test prep	N/A	N/A	Local feedback
+
+Bhagalpur, Bihar (Tier 3 section, also in Tier 2)
+Edwise International	Bhagalpur	edwiseinternational.com	Admission & visa consulting	1991	4.3/5	Google Reviews
+Global Study Experts	Bhagalpur	N/A	Visa counseling & admission help	N/A	N/A	Local feedback
+
+Bhiwani, Haryana
+Y-Axis	Bhiwani	y-axis.in	Visa & immigration, admission help	1999	4.2/5	Google Reviews
+Study Abroad Bhiwani	Bhiwani	N/A	Admission counseling	N/A	N/A	Local feedback
+
+Bokaro Steel City, Jharkhand (Tier 3 section, also in Tier 2)
+Global Opportunities	Bokaro Steel City	N/A	Counseling, documentation	N/A	N/A	Local feedback
+Edu Abroad Services	Bokaro Steel City	N/A	Visa & admission guidance	N/A	N/A	Local feedback
+
+Chandrapur, Maharashtra
+Overseas Education World	Chandrapur	N/A	Admission & visa consulting	N/A	N/A	Local feedback
+Study Gate Chandrapur	Chandrapur	N/A	Study abroad help	N/A	N/A	Local feedback
+
+Chhapra, Bihar
+Study Abroad Chhapra	Chhapra	N/A	Admission & visa assistance	N/A	N/A	Local feedback
+Career Abroad	Chhapra	N/A	Counseling & documentation	N/A	N/A	Local feedback
+
+Darbhanga, Bihar
+Global Edu Consultants	Darbhanga	N/A	Visa and admission consulting	N/A	N/A	Local feedback
+Study Abroad Darbhanga	Darbhanga	N/A	Study abroad counseling	N/A	N/A	Local feedback
+
+Dindigul, Tamil Nadu
+Edwise International	Dindigul	edwiseinternational.com	Admission & visa consulting	1991	4.3/5	Google Reviews
+Overseas Dreams	Dindigul	N/A	Counseling & test prep	N/A	N/A	Local feedback
+
+Erode, Tamil Nadu (Tier 3 section, also in Tier 2)
+Global Study Hub	Erode	N/A	Admission counseling	N/A	N/A	Local feedback
+Study Abroad Erode	Erode	N/A	Visa & admission guidance	N/A	N/A	Local feedback
+
+Gandhinagar, Gujarat (Tier 3 section)
+Edwise International	Gandhinagar	edwiseinternational.com	Admission & visa consulting	1991	4.3/5	Google Reviews
+(Other entries for Gandhinagar Tier 3 were not detailed in the provided text for consultants)
+
+Hisar, Haryana (Tier 3 section, also in Tier 2)
+Y-Axis Hisar	Hisar	y-axis.in	Visa & immigration consulting	1999	4.2/5	Google Reviews
+Study Abroad Hisar	Hisar	N/A	Admission & visa assistance	N/A	N/A	Local feedback
+
+Malappuram, Kerala (Tier 3 section, also in Tier 2)
+Y-Axis Malappuram	Malappuram	https://www.y-axis.in	Visa, Immigration, Admissions	1999	4.0/5	Google Reviews
+EduMalappuram	Malappuram	N/A	Study Abroad & IELTS Coaching	N/A	N/A	Local feedback
+(Edwise also listed for Malappuram in Tier 2 section of study.txt)
+
+(The rest of Tier 3 cities in study.txt did not have specific consultant details listed beyond their names in the city list, or were duplicates from Tier 2 lists if those sections are considered).
+`;
+
+        function parseConsultantData(rawData) {
+            const consultants = { tier1: {}, tier2: {}, tier3: {} };
+            const lines = rawData.split('\n');
+            let currentTier = null;
+            let currentCity = null;
+
+            for (const line of lines) {
+                const trimmedLine = line.trim();
+                if (trimmedLine.startsWith("TIER 1:")) {
+                    currentTier = "tier1";
+                    currentCity = null;
+                    continue;
+                } else if (trimmedLine.startsWith("TIER 2")) { // More flexible match for "TIER 2"
+                    currentTier = "tier2";
+                    currentCity = null;
+                    continue;
+                } else if (trimmedLine.startsWith("TIER 3")) { // More flexible match for "TIER 3"
+                    currentTier = "tier3";
+                    currentCity = null;
+                    continue;
+                }
+
+                if (!currentTier) continue;
+
+                // Check if line is a city name (heuristic: ends with state or is just a name before consultant listings)
+                // This regex tries to capture "City, State" or "City" if it's followed by consultant data
+                const cityMatch = trimmedLine.match(/^([A-Za-z\s-]+(?:, [A-Za-z\s&]+)?)(?:\s\(.*\))?$/);
+                 // A line is a city if it's not a tier marker, not a consultant item, and not empty.
+                 // And if the next lines look like consultant data or it's a known city format.
+                let isCityLine = false;
+                if (trimmedLine.length > 0 && !trimmedLine.startsWith("•") && !trimmedLine.startsWith(currentTier.toUpperCase()) && !/Location:/.test(trimmedLine)) {
+                    // Further check: if the next non-empty line starts with '•' or a number (common for consultant list)
+                    const nextMeaningfulLineIndex = lines.indexOf(line) + 1;
+                    for (let j = nextMeaningfulLineIndex; j < lines.length; j++) {
+                        const nextLineTrimmed = lines[j].trim();
+                        if (nextLineTrimmed.length > 0) {
+                            if (nextLineTrimmed.startsWith("•") || /^\d+\./.test(nextLineTrimmed) || /Name\s*Location\s*Website/.test(nextLineTrimmed) || /Name\tLocation\tWebsite/.test(nextLineTrimmed)) {
+                                isCityLine = true;
+                            }
+                            break;
+                        }
+                    }
+                    if (!isCityLine && cityMatch) { // Fallback to regex if next line isn't a clear indicator
+                         isCityLine = true;
+                    }
+                }
+
+
+                if (isCityLine) {
+                    let cityName = trimmedLine;
+                    // Clean up city name (remove state if present for matching)
+                    if (cityName.includes(',')) {
+                         cityName = cityName.split(',')[0].trim();
+                    }
+                    // Handle cases like "Kozhikode (Calicut), Kerala"
+                    if (cityName.includes('(')) {
+                        cityName = cityName.substring(0, cityName.indexOf('(')).trim();
+                    }
+                    currentCity = cityName;
+                    if (!consultants[currentTier][currentCity]) {
+                        consultants[currentTier][currentCity] = [];
+                    }
+                    continue;
+                }
+
+                if (currentCity && (trimmedLine.startsWith("•") || /^\d+\./.test(trimmedLine))) {
+                    const entry = {};
+                    let detailsString = trimmedLine.substring(trimmedLine.indexOf(" ") + 1).trim(); // Remove bullet or number
+
+                    // Heuristic for Name (text before "Location:")
+                    const nameLocationSplit = detailsString.split(/,?\s*Location:/);
+                    if (nameLocationSplit.length > 1) {
+                        entry.name = nameLocationSplit[0].trim();
+                        detailsString = "Location:" + nameLocationSplit[1]; // Re-add "Location:" for parsing
+                    } else {
+                         // If "Location:" is not found, the first part might be the name if followed by common fields
+                        const commonFields = ["Website:", "Services:", "Year Founded:", "Reviews:", "Services Offered:"];
+                        let potentialNameEndIndex = -1;
+                        for(const field of commonFields){
+                            const fieldIndex = detailsString.indexOf(field);
+                            if(fieldIndex !== -1){
+                                if(potentialNameEndIndex === -1 || fieldIndex < potentialNameEndIndex){
+                                    potentialNameEndIndex = fieldIndex;
+                                }
+                            }
+                        }
+                        if(potentialNameEndIndex !== -1 && detailsString.substring(0, potentialNameEndIndex).trim().length > 0){
+                            entry.name = detailsString.substring(0, potentialNameEndIndex).trim().replace(/,$/, '');
+                            detailsString = detailsString.substring(potentialNameEndIndex);
+                        } else {
+                             entry.name = "N/A"; // Default if cannot parse name
+                        }
+                    }
+
+
+                    const parts = detailsString.split(/,\s*(?=[A-Za-z\s]+:)/); // Split by comma only if followed by "Key:"
+                    
+                    parts.forEach(part => {
+                        const [key, ...valueParts] = part.split(':');
+                        const value = valueParts.join(':').trim();
+                        const keyTrimmed = key.trim();
+
+                        if (keyTrimmed === "Location") entry.location = value;
+                        else if (keyTrimmed === "Website") entry.website = value;
+                        else if (keyTrimmed === "Services" || keyTrimmed === "Services Offered") entry.services = value;
+                        else if (keyTrimmed === "Year Founded") entry.yearFounded = value;
+                        else if (keyTrimmed === "Rating" || keyTrimmed === "Reviews") {
+                            const reviewParts = value.match(/([\d.]+\/\d+)\s*\((.+)\)/);
+                            if (reviewParts) {
+                                entry.reviewScore = reviewParts[1];
+                                entry.reviewBy = reviewParts[2];
+                            } else {
+                                entry.reviewScore = value; // If no specific format
+                                entry.reviewBy = "N/A";
+                            }
+                        } else if (keyTrimmed === "Review Score") entry.reviewScore = value;
+                        else if (keyTrimmed === "Reviewed By") entry.reviewBy = value;
+                    });
+                     // Ensure all fields are present, default to N/A
+                    entry.location = entry.location || "N/A";
+                    entry.website = entry.website || "N/A";
+                    entry.services = entry.services || "N/A";
+                    entry.yearFounded = entry.yearFounded || "Not specified";
+                    entry.reviewScore = entry.reviewScore || "N/A";
+                    entry.reviewBy = entry.reviewBy || "N/A";
+
+                    if(entry.name && entry.name !== "N/A"){ // Only add if a name was parsed
+                        consultants[currentTier][currentCity].push(entry);
+                    }
+                }
+                 // Attempt to parse table-like data if currentCity is set from a table header
+                else if (currentCity && trimmedLine.includes('\t') && !/Name\tLocation\tWebsite/.test(trimmedLine)) { // Basic tab separated value check
+                    const cols = trimmedLine.split('\t').map(s => s.trim());
+                    if (cols.length >= 1 && cols[0].length > 0) { // Must have at least a name
+                        const entry = {
+                            name: cols[0] || "N/A",
+                            location: cols[1] || currentCity, // Default to current city if no specific location in col
+                            website: cols[2] || "N/A",
+                            services: cols[3] || "N/A",
+                            yearFounded: cols[4] || "Not specified",
+                            reviewScore: cols[5] || "N/A",
+                            reviewBy: cols[6] || "N/A"
+                        };
+                        consultants[currentTier][currentCity].push(entry);
+                    }
+                }
+            }
+            return consultants;
+        }
+
+
+        const ALL_CONSULTANT_DATA = parseConsultantData(rawConsultantDataString);
+
+        window.onload = function() {
+            const detailsContainer = document.getElementById('details-container');
+            const urlParams = new URLSearchParams(window.location.search);
+            const tier = urlParams.get('tier');
+            const city = decodeURIComponent(urlParams.get('city'));
+
+            let cityForLookup = city;
+            // Handle compound city names from URL to match parsed keys e.g. "Hubli-Dharwad"
+            if (city.includes(',')) cityForLookup = city.split(',')[0].trim();
+            if (city.includes('(')) cityForLookup = city.substring(0, city.indexOf('(')).trim();
+
+
+            const title = document.createElement('h1');
+            title.textContent = `Study Abroad Consultants in ${city}`;
+            detailsContainer.appendChild(title);
+
+            const cityData = ALL_CONSULTANT_DATA[tier] && ALL_CONSULTANT_DATA[tier][cityForLookup] 
+                            ? ALL_CONSULTANT_DATA[tier][cityForLookup]
+                            : (ALL_CONSULTANT_DATA[tier] && ALL_CONSULTANT_DATA[tier][city] // Fallback to exact city name from URL
+                               ? ALL_CONSULTANT_DATA[tier][city]
+                               : []);
+
+
+            if (cityData.length > 0) {
+                cityData.slice(0, 10).forEach(consultant => { // Display up to 10
+                    const itemDiv = document.createElement('div');
+                    itemDiv.classList.add('consultant-item');
+                    
+                    let websiteHTML = consultant.website && consultant.website.toLowerCase() !== 'not specified' && consultant.website.toLowerCase() !== 'n/a' && consultant.website.toLowerCase() !== 'not available'
+                                      ? `<a href="${consultant.website.startsWith('http') ? consultant.website : 'http://' + consultant.website}" target="_blank">${consultant.website}</a>`
+                                      : (consultant.website || "N/A");
+
+                    itemDiv.innerHTML = `
+                        <p><strong>Name:</strong> ${consultant.name || "N/A"}</p>
+                        <p><strong>Location:</strong> ${consultant.location || "N/A"}</p>
+                        <p><strong>Website:</strong> ${websiteHTML}</p>
+                        <p><strong>Services Offered:</strong> ${consultant.services || "N/A"}</p>
+                        <p><strong>Year Founded:</strong> ${consultant.yearFounded || "Not specified"}</p>
+                        <p><strong>Review Score:</strong> ${consultant.reviewScore || "N/A"} 
+                           ${(consultant.reviewBy && consultant.reviewBy !== "N/A" && consultant.reviewBy !== "Not specified") ? `(By: ${consultant.reviewBy})` : ''}
+                        </p>
+                    `;
+                    detailsContainer.appendChild(itemDiv);
+                });
+            } else {
+                const noDataP = document.createElement('p');
+                noDataP.classList.add('no-data');
+                noDataP.textContent = `No specific consultant data found for ${city} in Tier ${tier.replace('tier', '')} in the provided information. Some national consultants may offer services online or from nearby major cities.`;
+                detailsContainer.appendChild(noDataP);
+            }
+        };
+    </script>
+</body>
+</html>
+
+

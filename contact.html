@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keep in Touch - Careers India</title>
+    
+    <!-- Google Fonts: Orbitron for titles, Poppins for text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📧</text></svg>">
+
+<style>
+    :root {
+        --primary-blue: #005c97;
+        --secondary-green: #363795; /* A deeper blue for a richer gradient */
+        --accent-glow: #00f2c3; /* A vibrant cyan/green for glows and accents */
+        --bg-dark: #121212;
+        --surface-dark: #1e1e1e;
+        --text-light: #e0e0e0;
+        --text-muted: #888;
+        --success-color: #28a745;
+        --error-color: #dc3545;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: var(--bg-dark);
+        color: var(--text-light);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        overflow-x: hidden;
+    }
+
+    .contact-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+        max-width: 1200px;
+        min-height: 700px;
+        background-color: var(--surface-dark);
+        border-radius: 20px;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        overflow: hidden;
+    }
+
+    /* === LEFT PANE - The Flamboyant Side === */
+    .left-pane {
+        background: linear-gradient(135deg, var(--primary-blue), var(--secondary-green));
+        padding: 60px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .left-pane::before { /* Animated glowing orb */
+        content: '';
+        position: absolute;
+        top: -100px;
+        left: -100px;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(circle, rgba(0, 242, 195, 0.2), transparent 70%);
+        border-radius: 50%;
+        animation: pulse 8s infinite alternate;
+    }
+    
+    @keyframes pulse {
+        0% { transform: scale(0.8) translate(10px, 20px); opacity: 0.5; }
+        100% { transform: scale(1.2) translate(-20px, -10px); opacity: 1; }
+    }
+
+    .left-content {
+        position: relative;
+        z-index: 2;
+    }
+
+    .left-content h1 {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 4rem;
+        color: white;
+        line-height: 1.2;
+        text-shadow: 0 0 15px rgba(255, 255, 255, 0.3), 0 0 30px var(--accent-glow);
+        margin-bottom: 20px;
+    }
+
+    .left-content p {
+        font-size: 1.1rem;
+        color: var(--text-light);
+        opacity: 0.9;
+        max-width: 400px;
+        margin-bottom: 40px;
+    }
+    
+    .contact-info {
+        list-style: none;
+    }
+    .contact-info li {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        font-size: 1rem;
+    }
+    .contact-info i {
+        font-size: 1.5rem;
+        color: var(--accent-glow);
+        margin-right: 15px;
+        width: 30px;
+        text-align: center;
+    }
+
+    /* === RIGHT PANE - The Form Side === */
+    .right-pane {
+        padding: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .contact-form {
+        width: 100%;
+        max-width: 450px;
+    }
+    
+    .contact-form h2 {
+        font-size: 2rem;
+        margin-bottom: 30px;
+        color: var(--accent-glow);
+        text-align: center;
+    }
+
+    .input-group {
+        position: relative;
+        margin-bottom: 25px;
+    }
+
+    .input-field {
+        width: 100%;
+        padding: 18px 20px 18px 50px;
+        background-color: var(--bg-dark);
+        border: 2px solid #2a2a2a;
+        border-radius: 12px;
+        color: var(--text-light);
+        font-size: 1rem;
+        font-family: 'Poppins', sans-serif;
+        transition: all 0.3s ease;
+        /* High-intensity inner bevel */
+        box-shadow: inset 3px 3px 6px #0c0c0c, inset -3px -3px 6px #2c2c2c;
+    }
+
+    .input-group i {
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--text-muted);
+        transition: color 0.3s ease;
+    }
+
+    .input-field:focus {
+        outline: none;
+        border-color: var(--accent-glow);
+    }
+
+    .input-field:focus + i {
+        color: var(--accent-glow);
+    }
+
+    textarea.input-field {
+        resize: vertical;
+        min-height: 120px;
+        padding-top: 18px;
+    }
+    
+    /* === 3D SUBMIT BUTTON === */
+    .submit-btn {
+        width: 100%;
+        padding: 18px 20px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        font-family: 'Orbitron', sans-serif;
+        color: white;
+        background: linear-gradient(135deg, var(--primary-blue), var(--secondary-green));
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        position: relative;
+        top: 0;
+        transition: all 0.15s ease;
+        /* High-intensity drop shadow for 3D effect */
+        box-shadow: 0 6px 0 darken(var(--primary-blue), 10%);
+    }
+
+    .submit-btn:hover {
+        top: 2px;
+        box-shadow: 0 4px 0 darken(var(--primary-blue), 10%);
+    }
+
+    .submit-btn:active {
+        top: 6px;
+        box-shadow: 0 0px 0 darken(var(--primary-blue), 10%);
+        transform: scale(0.98);
+    }
+    
+    /* Form Result Message Styling */
+    #form-result {
+        text-align: center;
+        margin-top: 20px;
+        font-weight: 600;
+        min-height: 24px;
+    }
+    .success { color: var(--success-color); }
+    .error { color: var(--error-color); }
+
+    /* Responsive Design */
+    @media (max-width: 900px) {
+        .contact-container {
+            grid-template-columns: 1fr;
+            min-height: auto;
+            margin: 30px 15px;
+        }
+        .left-content h1 { font-size: 3rem; }
+    }
+</style>
+</head>
+<body>
+
+    <div class="contact-container">
+        <!-- Left Pane: Dazzling Visuals and Title -->
+        <div class="left-pane">
+            <div class="left-content">
+                <h1>Keep in Touch</h1>
+                <p>Have a question, a project, or just want to say hello? Drop us a line. We're excited to connect with you and explore the possibilities together!</p>
+                <ul class="contact-info">
+                    <li><i class="fas fa-phone"></i> +91 12345 67890</li>
+                    <li><i class="fas fa-envelope"></i> contact@careersindia.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Mumbai, India</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Right Pane: 3D Form -->
+        <div class="right-pane">
+            <form id="contact-form" class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+                
+                <!-- IMPORTANT: REPLACE WITH YOUR ACCESS KEY -->
+                <input type="hidden" name="access_key" value="856f356e-96b7-48f8-925c-79173780dcf4">
+
+                <h2>Send a Message</h2>
+
+                <div class="input-group">
+                    <input type="text" id="name" name="name" class="input-field" placeholder=" " required>
+                    <label for="name" class="input-label">Full Name</label> <!-- This is for accessibility, hidden visually but still useful -->
+                    <i class="fas fa-user"></i>
+                </div>
+
+                <div class="input-group">
+                    <input type="tel" id="mobile" name="mobile" class="input-field" placeholder=" " required>
+                    <label for="mobile" class="input-label">Mobile No</label>
+                    <i class="fas fa-phone"></i>
+                </div>
+
+                <div class="input-group">
+                    <input type="email" id="email" name="email" class="input-field" placeholder=" " required>
+                    <label for="email" class="input-label">Email ID</label>
+                    <i class="fas fa-envelope"></i>
+                </div>
+
+                <div class="input-group">
+                    <textarea id="message" name="message" class="input-field" placeholder=" " required></textarea>
+                    <label for="message" class="input-label">Your Message</label>
+                    <i class="fas fa-comment-dots"></i>
+                </div>
+
+                <button type="submit" class="submit-btn">SUBMIT</button>
+                
+                <div id="form-result"></div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- This small label is just for better usability, it appears when a user focuses an input -->
+    <style> 
+    .input-field:focus ~ .input-label,
+    .input-field:not(:placeholder-shown) ~ .input-label {
+        /* You can style the label on focus here if you want */
+    }
+    .input-label { /* Hiding the label visually but keeping for screen readers */
+        position: absolute;
+        left: -9999px;
+    }
+    </style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('contact-form');
+        const formResult = document.getElementById('form-result');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            formResult.innerHTML = '<span class="loading">Sending...</span>';
+            const formData = new FormData(form);
+            const object = {};
+            formData.forEach((value, key) => {
+                object[key] = value;
+            });
+            const json = JSON.stringify(object);
+
+            fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: json
+                })
+                .then(async (response) => {
+                    let jsonResponse = await response.json();
+                    if (response.status == 200) {
+                        formResult.innerHTML = '<span class="success"><i class="fas fa-check-circle"></i> Success! Your message has been sent.</span>';
+                    } else {
+                        console.log(response);
+                        formResult.innerHTML = `<span class="error"><i class="fas fa-exclamation-circle"></i> ${jsonResponse.message}</span>`;
+                    }
+                })
+                .catch(error => {
+                    console.log(error);
+                    formResult.innerHTML = '<span class="error"><i class="fas fa-exclamation-circle"></i> Something went wrong. Please try again.</span>';
+                })
+                .then(function() {
+                    form.reset();
+                    setTimeout(() => {
+                        formResult.innerHTML = '';
+                    }, 5000); // Message disappears after 5 seconds
+                });
+        });
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Grammar: Determiners & Non-Finite Verbs</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            /* Blue and white gridline background */
+            background-color: #f0f8ff; 
+            background-image: 
+                repeating-linear-gradient(to right, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 30px),
+                repeating-linear-gradient(to bottom, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 30px);
+            background-size: 30px 30px;
+        }
+
+        /* Header Styling */
+        header {
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        header h1 {
+            display: inline-block;
+            background-color: #0056b3;
+            color: white;
+            padding: 20px 40px;
+            border: 3px solid white;
+            border-radius: 15px;
+            /* 3D Box Effect */
+            box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.4), inset 2px 2px 5px rgba(255, 255, 255, 0.3);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-size: 2.2em;
+            margin: 0;
+        }
+
+        /* Main Container for Two-Column Layout */
+        .container {
+            display: flex;
+            max-width: 1400px;
+            margin: 20px auto;
+            background: #ffffff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.15);
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        /* Left Navigation Column */
+        .nav-column {
+            flex: 1;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+            background-color: #f8f9fa;
+            height: 80vh;
+            overflow-y: auto;
+        }
+
+        .nav-column ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-column li a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: #0056b3;
+            border-radius: 5px;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 0.95em;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .nav-column li a:hover,
+        .nav-column li a.active {
+            background-color: #0056b3;
+            color: #fff;
+        }
+
+        /* Right Content Column */
+        .content-column {
+            flex: 3;
+            padding: 25px 35px;
+            height: 80vh; /* Set a height to enable scrolling */
+            overflow-y: auto; /* Enable vertical scrollbar */
+        }
+
+        .content-section {
+            display: none;
+        }
+        
+        .content-section.active {
+            display: block;
+        }
+        
+        h2 {
+            font-size: 1.8em;
+            color: #0056b3;
+            border-bottom: 3px solid #0056b3;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        
+        h3 {
+            font-size: 1.4em;
+            color: #333;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        
+        .rule {
+            background-color: #e7f3fe;
+            border: 1px solid #b3d7f7;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 5px;
+        }
+
+        .example-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .example-list li {
+            margin-bottom: 20px;
+            border-left: 4px solid #0056b3;
+            padding-left: 15px;
+        }
+        
+        .explanation {
+            font-style: italic;
+            color: #555;
+            margin-top: 5px;
+        }
+        
+        .feature {
+            font-weight: bold;
+            text-decoration: underline;
+            color: #0056b3;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>ADVANCED GRAMMAR: DETERMINERS & NON-FINITE VERBS</h1>
+    </header>
+
+    <div class="container">
+        <nav class="nav-column">
+            <ul>
+                <li><a href="#determiners" class="nav-link active">Determiners & Quantifiers</a></li>
+                <li><a href="#non-finite" class="nav-link">Non-Finite Verbs</a></li>
+            </ul>
+        </nav>
+
+        <main class="content-column">
+            <section id="determiners" class="content-section active">
+                <h2>Determiners & Quantifiers</h2>
+                <div class="rule">
+                    <strong>Concept:</strong> Determiners are words that are placed before a noun to introduce it and provide information about its quantity and specificity. Quantifiers are a type of determiner that specifies quantity.
+                </div>
+                <h3>50 Examples:</h3>
+                <ul class="example-list">
+                    <!-- Articles -->
+                    <h3>Articles (a, an, the)</h3>
+                    <li>I need <span class="feature">a</span> pen. <div class="explanation"><strong>Explanation:</strong> 'a' is used for a non-specific, singular countable noun starting with a consonant sound.</div></li>
+                    <li>She is <span class="feature">an</span> honest person. <div class="explanation"><strong>Explanation:</strong> 'an' is used because 'honest' starts with a vowel sound.</div></li>
+                    <li><span class="feature">The</span> sun is shining brightly. <div class="explanation"><strong>Explanation:</strong> 'the' is used for a unique object.</div></li>
+                    <li>Can you pass me <span class="feature">the</span> book on the table? <div class="explanation"><strong>Explanation:</strong> 'the' is used for a specific book that both people can see.</div></li>
+                    <li>He is <span class="feature">a</span> university student. <div class="explanation"><strong>Explanation:</strong> 'a' is used because 'university' starts with a 'y' consonant sound.</div></li>
+
+                    <!-- Demonstratives -->
+                    <h3>Demonstratives (this, that, these, those)</h3>
+                    <li><span class="feature">This</span> car is mine. <div class="explanation"><strong>Explanation:</strong> 'This' is used for a singular noun that is near.</div></li>
+                    <li><span class="feature">That</span> house across the street is for sale. <div class="explanation"><strong>Explanation:</strong> 'That' is used for a singular noun that is far.</div></li>
+                    <li><span class="feature">These</span> shoes are very comfortable. <div class="explanation"><strong>Explanation:</strong> 'These' is used for a plural noun that is near.</div></li>
+                    <li><span class="feature">Those</span> mountains look beautiful from here. <div class="explanation"><strong>Explanation:</strong> 'Those' is used for a plural noun that is far.</div></li>
+                    <li>I prefer <span class="feature">this</span> book to <span class="feature">that</span> one. <div class="explanation"><strong>Explanation:</strong> Contrasting a near object with a far one.</div></li>
+
+                    <!-- Possessives -->
+                    <h3>Possessives (my, your, his, her, its, our, their)</h3>
+                    <li>Where is <span class="feature">your</span> homework? <div class="explanation"><strong>Explanation:</strong> 'your' shows possession.</div></li>
+                    <li><span class="feature">My</span> car is parked outside. <div class="explanation"><strong>Explanation:</strong> 'my' indicates ownership.</div></li>
+                    <li>The dog wagged <span class="feature">its</span> tail. <div class="explanation"><strong>Explanation:</strong> 'its' is the possessive form for 'it'.</div></li>
+                    <li>The students submitted <span class="feature">their</span> assignments. <div class="explanation"><strong>Explanation:</strong> 'their' shows possession by the plural 'students'.</div></li>
+                    <li>This is <span class="feature">her</span> favorite color. <div class="explanation"><strong>Explanation:</strong> 'her' specifies possession by a female.</div></li>
+
+                    <!-- Quantifiers: Much/Many/Some/Any -->
+                    <h3>Quantifiers</h3>
+                    <li>There are <span class="feature">many</span> people at the concert. <div class="explanation"><strong>Explanation (Many):</strong> Used with plural, countable nouns ('people').</div></li>
+                    <li>I don't have <span class="feature">much</span> time left. <div class="explanation"><strong>Explanation (Much):</strong> Used with singular, uncountable nouns ('time').</div></li>
+                    <li>How <span class="feature">many</span> pages have you read? <div class="explanation"><strong>Explanation (Many):</strong> Used for countable 'pages'.</div></li>
+                    <li>How <span class="feature">much</span> sugar do you need? <div class="explanation"><strong>Explanation (Much):</strong> Used for uncountable 'sugar'.</div></li>
+                    <li>I need to buy <span class="feature">some</span> groceries. <div class="explanation"><strong>Explanation (Some):</strong> Used in positive statements for an unspecified quantity.</div></li>
+                    <li>I don't have <span class="feature">any</span> questions. <div class="explanation"><strong>Explanation (Any):</strong> Used in negative statements.</div></li>
+                    <li>Do you have <span class="feature">any</span> suggestions? <div class="explanation"><strong>Explanation (Any):</strong> Used in questions.</div></li>
+                    <li>Would you like <span class="feature">some</span> coffee? <div class="explanation"><strong>Explanation (Some):</strong> Used in questions that are offers.</div></li>
+                    <li>She has <span class="feature">many</span> friends. <div class="explanation"><strong>Explanation (Many):</strong> For countable 'friends'.</div></li>
+                    <li>He doesn't show <span class="feature">much</span> interest. <div class="explanation"><strong>Explanation (Much):</strong> For uncountable 'interest'.</div></li>
+
+                    <!-- Quantifiers: Few/A few/The few -->
+                    <li>He is a man of <span class="feature">few</span> words. <div class="explanation"><strong>Explanation (Few):</strong> Means 'almost none' (negative meaning). Used with countable nouns.</div></li>
+                    <li>I have <span class="feature">a few</span> friends who can help. <div class="explanation"><strong>Explanation (A few):</strong> Means 'a small number, but some' (positive meaning).</div></li>
+                    <li><span class="feature">The few</span> friends he has are very loyal. <div class="explanation"><strong>Explanation (The few):</strong> Refers to the specific, small number of friends that exist.</div></li>
+                    <li><span class="feature">Few</span> people understand the true meaning. <div class="explanation"><strong>Explanation (Few):</strong> Implies that not many people understand.</div></li>
+                    <li>She will be back in <span class="feature">a few</span> minutes. <div class="explanation"><strong>Explanation (A few):</strong> A small, but definite, number of minutes.</div></li>
+
+                    <!-- Quantifiers: Little/A little/The little -->
+                    <li>There is <span class="feature">little</span> hope of survival. <div class="explanation"><strong>Explanation (Little):</strong> Means 'almost none' (negative meaning). Used with uncountable nouns.</div></li>
+                    <li>There is <span class="feature">a little</span> milk left in the jug. <div class="explanation"><strong>Explanation (A little):</strong> Means 'a small amount, but some' (positive meaning).</div></li>
+                    <li>He spent <span class="feature">the little</span> money he had. <div class="explanation"><strong>Explanation (The little):</strong> Refers to the specific, small amount of money that existed.</div></li>
+                    <li>I have <span class="feature">little</span> time for hobbies. <div class="explanation"><strong>Explanation (Little):</strong> Implies I don't have enough time.</div></li>
+                    <li>Add <span class="feature">a little</span> salt to the soup. <div class="explanation"><strong>Explanation (A little):</strong> Add a small, positive amount.</div></li>
+                    
+                     <!-- Quantifiers: Each/Every/All/Several etc. -->
+                    <li><span class="feature">Each</span> student received a certificate. <div class="explanation"><strong>Explanation (Each):</strong> Refers to individual members of a group, one by one.</div></li>
+                    <li><span class="feature">Every</span> citizen has a right to vote. <div class="explanation"><strong>Explanation (Every):</strong> Refers to all members of a group together.</div></li>
+                    <li>I have visited <span class="feature">several</span> countries in Europe. <div class="explanation"><strong>Explanation (Several):</strong> An indefinite but moderate number.</div></li>
+                    <li><span class="feature">All</span> the students passed the exam. <div class="explanation"><strong>Explanation (All):</strong> Refers to the total group.</div></li>
+                    <li>Is there <span class="feature">enough</span> food for everyone? <div class="explanation"><strong>Explanation (Enough):</strong> Asks about sufficiency.</div></li>
+                    <li><span class="feature">Both</span> answers are correct. <div class="explanation"><strong>Explanation (Both):</strong> Refers to two items together.</div></li>
+                    <li>He has <span class="feature">no</span> reason to complain. <div class="explanation"><strong>Explanation (No):</strong> Means not any.</div></li>
+                    <li>I want <span class="feature">another</span> piece of cake. <div class="explanation"><strong>Explanation (Another):</strong> Means one more.</div></li>
+                    <li><span class="feature">Either</span> option is fine with me. <div class="explanation"><strong>Explanation (Either):</strong> One or the other of two.</div></li>
+                    <li><span class="feature">Neither</span> statement is true. <div class="explanation"><strong>Explanation (Neither):</strong> Not the one nor the other of two.</div></li>
+                    <li><span class="feature">Most</span> people enjoy music. <div class="explanation"><strong>Explanation (Most):</strong> The majority of.</div></li>
+                    <li><span class="feature">Which</span> book do you want? <div class="explanation"><strong>Explanation (Which - Interrogative Determiner):</strong> Asks to specify from a group.</div></li>
+                    <li><span class="feature">What</span> time is it? <div class="explanation"><strong>Explanation (What - Interrogative Determiner):</strong> Asks for information.</div></li>
+                    <li><span class="feature">Whose</span> car is this? <div class="explanation"><strong>Explanation (Whose - Interrogative Determiner):</strong> Asks about possession.</div></li>
+                    <li>He took <span class="feature">all the</span> cookies from the jar. <div class="explanation"><strong>Explanation (All the):</strong> Refers to the entire specific quantity.</div></li>
+                </ul>
+            </section>
+            
+            <section id="non-finite" class="content-section">
+                <h2>Non-Finite Verbs (Gerunds, Participles, Infinitives)</h2>
+                <div class="rule">
+                    <strong>Concept:</strong> These are verb forms that do not act as the main verb of a clause. Instead, they function as nouns, adjectives, or adverbs.
+                </div>
+                <h3>50 Examples:</h3>
+                <ul class="example-list">
+                    <!-- Gerunds (-ing form as a noun) -->
+                    <h3>Gerunds (Functioning as Nouns)</h3>
+                    <li><span class="feature">Running</span> is my favorite form of exercise. <div class="explanation"><strong>Function:</strong> Subject of the verb 'is'.</div></li>
+                    <li>He enjoys <span class="feature">playing</span> video games. <div class="explanation"><strong>Function:</strong> Object of the verb 'enjoys'.</div></li>
+                    <li>She is good at <span class="feature">solving</span> puzzles. <div class="explanation"><strong>Function:</strong> Object of the preposition 'at'.</div></li>
+                    <li>My greatest passion is <span class="feature">writing</span> poetry. <div class="explanation"><strong>Function:</strong> Subject Complement, renaming 'passion'.</div></li>
+                    <li><span class="feature">Studying</span> for exams can be stressful. <div class="explanation"><strong>Function:</strong> Subject of the verb 'can be'.</div></li>
+                    <li>I look forward to <span class="feature">meeting</span> you. <div class="explanation"><strong>Function:</strong> Object of the prepositional phrase 'to'.</div></li>
+                    <li>He was fined for <span class="feature">driving</span> too fast. <div class="explanation"><strong>Function:</strong> Object of the preposition 'for'.</div></li>
+                    <li><span class="feature">Seeing</span> is <span class="feature">believing</span>. <div class="explanation"><strong>Function:</strong> 'Seeing' is the subject; 'believing' is the subject complement.</div></li>
+                    <li>She avoids <span class="feature">eating</span> junk food. <div class="explanation"><strong>Function:</strong> Object of the verb 'avoids'.</div></li>
+                    <li>His hobby is <span class="feature">collecting</span> rare stamps. <div class="explanation"><strong>Function:</strong> Subject Complement, renaming 'hobby'.</div></li>
+                    <li>Thank you for <span class="feature">helping</span>. <div class="explanation"><strong>Function:</strong> Object of the preposition 'for'.</div></li>
+                    <li><span class="feature">Traveling</span> broadens the mind. <div class="explanation"><strong>Function:</strong> Subject of the verb 'broadens'.</div></li>
+                    <li>He admitted <span class="feature">making</span> a mistake. <div class="explanation"><strong>Function:</strong> Object of the verb 'admitted'.</div></li>
+                    <li>Before <span class="feature">leaving</span>, he turned off the lights. <div class="explanation"><strong>Function:</strong> Object of the preposition 'Before'.</div></li>
+                    <li><span class="feature">Learning a new language</span> takes time. <div class="explanation"><strong>Function:</strong> Gerund phrase as the subject.</div></li>
+                    
+                    <!-- Participles (-ing or -ed/-en form as an adjective) -->
+                    <h3>Participles (Functioning as Adjectives)</h3>
+                    <li>The <span class="feature">running</span> water was cold. <div class="explanation"><strong>Function:</strong> Present Participle modifying the noun 'water'.</div></li>
+                    <li>A <span class="feature">broken</span> window needs to be repaired. <div class="explanation"><strong>Function:</strong> Past Participle modifying the noun 'window'.</div></li>
+                    <li>The man <span class="feature">wearing the red shirt</span> is my brother. <div class="explanation"><strong>Function:</strong> Participial phrase modifying 'man'.</div></li>
+                    <li>The car, <span class="feature">damaged in the storm</span>, is now in the garage. <div class="explanation"><strong>Function:</strong> Participial phrase modifying 'car'.</div></li>
+                    <li><span class="feature">Blinded by the bright sun</span>, he couldn't see the road. <div class="explanation"><strong>Function:</strong> Participial phrase modifying 'he'.</div></li>
+                    <li>This is a very <span class="feature">interesting</span> book. <div class="explanation"><strong>Function:</strong> Present Participle acting as a simple adjective.</div></li>
+                    <li>He is a <span class="feature">retired</span> officer. <div class="explanation"><strong>Function:</strong> Past Participle acting as a simple adjective.</div></li>
+                    <li>I saw the children <span class="feature">playing in the park</span>. <div class="explanation"><strong>Function:</strong> Participial phrase modifying 'children'.</div></li>
+                    <li>The report, <span class="feature">written by the committee</span>, was accepted. <div class="explanation"><strong>Function:</strong> Participial phrase modifying 'report'.</div></li>
+                    <li>She was tired of the <span class="feature">barking</span> dog. <div class="explanation"><strong>Function:</strong> Present Participle modifying 'dog'.</div></li>
+                    <li><span class="feature">Having finished his work</span>, he went home. <div class="explanation"><strong>Function:</strong> Perfect participial phrase modifying 'he'.</div></li>
+                    <li>The <span class="feature">fallen</span> leaves covered the ground. <div class="explanation"><strong>Function:</strong> Past Participle modifying 'leaves'.</div></li>
+                    <li>The team, <span class="feature">inspired by their victory</span>, celebrated all night. <div class="explanation"><strong>Function:</strong> Participial phrase modifying 'team'.</div></li>
+                    <li>He is a very <span class="feature">confusing</span> person. <div class="explanation"><strong>Function:</strong> Present Participle as an adjective.</div></li>
+                    <li>I was <span class="feature">confused</span> by his explanation. <div class="explanation"><strong>Function:</strong> Past Participle as a predicate adjective.</div></li>
+                    <li>The movie was <span class="feature">boring</span>. <div class="explanation"><strong>Function:</strong> Present Participle as a predicate adjective.</div></li>
+                    <li>I was <span class="feature">bored</span> during the movie. <div class="explanation"><strong>Function:</strong> Past Participle as a predicate adjective.</div></li>
+
+                    <!-- Infinitives (to + verb as a noun, adjective, or adverb) -->
+                    <h3>Infinitives (Functioning as Nouns, Adjectives, or Adverbs)</h3>
+                    <li><span class="feature">To succeed</span> requires hard work. <div class="explanation"><strong>Function:</strong> Noun (Subject of the sentence).</div></li>
+                    <li>He wants <span class="feature">to leave</span> now. <div class="explanation"><strong>Function:</strong> Noun (Object of the verb 'wants').</div></li>
+                    <li>His goal is <span class="feature">to win</span> the competition. <div class="explanation"><strong>Function:</strong> Noun (Subject Complement).</div></li>
+                    <li>I need a book <span class="feature">to read</span>. <div class="explanation"><strong>Function:</strong> Adjective (Modifies the noun 'book').</div></li>
+                    <li>This is the best way <span class="feature">to solve the problem</span>. <div class="explanation"><strong>Function:</strong> Adjective (Modifies the noun 'way').</div></li>
+                    <li>He studied hard <span class="feature">to pass the exam</span>. <div class="explanation"><strong>Function:</strong> Adverb (Modifies the verb 'studied', answers 'Why?').</div></li>
+                    <li>She was happy <span class="feature">to help</span>. <div class="explanation"><strong>Function:</strong> Adverb (Modifies the adjective 'happy').</div></li>
+                    <li>The decision <span class="feature">to relocate</span> was difficult. <div class="explanation"><strong>Function:</strong> Adjective (Modifies 'decision').</div></li>
+                    <li>He is the man <span class="feature">to call</span> for help. <div class="explanation"><strong>Function:</strong> Adjective (Modifies 'man').</div></li>
+                    <li>I came here <span class="feature">to see</span> you. <div class="explanation"><strong>Function:</strong> Adverb (Modifies 'came', answers 'Why?').</div></li>
+                    <li><span class="feature">To err</span> is human. <div class="explanation"><strong>Function:</strong> Noun (Subject).</div></li>
+                    <li>She promised <span class="feature">to be</span> on time. <div class="explanation"><strong>Function:</strong> Noun (Object).</div></li>
+                    <li>He has the ability <span class="feature">to lead</span> the team. <div class="explanation"><strong>Function:</strong> Adjective (Modifies 'ability').</div></li>
+                    <li>The water is not safe <span class="feature">to drink</span>. <div class="explanation"><strong>Function:</strong> Adverb (Modifies 'safe').</div></li>
+                    <li>He agreed <span class="feature">to sign</span> the contract. <div class="explanation"><strong>Function:</strong> Noun (Object).</div></li>
+                    <li>That is a difficult question <span class="feature">to answer</span>. <div class="explanation"><strong>Function:</strong> Adjective (Modifies 'question').</div></li>
+                    <li>We must work together <span class="feature">to achieve</span> our goals. <div class="explanation"><strong>Function:</strong> Adverb (Modifies 'work', answers 'Why?').</div></li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const contentSections = document.querySelectorAll('.content-section');
+            const contentColumn = document.querySelector('.content-column');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+
+                    navLinks.forEach(nav => nav.classList.remove('active'));
+                    contentSections.forEach(section => section.classList.remove('active'));
+
+                    this.classList.add('active');
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        targetSection.classList.add('active');
+                        contentColumn.scrollTop = 0; // Scroll to top of content area on click
+                    }
+                });
+            });
+            // Auto-activate the first link on page load
+            document.querySelector('.nav-link').classList.add('active');
+            document.querySelector('.content-section').classList.add('active');
+        });
+    </script>
+
+</body>
+</html>

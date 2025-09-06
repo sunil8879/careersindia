@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced English: Vocabulary & Application</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            /* Blue and white gridline background */
+            background-color: #f0f8ff; 
+            background-image: 
+                repeating-linear-gradient(to right, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 30px),
+                repeating-linear-gradient(to bottom, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 30px);
+            background-size: 30px 30px;
+        }
+
+        /* Header Styling */
+        header {
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        header h1 {
+            display: inline-block;
+            background-color: #0056b3;
+            color: white;
+            padding: 20px 40px;
+            border: 3px solid white;
+            border-radius: 15px;
+            /* 3D Box Effect */
+            box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.4), inset 2px 2px 5px rgba(255, 255, 255, 0.3);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-size: 2.2em;
+            margin: 0;
+        }
+
+        /* Main Container for Two-Column Layout */
+        .container {
+            display: flex;
+            max-width: 1400px;
+            margin: 20px auto;
+            background: #ffffff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.15);
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        /* Left Navigation Column */
+        .nav-column {
+            flex: 1;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+            background-color: #f8f9fa;
+            height: 80vh;
+            overflow-y: auto;
+        }
+
+        .nav-column ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-column li a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: #0056b3;
+            border-radius: 5px;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 0.95em;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .nav-column li a:hover,
+        .nav-column li a.active {
+            background-color: #0056b3;
+            color: #fff;
+        }
+
+        /* Right Content Column */
+        .content-column {
+            flex: 3;
+            padding: 25px 35px;
+            height: 80vh; /* Set a height to enable scrolling */
+            overflow-y: auto; /* Enable vertical scrollbar */
+        }
+
+        .content-section {
+            display: none;
+        }
+        
+        .content-section.active {
+            display: block;
+        }
+        
+        h2 {
+            font-size: 1.8em;
+            color: #0056b3;
+            border-bottom: 3px solid #0056b3;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        
+        h3 {
+            font-size: 1.4em;
+            color: #333;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        
+        .rule {
+            background-color: #e7f3fe;
+            border: 1px solid #b3d7f7;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 5px;
+        }
+
+        .example-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .example-list li {
+            margin-bottom: 20px;
+            border-left: 4px solid #0056b3;
+            padding-left: 15px;
+        }
+        
+        .explanation {
+            font-style: italic;
+            color: #555;
+            margin-top: 5px;
+        }
+        
+        .feature {
+            font-weight: bold;
+            color: #0056b3;
+        }
+        
+        .strategy-list li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>ADVANCED ENGLISH: VOCABULARY & APPLICATION</h1>
+    </header>
+
+    <div class="container">
+        <nav class="nav-column">
+            <ul>
+                <li><a href="#phrasal-verbs" class="nav-link active">7. Phrasal Verbs</a></li>
+                <li><a href="#idioms" class="nav-link">8. Idioms & Phrases</a></li>
+                <li><a href="#one-word" class="nav-link">9. One-Word Substitution</a></li>
+                <li><a href="#confusing-words" class="nav-link">10. Confusing Words</a></li>
+                <li><a href="#rc-strategies" class="nav-link">11. Reading Comprehension</a></li>
+                <li><a href="#para-jumbles" class="nav-link">12. Para Jumbles</a></li>
+                <li><a href="#cloze-test" class="nav-link">13. Cloze Test</a></li>
+            </ul>
+        </nav>
+
+        <main class="content-column">
+            <section id="phrasal-verbs" class="content-section active">
+                <h2>7. Phrasal Verbs</h2>
+                <div class="rule">
+                    <strong>Concept:</strong> A phrasal verb is a combination of a verb and a preposition or adverb (or both), which together have a meaning different from the original verb.
+                </div>
+                <h3>20 Common Phrasal Verbs:</h3>
+                <ul class="example-list">
+                    <li><span class="feature">Look after:</span> to take care of someone/something.<br>
+                        <div class="explanation"><strong>Example:</strong> She needs to <strong>look after</strong> her younger brother.</div></li>
+                    <li><span class="feature">Look into:</span> to investigate or examine.<br>
+                        <div class="explanation"><strong>Example:</strong> The police will <strong>look into</strong> the matter.</div></li>
+                    <li><span class="feature">Break down:</span> to stop working (for a machine) or to lose emotional control.<br>
+                        <div class="explanation"><strong>Example:</strong> His car <strong>broke down</strong> on the highway. She <strong>broke down</strong> in tears.</div></li>
+                    <li><span class="feature">Call off:</span> to cancel an event.<br>
+                        <div class="explanation"><strong>Example:</strong> They had to <strong>call off</strong> the meeting due to the storm.</div></li>
+                    <li><span class="feature">Give up:</span> to stop trying; to surrender.<br>
+                        <div class="explanation"><strong>Example:</strong> Never <strong>give up</strong> on your dreams.</div></li>
+                    <li><span class="feature">Put off:</span> to postpone.<br>
+                        <div class="explanation"><strong>Example:</strong> He decided to <strong>put off</strong> the trip until next month.</div></li>
+                    <li><span class="feature">Turn down:</span> to reject an offer.<br>
+                        <div class="explanation"><strong>Example:</strong> She had to <strong>turn down</strong> the job offer because the salary was too low.</div></li>
+                    <li><span class="feature">Take off:</span> to leave the ground (for an airplane) or to become successful quickly.<br>
+                        <div class="explanation"><strong>Example:</strong> The plane will <strong>take off</strong> in ten minutes. Her career really <strong>took off</strong>.</div></li>
+                    <li><span class="feature">Bring up:</span> to raise a child or to mention a topic.<br>
+                        <div class="explanation"><strong>Example:</strong> She was <strong>brought up</strong> by her grandparents. Don't <strong>bring up</strong> that topic again.</div></li>
+                    <li><span class="feature">Come across:</span> to find something or meet someone by chance.<br>
+                        <div class="explanation"><strong>Example:</strong> I <strong>came across</strong> an old photograph while cleaning my room.</div></li>
+                    <li><span class="feature">Get over:</span> to recover from an illness or a disappointment.<br>
+                        <div class="explanation"><strong>Example:</strong> It took him a long time to <strong>get over</strong> the flu.</div></li>
+                    <li><span class="feature">Hold on:</span> to wait for a short time.<br>
+                        <div class="explanation"><strong>Example:</strong> Please <strong>hold on</strong> while I transfer your call.</div></li>
+                    <li><span class="feature">Run out of:</span> to have no more of something left.<br>
+                        <div class="explanation"><strong>Example:</strong> We have <strong>run out of</strong> milk; I need to buy some.</div></li>
+                    <li><span class="feature">Set up:</span> to establish or arrange something (a business, a meeting).<br>
+                        <div class="explanation"><strong>Example:</strong> They plan to <strong>set up</strong> a new company next year.</div></li>
+                    <li><span class="feature">Back up:</span> to support someone or to make a copy of a file.<br>
+                        <div class="explanation"><strong>Example:</strong> My friends will always <strong>back me up</strong>. You should <strong>back up</strong> your computer files.</div></li>
+                    <li><span class="feature">Carry on:</span> to continue doing something.<br>
+                        <div class="explanation"><strong>Example:</strong> Despite the difficulties, they decided to <strong>carry on</strong> with the project.</div></li>
+                    <li><span class="feature">Find out:</span> to discover a fact or piece of information.<br>
+                        <div class="explanation"><strong>Example:</strong> I need to <strong>find out</strong> what time the train leaves.</div></li>
+                    <li><span class="feature">Go on:</span> to happen or to continue.<br>
+                        <div class="explanation"><strong>Example:</strong> What is <strong>going on</strong> here? The show must <strong>go on</strong>.</div></li>
+                    <li><span class="feature">Make up:</span> to invent a story or to reconcile after an argument.<br>
+                        <div class="explanation"><strong>Example:</strong> He <strong>made up</strong> an excuse for being late. They finally <strong>made up</strong> after their fight.</div></li>
+                    <li><span class="feature">Work out:</span> to exercise or to find a solution to a problem.<br>
+                        <div class="explanation"><strong>Example:</strong> I try to <strong>work out</strong> at the gym three times a week. We need to <strong>work out</strong> our differences.</div></li>
+                </ul>
+            </section>
+            
+            <section id="idioms" class="content-section">
+                <h2>8. Idioms & Phrases</h2>
+                <div class="rule">
+                    <strong>Concept:</strong> An idiom is a phrase whose meaning cannot be understood from the ordinary meaning of its words. The meaning is figurative.
+                </div>
+                <h3>20 Common Idioms:</h3>
+                <ul class="example-list">
+                    <li><span class="feature">Bite the bullet:</span> to endure a difficult situation with courage.<br>
+                        <div class="explanation"><strong>Example:</strong> I had to <strong>bite the bullet</strong> and work extra hours to finish the project on time.</div></li>
+                    <li><span class="feature">A blessing in disguise:</span> a good thing that seemed bad at first.<br>
+                        <div class="explanation"><strong>Example:</strong> Losing my old job was <strong>a blessing in disguise</strong> because I found a much better one.</div></li>
+                    <li><span class="feature">Spill the beans:</span> to reveal a secret.<br>
+                        <div class="explanation"><strong>Example:</strong> We were planning a surprise party, but my little sister <strong>spilled the beans</strong>.</div></li>
+                    <li><span class="feature">Break the ice:</span> to initiate a conversation in a social setting.<br>
+                        <div class="explanation"><strong>Example:</strong> He told a funny joke to <strong>break the ice</strong> at the start of the meeting.</div></li>
+                    <li><span class="feature">Once in a blue moon:</span> something that happens very rarely.<br>
+                        <div class="explanation"><strong>Example:</strong> He lives abroad, so we see him only <strong>once in a blue moon</strong>.</div></li>
+                    <li><span class="feature">A piece of cake:</span> something that is very easy to do.<br>
+                        <div class="explanation"><strong>Example:</strong> For an expert, solving that puzzle was <strong>a piece of cake</strong>.</div></li>
+                    <li><span class="feature">Let the cat out of the bag:</span> to reveal a secret accidentally.<br>
+                        <div class="explanation"><strong>Example:</strong> I wanted to keep the gift a surprise, but my friend <strong>let the cat out of the bag</strong>.</div></li>
+                    <li><span class="feature">Hit the nail on the head:</span> to describe a situation exactly.<br>
+                        <div class="explanation"><strong>Example:</strong> You <strong>hit the nail on the head</strong> when you said he was a perfectionist.</div></li>
+                    <li><span class="feature">Cost an arm and a leg:</span> to be very expensive.<br>
+                        <div class="explanation"><strong>Example:</strong> The repairs for his imported car <strong>cost an arm and a leg</strong>.</div></li>
+                    <li><span class="feature">The ball is in your court:</span> it is your turn to make a decision or take the next step.<br>
+                        <div class="explanation"><strong>Example:</strong> I've made my offer; now <strong>the ball is in your court</strong>.</div></li>
+                    <li><span class="feature">Go the extra mile:</span> to make a special effort.<br>
+                        <div class="explanation"><strong>Example:</strong> She always <strong>goes the extra mile</strong> to help her students.</div></li>
+                    <li><span class="feature">Feel under the weather:</span> to feel ill or sick.<br>
+                        <div class="explanation"><strong>Example:</strong> I'm <strong>feeling a bit under the weather</strong> today, so I won't be coming to the office.</div></li>
+                    <li><span class="feature">Jump on the bandwagon:</span> to join a popular activity or trend.<br>
+                        <div class="explanation"><strong>Example:</strong> After the team won a few games, everyone started to <strong>jump on the bandwagon</strong>.</div></li>
+                    <li><span class="feature">A drop in the ocean:</span> a very small amount compared to what is needed.<br>
+                        <div class="explanation"><strong>Example:</strong> The money they raised was just <strong>a drop in the ocean</strong> compared to the total amount required.</div></li>
+                    <li><span class="feature">Actions speak louder than words:</span> what you do is more important than what you say.<br>
+                        <div class="explanation"><strong>Example:</strong> He keeps promising to change, but <strong>actions speak louder than words</strong>.</div></li>
+                    <li><span class="feature">To cut corners:</span> to do something poorly to save time or money.<br>
+                        <div class="explanation"><strong>Example:</strong> The company went out of business because they were always <strong>cutting corners</strong> on quality.</div></li>
+                    <li><span class="feature">Add fuel to the fire:</span> to make a bad situation worse.<br>
+                        <div class="explanation"><strong>Example:</strong> His angry comments only <strong>added fuel to the fire</strong>.</div></li>
+                    <li><span class="feature">Every cloud has a silver lining:</span> there is something good in every bad situation.<br>
+                        <div class="explanation"><strong>Example:</strong> I was disappointed to lose the match, but <strong>every cloud has a silver lining</strong> as I learned a lot from it.</div></li>
+                    <li><span class="feature">Hit the books:</span> to study hard.<br>
+                        <div class="explanation"><strong>Example:</strong> I have a big exam tomorrow, so I need to <strong>hit the books</strong> tonight.</div></li>
+                    <li><span class="feature">On the same page:</span> to be in agreement or have the same understanding.<br>
+                        <div class="explanation"><strong>Example:</strong> Before we proceed, let's make sure everyone is <strong>on the same page</strong>.</div></li>
+                </ul>
+            </section>
+            
+            <section id="one-word" class="content-section">
+                <h2>9. One-Word Substitution</h2>
+                <div class="rule">
+                    <strong>Concept:</strong> Replacing a phrase or a full sentence with a single word without changing its meaning.
+                </div>
+                <h3>20 Common Examples:</h3>
+                <ul class="example-list">
+                    <li>A person who loves books: <span class="feature">Bibliophile</span></li>
+                    <li>Something that cannot be avoided: <span class="feature">Inevitable</span></li>
+                    <li>A person who can speak many languages: <span class="feature">Polyglot</span></li>
+                    <li>A place where animals are kept in their natural environment: <span class="feature">Zoo</span> or <span class="feature">Sanctuary</span></li>
+                    <li>A government by the people: <span class="feature">Democracy</span></li>
+                    <li>One who does not believe in the existence of God: <span class="feature">Atheist</span></li>
+                    <li>A life history of a person written by himself: <span class="feature">Autobiography</span></li>
+                    <li>A life history of a person written by another: <span class="feature">Biography</span></li>
+                    <li>Something that is capable of being heard: <span class="feature">Audible</span></li>
+                    <li>A person who eats human flesh: <span class="feature">Cannibal</span></li>
+                    <li>A remedy for all diseases: <span class="feature">Panacea</span></li>
+                    <li>One who is present everywhere: <span class="feature">Omnipresent</span></li>
+                    <li>One who knows everything: <span class="feature">Omniscient</span></li>
+                    <li>A person who is new to a profession: <span class="feature">Novice</span> or <span class="feature">Tyro</span></li>
+                    <li>Something that is no longer in use: <span class="feature">Obsolete</span></li>
+                    <li>A person who looks at the bright side of things: <span class="feature">Optimist</span></li>
+                    <li>A person who looks at the dark side of things: <span class="feature">Pessimist</span></li>
+                    <li>A list of books available in a library: <span class="feature">Catalogue</span></li>
+                    <li>That which cannot be read: <span class="feature">Illegible</span></li>
+                    <li>A person who can do anything for money: <span class="feature">Mercenary</span></li>
+                </ul>
+            </section>
+            
+             <section id="confusing-words" class="content-section">
+                <h2>10. Confusing Words (Paronyms & Homophones)</h2>
+                <div class="rule">
+                    <strong>Concept:</strong> These are pairs of words that look or sound similar but have different meanings, making them common traps in exams.
+                </div>
+                <h3>20 Common Pairs:</h3>
+                <ul class="example-list">
+                    <li><span class="feature">Affect / Effect:</span> <strong>Affect (v)</strong> means to influence. <strong>Effect (n)</strong> means a result.<br>
+                        <div class="explanation"><strong>Example:</strong> The weather will <strong>affect</strong> our plans. The <strong>effect</strong> of the medicine was immediate.</div></li>
+                    <li><span class="feature">Principle / Principal:</span> <strong>Principle (n)</strong> means a rule or belief. <strong>Principal (n/adj)</strong> means the head of a school or the main amount of money.<br>
+                        <div class="explanation"><strong>Example:</strong> He is a man of strong <strong>principles</strong>. The <strong>principal</strong> of the school addressed the students.</div></li>
+                    <li><span class="feature">Complement / Compliment:</span> <strong>Complement (v/n)</strong> means to complete or enhance something. <strong>Compliment (v/n)</strong> means to praise.<br>
+                        <div class="explanation"><strong>Example:</strong> The sauce <strong>complements</strong> the dish perfectly. She gave me a nice <strong>compliment</strong>.</div></li>
+                    <li><span class="feature">Accept / Except:</span> <strong>Accept (v)</strong> means to receive. <strong>Except (prep)</strong> means 'not including'.<br>
+                        <div class="explanation"><strong>Example:</strong> I <strong>accept</strong> your apology. Everyone is here <strong>except</strong> John.</div></li>
+                    <li><span class="feature">Assure / Ensure / Insure:</span> <strong>Assure (v)</strong> is to promise someone. <strong>Ensure (v)</strong> is to make sure something happens. <strong>Insure (v)</strong> is to protect financially.<br>
+                        <div class="explanation"><strong>Example:</strong> I <strong>assure</strong> you, I will be on time. Please <strong>ensure</strong> all the doors are locked. You should <strong>insure</strong> your car against theft.</div></li>
+                    <li><span class="feature">Elicit / Illicit:</span> <strong>Elicit (v)</strong> means to draw out a response. <strong>Illicit (adj)</strong> means illegal.<br>
+                        <div class="explanation"><strong>Example:</strong> The lawyer tried to <strong>elicit</strong> a confession. He was arrested for <strong>illicit</strong> activities.</div></li>
+                    <li><span class="feature">Adverse / Averse:</span> <strong>Adverse (adj)</strong> means harmful or unfavorable. <strong>Averse (adj)</strong> means having a strong dislike.<br>
+                        <div class="explanation"><strong>Example:</strong> The drug has some <strong>adverse</strong> side effects. He is <strong>averse</strong> to taking risks.</div></li>
+                    <li><span class="feature">Discrete / Discreet:</span> <strong>Discrete (adj)</strong> means separate and distinct. <strong>Discreet (adj)</strong> means careful and secretive.<br>
+                        <div class="explanation"><strong>Example:</strong> The project was broken down into several <strong>discrete</strong> tasks. Please be <strong>discreet</strong> about this information.</div></li>
+                    <li><span class="feature">Than / Then:</span> <strong>Than (conj)</strong> is used for comparison. <strong>Then (adv)</strong> refers to a point in time.<br>
+                        <div class="explanation"><strong>Example:</strong> He is taller <strong>than</strong> his brother. First I will finish my work, and <strong>then</strong> I will go out.</div></li>
+                    <li><span class="feature">Allusion / Illusion:</span> <strong>Allusion (n)</strong> is an indirect reference. <strong>Illusion (n)</strong> is a false perception.<br>
+                        <div class="explanation"><strong>Example:</strong> The novel contains an <strong>allusion</strong> to Shakespeare. The oasis in the desert was just an <strong>illusion</strong>.</div></li>
+                    <li><span class="feature">Advice / Advise:</span> <strong>Advice (n)</strong> is a recommendation. <strong>Advise (v)</strong> is the act of giving a recommendation.<br>
+                        <div class="explanation"><strong>Example:</strong> He gave me some good <strong>advice</strong>. I would <strong>advise</strong> you to study harder.</div></li>
+                     <li><span class="feature">Stationary / Stationery:</span> <strong>Stationary (adj)</strong> means not moving. <strong>Stationery (n)</strong> refers to writing materials like pens and paper.<br>
+                        <div class="explanation"><strong>Example:</strong> The car was <strong>stationary</strong> at the red light. I need to buy some <strong>stationery</strong> for the office.</div></li>
+                     <li><span class="feature">Its / It's:</span> <strong>Its (possessive)</strong> shows ownership. <strong>It's</strong> is a contraction of 'it is' or 'it has'.<br>
+                        <div class="explanation"><strong>Example:</strong> The dog wagged <strong>its</strong> tail. <strong>It's</strong> a beautiful day.</div></li>
+                     <li><span class="feature">There / Their / They're:</span> <strong>There (adv)</strong> indicates a place. <strong>Their (possessive)</strong> shows ownership. <strong>They're</strong> is a contraction of 'they are'.<br>
+                        <div class="explanation"><strong>Example:</strong> Put the book over <strong>there</strong>. The students submitted <strong>their</strong> assignments. <strong>They're</strong> coming to the party.</div></li>
+                     <li><span class="feature">Lose / Loose:</span> <strong>Lose (v)</strong> means to misplace or not win. <strong>Loose (adj)</strong> means not tight.<br>
+                        <div class="explanation"><strong>Example:</strong> Don't <strong>lose</strong> your keys. This shirt is too <strong>loose</strong> for me.</div></li>
+                     <li><span class="feature">Weather / Whether:</span> <strong>Weather (n)</strong> refers to atmospheric conditions. <strong>Whether (conj)</strong> introduces a choice.<br>
+                        <div class="explanation"><strong>Example:</strong> The <strong>weather</strong> is pleasant today. I don't know <strong>whether</strong> to go or stay.</div></li>
+                    <li><span class="feature">Desert / Dessert:</span> <strong>Desert (n/v)</strong> is a dry land or to abandon. <strong>Dessert (n)</strong> is a sweet dish.<br>
+                        <div class="explanation"><strong>Example:</strong> The Sahara is a large <strong>desert</strong>. He ate ice cream for <strong>dessert</strong>.</div></li>
+                    <li><span class="feature">Precede / Proceed:</span> <strong>Precede (v)</strong> means to come before. <strong>Proceed (v)</strong> means to go forward.<br>
+                        <div class="explanation"><strong>Example:</strong> The introduction will <strong>precede</strong> the main chapter. Please <strong>proceed</strong> with your presentation.</div></li>
+                     <li><span class="feature">Cite / Site / Sight:</span> <strong>Cite (v)</strong> is to quote. <strong>Site (n)</strong> is a location. <strong>Sight (n)</strong> is the ability to see.<br>
+                        <div class="explanation"><strong>Example:</strong> You must <strong>cite</strong> your sources. This is the <strong>site</strong> for the new building. His <strong>sight</strong> is getting weaker.</div></li>
+                     <li><span class="feature">Eminent / Imminent:</span> <strong>Eminent (adj)</strong> means famous and respected. <strong>Imminent (adj)</strong> means about to happen.<br>
+                        <div class="explanation"><strong>Example:</strong> He is an <strong>eminent</strong> scientist. The storm is <strong>imminent</strong>.</div></li>
+                </ul>
+            </section>
+            
+            <section id="rc-strategies" class="content-section">
+                <h2>11. Reading Comprehension (RC) Strategies</h2>
+                <div class="rule">
+                    <strong>Concept:</strong> RC tests your ability to read, understand, and analyze a given passage. Strategy is as important as reading speed.
+                </div>
+                <h3>Key Strategies & Solved Example</h3>
+                <ul class="strategy-list">
+                    <li><strong>1. Skim the Passage First:</strong> Quickly read the first and last paragraphs, and the first sentence of other paragraphs to get the main idea and tone.</li>
+                    <li><strong>2. Read the Questions Next:</strong> Read the questions (but not the options) before reading the passage in detail. This helps you know what to look for.</li>
+                    <li><strong>3. Active Reading:</strong> Read the passage carefully now, underlining keywords and making mental notes related to the questions.</li>
+                    <li><strong>4. Identify Question Types:</strong>
+                        <ul>
+                            <li><strong>Main Idea/Title:</strong> Asks for the central theme. The answer is usually in the first or last paragraph.</li>
+                            <li><strong>Direct Questions:</strong> The answer is explicitly stated in the passage. Find the keyword in the passage to locate it.</li>
+                            <li><strong>Inference Questions:</strong> The answer is not directly stated but is strongly implied. Look for clues and draw a logical conclusion.</li>
+                            <li><strong>Vocabulary Questions:</strong> Asks for the meaning of a word in the context of the passage.</li>
+                        </ul>
+                    </li>
+                    <li><strong>5. Elimination Technique:</strong> For multiple-choice questions, eliminate the options that are clearly wrong, too extreme, or not mentioned in the passage.</li>
+                </ul>
+                <div class="explanation">
+                    <strong>Solved Example:</strong><br>
+                    <em>Passage:</em> The greatest challenge of the 21st century is climate change. The burning of fossil fuels releases greenhouse gases, which trap heat in the atmosphere, leading to a rise in global temperatures. This phenomenon, known as global warming, has far-reaching effects, including rising sea levels and more extreme weather events. While renewable energy sources like solar and wind are promising alternatives, their widespread adoption faces significant economic and political hurdles.
+                    <br><br>
+                    <strong>Q: The primary purpose of the passage is to...</strong><br>
+                    (A) advocate for renewable energy.<br>
+                    (B) describe the effects of global warming.<br>
+                    (C) outline the main aspects of climate change.<br>
+                    (D) criticize the use of fossil fuels.
+                    <br><br>
+                    <strong>Explanation:</strong> Option (C) is the best answer. The passage introduces climate change as the main challenge (sentence 1), explains its cause (fossil fuels), its mechanism (global warming), its effects (rising sea levels), and the challenges to its solution (renewable energy hurdles). It covers all these aspects, making it a general outline. The other options are too specific or not the main focus.
+                </div>
+            </section>
+            
+            <section id="para-jumbles" class="content-section">
+                <h2>12. Para Jumbles (Sentence Rearrangement)</h2>
+                <div class="rule">
+                    <strong>Concept:</strong> You are given a set of jumbled sentences that, when arranged correctly, form a coherent paragraph.
+                </div>
+                <h3>Key Strategies & Solved Example</h3>
+                <ul class="strategy-list">
+                    <li><strong>1. Find the Opening Sentence:</strong> Look for a sentence that introduces a person, concept, or topic. It is usually a general statement and will not start with pronouns like 'he', 'it', 'they' or conjunctions like 'but', 'so'.</li>
+                    <li><strong>2. Identify Mandatory Pairs:</strong> Look for sentences that have a clear connection.
+                        <ul>
+                            <li><strong>Pronoun-Antecedent:</strong> A sentence with a pronoun (e.g., 'he', 'its') must follow the sentence that introduces the noun it refers to.</li>
+                            <li><strong>Cause and Effect:</strong> A sentence describing a cause will come before the sentence describing its effect.</li>
+                            <li><strong>Chronological Order:</strong> Arrange events in the order they happened.</li>
+                        </ul>
+                    </li>
+                    <li><strong>3. Find the Concluding Sentence:</strong> Look for a sentence that summarizes the paragraph or provides a final thought. It often starts with words like 'Thus', 'Therefore', 'Hence'.</li>
+                    <li><strong>4. Use the Options (if available):</strong> Check the given options to see which sequence makes the most logical sense.</li>
+                </ul>
+                <div class="explanation">
+                    <strong>Solved Example:</strong><br>
+                    A. He was a great leader who was loved by his people.<br>
+                    B. This kingdom was located in the fertile plains of the north.<br>
+                    C. Ashoka was one of the greatest emperors of India.<br>
+                    D. There was once a vast kingdom known as Magadha.
+                    <br><br>
+                    <strong>Correct Sequence: DBCA</strong><br><br>
+                    <strong>Explanation:</strong><br>
+                    1. <strong>D</strong> is the best opening sentence as it introduces the broad topic of a kingdom, 'Magadha'.<br>
+                    2. <strong>B</strong> logically follows D because 'This kingdom' directly refers to 'Magadha' mentioned in D. So, DB is a mandatory pair.<br>
+                    3. <strong>C</strong> introduces the specific character, 'Ashoka'. While it's a good introductory sentence, it's more specific than D. It fits well after the general setting has been established.<br>
+                    4. <strong>A</strong> must follow C because the pronoun 'He' clearly refers to 'Ashoka' introduced in C. So, CA is a mandatory pair.
+                    5. Combining the pairs gives us the logical flow: General setting (DB) -> Specific character (C) -> Detail about the character (A). The correct sequence is DBCA.
+                </div>
+            </section>
+            
+            <section id="cloze-test" class="content-section">
+                <h2>13. Cloze Test</h2>
+                <div class="rule">
+                    <strong>Concept:</strong> A Cloze Test is a passage where some words have been removed. You need to fill in the blanks with the most appropriate words from the given options.
+                </div>
+                 <h3>Key Strategies & Solved Example</h3>
+                <ul class="strategy-list">
+                    <li><strong>1. Read the Entire Passage First:</strong> Get an overall idea of the passage's topic, tone (positive, negative, neutral), and tense (past, present, future).</li>
+                    <li><strong>2. Focus on Context:</strong> Read the sentence before and after the blank to understand the context. The correct word must fit logically and grammatically.</li>
+                    <li><strong>3. Use Grammar Rules:</strong>
+                        <ul>
+                            <li>Check for **Subject-Verb Agreement**.</li>
+                            <li>Look for the correct **preposition** or **conjunction** that fits the context.</li>
+                            <li>Ensure the **tense** of the verb is consistent with the rest of the passage.</li>
+                        </ul>
+                    </li>
+                    <li><strong>4. Use Vocabulary & Collocation:</strong> Some blanks test vocabulary. Choose the word with the most appropriate meaning. Look for collocations (words that are often used together, like 'heavy rain').</li>
+                    <li><strong>5. Eliminate Wrong Options:</strong> If you are unsure, eliminate the options that are grammatically incorrect or do not fit the context.</li>
+                </ul>
+                <div class="explanation">
+                    <strong>Solved Example:</strong><br>
+                    The rise of artificial intelligence is one of the most significant developments of our time. It has the __(1)__ to revolutionize industries from healthcare to transportation. However, many experts are __(2)__ about its potential risks.
+                    <br><br>
+                    <strong>Q1.</strong> (A) potent (B) ability (C) potential (D) power<br>
+                    <strong>Q2.</strong> (A) concerned (B) happy (C) careless (D) excited
+                    <br><br>
+                    <strong>Explanation:</strong><br>
+                    1. For blank (1), the sentence structure "has the ___ to" requires a noun. 'Potential' means the capacity to develop into something in the future, which fits the context of revolutionizing industries perfectly. So, <strong>(C) potential</strong> is the correct answer. 'Potent' is an adjective, 'ability' is usually followed by 'to do', and 'power' is less specific here.
+                    <br>
+                    2. For blank (2), the word 'However' indicates a contrast. The first sentence is positive ('revolutionize'), so the second sentence must express a contrasting, negative idea. The word 'risks' confirms this. 'Concerned' means worried, which fits perfectly. So, <strong>(A) concerned</strong> is the correct answer.
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const contentSections = document.querySelectorAll('.content-section');
+            const contentColumn = document.querySelector('.content-column');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+
+                    navLinks.forEach(nav => nav.classList.remove('active'));
+                    contentSections.forEach(section => section.classList.remove('active'));
+
+                    this.classList.add('active');
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        targetSection.classList.add('active');
+                        contentColumn.scrollTop = 0; // Scroll to top of content area on click
+                    }
+                });
+            });
+            // Auto-activate the first link on page load
+            document.querySelector('.nav-link').classList.add('active');
+            document.querySelector('.content-section').classList.add('active');
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Consultant Tier</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: white; /* White page background */
+            display: flex;
+            min-height: 100vh;
+        }
+        .tier-sidebar {
+            width: 200px;
+            background: linear-gradient(to bottom, #007bff, #0056b3); /* Blue gradient */
+            padding-top: 20px;
+            flex-shrink: 0;
+        }
+        .tier-sidebar .tier-tab {
+            display: block;
+            padding: 15px 20px;
+            color: white; /* White text */
+            text-decoration: none;
+            font-weight: bold;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+        }
+        .tier-sidebar .tier-tab:hover,
+        .tier-sidebar .tier-tab.active {
+            background-color: #0056b3; /* Darker blue for active/hover */
+        }
+        .tier-sidebar .tier-tab:last-child {
+            border-bottom: none;
+        }
+        .content-area {
+            flex-grow: 1;
+            padding: 20px;
+        }
+        .city-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .city-list li a {
+            color: green; /* Green font for city links */
+            text-decoration: none;
+            padding: 8px 0;
+            display: block;
+            font-size: 1.1em;
+        }
+        .city-list li a:hover {
+            text-decoration: underline;
+        }
+        h2 {
+            color: #333;
+        }
+        .instructions {
+            color: #555;
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="tier-sidebar">
+        <a class="tier-tab" data-tier="tier1">Tier 1 Cities</a>
+        <a class="tier-tab" data-tier="tier2">Tier 2 Cities</a>
+        <a class="tier-tab" data-tier="tier3">Tier 3 Cities</a>
+    </nav>
+    <main class="content-area">
+        <h2 id="content-title">Study Abroad Consultants</h2>
+        <p class="instructions" id="instructions-text">Please select a Tier from the left to view the list of cities.</p>
+        <ul class="city-list" id="city-list-display">
+            <!-- City links will be populated here -->
+        </ul>
+    </main>
+
+    <script>
+        // Data parsed from study.txt (City Lists)
+        const CITIES_BY_TIER = {
+            tier1: ["Mumbai", "Delhi", "Bengaluru", "Chennai", "Kolkata", "Hyderabad", "Ahmedabad", "Pune"].sort(),
+            tier2: [
+                "Agra", "Ajmer", "Aligarh", "Amravati", "Amritsar", "Asansol", "Aurangabad", "Bareilly",
+                "Belgaum", "Bhavnagar", "Bhiwandi", "Bhopal", "Bhubaneswar", "Chandigarh", "Coimbatore",
+                "Dehradun", "Dhanbad", "Durg-Bhilai", "Faridabad", "Ghaziabad", "Guntur", "Guwahati",
+                "Gwalior", "Hubli-Dharwad", "Indore", "Jabalpur", "Jalandhar", "Jamnagar", "Jamshedpur",
+                "Jhansi", "Jodhpur", "Kanpur", "Karnal", "Kochi", "Kota", "Kozhikode", "Lucknow", "Ludhiana",
+                "Madurai", "Mangalore", "Meerut", "Mysuru", "Nagpur", "Nashik", "Nellore", "Noida", "Patna",
+                "Prayagraj", "Raipur", "Rajkot", "Ranchi", "Rourkela", "Salem", "Shimla", "Srinagar",
+                "Surat", "Thane", "Thiruvananthapuram", "Tiruchirappalli", "Tirunelveli", "Udaipur",
+                "Vadodara", "Varanasi", "Vijayawada", "Visakhapatnam", "Warangal", "Bhagalpur",
+                "Bilaspur", "Bokaro Steel City", "Cuttack", "Durgapur", "Erode", "Gaya", "Gorakhpur",
+                "Haldia", "Hisar", "Howrah", "Kakinada", "Kalyan-Dombivli", "Karimnagar", "Kolhapur",
+                "Kollam", "Kottayam", "Malappuram", "Moradabad", "Muzaffarpur", "Nanded", "Panipat",
+                "Puducherry", "Saharanpur", "Sangli-Miraj & Kupwad", "Satara", "Siliguri", "Solapur",
+                "Thrissur", "Tirupati", "Tumakuru"
+            ].sort(),
+            tier3: [
+                "Adilabad", "Alappuzha", "Ambala", "Anantapur", "Arrah", "Bahraich", "Balasore", "Bardhaman",
+                "Bastar", "Bathinda", "Begusarai", "Belur", /* "Bhagalpur", - already in T2 list in file */
+                "Bhiwani", /* "Bokaro Steel City", - already in T2 list in file */ "Chandrapur", "Chhapra", "Darbhanga", "Dindigul",
+                /* "Erode", - already in T2 list in file */ "Etawah", "Faizabad", "Firozabad", "Gandhinagar", /* "Gaya", - already in T2 */
+                /* "Haldia", - already in T2 */ "Hajipur", "Hamirpur", "Hazaribagh", /* "Hisar", - already in T2 */ "Hoshiarpur",
+                "Jalgaon", "Jalna", "Jhunjhunu", "Junagadh", /* "Kakinada", - already in T2 */ "Kalaburagi",
+                "Kanchipuram", /* "Karimnagar", - already in T2 */ "Karur", "Katihar", "Kharagpur", /* "Kollam", - already in T2 */
+                /* "Kottayam", - already in T2 */ "Krishnanagar", "Kurnool", "Latur", /* "Malappuram", - already in T2 */ "Mandya",
+                /* "Muzaffarpur" - already in T2 */
+                // Adding a few more that might be distinct if not caught by above duplicates
+                // "Bidar", "Bhuj", "Eluru", "Raichur", "Palakkad", "Aizawl", "Imphal", "Itanagar",
+                // "Dibrugarh", "Silchar", "Tezpur" // These were in the older consultants_directory.html but not explicitly in study.txt tier lists.
+                // For now, strictly from study.txt's explicit tier lists.
+            ].sort()
+        };
+        // Remove duplicates that might appear in Tier 3 if they were also listed in Tier 2 in the file.
+        CITIES_BY_TIER.tier3 = CITIES_BY_TIER.tier3.filter(city => !CITIES_BY_TIER.tier2.includes(city));
+
+
+        const tierTabs = document.querySelectorAll('.tier-sidebar .tier-tab');
+        const cityListDisplay = document.getElementById('city-list-display');
+        const contentTitle = document.getElementById('content-title');
+        const instructionsText = document.getElementById('instructions-text');
+
+        tierTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                tierTabs.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+
+                const selectedTier = this.dataset.tier;
+                const cities = CITIES_BY_TIER[selectedTier] || [];
+                
+                contentTitle.textContent = `${this.textContent}`;
+                instructionsText.textContent = `Select a city to view consultants:`;
+                cityListDisplay.innerHTML = ''; // Clear previous list
+
+                if (cities.length > 0) {
+                    cities.forEach(city => {
+                        const listItem = document.createElement('li');
+                        const link = document.createElement('a');
+                        link.href = '#'; // Prevent page jump
+                        link.textContent = city;
+                        link.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            const detailUrl = `consultants_city_details.html?tier=${selectedTier}&city=${encodeURIComponent(city)}`;
+                            window.open(detailUrl, '_blank');
+                        });
+                        listItem.appendChild(link);
+                        cityListDisplay.appendChild(listItem);
+                    });
+                } else {
+                    cityListDisplay.innerHTML = '<li>No cities listed for this tier.</li>';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

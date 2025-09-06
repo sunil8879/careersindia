@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Grammar: Determiners & Quantifiers</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            /* Blue and white gridline background */
+            background-color: #f0f8ff; 
+            background-image: 
+                repeating-linear-gradient(to right, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 30px),
+                repeating-linear-gradient(to bottom, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 30px);
+            background-size: 30px 30px;
+        }
+
+        /* Header Styling */
+        header {
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        header h1 {
+            display: inline-block;
+            background-color: #0056b3;
+            color: white;
+            padding: 20px 40px;
+            border: 3px solid white;
+            border-radius: 15px;
+            /* 3D Box Effect */
+            box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.4), inset 2px 2px 5px rgba(255, 255, 255, 0.3);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-size: 2.2em;
+            margin: 0;
+        }
+
+        /* Main Container for Two-Column Layout */
+        .container {
+            display: flex;
+            max-width: 1400px;
+            margin: 20px auto;
+            background: #ffffff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.15);
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 80vh;
+        }
+
+        /* Left Navigation Column */
+        .nav-column {
+            flex: 1;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+            background-color: #f8f9fa;
+            height: 80vh;
+            overflow-y: auto;
+        }
+
+        .nav-column ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-column li a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: #0056b3;
+            border-radius: 5px;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 0.95em;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .nav-column li a:hover,
+        .nav-column li a.active {
+            background-color: #0056b3;
+            color: #fff;
+        }
+
+        /* Right Content Column */
+        .content-column {
+            flex: 3;
+            padding: 25px 35px;
+            height: 100%;
+            overflow-y: auto;
+        }
+
+        .content-section {
+            display: none;
+        }
+        
+        .content-section.active {
+            display: block;
+        }
+        
+        h2 {
+            font-size: 1.8em;
+            color: #0056b3;
+            border-bottom: 3px solid #0056b3;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        
+        h3 {
+            font-size: 1.4em;
+            color: #333;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        
+        .rule {
+            background-color: #e7f3fe;
+            border: 1px solid #b3d7f7;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 5px;
+        }
+
+        .example-list {
+            list-style-type: decimal;
+            padding-left: 25px;
+        }
+
+        .example-list li {
+            margin-bottom: 20px;
+            padding-left: 10px;
+        }
+        
+        .explanation {
+            font-style: italic;
+            color: #555;
+            margin-top: 5px;
+        }
+        
+        .feature {
+            font-weight: bold;
+            color: #0056b3;
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>ADVANCED GRAMMAR: DETERMINERS & QUANTIFIERS</h1>
+    </header>
+
+    <div class="container">
+        <nav class="nav-column">
+            <ul>
+                <li><a href="#definition" class="nav-link active">Definition & Concept</a></li>
+                <li><a href="#rules" class="nav-link">Rules & Syntax</a></li>
+                <li><a href="#identify" class="nav-link">How to Identify</a></li>
+                <li><a href="#examples" class="nav-link">100 Examples</a></li>
+            </ul>
+        </nav>
+
+        <main class="content-column">
+            <section id="definition" class="content-section active">
+                <h2>Definition & Concept</h2>
+                <div class="rule">
+                    <strong>Concept:</strong> Determiners are words that come at the beginning of a noun phrase. They introduce the noun and specify its reference. Think of them as "pointers" or "labels" for nouns. Quantifiers are a specific type of determiner that indicates the quantity or amount of the noun.
+                </div>
+                <h3>Key Functions</h3>
+                <ul>
+                    <li><strong>Specificity:</strong> Do we mean a specific noun (`the book`) or a general one (`a book`)?</li>
+                    <li><strong>Quantity:</strong> How much (`much water`) or how many (`many books`)?</li>
+                    <li><strong>Possession:</strong> Whose is it (`my book`)?</li>
+                    <li><strong>Proximity:</strong> Is it near or far (`this book` vs. `that book`)?</li>
+                </ul>
+            </section>
+            
+            <section id="rules" class="content-section">
+                <h2>Rules & Syntax</h2>
+                <div class="rule">
+                    <h3>Core Rule: Countable vs. Uncountable Nouns</h3>
+                    <p>The most important rule for quantifiers is choosing the correct one based on whether the noun is countable (can be counted, e.g., `one book`, `two books`) or uncountable (cannot be counted, e.g., `water`, `information`).</p>
+                    <ul>
+                        <li><strong>For Countable Nouns:</strong> `many`, `few`, `a few`, `several`, `both`.</li>
+                        <li><strong>For Uncountable Nouns:</strong> `much`, `little`, `a little`.</li>
+                        <li><strong>For Both:</strong> `all`, `some`, `any`, `no`, `a lot of`, `enough`.</li>
+                    </ul>
+                </div>
+                 <div class="rule">
+                    <h3>Syntax</h3>
+                    <p>Determiners almost always appear **before** the noun and any adjectives describing it.</p>
+                    <p><strong>Structure:</strong> `Determiner + [Adjective(s)] + Noun`</p>
+                    <p><em>Example: <span class="feature">The</span> <span class="feature">tall</span> <span class="feature">boy</span>. / <span class="feature">My</span> <span class="feature">new</span> <span class="feature">car</span>.</em></p>
+                </div>
+            </section>
+            
+            <section id="identify" class="content-section">
+                <h2>How to Identify Determiners & Quantifiers</h2>
+                <div class="rule">
+                    Identifying them involves looking for specific words and understanding their function in relation to the noun that follows.
+                </div>
+                <h3>A 3-Step Guide to Identification</h3>
+                <ol>
+                    <li><strong>1. Find the Noun:</strong> First, locate the main person, place, thing, or idea in the phrase.</li>
+                    <li><strong>2. Look at the Word(s) Before the Noun:</strong> Check for specific pointer/quantity words right before the noun (or before its adjectives).</li>
+                    <li><strong>3. Ask a Function Question:</strong>
+                        <ul>
+                            <li>Does it answer **"Which one?"** (e.g., `the`, `this`, `my`) → It's a specifying determiner.</li>
+                            <li>Does it answer **"How many?"** (e.g., `many`, `five`, `a few`) → It's a quantifier for a countable noun.</li>
+                            <li>Does it answer **"How much?"** (e.g., `much`, `a little`) → It's a quantifier for an uncountable noun.</li>
+                        </ul>
+                    </li>
+                </ol>
+            </section>
+            
+            <section id="examples" class="content-section">
+                <h2>100 Examples of Determiners & Quantifiers</h2>
+                <ol class="example-list">
+                    <!-- Articles (1-10) -->
+                    <h3>Articles</h3>
+                    <li>I need <span class="feature">a</span> new pen.</li>
+                    <li>She is <span class="feature">an</span> honest person.</li>
+                    <li><span class="feature">The</span> sun is shining brightly.</li>
+                    <li>Can you pass me <span class="feature">the</span> book on the table?</li>
+                    <li>He is <span class="feature">a</span> university student.</li>
+                    <li><span class="feature">An</span> apple a day keeps the doctor away.</li>
+                    <li>He is <span class="feature">the</span> tallest boy in the class.</li>
+                    <li>She saw <span class="feature">a</span> cat in the garden.</li>
+                    <li>It was <span class="feature">an</span> honor to meet you.</li>
+                    <li><span class="feature">The</span> Himalayas are a mountain range.</li>
+
+                    <!-- Demonstratives (11-20) -->
+                    <h3>Demonstratives</h3>
+                    <li><span class="feature">This</span> car is mine.</li>
+                    <li><span class="feature">That</span> house across the street is for sale.</li>
+                    <li><span class="feature">These</span> shoes are very comfortable.</li>
+                    <li><span class="feature">Those</span> mountains look beautiful from here.</li>
+                    <li>I prefer <span class="feature">this</span> book to <span class="feature">that</span> one.</li>
+                    <li>Can you see <span class="feature">that</span> bird in the tree?</li>
+                    <li>Are <span class="feature">these</span> keys yours?</li>
+                    <li>He hasn't been the same since <span class="feature">that</span> accident.</li>
+                    <li><span class="feature">These</span> are the best days of our lives.</li>
+                    <li>Please take <span class="feature">those</span> papers off my desk.</li>
+
+                    <!-- Possessives (21-30) -->
+                    <h3>Possessives</h3>
+                    <li>Where is <span class="feature">your</span> homework?</li>
+                    <li><span class="feature">My</span> car is parked outside.</li>
+                    <li>The dog wagged <span class="feature">its</span> tail.</li>
+                    <li>The students submitted <span class="feature">their</span> assignments.</li>
+                    <li>This is <span class="feature">her</span> favorite color.</li>
+                    <li>I met <span class="feature">his</span> brother yesterday.</li>
+                    <li><span class="feature">Our</span> team won the match.</li>
+                    <li>The company announced <span class="feature">its</span> profits.</li>
+                    <li>Is this John's book or <span class="feature">your</span> book?</li>
+                    <li>We must protect <span class="feature">our</span> environment.</li>
+
+                    <!-- Quantifiers: Many vs. Much (31-40) -->
+                    <h3>Quantifiers: Many vs. Much</h3>
+                    <li>There are <span class="feature">many</span> people at the concert. <div class="explanation">(Countable noun: people)</div></li>
+                    <li>I don't have <span class="feature">much</span> time left. <div class="explanation">(Uncountable noun: time)</div></li>
+                    <li>How <span class="feature">many</span> pages have you read? <div class="explanation">(Countable noun: pages)</div></li>
+                    <li>How <span class="feature">much</span> sugar do you need? <div class="explanation">(Uncountable noun: sugar)</div></li>
+                    <li>She has <span class="feature">many</span> friends.</li>
+                    <li>He doesn't show <span class="feature">much</span> interest.</li>
+                    <li><span class="feature">Many</span> of the candidates were qualified.</li>
+                    <li>There isn't <span class="feature">much</span> traffic today.</li>
+                    <li>He has visited <span class="feature">many</span> countries.</li>
+                    <li>Too <span class="feature">much</span> noise can damage your hearing.</li>
+                    
+                    <!-- Quantifiers: Some vs. Any (41-50) -->
+                    <h3>Quantifiers: Some vs. Any</h3>
+                    <li>I need to buy <span class="feature">some</span> groceries. <div class="explanation">(Positive statement)</div></li>
+                    <li>I don't have <span class="feature">any</span> questions. <div class="explanation">(Negative statement)</div></li>
+                    <li>Do you have <span class="feature">any</span> suggestions? <div class="explanation">(Question)</div></li>
+                    <li>Would you like <span class="feature">some</span> coffee? <div class="explanation">(Offer)</div></li>
+                    <li>There is <span class="feature">some</span> milk in the fridge.</li>
+                    <li>She doesn't want <span class="feature">any</span> help.</li>
+                    <li>Is there <span class="feature">any</span> news?</li>
+                    <li>Can I have <span class="feature">some</span> water, please? <div class="explanation">(Request)</div></li>
+                    <li><span class="feature">Some</span> people disagree with the new policy.</li>
+                    <li>He left without leaving <span class="feature">any</span> message.</li>
+
+                    <!-- Quantifiers: Few, A few, The few (51-60) -->
+                    <h3>Quantifiers: Few / A few / The few</h3>
+                    <li>He is a man of <span class="feature">few</span> words. <div class="explanation">(Negative: almost none)</div></li>
+                    <li>I have <span class="feature">a few</span> friends who can help. <div class="explanation">(Positive: a small number)</div></li>
+                    <li><span class="feature">The few</span> friends he has are very loyal. <div class="explanation">(Specific small group)</div></li>
+                    <li><span class="feature">Few</span> people understand the true meaning.</li>
+                    <li>She will be back in <span class="feature">a few</span> minutes.</li>
+                    <li>He was sad because he had <span class="feature">few</span> supporters.</li>
+                    <li>I would like to ask <span class="feature">a few</span> questions.</li>
+                    <li><span class="feature">The few</span> employees who were present supported the manager.</li>
+                    <li><span class="feature">Few</span> cities in the world can match its beauty.</li>
+                    <li>We need <span class="feature">a few</span> more volunteers.</li>
+                    
+                    <!-- Quantifiers: Little, A little, The little (61-70) -->
+                    <h3>Quantifiers: Little / A little / The little</h3>
+                    <li>There is <span class="feature">little</span> hope of survival. <div class="explanation">(Negative: almost none)</div></li>
+                    <li>There is <span class="feature">a little</span> milk left in the jug. <div class="explanation">(Positive: a small amount)</div></li>
+                    <li>He spent <span class="feature">the little</span> money he had. <div class="explanation">(Specific small amount)</div></li>
+                    <li>I have <span class="feature">little</span> time for hobbies.</li>
+                    <li>Add <span class="feature">a little</span> salt to the soup.</li>
+                    <li>He showed <span class="feature">little</span> concern for her feelings.</li>
+                    <li>We have <span class="feature">a little</span> time before the train leaves.</li>
+                    <li><span class="feature">The little</span> knowledge he had of the subject was not enough.</li>
+                    <li>There was <span class="feature">little</span> traffic on the roads this morning.</li>
+                    <li>She has <span class="feature">a little</span> interest in politics.</li>
+
+                    <!-- Quantifiers: Each vs. Every (71-80) -->
+                    <h3>Quantifiers: Each vs. Every</h3>
+                    <li><span class="feature">Each</span> student was given a different task. <div class="explanation">(Individual members of a group)</div></li>
+                    <li><span class="feature">Every</span> citizen has a right to vote. <div class="explanation">(All members of a group together)</div></li>
+                    <li><span class="feature">Each</span> of the two brothers received a prize. <div class="explanation">('Each' can be used for two or more.)</div></li>
+                    <li>I have read <span class="feature">every</span> book in this library. <div class="explanation">('Every' refers to all in a group of three or more.)</div></li>
+                    <li>The manager spoke to <span class="feature">each</span> employee individually.</li>
+                    <li><span class="feature">Every</span> seat in the theater was occupied.</li>
+                    <li><span class="feature">Each</span> of the players did their best.</li>
+                    <li><span class="feature">Every</span> time I see her, she is smiling.</li>
+                    <li>Give one candy to <span class="feature">each</span> child.</li>
+                    <li>I brush my teeth <span class="feature">every</span> morning.</li>
+
+                    <!-- Other Quantifiers and Interrogative Determiners (81-100) -->
+                    <h3>Other Quantifiers & Interrogatives</h3>
+                    <li><span class="feature">All</span> the students passed the exam.</li>
+                    <li>There was <span class="feature">no</span> sugar left.</li>
+                    <li><span class="feature">Both</span> answers are correct.</li>
+                    <li>You can take <span class="feature">either</span> road.</li>
+                    <li><span class="feature">Neither</span> statement is true.</li>
+                    <li>Is there <span class="feature">enough</span> food for everyone?</li>
+                    <li>I have visited <span class="feature">several</span> countries in Europe.</li>
+                    <li>She wants <span class="feature">another</span> piece of cake.</li>
+                    <li><span class="feature">Most</span> people enjoy music.</li>
+                    <li>He ate the <span class="feature">whole</span> pizza.</li>
+                    <li>I have visited a <span class="feature">lot of</span> places.</li>
+                    <li>There is a <span class="feature">lack of</span> evidence.</li>
+                    <li><span class="feature">A couple of</span> friends are coming over.</li>
+                    <li>She has a <span class="feature">number of</span> good ideas.</li>
+                    <li>He has a <span class="feature">great deal of</span> patience.</li>
+                    <li><span class="feature">Which</span> book do you want? <div class="explanation">(Interrogative Determiner)</div></li>
+                    <li><span class="feature">What</span> time is it? <div class="explanation">(Interrogative Determiner)</div></li>
+                    <li><span class="feature">Whose</span> car is this? <div class="explanation">(Interrogative Determiner)</div></li>
+                    <li><span class="feature">What</span> beautiful weather! <div class="explanation">(Exclamatory Determiner)</div></li>
+                    <li>There are <span class="feature">plenty of</span> opportunities.</li>
+                </ol>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-column a');
+            const contentSections = document.querySelectorAll('.content-section');
+            const contentColumn = document.querySelector('.content-column');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    navLinks.forEach(nav => nav.classList.remove('active'));
+                    this.classList.add('active');
+                    const targetId = this.getAttribute('href');
+                    contentSections.forEach(section => {
+                        if ('#' + section.id === targetId) {
+                            section.classList.add('active');
+                        } else {
+                            section.classList.remove('active');
+                        }
+                    });
+                    contentColumn.scrollTop = 0;
+                });
+            });
+            
+             const firstLink = document.querySelector('.nav-column a');
+             if(firstLink) {
+                firstLink.classList.add('active');
+                document.querySelector(firstLink.getAttribute('href')).classList.add('active');
+             }
+        });
+    </script>
+
+</body>
+</html>

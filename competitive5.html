@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced English: Vocabulary Builder</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            /* Blue and white gridline background */
+            background-color: #f0f8ff; 
+            background-image: 
+                repeating-linear-gradient(to right, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 30px),
+                repeating-linear-gradient(to bottom, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 30px);
+            background-size: 30px 30px;
+        }
+
+        /* Header Styling */
+        header {
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        header h1 {
+            display: inline-block;
+            background-color: #0056b3;
+            color: white;
+            padding: 20px 40px;
+            border: 3px solid white;
+            border-radius: 15px;
+            /* 3D Box Effect */
+            box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.4), inset 2px 2px 5px rgba(255, 255, 255, 0.3);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-size: 2.2em;
+            margin: 0;
+        }
+
+        /* Main Container for Two-Column Layout */
+        .container {
+            display: flex;
+            max-width: 1400px;
+            margin: 20px auto;
+            background: #ffffff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.15);
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        /* Left Navigation Column */
+        .nav-column {
+            flex: 1;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+            background-color: #f8f9fa;
+            height: 80vh;
+            overflow-y: auto;
+        }
+
+        .nav-column ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-column li a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: #0056b3;
+            border-radius: 5px;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 0.95em;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .nav-column li a:hover,
+        .nav-column li a.active {
+            background-color: #0056b3;
+            color: #fff;
+        }
+
+        /* Right Content Column */
+        .content-column {
+            flex: 3;
+            padding: 25px 35px;
+            height: 80vh; /* Set a height to enable scrolling */
+            overflow-y: auto; /* Enable vertical scrollbar */
+        }
+
+        .content-section {
+            display: none;
+        }
+        
+        .content-section.active {
+            display: block;
+        }
+        
+        h2 {
+            font-size: 1.8em;
+            color: #0056b3;
+            border-bottom: 3px solid #0056b3;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        
+        h3 {
+            font-size: 1.4em;
+            color: #333;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        
+        .rule {
+            background-color: #e7f3fe;
+            border: 1px solid #b3d7f7;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 5px;
+        }
+
+        .example-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .example-list li {
+            margin-bottom: 20px;
+            border-left: 4px solid #0056b3;
+            padding-left: 15px;
+        }
+        
+        .explanation {
+            font-style: italic;
+            color: #555;
+            margin-top: 5px;
+        }
+        
+        .feature {
+            font-weight: bold;
+            color: #0056b3;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>ADVANCED ENGLISH: VOCABULARY BUILDER</h1>
+    </header>
+
+    <div class="container">
+        <nav class="nav-column">
+            <ul>
+                <li><a href="#phrasal-verbs" class="nav-link active">Phrasal Verbs</a></li>
+                <li><a href="#confusing-words" class="nav-link">Confusing Words</a></li>
+                <li><a href="#one-word" class="nav-link">One-Word Substitution</a></li>
+            </ul>
+        </nav>
+
+        <main class="content-column">
+            <section id="phrasal-verbs" class="content-section active">
+                <h2>Phrasal Verbs</h2>
+                <div class="rule"><strong>Concept:</strong> A phrasal verb is a combination of a verb and a preposition or adverb, creating a meaning different from the original verb.</div>
+                <h3>50 Essential Phrasal Verbs:</h3>
+                <ul class="example-list">
+                    <li><span class="feature">Account for:</span> to explain the reason for something. <div class="explanation"><strong>Example:</strong> He could not <strong>account for</strong> his absence.</div></li>
+                    <li><span class="feature">Ask for:</span> to request something. <div class="explanation"><strong>Example:</strong> She <strong>asked for</strong> a glass of water.</div></li>
+                    <li><span class="feature">Back up:</span> to support someone or make a copy of a file. <div class="explanation"><strong>Example:</strong> My friends will always <strong>back me up</strong>.</div></li>
+                    <li><span class="feature">Blow up:</span> to explode or to inflate. <div class="explanation"><strong>Example:</strong> The bomb <strong>blew up</strong>. Please <strong>blow up</strong> these balloons.</div></li>
+                    <li><span class="feature">Break down:</span> to stop working (machine) or lose emotional control. <div class="explanation"><strong>Example:</strong> His car <strong>broke down</strong> on the highway.</div></li>
+                    <li><span class="feature">Break up:</span> to end a relationship. <div class="explanation"><strong>Example:</strong> They decided to <strong>break up</strong> after five years.</div></li>
+                    <li><span class="feature">Bring about:</span> to cause something to happen. <div class="explanation"><strong>Example:</strong> The new policy <strong>brought about</strong> significant changes.</div></li>
+                    <li><span class="feature">Bring up:</span> to raise a child or to mention a topic. <div class="explanation"><strong>Example:</strong> She was <strong>brought up</strong> by her grandparents.</div></li>
+                    <li><span class="feature">Call off:</span> to cancel an event. <div class="explanation"><strong>Example:</strong> They had to <strong>call off</strong> the meeting due to the storm.</div></li>
+                    <li><span class="feature">Carry on:</span> to continue doing something. <div class="explanation"><strong>Example:</strong> Despite the difficulties, they decided to <strong>carry on</strong>.</div></li>
+                    <li><span class="feature">Catch up:</span> to reach the same level as someone else. <div class="explanation"><strong>Example:</strong> You need to work hard to <strong>catch up</strong> with the rest of the class.</div></li>
+                    <li><span class="feature">Come across:</span> to find something or meet someone by chance. <div class="explanation"><strong>Example:</strong> I <strong>came across</strong> an old photograph while cleaning.</div></li>
+                    <li><span class="feature">Come up with:</span> to think of an idea or a plan. <div class="explanation"><strong>Example:</strong> She <strong>came up with</strong> a brilliant idea for the project.</div></li>
+                    <li><span class="feature">Cut down on:</span> to reduce the amount of something. <div class="explanation"><strong>Example:</strong> The doctor advised him to <strong>cut down on</strong> sugar.</div></li>
+                    <li><span class="feature">Do away with:</span> to abolish or get rid of something. <div class="explanation"><strong>Example:</strong> The school decided to <strong>do away with</strong> the old uniform.</div></li>
+                    <li><span class="feature">Drop out:</span> to quit a course or school. <div class="explanation"><strong>Example:</strong> He had to <strong>drop out</strong> of college due to financial problems.</div></li>
+                    <li><span class="feature">Fall apart:</span> to break into pieces or fail. <div class="explanation"><strong>Example:</strong> The old book is <strong>falling apart</strong>.</div></li>
+                    <li><span class="feature">Figure out:</span> to understand or solve something. <div class="explanation"><strong>Example:</strong> I can't <strong>figure out</strong> how to solve this puzzle.</div></li>
+                    <li><span class="feature">Find out:</span> to discover a fact or piece of information. <div class="explanation"><strong>Example:</strong> We need to <strong>find out</strong> the truth.</div></li>
+                    <li><span class="feature">Get along with:</span> to have a friendly relationship with someone. <div class="explanation"><strong>Example:</strong> She <strong>gets along with</strong> all her colleagues.</div></li>
+                    <li><span class="feature">Get away with:</span> to escape blame or punishment for wrongdoing. <div class="explanation"><strong>Example:</strong> He thought he could <strong>get away with</strong> cheating, but he was caught.</div></li>
+                    <li><span class="feature">Get over:</span> to recover from an illness or a disappointment. <div class="explanation"><strong>Example:</strong> It took her a long time to <strong>get over</strong> the breakup.</div></li>
+                    <li><span class="feature">Give in:</span> to surrender or yield. <div class="explanation"><strong>Example:</strong> He finally <strong>gave in</strong> to their demands.</div></li>
+                    <li><span class="feature">Give up:</span> to stop trying; to quit a habit. <div class="explanation"><strong>Example:</strong> You should <strong>give up</strong> smoking.</div></li>
+                    <li><span class="feature">Go on:</span> to continue or to happen. <div class="explanation"><strong>Example:</strong> The show must <strong>go on</strong>. What's <strong>going on</strong> here?</div></li>
+                    <li><span class="feature">Go through:</span> to experience a difficult situation. <div class="explanation"><strong>Example:</strong> She has <strong>gone through</strong> a lot in her life.</div></li>
+                    <li><span class="feature">Hand in:</span> to submit an assignment. <div class="explanation"><strong>Example:</strong> Please <strong>hand in</strong> your essays by Friday.</div></li>
+                    <li><span class="feature">Hold on:</span> to wait for a short time. <div class="explanation"><strong>Example:</strong> Please <strong>hold on</strong>; the manager will be with you shortly.</div></li>
+                    <li><span class="feature">Keep on:</span> to continue doing something. <div class="explanation"><strong>Example:</strong> Just <strong>keep on</strong> trying and you will succeed.</div></li>
+                    <li><span class="feature">Let down:</span> to disappoint someone. <div class="explanation"><strong>Example:</strong> I promised to help him, and I won't <strong>let him down</strong>.</div></li>
+                    <li><span class="feature">Look after:</span> to take care of someone/something. <div class="explanation"><strong>Example:</strong> She needs to <strong>look after</strong> her sick mother.</div></li>
+                    <li><span class="feature">Look forward to:</span> to anticipate something with pleasure. <div class="explanation"><strong>Example:</strong> I am <strong>looking forward to</strong> the holidays.</div></li>
+                    <li><span class="feature">Look into:</span> to investigate. <div class="explanation"><strong>Example:</strong> The police will <strong>look into</strong> the matter.</div></li>
+                    <li><span class="feature">Look up:</span> to search for information in a book or online. <div class="explanation"><strong>Example:</strong> If you don't know the meaning, <strong>look it up</strong> in a dictionary.</div></li>
+                    <li><span class="feature">Make up:</span> to invent a story or to reconcile after an argument. <div class="explanation"><strong>Example:</strong> He <strong>made up</strong> a story. They finally <strong>made up</strong> after their fight.</div></li>
+                    <li><span class="feature">Pass away:</span> a polite way to say 'to die'. <div class="explanation"><strong>Example:</strong> Her grandfather <strong>passed away</strong> last year.</div></li>
+                    <li><span class="feature">Pass out:</span> to faint or lose consciousness. <div class="explanation"><strong>Example:</strong> He <strong>passed out</strong> from the heat.</div></li>
+                    <li><span class="feature">Point out:</span> to draw attention to something. <div class="explanation"><strong>Example:</strong> He <strong>pointed out</strong> the mistakes in my report.</div></li>
+                    <li><span class="feature">Put off:</span> to postpone. <div class="explanation"><strong>Example:</strong> Never <strong>put off</strong> until tomorrow what you can do today.</div></li>
+                    <li><span class="feature">Put up with:</span> to tolerate something unpleasant. <div class="explanation"><strong>Example:</strong> I can't <strong>put up with</strong> his rude behavior anymore.</div></li>
+                    <li><span class="feature">Run into:</span> to meet someone unexpectedly. <div class="explanation"><strong>Example:</strong> I <strong>ran into</strong> an old friend at the supermarket.</div></li>
+                    <li><span class="feature">Run out of:</span> to have no more of something left. <div class="explanation"><strong>Example:</strong> We have <strong>run out of</strong> milk.</div></li>
+                    <li><span class="feature">Set up:</span> to establish or arrange. <div class="explanation"><strong>Example:</strong> They <strong>set up</strong> a new business.</div></li>
+                    <li><span class="feature">Show up:</span> to arrive or appear. <div class="explanation"><strong>Example:</strong> He didn't <strong>show up</strong> for the meeting.</div></li>
+                    <li><span class="feature">Take after:</span> to resemble a family member. <div class="explanation"><strong>Example:</strong> He <strong>takes after</strong> his father.</div></li>
+                    <li><span class="feature">Take off:</span> to leave the ground (airplane) or to become successful quickly. <div class="explanation"><strong>Example:</strong> The plane will <strong>take off</strong> in ten minutes.</div></li>
+                    <li><span class="feature">Take over:</span> to take control of something. <div class="explanation"><strong>Example:</strong> The new manager will <strong>take over</strong> next week.</div></li>
+                    <li><span class="feature">Turn down:</span> to reject an offer. <div class="explanation"><strong>Example:</strong> She had to <strong>turn down</strong> the job offer.</div></li>
+                    <li><span class="feature">Turn up:</span> to appear suddenly or to increase volume. <div class="explanation"><strong>Example:</strong> He finally <strong>turned up</strong> at the party. Can you <strong>turn up</strong> the music?</div></li>
+                    <li><span class="feature">Work out:</span> to exercise or to find a solution. <div class="explanation"><strong>Example:</strong> I try to <strong>work out</strong> every morning. We need to <strong>work out</strong> a plan.</div></li>
+                </ul>
+            </section>
+            
+            <section id="confusing-words" class="content-section">
+                <h2>Confusing Words (Paronyms & Homophones)</h2>
+                <div class="rule"><strong>Concept:</strong> These are pairs of words that look or sound similar but have different meanings, making them common traps in exams.</div>
+                <h3>50 Common Pairs:</h3>
+                <ul class="example-list">
+                    <li><span class="feature">Accept / Except:</span> <strong>Accept (v)</strong> - to receive. <strong>Except (prep)</strong> - not including.<div class="explanation">I <strong>accept</strong> your apology. Everyone is here <strong>except</strong> John.</div></li>
+                    <li><span class="feature">Advice / Advise:</span> <strong>Advice (n)</strong> - a recommendation. <strong>Advise (v)</strong> - to give a recommendation.<div class="explanation">He gave me some good <strong>advice</strong>. I would <strong>advise</strong> you to study harder.</div></li>
+                    <li><span class="feature">Affect / Effect:</span> <strong>Affect (v)</strong> - to influence. <strong>Effect (n)</strong> - a result.<div class="explanation">The weather will <strong>affect</strong> our plans. The <strong>effect</strong> of the medicine was immediate.</div></li>
+                    <li><span class="feature">Allusion / Illusion:</span> <strong>Allusion (n)</strong> - an indirect reference. <strong>Illusion (n)</strong> - a false perception.<div class="explanation">The novel contains an <strong>allusion</strong> to Shakespeare. The oasis was an <strong>illusion</strong>.</div></li>
+                    <li><span class="feature">A lot / Allot:</span> <strong>A lot (phrase)</strong> - many. <strong>Allot (v)</strong> - to assign a share.<div class="explanation">I have <strong>a lot</strong> of work. Please <strong>allot</strong> the tasks to the team.</div></li>
+                    <li><span class="feature">Altar / Alter:</span> <strong>Altar (n)</strong> - a holy table. <strong>Alter (v)</strong> - to change.<div class="explanation">The priest stood at the <strong>altar</strong>. We need to <strong>alter</strong> our plans.</div></li>
+                    <li><span class="feature">Ascent / Assent:</span> <strong>Ascent (n)</strong> - the act of climbing up. <strong>Assent (n/v)</strong> - agreement/to agree.<div class="explanation">The <strong>ascent</strong> of Mount Everest is difficult. The manager gave his <strong>assent</strong> to the project.</div></li>
+                    <li><span class="feature">Bare / Bear:</span> <strong>Bare (adj)</strong> - uncovered. <strong>Bear (v/n)</strong> - to endure or an animal.<div class="explanation">The walls were <strong>bare</strong>. I cannot <strong>bear</strong> this pain. A <strong>bear</strong> lives in the forest.</div></li>
+                    <li><span class="feature">Berth / Birth:</span> <strong>Berth (n)</strong> - a bed on a train/ship. <strong>Birth (n)</strong> - being born.<div class="explanation">He booked a lower <strong>berth</strong>. We celebrated the baby's <strong>birth</strong>.</div></li>
+                    <li><span class="feature">Beside / Besides:</span> <strong>Beside (prep)</strong> - next to. <strong>Besides (prep/adv)</strong> - in addition to.<div class="explanation">He sat <strong>beside</strong> me. <strong>Besides</strong> English, she speaks French.</div></li>
+                    <li><span class="feature">Brake / Break:</span> <strong>Brake (n/v)</strong> - a device to stop. <strong>Break (v/n)</strong> - to shatter or a pause.<div class="explanation">The car's <strong>brakes</strong> failed. Be careful not to <strong>break</strong> the glass.</div></li>
+                    <li><span class="feature">Canvas / Canvass:</span> <strong>Canvas (n)</strong> - a strong cloth. <strong>Canvass (v)</strong> - to seek votes or opinions.<div class="explanation">The painting is on a <strong>canvas</strong>. They will <strong>canvass</strong> the neighborhood for support.</div></li>
+                    <li><span class="feature">Capital / Capitol:</span> <strong>Capital (n)</strong> - main city, wealth. <strong>Capitol (n)</strong> - a government building.<div class="explanation">Delhi is the <strong>capital</strong> of India. The US Congress meets at the <strong>Capitol</strong> building.</div></li>
+                    <li><span class="feature">Cite / Site / Sight:</span> <strong>Cite (v)</strong> - to quote. <strong>Site (n)</strong> - a location. <strong>Sight (n)</strong> - vision.<div class="explanation">You must <strong>cite</strong> your sources. This is the <strong>site</strong> for the new building. His <strong>sight</strong> is getting weaker.</div></li>
+                    <li><span class="feature">Coarse / Course:</span> <strong>Coarse (adj)</strong> - rough. <strong>Course (n)</strong> - a path or a series of lessons.<div class="explanation">The sandpaper has a <strong>coarse</strong> texture. I am taking a new <strong>course</strong>.</div></li>
+                    <li><span class="feature">Complement / Compliment:</span> <strong>Complement (v/n)</strong> - to complete. <strong>Compliment (v/n)</strong> - to praise.<div class="explanation">The sauce <strong>complements</strong> the dish. She gave me a nice <strong>compliment</strong>.</div></li>
+                    <li><span class="feature">Conscience / Conscious:</span> <strong>Conscience (n)</strong> - moral sense. <strong>Conscious (adj)</strong> - aware.<div class="explanation">His <strong>conscience</strong> was clear. He was <strong>conscious</strong> of the danger.</div></li>
+                    <li><span class="feature">Council / Counsel:</span> <strong>Council (n)</strong> - an advisory group. <strong>Counsel (n/v)</strong> - advice/to advise.<div class="explanation">The city <strong>council</strong> held a meeting. I need your <strong>counsel</strong>.</div></li>
+                    <li><span class="feature">Dairy / Diary:</span> <strong>Dairy (n)</strong> - place for milk products. <strong>Diary (n)</strong> - a personal journal.<div class="explanation">We buy milk from the <strong>dairy</strong>. She writes in her <strong>diary</strong> every night.</div></li>
+                    <li><span class="feature">Desert / Dessert:</span> <strong>Desert (n/v)</strong> - dry land/to abandon. <strong>Dessert (n)</strong> - a sweet dish.<div class="explanation">The Sahara is a large <strong>desert</strong>. He ate ice cream for <strong>dessert</strong>.</div></li>
+                    <li><span class="feature">Discreet / Discrete:</span> <strong>Discreet (adj)</strong> - careful, secretive. <strong>Discrete (adj)</strong> - separate, distinct.<div class="explanation">Please be <strong>discreet</strong> about this. The project has several <strong>discrete</strong> parts.</div></li>
+                    <li><span class="feature">Elicit / Illicit:</span> <strong>Elicit (v)</strong> - to draw out a response. <strong>Illicit (adj)</strong> - illegal.<div class="explanation">The lawyer tried to <strong>elicit</strong> a confession. He was arrested for <strong>illicit</strong> activities.</div></li>
+                    <li><span class="feature">Eminent / Imminent:</span> <strong>Eminent (adj)</strong> - famous. <strong>Imminent (adj)</strong> - about to happen.<div class="explanation">He is an <strong>eminent</strong> scientist. The storm is <strong>imminent</strong>.</div></li>
+                    <li><span class="feature">Ensure / Insure:</span> <strong>Ensure (v)</strong> - to make sure something happens. <strong>Insure (v)</strong> - to protect financially.<div class="explanation">Please <strong>ensure</strong> the doors are locked. You should <strong>insure</strong> your car.</div></li>
+                    <li><span class="feature">Farther / Further:</span> <strong>Farther (adv)</strong> - physical distance. <strong>Further (adv)</strong> - metaphorical distance or 'in addition'.<div class="explanation">I cannot walk any <strong>farther</strong>. Let's discuss this <strong>further</strong>.</div></li>
+                    <li><span class="feature">Flair / Flare:</span> <strong>Flair (n)</strong> - a natural talent. <strong>Flare (v/n)</strong> - to burn brightly or a burst of light.<div class="explanation">She has a <strong>flair</strong> for design. The fire began to <strong>flare</strong> up.</div></li>
+                    <li><span class="feature">Formally / Formerly:</span> <strong>Formally (adv)</strong> - in a formal manner. <strong>Formerly (adv)</strong> - in the past.<div class="explanation">He was dressed <strong>formally</strong>. He was <strong>formerly</strong> a teacher.</div></li>
+                    <li><span class="feature">Heard / Herd:</span> <strong>Heard (v)</strong> - past tense of hear. <strong>Herd (n)</strong> - a group of animals.<div class="explanation">I <strong>heard</strong> a strange noise. A <strong>herd</strong> of cattle was grazing.</div></li>
+                    <li><span class="feature">Hoard / Horde:</span> <strong>Hoard (v/n)</strong> - to store up secretly. <strong>Horde (n)</strong> - a large crowd.<div class="explanation">The dragon would <strong>hoard</strong> its gold. A <strong>horde</strong> of tourists arrived.</div></li>
+                    <li><span class="feature">Its / It's:</span> <strong>Its (possessive)</strong> - shows ownership. <strong>It's</strong> - contraction of 'it is' or 'it has'.<div class="explanation">The dog wagged <strong>its</strong> tail. <strong>It's</strong> a beautiful day.</div></li>
+                    <li><span class="feature">Loath / Loathe:</span> <strong>Loath (adj)</strong> - reluctant. <strong>Loathe (v)</strong> - to hate.<div class="explanation">I am <strong>loath</strong> to admit my mistake. I absolutely <strong>loathe</strong> spiders.</div></li>
+                    <li><span class="feature">Lose / Loose:</span> <strong>Lose (v)</strong> - to misplace or not win. <strong>Loose (adj)</strong> - not tight.<div class="explanation">Don't <strong>lose</strong> your keys. This shirt is too <strong>loose</strong> for me.</div></li>
+                    <li><span class="feature">Moral / Morale:</span> <strong>Moral (adj/n)</strong> - related to principles of right and wrong. <strong>Morale (n)</strong> - confidence and enthusiasm.<div class="explanation">The story has a good <strong>moral</strong>. The team's <strong>morale</strong> was high after the victory.</div></li>
+                    <li><span class="feature">Peak / Peek / Pique:</span> <strong>Peak (n)</strong> - the top point. <strong>Peek (v)</strong> - a quick look. <strong>Pique (v)</strong> - to arouse interest.<div class="explanation">They reached the mountain <strong>peak</strong>. He took a quick <strong>peek</strong>. The story will <strong>pique</strong> your curiosity.</div></li>
+                    <li><span class="feature">Personal / Personnel:</span> <strong>Personal (adj)</strong> - private. <strong>Personnel (n)</strong> - staff or employees.<div class="explanation">This is a <strong>personal</strong> matter. The company's <strong>personnel</strong> are highly skilled.</div></li>
+                    <li><span class="feature">Pore / Pour:</span> <strong>Pore (v/n)</strong> - to study carefully or a tiny opening. <strong>Pour (v)</strong> - to make a liquid flow.<div class="explanation">She would <strong>pore</strong> over her books. Please <strong>pour</strong> me some water.</div></li>
+                    <li><span class="feature">Precede / Proceed:</span> <strong>Precede (v)</strong> - to come before. <strong>Proceed (v)</strong> - to go forward.<div class="explanation">The introduction will <strong>precede</strong> the main chapter. Please <strong>proceed</strong>.</div></li>
+                    <li><span class="feature">Prescribe / Proscribe:</span> <strong>Prescribe (v)</strong> - to recommend (medicine). <strong>Proscribe (v)</strong> - to forbid or ban.<div class="explanation">The doctor will <strong>prescribe</strong> some antibiotics. The law will <strong>proscribe</strong> such activities.</div></li>
+                    <li><span class="feature">Principal / Principle:</span> <strong>Principal (n/adj)</strong> - head of a school, main. <strong>Principle (n)</strong> - a rule or belief.<div class="explanation">The <strong>principal</strong> of the school gave a speech. He is a man of strong <strong>principles</strong>.</div></li>
+                    <li><span class="feature">Quiet / Quite:</span> <strong>Quiet (adj)</strong> - silent. <strong>Quite (adv)</strong> - very or completely.<div class="explanation">Please be <strong>quiet</strong>. The test was <strong>quite</strong> difficult.</div></li>
+                    <li><span class="feature">Stationary / Stationery:</span> <strong>Stationary (adj)</strong> - not moving. <strong>Stationery (n)</strong> - writing materials.<div class="explanation">The car was <strong>stationary</strong>. I need to buy some <strong>stationery</strong>.</div></li>
+                    <li><span class="feature">Than / Then:</span> <strong>Than (conj)</strong> - for comparison. <strong>Then (adv)</strong> - at that time.<div class="explanation">He is taller <strong>than</strong> his brother. Finish your work, and <strong>then</strong> you can play.</div></li>
+                    <li><span class="feature">Their / There / They're:</span> <strong>Their (possessive)</strong> - ownership. <strong>There (adv)</strong> - a place. <strong>They're</strong> - contraction of 'they are'.<div class="explanation">They submitted <strong>their</strong> work. Put the book <strong>there</strong>. <strong>They're</strong> coming soon.</div></li>
+                    <li><span class="feature">To / Too / Two:</span> <strong>To (prep)</strong> - direction. <strong>Too (adv)</strong> - also or excessively. <strong>Two (number)</strong> - 2.<div class="explanation">I am going <strong>to</strong> the store. It is <strong>too</strong> hot. I have <strong>two</strong> pens.</div></li>
+                    <li><span class="feature">Waist / Waste:</span> <strong>Waist (n)</strong> - middle part of the body. <strong>Waste (v/n)</strong> - to use carelessly.<div class="explanation">He measured his <strong>waist</strong>. Don't <strong>waste</strong> your time.</div></li>
+                    <li><span class="feature">Weather / Whether:</span> <strong>Weather (n)</strong> - atmospheric conditions. <strong>Whether (conj)</strong> - introducing a choice.<div class="explanation">The <strong>weather</strong> is nice. I don't know <strong>whether</strong> to stay or go.</div></li>
+                    <li><span class="feature">Who's / Whose:</span> <strong>Who's</strong> - contraction of 'who is' or 'who has'. <strong>Whose (pronoun)</strong> - shows possession.<div class="explanation"><strong>Who's</strong> at the door? <strong>Whose</strong> book is this?</div></li>
+                    <li><span class="feature">Your / You're:</span> <strong>Your (possessive)</strong> - ownership. <strong>You're</strong> - contraction of 'you are'.<div class="explanation">This is <strong>your</strong> pen. <strong>You're</strong> a good student.</div></li>
+                    <li><span class="feature">Cent / Scent / Sent:</span> <strong>Cent (n)</strong> - a coin. <strong>Scent (n)</strong> - a smell. <strong>Sent (v)</strong> - past tense of send.<div class="explanation">It costs fifty <strong>cents</strong>. The flower has a lovely <strong>scent</strong>. I <strong>sent</strong> the email.</div></li>
+                    <li><span class="feature">Complementary / Complimentary:</span> <strong>Complementary (adj)</strong> - completing. <strong>Complimentary (adj)</strong> - free or praising.<div class="explanation">The two colors are <strong>complementary</strong>. The hotel provides a <strong>complimentary</strong> breakfast.</div></li>
+                </ul>
+            </section>
+
+            <section id="one-word" class="content-section">
+                <h2>One-Word Substitution</h2>
+                <div class="rule"><strong>Concept:</strong> Replacing a phrase or a full sentence with a single, precise word.</div>
+                <h3>50 Essential Examples:</h3>
+                <ul class="example-list">
+                    <!-- General -->
+                    <li>A person who loves books: <span class="feature">Bibliophile</span></li>
+                    <li>Something that cannot be avoided or prevented: <span class="feature">Inevitable</span></li>
+                    <li>A place where weapons are stored: <span class="feature">Arsenal</span></li>
+                    <li>A government by the people, for the people: <span class="feature">Democracy</span></li>
+                    <li>A life history of a person written by himself: <span class="feature">Autobiography</span></li>
+                    <li>A life history of a person written by another person: <span class="feature">Biography</span></li>
+                    <li>Something that is no longer in use: <span class="feature">Obsolete</span></li>
+                    <li>A remedy for all diseases or problems: <span class="feature">Panacea</span></li>
+                    <li>That which cannot be read or deciphered: <span class="feature">Illegible</span></li>
+                    <li>A person who can do anything for money: <span class="feature">Mercenary</span></li>
+                    <li>Something that can be heard: <span class="feature">Audible</span></li>
+                    <li>Something that can be seen: <span class="feature">Visible</span></li>
+                    <li>A place where birds are kept: <span class="feature">Aviary</span></li>
+                    <li>A place where bees are kept: <span class="feature">Apiary</span></li>
+                    <li>The study of the origin and history of words: <span class="feature">Etymology</span></li>
+                    <!-- People -->
+                    <li>One who does not believe in the existence of God: <span class="feature">Atheist</span></li>
+                    <li>One who believes in the existence of God: <span class="feature">Theist</span></li>
+                    <li>A person who can speak many languages: <span class="feature">Polyglot</span></li>
+                    <li>A person who is new to a profession or activity: <span class="feature">Novice / Tyro</span></li>
+                    <li>A person who looks at the bright side of things: <span class="feature">Optimist</span></li>
+                    <li>A person who looks at the dark side of things: <span class="feature">Pessimist</span></li>
+                    <li>One who loves all mankind: <span class="feature">Philanthropist</span></li>
+                    <li>One who hates mankind: <span class="feature">Misanthrope</span></li>
+                    <li>A person who eats human flesh: <span class="feature">Cannibal</span></li>
+                    <li>A person who eats only vegetables: <span class="feature">Vegetarian</span></li>
+                    <li>A person who eats meat: <span class="feature">Carnivore</span></li>
+                    <li>A person who eats everything: <span class="feature">Omnivore</span></li>
+                    <li>A person who travels to a holy place: <span class="feature">Pilgrim</span></li>
+                    <li>One who is present everywhere: <span class="feature">Omnipresent</span></li>
+                    <li>One who knows everything: <span class="feature">Omniscient</span></li>
+                    <li>One who is all-powerful: <span class="feature">Omnipotent</span></li>
+                    <li>A person who leaves his own country to settle in another: <span class="feature">Emigrant</span></li>
+                    <li>A person who comes to one country from another to settle: <span class="feature">Immigrant</span></li>
+                    <li>One who can use both hands equally well: <span class="feature">Ambidextrous</span></li>
+                    <li>A person who does something for pleasure, not as a profession: <span class="feature">Amateur</span></li>
+                    <!-- Concepts & Things -->
+                    <li>Fear of water: <span class="feature">Hydrophobia</span></li>
+                    <li>Fear of heights: <span class="feature">Acrophobia</span></li>
+                    <li>A list of books in a library: <span class="feature">Catalogue</span></li>
+                    <li>A group of stars: <span class="feature">Constellation</span></li>
+                    <li>The scientific study of earthquakes: <span class="feature">Seismology</span></li>
+                    <li>A period of ten years: <span class="feature">Decade</span></li>
+                    <li>A period of one hundred years: <span class="feature">Century</span></li>
+                    <li>A handwritten book: <span class="feature">Manuscript</span></li>
+                    <li>Something that is sure to happen: <span class="feature">Certain</span></li>
+                    <li>A speech made without preparation: <span class="feature">Extempore</span></li>
+                    <li>Something that can be believed: <span class="feature">Credible</span></li>
+                    <li>Something that cannot be believed: <span class="feature">Incredible</span></li>
+                    <li>The killing of one person by another: <span class="feature">Homicide</span></li>
+                    <li>A place for sick people who need long periods of recovery: <span class="feature">Sanatorium</span></li>
+                    <li>An animal that lives in groups: <span class="feature">Gregarious</span></li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const contentSections = document.querySelectorAll('.content-section');
+            const contentColumn = document.querySelector('.content-column');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+
+                    navLinks.forEach(nav => nav.classList.remove('active'));
+                    contentSections.forEach(section => section.classList.remove('active'));
+
+                    this.classList.add('active');
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        targetSection.classList.add('active');
+                        contentColumn.scrollTop = 0; // Scroll to top of content area on click
+                    }
+                });
+            });
+            // Auto-activate the first link on page load
+            document.querySelector('.nav-link').classList.add('active');
+            document.querySelector('.content-section').classList.add('active');
+        });
+    </script>
+
+</body>
+</html>

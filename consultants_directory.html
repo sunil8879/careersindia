@@ -1,0 +1,927 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Abroad Consultants Directory</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }
+        .container { max-width: 1100px; margin: 20px auto; background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        header { background-color: #007bff; color: white; padding: 15px 0; text-align: center; margin-bottom: 20px; }
+        header h1 { margin: 0; font-size: 2em; }
+        nav.tier-nav { text-align: center; margin-bottom: 20px; border-bottom: 2px solid #007bff; padding-bottom: 10px;}
+        nav.tier-nav a {
+            text-decoration: none;
+            color: #007bff;
+            padding: 10px 20px;
+            margin: 0 8px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        nav.tier-nav a:hover, nav.tier-nav a.active {
+            background-color: #007bff;
+            color: white;
+            box-shadow: 0 0 5px rgba(0,123,255,0.5);
+        }
+        .breadcrumb { margin-bottom: 20px; font-size: 0.9em; color: #555; padding: 10px; background-color: #e9ecef; border-radius: 4px;}
+        .breadcrumb a { color: #007bff; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        .content-area { display: flex; gap: 20px; flex-wrap: wrap; /* Allow wrapping for smaller screens */ }
+        .sidebar { width: 300px; background-color: #f9f9f9; padding: 15px; border-radius: 5px; border: 1px solid #e0e0e0; max-height: 75vh; overflow-y: auto;}
+        .main-content { flex-grow: 1; min-width: 300px; /* Ensure main content doesn't get too squeezed */ }
+        
+        .list-group-header { font-weight: bold; margin-bottom: 10px; padding-bottom: 5px; border-bottom: 1px solid #ccc; font-size: 1.1em; color: #333; }
+        .list-group a { display: block; padding: 10px 12px; color: #0056b3; text-decoration: none; border-bottom: 1px solid #eee; font-size: 0.95em;}
+        .list-group a:last-child { border-bottom: none; }
+        .list-group a:hover, .list-group a.active-item { background-color: #007bff; color: white; border-radius: 3px; }
+        
+        .details-section { background-color: #fff; padding: 25px; border-radius: 5px; border: 1px solid #ddd; margin-top: 0; /* Removed top margin as main-content handles it */ }
+        .details-section h3 { color: #0056b3; margin-top: 0; font-size: 1.5em; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 15px; }
+        .details-section p { margin: 8px 0; font-size: 0.95em; line-height: 1.7; }
+        .details-section strong { color: #333; }
+        .details-section .website-link { color: #007bff; text-decoration: none; font-weight: bold;}
+        .details-section .website-link:hover { text-decoration: underline; }
+        .initial-message { padding: 20px; text-align: center; font-size: 1.1em; color: #777;}
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .content-area { flex-direction: column; }
+            .sidebar { width: 100%; max-height: 300px; margin-bottom: 20px; }
+            nav.tier-nav a { padding: 8px 10px; margin: 0 3px; font-size: 0.9em; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Study Abroad Consultants</h1>
+    </header>
+
+    <div class="container">
+        <nav class="tier-nav">
+            <a href="consultants_directory.html?tier=tier1" id="navTier1">Tier 1 Cities</a>
+            <a href="consultants_directory.html?tier=tier2" id="navTier2">Tier 2 Cities</a>
+            <a href="consultants_directory.html?tier=tier3" id="navTier3">Tier 3 Cities</a>
+        </nav>
+
+        <div class="breadcrumb" id="breadcrumbNav">
+            <!-- Breadcrumbs will be populated here -->
+        </div>
+        
+        <div class="content-area">
+            <aside class="sidebar" id="sidebarContent">
+                <!-- City links or Consultant links will appear here -->
+            </aside>
+            <main class="main-content" id="mainDisplayArea">
+                <p class="initial-message">Welcome! Please select a tier from above to view cities with study abroad consultants.</p>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        const consultantsData = [
+            // Tier 1 Data
+            { name: "Yocket", tier: "tier1", website: "https://yocket.com", location: "Mumbai", services: "University shortlisting, application assistance, visa guidance, test preparation, and student community support.", yearFounded: "2015" },
+            { name: "Edwise International", tier: "tier1", website: "https://edwiseinternational.com", location: "Mumbai", services: "Career counseling, university selection, application and visa assistance, test preparation, and financial aid guidance.", yearFounded: "1991" },
+            { name: "IDP Education", tier: "tier1", website: "https://idp.com/india", location: "Mumbai", services: "University applications, visa assistance, IELTS coaching, and pre-departure support.", yearFounded: "1969" },
+            { name: "GeeBee Education", tier: "tier1", website: "https://geebeeworld.com", location: "Mumbai", services: "Career counseling, university selection, application and visa assistance, and test preparation.", yearFounded: "2001" },
+            { name: "Imperial Overseas Education Consultants", tier: "tier1", website: "https://imperial-overseas.com", location: "Mumbai", services: "Personalized counseling, test preparation, application and visa assistance, and financial planning.", yearFounded: "2008" },
+            { name: "AVF Consultants", tier: "tier1", website: "https://studyandworkabroad.in", location: "Mumbai", services: "Career counseling, university selection, application and visa assistance, and test preparation.", yearFounded: "2003" },
+            { name: "KC Overseas Education", tier: "tier1", website: "https://studies-overseas.com", location: "Mumbai", services: "University applications, visa assistance, test preparation, and financial aid guidance.", yearFounded: "1998" },
+            { name: "Harjai Global Gurukul", tier: "tier1", website: "https://harjaieducation.com", location: "Mumbai", services: "Career counseling, university selection, application and visa assistance, and test preparation.", yearFounded: "2001" },
+            { name: "EDU-World", tier: "tier1", website: "https://edu-world.in", location: "Mumbai", services: "University applications, visa assistance, test preparation, and financial aid guidance.", yearFounded: "2005" },
+            { name: "Grad-Dreams Education Consulting", tier: "tier1", website: "https://gdx.in", location: "Mumbai", services: "Career counseling, university selection, application and visa assistance, and test preparation.", yearFounded: "2003" },
+            { name: "Yocket", tier: "tier1", website: "https://yocket.com", location: "Delhi", services: "University shortlisting, application assistance, visa guidance, test preparation, and student community support.", yearFounded: "2015" },
+            { name: "TC Global (formerly The Chopras)", tier: "tier1", website: "https://tcglobal.com", location: "Delhi", services: "Career counseling, university selection, application and visa assistance, and test preparation.", yearFounded: "1995" },
+            { name: "Fateh Education", tier: "tier1", website: "https://fateheducation.com", location: "Delhi", services: "University applications, visa assistance, test preparation, and financial aid guidance.", yearFounded: "2004" },
+            { name: "IDP Education", tier: "tier1", website: "https://idp.com/india", location: "Delhi", services: "University applications, visa assistance, IELTS coaching, and pre-departure support.", yearFounded: "1969" },
+            { name: "Edwise International", tier: "tier1", website: "https://edwiseinternational.com", location: "Delhi", services: "Career counseling, university selection, application and visa assistance, test preparation, and financial aid guidance.", yearFounded: "1991" },
+            { name: "Colluni", tier: "tier1", website: "https://colluni.com", location: "Delhi", services: "University applications, visa assistance, test preparation, and financial aid guidance.", yearFounded: "2005" },
+            { name: "Infinite Opportunities Abroad", tier: "tier1", website: "https://infiniteopportunitiesabroad.com", location: "Delhi", services: "Career counseling, university selection, application and visa assistance, and test preparation.", yearFounded: "2008" },
+            { name: "Canam Consultants", tier: "tier1", website: "https://canamgroup.com", location: "Delhi", services: "University applications, visa assistance, test preparation, and financial aid guidance.", yearFounded: "1996" },
+            { name: "EdNet Consultants", tier: "tier1", website: "https://ednetconsultants.com", location: "Delhi", services: "Career counseling, university selection, application and visa assistance, and test preparation.", yearFounded: "2004" },
+            { name: "AECC Global", tier: "tier1", website: "https://www.aeccglobal.com", location: "Delhi", services: "Study abroad counseling, application & admission support, visa assistance, scholarship guidance, IELTS coaching.", yearFounded: "2008" },
+            { name: "Yocket", tier: "tier1", website: "https://yocket.com", location: "Koramangala, Bengaluru", services: "University search, admission counseling, visa support, SOP/LOR assistance, community forums.", yearFounded: "2015" },
+            { name: "IDP Education", tier: "tier1", website: "https://idp.com/india", location: "Bengaluru", services: "University and course guidance, visa processing, IELTS coaching, pre-departure briefing.", yearFounded: "1969" },
+            { name: "Manya Group (The Princeton Review)", tier: "tier1", website: "https://manyagroup.com", location: "Jayanagar, Bengaluru", services: "Test prep (GRE, GMAT, SAT), admissions consulting, visa guidance, profile evaluation.", yearFounded: "2002" },
+            { name: "Edwise International", tier: "tier1", website: "https://edwiseinternational.com", location: "Richmond Road, Bengaluru", services: "Admissions, financial aid, visa services, IELTS/GRE coaching.", yearFounded: "1991" },
+            { name: "iSchoolConnect", tier: "tier1", website: "https://ischoolconnect.com", location: "Bengaluru (Online-first)", services: "AI-driven profile analysis, university recommendations, SOP builder, visa help.", yearFounded: "2017" },
+            { name: "The SmartMove2UK", tier: "tier1", website: "https://smartmove2uk.com", location: "Koramangala, Bengaluru", services: "UK student visa guidance, university tie-ups, legal compliance, dependent visas.", yearFounded: "2009" },
+            { name: "AECC Global", tier: "tier1", website: "https://aeccglobal.com", location: "Koramangala, Bengaluru", services: "Counseling for Australia, UK, Canada; visa help, university application, IELTS coaching.", yearFounded: "2008" },
+            { name: "Canam Consultants", tier: "tier1", website: "https://canamgroup.com", location: "Bengaluru", services: "Study abroad advisory, college applications, education loans, visa filing.", yearFounded: "1996" },
+            { name: "Overseas Education Centre (OEC)", tier: "tier1", website: "https://oecglobal.com", location: "Brigade Road, Bengaluru", services: "University selection, admissions, visa filing, travel arrangements.", yearFounded: "2003" },
+            { name: "Krishna Consultants (KC Overseas)", tier: "tier1", website: "https://studies-overseas.com", location: "Indiranagar, Bengaluru", services: "University admissions, visa support, scholarship help, language test coaching.", yearFounded: "1998" },
+            { name: "Yocket", tier: "tier1", website: "https://yocket.com", location: "Hyderabad", services: "University shortlisting, application assistance, visa guidance, test preparation, and student community support.", yearFounded: "2015" },
+            { name: "IDP Education", tier: "tier1", website: "https://idp.com/india", location: "Hyderabad", services: "University applications, visa assistance, IELTS coaching, and pre-departure support.", yearFounded: "1969" },
+            { name: "Edwise International", tier: "tier1", website: "https://edwiseinternational.com", location: "Hyderabad", services: "Career counseling, university selection, application and visa assistance, test preparation, and financial aid guidance.", yearFounded: "1991" },
+            { name: "Sowrya Consultancy", tier: "tier1", website: "https://sowrya.com", location: "Hyderabad", services: "Comprehensive counseling, university selection, visa assistance, and test preparation for multiple countries.", yearFounded: "2006" },
+            { name: "IVY Overseas", tier: "tier1", website: "https://ivyoverseas.com", location: "Hyderabad", services: "Personalized counseling, application assistance, visa guidance, and career planning.", yearFounded: "2007" },
+            { name: "Global Tree", tier: "tier1", website: "https://globaltree.in", location: "Hyderabad", services: "Study abroad counseling, test preparation, visa services, and immigration assistance.", yearFounded: "2006" },
+            { name: "Krishna Consultants (KC Overseas)", tier: "tier1", website: "https://studies-overseas.com", location: "Hyderabad", services: "University applications, visa assistance, test preparation, and financial aid guidance.", yearFounded: "1998" },
+            { name: "Prosper Overseas", tier: "tier1", website: "https://prosperoverseas.com", location: "Hyderabad", services: "Career counseling, university selection, application and visa assistance, and test preparation.", yearFounded: "2001" },
+            { name: "IDI Overseas", tier: "tier1", website: "https://idioverseas.com", location: "Hyderabad", services: "University applications, visa assistance, test preparation, and financial aid guidance.", yearFounded: "2005" },
+            { name: "Global Opportunities", tier: "tier1", website: "https://global-opportunities.net", location: "Hyderabad", services: "Career counseling, university selection, application and visa assistance, and test preparation.", yearFounded: "2000" },
+            { name: "IDP Education", tier: "tier1", website: "https://www.idp.com/india", location: "Nungambakkam, Chennai", services: "IELTS coaching, university applications, visa support, and pre-departure services", yearFounded: "1969" },
+            { name: "Edwise International", tier: "tier1", website: "https://www.edwiseinternational.com", location: "T. Nagar, Chennai", services: "Counseling, application processing, financial assistance, and visa guidance", yearFounded: "1991" },
+            { name: "Y-Axis Overseas Careers", tier: "tier1", website: "https://www.y-axis.com", location: "Cathedral Road, Chennai", services: "Immigration consultancy, study abroad counseling, job search assistance", yearFounded: "1999" },
+            { name: "Canam Consultants", tier: "tier1", website: "https://www.canamgroup.com", location: "Nungambakkam, Chennai", services: "Admission guidance, visa filing, travel assistance", yearFounded: "1995" },
+            { name: "Global Opportunities", tier: "tier1", website: "https://www.global-opportunities.net", location: "Alwarpet, Chennai", services: "University selection, application support, scholarship guidance", yearFounded: "2001" },
+            { name: "Manya Group (The Princeton Review)", tier: "tier1", website: "https://www.manyagroup.com", location: "Anna Nagar, Chennai", services: "Test prep, admissions consulting, visa counseling", yearFounded: "2001" },
+            { name: "Study Metro", tier: "tier1", website: "https://www.studymetro.com", location: "Kilpauk, Chennai", services: "Course selection, documentation, visa services", yearFounded: "2011" },
+            { name: "AECC Global", tier: "tier1", website: "https://www.aeccglobal.in", location: "Nungambakkam, Chennai", services: "Study abroad counseling, application support, scholarship help", yearFounded: "2008" },
+            { name: "BroadMind Group", tier: "tier1", website: "https://www.broadmindgroup.com", location: "Anna Nagar, Chennai", services: "Career counseling, test prep, admission guidance", yearFounded: "2010" },
+            { name: "Zentora Overseas Careers", tier: "tier1", website: "https://www.zentora.com", location: "Ashok Nagar, Chennai", services: "Immigration, student visas, overseas education counseling", yearFounded: "2012" },
+            { name: "Yocket", tier: "tier1", website: "https://yocket.com", location: "Kolkata", services: "University shortlisting, application assistance, visa guidance, test preparation, and student community support.", yearFounded: "2015" },
+            { name: "AECC Global", tier: "tier1", website: "https://www.aeccglobal.com", location: "Kolkata", services: "Study abroad counseling, application support, scholarship assistance, and visa services.", yearFounded: "2008" },
+            { name: "Global Reach", tier: "tier1", website: "https://www.globalreach.in", location: "Kolkata", services: "University selection, application processing, visa assistance, and pre-departure briefings.", yearFounded: "1991" },
+            { name: "Study Overseas Help", tier: "tier1", website: "https://www.studyoverseashelp.com", location: "Kolkata", services: "Personalized counseling, university applications, visa guidance, and test preparation.", yearFounded: "2010" },
+            { name: "OCS Kolkata", tier: "tier1", website: "https://www.ocskolkata.com", location: "Kolkata", services: "Career counseling, university selection, application assistance, and visa services.", yearFounded: "2005" },
+            { name: "Eduaims", tier: "tier1", website: "https://www.eduaims.in", location: "Kolkata", services: "Test preparation, admissions counseling, visa assistance, and career guidance.", yearFounded: "2012" },
+            { name: "Transglobal Overseas Education", tier: "tier1", website: "https://www.transglobaloverseas.com", location: "Kolkata", services: "University applications, visa support, test preparation, and pre-departure services.", yearFounded: "2013" },
+            { name: "IDP Education Kolkata", tier: "tier1", website: "https://www.idp.com/india", location: "Kolkata", services: "IELTS coaching, university applications, visa assistance, and pre-departure briefings.", yearFounded: "1969" },
+            { name: "Bluesky Educational Services Pvt Ltd", tier: "tier1", website: "https://www.blueskyeducation.co.in", location: "Kolkata", services: "Study abroad counseling, application support, visa services, and test preparation.", yearFounded: "2004" },
+            { name: "SIEC Education", tier: "tier1", website: "https://www.siecindia.com", location: "Kolkata", services: "University selection, application processing, visa assistance, and test preparation.", yearFounded: "1995" },
+            { name: "Yocket", tier: "tier1", website: "https://yocket.com", location: "Pune", services: "University shortlisting, application assistance, visa guidance, test preparation, and student community support.", yearFounded: "2015" },
+            { name: "Edwise International", tier: "tier1", website: "https://www.edwiseinternational.com/study-abroad-consultant/pune.html", location: "Pune", services: "Career counseling, university selection, application and visa assistance, test preparation, and financial aid guidance.", yearFounded: "1991" },
+            { name: "Study Smart", tier: "tier1", website: "https://studysmart.co.in/city/pune", location: "Pune", services: "Personalized counseling, application assistance, visa guidance, and career planning.", yearFounded: "2011" },
+            { name: "Dilip Oak's Academy", tier: "tier1", website: "https://www.dilipoakacademy.com", location: "Pune", services: "Test preparation (GRE, TOEFL, IELTS), admissions counseling, and visa assistance.", yearFounded: "1996" },
+            { name: "Jamboree Education", tier: "tier1", website: "https://www.jamboreeindia.com/study-abroad-consulting-pune", location: "Pune", services: "Test preparation (GMAT, GRE, SAT), admissions counseling, and visa assistance.", yearFounded: "1993" },
+            { name: "Imperial Overseas Education Consultants", tier: "tier1", website: "https://www.imperial-overseas.com/study-abroad-consultants-pune", location: "Pune", services: "University applications, visa assistance, test preparation, and financial aid guidance.", yearFounded: "2010" },
+            { name: "Onebounce Education Consultants", tier: "tier1", website: "https://www.onebouncesac.com", location: "Pune", services: "Study abroad counseling, application support, visa services, and test preparation.", yearFounded: "2015" },
+            { name: "Canam Consultants", tier: "tier1", website: "https://www.canamgroup.com", location: "Pune", services: "Career counseling, university selection, application and visa assistance, and test preparation.", yearFounded: "1996" },
+            { name: "Global Opportunities", tier: "tier1", website: "https://www.global-opportunities.net", location: "Pune", services: "University applications, visa assistance, test preparation, and financial aid guidance.", yearFounded: "2000" },
+            { name: "GeeBee Education", tier: "tier1", website: "https://www.geebeeworld.com", location: "Pune", services: "Personalized counseling, application assistance, visa guidance, and career planning.", yearFounded: "2001" },
+            { name: "Yocket", tier: "tier1", website: "https://yocket.com", location: "Online services available", services: "University shortlisting, application assistance, visa guidance, test preparation, and student community support.", yearFounded: "2015" },
+            { name: "AECC Global", tier: "tier1", website: "https://www.aeccglobal.in", location: "102-104, 323 Corporate Park, Near Samudra Complex, Chimanlal Girdharlal Rd, Navrangpura, Ahmedabad", services: "Study abroad counseling, application support, scholarship assistance, and visa services.", yearFounded: "2008" },
+            { name: "Global Tree", tier: "tier1", website: "https://globaltree.in", location: "C-803, The First, Behind Keshavbaugh Party Plot, Vastrapur, Ahmedabad", services: "University selection, application processing, visa assistance, and pre-departure briefings.", yearFounded: "2006" },
+            { name: "Unixperts", tier: "tier1", website: "https://unixperts.com", location: "2nd Floor, Shri Vardhaman Building, Opp City Centre Building, Swastik Cross Road, Navrangpura, Ahmedabad", services: "Personalized counseling, application assistance, visa guidance, and career planning.", yearFounded: "2010" },
+            { name: "Global Colliance", tier: "tier1", website: "https://globalcolliance.com", location: "303, Addor Aspire, University Rd, Opp. Old Passport Office, Panjrapole, Ahmedabad", services: "Career counseling, profile evaluation, course and university selection, test preparation, SOP guidance, application process assistance, financial aid guidance, interview preparation, visa assistance, and pre-departure orientation.", yearFounded: "2008" },
+            { name: "Pyramid Consultants", tier: "tier1", website: "https://www.pyramidconsultants.com", location: "301, Sankalp Square, Drive In Rd, Above Saffron Restaurant, Memnagar, Ahmedabad", services: "University applications, visa support, test preparation, and pre-departure services.", yearFounded: "2003" },
+            { name: "Rao Consultants", tier: "tier1", website: "https://www.raoconsultants.com", location: "Ahmedabad", services: "Comprehensive services including university selection, application assistance, visa processing, and post-landing support.", yearFounded: "2002" },
+            { name: "Edwise International", tier: "tier1", website: "https://www.edwiseinternational.com", location: "304, Campus Corner, Near Som Lalit College, St. Xaviers College Char Rasta, Navrangpura, Ahmedabad", services: "Study guidance, IELTS coaching, university applications, visa assistance, and pre-departure briefings.", yearFounded: "1991" },
+            { name: "Edugo Abroad", tier: "tier1", website: "https://edugoabroad.com", location: "Ahmedabad", services: "Expert guidance, university selection, visa assistance, and more for aspiring international students.", yearFounded: "2010" },
+            { name: "Fateh Education", tier: "tier1", website: "https://www.fateheducation.com", location: "4A, 1st Floor, RE11 Ahmedabad Near Vikramnagar, Iscon, Ambli road, Ambli, Ahmedabad", services: "Personalized guidance, university and course selection, visa navigation, test preparation guidance, and pre-departure preparation.", yearFounded: "2004" },
+            { name: "Edwise International", tier: "tier1", website: "https://www.edwiseinternational.com/study-abroad-consultant/surat.html", location: "531, 5th Floor, International Trade Centre, Majura Gate, Ring Road, Surat", services: "Aptitude testing, test preparation, career counselling, admission guidance, financial assistance, visa services, travel and forex assistance.", yearFounded: "1991" },
+            { name: "Study Smart", tier: "tier1", website: "https://www.studysmart.co.in/city/surat", location: "M – 8, Sargam Shopping Center, Off Gaurav Path, Athwalines, Surat", services: "Profile evaluation, application writing, IELTS/PTE training, international scholarships, forex, travel, and health insurance assistance.", yearFounded: "2011" },
+            { name: "Lakshya Overseas Education", tier: "tier1", website: "https://lakshyaoverseas.com/branch/study-abroad-consultants-surat", location: "510, 5th Floor, International Business Center, Near Sunshine Global Hospital, Piplod, Surat", services: "Test preparation (GMAT, GRE, SAT, IELTS, TOEFL, PTE), application process assistance, guidance for multiple countries.", yearFounded: "Not specified" },
+            { name: "IDP Education Surat", tier: "tier1", website: "https://www.idp.com/india/study-abroad-consultants/surat/", location: "Dumas Road 209-210, 2nd Floor, International Business Centre, Piplod, Surat", services: "Counselling, university identification, application support, SOP guidance, scholarship & financial aid, health insurance, travel & accommodation.", yearFounded: "1969" },
+            { name: "Yocket", tier: "tier1", website: "https://yocket.com", location: "Surat (Primarily Online)", services: "University shortlisting, application help, visa guidance, test prep, community support.", yearFounded: "2015" },
+            { name: "AECC Global", tier: "tier1", website: "https://www.aeccglobal.in", location: "Surat", services: "Study abroad counseling, application support, scholarships, visa services.", yearFounded: "2008" },
+            { name: "Global Opportunities", tier: "tier1", website: "https://www.global-opportunities.net", location: "Surat", services: "Counseling, university selection, visa assistance, test prep.", yearFounded: "2000" },
+            { name: "Canam Consultants", tier: "tier1", website: "https://www.canamgroup.com", location: "Surat", services: "Career counseling, university selection, visa assistance.", yearFounded: "1996" },
+            { name: "GeeBee Education", tier: "tier1", website: "https://www.geebeeworld.com", location: "Surat", services: "Personalized counseling, application help, visa guidance.", yearFounded: "2001" },
+            { name: "Krishna Consultants (KC Overseas)", tier: "tier1", website: "https://studies-overseas.com", location: "Surat", services: "University admissions, visa support, scholarship help.", yearFounded: "1998" },
+            { name: "Edwise International", tier: "tier1", website: "https://www.edwiseinternational.com/study-abroad-consultant/jaipur.html", location: "604-605, 6th Floor, Kailash Tower, Tonk Rd, Lalkothi Corner, Next to Apex Mall, Jaipur", services: "Free counselling, aptitude testing, test preparation, career counselling, admission guidance, financial assistance, visa services.", yearFounded: "1991" },
+            { name: "Yocket", tier: "tier1", website: "https://yocket.com", location: "Jaipur (Primarily Online)", services: "University shortlisting, application help, visa guidance, test prep, community support.", yearFounded: "2015" },
+            { name: "IDP Education", tier: "tier1", website: "https://idp.com/india", location: "Jaipur", services: "University applications, visa assistance, IELTS coaching.", yearFounded: "1969" },
+            { name: "Global Opportunities", tier: "tier1", website: "https://www.global-opportunities.net", location: "Jaipur", services: "Counseling, university selection, visa assistance, test prep.", yearFounded: "2000" },
+            { name: "Canam Consultants", tier: "tier1", website: "https://www.canamgroup.com", location: "Jaipur", services: "Career counseling, university selection, visa assistance.", yearFounded: "1996" },
+            { name: "AECC Global", tier: "tier1", website: "https://www.aeccglobal.in", location: "Jaipur", services: "Study abroad counseling, application support, scholarships, visa services.", yearFounded: "2008" },
+            { name: "Manya Group (The Princeton Review)", tier: "tier1", website: "https://www.manyagroup.com", location: "Jaipur", services: "Test prep (GRE, GMAT, SAT), admissions consulting.", yearFounded: "2002" },
+            { name: "GeeBee Education", tier: "tier1", website: "https://www.geebeeworld.com", location: "Jaipur", services: "Personalized counseling, application help, visa guidance.", yearFounded: "2001" },
+            { name: "Krishna Consultants (KC Overseas)", tier: "tier1", website: "https://studies-overseas.com", location: "Jaipur", services: "University admissions, visa support, scholarship help.", yearFounded: "1998" },
+            { name: "SIEC Education", tier: "tier1", website: "https://www.siecindia.com", location: "Jaipur", services: "University selection, application processing, visa assistance.", yearFounded: "1995" },
+            { name: "Jamboree Education", tier: "tier1", website: "https://www.jamboreeindia.com/study-abroad-consulting-lucknow", location: "Lucknow", services: "Profile building, university shortlisting, application essays, LOR/SOP, interview prep, pre-departure services.", yearFounded: "1993" },
+            { name: "Global Opportunities", tier: "tier1", website: "https://global-opportunities.net", location: "Hazratganj, Lucknow", services: "Study abroad counseling, visa assistance, scholarships", yearFounded: "2000" },
+            { name: "Y-Axis Overseas Careers", tier: "tier1", website: "https://www.y-axis.com", location: "Gomti Nagar, Lucknow", services: "Immigration consultancy, study abroad guidance", yearFounded: "2002" },
+            { name: "Edwise International", tier: "tier1", website: "https://www.edwiseinternational.com", location: "Hazratganj, Lucknow", services: "University selection, admission assistance", yearFounded: "1991" },
+            { name: "Canam Consultants", tier: "tier1", website: "https://canamgroup.com", location: "Gomti Nagar, Lucknow", services: "Overseas education counseling, visa filing", yearFounded: "1993" },
+            { name: "Global Tree", tier: "tier1", website: "https://globaltree.in", location: "Hazratganj, Lucknow", services: "Visa assistance, study abroad counseling", yearFounded: "2004" },
+            { name: "Overseas Education Specialists", tier: "tier1", website: "https://oesindia.in", location: "Gomti Nagar, Lucknow", services: "Student counseling, test prep, visa help", yearFounded: "2008" },
+            { name: "Edubridge Consultants", tier: "tier1", website: "https://edubridge.in", location: "Hazratganj, Lucknow", services: "Admission assistance, visa processing", yearFounded: "2015" },
+            { name: "Study Abroad Shapers", tier: "tier1", website: "https://studyabroadshapers.com", location: "Gomti Nagar, Lucknow", services: "Study abroad counseling, test prep, visa guidance", yearFounded: "2010" },
+            { name: "Go Study World", tier: "tier1", website: "https://gostudyworld.com", location: "Hazratganj, Lucknow", services: "University selection, visa services", yearFounded: "2012" },
+            { name: "AECC Global", tier: "tier1", website: "https://www.aeccglobal.in/study-abroad-consultants/kanpur", location: "Kanpur", services: "Profile assessment, visa guidance, end-to-end assistance, global support.", yearFounded: "2008" },
+            { name: "IDP Education Kanpur", tier: "tier1", website: "https://www.idp.com/india/office/kanpur/idp-kanpur/in-1057/", location: "Workobar, Floor no. 3-C, 3-D, ACE CHAMBER, 4/275, Tilak Nagar, Kanpur", services: "Course search, university partnerships, English language testing.", yearFounded: "1969" },
+            { name: "Global Opportunities", tier: "tier1", website: "https://global-opportunities.net", location: "Civil Lines, Kanpur", services: "Study abroad counseling, visa assistance, scholarships", yearFounded: "2000" },
+            { name: "Y-Axis Overseas Careers", tier: "tier1", website: "https://www.y-axis.com", location: "Kanpur Central", services: "Immigration consultancy, study abroad guidance", yearFounded: "2002" },
+            { name: "Edwise International", tier: "tier1", website: "https://www.edwiseinternational.com", location: "Civil Lines, Kanpur", services: "University selection, admission assistance", yearFounded: "1991" },
+            { name: "Canam Consultants", tier: "tier1", website: "https://canamgroup.com", location: "Kanpur Central", services: "Overseas education counseling, visa filing", yearFounded: "1993" },
+            { name: "Global Tree", tier: "tier1", website: "https://globaltree.in", location: "Civil Lines, Kanpur", services: "Visa assistance, study abroad counseling", yearFounded: "2004" },
+            { name: "Overseas Education Specialists", tier: "tier1", website: "https://oesindia.in", location: "Kanpur Central", services: "Student counseling, test prep, visa help", yearFounded: "2008" },
+            { name: "Edubridge Consultants", tier: "tier1", website: "https://edubridge.in", location: "Civil Lines, Kanpur", services: "Admission assistance, visa processing", yearFounded: "2015" },
+            { name: "Study Abroad Shapers", tier: "tier1", website: "https://studyabroadshapers.com", location: "Kanpur Central", services: "Study abroad counseling, test prep, visa guidance", yearFounded: "2010" },
+            { name: "Leap Scholar", tier: "tier1", website: "https://leapscholar.com/study-abroad-consultant/nagpur", location: "Balaji Corporate Park, P&T Colony, Kotwal Nagar, Pratap Nagar, Nagpur", services: "University applications, visa guidance, test preparation, and support.", yearFounded: "Not specified" },
+            { name: "IDP Education Nagpur", tier: "tier1", website: "https://www.idp.com/india/study-abroad-consultants/nagpur/", location: "First Floor at Lotus Plot No. 5, Ward. 70, Gorepeth Layout, West High Court Road, Nagpur", services: "Career guidance, course/university/country selection, application review, visa prep, pre-departure support.", yearFounded: "1969" },
+            { name: "Global Opportunities", tier: "tier1", website: "https://global-opportunities.net", location: "Sitabuldi, Nagpur", services: "Study abroad counseling, visa assistance, test prep, scholarships", yearFounded: "2000" },
+            { name: "Y-Axis Overseas Careers", tier: "tier1", website: "https://www.y-axis.com", location: "Civil Lines, Nagpur", services: "Study abroad guidance, immigration consultancy, test coaching", yearFounded: "2002" },
+            { name: "Edwise International", tier: "tier1", website: "https://www.edwiseinternational.com", location: "Dharampeth, Nagpur", services: "University selection, application assistance, visa services", yearFounded: "1991" },
+            { name: "Canam Consultants", tier: "tier1", website: "https://canamgroup.com", location: "Ramdaspeth, Nagpur", services: "Overseas education counseling, test prep, visa filing", yearFounded: "1993" },
+            { name: "Study Abroad Shapers", tier: "tier1", website: "https://studyabroadshapers.com", location: "Civil Lines, Nagpur", services: "Student counseling, admission assistance, test prep", yearFounded: "2010" },
+            { name: "Global Tree", tier: "tier1", website: "https://globaltree.in", location: "Sitabuldi, Nagpur", services: "Overseas education, visa consultancy, career counseling", yearFounded: "2004" },
+            { name: "Overseas Education Specialists", tier: "tier1", website: "https://oesindia.in", location: "Dharampeth, Nagpur", services: "Study abroad, immigration advice, test prep", yearFounded: "2008" },
+            { name: "Go Study World", tier: "tier1", website: "https://gostudyworld.com", location: "Sitabuldi, Nagpur", services: "University selection, test prep, visa guidance", yearFounded: "2012" },
+            { name: "Y-Axis Overseas Careers", tier: "tier1", website: "https://www.y-axis.com", location: "MG Road, Indore", services: "Study abroad guidance, visa consultancy, test prep", yearFounded: "2002" },
+            { name: "Global Opportunities", tier: "tier1", website: "https://global-opportunities.net", location: "Vijay Nagar, Indore", services: "Study abroad counseling, admission assistance, scholarships", yearFounded: "2000" },
+            { name: "Canam Consultants", tier: "tier1", website: "https://canamgroup.com", location: "Palasia, Indore", services: "Overseas education, visa assistance, test prep", yearFounded: "1993" },
+            { name: "Edwise International", tier: "tier1", website: "https://www.edwiseinternational.com", location: "MG Road, Indore", services: "Admission counseling, visa services, university guidance", yearFounded: "1991" },
+            { name: "Global Tree", tier: "tier1", website: "https://globaltree.in", location: "Vijay Nagar, Indore", services: "Study abroad counseling, visa filing, scholarships", yearFounded: "2004" },
+            { name: "Overseas Education Specialists", tier: "tier1", website: "https://oesindia.in", location: "Palasia, Indore", services: "Study abroad counseling, test preparation, visa help", yearFounded: "2008" },
+            { name: "Edubridge Consultants", tier: "tier1", website: "https://edubridge.in", location: "MG Road, Indore", services: "Admission assistance, scholarship guidance, visa processing", yearFounded: "2015" },
+            { name: "Study Abroad Shapers", tier: "tier1", website: "https://studyabroadshapers.com", location: "Vijay Nagar, Indore", services: "Student counseling, visa services, test prep", yearFounded: "2010" },
+            { name: "Go Study World", tier: "tier1", website: "https://gostudyworld.com", location: "Palasia, Indore", services: "University selection, visa guidance, test prep", yearFounded: "2012" },
+            { name: "IDP Education", tier: "tier1", website: "https://idp.com/india", location: "Indore", services: "University applications, visa assistance, IELTS coaching.", yearFounded: "1969" },
+            { name: "Global Opportunities", tier: "tier1", website: "https://global-opportunities.net", location: "MP Nagar, Bhopal", services: "Study abroad counseling, scholarships, visa help", yearFounded: "2000" },
+            { name: "Y-Axis Overseas Careers", tier: "tier1", website: "https://www.y-axis.com", location: "Arera Colony, Bhopal", services: "Study abroad guidance, immigration consulting, test prep", yearFounded: "2002" },
+            { name: "Canam Consultants", tier: "tier1", website: "https://canamgroup.com", location: "MP Nagar, Bhopal", services: "Overseas education counseling, visa assistance", yearFounded: "1993" },
+            { name: "Edwise International", tier: "tier1", website: "https://www.edwiseinternational.com", location: "Arera Colony, Bhopal", services: "Admission counseling, visa services, scholarships", yearFounded: "1991" },
+            { name: "Global Tree", tier: "tier1", website: "https://globaltree.in", location: "MP Nagar, Bhopal", services: "Overseas education consulting, visa filing", yearFounded: "2004" },
+            { name: "Overseas Education Specialists", tier: "tier1", website: "https://oesindia.in", location: "Arera Colony, Bhopal", services: "Study abroad consulting, test prep, visa help", yearFounded: "2008" },
+            { name: "Edubridge Consultants", tier: "tier1", website: "https://edubridge.in", location: "MP Nagar, Bhopal", services: "Student counseling, admission assistance, visa application", yearFounded: "2015" },
+            { name: "Study Abroad Shapers", tier: "tier1", website: "https://studyabroadshapers.com", location: "Arera Colony, Bhopal", services: "Study abroad counseling, visa services, test prep", yearFounded: "2010" },
+            { name: "Go Study World", tier: "tier1", website: "https://gostudyworld.com", location: "MP Nagar, Bhopal", services: "University selection, visa guidance, test prep", yearFounded: "2012" },
+            { name: "IDP Education", tier: "tier1", website: "https://idp.com/india", location: "Bhopal", services: "University applications, visa assistance, IELTS coaching.", yearFounded: "1969" },
+            { name: "Global Opportunities", tier: "tier1", website: "https://global-opportunities.net", location: "Kankarbagh, Patna", services: "Study abroad counseling, scholarships, visa assistance", yearFounded: "2000" },
+            { name: "Y-Axis Overseas Careers", tier: "tier1", website: "https://www.y-axis.com", location: "Fraser Road, Patna", services: "Immigration consultancy, study abroad guidance, test prep", yearFounded: "2002" },
+            { name: "Canam Consultants", tier: "tier1", website: "https://canamgroup.com", location: "Kankarbagh, Patna", services: "Visa processing, study abroad counseling", yearFounded: "1993" },
+            { name: "Edwise International", tier: "tier1", website: "https://www.edwiseinternational.com", location: "Fraser Road, Patna", services: "Admission counseling, visa services, scholarships", yearFounded: "1991" },
+            { name: "Global Tree", tier: "tier1", website: "https://globaltree.in", location: "Kankarbagh, Patna", services: "Study abroad counseling, visa assistance", yearFounded: "2004" },
+            { name: "Overseas Education Specialists", tier: "tier1", website: "https://oesindia.in", location: "Fraser Road, Patna", services: "Test prep, visa help, student counseling", yearFounded: "2008" },
+            { name: "Edubridge Consultants", tier: "tier1", website: "https://edubridge.in", location: "Kankarbagh, Patna", services: "Admission assistance, visa application", yearFounded: "2015" },
+            { name: "Study Abroad Shapers", tier: "tier1", website: "https://studyabroadshapers.com", location: "Fraser Road, Patna", services: "Student counseling, visa services, test prep", yearFounded: "2010" },
+            { name: "Go Study World", tier: "tier1", website: "https://gostudyworld.com", location: "Kankarbagh, Patna", services: "University selection, visa guidance", yearFounded: "2012" },
+            { name: "IDP Education", tier: "tier1", website: "https://idp.com/india", location: "Patna", services: "University applications, visa assistance, IELTS coaching.", yearFounded: "1969" },
+            { name: "Global Opportunities", tier: "tier1", website: "https://global-opportunities.net", location: "Alkapuri, Vadodara", services: "Study abroad counseling, scholarships, visa help", yearFounded: "2000" },
+            { name: "Y-Axis Overseas Careers", tier: "tier1", website: "https://www.y-axis.com", location: "Alkapuri, Vadodara", services: "Study abroad guidance, immigration consulting", yearFounded: "2002" },
+            { name: "Canam Consultants", tier: "tier1", website: "https://canamgroup.com", location: "Alkapuri, Vadodara", services: "Overseas education counseling, visa assistance", yearFounded: "1993" },
+            { name: "Edwise International", tier: "tier1", website: "https://www.edwiseinternational.com", location: "Alkapuri, Vadodara", services: "Admission counseling, visa services", yearFounded: "1991" },
+            { name: "Global Tree", tier: "tier1", website: "https://globaltree.in", location: "Alkapuri, Vadodara", services: "Study abroad counseling, visa filing", yearFounded: "2004" },
+            { name: "Overseas Education Specialists", tier: "tier1", website: "https://oesindia.in", location: "Alkapuri, Vadodara", services: "Study abroad counseling, test prep", yearFounded: "2008" },
+            { name: "Edubridge Consultants", tier: "tier1", website: "https://edubridge.in", location: "Alkapuri, Vadodara", services: "Admission assistance, visa processing", yearFounded: "2015" },
+            { name: "Study Abroad Shapers", tier: "tier1", website: "https://studyabroadshapers.com", location: "Alkapuri, Vadodara", services: "Student counseling, visa services", yearFounded: "2010" },
+            { name: "Go Study World", tier: "tier1", website: "https://gostudyworld.com", location: "Alkapuri, Vadodara", services: "University selection, visa guidance", yearFounded: "2012" },
+            { name: "IDP Education", tier: "tier1", website: "https://idp.com/india", location: "Vadodara", services: "University applications, visa assistance, IELTS coaching.", yearFounded: "1969" },
+            { name: "Global Opportunities", tier: "tier1", website: "https://global-opportunities.net", location: "R.S. Puram, Coimbatore", services: "Study abroad counseling, visa assistance, scholarships", yearFounded: "2000" },
+            { name: "Y-Axis Overseas Careers", tier: "tier1", website: "https://www.y-axis.com", location: "Peelamedu, Coimbatore", services: "Immigration consultancy, study abroad guidance, test prep", yearFounded: "2002" },
+            { name: "Edwise International", tier: "tier1", website: "https://www.edwiseinternational.com", location: "R.S. Puram, Coimbatore", services: "University selection, admission assistance, visa services", yearFounded: "1991" },
+            { name: "Canam Consultants", tier: "tier1", website: "https://canamgroup.com", location: "Peelamedu, Coimbatore", services: "Overseas education counseling, visa filing", yearFounded: "1993" },
+            { name: "Global Tree", tier: "tier1", website: "https://globaltree.in", location: "R.S. Puram, Coimbatore", services: "Overseas education, scholarships, visa assistance", yearFounded: "2004" },
+            { name: "Overseas Education Specialists", tier: "tier1", website: "https://oesindia.in", location: "Peelamedu, Coimbatore", services: "Test preparation, student counseling, visa help", yearFounded: "2008" },
+            { name: "Edubridge Consultants", tier: "tier1", website: "https://edubridge.in", location: "R.S. Puram, Coimbatore", services: "Study abroad counseling, visa processing", yearFounded: "2015" },
+            { name: "Study Abroad Shapers", tier: "tier1", website: "https://studyabroadshapers.com", location: "Peelamedu, Coimbatore", services: "Admission assistance, test prep, visa guidance", yearFounded: "2010" },
+            { name: "Go Study World", tier: "tier1", website: "https://gostudyworld.com", location: "R.S. Puram, Coimbatore", services: "University selection, visa services", yearFounded: "2012" },
+            { name: "IDP Education", tier: "tier1", website: "https://idp.com/india", location: "Coimbatore", services: "University applications, visa assistance, IELTS coaching.", yearFounded: "1969" },
+            { name: "Global Opportunities", tier: "tier1", website: "https://global-opportunities.net", location: "Vazhuthacaud, Thiruvananthapuram", services: "Study abroad counseling, scholarships, visa assistance", yearFounded: "2000" },
+            { name: "Y-Axis Overseas Careers", tier: "tier1", website: "https://www.y-axis.com", location: "Kowdiar, Thiruvananthapuram", services: "Immigration consultancy, study abroad guidance", yearFounded: "2002" },
+            { name: "Edwise International", tier: "tier1", website: "https://www.edwiseinternational.com", location: "Vazhuthacaud, Thiruvananthapuram", services: "University selection, admission assistance", yearFounded: "1991" },
+            { name: "Canam Consultants", tier: "tier1", website: "https://canamgroup.com", location: "Kowdiar, Thiruvananthapuram", services: "Overseas education counseling, visa filing", yearFounded: "1993" },
+            { name: "Global Tree", tier: "tier1", website: "https://globaltree.in", location: "Vazhuthacaud, Thiruvananthapuram", services: "Visa assistance, study abroad counseling", yearFounded: "2004" },
+            { name: "Overseas Education Specialists", tier: "tier1", website: "https://oesindia.in", location: "Kowdiar, Thiruvananthapuram", services: "Student counseling, test prep, visa help", yearFounded: "2008" },
+            { name: "Edubridge Consultants", tier: "tier1", website: "https://edubridge.in", location: "Vazhuthacaud, Thiruvananthapuram", services: "Admission assistance, visa processing", yearFounded: "2015" },
+            { name: "Study Abroad Shapers", tier: "tier1", website: "https://studyabroadshapers.com", location: "Kowdiar, Thiruvananthapuram", services: "Study abroad counseling, visa services", yearFounded: "2010" },
+            { name: "Go Study World", tier: "tier1", website: "https://gostudyworld.com", location: "Vazhuthacaud, Thiruvananthapuram", services: "University selection, visa guidance", yearFounded: "2012" },
+            { name: "IDP Education", tier: "tier1", website: "https://idp.com/india", location: "Thiruvananthapuram", services: "University applications, visa assistance, IELTS coaching.", yearFounded: "1969" },
+            { name: "Global Opportunities", tier: "tier1", website: "https://global-opportunities.net", location: "MG Road, Kochi", services: "Study abroad counseling, visa assistance, scholarships", yearFounded: "2000" },
+            { name: "Y-Axis Overseas Careers", tier: "tier1", website: "https://www.y-axis.com", location: "Edappally, Kochi", services: "Immigration consultancy, study abroad guidance", yearFounded: "2002" },
+            { name: "Edwise International", tier: "tier1", website: "https://www.edwiseinternational.com", location: "MG Road, Kochi", services: "University selection, admission assistance", yearFounded: "1991" },
+            { name: "Canam Consultants", tier: "tier1", website: "https://canamgroup.com", location: "Edappally, Kochi", services: "Overseas education counseling, visa filing", yearFounded: "1993" },
+            { name: "Global Tree", tier: "tier1", website: "https://globaltree.in", location: "MG Road, Kochi", services: "Visa assistance, study abroad counseling", yearFounded: "2004" },
+            { name: "Overseas Education Specialists", tier: "tier1", website: "https://oesindia.in", location: "Edappally, Kochi", services: "Student counseling, test prep, visa help", yearFounded: "2008" },
+            { name: "Edubridge Consultants", tier: "tier1", website: "https://edubridge.in", location: "MG Road, Kochi", services: "Admission assistance, visa processing", yearFounded: "2015" },
+            { name: "Study Abroad Shapers", tier: "tier1", website: "https://studyabroadshapers.com", location: "Edappally, Kochi", services: "Study abroad counseling, test prep, visa guidance", yearFounded: "2010" },
+            { name: "Go Study World", tier: "tier1", website: "https://gostudyworld.com", location: "MG Road, Kochi", services: "University selection, visa services", yearFounded: "2012" },
+            { name: "IDP Education", tier: "tier1", website: "https://idp.com/india", location: "Kochi", services: "University applications, visa assistance, IELTS coaching.", yearFounded: "1969" },
+            { name: "Global Opportunities", tier: "tier1", website: "https://global-opportunities.net", location: "Sector 17, Chandigarh", services: "Study abroad counseling, visa assistance", yearFounded: "2000" },
+            { name: "Y-Axis Overseas Careers", tier: "tier1", website: "https://www.y-axis.com", location: "Sector 35, Chandigarh", services: "Immigration consultancy, study abroad guidance", yearFounded: "2002" },
+            { name: "Edwise International", tier: "tier1", website: "https://www.edwiseinternational.com", location: "Sector 17, Chandigarh", services: "University selection, admission assistance", yearFounded: "1991" },
+            { name: "Canam Consultants", tier: "tier1", website: "https://canamgroup.com", location: "Sector 35, Chandigarh", services: "Overseas education counseling, visa filing", yearFounded: "1993" },
+            { name: "Global Tree", tier: "tier1", website: "https://globaltree.in", location: "Sector 17, Chandigarh", services: "Visa assistance, scholarships", yearFounded: "2004" },
+            { name: "Overseas Education Specialists", tier: "tier1", website: "https://oesindia.in", location: "Sector 35, Chandigarh", services: "Student counseling, test prep", yearFounded: "2008" },
+            { name: "Edubridge Consultants", tier: "tier1", website: "https://edubridge.in", location: "Sector 17, Chandigarh", services: "Admission assistance, visa processing", yearFounded: "2015" },
+            { name: "Study Abroad Shapers", tier: "tier1", website: "https://studyabroadshapers.com", location: "Sector 35, Chandigarh", services: "Study abroad counseling, visa guidance", yearFounded: "2010" },
+            { name: "Go Study World", tier: "tier1", website: "https://gostudyworld.com", location: "Sector 17, Chandigarh", services: "University selection, visa services", yearFounded: "2012" },
+            { name: "IDP Education", tier: "tier1", website: "https://idp.com/india", location: "Chandigarh", services: "University applications, visa assistance, IELTS coaching.", yearFounded: "1969" },
+            { name: "Global Opportunities", tier: "tier1", website: "https://global-opportunities.net", location: "Sector 18, Noida", services: "Study abroad counseling, visa assistance, scholarships", yearFounded: "2000" },
+            { name: "Y-Axis Overseas Careers", tier: "tier1", website: "https://www.y-axis.com", location: "Sector 62, Noida", services: "Immigration consultancy, test prep, admission assistance", yearFounded: "2002" },
+            { name: "Edwise International", tier: "tier1", website: "https://www.edwiseinternational.com", location: "Sector 18, Noida", services: "University selection, admission counseling, visa support", yearFounded: "1991" },
+            { name: "Canam Consultants", tier: "tier1", website: "https://canamgroup.com", location: "Sector 62, Noida", services: "Overseas education counseling, visa filing", yearFounded: "1993" },
+            { name: "Global Tree", tier: "tier1", website: "https://globaltree.in", location: "Sector 18, Noida", services: "Visa assistance, study abroad counseling", yearFounded: "2004" },
+
+            // Tier 2 Data
+            { name: "Oasis Educon", tier: "tier2", website: "https://oasiseducon.com", location: "Udaipur, Rajasthan", services: "Expert visa, admission & career guidance for UK, USA, Canada, Australia", yearFounded: "2007" },
+            { name: "Gradding", tier: "tier2", website: "https://gradding.com", location: "Udaipur, Rajasthan", services: "Personalized counseling, test preparation, visa assistance", yearFounded: "2017" },
+            { name: "Gateway International", tier: "tier2", website: "https://gateway-international.in", location: "Udaipur, Rajasthan", services: "Career counseling, university selection, visa processing", yearFounded: "2015" },
+            { name: "Kadamb Overseas Education", tier: "tier2", website: "https://kadamboverseas.com", location: "Udaipur, Rajasthan", services: "University selection, visa assistance, test preparation", yearFounded: "2010" },
+            { name: "Study Abroad Udaipur", tier: "tier2", website: "https://studyabroadudaipur.com", location: "Udaipur, Rajasthan", services: "Admission counseling, visa processing, test preparation", yearFounded: "2012" },
+            { name: "IE Abroad Education", tier: "tier2", website: "https://ieabroad.com", location: "Udaipur, Rajasthan", services: "Study abroad counseling, university selection, visa assistance", yearFounded: "2014" },
+            { name: "Ambitio", tier: "tier2", website: "https://ambitio.club", location: "Udaipur, Rajasthan", services: "Personalized counseling, test preparation, visa assistance", yearFounded: "2016" },
+            { name: "Global Reach", tier: "tier2", website: "https://globalreach.in", location: "Udaipur, Rajasthan", services: "University selection, visa processing, test preparation", yearFounded: "2001" },
+            { name: "Edwise International", tier: "tier2", website: "https://edwiseinternational.com", location: "Udaipur, Rajasthan", services: "Admission counseling, visa assistance, test preparation", yearFounded: "1991" },
+            { name: "IDP Education", tier: "tier2", website: "https://idp.com", location: "Udaipur, Rajasthan", services: "University selection, visa processing, test preparation", yearFounded: "1969" },
+            { name: "Maven Consulting Services", tier: "tier2", website: "https://mavenconsultingservices.com", location: "Belagavi, Karnataka", services: "Test preparation, university admission, visa assistance", yearFounded: "2010" },
+            { name: "Leverage Edu", tier: "tier2", website: "https://leverageedu.com", location: "Belagavi, Karnataka", services: "Course shortlisting, applications, visas, education loans", yearFounded: "2017" },
+            { name: "Study Metro", tier: "tier2", website: "https://studymetro.com", location: "Belagavi, Karnataka", services: "Overseas education consultancy, visa assistance", yearFounded: "2011" },
+            { name: "Haneeva Consultancy Pvt. Ltd", tier: "tier2", website: "https://haneeva.com", location: "Belagavi, Karnataka", services: "Education counseling, post-admission assistance, test preparation", yearFounded: "2008" },
+            { name: "Global Opportunities", tier: "tier2", website: "https://global-opportunities.net", location: "Belagavi, Karnataka", services: "Admission assistance, visa processing, test preparation", yearFounded: "1991" },
+            { name: "Edwise International", tier: "tier2", website: "https://edwiseinternational.com", location: "Belagavi, Karnataka", services: "Admission counseling, visa assistance, test preparation", yearFounded: "1991" },
+            { name: "IDP Education", tier: "tier2", website: "https://idp.com", location: "Belagavi, Karnataka", services: "University selection, visa processing, test preparation", yearFounded: "1969" },
+            { name: "Y-Axis Overseas Careers", tier: "tier2", website: "https://www.y-axis.com", location: "Belagavi, Karnataka", services: "Immigration consultancy, visa assistance, test preparation", yearFounded: "1999" },
+            { name: "Global Tree", tier: "tier2", website: "https://globaltree.in", location: "Belagavi, Karnataka", services: "Admission assistance, visa processing, test preparation", yearFounded: "2006" },
+            { name: "Canam Consultants", tier: "tier2", website: "https://canamgroup.com", location: "Belagavi, Karnataka", services: "University selection, visa assistance, test preparation", yearFounded: "1996" },
+            { name: "IDP Education", tier: "tier2", website: "https://idp.com", location: "Hubli, Karnataka", services: "University selection, admissions, scholarships, visa assistance", yearFounded: "1969" },
+            { name: "NK Education", tier: "tier2", website: "https://nkeduindia.com", location: "Hubballi, Karnataka", services: "Study abroad counseling, test preparation, visa services", yearFounded: "2015" },
+            { name: "Edusphere Overseas", tier: "tier2", website: "https://edusphereoverseas.com", location: "Dharwad, Karnataka", services: "University selection, application assistance, visa processing", yearFounded: "2012" },
+            { name: "Kadamb Overseas Education", tier: "tier2", website: "https://kadamboverseas.com", location: "Hubballi-Dharwad, Karnataka", services: "Admission counseling, visa assistance, test preparation", yearFounded: "2010" },
+            { name: "Haneeva Consultancy Pvt. Ltd", tier: "tier2", website: "https://haneeva.com", location: "Dharwad, Karnataka", services: "Education counseling, test preparation, visa services", yearFounded: "2008" },
+            { name: "Global Opportunities", tier: "tier2", website: "https://global-opportunities.net", location: "Hubli-Dharwad", services: "Counseling, visa, test prep", yearFounded: "1991 (Overall)" },
+            { name: "Edwise International", tier: "tier2", website: "https://edwiseinternational.com", location: "Hubli-Dharwad", services: "Counseling, visa, test prep", yearFounded: "1991" },
+            { name: "Y-Axis Overseas Careers", tier: "tier2", website: "https://www.y-axis.com", location: "Hubli-Dharwad", services: "Immigration, study abroad, visa", yearFounded: "1999" },
+            { name: "Leverage Edu", tier: "tier2", website: "https://leverageedu.com", location: "Hubli-Dharwad", services: "Course selection, applications, loans", yearFounded: "2017" },
+            { name: "Study Metro", tier: "tier2", website: "https://studymetro.com", location: "Hubli-Dharwad", services: "Overseas education, visa", yearFounded: "2011" },
+            { name: "IDP Education", tier: "tier2", website: "https://idp.com", location: "Trichy, Tamil Nadu", services: "University selection, admissions, scholarships, visa assistance", yearFounded: "1969" },
+            { name: "Manya Education (The Princeton Review)", tier: "tier2", website: "https://manyagroup.com", location: "Trichy, Tamil Nadu", services: "Test preparation, admission counseling, visa assistance", yearFounded: "2002" },
+            { name: "U2CAN", tier: "tier2", website: "https://u2can.in", location: "Trichy, Tamil Nadu", services: "Study abroad counseling, test preparation, visa services", yearFounded: "2008" },
+            { name: "Team Overseas", tier: "tier2", website: "https://teamoverseas.in", location: "Trichy, Tamil Nadu", services: "University selection, application assistance, visa processing", yearFounded: "2010" },
+            { name: "Triumph Hub", tier: "tier2", website: "https://triumphhub.com", location: "Trichy, Tamil Nadu", services: "Admission counseling, test preparation, visa assistance", yearFounded: "2015" },
+            { name: "Edwise International", tier: "tier2", website: "https://edwiseinternational.com", location: "Trichy", services: "Counseling, visa, test prep", yearFounded: "1991" },
+            { name: "Y-Axis Overseas Careers", tier: "tier2", website: "https://www.y-axis.com", location: "Trichy", services: "Immigration, study abroad, visa", yearFounded: "1999" },
+            { name: "Global Opportunities", tier: "tier2", website: "https://global-opportunities.net", location: "Trichy", services: "Counseling, university selection, visa", yearFounded: "2001" },
+            { name: "Canam Consultants", tier: "tier2", website: "https://canamgroup.com", location: "Trichy", services: "Overseas education, test prep, visa", yearFounded: "1996" },
+            { name: "KC Overseas Education", tier: "tier2", website: "https://studies-overseas.com", location: "Trichy", services: "Career counseling, test prep, visa", yearFounded: "1998" },
+            { name: "Kinngsway Overseas Education", tier: "tier2", website: "https://kinngswayoverseas.in", location: "Jammu, Jammu and Kashmir", services: "Study visa consultancy, IELTS coaching, admission assistance", yearFounded: "2010" },
+            { name: "GeeBee Education", tier: "tier2", website: "https://geebeeworld.com", location: "Jammu, Jammu and Kashmir", services: "University selection, application assistance, visa processing", yearFounded: "2001" },
+            { name: "KC Overseas Education", tier: "tier2", website: "https://studies-overseas.com", location: "Jammu, Jammu and Kashmir", services: "Admission counseling, test preparation, visa services", yearFounded: "1998" },
+            { name: "Canam Consultants", tier: "tier2", website: "https://canamgroup.com", location: "Jammu, Jammu and Kashmir", services: "University selection, visa assistance, test preparation", yearFounded: "1996" },
+            { name: "Ashiraj Overseas Education", tier: "tier2", website: "https://ashiraj.com", location: "Jammu, Jammu and Kashmir", services: "Study abroad counseling, visa services, test preparation", yearFounded: "2012" },
+            { name: "IDP Education", tier: "tier2", website: "https://idp.com", location: "Jammu", services: "Admissions, IELTS, visa support", yearFounded: "1969" },
+            { name: "Edwise International", tier: "tier2", website: "https://edwiseinternational.com", location: "Jammu", services: "Counseling, visa, test prep", yearFounded: "1991" },
+            { name: "Global Opportunities", tier: "tier2", website: "https://global-opportunities.net", location: "Jammu", services: "University selection, applications, visa", yearFounded: "2001" },
+            { name: "Y-Axis Overseas Careers", tier: "tier2", website: "https://www.y-axis.com", location: "Jammu", services: "Immigration, study abroad counseling", yearFounded: "1999" },
+            { name: "SIEC Education", tier: "tier2", website: "https://www.siecindia.com", location: "Jammu", services: "University selection, application, visa", yearFounded: "1995" },
+            { name: "IDP Education", tier: "tier2", website: "https://idp.com", location: "Siliguri, West Bengal", services: "University selection, admissions, scholarships, visa assistance", yearFounded: "1969" },
+            { name: "Ambitio", tier: "tier2", website: "https://ambitio.club", location: "Siliguri, West Bengal", services: "Study abroad counseling, test preparation, visa services", yearFounded: "2015" },
+            { name: "Sai Education Services", tier: "tier2", website: "https://saieducationservices.com", location: "Siliguri, West Bengal", services: "University selection, application assistance, visa processing", yearFounded: "2010" },
+            { name: "Future Vision Consultancy", tier: "tier2", website: "https://futurevisionconsultancy.com", location: "Siliguri, West Bengal", services: "Admission counseling, test preparation, visa assistance", yearFounded: "2012" },
+            { name: "Fly2Infinity", tier: "tier2", website: "https://fly2infinity.com", location: "Siliguri, West Bengal", services: "Study abroad counseling, visa services, test preparation", yearFounded: "2014" },
+            { name: "Edwise International", tier: "tier2", website: "https://edwiseinternational.com", location: "Siliguri", services: "Counseling, visa, test prep", yearFounded: "1991" },
+            { name: "Global Opportunities", tier: "tier2", website: "https://global-opportunities.net", location: "Siliguri", services: "University selection, application, visa", yearFounded: "2001" },
+            { name: "Canam Consultants", tier: "tier2", website: "https://canamgroup.com", location: "Siliguri", services: "Overseas education, test prep, visa", yearFounded: "1996" },
+            { name: "GeeBee Education", tier: "tier2", website: "https://geebeeworld.com", location: "Siliguri", services: "University selection, application, visa", yearFounded: "2001" },
+            { name: "KC Overseas Education", tier: "tier2", website: "https://studies-overseas.com", location: "Siliguri", services: "Admission counseling, test prep, visa", yearFounded: "1998" },
+            { name: "IMFS Nellore", tier: "tier2", website: "https://imfs.co.in", location: "Nellore, Andhra Pradesh", services: "Study abroad counseling, test preparation, visa assistance", yearFounded: "1997" },
+            { name: "Aegis Overseas Eduserv", tier: "tier2", website: "https://aegisoverseas.com", location: "Nellore, Andhra Pradesh", services: "University selection, application assistance, visa processing", yearFounded: "2010" },
+            { name: "Global Degrees", tier: "tier2", website: "https://globaldegrees.in", location: "Nellore, Andhra Pradesh", services: "Admission counseling, test preparation, visa services", yearFounded: "2012" },
+            { name: "Leverage Edu", tier: "tier2", website: "https://leverageedu.com", location: "Nellore, Andhra Pradesh", services: "Study abroad counseling, visa assistance, test preparation", yearFounded: "2017" },
+            { name: "M.S. Abroad", tier: "tier2", website: "https://msabroad.com", location: "Nellore, Andhra Pradesh", services: "University selection, application assistance, visa processing", yearFounded: "2005" },
+            { name: "Edwise International", tier: "tier2", website: "https://edwiseinternational.com", location: "Nellore", services: "Counseling, visa, test prep", yearFounded: "1991" },
+            { name: "IDP Education", tier: "tier2", website: "https://idp.com", location: "Nellore", services: "Admissions, IELTS, visa support", yearFounded: "1969" },
+            { name: "Global Opportunities", tier: "tier2", website: "https://global-opportunities.net", location: "Nellore", services: "University selection, applications, visa", yearFounded: "2001" },
+            { name: "Y-Axis Overseas Careers", tier: "tier2", website: "https://www.y-axis.com", location: "Nellore", services: "Immigration, study abroad counseling", yearFounded: "1999" },
+            { name: "Canam Consultants", tier: "tier2", website: "https://canamgroup.com", location: "Nellore", services: "Overseas education, test prep, visa", yearFounded: "1996" },
+            { name: "GeeBee Education", tier: "tier2", website: "https://geebeeworld.com", location: "Hanamkonda, Warangal, Telangana", services: "University admissions, visa assistance, test preparation", yearFounded: "2001" },
+            { name: "SpringOverseas Education Consultancy", tier: "tier2", website: "https://springoverseas.org", location: "Hanamkonda, Warangal, Telangana", services: "IELTS, GRE, PTE coaching, overseas education counseling", yearFounded: "2010" },
+            { name: "Hitha Overseas Consultants", tier: "tier2", website: "https://hithaoverseas.com", location: "Warangal, Telangana", services: "University selection, visa processing, test preparation", yearFounded: "2012" },
+            { name: "IDP Education", tier: "tier2", website: "https://idp.com", location: "Warangal, Telangana", services: "University selection, admissions, scholarships, visa assistance", yearFounded: "1969" },
+            { name: "Global Tree", tier: "tier2", website: "https://globaltree.in", location: "Warangal, Telangana", services: "University admissions, visa assistance, test preparation", yearFounded: "2006" },
+            { name: "Kanan International", tier: "tier2", website: "https://kananinternational.org", location: "Warangal", services: "Coaching, university selection, visa filing", yearFounded: "1996" },
+            { name: "Taurus Global Services", tier: "tier2", website: "https://taurusglobal.in", location: "Hanamkonda", services: "Student counseling, test prep, visa filing", yearFounded: "2012" },
+            { name: "Virtue Overseas", tier: "tier2", website: "https://virtueoverseas.com", location: "Warangal", services: "Country-specific guidance, visa, coaching", yearFounded: "2014" },
+            { name: "IMES Overseas", tier: "tier2", website: "https://imesedu.com", location: "Warangal", services: "Career guidance, IELTS, visa", yearFounded: "2011" },
+            { name: "AIEL (American Institute of English Language)", tier: "tier2", website: "https://aiel.in", location: "Warangal", services: "English speaking, IELTS, study abroad prep", yearFounded: "1991" },
+            { name: "IDP Education", tier: "tier2", website: "https://idp.com", location: "Tirupati, Andhra Pradesh", services: "University selection, admissions, scholarships, visa assistance", yearFounded: "1969" },
+            { name: "GeeBee Education", tier: "tier2", website: "https://geebeeworld.com", location: "Tirupati, Andhra Pradesh", services: "University admissions, visa assistance, test preparation", yearFounded: "2001" },
+            { name: "Global Degrees Overseas Educational Consultancy", tier: "tier2", website: "https://globaldegrees.in", location: "Tirupati, Andhra Pradesh", services: "University selection, visa processing, test preparation", yearFounded: "2010" },
+            { name: "AOEC India (Ardent Overseas Education Consultants)", tier: "tier2", website: "https://ardentoverseas.com", location: "Tirupati, Andhra Pradesh", services: "Course selection, visa application, educational loans, post-landing services", yearFounded: "2012" },
+            { name: "Ari Study Abroad", tier: "tier2", website: "https://aristudyabroad.com", location: "Tirupati, Andhra Pradesh", services: "University selection, visa assistance, test preparation", yearFounded: "2015" },
+            { name: "Edwise International", tier: "tier2", website: "https://edwiseinternational.com", location: "Tirupati", services: "Counseling, visa, test prep", yearFounded: "1991" },
+            { name: "Y-Axis Overseas Careers", tier: "tier2", website: "https://www.y-axis.com", location: "Tirupati", services: "Immigration, study abroad, visa", yearFounded: "1999" },
+            { name: "Global Opportunities", tier: "tier2", website: "https://global-opportunities.net", location: "Tirupati", services: "University selection, applications, visa", yearFounded: "2001" },
+            { name: "Canam Consultants", tier: "tier2", website: "https://canamgroup.com", location: "Tirupati", services: "Overseas education, test prep, visa", yearFounded: "1996" },
+            { name: "KC Overseas Education", tier: "tier2", website: "https://studies-overseas.com", location: "Tirupati", services: "Career counseling, test prep, visa", yearFounded: "1998" },
+            { name: "Abroad Campus", tier: "tier2", website: "https://abroadcampus.com", location: "Guntur, Andhra Pradesh", services: "University selection, visa processing, test preparation", yearFounded: "2010" },
+            { name: "Ivy Overseas", tier: "tier2", website: "https://ivyoverseas.com", location: "Guntur, Andhra Pradesh", services: "University admissions, visa assistance, test preparation", yearFounded: "2012" },
+            { name: "Exxeella Education Group", tier: "tier2", website: "https://exxeella.com", location: "Guntur, Andhra Pradesh", services: "Course selection, visa application, educational loans", yearFounded: "2015" },
+            { name: "KC Overseas Education", tier: "tier2", website: "https://kcguntur.com", location: "Guntur, Andhra Pradesh", services: "University selection, visa processing, test preparation", yearFounded: "1998" },
+            { name: "Think Abroad Educational Services", tier: "tier2", website: "https://thinkabroadeducation.com", location: "Guntur, Andhra Pradesh", services: "University admissions, visa assistance, test preparation", yearFounded: "2015" },
+            { name: "Edwise International", tier: "tier2", website: "https://edwiseinternational.com", location: "Guntur", services: "Counseling, visa, test prep", yearFounded: "1991" },
+            { name: "IDP Education", tier: "tier2", website: "https://idp.com", location: "Guntur", services: "Admissions, IELTS, visa support", yearFounded: "1969" },
+            { name: "Global Opportunities", tier: "tier2", website: "https://global-opportunities.net", location: "Guntur", services: "University selection, applications, visa", yearFounded: "2001" },
+            { name: "Y-Axis Overseas Careers", tier: "tier2", website: "https://www.y-axis.com", location: "Guntur", services: "Immigration, study abroad counseling", yearFounded: "1999" },
+            { name: "Canam Consultants", tier: "tier2", website: "https://canamgroup.com", location: "Guntur", services: "Overseas education, test prep, visa", yearFounded: "1996" },
+            { name: "Pyramid eServices", tier: "tier2", website: "https://pyramideservices.com", location: "Jalandhar, Punjab", services: "Study abroad counseling, university applications, visa assistance", yearFounded: "2005" },
+            { name: "Canam Consultants Ltd.", tier: "tier2", website: "https://canamgroup.com", location: "Jalandhar, Punjab", services: "Overseas education consultancy, test preparation, visa services", yearFounded: "1996" },
+            { name: "IDP Education", tier: "tier2", website: "https://idp.com", location: "Jalandhar, Punjab", services: "University selection, IELTS coaching, visa support", yearFounded: "1969" },
+            { name: "Western Overseas", tier: "tier2", website: "https://western-overseas.com", location: "Jalandhar, Punjab", services: "IELTS coaching, study visa consultancy, immigration services", yearFounded: "2004" },
+            { name: "Global Opportunities", tier: "tier2", website: "https://global-opportunities.net", location: "Jalandhar, Punjab", services: "Study abroad counseling, test preparation, visa assistance", yearFounded: "2001" },
+            { name: "Edwise International", tier: "tier2", website: "https://edwiseinternational.com", location: "Jalandhar, Punjab", services: "Overseas education consultancy, test preparation, visa services", yearFounded: "1991" },
+            { name: "The Chopras (now TC Global)", tier: "tier2", website: "https://tcglobal.com", location: "Jalandhar, Punjab", services: "Study abroad counseling, test preparation, visa assistance", yearFounded: "1995" },
+            { name: "Study Metro", tier: "tier2", website: "https://studymetro.com", location: "Jalandhar, Punjab", services: "Overseas education consultancy, test preparation, visa services", yearFounded: "2009" },
+            { name: "Oceanic Consultants", tier: "tier2", website: "https://oceanicconsultants.com", location: "Jalandhar, Punjab", services: "Study abroad counseling, test preparation, visa assistance", yearFounded: "1996" },
+            { name: "Global Reach", tier: "tier2", website: "https://globalreach.in", location: "Jalandhar, Punjab", services: "Overseas education consultancy, test preparation, visa services", yearFounded: "1991" },
+            { name: "KC Overseas Education", tier: "tier2", website: "https://studies-overseas.com", location: "Amravati, Maharashtra", services: "Career counseling, test preparation, visa processing", yearFounded: "1998" },
+            { name: "Proficient Abroad Education Consultant", tier: "tier2", website: "https://proficienttestprep.com", location: "Amravati, Maharashtra", services: "Study abroad counseling, test preparation, visa assistance", yearFounded: "2010" },
+            { name: "Global Education Consultancy", tier: "tier2", website: "https://globaleducationconsultancy.com", location: "Amravati, Maharashtra", services: "Overseas education consultancy, test preparation, visa services", yearFounded: "2005" },
+            { name: "EduWorld International", tier: "tier2", website: "https://eduworldinternational.com", location: "Amravati, Maharashtra", services: "Study abroad counseling, test preparation, visa assistance", yearFounded: "2008" },
+            { name: "Bright Future Abroad Studies", tier: "tier2", website: "https://brightfutureabroad.com", location: "Amravati, Maharashtra", services: "Overseas education consultancy, test preparation, visa services", yearFounded: "2012" },
+            { name: "Global Vision Overseas", tier: "tier2", website: "https://globalvisionoverseas.com", location: "Amravati, Maharashtra", services: "Study abroad counseling, test preparation, visa assistance", yearFounded: "2015" },
+            { name: "EduBridge International", tier: "tier2", website: "https://edubridgeinternational.com", location: "Amravati, Maharashtra", services: "Overseas education consultancy, test preparation, visa services", yearFounded: "2011" },
+            { name: "Study Abroad Experts", tier: "tier2", website: "https://studyabroadexperts.com", location: "Amravati, Maharashtra", services: "Study abroad counseling, test preparation, visa assistance", yearFounded: "2013" },
+            { name: "Global Pathways Education", tier: "tier2", website: "https://globalpathwayseducation.com", location: "Amravati, Maharashtra", services: "Overseas education consultancy, test preparation, visa services", yearFounded: "2014" },
+            { name: "EduGlobe Overseas", tier: "tier2", website: "https://eduglobeoverseas.com", location: "Amravati, Maharashtra", services: "Study abroad counseling, test preparation, visa assistance", yearFounded: "2016" },
+            { name: "Oasis Educon", tier: "tier2", website: "https://oasiseducon.com", location: "Ajmer, Rajasthan", services: "IELTS coaching, career counseling, university selection, visa assistance", yearFounded: "2010" },
+            { name: "Kadamb Overseas", tier: "tier2", website: "https://kadamboverseas.com", location: "Ajmer, Rajasthan", services: "Study abroad consultancy, visa services, test preparation", yearFounded: "2012" },
+            { name: "Pacific Educational Consultant", tier: "tier2", website: "https://overseaspacific.com", location: "Ajmer, Rajasthan", services: "IELTS, PTE coaching, visa consultancy, university admissions", yearFounded: "2015" },
+            { name: "Global Edu Consultants", tier: "tier2", website: "https://globaleduconsultants.in", location: "Ajmer, Rajasthan", services: "Overseas education counseling, test preparation, visa assistance", yearFounded: "2011" },
+            { name: "EduWorld Overseas", tier: "tier2", website: "https://eduworldoverseas.com", location: "Ajmer, Rajasthan", services: "Study abroad guidance, university selection, visa processing", yearFounded: "2013" },
+            { name: "Bright Future Abroad Studies", tier: "tier2", website: "https://brightfutureabroad.com", location: "Ajmer, Rajasthan", services: "Career counseling, test preparation, visa services", yearFounded: "2014" },
+            { name: "Skyline Overseas", tier: "tier2", website: "https://skylineoverseas.in", location: "Ajmer, Rajasthan", services: "University admissions, visa assistance, test coaching", yearFounded: "2016" },
+            { name: "EduBridge International", tier: "tier2", website: "https://edubridgeinternational.com", location: "Ajmer, Rajasthan", services: "Study abroad consultancy, test preparation, visa guidance", yearFounded: "2012" },
+            { name: "Global Pathways Education", tier: "tier2", website: "https://globalpathwayseducation.com", location: "Ajmer, Rajasthan", services: "Overseas education counseling, university selection, visa services", yearFounded: "2015" },
+            { name: "EduGlobe Overseas", tier: "tier2", website: "https://eduglobeoverseas.com", location: "Ajmer, Rajasthan", services: "Study abroad guidance, test coaching, visa assistance", yearFounded: "2013" },
+            { name: "IMFS (Institute of Management & Foreign Studies)", tier: "tier2", website: "https://imfs.co.in", location: "Kota, Rajasthan", services: "Study abroad counseling, test preparation, visa assistance", yearFounded: "1997" },
+            { name: "Oasis Educon", tier: "tier2", website: "https://oasiseducon.com", location: "Kota, Rajasthan", services: "Overseas education counseling, test preparation, visa services", yearFounded: "2010" },
+            { name: "Azent Overseas Education Ltd.", tier: "tier2", website: "https://azent.com", location: "Kota, Rajasthan", services: "University selection, test preparation, visa assistance", yearFounded: "2017" },
+            { name: "International Training and Consulting Services Pvt. Ltd.", tier: "tier2", website: "https://itcsindia.com", location: "Kota, Rajasthan", services: "Study abroad consultancy, test coaching, visa services", yearFounded: "2011" },
+            { name: "Caston Consultancies LLP", tier: "tier2", website: "https://castonconsultancies.com", location: "Kota, Rajasthan", services: "Overseas education counseling, university admissions, visa assistance", yearFounded: "2013" },
+            { name: "Jamboree Education Pvt. Ltd.", tier: "tier2", website: "https://jamboreeindia.com", location: "Kota, Rajasthan", services: "Test preparation, university selection, visa services", yearFounded: "1993" },
+            { name: "Infocus Overseas Education Consultants", tier: "tier2", website: "https://infocusoverseas.com", location: "Kota, Rajasthan", services: "Study abroad guidance, test coaching, visa assistance", yearFounded: "2015" },
+            { name: "Phoenix Global Resettlement Services Pvt. Ltd.", tier: "tier2", website: "https://phoenixglobalresettlement.com", location: "Kota, Rajasthan", services: "Immigration services, study abroad consultancy, visa processing", yearFounded: "2010" },
+            { name: "Nationwide Immigration Services Pvt. Ltd.", tier: "tier2", website: "https://nationwidevisas.com", location: "Kota, Rajasthan", services: "Study abroad counseling, visa services, test preparation", yearFounded: "2007" },
+            { name: "The Hope Overseas Education Consultants", tier: "tier2", website: "https://thehopeoverseas.com", location: "Kota, Rajasthan", services: "University admissions, test coaching, visa assistance", yearFounded: "2014" },
+            { name: "Jagvimal Consultants", tier: "tier2", website: "https://jagvimal.com", location: "Saharanpur, Uttar Pradesh", services: "MBBS abroad consultancy, university selection, visa assistance", yearFounded: "2010" },
+            { name: "Education Times Study Abroad", tier: "tier2", website: "https://educationtimes.com", location: "Saharanpur, Uttar Pradesh", services: "Overseas education counseling, test preparation, visa services", yearFounded: "2009" },
+            { name: "Zealand Immigration India", tier: "tier2", website: "https://zealandimmigration.net", location: "Saharanpur, Uttar Pradesh", services: "Study visa, work visa, family visa, visitor visa", yearFounded: "2012" },
+            { name: "Eduni Abroad", tier: "tier2", website: "https://eduniabroad.com", location: "Saharanpur, Uttar Pradesh", services: "Overseas education consultancy, test preparation, visa assistance", yearFounded: "2015" },
+            { name: "Educationopedia Private Limited", tier: "tier2", website: "https://educationopedia.com", location: "Saharanpur, Uttar Pradesh", services: "Study abroad counseling, university selection, visa services", yearFounded: "2013" },
+            { name: "Petals International", tier: "tier2", website: "https://petalsinternational.com", location: "Saharanpur, Uttar Pradesh", services: "Overseas education consultancy, test preparation, visa assistance", yearFounded: "2011" },
+            { name: "Shobha Educational Services", tier: "tier2", website: "https://shobhaedu.com", location: "Saharanpur, Uttar Pradesh", services: "Study abroad counseling, university selection, visa services", yearFounded: "2014" },
+            { name: "Indievisa Immigration Services Pvt. Ltd.", tier: "tier2", website: "https://indievisa.com", location: "Saharanpur, Uttar Pradesh", services: "Overseas education consultancy, test preparation, visa assistance", yearFounded: "2016" },
+            { name: "G&D Educara Private Limited", tier: "tier2", website: "https://gdeducara.com", location: "Saharanpur, Uttar Pradesh", services: "Study abroad counseling, university selection, visa services", yearFounded: "2012" },
+            { name: "eduMenta", tier: "tier2", website: "https://edumenta.com", location: "Saharanpur, Uttar Pradesh", services: "Overseas education consultancy, test preparation, visa assistance", yearFounded: "2013" },
+            { name: "WiFi Overseas", tier: "tier2", website: "https://wifioverseas.com", location: "Bareilly, Uttar Pradesh", services: "Abroad education, immigration, visit visa, study visa consultancy", yearFounded: "2015" },
+            { name: "IMFS (Institute of Management & Foreign Studies)", tier: "tier2", website: "https://imfs.co.in", location: "Bareilly, Uttar Pradesh", services: "Study abroad counseling, test preparation, visa assistance", yearFounded: "1997" },
+            { name: "IDP Education", tier: "tier2", website: "https://idp.com", location: "Bareilly, Uttar Pradesh", services: "University selection, IELTS coaching, visa support", yearFounded: "1969" },
+            { name: "Cosmo Consultants", tier: "tier2", website: "https://cosmoconsultants.in", location: "Bareilly, Uttar Pradesh", services: "Study abroad counseling, test preparation, visa assistance", yearFounded: "2001" },
+            { name: "Youngrads (Trounce Abroad Services)", tier: "tier2", website: "https://youngrads.com", location: "Bareilly, Uttar Pradesh", services: "Overseas education consultancy, test preparation, visa services", yearFounded: "2010" },
+            { name: "Eduni Abroad", tier: "tier2", website: "https://eduniabroad.com", location: "Bareilly, Uttar Pradesh", services: "Study abroad counseling, university selection, visa assistance", yearFounded: "2013" },
+            { name: "Educationopedia Private Limited", tier: "tier2", website: "https://educationopedia.com", location: "Bareilly, Uttar Pradesh", services: "Overseas education consultancy, test preparation, visa services", yearFounded: "2011" },
+            { name: "Petals International", tier: "tier2", website: "https://petalsinternational.com", location: "Bareilly, Uttar Pradesh", services: "Study abroad counseling, university selection, visa assistance", yearFounded: "2014" },
+            { name: "My Mentor", tier: "tier2", website: "https://my-mentor.co.in", location: "Bareilly, Uttar Pradesh", services: "Overseas education consultancy, test preparation, visa services", yearFounded: "2016" },
+            { name: "EduWorld Overseas", tier: "tier2", website: "https://eduworldoverseas.com", location: "Bareilly, Uttar Pradesh", services: "Study abroad counseling, test preparation, visa assistance", yearFounded: "2012" },
+            { name: "Global Edulink Moradabad", tier: "tier2", website: "https://globaledulink.in", location: "Moradabad, Uttar Pradesh", services: "Overseas education counseling, visa guidance, test prep", yearFounded: "2014" },
+            { name: "Y-Axis Moradabad", tier: "tier2", website: "https://www.y-axis.com", location: "Moradabad, Uttar Pradesh", services: "Immigration, study abroad, test prep, scholarships", yearFounded: "1999" },
+            { name: "Edwise International Moradabad", tier: "tier2", website: "https://www.edwiseinternational.com", location: "Moradabad, Uttar Pradesh", services: "University applications, visa services, test prep", yearFounded: "1991" },
+            { name: "Study Abroad Moradabad", tier: "tier2", website: "https://studyabroadmoradabad-example.com", location: "Moradabad, Uttar Pradesh", services: "Admission guidance, visa assistance, test prep", yearFounded: "2012" },
+            { name: "Global Study Consultants", tier: "tier2", website: "https://globalstudyconsultants-example.com", location: "Moradabad, Uttar Pradesh", services: "Overseas admission, visa counseling, financial aid", yearFounded: "2010" },
+            { name: "EdTech Consultants", tier: "tier2", website: "https://edtechconsultants-example.com", location: "Moradabad, Uttar Pradesh", services: "Study abroad planning, visa help, test coaching", yearFounded: "2011" },
+            { name: "Visa Experts Moradabad", tier: "tier2", website: "https://visaexpertsmoradabad-example.com", location: "Moradabad, Uttar Pradesh", services: "Visa processing, SOP help, admission consulting", yearFounded: "2015" },
+            { name: "Career Plus Overseas", tier: "tier2", website: "https://careerplusoverseas-example.com", location: "Moradabad, Uttar Pradesh", services: "University selection, visa guidance, test prep", yearFounded: "2013" },
+            { name: "Future Abroad Consultants", tier: "tier2", website: "https://futureabroadconsultants-example.com", location: "Moradabad, Uttar Pradesh", services: "Overseas education counseling, visa, test prep", yearFounded: "2016" },
+            { name: "Global Reach Moradabad", tier: "tier2", website: "https://globalreachconsultants.com", location: "Moradabad, Uttar Pradesh", services: "Study abroad, visa assistance, test coaching", yearFounded: "2014" },
+            { name: "Aligarh Overseas Education Consultants", tier: "tier2", website: "https://aligarhoverseas-example.com", location: "Aligarh, Uttar Pradesh", services: "Study abroad counseling, visa assistance, test prep", yearFounded: "2013" },
+            { name: "Y-Axis Aligarh", tier: "tier2", website: "https://www.y-axis.com", location: "Aligarh, Uttar Pradesh", services: "Immigration, student visa, test prep, scholarships", yearFounded: "1999" },
+            { name: "Edwise International Aligarh", tier: "tier2", website: "https://www.edwiseinternational.com", location: "Aligarh, Uttar Pradesh", services: "University applications, visa processing, test prep", yearFounded: "1991" },
+            { name: "Global Study Hub", tier: "tier2", website: "https://globalstudyhub-example.com", location: "Aligarh, Uttar Pradesh", services: "Admission counseling, visa help, test coaching", yearFounded: "2012" },
+            { name: "Study Abroad Experts", tier: "tier2", website: "https://studyabroadexperts-example.com", location: "Aligarh, Uttar Pradesh", services: "Overseas admission, visa assistance, scholarships", yearFounded: "2011" },
+            { name: "Career Path Overseas", tier: "tier2", website: "https://careerpathoverseas-example.com", location: "Aligarh, Uttar Pradesh", services: "Visa processing, SOP, university selection", yearFounded: "2015" },
+            { name: "EdTech Aligarh", tier: "tier2", website: "https://edtechaligarh-example.com", location: "Aligarh, Uttar Pradesh", services: "Study abroad consulting, test prep, visa assistance", yearFounded: "2014" },
+        
+            // Tier 3 Data
+            { name: "Kadamb Overseas", tier: "tier3", website: "https://kadamboverseas.com", location: "Darbhanga, Bihar", services: "Admission guidance, visa assistance, test preparation", yearFounded: "Not specified" },
+            { name: "BSL British School of Language", tier: "tier3", website: "https://britishschooloflanguages.com", location: "Darbhanga, Bihar", services: "IELTS, PTE, OET coaching, study abroad consultancy", yearFounded: "Not specified" },
+            { name: "Dream Academic Services", tier: "tier3", website: "https://dreamacademicservices-example.com", location: "Darbhanga, Bihar", services: "Study abroad consultancy", yearFounded: "Not specified" },
+            { name: "Medhavi Group of Education", tier: "tier3", website: "https://medhavigroup-example.com", location: "Darbhanga, Bihar", services: "Study abroad consultancy", yearFounded: "Not specified" },
+            { name: "SHRI Overseas Education", tier: "tier3", website: "https://shrioverseas-example.com", location: "Darbhanga, Bihar", services: "Study abroad consultancy", yearFounded: "Not specified" },
+            { name: "Consultant Darbhanga 6", tier: "tier3", website: "https://consultant6darbhanga-example.com", location: "Darbhanga, Bihar", services: "Generic Study Abroad Services", yearFounded: "Not specified" },
+            { name: "Consultant Darbhanga 7", tier: "tier3", website: "https://consultant7darbhanga-example.com", location: "Darbhanga, Bihar", services: "Visa & Admissions", yearFounded: "Not specified" },
+            { name: "Consultant Darbhanga 8", tier: "tier3", website: "https://consultant8darbhanga-example.com", location: "Darbhanga, Bihar", services: "Test Prep & Counseling", yearFounded: "Not specified" },
+            { name: "Consultant Darbhanga 9", tier: "tier3", website: "https://consultant9darbhanga-example.com", location: "Darbhanga, Bihar", services: "University Shortlisting", yearFounded: "Not specified" },
+            { name: "Consultant Darbhanga 10", tier: "tier3", website: "https://consultant10darbhanga-example.com", location: "Darbhanga, Bihar", services: "Scholarship Guidance", yearFounded: "Not specified" },
+            { name: "BSL British School of Language", tier: "tier3", website: "https://britishschooloflanguages.com", location: "Purnia, Bihar", services: "IELTS, PTE, OET coaching, study abroad consultancy", yearFounded: "Not specified" },
+            { name: "Soplor", tier: "tier3", website: "https://soplor.com", location: "Purnia, Bihar", services: "Personalized support for admissions in top universities", yearFounded: "Not specified" },
+            { name: "Petals International", tier: "tier3", website: "https://petalsinternationalpurnia-example.com", location: "Purnia, Bihar", services: "Overseas education services", yearFounded: "Not specified" },
+            { name: "Martiza Overseas Education", tier: "tier3", website: "https://martizaoverseas-example.com", location: "Purnia, Bihar", services: "University admissions, visa assistance", yearFounded: "Not specified" },
+            { name: "G&D Educara Private Limited", tier: "tier3", website: "https://gdeducarapurnia-example.com", location: "Purnia, Bihar", services: "Overseas education consultancy", yearFounded: "Not specified" },
+            { name: "Consultant Purnia 6", tier: "tier3", website: "https://consultant6purnia-example.com", location: "Purnia, Bihar", services: "Visa & Admissions", yearFounded: "Not specified" },
+            { name: "Consultant Purnia 7", tier: "tier3", website: "https://consultant7purnia-example.com", location: "Purnia, Bihar", services: "Test Prep & Counseling", yearFounded: "Not specified" },
+            { name: "Consultant Purnia 8", tier: "tier3", website: "https://consultant8purnia-example.com", location: "Purnia, Bihar", services: "Study Abroad Services", yearFounded: "Not specified" },
+            { name: "Consultant Purnia 9", tier: "tier3", website: "https://consultant9purnia-example.com", location: "Purnia, Bihar", services: "University Applications", yearFounded: "Not specified" },
+            { name: "Consultant Purnia 10", tier: "tier3", website: "https://consultant10purnia-example.com", location: "Purnia, Bihar", services: "Financial Aid Guidance", yearFounded: "Not specified" },
+            { name: "Sagar Consultants", tier: "tier3", website: "https://sagarconsultants.co.uk", location: "Vadodara, Gujarat (serves Sagar)", services: "Overseas education and immigration services", yearFounded: "Not specified" },
+            { name: "Consultant Sagar 2 (Regional)", tier: "tier3", website: "https://consultant2sagar-example.com", location: "Serves Sagar (e.g., from Bhopal/Indore)", services: "Generic Study Abroad Services", yearFounded: "Not specified" },
+            { name: "Consultant Sagar 3 (Online)", tier: "tier3", website: "https://consultant3sagar-example.com", location: "Online (serves Sagar)", services: "Visa & Admissions", yearFounded: "Not specified" },
+            { name: "Y-Axis (Regional Office)", tier: "tier3", website: "https://www.y-axis.com", location: "Bhopal/Indore (serves Sagar)", services: "Immigration, visa, study abroad", yearFounded: "1999" },
+            { name: "Edwise International (Regional Office)", tier: "tier3", website: "https://edwiseinternational.com", location: "Bhopal/Indore (serves Sagar)", services: "Counseling, visa, test prep", yearFounded: "1991" },
+            { name: "IDP Education (Regional Office)", tier: "tier3", website: "https://idp.com", location: "Bhopal/Indore (serves Sagar)", services: "Admissions, IELTS, visa support", yearFounded: "1969" },
+            { name: "Consultant Sagar 7", tier: "tier3", website: "https://consultant7sagar-example.com", location: "Sagar / Nearby City", services: "Test Prep & Counseling", yearFounded: "Not specified" },
+            { name: "Consultant Sagar 8", tier: "tier3", website: "https://consultant8sagar-example.com", location: "Sagar / Online", services: "University Shortlisting", yearFounded: "Not specified" },
+            { name: "Consultant Sagar 9", tier: "tier3", website: "https://consultant9sagar-example.com", location: "Sagar / Regional", services: "Scholarship Guidance", yearFounded: "Not specified" },
+            { name: "Consultant Sagar 10", tier: "tier3", website: "https://consultant10sagar-example.com", location: "Sagar / Online", services: "Application Assistance", yearFounded: "Not specified" },
+            { name: "Pyramid eServices", tier: "tier3", website: "https://pyramideservices.com", location: "Hoshiarpur, Punjab", services: "Admission counseling, visa assistance", yearFounded: "Not specified (Overall 2005)" },
+            { name: "IDP Education", tier: "tier3", website: "https://idp.com", location: "Hoshiarpur, Punjab", services: "Study abroad counseling", yearFounded: "1969" },
+            { name: "British Overseas Solutions", tier: "tier3", website: "https://britishoverseassolution.com", location: "Hoshiarpur, Punjab", services: "Study abroad consultancy, IELTS coaching", yearFounded: "2008" },
+            { name: "HM International", tier: "tier3", website: "https://hminternational.net", location: "Hoshiarpur, Punjab", services: "Immigration services, IELTS coaching", yearFounded: "Not specified" },
+            { name: "M2f Overseas", tier: "tier3", website: "https://makemifutureoverseas.com", location: "Hoshiarpur, Punjab", services: "USA study visa consultancy", yearFounded: "Not specified" },
+            { name: "Canam Consultants", tier: "tier3", website: "https://canamgroup.com", location: "Hoshiarpur (or nearby)", services: "Overseas education, test prep, visa", yearFounded: "1996" },
+            { name: "Edwise International", tier: "tier3", website: "https://edwiseinternational.com", location: "Hoshiarpur (or nearby)", services: "Counseling, visa, test prep", yearFounded: "1991" },
+            { name: "Global Opportunities", tier: "tier3", website: "https://global-opportunities.net", location: "Hoshiarpur (or nearby)", services: "University selection, applications, visa", yearFounded: "2001" },
+            { name: "Consultant Hoshiarpur 9", tier: "tier3", website: "https://consultant9hoshiarpur-example.com", location: "Hoshiarpur, Punjab", services: "IELTS/PTE Coaching", yearFounded: "Not specified" },
+            { name: "Consultant Hoshiarpur 10", tier: "tier3", website: "https://consultant10hoshiarpur-example.com", location: "Hoshiarpur, Punjab", services: "Canada/Australia Visa Focus", yearFounded: "Not specified" },
+            { name: "Kanan International", tier: "tier3", website: "https://kanan.co", location: "Nadiad, Gujarat", services: "Study abroad consultancy, test preparation", yearFounded: "Not specified (Overall 1996)" },
+            { name: "Shreeji Overseas", tier: "tier3", website: "https://uniagents.com", location: "Nadiad, Gujarat", services: "Educational counseling, visa assistance", yearFounded: "2006" },
+            { name: "Gocool Group", tier: "tier3", website: "https://gocoolgroup.com", location: "Nadiad, Gujarat", services: "Student visa consultancy", yearFounded: "Not specified" },
+            { name: "ESPI Visa Consultants", tier: "tier3", website: "https://espiconsultants.com", location: "Nadiad, Gujarat", services: "Student visa consultancy", yearFounded: "Not specified" },
+            { name: "Kadamb Overseas Education", tier: "tier3", website: "https://kadamboverseas.com", location: "Nadiad, Gujarat", services: "Study abroad consultancy", yearFounded: "Not specified (Overall 2010)" },
+            { name: "IDP Education", tier: "tier3", website: "https://idp.com", location: "Nadiad (or nearby)", services: "Admissions, IELTS, visa support", yearFounded: "1969" },
+            { name: "Edwise International", tier: "tier3", website: "https://edwiseinternational.com", location: "Nadiad (or nearby)", services: "Counseling, visa, test prep", yearFounded: "1991" },
+            { name: "Consultant Nadiad 8", tier: "tier3", website: "https://consultant8nadiad-example.com", location: "Nadiad, Gujarat", services: "Study in USA/Canada", yearFounded: "Not specified" },
+            { name: "Consultant Nadiad 9", tier: "tier3", website: "https://consultant9nadiad-example.com", location: "Nadiad, Gujarat", services: "IELTS/PTE Coaching", yearFounded: "Not specified" },
+            { name: "Consultant Nadiad 10", tier: "tier3", website: "https://consultant10nadiad-example.com", location: "Nadiad, Gujarat", services: "Scholarship Assistance", yearFounded: "Not specified" },
+            { name: "KC Overseas Education", tier: "tier3", website: "https://studies-overseas.com", location: "Bharuch, Gujarat", services: "Course selection, visa processing, pre-departure sessions", yearFounded: "Not specified (Overall 1998)" },
+            { name: "Kanan International", tier: "tier3", website: "https://kanan.co", location: "Bharuch, Gujarat", services: "University selection, visa support, scholarships", yearFounded: "Not specified (Overall 1996)" },
+            { name: "AECC Global", tier: "tier3", website: "https://aeccglobal.in", location: "Bharuch, Gujarat", services: "Study abroad consultancy", yearFounded: "2008" },
+            { name: "ESPI Visa Consultants", tier: "tier3", website: "https://espiconsultants.com", location: "Bharuch, Gujarat", services: "Student visa consultancy", yearFounded: "Not specified" },
+            { name: "Atmia Education", tier: "tier3", website: "https://atmiaeducation-example.com", location: "Bharuch, Gujarat", services: "Overseas education consultancy", yearFounded: "Not specified" },
+            { name: "IDP Education", tier: "tier3", website: "https://idp.com", location: "Bharuch (or nearby)", services: "Admissions, IELTS, visa support", yearFounded: "1969" },
+            { name: "Edwise International", tier: "tier3", website: "https://edwiseinternational.com", location: "Bharuch (or nearby)", services: "Counseling, visa, test prep", yearFounded: "1991" },
+            { name: "Consultant Bharuch 8", tier: "tier3", website: "https://consultant8bharuch-example.com", location: "Bharuch, Gujarat", services: "USA/Canada Admissions", yearFounded: "Not specified" },
+            { name: "Consultant Bharuch 9", tier: "tier3", website: "https://consultant9bharuch-example.com", location: "Bharuch, Gujarat", services: "UK/Australia Admissions", yearFounded: "Not specified" },
+            { name: "Consultant Bharuch 10", tier: "tier3", website: "https://consultant10bharuch-example.com", location: "Bharuch, Gujarat", services: "Language Test Coaching", yearFounded: "Not specified" },
+            { name: "Blue Ribbon Overseas Education Consultants", tier: "tier3", website: "https://blueribbonoverseas.com", location: "Nalgonda, Telangana", services: "Study and work abroad services", yearFounded: "Not specified" },
+            { name: "British School of Language", tier: "tier3", website: "https://britishschooloflanguages.com", location: "Nalgonda, Telangana", services: "Study abroad consultancy", yearFounded: "Not specified" },
+            { name: "Jagvimal Consultants", tier: "tier3", website: "https://jagvimal.com", location: "Nalgonda, Telangana", services: "MBBS admissions abroad", yearFounded: "Not specified (Overall 2010)" },
+            { name: "Shri Vatsa Overseas Education", tier: "tier3", website: "https://shrivatsaoverseas-example.com", location: "Nalgonda, Telangana", services: "Overseas education consultancy", yearFounded: "Not specified" },
+            { name: "Y-Axis (Regional Office)", tier: "tier3", website: "https://www.y-axis.com", location: "Hyderabad (serves Nalgonda)", services: "Immigration, visa, study abroad", yearFounded: "1999" },
+            { name: "Edwise International (Regional Office)", tier: "tier3", website: "https://edwiseinternational.com", location: "Hyderabad (serves Nalgonda)", services: "Counseling, visa, test prep", yearFounded: "1991" },
+            { name: "IDP Education (Regional Office)", tier: "tier3", website: "https://idp.com", location: "Hyderabad (serves Nalgonda)", services: "Admissions, IELTS, visa support", yearFounded: "1969" },
+            { name: "Consultant Nalgonda 8", tier: "tier3", website: "https://consultant8nalgonda-example.com", location: "Nalgonda / Online", services: "USA Student Visas", yearFounded: "Not specified" },
+            { name: "Consultant Nalgonda 9", tier: "tier3", website: "https://consultant9nalgonda-example.com", location: "Nalgonda / Online", services: "Canada Student Visas", yearFounded: "Not specified" },
+            { name: "Consultant Nalgonda 10", tier: "tier3", website: "https://consultant10nalgonda-example.com", location: "Nalgonda / Online", services: "UK Student Visas", yearFounded: "Not specified" },
+            { name: "Edusphere Overseas", tier: "tier3", website: "https://edusphereoverseas.com", location: "Karur, Tamil Nadu", services: "University selection, application assistance, visa processing (Assumed from previous data pattern)", yearFounded: "Not specified (Overall 2012)" },
+            { name: "Y-Axis (Regional Office)", tier: "tier3", website: "https://www.y-axis.com", location: "Coimbatore/Trichy (serves Karur)", services: "Immigration, visa, study abroad", yearFounded: "1999" },
+            { name: "Edwise International (Regional Office)", tier: "tier3", website: "https://edwiseinternational.com", location: "Coimbatore/Trichy (serves Karur)", services: "Counseling, visa, test prep", yearFounded: "1991" },
+            { name: "IDP Education (Regional Office)", tier: "tier3", website: "https://idp.com", location: "Coimbatore/Trichy (serves Karur)", services: "Admissions, IELTS, visa support", yearFounded: "1969" },
+            { name: "Consultant Karur 5", tier: "tier3", website: "https://consultant5karur-example.com", location: "Karur / Nearby City", services: "Study in Australia", yearFounded: "Not specified" },
+            { name: "Consultant Karur 6", tier: "tier3", website: "https://consultant6karur-example.com", location: "Karur / Online", services: "Study in New Zealand", yearFounded: "Not specified" },
+            { name: "Consultant Karur 7", tier: "tier3", website: "https://consultant7karur-example.com", location: "Karur / Nearby City", services: "European Universities Admissions", yearFounded: "Not specified" },
+            { name: "Consultant Karur 8", tier: "tier3", website: "https://consultant8karur-example.com", location: "Karur / Online", services: "Visa Documentation Help", yearFounded: "Not specified" },
+            { name: "Consultant Karur 9", tier: "tier3", website: "https://consultant9karur-example.com", location: "Karur / Regional", services: "SOP/LOR Assistance", yearFounded: "Not specified" },
+            { name: "Consultant Karur 10", tier: "tier3", website: "https://consultant10karur-example.com", location: "Karur / Online", services: "General Overseas Counseling", yearFounded: "Not specified" },
+            { name: "HighFlyer Abroad Education Consultancy", tier: "tier3", website: "https://highflyerabroad.com", location: "Eluru, Andhra Pradesh", services: "Student visa assistance, admission guidance, work permits, citizenship applications, family sponsorship", yearFounded: "Not specified" },
+            { name: "OnSpot Visa Consultancy", tier: "tier3", website: "https://onspotvisa.com/eluru", location: "Eluru, Andhra Pradesh", services: "Student visa documentation and application, tourist visa, spouse visa, visa approval assistance", yearFounded: "Not specified (Overall 2015)" },
+            { name: "STEM Overseas", tier: "tier3", website: "https://stemoverseas.com", location: "Eluru, Andhra Pradesh", services: "Education consultancy, migration services, training for IELTS, TOEFL, GMAT, GRE, visa assistance, pre-departure support", yearFounded: "Not specified" },
+            { name: "Target Abroad Overseas Education Consultants", tier: "tier3", website: "https://targetstudy.com", location: "Sri Prema Sai Complex, Opposite Badeti Park, Power Pet, G.N.T. Road, Eluru", services: "Coaching for GMAT, GRE, IELTS, TOEFL; study abroad consultancy", yearFounded: "Not specified" },
+            { name: "Vasu’s Overseas Education (Enlight World Visas)", tier: "tier3", website: "https://www.sulekha.com", location: "Eluru, Andhra Pradesh", services: "Structured education system, financial assistance, scholarship support, admission guidance", yearFounded: "Not specified" },
+            { name: "iBook Consultancy Pvt Ltd", tier: "tier3", website: "https://www.sulekha.com", location: "Eluru, Andhra Pradesh", services: "Tailored solutions, student-centric approach, exclusive customer support", yearFounded: "2016" },
+            { name: "CIAV (Center for International Admissions and Visas)", tier: "tier3", website: "https://www.sulekha.com", location: "Eluru, Andhra Pradesh", services: "Expert counselling, profile evaluation, application process, visa assistance", yearFounded: "Not specified" },
+            { name: "Texas Review", tier: "tier3", website: "https://www.sulekha.com", location: "Eluru, Andhra Pradesh", services: "AI-supported university selection, test preparation, SOP & LOR review, scholarship aid, visa interview preparation", yearFounded: "Not specified" },
+            { name: "Siddhartha Overseas & Immigration Consultancy", tier: "tier3", website: "https://www.sulekha.com", location: "Eluru, Andhra Pradesh", services: "Visa consultation, entrance exam coaching, financial documentation, travel & accommodation assistance", yearFounded: "Not specified" },
+            { name: "Sucheta Services", tier: "tier3", website: "https://www.sulekha.com", location: "Eluru, Andhra Pradesh", services: "Admission guidance, educational loan assistance, visa application assistance, pre-departure support", yearFounded: "Not specified" },
+            { name: "The Big Leap Edu", tier: "tier3", website: "https://thebigleapedu.com", location: "Karnataka (specific city not specified, serves Raichur)", services: "Study abroad consultancy, training for IELTS, TOEFL, SAT, GMAT, GRE, documentation drafting, visa services", yearFounded: "Not specified" },
+            { name: "IDP Education", tier: "tier3", website: "https://idp.com", location: "Multiple offices across Karnataka (serves Raichur)", services: "University selection, application assistance, visa guidance, IELTS test booking", yearFounded: "1969" },
+            { name: "Edwise International", tier: "tier3", website: "https://edwiseinternational.com", location: "Offices in Bangalore and other major cities (serves Raichur)", services: "Career counselling, university selection, application and admission assistance, visa counselling, test preparation", yearFounded: "1991" },
+            { name: "Global Opportunities", tier: "tier3", website: "https://global-opportunities.net", location: "Offices in Bangalore and other cities (serves Raichur)", services: "University selection, application processing, visa assistance, pre-departure briefing", yearFounded: "2001" },
+            { name: "Y-Axis Overseas Careers", tier: "tier3", website: "https://y-axis.com", location: "Offices in Bangalore and other major cities (serves Raichur)", services: "Study abroad consultancy, visa services, test preparation, immigration services", yearFounded: "1999" },
+            { name: "Study Metro", tier: "tier3", website: "https://studymetro.com", location: "Offices in Bangalore and other cities (serves Raichur)", services: "University admissions, visa assistance, test preparation, career counselling", yearFounded: "2011" },
+            { name: "Santa Monica Study Abroad Pvt. Ltd.", tier: "tier3", website: "https://santamonicaedu.in", location: "Offices in Bangalore and other cities (serves Raichur)", services: "Overseas education consultancy, visa assistance, test preparation", yearFounded: "2002" },
+            { name: "Manya Group (The Princeton Review India)", tier: "tier3", website: "https://manyagroup.com", location: "Offices in Bangalore and other cities (serves Raichur)", services: "Test preparation (GRE, GMAT, SAT, IELTS, TOEFL), admissions counselling, visa services", yearFounded: "2002" },
+            { name: "Krishna Consultants", tier: "tier3", website: "https://studies-overseas.com", location: "Offices in Bangalore and other cities (serves Raichur)", services: "Career counselling, university selection, application and admission assistance, visa counselling", yearFounded: "1998" },
+            { name: "Canam Consultants", tier: "tier3", website: "https://canamgroup.com", location: "Offices in Bangalore and other cities (serves Raichur)", services: "Study abroad consultancy, test preparation, visa assistance", yearFounded: "1996" },
+            { name: "Global Overseas Visa & Education Consultant", tier: "tier3", website: "https://bidar.idbf.in", location: "1st Floor, Shop No.-26, N.G Complex, Begum Bazaar, Market, Main Road, Bidar", services: "Student visa assistance, education counseling", yearFounded: "Not specified" },
+            { name: "Haneeva Consultancy Pvt. Ltd", tier: "tier3", website: "https://www.sulekha.com", location: "Koramangala, Bangalore (serving Bidar)", services: "Education counseling, post-admission assistance, IELTS, GRE, TOEFL, and PTE training", yearFounded: "Not specified (Overall 2008)" },
+            { name: "IDP Education", tier: "tier3", website: "https://idp.com", location: "Multiple offices across Karnataka (serves Bidar)", services: "University selection, application assistance, visa guidance, IELTS test booking", yearFounded: "1969" },
+            { name: "Canam Consultants", tier: "tier3", website: "https://canamgroup.com", location: "Offices in Bangalore and other cities (serves Bidar)", services: "Study abroad consultancy, test preparation, visa assistance", yearFounded: "1996" },
+            { name: "Edwise International", tier: "tier3", website: "https://edwiseinternational.com", location: "Offices in Bangalore and other major cities (serves Bidar)", services: "Career counselling, university selection, application and admission assistance, visa counselling, test preparation", yearFounded: "1991" },
+            { name: "Y-Axis Overseas Careers", tier: "tier3", website: "https://y-axis.com", location: "Offices in Bangalore and other major cities (serves Bidar)", services: "Study abroad consultancy, visa services, test preparation, immigration services", yearFounded: "1999" },
+            { name: "Study Metro", tier: "tier3", website: "https://studymetro.com", location: "Offices in Bangalore and other cities (serves Bidar)", services: "University admissions, visa assistance, test preparation, career counselling", yearFounded: "2011" },
+            { name: "Krishna Consultants", tier: "tier3", website: "https://studies-overseas.com", location: "Offices in Bangalore and other cities (serves Bidar)", services: "Career counselling, university selection, application and admission assistance, visa counselling", yearFounded: "1998" },
+            { name: "Santa Monica Study Abroad Pvt. Ltd.", tier: "tier3", website: "https://santamonicaedu.in", location: "Offices in Bangalore and other cities (serves Bidar)", services: "Overseas education consultancy, visa assistance, test preparation", yearFounded: "2002" },
+            { name: "Manya Group (The Princeton Review India)", tier: "tier3", website: "https://manyagroup.com", location: "Offices in Bangalore and other cities (serves Bidar)", services: "Test preparation (GRE, GMAT, SAT, IELTS, TOEFL), admissions counselling, visa services", yearFounded: "2002" },
+            { name: "Edroots International", tier: "tier3", website: "https://edroots.com", location: "Palakkad, Kerala", services: "Career counseling, course selection, university application processing, test preparation, visa guidance, pre-departure sessions, post-arrival support", yearFounded: "Not specified" },
+            { name: "ImmiLaw Global", tier: "tier3", website: "https://immilawglobal.com", location: "Palakkad, Kerala", services: "Study abroad services, immigration consultancy", yearFounded: "Not specified" },
+            { name: "IDP Education", tier: "tier3", website: "https://idp.com", location: "Palakkad, Kerala", services: "University selection, application assistance, visa guidance, IELTS test booking", yearFounded: "1969" },
+            { name: "Universal Study", tier: "tier3", website: "https://universalstudy.net", location: "1st Floor, Madhava Arcade, Yakkara Rd, near Fort Maidan, Kenathuparambu, Kunathurmedu, Palakkad", services: "Study abroad counseling, course advice, university/college application processing, visa application assistance, scholarship assistance, pre-departure support", yearFounded: "Not specified" },
+            { name: "Santa Monica Study Abroad Pvt. Ltd.", tier: "tier3", website: "https://santamonicaedu.in", location: "Offices in Kerala and other cities (serves Palakkad)", services: "Overseas education consultancy, visa assistance, test preparation", yearFounded: "2002" },
+            { name: "Manya Group (The Princeton Review India)", tier: "tier3", website: "https://manyagroup.com", location: "Offices in Kerala and other cities (serves Palakkad)", services: "Test preparation (GRE, GMAT, SAT, IELTS, TOEFL), admissions counseling, visa services", yearFounded: "2002" },
+            { name: "Canam Consultants", tier: "tier3", website: "https://canamgroup.com", location: "Offices in Kerala and other cities (serves Palakkad)", services: "Study abroad consultancy, test preparation, visa assistance", yearFounded: "1996" },
+            { name: "Edwise International", tier: "tier3", website: "https://edwiseinternational.com", location: "Offices in Kerala and other major cities (serves Palakkad)", services: "Career counselling, university selection, application and admission assistance, visa counselling, test preparation", yearFounded: "1991" },
+            { name: "Y-Axis Overseas Careers", tier: "tier3", website: "https://y-axis.com", location: "Offices in Kerala and other major cities (serves Palakkad)", services: "Study abroad consultancy, visa services, test preparation, immigration services", yearFounded: "1999" },
+            { name: "Study Metro", tier: "tier3", website: "https://studymetro.com", location: "Offices in Kerala and other cities (serves Palakkad)", services: "University admissions, visa assistance, test preparation, career counselling", yearFounded: "2011" },
+            { name: "Kanan International", tier: "tier3", website: "https://kanan.co", location: "Bhuj (or nearest major city like Ahmedabad/Rajkot)", services: "Study abroad consultancy, test preparation", yearFounded: "1996 (Overall)" },
+            { name: "IDP Education", tier: "tier3", website: "https://idp.com", location: "Ahmedabad/Rajkot (serves Bhuj)", services: "University selection, application, IELTS", yearFounded: "1969" },
+            { name: "Edwise International", tier: "tier3", website: "https://edwiseinternational.com", location: "Ahmedabad/Rajkot (serves Bhuj)", services: "Counseling, visa, test prep", yearFounded: "1991" },
+            { name: "Global Opportunities", tier: "tier3", website: "https://global-opportunities.net", location: "Ahmedabad/Rajkot (serves Bhuj)", services: "University selection, visa", yearFounded: "2001" },
+            { name: "Y-Axis Overseas Careers", tier: "tier3", website: "https://www.y-axis.com", location: "Ahmedabad/Rajkot (serves Bhuj)", services: "Immigration, study abroad counseling", yearFounded: "1999" },
+            { name: "Consultant Bhuj 6", tier: "tier3", website: "https://consultant6bhuj-example.com", location: "Bhuj / Online", services: "Visa Assistance for Canada", yearFounded: "Not specified" },
+            { name: "Consultant Bhuj 7", tier: "tier3", website: "https://consultant7bhuj-example.com", location: "Bhuj / Online", services: "Admissions to Australian Universities", yearFounded: "Not specified" },
+            { name: "Consultant Bhuj 8", tier: "tier3", website: "https://consultant8bhuj-example.com", location: "Bhuj / Nearby City", services: "IELTS/PTE Coaching", yearFounded: "Not specified" },
+            { name: "Consultant Bhuj 9", tier: "tier3", website: "https://consultant9bhuj-example.com", location: "Bhuj / Online", services: "Application & SOP Support", yearFounded: "Not specified" },
+            { name: "Consultant Bhuj 10", tier: "tier3", website: "https://consultant10bhuj-example.com", location: "Bhuj / Nearby City", services: "General Overseas Education Counseling", yearFounded: "Not specified" },
+            { name: "IDP Education", tier: "tier3", website: "https://idp.com", location: "Chandigarh (serves Shimla)", services: "University selection, application, IELTS", yearFounded: "1969" },
+            { name: "Canam Consultants", tier: "tier3", website: "https://canamgroup.com", location: "Chandigarh (serves Shimla)", services: "Study abroad consultancy, test prep", yearFounded: "1996" },
+            { name: "Edwise International", tier: "tier3", website: "https://edwiseinternational.com", location: "Chandigarh (serves Shimla)", services: "Counseling, visa, test prep", yearFounded: "1991" },
+            { name: "Global Opportunities", tier: "tier3", website: "https://global-opportunities.net", location: "Chandigarh (serves Shimla)", services: "University selection, visa assistance", yearFounded: "2001" },
+            { name: "Y-Axis Overseas Careers", tier: "tier3", website: "https://www.y-axis.com", location: "Chandigarh (serves Shimla)", services: "Immigration, study abroad", yearFounded: "1999" },
+            { name: "Consultant Shimla 6", tier: "tier3", website: "https://consultant6shimla-example.com", location: "Shimla / Online", services: "Study in Canada/USA", yearFounded: "Not specified" },
+            { name: "Consultant Shimla 7", tier: "tier3", website: "https://consultant7shimla-example.com", location: "Shimla / Online", services: "European University Admissions", yearFounded: "Not specified" },
+            { name: "Consultant Shimla 8", tier: "tier3", website: "https://consultant8shimla-example.com", location: "Shimla / Chandigarh", services: "Visa Documentation", yearFounded: "Not specified" },
+            { name: "Consultant Shimla 9", tier: "tier3", website: "https://consultant9shimla-example.com", location: "Shimla / Online", services: "Test Preparation (IELTS/TOEFL)", yearFounded: "Not specified" },
+            { name: "Consultant Shimla 10", tier: "tier3", website: "https://consultant10shimla-example.com", location: "Shimla / Chandigarh", services: "General Overseas Counseling", yearFounded: "Not specified" },
+            { name: "IDP Education", tier: "tier3", website: "https://idp.com", location: "Guwahati/Kolkata (serves Aizawl)", services: "University selection, application, IELTS", yearFounded: "1969" },
+            { name: "Global Opportunities", tier: "tier3", website: "https://global-opportunities.net", location: "Guwahati/Kolkata (serves Aizawl)", services: "University selection, visa assistance", yearFounded: "2001" },
+            { name: "Edwise International", tier: "tier3", website: "https://edwiseinternational.com", location: "Guwahati/Kolkata (serves Aizawl)", services: "Counseling, visa, test prep", yearFounded: "1991" },
+            { name: "Consultant Aizawl 4 (Regional)", tier: "tier3", website: "https://consultant4aizawl-example.com", location: "Serves Aizawl (e.g., from Guwahati)", services: "Study in Australia/NZ", yearFounded: "Not specified" },
+            { name: "Consultant Aizawl 5 (Online)", tier: "tier3", website: "https://consultant5aizawl-example.com", location: "Online (serves Aizawl)", services: "USA University Applications", yearFounded: "Not specified" },
+            { name: "Consultant Aizawl 6", tier: "tier3", website: "https://consultant6aizawl-example.com", location: "Aizawl / Online", services: "Canada Visa Guidance", yearFounded: "Not specified" },
+            { name: "Consultant Aizawl 7", tier: "tier3", website: "https://consultant7aizawl-example.com", location: "Aizawl / Nearby City", services: "UK University Admissions", yearFounded: "Not specified" },
+            { name: "Consultant Aizawl 8", tier: "tier3", website: "https://consultant8aizawl-example.com", location: "Aizawl / Online", services: "IELTS/TOEFL Coaching Online", yearFounded: "Not specified" },
+            { name: "Consultant Aizawl 9", tier: "tier3", website: "https://consultant9aizawl-example.com", location: "Aizawl / Regional", services: "SOP & Application Review", yearFounded: "Not specified" },
+            { name: "Consultant Aizawl 10", tier: "tier3", website: "https://consultant10aizawl-example.com", location: "Aizawl / Online", services: "General Overseas Counseling", yearFounded: "Not specified" },
+            { name: "IDP Education", tier: "tier3", website: "https://idp.com", location: "Guwahati/Kolkata (serves Imphal)", services: "University selection, application, IELTS", yearFounded: "1969" },
+            { name: "Global Opportunities", tier: "tier3", website: "https://global-opportunities.net", location: "Guwahati/Kolkata (serves Imphal)", services: "University selection, visa assistance", yearFounded: "2001" },
+            { name: "Edwise International", tier: "tier3", website: "https://edwiseinternational.com", location: "Guwahati/Kolkata (serves Imphal)", services: "Counseling, visa, test prep", yearFounded: "1991" },
+            { name: "Consultant Imphal 4 (Regional)", tier: "tier3", website: "https://consultant4imphal-example.com", location: "Serves Imphal (e.g., from Guwahati)", services: "Study in Southeast Asia", yearFounded: "Not specified" },
+            { name: "Consultant Imphal 5 (Online)", tier: "tier3", website: "https://consultant5imphal-example.com", location: "Online (serves Imphal)", services: "Visa for USA/Canada", yearFounded: "Not specified" },
+            { name: "Consultant Imphal 6", tier: "tier3", website: "https://consultant6imphal-example.com", location: "Imphal / Online", services: "UK Education Counseling", yearFounded: "Not specified" },
+            { name: "Consultant Imphal 7", tier: "tier3", website: "https://consultant7imphal-example.com", location: "Imphal / Nearby City", services: "Australia Education Counseling", yearFounded: "Not specified" },
+            { name: "Consultant Imphal 8", tier: "tier3", website: "https://consultant8imphal-example.com", location: "Imphal / Online", services: "Online Test Prep (IELTS)", yearFounded: "Not specified" },
+            { name: "Consultant Imphal 9", tier: "tier3", website: "https://consultant9imphal-example.com", location: "Imphal / Regional", services: "Application & Documentation", yearFounded: "Not specified" },
+            { name: "Consultant Imphal 10", tier: "tier3", website: "https://consultant10imphal-example.com", location: "Imphal / Online", services: "General Overseas Guidance", yearFounded: "Not specified" },
+            { name: "IDP Education", tier: "tier3", website: "https://idp.com", location: "Guwahati (serves Itanagar)", services: "University selection, application, IELTS", yearFounded: "1969" },
+            { name: "Global Opportunities", tier: "tier3", website: "https://global-opportunities.net", location: "Guwahati (serves Itanagar)", services: "University selection, visa assistance", yearFounded: "2001" },
+            { name: "Edwise International", tier: "tier3", website: "https://edwiseinternational.com", location: "Guwahati (serves Itanagar)", services: "Counseling, visa, test prep", yearFounded: "1991" },
+            { name: "Consultant Itanagar 4 (Regional)", tier: "tier3", website: "https://consultant4itanagar-example.com", location: "Serves Itanagar (e.g., from Guwahati)", services: "MBBS Abroad Options", yearFounded: "Not specified" },
+            { name: "Consultant Itanagar 5 (Online)", tier: "tier3", website: "https://consultant5itanagar-example.com", location: "Online (serves Itanagar)", services: "New Zealand Visa Support", yearFounded: "Not specified" },
+            { name: "Consultant Itanagar 6", tier: "tier3", website: "https://consultant6itanagar-example.com", location: "Itanagar / Online", services: "General Counseling", yearFounded: "Not specified" },
+            { name: "Consultant Itanagar 7", tier: "tier3", website: "https://consultant7itanagar-example.com", location: "Itanagar / Nearby City", services: "Test Coaching (Online)", yearFounded: "Not specified" },
+            { name: "Consultant Itanagar 8", tier: "tier3", website: "https://consultant8itanagar-example.com", location: "Itanagar / Online", services: "Profile Evaluation", yearFounded: "Not specified" },
+            { name: "Consultant Itanagar 9", tier: "tier3", website: "https://consultant9itanagar-example.com", location: "Itanagar / Regional", services: "Canada/Australia Focus", yearFounded: "Not specified" },
+            { name: "Consultant Itanagar 10", tier: "tier3", website: "https://consultant10itanagar-example.com", location: "Itanagar / Online", services: "Application Support", yearFounded: "Not specified" },
+            { name: "IDP Education", tier: "tier3", website: "https://idp.com", location: "Guwahati (serves Dibrugarh)", services: "University selection, application, IELTS", yearFounded: "1969" },
+            { name: "Global Opportunities", tier: "tier3", website: "https://global-opportunities.net", location: "Guwahati (serves Dibrugarh)", services: "University selection, visa assistance", yearFounded: "2001" },
+            { name: "Edwise International", tier: "tier3", website: "https://edwiseinternational.com", location: "Guwahati (serves Dibrugarh)", services: "Counseling, visa, test prep", yearFounded: "1991" },
+            { name: "Consultant Dibrugarh 4 (Regional)", tier: "tier3", website: "https://consultant4dibrugarh-example.com", location: "Serves Dibrugarh (e.g., from Guwahati)", services: "Study in UK/USA", yearFounded: "Not specified" },
+            { name: "Consultant Dibrugarh 5 (Online)", tier: "tier3", website: "https://consultant5dibrugarh-example.com", location: "Online (serves Dibrugarh)", services: "Visa for Australia/NZ", yearFounded: "Not specified" },
+            { name: "Consultant Dibrugarh 6", tier: "tier3", website: "https://consultant6dibrugarh-example.com", location: "Dibrugarh / Online", services: "General Overseas Education", yearFounded: "Not specified" },
+            { name: "Consultant Dibrugarh 7", tier: "tier3", website: "https://consultant7dibrugarh-example.com", location: "Dibrugarh / Nearby City", services: "IELTS Coaching Online", yearFounded: "Not specified" },
+            { name: "Consultant Dibrugarh 8", tier: "tier3", website: "https://consultant8dibrugarh-example.com", location: "Dibrugarh / Online", services: "Application Process Help", yearFounded: "Not specified" },
+            { name: "Consultant Dibrugarh 9", tier: "tier3", website: "https://consultant9dibrugarh-example.com", location: "Dibrugarh / Regional", services: "Career Counseling for Abroad", yearFounded: "Not specified" },
+            { name: "Consultant Dibrugarh 10", tier: "tier3", website: "https://consultant10dibrugarh-example.com", location: "Dibrugarh / Online", services: "Scholarship Information", yearFounded: "Not specified" },
+            { name: "IDP Education", tier: "tier3", website: "https://idp.com", location: "Guwahati (serves Silchar)", services: "University selection, application, IELTS", yearFounded: "1969" },
+            { name: "Global Opportunities", tier: "tier3", website: "https://global-opportunities.net", location: "Guwahati (serves Silchar)", services: "University selection, visa assistance", yearFounded: "2001" },
+            { name: "Edwise International", tier: "tier3", website: "https://edwiseinternational.com", location: "Guwahati (serves Silchar)", services: "Counseling, visa, test prep", yearFounded: "1991" },
+            { name: "Consultant Silchar 4 (Regional)", tier: "tier3", website: "https://consultant4silchar-example.com", location: "Serves Silchar (e.g., from Guwahati)", services: "Study in USA/Canada", yearFounded: "Not specified" },
+            { name: "Consultant Silchar 5 (Online)", tier: "tier3", website: "https://consultant5silchar-example.com", location: "Online (serves Silchar)", services: "Visa for UK/Australia", yearFounded: "Not specified" },
+            { name: "Consultant Silchar 6", tier: "tier3", website: "https://consultant6silchar-example.com", location: "Silchar / Online", services: "General Overseas Counseling", yearFounded: "Not specified" },
+            { name: "Consultant Silchar 7", tier: "tier3", website: "https://consultant7silchar-example.com", location: "Silchar / Nearby City", services: "Online Test Preparation", yearFounded: "Not specified" },
+            { name: "Consultant Silchar 8", tier: "tier3", website: "https://consultant8silchar-example.com", location: "Silchar / Online", services: "Scholarship Guidance", yearFounded: "Not specified" },
+            { name: "Consultant Silchar 9", tier: "tier3", website: "https://consultant9silchar-example.com", location: "Silchar / Regional", services: "Application Process Assistance", yearFounded: "Not specified" },
+            { name: "Consultant Silchar 10", tier: "tier3", website: "https://consultant10silchar-example.com", location: "Silchar / Online", services: "Profile Building for Abroad", yearFounded: "Not specified" },
+            { name: "IDP Education", tier: "tier3", website: "https://idp.com", location: "Guwahati (serves Tezpur)", services: "University selection, application, IELTS", yearFounded: "1969" },
+            { name: "Global Opportunities", tier: "tier3", website: "https://global-opportunities.net", location: "Guwahati (serves Tezpur)", services: "University selection, visa assistance", yearFounded: "2001" },
+            { name: "Edwise International", tier: "tier3", website: "https://edwiseinternational.com", location: "Guwahati (serves Tezpur)", services: "Counseling, visa, test prep", yearFounded: "1991" },
+            { name: "Consultant Tezpur 4 (Regional)", tier: "tier3", website: "https://consultant4tezpur-example.com", location: "Serves Tezpur (e.g., from Guwahati)", services: "MBBS Abroad / Engineering Abroad", yearFounded: "Not specified" },
+            { name: "Consultant Tezpur 5 (Online)", tier: "tier3", website: "https://consultant5tezpur-example.com", location: "Online (serves Tezpur)", services: "Study Visa for Europe", yearFounded: "Not specified" },
+            { name: "Consultant Tezpur 6", tier: "tier3", website: "https://consultant6tezpur-example.com", location: "Tezpur / Online", services: "General Career Counseling", yearFounded: "Not specified" },
+            { name: "Consultant Tezpur 7", tier: "tier3", website: "https://consultant7tezpur-example.com", location: "Tezpur / Nearby City", services: "IELTS/TOEFL Online Classes", yearFounded: "Not specified" },
+            { name: "Consultant Tezpur 8", tier: "tier3", website: "https://consultant8tezpur-example.com", location: "Tezpur / Online", services: "Application & SOP Review", yearFounded: "Not specified" },
+            { name: "Consultant Tezpur 9", tier: "tier3", website: "https://consultant9tezpur-example.com", location: "Tezpur / Regional", services: "University Shortlisting", yearFounded: "Not specified" },
+            { name: "Consultant Tezpur 10", tier: "tier3", website: "https://consultant10tezpur-example.com", location: "Tezpur / Online", services: "Scholarship Application Help", yearFounded: "Not specified" }
+        ];
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const currentTier = urlParams.get('tier');
+        const currentCity = urlParams.get('city') ? decodeURIComponent(urlParams.get('city')) : null;
+        const currentConsultantName = urlParams.get('consultant') ? decodeURIComponent(urlParams.get('consultant')) : null;
+
+        const sidebarContent = document.getElementById('sidebarContent');
+        const mainDisplayArea = document.getElementById('mainDisplayArea');
+        const breadcrumbNav = document.getElementById('breadcrumbNav');
+
+        function updateBreadcrumb(tier, city, consultantName) {
+            let breadcrumbHTML = `<a href="consultants_directory.html">Directory Home</a>`;
+            if (tier) {
+                const tierFormatted = tier.charAt(0).toUpperCase() + tier.slice(1).replace('tier', 'Tier ');
+                breadcrumbHTML += ` &raquo; <a href="consultants_directory.html?tier=${tier}">${tierFormatted}</a>`;
+                document.querySelectorAll('.tier-nav a').forEach(tab => tab.classList.remove('active'));
+                const activeTab = document.getElementById('nav' + tierFormatted.replace(' ', ''));
+                if(activeTab) activeTab.classList.add('active');
+
+            }
+            if (city) {
+                breadcrumbHTML += ` &raquo; <a href="consultants_directory.html?tier=${tier}&city=${encodeURIComponent(city)}">${city}</a>`;
+            }
+            if (consultantName) {
+                breadcrumbHTML += ` &raquo; ${consultantName}`;
+            }
+            breadcrumbNav.innerHTML = breadcrumbHTML;
+        }
+
+
+        function displayCities(tierId) {
+            sidebarContent.innerHTML = '';
+            mainDisplayArea.innerHTML = `<p class="initial-message">Select a city from the list to view consultants in ${tierId.replace('tier','Tier ')}.</p>`;
+            updateBreadcrumb(tierId);
+
+            const cityHeader = document.createElement('div');
+            cityHeader.className = 'list-group-header';
+            cityHeader.textContent = `${tierId.replace('tier','Tier ')} Cities`;
+            sidebarContent.appendChild(cityHeader);
+
+            const citiesInTier = [...new Set(consultantsData
+                .filter(c => c.tier === tierId)
+                .map(c => c.location.split(',')[0].trim())
+            )].sort((a, b) => a.localeCompare(b)); // Sort cities alphabetically
+
+
+            if (citiesInTier.length > 0) {
+                const list = document.createElement('div');
+                list.className = 'list-group';
+                citiesInTier.forEach(city => {
+                    const cityLink = document.createElement('a');
+                    cityLink.href = "#"; 
+                     cityLink.onclick = (event) => {
+                        event.preventDefault();
+                        history.pushState(null, '', `consultants_directory.html?tier=${tierId}&city=${encodeURIComponent(city)}`);
+                        displayConsultants(tierId, city);
+                        document.querySelectorAll('#sidebarContent .list-group a').forEach(link => link.classList.remove('active-item'));
+                        cityLink.classList.add('active-item');
+                    };
+                    cityLink.textContent = city;
+                    if (city === currentCity) { 
+                        cityLink.classList.add('active-item');
+                    }
+                    list.appendChild(cityLink);
+                });
+                sidebarContent.appendChild(list);
+            } else {
+                 const noCitiesMessage = document.createElement('p');
+                noCitiesMessage.textContent = "No cities with consultants listed for this tier yet.";
+                noCitiesMessage.style.padding = "10px";
+                sidebarContent.appendChild(noCitiesMessage);
+            }
+        }
+
+        function displayConsultants(tierId, cityName) {
+            mainDisplayArea.innerHTML = ''; 
+            updateBreadcrumb(tierId, cityName);
+
+             // Ensure sidebar reflects the current city correctly
+            document.querySelectorAll('#sidebarContent .list-group a').forEach(link => {
+                link.classList.remove('active-item');
+                if (link.textContent === cityName) {
+                    link.classList.add('active-item');
+                }
+            });
+
+
+            const filteredConsultants = consultantsData.filter(c =>
+                c.tier === tierId && c.location.toLowerCase().includes(cityName.toLowerCase())
+            ).sort((a,b) => a.name.localeCompare(b.name)); // Sort consultants alphabetically by name
+
+
+            if (filteredConsultants.length > 0) {
+                const listHeader = document.createElement('h3'); // Changed to h3 for better hierarchy
+                listHeader.textContent = `Consultants in ${cityName}`;
+                listHeader.style.textAlign = 'center';
+                listHeader.style.marginBottom = '15px';
+                mainDisplayArea.appendChild(listHeader);
+
+                const list = document.createElement('div');
+                list.className = 'list-group'; 
+                filteredConsultants.forEach(consultant => {
+                    const consultantLink = document.createElement('a');
+                    consultantLink.href = "#"; 
+                    consultantLink.onclick = (event) => {
+                        event.preventDefault();
+                        history.pushState(null, '', `consultants_directory.html?tier=${tierId}&city=${encodeURIComponent(cityName)}&consultant=${encodeURIComponent(consultant.name)}`);
+                        displayConsultantDetails(consultant.name, tierId, cityName);
+                        document.querySelectorAll('#mainDisplayArea .list-group a').forEach(link => link.classList.remove('active-item'));
+                        consultantLink.classList.add('active-item');
+                    };
+                    consultantLink.textContent = consultant.name;
+                    if (consultant.name === currentConsultantName) { 
+                        consultantLink.classList.add('active-item');
+                    }
+                    list.appendChild(consultantLink);
+                });
+                mainDisplayArea.appendChild(list);
+                
+                const detailsDiv = document.createElement('div'); // Create div for details
+                detailsDiv.id = 'consultantDetailsSection'; // Give it an ID to be found later
+                detailsDiv.className = 'details-section hidden'; // Start hidden
+                mainDisplayArea.appendChild(detailsDiv);
+                
+                if (currentConsultantName) { // If a consultant is in URL, show details
+                     displayConsultantDetails(currentConsultantName, tierId, cityName);
+                }
+
+
+            } else {
+                mainDisplayArea.innerHTML = `<p class="initial-message">No consultants found in ${cityName} for ${tierId.replace('tier','Tier ')}.</p>`;
+            }
+        }
+
+        function displayConsultantDetails(consultantName, tierId, cityName) {
+            updateBreadcrumb(tierId, cityName, consultantName);
+            
+            const consultant = consultantsData.find(c => 
+                c.name === consultantName &&
+                c.tier === tierId && 
+                c.location.toLowerCase().includes(cityName.toLowerCase())
+            );
+
+            let detailsDiv = document.getElementById('consultantDetailsSection');
+            if (!detailsDiv) { // Should not happen if displayConsultants created it, but as a fallback
+                const consultantListContainer = mainDisplayArea.querySelector('.list-group');
+                detailsDiv = document.createElement('div');
+                detailsDiv.id = 'consultantDetailsSection';
+                detailsDiv.className = 'details-section';
+                if (consultantListContainer) {
+                    consultantListContainer.insertAdjacentElement('afterend', detailsDiv);
+                } else {
+                    mainDisplayArea.appendChild(detailsDiv);
+                }
+            }
+            detailsDiv.classList.remove('hidden'); // Make sure it's visible
+
+
+            if (consultant) {
+                let websiteLink = consultant.website && consultant.website !== "Not specified" && !consultant.website.includes("example.com") && consultant.website !== "https://www.sulekha.com"
+                                  ? `<a class="website-link" href="${consultant.website.startsWith('http://') || consultant.website.startsWith('https://') ? consultant.website : 'http://' + consultant.website}" target="_blank">${consultant.website}</a>`
+                                  : (consultant.website === "https://www.sulekha.com" ? "Listed on Sulekha (Specific site not found)" : (consultant.website || "N/A"));
+                
+                detailsDiv.innerHTML = `
+                    <h3>${consultant.name}</h3>
+                    <p><strong>Website:</strong> ${websiteLink}</p>
+                    <p><strong>Location:</strong> ${consultant.location || "N/A"}</p>
+                    <p><strong>Services:</strong> ${consultant.services || "N/A"}</p>
+                    <p><strong>Year Founded:</strong> ${consultant.yearFounded === "Not specified" || !consultant.yearFounded || String(consultant.yearFounded).includes("Overall") ? "N/A" : consultant.yearFounded}</p>
+                    <p><small>(Tier: ${consultant.tier.replace('tier','Tier ')})</small></p>
+                `;
+            } else {
+                detailsDiv.innerHTML = `<p>Consultant details not found.</p>`;
+            }
+        }
+
+        window.onload = function() {
+            const defaultTier = 'tier1'; 
+            if (currentConsultantName && currentCity && currentTier) {
+                displayCities(currentTier); 
+                document.querySelectorAll('#sidebarContent .list-group a').forEach(link => {
+                    if (link.textContent === currentCity) link.classList.add('active-item');
+                });
+                displayConsultants(currentTier, currentCity); 
+                displayConsultantDetails(currentConsultantName, currentTier, currentCity); 
+            } else if (currentCity && currentTier) {
+                displayCities(currentTier);
+                document.querySelectorAll('#sidebarContent .list-group a').forEach(link => {
+                    if (link.textContent === currentCity) link.classList.add('active-item');
+                });
+                displayConsultants(currentTier, currentCity);
+            } else if (currentTier) {
+                displayCities(currentTier);
+            } else {
+                displayCities(defaultTier); 
+                const activeTab = document.getElementById('nav' + defaultTier.replace('tier','Tier '));
+                if(activeTab) activeTab.classList.add('active'); // Activate default tier tab
+                updateBreadcrumb(defaultTier); // Set initial breadcrumb
+            }
+        };
+
+        window.onpopstate = function(event) {
+            const params = new URLSearchParams(window.location.search);
+            const popTier = params.get('tier');
+            const popCity = params.get('city') ? decodeURIComponent(params.get('city')) : null;
+            const popConsultant = params.get('consultant') ? decodeURIComponent(params.get('consultant')) : null;
+
+            document.querySelectorAll('.tier-nav a, #sidebarContent .list-group a, #mainDisplayArea .list-group a').forEach(el => el.classList.remove('active', 'active-item'));
+
+
+            if (popConsultant && popCity && popTier) {
+                displayCities(popTier);
+                document.querySelectorAll('#sidebarContent .list-group a').forEach(link => {
+                    if (link.textContent === popCity) link.classList.add('active-item');
+                });
+                displayConsultants(popTier, popCity);
+                 document.querySelectorAll('#mainDisplayArea .list-group a').forEach(link => {
+                    if (link.textContent === popConsultant) link.classList.add('active-item');
+                });
+                displayConsultantDetails(popConsultant, popTier, popCity);
+            } else if (popCity && popTier) {
+                displayCities(popTier);
+                 document.querySelectorAll('#sidebarContent .list-group a').forEach(link => {
+                    if (link.textContent === popCity) link.classList.add('active-item');
+                });
+                displayConsultants(popTier, popCity);
+                mainDisplayArea.querySelector('#consultantDetailsSection')?.remove(); // Remove details if only city shown now
+
+            } else if (popTier) {
+                displayCities(popTier);
+                mainDisplayArea.innerHTML = `<p class="initial-message">Select a city from the list to view consultants in ${popTier.replace('tier','Tier ')}.</p>`;
+
+            } else {
+                 displayCities('tier1'); 
+                const activeTab = document.getElementById('navTier1');
+                if(activeTab) activeTab.classList.add('active');
+                updateBreadcrumb('tier1');
+                mainDisplayArea.innerHTML = `<p class="initial-message">Welcome! Please select a tier from above to view cities with study abroad consultants.</p>`;
+            }
+        };
+    </script>
+</body>
+</html>
+
+

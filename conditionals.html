@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grammar Rules: Conditional Sentences</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            /* Blue and white gridline background */
+            background-color: #f0f8ff; 
+            background-image: 
+                repeating-linear-gradient(to right, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 30px),
+                repeating-linear-gradient(to bottom, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 30px);
+            background-size: 30px 30px;
+        }
+
+        /* Header Styling */
+        header {
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        header h1 {
+            display: inline-block;
+            background-color: #0056b3;
+            color: white;
+            padding: 20px 40px;
+            border: 3px solid white;
+            border-radius: 15px;
+            /* 3D Box Effect */
+            box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.4), inset 2px 2px 5px rgba(255, 255, 255, 0.3);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-size: 2.2em;
+            margin: 0;
+        }
+
+        /* Main Container for Two-Column Layout */
+        .container {
+            display: flex;
+            max-width: 1400px;
+            margin: 20px auto;
+            background: #ffffff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.15);
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 80vh;
+        }
+
+        /* Left Navigation Column */
+        .nav-column {
+            flex: 1;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+            background-color: #f8f9fa;
+            height: 80vh;
+            overflow-y: auto;
+        }
+
+        .nav-column ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-column li a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: #0056b3;
+            border-radius: 5px;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 0.95em;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .nav-column li a:hover,
+        .nav-column li a.active {
+            background-color: #0056b3;
+            color: #fff;
+        }
+
+        /* Right Content Column */
+        .content-column {
+            flex: 3;
+            padding: 25px 35px;
+            height: 100%;
+            overflow-y: auto;
+        }
+
+        .content-section {
+            display: none;
+        }
+        
+        .content-section.active {
+            display: block;
+        }
+        
+        h2 {
+            font-size: 1.8em;
+            color: #0056b3;
+            border-bottom: 3px solid #0056b3;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        
+        h3 {
+            font-size: 1.4em;
+            color: #333;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        
+        .rule {
+            background-color: #e7f3fe;
+            border: 1px solid #b3d7f7;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 5px;
+        }
+
+        .example-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .example-list li {
+            margin-bottom: 20px;
+            border-left: 4px solid #0056b3;
+            padding-left: 15px;
+        }
+        
+        .explanation {
+            font-style: italic;
+            color: #555;
+            margin-top: 5px;
+        }
+        
+        .feature {
+            font-weight: bold;
+            text-decoration: underline;
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>GRAMMAR RULES: CONDITIONAL SENTENCES</h1>
+    </header>
+
+    <div class="container">
+        <nav class="nav-column">
+            <ul>
+                <li><a href="#definition" class="nav-link active">What are Conditionals?</a></li>
+                <li><a href="#zero" class="nav-link">Zero Conditional</a></li>
+                <li><a href="#first" class="nav-link">First Conditional</a></li>
+                <li><a href="#second" class="nav-link">Second Conditional</a></li>
+                <li><a href="#third" class="nav-link">Third Conditional</a></li>
+                <li><a href="#mixed" class="nav-link">Mixed Conditionals</a></li>
+            </ul>
+        </nav>
+
+        <main class="content-column">
+            <section id="definition" class="content-section active">
+                <h2>What are Conditional Sentences?</h2>
+                <div class="rule">
+                    <strong>Definition and Concept:</strong> Conditional sentences, also known as 'if' clauses, are sentences that express a condition and its result. They are used to talk about situations that are real, possible, or imaginary. Every conditional sentence has two parts:
+                    <ul>
+                        <li>The <strong>'if' clause:</strong> This part states the condition.</li>
+                        <li>The <strong>main clause:</strong> This part states the result or consequence of the condition.</li>
+                    </ul>
+                </div>
+                 <h3>Where and How They Are Used</h3>
+                <p>Conditionals are essential for expressing logic, cause and effect, and hypothetical scenarios. They are used everywhere, from scientific facts to expressing regrets about the past.</p>
+            </section>
+            
+            <section id="zero" class="content-section">
+                <h2>Zero Conditional</h2>
+                <div class="rule">
+                    <p><strong>Concept:</strong> Used for scientific facts, general truths, habits, and situations that are always true. If the condition is met, the result always happens.</p>
+                    <p><strong>Syntax:</strong> If / When + Simple Present, ... Simple Present</p>
+                    <p><strong>How to Identify:</strong> Look for the `Simple Present` tense in both the 'if' clause and the main clause. 'When' can often replace 'if' without changing the meaning.</p>
+                </div>
+                <h3>20 Examples:</h3>
+                <ul class="example-list">
+                    <li>If you <span class="feature">heat</span> ice, it <span class="feature">melts</span>.<div class="explanation"><strong>Explanation:</strong> A scientific fact. The condition of heating ice always results in it melting.</div></li>
+                    <li>When the sun <span class="feature">goes down</span>, it <span class="feature">gets</span> dark.<div class="explanation"><strong>Explanation:</strong> A general truth that happens every time.</div></li>
+                    <li>Plants <span class="feature">die</span> if they <span class="feature">don't get</span> enough water.<div class="explanation"><strong>Explanation:</strong> A general biological fact.</div></li>
+                    <li>If you <span class="feature">mix</span> red and blue, you <span class="feature">get</span> purple.<div class="explanation"><strong>Explanation:</strong> A fact that is always true.</div></li>
+                    <li>The ground <span class="feature">gets</span> wet when it <span class="feature">rains</span>.<div class="explanation"><strong>Explanation:</strong> A direct, unavoidable consequence.</div></li>
+                    <li>If I <span class="feature">eat</span> peanuts, I <span class="feature">get</span> an allergic reaction.<div class="explanation"><strong>Explanation:</strong> A personal fact or habit that is always true for the speaker.</div></li>
+                    <li>Iron <span class="feature">rusts</span> if it <span class="feature">gets</span> wet.<div class="explanation"><strong>Explanation:</strong> A chemical fact.</div></li>
+                    <li>If you <span class="feature">don't eat</span>, you <span class="feature">become</span> hungry.<div class="explanation"><strong>Explanation:</strong> A universal human experience.</div></li>
+                    <li>When people <span class="feature">are</span> stressed, they often <span class="feature">sleep</span> poorly.<div class="explanation"><strong>Explanation:</strong> A general observation about human behavior.</div></li>
+                    <li>If the temperature <span class="feature">drops</span> below zero, water <span class="feature">freezes</span>.<div class="explanation"><strong>Explanation:</strong> A fundamental principle of physics.</div></li>
+                    <li>He <span class="feature">feels</span> tired in the morning if he <span class="feature">goes</span> to bed late.<div class="explanation"><strong>Explanation:</strong> Describes a personal, consistent habit and result.</div></li>
+                    <li>If you <span class="feature">press</span> that button, the machine <span class="feature">starts</span>.<div class="explanation"><strong>Explanation:</strong> A functional fact about a machine's operation.</div></li>
+                    <li>Metals <span class="feature">expand</span> when you <span class="feature">heat</span> them.<div class="explanation"><strong>Explanation:</strong> A general scientific principle.</div></li>
+                    <li>If I <span class="feature">am</span> late for work, my boss <span class="feature">gets</span> angry.<div class="explanation"><strong>Explanation:</strong> A statement of a routine or a rule that is always true.</div></li>
+                    <li>When you <span class="feature">fly</span> on a budget airline, you <span class="feature">don't get</span> a free meal.<div class="explanation"><strong>Explanation:</strong> Describes a general rule or standard practice.</div></li>
+                    <li>If a dog <span class="feature">wags</span> its tail, it usually <span class="feature">means</span> it is happy.<div class="explanation"><strong>Explanation:</strong> A common observation about animal behavior.</div></li>
+                    <li>Snakes <span class="feature">bite</span> if they <span class="feature">feel</span> threatened.<div class="explanation"><strong>Explanation:</strong> A general truth about animal self-defense.</div></li>
+                    <li>If you <span class="feature">divide</span> ten by two, you <span class="feature">get</span> five.<div class="explanation"><strong>Explanation:</strong> A mathematical fact.</div></li>
+                    <li>When I <span class="feature">have</span> a headache, I <span class="feature">take</span> an aspirin.<div class="explanation"><strong>Explanation:</strong> A personal habit.</div></li>
+                    <li>If there <span class="feature">is</span> a fire, the alarm <span class="feature">rings</span>.<div class="explanation"><strong>Explanation:</strong> A statement of function and direct consequence.</div></li>
+                </ul>
+            </section>
+            
+             <section id="first" class="content-section">
+                <h2>First Conditional</h2>
+                <div class="rule">
+                    <p><strong>Concept:</strong> Used for real, possible, or likely situations in the future. It describes a future outcome that will probably happen if the condition is met.</p>
+                    <p><strong>Syntax:</strong> If + Simple Present, ... will + base verb (V1)</p>
+                    <p><strong>How to Identify:</strong> Look for the `Simple Present` in the 'if' clause and a future modal (`will`, `can`, `may`, `shall`) in the main clause.</p>
+                </div>
+                <h3>20 Examples:</h3>
+                <ul class="example-list">
+                    <li>If it <span class="feature">rains</span> tomorrow, we <span class="feature">will stay</span> at home.<div class="explanation"><strong>Explanation:</strong> A possible future condition (rain) and its likely result.</div></li>
+                    <li>You <span class="feature">will miss</span> the bus unless you <span class="feature">hurry</span>.<div class="explanation"><strong>Explanation:</strong> 'Unless' means 'if not'. A real future consequence.</div></li>
+                    <li>If I <span class="feature">see</span> her, I <span class="feature">will give</span> her your message.<div class="explanation"><strong>Explanation:</strong> A possible future plan dependent on a condition.</div></li>
+                    <li>If the team <span class="feature">plays</span> well, they <span class="feature">will win</span> the championship.<div class="explanation"><strong>Explanation:</strong> A prediction about a likely future event.</div></li>
+                    <li>If you <span class="feature">study</span> hard, you <span class="feature">will pass</span> the exam.<div class="explanation"><strong>Explanation:</strong> A real condition and its probable future result.</div></li>
+                    <li>If we <span class="feature">leave</span> now, we <span class="feature">can catch</span> the early train.<div class="explanation"><strong>Explanation:</strong> Uses the modal 'can' to show a possible future outcome.</div></li>
+                    <li>She <span class="feature">will be</span> angry if we <span class="feature">are</span> late.<div class="explanation"><strong>Explanation:</strong> The main clause can come first. A likely future reaction to a condition.</div></li>
+                    <li>If I <span class="feature">have</span> enough money, I <span class="feature">will buy</span> a new laptop.<div class="explanation"><strong>Explanation:</strong> A possible future action that depends on a financial condition.</div></li>
+                    <li>What <span class="feature">will you do</span> if they <span class="feature">offer</span> you the job?<div class="explanation"><strong>Explanation:</strong> A question about a real future possibility.</div></li>
+                    <li>You <span class="feature">may get</span> a discount if you <span class="feature">pay</span> in cash.<div class="explanation"><strong>Explanation:</strong> Uses the modal 'may' to show a possible future outcome.</div></li>
+                    <li>If the weather <span class="feature">is</span> nice this weekend, we <span class="feature">will go</span> for a picnic.<div class="explanation"><strong>Explanation:</strong> A future plan contingent on the weather.</div></li>
+                    <li>He <span class="feature">will not forgive</span> you unless you <span class="feature">apologize</span>.<div class="explanation"><strong>Explanation:</strong> A negative future result based on a negative condition.</div></li>
+                    <li>If the company <span class="feature">gets</span> the contract, it <span class="feature">will hire</span> more employees.<div class="explanation"><strong>Explanation:</strong> A likely business outcome based on a condition.</div></li>
+                    <li>If you <span class="feature">don't water</span> the plants, they <span class="feature">will die</span>.<div class="explanation"><strong>Explanation:</strong> A strong prediction about a future result. This is stronger than the Zero conditional because it refers to a specific instance, not just a general fact.</div></li>
+                    <li>I <span class="feature">will call</span> you if I <span class="feature">need</span> any help.<div class="explanation"><strong>Explanation:</strong> A promise for a future action based on a possible need.</div></li>
+                    <li>If she <span class="feature">passes</span> her exam, her parents <span class="feature">will be</span> very proud.<div class="explanation"><strong>Explanation:</strong> A probable emotional reaction to a future event.</div></li>
+                    <li>If you <span class="feature">touch</span> that wire, you <span class="feature">will get</span> an electric shock.<div class="explanation"><strong>Explanation:</strong> A warning about a very likely future consequence.</div></li>
+                    <li>We <span class="feature">shall go</span> to the beach if it <span class="feature">is</span> sunny.<div class="explanation"><strong>Explanation:</strong> Use of 'shall' (more formal) for a future plan.</div></li>
+                    <li>If you <span class="feature">eat</span> too much, you <span class="feature">will feel</span> sick.<div class="explanation"><strong>Explanation:</strong> A common and likely physiological result.</div></li>
+                    <li>They <span class="feature">can finish</span> the project on time if they <span class="feature">start</span> now.<div class="explanation"><strong>Explanation:</strong> Shows a possible future ability dependent on a present action.</div></li>
+                </ul>
+            </section>
+            
+             <section id="second" class="content-section">
+                <h2>Second Conditional</h2>
+                <div class="rule">
+                    <p><strong>Concept:</strong> Used for hypothetical, imaginary, or unreal situations in the **present or future**. It describes a situation that is contrary to fact or unlikely to happen.</p>
+                    <p><strong>Syntax:</strong> If + Simple Past, ... would + base verb (V1)</p>
+                    <p><strong>How to Identify:</strong> Look for the `Simple Past` in the 'if' clause and a conditional modal (`would`, `could`, `might`) in the main clause. A key identifier is the use of `were` instead of `was` for all subjects in the 'if' clause.</p>
+                </div>
+                <h3>20 Examples:</h3>
+                <ul class="example-list">
+                    <li>If I <span class="feature">were</span> a millionaire, I <span class="feature">would travel</span> the world.<div class="explanation"><strong>Explanation:</strong> An unreal present situation (I am not a millionaire). Note `were` is used with `I`.</div></li>
+                    <li>If he <span class="feature">studied</span> harder, he <span class="feature">would get</span> better grades.<div class="explanation"><strong>Explanation:</strong> A hypothetical situation. It implies he does not study hard now.</div></li>
+                    <li>If I <span class="feature">were</span> you, I <span class="feature">would accept</span> the offer.<div class="explanation"><strong>Explanation:</strong> Giving advice by imagining an unreal situation (I can never be you).</div></li>
+                    <li>What <span class="feature">would you do</span> if you <span class="feature">found</span> a wallet full of money?<div class="explanation"><strong>Explanation:</strong> Asks about a hypothetical future situation.</div></li>
+                    <li>If I <span class="feature">knew</span> her number, I <span class="feature">would call</span> her.<div class="explanation"><strong>Explanation:</strong> Implies I do not know her number now, so it's an unreal present condition.</div></li>
+                    <li>She <span class="feature">would be</span> healthier if she <span class="feature">ate</span> less junk food.<div class="explanation"><strong>Explanation:</strong> A hypothetical present situation, implying she eats a lot of junk food.</div></li>
+                    <li>If we <span class="feature">had</span> more time, we <span class="feature">could visit</span> the museum.<div class="explanation"><strong>Explanation:</strong> An unreal condition (we don't have more time) and its possible result.</div></li>
+                    <li>If he <span class="feature">were</span> the manager, he <span class="feature">would change</span> many things.<div class="explanation"><strong>Explanation:</strong> A hypothetical situation, as he is not the manager.</div></li>
+                    <li>If they <span class="feature">lived</span> closer, we <span class="feature">would see</span> them more often.<div class="explanation"><strong>Explanation:</strong> Implies they live far away, so it's an unreal present condition.</div></li>
+                    <li>I <span class="feature">wouldn't do</span> that if I <span class="feature">were</span> you.<div class="explanation"><strong>Explanation:</strong> A common structure for giving strong advice.</div></li>
+                    <li>If dogs <span class="feature">could talk</span>, they <span class="feature">would tell</span> interesting stories.<div class="explanation"><strong>Explanation:</strong> An imaginary, impossible situation.</div></li>
+                    <li>If I <span class="feature">won</span> the lottery, I <span class="feature">might buy</span> a new house.<div class="explanation"><strong>Explanation:</strong> Uses 'might' to show a possible, but not certain, result of an unlikely event.</div></li>
+                    <li>He <span class="feature">would feel</span> happier if he <span class="feature">had</span> a different job.<div class="explanation"><strong>Explanation:</strong> A hypothetical situation about his present life.</div></li>
+                    <li>If it <span class="feature">snowed</span> in the desert, everyone <span class="feature">would be</span> surprised.<div class="explanation"><strong>Explanation:</strong> An extremely unlikely future event.</div></li>
+                    <li>If I <span class="feature">were</span> an astronaut, I <span class="feature">would want</span> to walk on the Moon.<div class="explanation"><strong>Explanation:</strong> An imaginary personal scenario.</div></li>
+                    <li>We <span class="feature">could have</span> a picnic if the weather <span class="feature">wasn't</span> so bad.<div class="explanation"><strong>Explanation:</strong> A hypothetical possibility for now or the near future. (Note: 'was' is sometimes used informally, but 'were' is correct for exams).</div></li>
+                    <li>If I <span class="feature">had</span> a superpower, I <span class="feature">would choose</span> to fly.<div class="explanation"><strong>Explanation:</strong> A classic imaginary situation.</div></li>
+                    <li>If she <span class="feature">spoke</span> English, she <span class="feature">could get</span> a better job.<div class="explanation"><strong>Explanation:</strong> Implies she doesn't speak English now.</div></li>
+                    <li>If the company <span class="feature">were</span> more profitable, it <span class="feature">would pay</span> higher salaries.<div class="explanation"><strong>Explanation:</strong> A hypothetical situation about the company's present state.</div></li>
+                    <li>The world <span class="feature">would be</span> a better place if everyone <span class="feature">was</span> more kind.<div class="explanation"><strong>Explanation:</strong> A wishful statement about an ideal, unreal world. (Again, 'were' is formally correct).</div></li>
+                </ul>
+            </section>
+            
+            <section id="third" class="content-section">
+                <h2>Third Conditional</h2>
+                <div class="rule">
+                    <p><strong>Concept:</strong> Used for hypothetical, unreal situations in the **past**. It is used to express regret or to imagine a different outcome for a situation that has already happened.</p>
+                    <p><strong>Syntax:</strong> If + Past Perfect (had + V3), ... would have + V3</p>
+                    <p><strong>How to Identify:</strong> Look for the `Past Perfect` in the 'if' clause and a perfect conditional modal (`would have`, `could have`, `might have`) in the main clause.</p>
+                </div>
+                <h3>20 Examples:</h3>
+                <ul class="example-list">
+                    <li>If you <span class="feature">had studied</span> harder, you <span class="feature">would have passed</span> the exam.<div class="explanation"><strong>Explanation:</strong> An unreal past situation. (Reality: you did not study hard, and you did not pass).</div></li>
+                    <li>We <span class="feature">would have missed</span> the flight if we <span class="feature">had not taken</span> a taxi.<div class="explanation"><strong>Explanation:</strong> Describes an unreal past event and its imaginary past result.</div></li>
+                    <li>If I <span class="feature">had known</span> you were coming, I <span class="feature">would have baked</span> a cake.<div class="explanation"><strong>Explanation:</strong> Expresses regret about a past lack of information.</div></li>
+                    <li>She <span class="feature">would not have been</span> tired if she <span class="feature">had gone</span> to bed earlier.<div class="explanation"><strong>Explanation:</strong> Describes an imaginary past condition and its result.</div></li>
+                    <li>If the weather <span class="feature">had been</span> better, we <span class="feature">could have gone</span> for a swim.<div class="explanation"><strong>Explanation:</strong> Uses 'could have' to show a past possibility that didn't happen.</div></li>
+                    <li>He <span class="feature">might have helped</span> if you <span class="feature">had asked</span> him.<div class="explanation"><strong>Explanation:</strong> Uses 'might have' to show an uncertain past possibility.</div></li>
+                    <li>If I <span class="feature">hadn't spent</span> so much money, I <span class="feature">would have had</span> enough to buy the car.<div class="explanation"><strong>Explanation:</strong> Expressing regret about past financial decisions.</div></li>
+                    <li>The team <span class="feature">would have won</span> if the striker <span class="feature">had scored</span> that penalty.<div class="explanation"><strong>Explanation:</strong> Imagining a different outcome for a past sports event.</div>
+                    <li>If he <span class="feature">had listened</span> to my advice, he <span class="feature">would not have made</span> that mistake.<div class="explanation"><strong>Explanation:</strong> Speculating about an alternative past.</div></li>
+                    <li>What <span class="feature">would you have done</span> if you <span class="feature">had been</span> in my position?<div class="explanation"><strong>Explanation:</strong> Asking for a hypothetical reaction to a past event.</div></li>
+                    <li>If the alarm <span class="feature">had gone off</span>, I <span class="feature">wouldn't have been</span> late.<div class="explanation"><strong>Explanation:</strong> An unreal past condition (the alarm didn't go off).</div></li>
+                    <li>She <span class="feature">would have called</span> you if her phone <span class="feature">hadn't died</span>.<div class="explanation"><strong>Explanation:</strong> Explaining a past inaction with a hypothetical reason.</div></li>
+                    <li>If they <span class="feature">had invested</span> in that company, they <span class="feature">would have become</span> rich.<div class="explanation"><strong>Explanation:</strong> Imagining a different financial past.</div></li>
+                    <li>I <span class="feature">would have told</span> you the secret if you <span class="feature">had promised</span> not to tell anyone.<div class="explanation"><strong>Explanation:</strong> A conditional promise about a past situation.</div></li>
+                    <li>If the road <span class="feature">had not been</span> icy, the accident <span class="feature">might not have happened</span>.<div class="explanation"><strong>Explanation:</strong> Speculating on a possible different outcome in the past.</div></li>
+                    <li>If we <span class="feature">had booked</span> our tickets earlier, we <span class="feature">could have gotten</span> better seats.<div class="explanation"><strong>Explanation:</strong> Expressing regret about past planning.</div></li>
+                    <li>He <span class="feature">would have been</span> a great doctor if he <span class="feature">had finished</span> medical school.<div class="explanation"><strong>Explanation:</strong> Imagining an alternative life path based on a past condition.</div></li>
+                    <li>If she <span class="feature">had known</span> about the party, she <span class="feature">would have come</span>.<div class="explanation"><strong>Explanation:</strong> A statement about a past event that was conditional on knowledge.</div></li>
+                    <li>The project <span class="feature">would have been</span> a success if the team <span class="feature">had worked</span> together.<div class="explanation"><strong>Explanation:</strong> A hypothetical past result based on a different team dynamic.</div></li>
+                    <li>I <span class="feature">would not have believed</span> it if I <span class="feature">had not seen</span> it with my own eyes.<div class="explanation"><strong>Explanation:</strong> Expressing how a past perception depended on a past action.</div></li>
+                </ul>
+            </section>
+            
+             <section id="mixed" class="content-section">
+                <h2>Mixed Conditionals</h2>
+                <div class="rule">
+                    <p><strong>Concept:</strong> Mixed conditionals combine the structures of the Second and Third conditionals. They are used to connect an unreal condition in one time frame (past or present) with an unreal result in another time frame.</p>
+                    <p><strong>Type 1 Syntax:</strong> If + Past Perfect (Unreal Past), ... would + V1 (Unreal Present)</p>
+                    <p><strong>Type 2 Syntax:</strong> If + Simple Past (Unreal Present), ... would have + V3 (Unreal Past)</p>
+                </div>
+                <h3>20 Examples:</h3>
+                <ul class="example-list">
+                    <!-- Past Condition -> Present Result -->
+                    <h3>Past Condition with a Present Result</h3>
+                    <li>If he <span class="feature">had taken</span> the medicine, he <span class="feature">would be</span> healthy now.<div class="explanation"><strong>Explanation:</strong> An unreal past action (`had taken`) has an imaginary result in the present (`would be`).</div></li>
+                    <li>If I <span class="feature">had won</span> the lottery last year, I <span class="feature">would be</span> rich now.<div class="explanation"><strong>Explanation:</strong> Connects a hypothetical past event with a present state.</div></li>
+                    <li>She <span class="feature">would not be</span> in trouble now if she <span class="feature">had listened</span> to my advice.<div class="explanation"><strong>Explanation:</strong> Shows the present consequence of not following advice in the past.</div></li>
+                    <li>If you <span class="feature">had studied</span> for the test, you <span class="feature">would know</span> the answer.<div class="explanation"><strong>Explanation:</strong> A past condition affects the present state of knowledge.</div></li>
+                    <li>If I <span class="feature">hadn't missed</span> my flight, I <span class="feature">would be</span> in Paris right now.<div class="explanation"><strong>Explanation:</strong> A past event has a direct, tangible consequence in the present.</div></li>
+                    <li>He <span class="feature">would be</span> the company director today if he <span class="feature">had accepted</span> that promotion years ago.<div class="explanation"><strong>Explanation:</strong> A past decision affects his present job title.</div></li>
+                    <li>If they <span class="feature">had saved</span> their money, they <span class="feature">wouldn't need</span> to borrow any now.<div class="explanation"><strong>Explanation:</strong> Past actions have a direct financial consequence in the present.</div></li>
+                    <li>We <span class="feature">would have</span> a better relationship now if we <span class="feature">had communicated</span> more in the past.<div class="explanation"><strong>Explanation:</strong> Past communication failure affects the present relationship.</div></li>
+                    <li>If I <span class="feature">had been born</span> in Spain, I <span class="feature">would speak</span> Spanish fluently.<div class="explanation"><strong>Explanation:</strong> An unreal past condition (place of birth) and its logical present result.</div></li>
+                    <li>The city <span class="feature">would be</span> much safer if the new laws <span class="feature">had been implemented</span> last year.<div class="explanation"><strong>Explanation:</strong> A past inaction has a continuing effect on present safety.</div></li>
+
+                    <!-- Present Condition -> Past Result -->
+                     <h3>Present Condition with a Past Result</h3>
+                    <li>If I <span class="feature">were</span> more disciplined, I <span class="feature">would have finished</span> the project yesterday.<div class="explanation"><strong>Explanation:</strong> A general, unreal present state (`were disciplined`) had an imaginary result in the past (`would have finished`).</div></li>
+                    <li>If he <span class="feature">wasn't</span> so lazy, he <span class="feature">would have gotten</span> the promotion.<div class="explanation"><strong>Explanation:</strong> A present characteristic (laziness) affected a past opportunity. ('were' is more formal).</div></li>
+                    <li>If I <span class="feature">spoke</span> French, I <span class="feature">could have helped</span> the tourists yesterday.<div class="explanation"><strong>Explanation:</strong> An unreal present ability (`spoke French`) and its hypothetical result on a past event.</div></li>
+                    <li>She <span class="feature">would have been</span> on time if she <span class="feature">wasn't</span> such a procrastinator.<div class="explanation"><strong>Explanation:</strong> Her general personality (a present state) affected a specific past event.</div></li>
+                    <li>If I <span class="feature">were</span> you, I <span class="feature">would have apologized</span> immediately.<div class="explanation"><strong>Explanation:</strong> A hypothetical present state (`were you`) and the advice for a past action.</div></li>
+                    <li>If the team <span class="feature">had</span> a better coach, they <span class="feature">might have won</span> the last match.<div class="explanation"><strong>Explanation:</strong> An unreal present condition (the coach they have) and its possible effect on a past game.</div></li>
+                    <li>If he <span class="feature">knew</span> anything about cars, he <span class="feature">would have fixed</span> it himself.<div class="explanation"><strong>Explanation:</strong> His present lack of knowledge had a consequence on a past action.</div></li>
+                    <li>If I <span class="feature">wasn't</span> afraid of heights, I <span class="feature">would have climbed</span> that mountain with you.<div class="explanation"><strong>Explanation:</strong> A general present fear prevented a past action.</div></li>
+                    <li>He <span class="feature">would have invested</span> in that company if he <span class="feature">were</span> a risk-taker.<div class="explanation"><strong>Explanation:</strong> His general personality (not a risk-taker) influenced a past decision.</div></li>
+                    <li>If she <span class="feature">were</span> a better student, she <span class="feature">would have been</span> awarded the scholarship.<div class="explanation"><strong>Explanation:</strong> A general present quality and its hypothetical impact on a past award.</div></li>
+                </ul>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-column a');
+            const contentSections = document.querySelectorAll('.content-section');
+            const contentColumn = document.querySelector('.content-column');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+
+                    // Update active link in the navigation
+                    navLinks.forEach(nav => nav.classList.remove('active'));
+                    this.classList.add('active');
+
+                    // Hide all content sections
+                    contentSections.forEach(section => section.classList.remove('active'));
+
+                    // Show the target content section
+                    const targetId = this.getAttribute('href'); // e.g., "#zero"
+                    const targetSection = document.querySelector(targetId);
+                    if (targetSection) {
+                        targetSection.classList.add('active');
+                        contentColumn.scrollTop = 0; // Scroll content to top
+                    }
+                });
+            });
+            
+            // Auto-activate the first link on page load
+             const firstLink = document.querySelector('.nav-column a');
+             if(firstLink) {
+                firstLink.classList.add('active');
+                document.querySelector(firstLink.getAttribute('href')).classList.add('active');
+             }
+        });
+    </script>
+
+</body>
+</html>

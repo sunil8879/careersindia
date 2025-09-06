@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Data Methodology - Career Pathways India</title>
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📜</text></svg>">
+
+<style>
+    :root {
+        --primary-color: #0056b3;
+        --secondary-color: #4A90E2;
+        --text-dark: #333;
+        --text-light: #666;
+        --bg-light: #f4f7f9;
+        --bg-white: #ffffff;
+        --border-color: #e0e0e0;
+        --shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: var(--bg-light);
+        color: var(--text-dark);
+        line-height: 1.6;
+    }
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 30px 20px;
+    }
+    .header {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    .header h1 {
+        font-size: 2.8rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        margin-bottom: 10px;
+    }
+    .header p {
+        font-size: 1.1rem;
+        color: var(--text-light);
+        margin: 0 auto;
+    }
+    .method-section {
+        background-color: var(--bg-white);
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+        padding: 30px;
+        margin-bottom: 30px;
+    }
+    .method-section h2 {
+        font-size: 1.6rem;
+        font-weight: 600;
+        color: var(--primary-color);
+        margin-top: 0;
+        margin-bottom: 15px;
+        border-bottom: 2px solid var(--secondary-color);
+        padding-bottom: 10px;
+    }
+    .method-section p, .method-section li {
+        font-size: 1rem;
+        color: var(--text-light);
+    }
+    .method-section ul {
+        padding-left: 20px;
+        margin-top: 10px;
+    }
+    .method-section strong {
+        color: var(--text-dark);
+    }
+    .disclaimer {
+        font-style: italic;
+        color: #c0392b;
+        font-size: 0.9rem;
+        text-align: center;
+        margin-top: 20px;
+        padding: 15px;
+        background-color: #fcf3f2;
+        border-radius: 8px;
+    }
+
+    /* --- Navigation Bar from previous step --- */
+    .navbar {
+        background-color: var(--bg-white);
+        box-shadow: var(--shadow);
+        padding: 0 20px;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+    .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 70px;
+    }
+    .nav-logo a {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        text-decoration: none;
+    }
+    .nav-menu {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+    }
+    .nav-menu a {
+        text-decoration: none;
+        color: var(--text-dark);
+        font-weight: 500;
+        padding: 5px 10px;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+    .nav-menu a:hover, .nav-menu a.active {
+        background-color: #e9ecef;
+        color: var(--primary-color);
+    }
+</style>
+</head>
+<body>
+
+    <!-- Consistent Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#">Career Dashboard</a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="ssc_chart.html">After SSC</a></li> 
+                <li><a href="hsc_chart.html">After HSC</a></li>
+                <li><a href="graduation_chart.html">After Graduation</a></li>
+                <li><a href="post_graduation_chart.html">After Post-Grad</a></li>
+                <li><a href="govt_jobs_chart.html">Govt. Jobs</a></li>
+                <!-- Add an active class to this link on this page -->
+                <li><a href="methodology.html" class="active">Our Data</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="header">
+            <h1>Our Data Methodology & Sources</h1>
+            <p>Transparency is a core value of our project. This page explains how we gather, process, and present the information to help you make informed career decisions.</p>
+        </header>
+
+        <main>
+            <div class="method-section">
+                <h2>1. Course Information (SSC, HSC, Graduation, Post-Graduation)</h2>
+                <p>The extensive lists of courses available at each educational stage are compiled and synthesized from a wide array of publicly available, authoritative sources. Our goal is to provide a comprehensive, yet curated, list of relevant and popular options.</p>
+                <ul>
+                    <li><strong>Primary Sources:</strong> Official websites of educational bodies like the University Grants Commission (UGC) and the All India Council for Technical Education (AICTE), university prospectuses, and government educational portals.</li>
+                    <li><strong>Secondary Sources:</strong> Reputable educational websites and career counseling platforms.</li>
+                </ul>
+            </div>
+
+            <div class="method-section">
+                <h2>2 & 3. Government Jobs & Entrance Exams</h2>
+                <p>All information regarding government jobs and entrance examinations is sourced directly from official notifications and websites of the recruiting bodies. We summarize this information for clarity and ease of understanding.</p>
+                <ul>
+                    <li><strong>Sources:</strong> Official websites of the Union Public Service Commission (<strong>UPSC</strong>), Staff Selection Commission (<strong>SSC</strong>), Railway Recruitment Boards (<strong>RRBs</strong>), Institute of Banking Personnel Selection (<strong>IBPS</strong>), State Bank of India (<strong>SBI</strong>), Reserve Bank of India (<strong>RBI</strong>), and various State Public Service Commissions (<strong>State PSCs</strong>).</li>
+                    <li class="disclaimer"><strong>Disclaimer:</strong> The details provided are a summary. For all official rules, eligibility, syllabus, and deadlines, users must refer to the specific official notification for that examination year.</li>
+                </ul>
+            </div>
+
+            <div class="method-section">
+                <h2>4 & 5. Living, Learning & Scholarships Abroad</h2>
+                <p>Information related to studying abroad is gathered from official and established international sources to ensure accuracy for prospective students.</p>
+                <ul>
+                    <li><strong>Sources:</strong> Official immigration and education websites of governments (e.g., EducationUSA, Study in Canada, Study Australia), official scholarship portals (e.g., Fulbright, Chevening, DAAD), and the international student offices of major global universities.</li>
+                </ul>
+            </div>
+
+            <div class="method-section">
+                <h2>6. Top College Information</h2>
+                <p>Our lists of "Top Colleges" are based on a synthesis of multiple factors, with a strong emphasis on official and widely-respected rankings.</p>
+                <ul>
+                    <li><strong>Primary Source:</strong> The National Institutional Ranking Framework (<strong>NIRF</strong>), released by the Ministry of Education, Government of India.</li>
+                    <li><strong>Other Factors:</strong> We also consider data from reputable media surveys, placement records, academic reputation, and faculty quality to provide a holistic view. Rankings are indicative and subject to change annually.</li>
+                </ul>
+            </div>
+
+            <div class="method-section">
+                <h2>7. Chart Data (Salary and Demand Score)</h2>
+                <p>The data visualized in our charts is derived from a careful analytical process to provide realistic and helpful insights.</p>
+                <ul>
+                    <li><strong>Salary Data:</strong> The figures represent an **estimated starting salary range (LPA - Lakhs Per Annum)** for a fresher immediately after completing the respective qualification. This is not a guaranteed figure. It is an aggregate synthesized from placement reports of various institutions, data from major job portals, public salary aggregators, and pay commission reports for government roles. The range accounts for variations based on institution tier, company type, location, and individual skill.</li>
+                    <li><strong>Demand Score:</strong> This is a **proprietary synthetic index**, rated on a scale of 1 to 10. It is not an official score but our informed estimate based on a weighted analysis of multiple factors, including:
+                        <ul>
+                            <li><strong>Volume of Job Openings:</strong> Frequency and number of relevant jobs posted annually.</li>
+                            <li><strong>Industry Growth:</strong> The growth trajectory of the sectors hiring for these roles.</li>
+                            <li><strong>Salary Potential:</strong> The premium the market places on these skills.</li>
+                            <li><strong>Versatility:</strong> The number of different industries and roles the qualification is applicable to.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+<!-- START: Paste this entire block as a new section -->
+<div class="method-section">
+    <h2>8. Perception Score Methodology</h2>
+    <p>The "Perception Score" is a unique, qualitative index developed for this project. It is rated on a scale of 1 to 10 and aims to capture the general public and student sentiment towards a particular career path. This score is not a direct measure of job availability but rather reflects the social esteem, desirability, and overall image of a profession.</p>
+    <p>Our score is derived from a qualitative synthesis of multiple factors, including:</p>
+    <ul>
+        <li><strong>Prestige & Social Standing:</strong> How highly is the career regarded by society and family circles?</li>
+        <li><strong>Future Outlook:</strong> Is the field perceived as modern, future-proof, and aligned with technological trends, or is it seen as traditional or declining?</li>
+        <li><strong>Work-Life Balance & Stress:</strong> The common public perception of the work environment, hours, and pressure associated with the career.</li>
+        <li><strong>Barrier to Entry:</strong> Is the path perceived as exceptionally difficult and therefore more "elite" or exclusive (e.g., tough entrance exams, long duration)?</li>
+        <li><strong>Source Material:</strong> Our analysis is synthesized from public discussions on online forums (like Reddit, Quora), general media portrayal of the profession, and published opinions from career experts.</li>
+    </ul>
+    <p class="disclaimer"><strong>Important:</strong> This score reflects general sentiment and may not align with an individual's personal experience or ambition. It is designed to provide context beyond purely quantitative data.</p>
+</div>
+<!-- END: Snippet ends here -->
+
+
+
+
+            <!-- This new section can be placed after the Chart Data section -->
+            <div class="method-section">
+                <h2>9. UDAAN Psychometric Test Methodology</h2>
+                <p>The UDAAN psychometric test is not a traditional exam with "right" or "wrong" answers. Instead, it is a scientifically designed assessment tool created to help users understand their own inherent personality traits, interests, and aptitudes, and to map these characteristics to suitable career paths.</p>
+                <p>Our methodology is grounded in established and widely-respected theories of personality and career assessment.</p>
+                <ul>
+                    <li><strong>Theoretical Framework:</strong> The test is primarily based on the **Holland Code (RIASEC) theory**, a model that categorizes people into six personality types: **R**ealistic, **I**nvestigative, **A**rtistic, **S**ocial, **E**nterprising, and **C**onventional. It also incorporates elements from the **Big Five Personality Traits** (Openness, Conscientiousness, Extraversion, Agreeableness, Neuroticism) to provide a more nuanced profile.</li>
+                    <li><strong>Test Structure:</strong> The UDAAN test consists of a series of multiple-choice questions. These questions are designed to gauge your preferences in various activities, your comfort level in different situations, and your personal values. The questions are situational and reflective, prompting you to choose what you would most and least prefer.</li>
+                    <li><strong>Result Generation:</strong> Your responses are analyzed by an algorithm that calculates your dominant personality and interest types based on the RIASEC model. The results provide you with a primary and secondary Holland Code (e.g., "Social-Artistic" or "Investigative-Realistic").</li>
+                    <li><strong>Career Mapping:</strong> Each career path in our database is also mapped to a primary Holland Code. Your results are then cross-referenced with this database to generate a list of careers that are a strong match for your personality profile. The goal is to suggest fields where you are most likely to find job satisfaction and success based on your innate inclinations.</li>
+                </ul>
+                <p class="disclaimer"><strong>Important:</strong> The UDAAN test is a guidance tool designed to inspire self-reflection and suggest potential career directions. It is not a definitive measure of ability or a guarantee of success. We encourage users to use the results as a starting point for further research and exploration.</p>
+            </div>
+
+            <div class="method-section">
+                <h2>10. Emerging Courses</h2>
+                <p>The list of emerging and future-oriented courses is identified through continuous market research and trend analysis.</p>
+                <ul>
+                    <li><strong>Sources:</strong> Industry reports from bodies like NASSCOM and Gartner, analysis of in-demand skills on professional networking sites, new course offerings by premier global and Indian institutions, and articles in reputable technology and business publications.</li>
+                </ul>
+            </div>
+
+            <div class="method-section">
+                <h2>11. Scholarship Schemes in India</h2>
+                <p>Information on domestic scholarships is compiled from official government and private foundation portals.</p>
+                <ul>
+                    <li><strong>Sources:</strong> The National Scholarship Portal (NSP) of the Government of India, UGC scholarship websites, state government education portals, and official websites of private trusts and corporations offering educational scholarships (e.g., Tata Trusts, Reliance Foundation).</li>
+                </ul>
+            </div>
+
+            <div class="method-section">
+                <h2>12. City-wise Pass-out Data</h2>
+                <p>Data regarding the number of graduates in different fields is primarily derived from national-level surveys. Precise city-wise data is often an estimation.</p>
+                <ul>
+                    <li><strong>Primary Source:</strong> The All India Survey on Higher Education (<strong>AISHE</strong>) report, published by the Ministry of Education. This provides detailed state-wise and institution-wise enrollment and pass-out data.</li>
+                    <li><strong>Methodology:</strong> City-wise figures are estimations derived by aggregating the data from institutions located within that city or metropolitan area, based on the AISHE reports. This data provides a strong indication of educational hubs but should be considered an estimate.</li>
+                </ul>
+            </div>
+
+<!-- START: Add this entire block as a new section -->
+<div class="method-section">
+    <h2>13. Study Abroad Process & Verification Details</h2>
+    <p>The detailed, step-by-step guides for studying abroad are synthesized from a multi-layered approach, ensuring accuracy from official government policies down to practical university procedures. Our process for compiling this data is as follows:</p>
+    <ul>
+        <li><strong>Official Government Immigration Portals:</strong> The legal framework for each country's visa process, including visa types, required documents, and post-arrival formalities, is sourced directly from the primary government authorities. These include websites like Immigration, Refugees and Citizenship Canada (<strong>IRCC</strong>), the U.S. Department of State, the UK's <strong>GOV.UK</strong>, Australia's Department of Home Affairs, and the Immigration & Checkpoints Authority (<strong>ICA</strong>) of Singapore.</li>
+        
+        <li><strong>National Education Promotion Agencies:</strong> We use official student-facing portals for simplified guides, timelines, and pre-application procedures. Key sources include <strong>Campus France</strong>, Germany's <strong>DAAD</strong>, <strong>Education New Zealand (ENZ)</strong>, and Japan's <strong>JASSO</strong>.</li>
+        
+        <li><strong>University International Admissions Offices:</strong> To ensure practical accuracy, we cross-reference information with the international student sections of major universities in each country. These provide specific application checklists, document requirements, and on-the-ground details for post-arrival registration (e.g., obtaining a Residence Permit or `Iqama`).</li>
+        
+        <li><strong>Agent Verification & Licensing Bodies:</strong> Information on how to "test" the genuineness of a consultant is sourced directly from the websites of official licensing or certification bodies, such as Canada's <strong>CICC</strong>, Australia's <strong>QEAC</strong>, the USA's <strong>AIRC</strong>, and the <strong>British Council</strong>.</li>
+    </ul>
+    <p class="disclaimer"><strong>Disclaimer:</strong> Immigration rules and financial requirements are subject to change. The information provided is a detailed guide based on current regulations. Students must always verify the latest requirements on the official embassy or consulate website of the destination country before starting their application process.</p>
+</div>
+<!-- END: Snippet ends here -->
+
+        </main>
+    </div>
+
+</body>
+</html>
