@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rapid Maths - Digital Notes</title>
+    
+    <!-- Google Fonts for a professional look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- CSS STYLES --- */
+        
+        /* --- Global Styles & Variables --- */
+        :root {
+            --primary-font: 'Lato', sans-serif;
+            --heading-font: 'Roboto Slab', serif;
+            --background-color: #f4f7f9;
+            --container-bg: #ffffff;
+            --text-color: #333;
+            --accent-color: #007bff;
+            --border-color: #e0e0e0;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        body {
+            margin: 0;
+            font-family: var(--primary-font);
+            background-color: var(--background-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 2rem 1rem;
+            box-sizing: border-box;
+        }
+
+        /* --- Main Container --- */
+        .notes-container {
+            width: 100%;
+            max-width: 900px;
+            background-color: var(--container-bg);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        /* --- Header Section --- */
+        header {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            background-color: #fafafa;
+        }
+
+        header h1 {
+            font-family: var(--heading-font);
+            margin: 0 0 0.5rem 0;
+            font-size: 2.5rem;
+            color: #2c3e50;
+        }
+
+        header p {
+            margin: 0;
+            color: #7f8c8d;
+            font-size: 1.1rem;
+        }
+
+        /* --- Note Viewer --- */
+        .note-viewer {
+            padding: 2rem;
+            background-color: #fcfcfc;
+        }
+
+        .note-page {
+            background-color: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            overflow: hidden; /* Ensures the image respects the border-radius */
+        }
+
+        #noteImage {
+            display: block;
+            width: 100%;
+            height: auto;
+            user-select: none; /* Prevents users from dragging the image */
+        }
+
+        /* --- Pagination / Navigation --- */
+        .pagination {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            border-top: 1px solid var(--border-color);
+            background-color: #fafafa;
+        }
+
+        .pagination button {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+        }
+
+        .pagination button:hover:not(:disabled) {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        .pagination button:disabled {
+            background-color: #c0c0c0;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        #pageIndicator {
+            font-family: var(--heading-font);
+            font-weight: bold;
+            color: #555;
+            font-size: 1.1rem;
+        }
+
+        .page-selector {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .page-selector label {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        #pageSelect {
+            padding: 0.5rem;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            font-family: var(--primary-font);
+            font-size: 1rem;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 600px) {
+            body {
+                padding: 0;
+            }
+            .notes-container {
+                border-radius: 0;
+                box-shadow: none;
+                min-height: 100vh;
+            }
+            .note-viewer {
+                padding: 1rem;
+            }
+            .pagination {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .pagination .page-selector {
+                order: -1; /* Puts the dropdown at the top on mobile */
+            }
+            header h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="notes-container">
+        <header>
+            <h1>Rapid Maths Notes</h1>
+            <p>Your comprehensive guide, presented digitally.</p>
+        </header>
+
+        <main class="note-viewer">
+            <div class="note-page">
+                <img id="noteImage" src="RapidMaths-01.png" alt="Maths Note - Page 1">
+            </div>
+        </main>
+
+        <nav class="pagination">
+            <button id="prevButton" title="Previous Page">&larr; Previous</button>
+            
+            <div class="page-selector">
+                <label for="pageSelect">Go to page:</label>
+                <select id="pageSelect"></select>
+            </div>
+
+            <span id="pageIndicator">Page 1 of 46</span>
+            
+            <button id="nextButton" title="Next Page">Next &rarr;</button>
+        </nav>
+    </div>
+
+    <!-- JAVASCRIPT FOR FUNCTIONALITY -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const totalPages = 46;
+            let currentPage = 1;
+
+            // Get references to all the interactive elements
+            const noteImage = document.getElementById('noteImage');
+            const pageIndicator = document.getElementById('pageIndicator');
+            const prevButton = document.getElementById('prevButton');
+            const nextButton = document.getElementById('nextButton');
+            const pageSelect = document.getElementById('pageSelect');
+            
+            // --- Populate the dropdown menu with page numbers ---
+            for (let i = 1; i <= totalPages; i++) {
+                const option = document.createElement('option');
+                option.value = i;
+                option.textContent = i;
+                pageSelect.appendChild(option);
+            }
+
+            // --- Function to update the view based on the current page ---
+            function updateNoteView() {
+                // Pad the page number with a leading zero if it's less than 10 (e.g., 1 -> "01")
+                const pageNumberPadded = String(currentPage).padStart(2, '0');
+                
+                // Construct the image path based on your file naming convention
+                const imagePath = `RapidMaths-${pageNumberPadded}.png`;
+                
+                // Update the image source and alt text
+                noteImage.src = imagePath;
+                noteImage.alt = `Maths Note - Page ${currentPage}`;
+                
+                // Update the text indicator
+                pageIndicator.textContent = `Page ${currentPage} of ${totalPages}`;
+
+                // Sync the dropdown menu with the current page
+                pageSelect.value = currentPage;
+
+                // Disable/Enable navigation buttons at the first and last page
+                prevButton.disabled = (currentPage === 1);
+                nextButton.disabled = (currentPage === totalPages);
+            }
+
+            // --- Event Listeners for buttons and dropdown ---
+            prevButton.addEventListener('click', () => {
+                if (currentPage > 1) {
+                    currentPage--;
+                    updateNoteView();
+                }
+            });
+
+            nextButton.addEventListener('click', () => {
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    updateNoteView();
+                }
+            });
+            
+            pageSelect.addEventListener('change', (e) => {
+                currentPage = parseInt(e.target.value);
+                updateNoteView();
+            });
+
+            // --- Initial Load ---
+            // Call the function once to set up the initial view when the page loads
+            updateNoteView();
+        });
+    </script>
+
+</body>
+</html>

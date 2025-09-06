@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Career Video</title>
+  <style>
+    /* Reset body margin and padding */
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    /* Full-screen video styling */
+    #video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Video element -->
+  <video id="video" autoplay muted>
+    <source src="careersindia.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <script>
+    // Redirect to mainnow.html after video ends
+    document.getElementById('video').addEventListener('ended', function() {
+      window.location.href = 'mainnow.html';
+    });
+  </script>
+
+</body>
+</html>

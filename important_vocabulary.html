@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Vocabulary: Confusing Word Pairs</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            /* Blue and white gridline background */
+            background-color: #f0f8ff; 
+            background-image: 
+                repeating-linear-gradient(to right, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 30px),
+                repeating-linear-gradient(to bottom, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 30px);
+            background-size: 30px 30px;
+        }
+
+        /* Header Styling */
+        header {
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        header h1 {
+            display: inline-block;
+            background-color: #0056b3;
+            color: white;
+            padding: 20px 40px;
+            border: 3px solid white;
+            border-radius: 15px;
+            /* 3D Box Effect */
+            box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.4), inset 2px 2px 5px rgba(255, 255, 255, 0.3);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-size: 2.2em;
+            margin: 0;
+        }
+
+        /* Main Container for Two-Column Layout */
+        .container {
+            display: flex;
+            max-width: 1400px;
+            margin: 20px auto;
+            background: #ffffff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.15);
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 80vh;
+        }
+
+        /* Left Navigation Column */
+        .nav-column {
+            flex: 1;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+            background-color: #f8f9fa;
+            height: 80vh;
+            overflow-y: auto;
+        }
+        
+        .nav-column h3 {
+            font-size: 1.1em;
+            color: #333;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .nav-column ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-column li a {
+            display: block;
+            padding: 8px 15px;
+            text-decoration: none;
+            color: #0056b3;
+            border-radius: 5px;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 0.9em;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .nav-column li a:hover,
+        .nav-column li a.active {
+            background-color: #0056b3;
+            color: #fff;
+        }
+
+        /* Right Content Column */
+        .content-column {
+            flex: 3;
+            padding: 25px 35px;
+            height: 100%;
+            overflow-y: auto;
+        }
+
+        .content-section {
+            display: none;
+        }
+        
+        .content-section.active {
+            display: block;
+        }
+        
+        h2 {
+            font-size: 1.8em;
+            color: #0056b3;
+            border-bottom: 3px solid #0056b3;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        
+        h3 {
+            font-size: 1.4em;
+            color: #333;
+        }
+        
+        .rule {
+            background-color: #e7f3fe;
+            border: 1px solid #b3d7f7;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        .example-list {
+            list-style-type: decimal;
+            padding-left: 25px;
+        }
+
+        .example-list li {
+            margin-bottom: 10px;
+        }
+        
+        .feature {
+            font-weight: bold;
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>ADVANCED VOCABULARY: CONFUSING WORD PAIRS</h1>
+    </header>
+
+    <div class="container">
+        <nav class="nav-column">
+            <h3>Common Verbs</h3>
+            <ul>
+                <li><a href="#bring-take" class="nav-link active">Bring / Take</a></li>
+                <li><a href="#rise-raise" class="nav-link">Rise / Raise</a></li>
+                <li><a href="#do-make" class="nav-link">Do / Make</a></li>
+                <li><a href="#speak-talk" class="nav-link">Speak / Talk</a></li>
+                <li><a href="#lie-lay" class="nav-link">Lie / Lay</a></li>
+                <li><a href="#say-tell" class="nav-link">Say / Tell</a></li>
+            </ul>
+            <h3>Quantifiers</h3>
+            <ul>
+                <li><a href="#each-every" class="nav-link">Each / Every</a></li>
+                <li><a href="#much-many" class="nav-link">Much / Many</a></li>
+                <li><a href="#few-afew" class="nav-link">Few / A few</a></li>
+                <li><a href="#little-alittle" class="nav-link">Little / A little</a></li>
+            </ul>
+             <h3>Prepositions & Conjunctions</h3>
+            <ul>
+                <li><a href="#between-among" class="nav-link">Between / Among</a></li>
+                <li><a href="#beside-besides" class="nav-link">Beside / Besides</a></li>
+                <li><a href="#since-because" class="nav-link">Since / Because</a></li>
+                <li><a href="#since-for" class="nav-link">Since / For</a></li>
+                <li><a href="#during-while" class="nav-link">During / While</a></li>
+                <li><a href="#by-with" class="nav-link">By / With</a></li>
+                <li><a href="#over-above" class="nav-link">Over / Above</a></li>
+                <li><a href="#under-below" class="nav-link">Under / Below</a></li>
+                 <li><a href="#on-time-in-time" class="nav-link">On time / In time</a></li>
+                 <li><a href="#in-at" class="nav-link">In / At (for location)</a></li>
+            </ul>
+            <h3>Pronouns & Others</h3>
+            <ul>
+                <li><a href="#who-whom" class="nav-link">Who / Whom</a></li>
+                <li><a href="#whos-whose" class="nav-link">Who's / Whose</a></li>
+                <li><a href="#affect-effect" class="nav-link">Affect / Effect</a></li>
+                <li><a href="#farther-further" class="nav-link">Farther / Further</a></li>
+                <li><a href="#already-yet" class="nav-link">Already / Yet</a></li>
+                <li><a href="#may-might" class="nav-link">May / Might</a></li>
+                <li><a href="#will-shall" class="nav-link">Will / Shall</a></li>
+                <li><a href="#that-which" class="nav-link">That / Which</a></li>
+            </ul>
+        </nav>
+
+        <main class="content-column">
+            <section id="bring-take" class="content-section active">
+                <h2>Bring / Take</h2>
+                <div class="rule"><strong>Core Concept:</strong> The difference is about the direction of movement relative to the speaker.
+                    <ul>
+                        <li><strong>Bring:</strong> Movement **towards** the speaker or the point of reference. (Come here with it)</li>
+                        <li><strong>Take:</strong> Movement **away from** the speaker or the point of reference. (Go there with it)</li>
+                    </ul>
+                </div>
+                <h3>Examples for '<span class="feature">Bring</span>'</h3>
+                <ol class="example-list">
+                    <li>Please <strong>bring</strong> me a glass of water.</li>
+                    <li>Don't forget to <strong>bring</strong> your books to class tomorrow.</li>
+                    <li>Can you <strong>bring</strong> some snacks to the party?</li>
+                    <li>The mailman <strong>brings</strong> us letters every day.</li>
+                    <li>What did you <strong>bring</strong> back from your vacation?</li>
+                </ol>
+                <h3>Examples for '<span class="feature">Take</span>'</h3>
+                <ol class="example-list">
+                    <li>Please <strong>take</strong> these documents to the manager's office.</li>
+                    <li>Remember to <strong>take</strong> your umbrella when you leave.</li>
+                    <li>He will <strong>take</strong> the dog for a walk.</li>
+                    <li>I need to <strong>take</strong> my car to the mechanic.</li>
+                    <li>Don't forget to <strong>take</strong> out the trash.</li>
+                </ol>
+            </section>
+            
+            <section id="rise-raise" class="content-section">
+                <h2>Rise / Raise</h2>
+                <div class="rule"><strong>Core Concept:</strong> `Rise` is intransitive (it doesn't take an object). `Raise` is transitive (it needs an object).
+                    <ul>
+                        <li><strong>Rise (rose, risen):</strong> To go up by itself. Something rises.</li>
+                        <li><strong>Raise (raised, raised):</strong> To lift something up. Someone raises something.</li>
+                    </ul>
+                </div>
+                <h3>Examples for '<span class="feature">Rise</span>'</h3>
+                <ol class="example-list">
+                    <li>The sun <strong>rises</strong> in the east.</li>
+                    <li>Prices are expected to <strong>rise</strong> next month.</li>
+                    <li>Hot air <strong>rises</strong>.</li>
+                    <li>He <strong>rose</strong> from his chair to greet us.</li>
+                    <li>The water level in the river <strong>rose</strong> after the heavy rain.</li>
+                </ol>
+                <h3>Examples for '<span class="feature">Raise</span>'</h3>
+                <ol class="example-list">
+                    <li>If you have a question, please <strong>raise</strong> your hand.</li>
+                    <li>The company plans to <strong>raise</strong> its prices.</li>
+                    <li>They are trying to <strong>raise</strong> money for charity.</li>
+                    <li>He <strong>raised</strong> his voice so everyone could hear him.</li>
+                    <li>The government has <strong>raised</strong> the minimum wage.</li>
+                </ol>
+            </section>
+            
+            <section id="do-make" class="content-section">
+                <h2>Do / Make</h2>
+                <div class="rule"><strong>Core Concept:</strong> This is about collocation. `Do` is for tasks, duties, and general activities. `Make` is for creating, constructing, or producing something.</div>
+                <h3>Examples for '<span class="feature">Do</span>'</h3>
+                <ol class="example-list">
+                    <li>You must <strong>do</strong> your homework.</li>
+                    <li>I need to <strong>do</strong> the laundry.</li>
+                    <li>Can you <strong>do</strong> me a favor?</li>
+                    <li>We <strong>do</strong> business with companies worldwide.</li>
+                    <li>She <strong>did</strong> her best in the exam.</li>
+                </ol>
+                <h3>Examples for '<span class="feature">Make</span>'</h3>
+                <ol class="example-list">
+                    <li>She likes to <strong>make</strong> her own clothes.</li>
+                    <li>I need to <strong>make</strong> a phone call.</li>
+                    <li>He <strong>made</strong> a delicious dinner.</li>
+                    <li>Don't <strong>make</strong> a promise you can't keep.</li>
+                    <li>The noise is <strong>making</strong> me angry.</li>
+                </ol>
+            </section>
+            
+            <section id="speak-talk" class="content-section">
+                <h2>Speak / Talk</h2>
+                <div class="rule"><strong>Core Concept:</strong> `Speak` is often used for more formal, one-way communication and for languages. `Talk` is generally used for informal, two-way conversations.</div>
+                <h3>Examples for '<span class="feature">Speak</span>'</h3>
+                <ol class="example-list">
+                    <li>She can <strong>speak</strong> three languages fluently.</li>
+                    <li>The CEO will <strong>speak</strong> at the conference tomorrow.</li>
+                    <li>I need to <strong>speak</strong> to my manager about my salary.</li>
+                    <li>He <strong>spoke</strong> with great confidence.</li>
+                    <li>Actions <strong>speak</strong> louder than words.</li>
+                </ol>
+                <h3>Examples for '<span class="feature">Talk</span>'</h3>
+                <ol class="example-list">
+                    <li>We need to <strong>talk</strong> about our plans for the weekend.</li>
+                    <li>The children were <strong>talking</strong> loudly in the classroom.</li>
+                    <li>I <strong>talked</strong> to my friend on the phone for an hour.</li>
+                    <li>Let's sit down and have a <strong>talk</strong>.</li>
+                    <li>Stop <strong>talking</strong> and listen to the teacher.</li>
+                </ol>
+            </section>
+
+            <section id="lie-lay" class="content-section">
+                <h2>Lie / Lay</h2>
+                <div class="rule"><strong>Core Concept:</strong> `Lie` is intransitive (to recline; no object). `Lay` is transitive (to place something; needs an object).
+                    <ul>
+                        <li><strong>Lie (present), lay (past), lain (past participle):</strong> To rest.</li>
+                        <li><strong>Lay (present), laid (past), laid (past participle):</strong> To put something down.</li>
+                    </ul>
+                </div>
+                <h3>Examples for '<span class="feature">Lie</span>' (to recline)</h3>
+                <ol class="example-list">
+                    <li>I am going to <strong>lie</strong> down for a nap.</li>
+                    <li>The dog is <strong>lying</strong> on the floor.</li>
+                    <li>Yesterday, he <strong>lay</strong> in bed all day because he was sick.</li>
+                    <li>The book has <strong>lain</strong> on that shelf for weeks.</li>
+                    <li>Let the sleeping dogs <strong>lie</strong>.</li>
+                </ol>
+                <h3>Examples for '<span class="feature">Lay</span>' (to place)</h3>
+                <ol class="example-list">
+                    <li>Please <strong>lay</strong> the book on the table.</li>
+                    <li>She is <strong>laying</strong> the foundation for the new house.</li>
+                    <li>Yesterday, he <strong>laid</strong> the bricks for the wall.</li>
+                    <li>The hen has <strong>laid</strong> an egg.</li>
+                    <li>He asked me to <strong>lay</strong> down my weapons.</li>
+                </ol>
+            </section>
+
+            <section id="say-tell" class="content-section">
+                <h2>Say / Tell</h2>
+                <div class="rule"><strong>Core Concept:</strong> `Say` focuses on the words spoken. `Tell` focuses on the person being spoken to and requires an indirect object.</div>
+                <h3>Examples for '<span class="feature">Say</span>'</h3>
+                <ol class="example-list">
+                    <li>"Hello," she <strong>said</strong>.</li>
+                    <li>He <strong>said</strong> that he was tired.</li>
+                    <li>What did you <strong>say</strong>?</li>
+                    <li>It is important to <strong>say</strong> what you mean.</li>
+                    <li>She always <strong>says</strong> her prayers before bed.</li>
+                </ol>
+                <h3>Examples for '<span class="feature">Tell</span>'</h3>
+                <ol class="example-list">
+                    <li>Can you <strong>tell</strong> me the time?</li>
+                    <li>He <strong>told</strong> them a story.</li>
+                    <li>The doctor <strong>told</strong> me to get more rest.</li>
+                    <li>Don't <strong>tell</strong> a lie.</li>
+                    <li>I can't <strong>tell</strong> the difference between them.</li>
+                </ol>
+            </section>
+            
+            <section id="each-every" class="content-section">
+                 <h2>Each / Every</h2>
+                <div class="rule"><strong>Core Concept:</strong> Both are used with singular nouns. `Each` refers to individual members of a group, one by one. `Every` refers to all members of a group together.</div>
+                <h3>Examples for '<span class="feature">Each</span>' (Individual)</h3>
+                <ol class="example-list">
+                    <li><strong>Each</strong> student was given a different test paper.</li>
+                    <li>There are two books on the table; <strong>each</strong> one is interesting.</li>
+                    <li>The manager spoke to <strong>each</strong> employee individually.</li>
+                    <li><strong>Each</strong> of the players received a medal.</li>
+                    <li>Give one cookie to <strong>each</strong> child.</li>
+                </ol>
+                <h3>Examples for '<span class="feature">Every</span>' (Collective)</h3>
+                <ol class="example-list">
+                    <li><strong>Every</strong> citizen has a right to vote.</li>
+                    <li>I have read <strong>every</strong> book in this library.</li>
+                    <li><strong>Every</strong> seat in the theater was occupied.</li>
+                    <li>She exercises <strong>every</strong> day.</li>
+                    <li><strong>Every</strong> employee must attend the safety training.</li>
+                </ol>
+            </section>
+            
+            <section id="much-many" class="content-section">
+                <h2>Much / Many</h2>
+                <div class="rule"><strong>Core Concept:</strong> `Much` is used with uncountable nouns. `Many` is used with countable nouns.</div>
+                <h3>Examples for '<span class="feature">Much</span>' (Uncountable)</h3>
+                <ol class="example-list">
+                    <li>I don't have <strong>much</strong> time.</li>
+                    <li>How <strong>much</strong> money does it cost?</li>
+                    <li>There isn't <strong>much</strong> sugar left.</li>
+                    <li>He doesn't show <strong>much</strong> interest in his studies.</li>
+                    <li>Too <strong>much</strong> information can be confusing.</li>
+                </ol>
+                <h3>Examples for '<span class="feature">Many</span>' (Countable)</h3>
+                <ol class="example-list">
+                    <li>There are <strong>many</strong> books on the shelf.</li>
+                    <li>How <strong>many</strong> people attended the event?</li>
+                    <li>She has <strong>many</strong> friends.</li>
+                    <li><strong>Many</strong> of the students passed the test.</li>
+                    <li>There are too <strong>many</strong> cars on the road.</li>
+                </ol>
+            </section>
+
+            <section id="few-afew" class="content-section">
+                <h2>Few / A few</h2>
+                <div class="rule"><strong>Core Concept:</strong> Both are used with countable nouns. `Few` has a negative meaning ('almost none'). `A few` has a positive meaning ('a small number, but some').</div>
+                <h3>Examples for '<span class="feature">Few</span>' (Negative)</h3>
+                <ol class="example-list">
+                    <li>He is lonely because he has <strong>few</strong> friends.</li>
+                    <li><strong>Few</strong> people understand advanced physics.</li>
+                    <li>There are <strong>few</strong> honest politicians left.</li>
+                    <li>Very <strong>few</strong> students passed the difficult exam.</li>
+                    <li>He is a man of <strong>few</strong> words.</li>
+                </ol>
+                <h3>Examples for '<span class="feature">A few</span>' (Positive)</h3>
+                <ol class="example-list">
+                    <li>I have <strong>a few</strong> friends who can help me.</li>
+                    <li>She will be ready in <strong>a few</strong> minutes.</li>
+                    <li>We need to buy <strong>a few</strong> things from the store.</li>
+                    <li><strong>A few</strong> of the employees were given a bonus.</li>
+                    <li>I would like to ask <strong>a few</strong> questions.</li>
+                </ol>
+            </section>
+
+             <section id="little-alittle" class="content-section">
+                <h2>Little / A little</h2>
+                <div class="rule"><strong>Core Concept:</strong> Both are used with uncountable nouns. `Little` has a negative meaning ('almost none'). `A little` has a positive meaning ('a small amount, but some').</div>
+                <h3>Examples for '<span class="feature">Little</span>' (Negative)</h3>
+                <ol class="example-list">
+                    <li>There is <strong>little</strong> hope of his recovery.</li>
+                    <li>He has <strong>little</strong> knowledge of the subject.</li>
+                    <li>We have very <strong>little</strong> time left.</li>
+                    <li>She showed <strong>little</strong> interest in the proposal.</li>
+                    <li>There was <strong>little</strong> traffic on the road, so we arrived early.</li>
+                </ol>
+                <h3>Examples for '<span class="feature">A little</span>' (Positive)</h3>
+                <ol class="example-list">
+                    <li>There is <strong>a little</strong> milk in the fridge if you want some.</li>
+                    <li>I need <strong>a little</strong> help with this problem.</li>
+                    <li>She has <strong>a little</strong> money saved up.</li>
+                    <li>Let's wait for <strong>a little</strong> while.</li>
+                    <li>Add <strong>a little</strong> sugar to your tea.</li>
+                </ol>
+            </section>
+
+             <section id="between-among" class="content-section">
+                <h2>Between / Among</h2>
+                <div class="rule"><strong>Core Concept:</strong> `Between` is used when referring to two people or things. `Among` is used for more than two.</div>
+                <h3>Examples for '<span class="feature">Between</span>' (Two items)</h3>
+                <ol class="example-list">
+                    <li>The treaty was signed <strong>between</strong> the two countries.</li>
+                    <li>She couldn't decide <strong>between</strong> the red dress and the blue one.</li>
+                    <li>This secret is strictly <strong>between</strong> you and me.</li>
+                    <li>The match was <strong>between</strong> India and Australia.</li>
+                    <li>He divided the cake <strong>between</strong> his two children.</li>
+                </ol>
+                <h3>Examples for '<span class="feature">Among</span>' (More than two items)</h3>
+                <ol class="example-list">
+                    <li>The sweets were distributed <strong>among</strong> all the students in the class.</li>
+                    <li>She felt happy to be <strong>among</strong> her friends again.</li>
+                    <li>A traitor was hiding <strong>among</strong> them.</li>
+                    <li>The inheritance was divided <strong>among</strong> the three siblings.</li>
+                    <li>There is a lot of talent <strong>among</strong> the new recruits.</li>
+                </ol>
+            </section>
+
+             <section id="beside-besides" class="content-section">
+                <h2>Beside / Besides</h2>
+                <div class="rule"><strong>Core Concept:</strong> `Beside` is a preposition meaning 'next to'. `Besides` is a preposition or adverb meaning 'in addition to' or 'apart from'.</div>
+                <h3>Examples for '<span class="feature">Beside</span>' (Next to)</h3>
+                <ol class="example-list">
+                    <li>He sat <strong>beside</strong> me during the lecture.</li>
+                    <li>There is a beautiful garden <strong>beside</strong> the river.</li>
+                    <li>She placed her phone on the table <strong>beside</strong> her laptop.</li>
+                    <li>The dog walked faithfully <strong>beside</strong> its owner.</li>
+                    <li>Come and sit <strong>beside</strong> me.</li>
+                </ol>
+                <h3>Examples for '<span class="feature">Besides</span>' (In addition to)</h3>
+                <ol class="example-list">
+                    <li><strong>Besides</strong> English, she can speak French and Spanish.</li>
+                    <li>Who else was at the party <strong>besides</strong> you?</li>
+                    <li>I don't want to go out; <strong>besides</strong>, I am very tired.</li>
+                    <li>The store sells many things <strong>besides</strong> furniture.</li>
+                    <li>He has no family <strong>besides</strong> his elderly mother.</li>
+                </ol>
+            </section>
+
+            <section id="who-whom" class="content-section">
+                <h2>Who / Whom</h2>
+                <div class="rule"><strong>Core Concept:</strong> `Who` is a subject pronoun. `Whom` is an object pronoun. A simple trick is to see if the answer would be `he` (use `who`) or `him` (use `whom`).</div>
+                <h3>Examples for '<span class="feature">Who</span>' (Subject)</h3>
+                <ol class="example-list">
+                    <li><strong>Who</strong> is at the door? (He is at the door)</li>
+                    <li><strong>Who</strong> do you think will win? (He will win)</li>
+                    <li>This is the man <strong>who</strong> helped me. (He helped me)</li>
+                    <li><strong>Who</strong> left the lights on?</li>
+                    <li><strong>Who</strong> do you believe is the best candidate?</li>
+                </ol>
+                <h3>Examples for '<span class="feature">Whom</span>' (Object)</h3>
+                <ol class="example-list">
+                    <li>To <strong>whom</strong> should I address this letter? (Address it to him)</li>
+                    <li>The person <strong>whom</strong> I met yesterday was very kind. (I met him)</li>
+                    <li><strong>Whom</strong> did you see at the party? (You saw him)</li>
+                    <li>From <strong>whom</strong> did you receive this gift?</li>
+                    <li>He is the manager <strong>whom</strong> everyone respects.</li>
+                </ol>
+            </section>
+
+            <section id="whos-whose" class="content-section">
+                <h2>Who's / Whose</h2>
+                <div class="rule"><strong>Core Concept:</strong> `Who's` is a contraction of "who is" or "who has". `Whose` is a possessive pronoun used to ask about ownership.</div>
+                <h3>Examples for '<span class="feature">Who's</span>' (Who is / Who has)</h3>
+                <ol class="example-list">
+                    <li><strong>Who's</strong> coming to dinner tonight? (Who is)</li>
+                    <li><strong>Who's</strong> been using my computer? (Who has)</li>
+                    <li>I don't know <strong>who's</strong> responsible for this.</li>
+                    <li>Tell me <strong>who's</strong> going to lead the project.</li>
+                    <li><strong>Who's</strong> got the keys to my car? (Who has)</li>
+                </ol>
+                <h3>Examples for '<span class="feature">Whose</span>' (Possession)</h3>
+                <ol class="example-list">
+                    <li><strong>Whose</strong> book is this on the table?</li>
+                    <li>I don't know <strong>whose</strong> car is parked outside.</li>
+                    <li>She is the artist <strong>whose</strong> paintings are famous.</li>
+                    <li><strong>Whose</strong> idea was it to start this project?</li>
+                    <li>The police are trying to determine <strong>whose</strong> fault it was.</li>
+                </ol>
+            </section>
+            
+            <section id="affect-effect" class="content-section">
+                <h2>Affect / Effect</h2>
+                <div class="rule"><strong>Core Concept:</strong> `Affect` is a verb (to influence). `Effect` is a noun (a result). (Remember RAVEN: Remember, Affect is a Verb, Effect is a Noun).</div>
+                <h3>Examples for '<span class="feature">Affect</span>' (Verb)</h3>
+                <ol class="example-list">
+                    <li>The rain will <strong>affect</strong> our travel plans.</li>
+                    <li>His decision will <strong>affect</strong> the entire team.</li>
+                    <li>Lack of sleep can negatively <strong>affect</strong> your performance.</li>
+                    <li>How does this new policy <strong>affect</strong> us?</li>
+                    <li>The loud music began to <strong>affect</strong> my concentration.</li>
+                </ol>
+                <h3>Examples for '<span class="feature">Effect</span>' (Noun)</h3>
+                <ol class="example-list">
+                    <li>The medicine had a positive <strong>effect</strong> on the patient.</li>
+                    <li>We are studying the long-term <strong>effects</strong> of climate change.</li>
+                    <li>The sound <strong>effects</strong> in the movie were amazing.</li>
+                    <li>What is the cause and <strong>effect</strong>?</li>
+                    <li>The new law will come into <strong>effect</strong> next month.</li>
+                </ol>
+            </section>
+            
+            <section id="farther-further" class="content-section">
+                <h2>Farther / Further</h2>
+                <div class="rule"><strong>Core Concept:</strong> `Farther` refers to physical distance. `Further` refers to metaphorical distance or means "in addition".</div>
+                <h3>Examples for '<span class="feature">Farther</span>' (Physical Distance)</h3>
+                <ol class="example-list">
+                    <li>I cannot walk any <strong>farther</strong>; I am too tired.</li>
+                    <li>The gas station is <strong>farther</strong> down the road than I thought.</li>
+                    <li>How much <strong>farther</strong> do we have to go?</li>
+                    <li>The moon is <strong>farther</strong> from the Earth than the International Space Station.</li>
+                    <li>He threw the ball <strong>farther</strong> than anyone else.</li>
+                </ol>
+                <h3>Examples for '<span class="feature">Further</span>' (Metaphorical / Additional)</h3>
+                <ol class="example-list">
+                    <li>We need to discuss this matter <strong>further</strong>.</li>
+                    <li>Do you have any <strong>further</strong> questions?</li>
+                    <li>He is hoping to <strong>further</strong> his career.</li>
+                    <li>Nothing could be <strong>further</strong> from the truth.</li>
+                    <li>I require no <strong>further</strong> assistance.</li>
+                </ol>
+            </section>
+            
+            <section id="since-because" class="content-section">
+                <h2>Since / Because</h2>
+                <div class="rule"><strong>Core Concept:</strong> `Because` is used to state the primary cause or reason. `Since` can also state a reason, but it often implies the reason is already known. 'Since' is also used for time.</div>
+                <h3>Examples for '<span class="feature">Since</span>' (Reason is known / Time)</h3>
+                <ol class="example-list">
+                    <li><strong>Since</strong> you are here, you can help me.</li>
+                    <li>I haven't eaten <strong>since</strong> this morning. (Time)</li>
+                    <li><strong>Since</strong> he was late, he missed the introduction.</li>
+                    <li>I trust him, <strong>since</strong> he has never lied.</li>
+                    <li>We have been friends <strong>since</strong> childhood. (Time)</li>
+                </ol>
+                <h3>Examples for '<span class="feature">Because</span>' (Direct Cause)</h3>
+                <ol class="example-list">
+                    <li>He missed the introduction <strong>because</strong> he was late.</li>
+                    <li>I am tired <strong>because</strong> I didn't sleep well.</li>
+                    <li>She was happy <strong>because</strong> she won the prize.</li>
+                    <li>The match was cancelled <strong>because</strong> of the rain.</li>
+                    <li>He succeeded <strong>because</strong> he worked hard.</li>
+                </ol>
+            </section>
+            
+            <section id="already-yet" class="content-section">
+                <h2>Already / Yet</h2>
+                <div class="rule"><strong>Core Concept:</strong> `Already` is used in positive statements to say something happened sooner than expected. `Yet` is used in negative statements and questions about something that hasn't happened but is expected to.</div>
+                <h3>Examples for '<span class="feature">Already</span>'</h3>
+                <ol class="example-list">
+                    <li>I have <strong>already</strong> finished my homework.</li>
+                    <li>When I arrived, he was <strong>already</strong> there.</li>
+                    <li>She has <strong>already</strong> seen that movie.</li>
+                    <li>It is <strong>already</strong> 10 PM!</li>
+                    <li>They have <strong>already</strong> made their decision.</li>
+                </ol>
+                <h3>Examples for '<span class="feature">Yet</span>'</h3>
+                <ol class="example-list">
+                    <li>I haven't finished my homework <strong>yet</strong>.</li>
+                    <li>Have you seen that movie <strong>yet</strong>?</li>
+                    <li>He has not arrived <strong>yet</strong>.</li>
+                    <li>The results have not been announced <strong>yet</strong>.</li>
+                    <li>Is dinner ready <strong>yet</strong>?</li>
+                </ol>
+            </section>
+
+            <section id="may-might" class="content-section">
+                <h2>May / Might</h2>
+                <div class="rule"><strong>Core Concept:</strong> Both express possibility. `May` often suggests a higher, more likely possibility. `Might` suggests a weaker, more remote possibility.</div>
+                <h3>Examples for '<span class="feature">May</span>' (Higher Possibility / Permission)</h3>
+                <ol class="example-list">
+                    <li>It <strong>may</strong> rain this afternoon (the clouds are dark).</li>
+                    <li>She <strong>may</strong> come to the party; she said she would try.</li>
+                    <li>You <strong>may</strong> begin the test now. (Permission)</li>
+                    <li><strong>May</strong> I ask a question? (Permission)</li>
+                    <li>He <strong>may</strong> be the best candidate for the job.</li>
+                </ol>
+                <h3>Examples for '<span class="feature">Might</span>' (Lower Possibility)</h3>
+                <ol class="example-list">
+                    <li>It <strong>might</strong> rain, but the sky is clear.</li>
+                    <li>He <strong>might</strong> come, but he hasn't confirmed.</li>
+                    <li>She <strong>might</strong> be at home, but I am not sure.</li>
+                    <li>This <strong>might</strong> be a solution, but it's risky.</li>
+                    <li>If you don't study, you <strong>might</strong> fail.</li>
+                </ol>
+            </section>
+
+            <section id="will-shall" class="content-section">
+                <h2>Will / Shall</h2>
+                <div class="rule"><strong>Core Concept:</strong> In modern English, `Will` is used for almost all future actions. `Shall` is used formally with `I` and `we` for future, and for suggestions, offers, and commands.</div>
+                <h3>Examples for '<span class="feature">Will</span>'</h3>
+                <ol class="example-list">
+                    <li>He <strong>will</strong> arrive tomorrow.</li>
+                    <li>I think it <strong>will</strong> rain.</li>
+                    <li>She <strong>will</strong> be 30 next year.</li>
+                    <li><strong>Will</strong> you please open the door?</li>
+                    <li>The concert <strong>will</strong> start at 8 PM.</li>
+                </ol>
+                <h3>Examples for '<span class="feature">Shall</span>'</h3>
+                <ol class="example-list">
+                    <li>I <strong>shall</strong> never forget your help. (Formal Future)</li>
+                    <li><strong>Shall</strong> we go for a walk? (Suggestion)</li>
+                    <li><strong>Shall</strong> I help you with that bag? (Offer)</li>
+                    <li>You <strong>shall</strong> not pass! (Command)</li>
+                    <li>We <strong>shall</strong> overcome this challenge. (Formal Future)</li>
+                </ol>
+            </section>
+            
+            <section id="during-while" class="content-section">
+                <h2>During / While</h2>
+                <div class="rule"><strong>Core Concept:</strong> `During` is a preposition followed by a noun. `While` is a conjunction followed by a clause (subject + verb).</div>
+                <h3>Examples for '<span class="feature">During</span>' (followed by noun)</h3>
+                <ol class="example-list">
+                    <li>He fell asleep <strong>during</strong> the movie.</li>
+                    <li>Please remain silent <strong>during</strong> the exam.</li>
+                    <li>I will be on vacation <strong>during</strong> the first week of August.</li>
+                    <li>She felt nervous <strong>during</strong> the interview.</li>
+                    <li>Many people lost their jobs <strong>during</strong> the recession.</li>
+                </ol>
+                <h3>Examples for '<span class="feature">While</span>' (followed by clause)</h3>
+                <ol class="example-list">
+                    <li>He fell asleep <strong>while</strong> he was watching the movie.</li>
+                    <li>She listened to music <strong>while</strong> she was studying.</li>
+                    <li>Please don't talk <strong>while</strong> I am driving.</li>
+                    <li>The phone rang <strong>while</strong> we were having dinner.</li>
+                    <li>He is very cautious, <strong>while</strong> his brother is reckless. (Contrast)</li>
+                </ol>
+            </section>
+            
+            <section id="by-with" class="content-section">
+                <h2>By / With</h2>
+                <div class="rule"><strong>Core Concept:</strong> `By` is used to show the agent (the doer). `With` is used to indicate the tool or instrument.</div>
+                <h3>Examples for '<span class="feature">By</span>' (Agent/Method)</h3>
+                <ol class="example-list">
+                    <li>The book was written <strong>by</strong> a famous author.</li>
+                    <li>We traveled to Paris <strong>by</strong> train.</li>
+                    <li>I will send the report <strong>by</strong> email.</li>
+                    <li>He was standing <strong>by</strong> the window. (Meaning 'near')</li>
+                    <li>The project must be finished <strong>by</strong> Friday. (Meaning 'deadline')</li>
+                </ol>
+                <h3>Examples for '<span class="feature">With</span>' (Tool/Accompaniment)</h3>
+                <ol class="example-list">
+                    <li>He cut the apple <strong>with</strong> a knife.</li>
+                    <li>She wrote the letter <strong>with</strong> a blue pen.</li>
+                    <li>He decorated the room <strong>with</strong> balloons.</li>
+                    <li>I am going to the party <strong>with</strong> my friends.</li>
+                    <li>He spoke <strong>with</strong> great confidence.</li>
+                </ol>
+            </section>
+            
+            <section id="over-above" class="content-section">
+                <h2>Over / Above</h2>
+                <div class="rule"><strong>Core Concept:</strong> Both mean 'higher than'. `Over` often implies movement, covering, or a direct vertical relationship. `Above` is for a general position that is higher.</div>
+                <h3>Examples for '<span class="feature">Over</span>'</h3>
+                <ol class="example-list">
+                    <li>The plane flew <strong>over</strong> the mountains. (Movement)</li>
+                    <li>He jumped <strong>over</strong> the wall. (Movement)</li>
+                    <li>She put a blanket <strong>over</strong> the sleeping child. (Covering)</li>
+                    <li>The game is <strong>over</strong>. (Finished)</li>
+                    <li>He has authority <strong>over</strong> this department. (Control)</li>
+                </ol>
+                <h3>Examples for '<span class="feature">Above</span>'</h3>
+                <ol class="example-list">
+                    <li>The sun is <strong>above</strong> the clouds. (General higher position)</li>
+                    <li>We live in an apartment <strong>above</strong> a restaurant.</li>
+                    <li>His score is <strong>above</strong> average.</li>
+                    <li>Please read the instructions mentioned <strong>above</strong>.</li>
+                    <li>He values honor <strong>above</strong> all else.</li>
+                </ol>
+            </section>
+
+            <section id="under-below" class="content-section">
+                <h2>Under / Below</h2>
+                <div class="rule"><strong>Core Concept:</strong> Both mean 'lower than'. `Under` often implies being directly beneath or covered. `Below` is for a general position that is lower.</div>
+                <h3>Examples for '<span class="feature">Under</span>'</h3>
+                <ol class="example-list">
+                    <li>The cat is hiding <strong>under</strong> the bed. (Directly beneath)</li>
+                    <li>He is working <strong>under</strong> a lot of pressure. (Figurative)</li>
+                    <li>The tunnel goes <strong>under</strong> the river. (Passing beneath)</li>
+                    <li>Children <strong>under</strong> five are not allowed. (Less than)</li>
+                    <li>The village was buried <strong>under</strong> snow. (Covered)</li>
+                </ol>
+                <h3>Examples for '<span class="feature">Below</span>'</h3>
+                <ol class="example-list">
+                    <li>The temperature dropped <strong>below</strong> zero. (Lower on a scale)</li>
+                    <li>Please see the details mentioned <strong>below</strong>. (Lower on a page)</li>
+                    <li>His performance was <strong>below</strong> expectations.</li>
+                    <li>She signed her name <strong>below</strong> the line.</li>
+                    <li>The valley lies <strong>below</strong> the mountains. (General lower position)</li>
+                </ol>
+            </section>
+
+            <section id="on-time-in-time" class="content-section">
+                <h2>On time / In time</h2>
+                <div class="rule"><strong>Core Concept:</strong> `On time` means at the exact scheduled time (punctual). `In time` means with enough time to spare, before the deadline.</div>
+                <h3>Examples for '<span class="feature">On time</span>'</h3>
+                <ol class="example-list">
+                    <li>The train arrived exactly <strong>on time</strong>.</li>
+                    <li>Please be <strong>on time</strong> for your interview tomorrow.</li>
+                    <li>The meeting started <strong>on time</strong> at 10 AM.</li>
+                    <li>He is never late; he is always <strong>on time</strong>.</li>
+                    <li>The flight departed <strong>on time</strong>.</li>
+                </ol>
+                <h3>Examples for '<span class="feature">In time</span>'</h3>
+                <ol class="example-list">
+                    <li>We reached the station just <strong>in time</strong> to catch the train.</li>
+                    <li>The ambulance arrived <strong>in time</strong> to save his life.</li>
+                    <li>Will you be home <strong>in time</strong> for dinner?</li>
+                    <li>I hope to finish this project <strong>in time</strong> for the deadline.</li>
+                    <li>He submitted his application just <strong>in time</strong>.</li>
+                </ol>
+            </section>
+            
+            <section id="since-for" class="content-section">
+                <h2>Since / For</h2>
+                <div class="rule"><strong>Core Concept:</strong> `Since` is used for a specific point in time (the starting point). `For` is used to measure a duration of time.</div>
+                <h3>Examples for '<span class="feature">Since</span>' (Starting Point)</h3>
+                <ol class="example-list">
+                    <li>He has been working here <strong>since</strong> 2015.</li>
+                    <li>I have been waiting <strong>since</strong> 9 AM.</li>
+                    <li>She has been ill <strong>since</strong> last Monday.</li>
+                    <li>We have been friends <strong>since</strong> childhood.</li>
+                    <li>A lot has changed <strong>since</strong> I last saw you.</li>
+                </ol>
+                <h3>Examples for '<span class="feature">For</span>' (Duration)</h3>
+                <ol class="example-list">
+                    <li>He has been working here <strong>for</strong> five years.</li>
+                    <li>I have been waiting <strong>for</strong> two hours.</li>
+                    <li>She will be on vacation <strong>for</strong> a week.</li>
+                    <li>They lived in that house <strong>for</strong> a long time.</li>
+                    <li>We talked on the phone <strong>for</strong> an hour.</li>
+                </ol>
+            </section>
+            
+            <section id="that-which" class="content-section">
+                <h2>That / Which</h2>
+                <div class="rule"><strong>Core Concept:</strong> `That` introduces essential (restrictive) clauses necessary to identify the noun. `Which` introduces non-essential (non-restrictive) clauses that provide extra information and are set off by commas.</div>
+                <h3>Examples for '<span class="feature">That</span>' (Essential)</h3>
+                <ol class="example-list">
+                    <li>The book <strong>that I bought yesterday</strong> is very interesting. (The clause identifies which book).</li>
+                    <li>This is the car <strong>that won the race</strong>.</li>
+                    <li>I want the report <strong>that discusses the quarterly sales</strong>.</li>
+                    <li>The key <strong>that opens this door</strong> is missing.</li>
+                    <li>She finally saw the movie <strong>that everyone was talking about</strong>.</li>
+                </ol>
+                <h3>Examples for '<span class="feature">Which</span>' (Non-Essential)</h3>
+                <ol class="example-list">
+                    <li>My car, <strong>which is red</strong>, is parked outside. (The color is extra info).</li>
+                    <li>The Eiffel Tower, <strong>which is in Paris</strong>, is a famous landmark.</li>
+                    <li>He gave me the book, <strong>which I found very boring</strong>.</li>
+                    <li>The company, <strong>which was founded in 1990</strong>, is very successful.</li>
+                    <li>We went to the beach, <strong>which was crowded</strong>.</li>
+                </ol>
+            </section>
+            
+            <section id="in-at" class="content-section">
+                <h2>In / At (for location)</h2>
+                <div class="rule"><strong>Core Concept:</strong> `In` is used for larger, enclosed spaces or geographical areas (countries, cities). `At` is used for specific points, addresses, or public places.</div>
+                <h3>Examples for '<span class="feature">In</span>'</h3>
+                <ol class="example-list">
+                    <li>She lives <strong>in</strong> London.</li>
+                    <li>The keys are <strong>in</strong> my pocket.</li>
+                    <li>He was born <strong>in</strong> India.</li>
+                    <li>The students are <strong>in</strong> the classroom.</li>
+                    <li>I enjoy walking <strong>in</strong> the park.</li>
+                </ol>
+                <h3>Examples for '<span class="feature">At</span>'</h3>
+                <ol class="example-list">
+                    <li>He is waiting <strong>at</strong> the bus stop.</li>
+                    <li>Let's meet <strong>at</strong> the cafe.</li>
+                    <li>She is <strong>at</strong> work right now.</li>
+                    <li>I am staying <strong>at</strong> 123 Main Street.</li>
+                    <li>He is <strong>at</strong> the top of the stairs.</li>
+                </ol>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-column a');
+            const contentSections = document.querySelectorAll('.content-section');
+            const contentColumn = document.querySelector('.content-column');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    navLinks.forEach(nav => nav.classList.remove('active'));
+                    this.classList.add('active');
+                    const targetId = this.getAttribute('href');
+                    contentSections.forEach(section => {
+                        if ('#' + section.id === targetId) {
+                            section.classList.add('active');
+                        } else {
+                            section.classList.remove('active');
+                        }
+                    });
+                    contentColumn.scrollTop = 0;
+                });
+            });
+            
+             const firstLink = document.querySelector('.nav-column a');
+             if(firstLink) {
+                firstLink.classList.add('active');
+                document.querySelector(firstLink.getAttribute('href')).classList.add('active');
+             }
+        });
+    </script>
+
+</body>
+</html>

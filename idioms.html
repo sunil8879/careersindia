@@ -1,0 +1,992 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Vocabulary: Idioms & Phrases</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            /* Blue and white gridline background */
+            background-color: #f0f8ff; 
+            background-image: 
+                repeating-linear-gradient(to right, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 30px),
+                repeating-linear-gradient(to bottom, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 30px);
+            background-size: 30px 30px;
+        }
+
+        /* Header Styling */
+        header {
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        header h1 {
+            display: inline-block;
+            background-color: #0056b3;
+            color: white;
+            padding: 20px 40px;
+            border: 3px solid white;
+            border-radius: 15px;
+            /* 3D Box Effect */
+            box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.4), inset 2px 2px 5px rgba(255, 255, 255, 0.3);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-size: 2.2em;
+            margin: 0;
+        }
+
+        /* Main Container for Two-Column Layout */
+        .container {
+            display: flex;
+            max-width: 1400px;
+            margin: 20px auto;
+            background: #ffffff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.15);
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 80vh;
+        }
+
+        /* Left Navigation Column */
+        .nav-column {
+            flex: 1;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+            background-color: #f8f9fa;
+            height: 80vh;
+            overflow-y: auto;
+        }
+
+        .nav-column ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .nav-column h3 {
+            font-size: 1.1em;
+            color: #333;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .nav-column li a {
+            display: block;
+            padding: 8px 15px;
+            text-decoration: none;
+            color: #0056b3;
+            border-radius: 5px;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 0.9em;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .nav-column li a:hover,
+        .nav-column li a.active {
+            background-color: #0056b3;
+            color: #fff;
+        }
+
+        /* Right Content Column */
+        .content-column {
+            flex: 3;
+            padding: 25px 35px;
+            height: 100%;
+            overflow-y: auto;
+        }
+
+        .content-section {
+            display: none;
+        }
+        
+        .content-section.active {
+            display: block;
+        }
+        
+        h2 {
+            font-size: 1.8em;
+            color: #0056b3;
+            border-bottom: 3px solid #0056b3;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        
+        h3 {
+            font-size: 1.4em;
+            color: #333;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        
+        .rule {
+            background-color: #e7f3fe;
+            border: 1px solid #b3d7f7;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 5px;
+        }
+
+        .example-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .example-list li {
+            margin-bottom: 20px;
+            border-left: 4px solid #0056b3;
+            padding-left: 15px;
+        }
+        
+        .explanation {
+            font-style: italic;
+            color: #555;
+            margin-top: 5px;
+        }
+        
+        .feature {
+            font-weight: bold;
+            color: #0056b3;
+        }
+        
+        .strategy-list li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>ADVANCED VOCABULARY: IDIOMS & PHRASES</h1>
+    </header>
+
+    <div class="container">
+        <nav class="nav-column">
+            <ul>
+                <li><a href="#definition" class="nav-link active">Definition & Concept</a></li>
+                <li><a href="#strategies" class="nav-link">How to Learn Idioms</a></li>
+            </ul>
+            <h3>Idioms by Category</h3>
+            <ul>
+                <li><a href="#cat-a" class="nav-link">A</a></li>
+                <li><a href="#cat-animals" class="nav-link">Animals</a></li>
+                <li><a href="#cat-arm" class="nav-link">Arm, Hand, Finger</a></li>
+                <li><a href="#cat-b" class="nav-link">B</a></li>
+                <li><a href="#cat-body" class="nav-link">Body</a></li>
+                <li><a href="#cat-business" class="nav-link">Business</a></li>
+                <li><a href="#cat-c" class="nav-link">C</a></li>
+                <li><a href="#cat-cards" class="nav-link">Cards</a></li>
+                <li><a href="#cat-clothes" class="nav-link">Clothes</a></li>
+                <li><a href="#cat-colour" class="nav-link">Colour</a></li>
+                <li><a href="#cat-court" class="nav-link">Court & Judge</a></li>
+                <li><a href="#cat-d" class="nav-link">D</a></li>
+                <li><a href="#cat-e" class="nav-link">E</a></li>
+                <li><a href="#cat-ear" class="nav-link">Ear, Eye, Nose</a></li>
+                <li><a href="#cat-education" class="nav-link">Education & School</a></li>
+                <li><a href="#cat-f" class="nav-link">F</a></li>
+                <li><a href="#cat-fish" class="nav-link">Fish, Insect, Reptile</a></li>
+                <li><a href="#cat-food" class="nav-link">Food</a></li>
+                <li><a href="#cat-g" class="nav-link">G</a></li>
+                <li><a href="#cat-h" class="nav-link">H</a></li>
+                <li><a href="#cat-head" class="nav-link">Head & Mind</a></li>
+                <li><a href="#cat-heart" class="nav-link">Heart</a></li>
+                <li><a href="#cat-i" class="nav-link">I</a></li>
+                <li><a href="#cat-initials" class="nav-link">Initials</a></li>
+                <li><a href="#cat-j" class="nav-link">J</a></li>
+                <li><a href="#cat-k" class="nav-link">K</a></li>
+                <li><a href="#cat-l" class="nav-link">L</a></li>
+                <li><a href="#cat-leg" class="nav-link">Leg & Foot</a></li>
+                <li><a href="#cat-love" class="nav-link">Love & Relationship</a></li>
+                <li><a href="#cat-m" class="nav-link">M</a></li>
+                <li><a href="#cat-medical" class="nav-link">Medical & Health</a></li>
+                <li><a href="#cat-money" class="nav-link">Money</a></li>
+                <li><a href="#cat-mouth" class="nav-link">Mouth & Teeth</a></li>
+                <li><a href="#cat-number" class="nav-link">Number</a></li>
+                <li><a href="#cat-o" class="nav-link">O</a></li>
+                <li><a href="#cat-p" class="nav-link">P</a></li>
+                <li><a href="#cat-q" class="nav-link">Q</a></li>
+                <li><a href="#cat-r" class="nav-link">R</a></li>
+                <li><a href="#cat-religion" class="nav-link">Religion</a></li>
+                <li><a href="#cat-s" class="nav-link">S</a></li>
+                <li><a href="#cat-t" class="nav-link">T</a></li>
+                <li><a href="#cat-w" class="nav-link">W</a></li>
+                <li><a href="#cat-y" class="nav-link">Y</a></li>
+                <li><a href="#cat-z" class="nav-link">Z</a></li>
+                <li><a href="#cat-slang" class="nav-link">ESL Slangs</a></li>
+                <li><a href="#cat-siddhuisms" class="nav-link">Siddhuisms</a></li>
+            </ul>
+        </nav>
+
+        <main class="content-column">
+            <section id="definition" class="content-section active">
+                <h2>Definition & Concept</h2>
+                <div class="rule">
+                    <strong>Concept:</strong> An idiom is a phrase or expression whose meaning cannot be understood from the ordinary, literal meaning of its individual words. The meaning is figurative and culturally specific.
+                </div>
+                <h3>Why are they important for competitive exams?</h3>
+                <p>Idioms are a pure test of vocabulary and cultural context. Examiners use them to check a candidate's familiarity with the nuances of the English language. They frequently appear in Reading Comprehension, Sentence Completion, and direct "Meaning of the Idiom" questions.</p>
+                <ul class="example-list">
+                    <li>The idiom <span class="feature">"kick the bucket"</span> has nothing to do with kicking or buckets; it means "to die".</li>
+                    <li>The idiom <span class="feature">"a piece of cake"</span> does not refer to food; it means "something very easy".</li>
+                </ul>
+            </section>
+            
+            <section id="strategies" class="content-section">
+                <h2>How to Learn Idioms Effectively</h2>
+                <div class="rule">
+                    Memorizing idioms requires active learning strategies, not just passive reading.
+                </div>
+                <h3>Key Strategies</h3>
+                <ul class="strategy-list">
+                    <li><strong>1. Learn in Context:</strong> Don't just memorize the idiom and its meaning. Always read the example sentence to understand how it is used. Context helps with retention.</li>
+                    <li><strong>2. Group Thematically:</strong> Learn idioms in categories, as arranged in this guide (e.g., all idioms related to 'Body Parts', all idioms related to 'Animals'). This creates mental associations and makes them easier to remember.</li>
+                    <li><strong>3. Visualize the Literal Meaning:</strong> Try to create a mental image of the literal words (e.g., a cat actually getting someone's tongue). This funny or strange image can help you remember the figurative meaning.</li>
+                    <li><strong>4. Use Them in Sentences:</strong> The best way to remember an idiom is to use it. Try to make your own sentences with the new idioms you learn.</li>
+                    <li><strong>5. Focus on High-Frequency Idioms:</strong> The lists in this guide are curated from common exam questions. Focus on mastering these first.</li>
+                </ul>
+            </section>
+
+            <section id="cat-a" class="content-section">
+                <h2>Category: A</h2>
+                <ul class="example-list">
+                    <li><span class="feature">86:</span> to omit, reject, or discard.<div class="explanation"><strong>Example:</strong> Let's <strong>86</strong> him from the list.</div></li>
+                    <li><span class="feature">a babe in the woods:</span> a naive or innocent person.<div class="explanation"><strong>Example:</strong> He's just a <strong>babe in the woods</strong> in politics; he needs someone to protect him.</div></li>
+                    <li><span class="feature">a barrel of laughs:</span> a person who is very funny.<div class="explanation"><strong>Example:</strong> Let's invite him to the party; he is a <strong>barrel of laughs</strong>.</div></li>
+                    <li><span class="feature">a bawling out:</span> a scolding or lecture.<div class="explanation"><strong>Example:</strong> When I forgot to do my chores, my dad gave me a <strong>bawling out</strong>.</div></li>
+                    <li><span class="feature">a bee in his bonnet:</span> upset or angry about something.<div class="explanation"><strong>Example:</strong> Don't irritate him; he has a <strong>bee in his bonnet</strong> about the new policy.</div></li>
+                    <li><span class="feature">a bimbo:</span> a foolish or silly person, usually a girl.<div class="explanation"><strong>Example:</strong> She pretends to be a <strong>bimbo</strong>, but she is actually very intelligent.</div></li>
+                    <li><span class="feature">a budding genius:</span> a child who appears to be very intelligent.<div class="explanation"><strong>Example:</strong> He is a <strong>budding genius</strong> on the violin.</div></li>
+                    <li><span class="feature">a bun in the oven:</span> pregnant.<div class="explanation"><strong>Example:</strong> She has a <strong>bun in the oven</strong> and is expecting in May.</div></li>
+                    <li><span class="feature">a cheap drunk:</span> a person who gets drunk after only one or two drinks.<div class="explanation"><strong>Example:</strong> He admits that he is a <strong>cheap drunk</strong>.</div></li>
+                    <li><span class="feature">a chin-wag:</span> a conversation or chat.<div class="explanation"><strong>Example:</strong> I met my old friend and we had a good <strong>chin-wag</strong> for an hour.</div></li>
+                    <li><span class="feature">a clean bill of health:</span> a good report from the doctor.<div class="explanation"><strong>Example:</strong> You will not get a <strong>clean bill of health</strong> if you only eat junk food.</div></li>
+                    <li><span class="feature">a coon's age:</span> a very long time; many years.<div class="explanation"><strong>Example:</strong> We haven't been out to the beach in a <strong>coon's age</strong>.</div></li>
+                    <li><span class="feature">a dead ringer:</span> a person or thing that looks exactly like another.<div class="explanation"><strong>Example:</strong> He is a <strong>dead ringer</strong> for Mel Gibson.</div></li>
+                    <li><span class="feature">a dime a dozen:</span> something very common and of little value.<div class="explanation"><strong>Example:</strong> In this city, good restaurants are a <strong>dime a dozen</strong>.</div></li>
+                    <li><span class="feature">a dish of time:</span> a difficult task.<div class="explanation"><strong>Example:</strong> After the car slid into the ditch, we had a <strong>dish of time</strong> getting it back on the road.</div></li>
+                    <li><span class="feature">a driving down:</span> a scolding or lecture.<div class="explanation"><strong>Example:</strong> Mother gave me a <strong>driving down</strong> when I said bad words.</div></li>
+                    <li><span class="feature">a devil's mixture:</span> an odd combination of things.<div class="explanation"><strong>Example:</strong> When I opened the box, I found a <strong>devil's mixture</strong> of old toys and tools.</div></li>
+                    <li><span class="feature">a dust-up:</span> a fight or argument.<div class="explanation"><strong>Example:</strong> The boys argued and had a <strong>dust-up</strong> in the playground.</div></li>
+                    <li><span class="feature">a fart in a windstorm:</span> an unimportant event.<div class="explanation"><strong>Example:</strong> Your contribution is like a <strong>fart in a windstorm</strong>; it won't make a difference.</div></li>
+                    <li><span class="feature">a few bricks short of a full load:</span> not mentally sound; illogical.<div class="explanation"><strong>Example:</strong> With his strange ideas, I think he is a <strong>few bricks short of a full load</strong>.</div></li>
+                    <li><span class="feature">a fifth wheel:</span> a useless object or an unnecessary person.<div class="explanation"><strong>Example:</strong> I felt like a <strong>fifth wheel</strong> on their date.</div></li>
+                    <li><span class="feature">a game one:</span> a person who is willing to try anything; tough and ready.<div class="explanation"><strong>Example:</strong> He is a <strong>game one</strong>; he plays hard and doesn't quit.</div></li>
+                    <li><span class="feature">a ghost of a chance:</span> a very small chance; not likely to happen.<div class="explanation"><strong>Example:</strong> He has a <strong>ghost of a chance</strong> to win the election.</div></li>
+                    <li><span class="feature">a going concern:</span> a busy person or successful business.<div class="explanation"><strong>Example:</strong> She is just five, but she is already a <strong>going concern</strong>, involved in everything.</div></li>
+                    <li><span class="feature">a hoot:</span> a good time.<div class="explanation"><strong>Example:</strong> Yesterday's party was a <strong>hoot</strong>.</div></li>
+                    <li><span class="feature">a hot dog:</span> a person who plays only for the crowd; a show-off.<div class="explanation"><strong>Example:</strong> He was a <strong>hot dog</strong>, always trying to excite the crowd.</div></li>
+                    <li><span class="feature">a hot ticket:</span> a popular item or person.<div class="explanation"><strong>Example:</strong> Anything with his picture on it is a <strong>hot ticket</strong>.</div></li>
+                    <li><span class="feature">a humdinger:</span> a beautiful or excellent object/person.<div class="explanation"><strong>Example:</strong> His new car is a <strong>humdinger</strong>.</div></li>
+                    <li><span class="feature">a lick and a promise:</span> a hasty or superficial attempt.<div class="explanation"><strong>Example:</strong> We don't have enough time for a thorough check; we will just give it a <strong>lick and a promise</strong>.</div></li>
+                    <li><span class="feature">a loose cannon:</span> an unpredictable person who may cause embarrassment.<div class="explanation"><strong>Example:</strong> The president's brother is a <strong>loose cannon</strong>.</div></li>
+                    <li><span class="feature">a lot of folderol:</span> a lot of foolish talk.<div class="explanation"><strong>Example:</strong> What you are saying is a <strong>lot of folderol</strong>.</div></li>
+                    <li><span class="feature">a lot on the ball:</span> intelligent or smart.<div class="explanation"><strong>Example:</strong> He may not look clean, but he has a <strong>lot on the ball</strong>.</div></li>
+                    <li><span class="feature">a month of Sundays:</span> a very long time.<div class="explanation"><strong>Example:</strong> This work will take a <strong>month of Sundays</strong> to complete.</div></li>
+                    <li><span class="feature">a petty sum:</span> a small amount of money.<div class="explanation"><strong>Example:</strong> The money which I lost was only a <strong>petty sum</strong>.</div></li>
+                    <li><span class="feature">a pat answer:</span> a planned or memorized answer.<div class="explanation"><strong>Example:</strong> You won't get the job if you give a <strong>pat answer</strong> to every question.</div></li>
+                    <li><span class="feature">a poker face:</span> a face with no expression or emotion.<div class="explanation"><strong>Example:</strong> He has a <strong>poker face</strong>, so you never know what he's thinking.</div></li>
+                    <li><span class="feature">a pop:</span> a dollar per ticket.<div class="explanation"><strong>Example:</strong> The tickets are fifty dollars a <strong>pop</strong>.</div></li>
+                    <li><span class="feature">a red-letter day:</span> a special or memorable day.<div class="explanation"><strong>Example:</strong> Today is going to be a <strong>red-letter day</strong> for the company.</div></li>
+                    <li><span class="feature">a riot:</span> a good time or a very funny person.<div class="explanation"><strong>Example:</strong> Yesterday's party was a <strong>riot</strong>.</div></li>
+                    <li><span class="feature">a roll in the hay:</span> having sex.<div class="explanation"><strong>Example:</strong> I asked her if she wants a <strong>roll in the hay</strong>.</div></li>
+                    <li><span class="feature">a new job:</span> a false story.<div class="explanation"><strong>Example:</strong> Well! That was a <strong>new job</strong>.</div></li>
+                    <li><span class="feature">a spot of tea:</span> a small cup of tea.<div class="explanation"><strong>Example:</strong> I asked her if she needed a <strong>spot of tea</strong>.</div></li>
+                    <li><span class="feature">a whale of a game:</span> an exciting game.<div class="explanation"><strong>Example:</strong> It was a <strong>whale of a game</strong>.</div></li>
+                    <li><span class="feature">according to Hoyle:</span> according to the rules.<div class="explanation"><strong>Example:</strong> <strong>According to Hoyle</strong>, it's your turn to shuffle the cards.</div></li>
+                    <li><span class="feature">Achilles' heel:</span> a weakness or vulnerable point.<div class="explanation"><strong>Example:</strong> Procrastination is my <strong>Achilles' heel</strong>.</div></li>
+                    <li><span class="feature">age before beauty:</span> the older person should go first.<div class="explanation"><strong>Example:</strong> "<strong>Age before beauty</strong>," she said as she opened the door for me.</div></li>
+                    <li><span class="feature">all around Robin Hood's barn:</span> an indirect route.<div class="explanation"><strong>Example:</strong> Instead of being direct, we went <strong>all around Robin Hood's barn</strong> to find the solution.</div></li>
+                    <li><span class="feature">all hat and no cattle:</span> pretending to be important; all talk, no action.<div class="explanation"><strong>Example:</strong> He talks like an expert, but he's <strong>all hat and no cattle</strong>.</div></li>
+                    <li><span class="feature">all hell broke loose:</span> a situation became chaotic and violent.<div class="explanation"><strong>Example:</strong> When the fire alarm sounded, <strong>all hell broke loose</strong>.</div></li>
+                    <li><span class="feature">all his marbles:</span> mentally sound; sensible.<div class="explanation"><strong>Example:</strong> After that strange comment, I hope he has got <strong>all his marbles</strong>.</div></li>
+                    <li><span class="feature">all over hell's half acre:</span> all over the place; everywhere.<div class="explanation"><strong>Example:</strong> I left the gate open and the cows went <strong>all over hell's half acre</strong>.</div></li>
+                    <li><span class="feature">all the bells and whistles:</span> a lot of extra features.<div class="explanation"><strong>Example:</strong> He bought the laptop with <strong>all the bells and whistles</strong>.</div></li>
+                    <li><span class="feature">all the way to Egypt and back:</span> a long, indirect route.<div class="explanation"><strong>Example:</strong> To reach them, we had to go <strong>all the way to Egypt and back</strong>.</div></li>
+                    <li><span class="feature">apple-pie order:</span> very neat; well-organized.<div class="explanation"><strong>Example:</strong> Please keep your room in <strong>apple-pie order</strong>.</div></li>
+                    <li><span class="feature">as American as apple pie:</span> very American.<div class="explanation"><strong>Example:</strong> Jeans and T-shirts are <strong>as American as apple pie</strong>.</div></li>
+                    <li><span class="feature">as busy as a beaver:</span> very busy.<div class="explanation"><strong>Example:</strong> When the teacher returned, the students were <strong>as busy as a beaver</strong>.</div></li>
+                    <li><span class="feature">as drunk as a skunk:</span> very drunk.<div class="explanation"><strong>Example:</strong> He was <strong>as drunk as a skunk</strong>.</div></li>
+                    <li><span class="feature">as dull as a sack of hammers:</span> very dull/ignorant.<div class="explanation"><strong>Example:</strong> When it comes to maths, I am <strong>as dull as a sack of hammers</strong>.</div></li>
+                    <li><span class="feature">as poor as a church mouse:</span> very poor.<div class="explanation"><strong>Example:</strong> He was <strong>as poor as a church mouse</strong>.</div></li>
+                    <li><span class="feature">as sick as a dog:</span> very sick.<div class="explanation"><strong>Example:</strong> When I saw him, he was <strong>as sick as a dog</strong>.</div></li>
+                    <li><span class="feature">as slow as molasses in January:</span> very slow.<div class="explanation"><strong>Example:</strong> He was <strong>as slow as molasses in January</strong>.</div></li>
+                    <li><span class="feature">as sure as grits:</span> certain to happen.<div class="explanation"><strong>Example:</strong> He will come, I am <strong>as sure as grits</strong>.</div></li>
+                    <li><span class="feature">at loggerheads:</span> not in agreement.<div class="explanation"><strong>Example:</strong> They were at <strong>loggerheads</strong> over who owned the farm.</div></li>
+                    <li><span class="feature">at sixes and sevens:</span> not in agreement.<div class="explanation"><strong>Example:</strong> Parents and teachers are at <strong>sixes and sevens</strong> on sex education.</div></li>
+                    <li><span class="feature">at the drop of a hat:</span> without hesitation; quickly.<div class="explanation"><strong>Example:</strong> He will argue at the <strong>drop of a hat</strong>.</div></li>
+                    <li><span class="feature">at your beck and call:</span> doing everything for you.<div class="explanation"><strong>Example:</strong> You don't have to be at his <strong>beck and call</strong> always.</div></li>
+                    <li><span class="feature">atta girl:</span> good work; well done.<div class="explanation"><strong>Example:</strong> When she got good grades, her mother said, "<strong>Atta girl!</strong>"</div></li>
+                </ul>
+            </section>
+            
+            <section id="cat-animals" class="content-section">
+                <h2>Category: Animals</h2>
+                 <ul class="example-list">
+                    <li><span class="feature">alley cat:</span> a stray cat.<div class="explanation"><strong>Example:</strong> I began to feed the <strong>alley cat</strong>, and now it comes to my house every day.</div></li>
+                    <li><span class="feature">as awkward as a cow on roller skates:</span> very awkward.<div class="explanation"><strong>Example:</strong> He was looking <strong>as awkward as a cow on roller skates</strong> on the dance floor.</div></li>
+                    <li><span class="feature">as innocent as a lamb:</span> naive; innocent.<div class="explanation"><strong>Example:</strong> The little girl was <strong>as innocent as a lamb</strong>.</div></li>
+                    <li><span class="feature">as nervous as a cat:</span> very nervous.<div class="explanation"><strong>Example:</strong> He was <strong>as nervous as a cat</strong> when he talked to the woman.</div></li>
+                    <li><span class="feature">as stubborn as a mule:</span> very stubborn.<div class="explanation"><strong>Example:</strong> He is <strong>as stubborn as a mule</strong> and will never change his mind.</div></li>
+                    <li><span class="feature">by shank's mare:</span> on foot.<div class="explanation"><strong>Example:</strong> Since my car broke down, I came to the meeting <strong>by shank's mare</strong>.</div></li>
+                    <li><span class="feature">a dumb bunny:</span> a stupid person.<div class="explanation"><strong>Example:</strong> He is really a <strong>dumb bunny</strong>; he fell for the same trick twice.</div></li>
+                    <li><span class="feature">a road hog:</span> a driver who uses more than their share of the road.<div class="explanation"><strong>Example:</strong> The driver in front of us is a real <strong>road hog</strong>.</div></li>
+                </ul>
+            </section>
+            
+            <section id="cat-arm" class="content-section">
+                <h2>Category: Arm, Hand, Finger</h2>
+                <ul class="example-list">
+                    <li><span class="feature">cost an arm and a leg:</span> to be very expensive.<div class="explanation"><strong>Example:</strong> My new car <strong>cost an arm and a leg</strong>.</div></li>
+                    <li><span class="feature">glad hand someone:</span> to give someone a friendly handshake.<div class="explanation"><strong>Example:</strong> The politician spent the day trying to <strong>glad hand</strong> the crowd.</div></li>
+                    <li><span class="feature">grease someone's palm:</span> to bribe someone.<div class="explanation"><strong>Example:</strong> We will have to <strong>grease someone's palm</strong> to get good service.</div></li>
+                    <li><span class="feature">many hands make light work:</span> a lot of help will make a job easy.<div class="explanation"><strong>Example:</strong> Let's all clean up together; <strong>many hands make light work</strong>.</div></li>
+                    <li><span class="feature">a back-handed compliment:</span> a compliment that is actually an insult.<div class="explanation"><strong>Example:</strong> The man paid the host of the party a <strong>back-handed compliment</strong>.</div></li>
+                </ul>
+            </section>
+
+            <section id="cat-b" class="content-section">
+                <h2>Category: B</h2>
+                <ul class="example-list">
+                    <li><span class="feature">behind the eight ball:</span> in a difficult position.<div class="explanation"><strong>Example:</strong> I am <strong>behind the eight ball</strong> with the tax department.</div></li>
+                    <li><span class="feature">bolludash:</span> rubbish; nonsense.<div class="explanation"><strong>Example:</strong> Switch off the talk show, it's just <strong>bolludash</strong>.</div></li>
+                    <li><span class="feature">Basta la musica:</span> Stop the music!<div class="explanation"><strong>Example:</strong> The father shouted, "<strong>Basta la musica!</strong>"</div></li>
+                    <li><span class="feature">better than sex:</span> good; excellent.<div class="explanation"><strong>Example:</strong> Skydiving was <strong>better than sex</strong>.</div></li>
+                    <li><span class="feature">bevy of beauties:</span> a group of beautiful women.<div class="explanation"><strong>Example:</strong> I saw a <strong>bevy of beauties</strong> crossing the road.</div></li>
+                    <li><span class="feature">blood is thicker than water:</span> family relationships are stronger than others.<div class="explanation"><strong>Example:</strong> When my wife supported her father in a fight with me, I realized that <strong>blood is thicker than water</strong>.</div></li>
+                    <li><span class="feature">Bob's your uncle:</span> No problem.<div class="explanation"><strong>Example:</strong> When I asked for some groceries from the mall, she simply said, "<strong>Bob's your uncle</strong>".</div></li>
+                    <li><span class="feature">bootleg:</span> produced illegally.<div class="explanation"><strong>Example:</strong> If someone gives you <strong>bootleg</strong> software, don't accept it.</div></li>
+                    <li><span class="feature">bosom buddy:</span> close friends.<div class="explanation"><strong>Example:</strong> He is my <strong>bosom buddy</strong>.</div></li>
+                    <li><span class="feature">bright-eyed and bushy-tailed:</span> lively and energetic.<div class="explanation"><strong>Example:</strong> She is <strong>bright-eyed and bushy-tailed</strong> tonight.</div></li>
+                    <li><span class="feature">brouhaha:</span> shouting and fighting.<div class="explanation"><strong>Example:</strong> After the party, there was a <strong>brouhaha</strong> in the school yard.</div></li>
+                    <li><span class="feature">bush telegraph:</span> secret gossip.<div class="explanation"><strong>Example:</strong> She gets all the news from the <strong>bush telegraph</strong>.</div></li>
+                </ul>
+            </section>
+            
+            <section id="cat-body" class="content-section">
+                <h2>Category: Body</h2>
+                <ul class="example-list">
+                    <li><span class="feature">as dry as a bone:</span> very dry.<div class="explanation"><strong>Example:</strong> The river was <strong>as dry as a bone</strong>.</div></li>
+                    <li><span class="feature">blue blood:</span> the blood of a noble family.<div class="explanation"><strong>Example:</strong> Many <strong>blue bloods</strong> attended the opera.</div></li>
+                    <li><span class="feature">broad in the beam:</span> having large buttocks.<div class="explanation"><strong>Example:</strong> She is a bit <strong>broad in the beam</strong>.</div></li>
+                    <li><span class="feature">eyes are bigger than one's stomach:</span> taking more food than one can eat.<div class="explanation"><strong>Example:</strong> My <strong>eyes were bigger than my stomach</strong> when I went to the buffet table.</div></li>
+                    <li><span class="feature">to gird up one's loins:</span> to get ready to do something difficult.<div class="explanation"><strong>Example:</strong> I began to <strong>gird up my loins</strong> and work on my final essay.</div></li>
+                    <li><span class="feature">tear someone limb from limb:</span> to attack in a violent way.<div class="explanation"><strong>Example:</strong> The dogs attacked the cat and tore it <strong>limb from limb</strong>.</div></li>
+                    <li><span class="feature">too rich for our blood:</span> too expensive for one's budget.<div class="explanation"><strong>Example:</strong> The holiday in the Alps was <strong>too rich for our blood</strong>, so we didn't go.</div></li>
+                </ul>
+            </section>
+            
+            <section id="cat-business" class="content-section">
+                <h2>Category: Business</h2>
+                <ul class="example-list">
+                    <li><span class="feature">bean-counter:</span> a person who works with numbers; an accountant.<div class="explanation"><strong>Example:</strong> The friend of mine is a <strong>bean-counter</strong> in his own company.</div></li>
+                    <li><span class="feature">boys in the backroom:</span> a group of men making decisions behind the scenes.<div class="explanation"><strong>Example:</strong> The <strong>boys in the backroom</strong> told us that the factory will close next year.</div></li>
+                    <li><span class="feature">hang out one's shingle:</span> to open one's own business.<div class="explanation"><strong>Example:</strong> My friend decided to <strong>hang out his shingle</strong> as a dentist.</div></li>
+                    <li><span class="feature">in the red:</span> to be unprofitable.<div class="explanation"><strong>Example:</strong> The company has been <strong>in the red</strong> for three years.</div></li>
+                    <li><span class="feature">jack up the price:</span> to make a price higher.<div class="explanation"><strong>Example:</strong> The company <strong>jacked up the price</strong> of oil.</div></li>
+                    <li><span class="feature">Robert's Rules of Order:</span> the official book of rules for conducting a meeting.<div class="explanation"><strong>Example:</strong> We always use <strong>Robert's Rules of Order</strong> when we have a meeting.</div></li>
+                </ul>
+            </section>
+            
+            <section id="cat-c" class="content-section">
+                <h2>Category: C</h2>
+                <ul class="example-list">
+                    <li><span class="feature">candy-ass:</span> a person without courage or confidence.<div class="explanation"><strong>Example:</strong> He is a <strong>candy-ass</strong>.</div></li>
+                    <li><span class="feature">cat got your tongue?:</span> Why are you not speaking?<div class="explanation"><strong>Example:</strong> Has the <strong>cat got your tongue</strong>? You've been silent all evening.</div></li>
+                    <li><span class="feature">catch phrase:</span> an idiom or popular saying.<div class="explanation"><strong>Example:</strong> "Live and let live" is a famous <strong>catch phrase</strong>.</div></li>
+                    <li><span class="feature">catch some Z's:</span> to get some sleep.<div class="explanation"><strong>Example:</strong> Do you mind if I <strong>catch some Z's</strong> on your couch?</div></li>
+                    <li><span class="feature">cheap like borscht:</span> not expensive.<div class="explanation"><strong>Example:</strong> This jacket of mine is <strong>cheap like borscht</strong>.</div></li>
+                    <li><span class="feature">charley horse:</span> a cramp in a calf muscle.<div class="explanation"><strong>Example:</strong> I have a <strong>charley horse</strong> from running.</div></li>
+                    <li><span class="feature">cheek by jowl:</span> beside or alongside; side by side.<div class="explanation"><strong>Example:</strong> They fought <strong>cheek by jowl</strong> in the war.</div></li>
+                    <li><span class="feature">cheerio-bye:</span> goodbye.<div class="explanation"><strong>Example:</strong> See you tomorrow. <strong>Cheerio-bye</strong>!</div></li>
+                    <li><span class="feature">clear as mud:</span> confusing.<div class="explanation"><strong>Example:</strong> His explanation is as <strong>clear as mud</strong>.</div></li>
+                    <li><span class="feature">coming up roses:</span> succeeding or doing very well.<div class="explanation"><strong>Example:</strong> Since I met her, life is wonderful. Everything is <strong>coming up roses</strong>.</div></li>
+                    <li><span class="feature">C'est la vie:</span> That's life; that's fate.<div class="explanation"><strong>Example:</strong> You might have bad luck sometimes, but that's not the end. <strong>C'est la vie</strong>.</div></li>
+                    <li><span class="feature">cut the cheese:</span> to fart.<div class="explanation"><strong>Example:</strong> Someone <strong>cut the cheese</strong> in the elevator.</div></li>
+                </ul>
+            </section>
+            
+            <section id="cat-cards" class="content-section">
+                <h2>Category: Cards</h2>
+                <ul class="example-list">
+                    <li><span class="feature">as cocky as the king of spades:</span> overly proud.<div class="explanation"><strong>Example:</strong> He is <strong>as cocky as the king of spades</strong>.</div></li>
+                </ul>
+            </section>
+
+            <section id="cat-clothes" class="content-section">
+                <h2>Category: Clothes</h2>
+                <ul class="example-list">
+                    <li><span class="feature">as comfortable as an old shoe:</span> very comfortable.<div class="explanation"><strong>Example:</strong> I felt <strong>as comfortable as an old shoe</strong> in their house.</div></li>
+                    <li><span class="feature">as common as an old shoe:</span> low class or badly mannered.<div class="explanation"><strong>Example:</strong> The young man is <strong>as common as an old shoe</strong>.</div></li>
+                    <li><span class="feature">best bib and tucker:</span> one's best clothing.<div class="explanation"><strong>Example:</strong> He wore his <strong>best bib and tucker</strong> to the party.</div></li>
+                    <li><span class="feature">birthday suit:</span> nude.<div class="explanation"><strong>Example:</strong> The little boy was running through the park in his <strong>birthday suit</strong>.</div></li>
+                    <li><span class="feature">cap and gown:</span> the academic cap and gown worn during graduation.<div class="explanation"><strong>Example:</strong> Everybody was wearing their <strong>cap and gown</strong> for the university graduation ceremony.</div></li>
+                </ul>
+            </section>
+            
+            <section id="cat-colour" class="content-section">
+                <h2>Category: Colour</h2>
+                <ul class="example-list">
+                    <li><span class="feature">as black as a skillet:</span> very black.<div class="explanation"><strong>Example:</strong> His hands were <strong>as black as a skillet</strong> from working on the car engine.</div></li>
+                    <li><span class="feature">white as a ghost:</span> looking pale because of fear.<div class="explanation"><strong>Example:</strong> She became as <strong>white as a ghost</strong> when she saw the man at the window.</div></li>
+                </ul>
+            </section>
+            
+            <section id="cat-court" class="content-section">
+                <h2>Category: Court & Judge</h2>
+                <ul class="example-list">
+                    <li><span class="feature">as sober as a judge:</span> not drunk; formal.<div class="explanation"><strong>Example:</strong> He is always <strong>as sober as a judge</strong> when he gets into his car to drive.</div></li>
+                    <li><span class="feature">hung jury:</span> a jury that is divided and unable to agree on a verdict.<div class="explanation"><strong>Example:</strong> The trial ended in a <strong>hung jury</strong>.</div></li>
+                    <li><span class="feature">a miscarriage of justice:</span> a wrong decision made in a court of law.<div class="explanation"><strong>Example:</strong> The trial was a <strong>miscarriage of justice</strong>.</div></li>
+                </ul>
+            </section>
+
+            <section id="cat-d" class="content-section">
+                <h2>Category: D</h2>
+                <ul class="example-list">
+                    <li><span class="feature">dapper dan:</span> a well-groomed and clean man.<div class="explanation"><strong>Example:</strong> You look like a <strong>dapper dan</strong> in this new suit.</div></li>
+                    <li><span class="feature">dead as a doornail:</span> dead.<div class="explanation"><strong>Example:</strong> He looked <strong>dead as a doornail</strong>.</div></li>
+                    <li><span class="feature">different strokes for different folks:</span> people have different preferences.<div class="explanation"><strong>Example:</strong> I prefer rock music and she prefers classical; <strong>different strokes for different folks</strong>.</div></li>
+                    <li><span class="feature">dilly-dally:</span> to go very slowly or pause too much.<div class="explanation"><strong>Example:</strong> Don't <strong>dilly-dally</strong>, come straight home from school.</div></li>
+                    <li><span class="feature">do a 180:</span> to turn around and go in the opposite direction.<div class="explanation"><strong>Example:</strong> When the boy saw the policeman, he <strong>did a 180</strong> and sped off.</div></li>
+                    <li><span class="feature">don't teach your grandmother how to suck eggs:</span> don't tell me what I already know.<div class="explanation"><strong>Example:</strong> I've been a mechanic for 30 years; <strong>don't teach your grandmother how to suck eggs</strong>.</div></li>
+                    <li><span class="feature">down to a T:</span> perfectly; exactly.<div class="explanation"><strong>Example:</strong> She has his role <strong>down to a T</strong> in the play.</div></li>
+                    <li><span class="feature">dressed to the nines:</span> dressed in high fashion.<div class="explanation"><strong>Example:</strong> She was <strong>dressed to the nines</strong> for the party.</div></li>
+                    <li><span class="feature">duck soup:</span> easy.<div class="explanation"><strong>Example:</strong> The exam was a <strong>duck soup</strong>.</div></li>
+                </ul>
+            </section>
+            
+            <section id="cat-e" class="content-section">
+                <h2>Category: E</h2>
+                <ul class="example-list">
+                    <li><span class="feature">in dribs and drabs:</span> a few at a time.<div class="explanation"><strong>Example:</strong> People were arriving in <strong>dribs and drabs</strong>.</div></li>
+                    <li><span class="feature">in seventh heaven:</span> feeling very happy.<div class="explanation"><strong>Example:</strong> When I heard the news, I was in <strong>seventh heaven</strong>.</div></li>
+                    <li><span class="feature">in the buff:</span> nude.<div class="explanation"><strong>Example:</strong> I saw him in <strong>the buff</strong>.</div></li>
+                    <li><span class="feature">in the slammer:</span> in jail.<div class="explanation"><strong>Example:</strong> He is back in <strong>the slammer</strong> for robbery.</div></li>
+                    <li><span class="feature">in two shakes:</span> very soon.<div class="explanation"><strong>Example:</strong> I'll be with you in <strong>two shakes</strong>.</div></li>
+                    <li><span class="feature">It was Greek to me:</span> I couldn't understand the subject.<div class="explanation"><strong>Example:</strong> What he taught <strong>was Greek to me</strong>.</div></li>
+                    <li><span class="feature">Everything but the kitchen sink:</span> almost everything.<div class="explanation"><strong>Example:</strong> We put <strong>everything but the kitchen sink</strong> in the truck.</div></li>
+                    <li><span class="feature">everything from soup to nuts:</span> a wide variety of items.<div class="explanation"><strong>Example:</strong> The gift shop had <strong>everything from soup to nuts</strong>.</div></li>
+                </ul>
+            </section>
+            
+            <section id="cat-ear" class="content-section">
+                <h2>Category: Ear, Eye, Nose</h2>
+                <ul class="example-list">
+                    <li><span class="feature">apple of someone's eye:</span> a favorite person.<div class="explanation"><strong>Example:</strong> She is the <strong>apple of my eye</strong>.</div></li>
+                    <li><span class="feature">assault the ears:</span> to be very loud.<div class="explanation"><strong>Example:</strong> The music was so loud it <strong>assaulted my ears</strong>.</div></li>
+                    <li><span class="feature">in the twinkling of an eye:</span> very quickly.<div class="explanation"><strong>Example:</strong> He went to the store and in the <strong>twinkling of an eye</strong>, lost his wallet.</div></li>
+                    <li><span class="feature">feast your eyes on:</span> to enjoy looking at.<div class="explanation"><strong>Example:</strong> I was <strong>feasting my eyes</strong> on the box of diamonds.</div></li>
+                </ul>
+            </section>
+            
+            <section id="cat-education" class="content-section">
+                <h2>Category: Education & School</h2>
+                <ul class="example-list">
+                    <li><span class="feature">as easy as ABC:</span> very easy.<div class="explanation"><strong>Example:</strong> The exam was <strong>as easy as ABC</strong>.</div></li>
+                    <li><span class="feature">live in an ivory tower:</span> to not be aware of the realities of everyday life.<div class="explanation"><strong>Example:</strong> He lived in an <strong>ivory tower</strong> and had no idea what was going on around him.</div></li>
+                </ul>
+            </section>
+            
+            <section id="cat-f" class="content-section">
+                <h2>Category: F</h2>
+                <ul class="example-list">
+                    <li><span class="feature">fair to middling:</span> moderately good; about average.<div class="explanation"><strong>Example:</strong> "How's the barley crop this year?" "<strong>Fair to middling</strong>."</div></li>
+                    <li><span class="feature">fair-haired boy:</span> a favorite person.<div class="explanation"><strong>Example:</strong> He is the <strong>fair-haired boy</strong> in the office.</div></li>
+                    <li><span class="feature">fall on your sword:</span> to quit or resign.<div class="explanation"><strong>Example:</strong> I know I messed up, but I won't <strong>fall on my sword</strong> over one mistake.</div></li>
+                    <li><span class="feature">fast friends:</span> close friends.<div class="explanation"><strong>Example:</strong> We are <strong>fast friends</strong>.</div></li>
+                    <li><span class="feature">feeling blue:</span> feeling sad.<div class="explanation"><strong>Example:</strong> Why are you <strong>feeling blue</strong>?</div></li>
+                    <li><span class="feature">fender-bender:</span> a minor car accident.<div class="explanation"><strong>Example:</strong> I had a small <strong>fender-bender</strong> with a car.</div></li>
+                    <li><span class="feature">fiddle-sticks:</span> Oh no!; an expression of annoyance.<div class="explanation"><strong>Example:</strong> <strong>Fiddle-sticks!</strong> I forgot to write the email.</div></li>
+                    <li><span class="feature">file 13:</span> a garbage can.<div class="explanation"><strong>Example:</strong> This letter will go in <strong>file 13</strong>.</div></li>
+                    <li><span class="feature">filthy lucre:</span> money.<div class="explanation"><strong>Example:</strong> <strong>Filthy lucre</strong> - that's what people want.</div></li>
+                    <li><span class="feature">fish and company stink after three days:</span> guests should not stay for too long.<div class="explanation"><strong>Example:</strong> It's time for our relatives to leave; <strong>fish and company stink after three days</strong>.</div></li>
+                    <li><span class="feature">flat broke:</span> having no money.<div class="explanation"><strong>Example:</strong> I can't go to the movies, I am <strong>flat broke</strong>.</div></li>
+                    <li><span class="feature">fly in the ointment:</span> a small problem.<div class="explanation"><strong>Example:</strong> A <strong>fly in the ointment</strong> is that a boy saw you kissing your girlfriend.</div></li>
+                    <li><span class="feature">footloose and fancy-free:</span> carefree; not committed.<div class="explanation"><strong>Example:</strong> When the kids moved out, we were <strong>footloose and fancy-free</strong>.</div></li>
+                    <li><span class="feature">for Pete's sake:</span> for everybody's sake.<div class="explanation"><strong>Example:</strong> <strong>For Pete's sake</strong>, don't trouble me.</div></li>
+                    <li><span class="feature">for gosh sakes:</span> for God's sake.<div class="explanation"><strong>Example:</strong> <strong>For gosh sakes</strong>, give me some money.</div></li>
+                    <li><span class="feature">full Monty:</span> nude.<div class="explanation"><strong>Example:</strong> I saw him <strong>full Monty</strong>.</div></li>
+                    <li><span class="feature">full of piss and vinegar:</span> full of energy; lively.<div class="explanation"><strong>Example:</strong> That little kid is <strong>full of piss and vinegar</strong>.</div></li>
+                </ul>
+            </section>
+            
+            <section id="cat-fish" class="content-section">
+                <h2>Category: Fish, Insect, Reptile</h2>
+                <ul class="example-list">
+                    <li><span class="feature">as busy as a bee:</span> very busy.<div class="explanation"><strong>Example:</strong> I was <strong>as busy as a bee</strong> all weekend.</div></li>
+                    <li><span class="feature">as gaudy as a butterfly:</span> colorful.<div class="explanation"><strong>Example:</strong> The lady was <strong>as gaudy as a butterfly</strong> when she left for the concert.</div></li>
+                    <li><span class="feature">as mad as a hornet:</span> very angry.<div class="explanation"><strong>Example:</strong> The boss was <strong>as mad as a hornet</strong> when he came to work.</div></li>
+                    <li><span class="feature">as merry as a cricket:</span> cheerful.<div class="explanation"><strong>Example:</strong> She looked <strong>as merry as a cricket</strong>.</div></li>
+                    <li><span class="feature">Holy Mackerel!:</span> a strong feeling of surprise.<div class="explanation"><strong>Example:</strong> <strong>Holy Mackerel!</strong> Look at the size of that bike!</div></li>
+                </ul>
+            </section>
+            
+            <section id="cat-food" class="content-section">
+                <h2>Category: Food</h2>
+                <ul class="example-list">
+                    <li><span class="feature">as easy as apple pie:</span> very easy.<div class="explanation"><strong>Example:</strong> The exam was <strong>as easy as apple pie</strong>.</div></li>
+                    <li><span class="feature">as flat as a pancake:</span> very flat.<div class="explanation"><strong>Example:</strong> The child's toy was <strong>as flat as a pancake</strong> after the car drove over it.</div></li>
+                    <li><span class="feature">big enchilada:</span> the most important person.<div class="explanation"><strong>Example:</strong> The new manager is a <strong>big enchilada</strong> in our company.</div></li>
+                    <li><span class="feature">compare apples and oranges:</span> to compare two things that aren't similar.<div class="explanation"><strong>Example:</strong> It was like <strong>comparing apples and oranges</strong> when we compared our new car to the old boss.</div></li>
+                    <li><span class="feature">done to a T:</span> to be cooked just right.<div class="explanation"><strong>Example:</strong> The steaks were <strong>done to a T</strong>.</div></li>
+                    <li><span class="feature">in one's salad days:</span> in one's youth.<div class="explanation"><strong>Example:</strong> My aunt was a beautiful woman in her <strong>salad days</strong>.</div></li>
+                    <li><span class="feature">milk of human kindness:</span> kindness and sympathy shown to others.<div class="explanation"><strong>Example:</strong> The woman at the community center is full of the <strong>milk of human kindness</strong>.</div></li>
+                    <li><span class="feature">pie in the sky:</span> an idea or plan that is unlikely to happen.<div class="explanation"><strong>Example:</strong> His plans are usually <strong>pie in the sky</strong>.</div></li>
+                </ul>
+            </section>
+
+            <section id="cat-g" class="content-section">
+                <h2>Category: G</h2>
+                <ul class="example-list">
+                    <li><span class="feature">Gee willikers:</span> Oh gosh; an expression of surprise.<div class="explanation"><strong>Example:</strong> <strong>Gee willikers!</strong> she said, "are you still in the bathroom?"</div></li>
+                    <li><span class="feature">get bageled:</span> to lose without scoring.<div class="explanation"><strong>Example:</strong> We <strong>got bageled</strong>; they beat us 5-0.</div></li>
+                    <li><span class="feature">get blood from a stone:</span> to do an impossible task.<div class="explanation"><strong>Example:</strong> You will <strong>get blood from a stone</strong> before you get money from him.</div></li>
+                    <li><span class="feature">get the lay of the land:</span> to check the condition or situation.<div class="explanation"><strong>Example:</strong> Before I invest in town, I would like to <strong>get the lay of the land</strong>.</div></li>
+                    <li><span class="feature">get this monkey off my back:</span> to stop a bad habit.<div class="explanation"><strong>Example:</strong> I have to <strong>get this monkey off my back</strong>; I have to stop gambling.</div></li>
+                    <li><span class="feature">get up on the wrong side of the bed:</span> to be grumpy.<div class="explanation"><strong>Example:</strong> Did you <strong>get up on the wrong side of the bed</strong>?</div></li>
+                    <li><span class="feature">ghetto blaster:</span> a portable radio.<div class="explanation"><strong>Example:</strong> Loud rock music came from the <strong>ghetto blaster</strong> on the steps.</div></li>
+                    <li><span class="feature">gibberish:</span> nonsense.<div class="explanation"><strong>Example:</strong> Don't talk <strong>gibberish</strong>.</div></li>
+                    <li><span class="feature">girl Friday:</span> a female employee who does a variety of office tasks.<div class="explanation"><strong>Example:</strong> She is our <strong>girl Friday</strong>.</div></li>
+                    <li><span class="feature">give me a dingle:</span> Call me; phone me.<div class="explanation"><strong>Example:</strong> <strong>Give me a dingle</strong> sometime.</div></li>
+                    <li><span class="feature">give a ribbing:</span> to tease someone.<div class="explanation"><strong>Example:</strong> Please don't <strong>give me a ribbing</strong> about my new haircut.</div></li>
+                    <li><span class="feature">glad rags:</span> best clothes.<div class="explanation"><strong>Example:</strong> She put on her <strong>glad rags</strong> for the party.</div></li>
+                    <li><span class="feature">go ballistic:</span> to become upset or angry.<div class="explanation"><strong>Example:</strong> When I told mom about my pregnancy, she <strong>went ballistic</strong>.</div></li>
+                    <li><span class="feature">golly, gee!:</span> oh!; an expression of surprise.<div class="explanation"><strong>Example:</strong> <strong>Golly, gee!</strong> No one did that to me before.</div></li>
+                    <li><span class="feature">grandfather clause:</span> a written statement that protects the rights of an employee.<div class="explanation"><strong>Example:</strong> They can't demote him because he's got the <strong>grandfather clause</strong>.</div></li>
+                    <li><span class="feature">grease my palm:</span> to pay someone a bribe.<div class="explanation"><strong>Example:</strong> If you want the job to be done, <strong>grease my palm</strong>.</div></li>
+                    <li><span class="feature">greenback:</span> money; a dollar bill.<div class="explanation"><strong>Example:</strong> I need some <strong>greenback</strong>.</div></li>
+                    <li><span class="feature">groaty to the max:</span> very nice.<div class="explanation"><strong>Example:</strong> That bike is <strong>groaty to the max</strong>.</div></li>
+                    <li><span class="feature">gray power:</span> the power of senior citizens.<div class="explanation"><strong>Example:</strong> An increase in the life span causes an increase in the <strong>gray power</strong>.</div></li>
+                    <li><span class="feature">gung-ho:</span> enthusiastic.<div class="explanation"><strong>Example:</strong> I am <strong>gung-ho</strong> about our trip to the UK.</div></li>
+                </ul>
+            </section>
+            
+            <section id="cat-h" class="content-section">
+                <h2>Category: H</h2>
+                <ul class="example-list">
+                    <li><span class="feature">hale and hearty:</span> healthy and enthusiastic.<div class="explanation"><strong>Example:</strong> My grandfather is 90, but he is still <strong>hale and hearty</strong>.</div></li>
+                    <li><span class="feature">hairbrained:</span> crazy; not sensible.<div class="explanation"><strong>Example:</strong> I am sick of her <strong>hairbrained</strong> plan.</div></li>
+                    <li><span class="feature">ham-handed:</span> clumsy; having large hands.<div class="explanation"><strong>Example:</strong> He's got <strong>ham-handed</strong>.</div></li>
+                    <li><span class="feature">hammer and tongs:</span> angrily; furiously.<div class="explanation"><strong>Example:</strong> The two men were arguing <strong>hammer and tongs</strong>.</div></li>
+                    <li><span class="feature">hanky-panky:</span> unfair dealing; cheating.<div class="explanation"><strong>Example:</strong> There is some <strong>hanky-panky</strong> in the contract.</div></li>
+                    <li><span class="feature">happy as a box of birds / lank pracach:</span> very happy.<div class="explanation"><strong>Example:</strong> I was as <strong>happy as a box of birds</strong>.</div></li>
+                    <li><span class="feature">hatchet man:</span> a man who does all the bad jobs.<div class="explanation"><strong>Example:</strong> Here comes the <strong>hatchet man</strong>.</div></li>
+                    <li><span class="feature">have an inkling:</span> to know or be aware of.<div class="explanation"><strong>Example:</strong> I didn't <strong>have an inkling</strong> that you loved her.</div></li>
+                    <li><span class="feature">head over heels:</span> crazy about; in love with.<div class="explanation"><strong>Example:</strong> He is <strong>head over heels</strong> for Donna.</div></li>
+                    <li><span class="feature">hemming and hawing:</span> running short of words; hesitating.<div class="explanation"><strong>Example:</strong> When I examined him about the lost money, he was doing a lot of <strong>hemming and hawing</strong>.</div></li>
+                    <li><span class="feature">high and mighty:</span> arrogant; better than other people.<div class="explanation"><strong>Example:</strong> After winning the lottery, she acted all <strong>high and mighty</strong>.</div></li>
+                    <li><span class="feature">higher than a kite:</span> drunk.<div class="explanation"><strong>Example:</strong> Don't let him drive. He is <strong>higher than a kite</strong>.</div></li>
+                    <li><span class="feature">highfalutin:</span> proud.<div class="explanation"><strong>Example:</strong> We need a musician, not some <strong>highfalutin</strong> rock star.</div></li>
+                    <li><span class="feature">hit rock bottom:</span> to feel very unfortunate.<div class="explanation"><strong>Example:</strong> After his house was seized, he <strong>hit rock bottom</strong>.</div></li>
+                    <li><span class="feature">Hobson's choice:</span> to accept what is offered as you have no other option.<div class="explanation"><strong>Example:</strong> I was presented with a <strong>Hobson's choice</strong>.</div></li>
+                    <li><span class="feature">honest to goodness:</span> genuine; real.<div class="explanation"><strong>Example:</strong> It's an <strong>honest to goodness</strong> dead rat.</div></li>
+                    <li><span class="feature">hook, line, and sinker:</span> fully; completely.<div class="explanation"><strong>Example:</strong> She believed my story <strong>hook, line, and sinker</strong>.</div></li>
+                    <li><span class="feature">hot and bothered:</span> upset or angry.<div class="explanation"><strong>Example:</strong> I get <strong>hot and bothered</strong> when you stay out of home late.</div></li>
+                    <li><span class="feature">hot under the collar:</span> upset.<div class="explanation"><strong>Example:</strong> Don't get <strong>hot under the collar</strong>.</div></li>
+                    <li><span class="feature">Howdy:</span> hello.<div class="explanation"><strong>Example:</strong> <strong>Howdy</strong>, ma'am!</div></li>
+                </ul>
+            </section>
+            
+            <section id="cat-head" class="content-section">
+                <h2>Category: Head & Mind</h2>
+                 <ul class="example-list">
+                    <li><span class="feature">as bold as a baby's backside:</span> completely bald.<div class="explanation"><strong>Example:</strong> He was <strong>as bold as a baby's backside</strong>.</div></li>
+                    <li><span class="feature">bad hair day:</span> a day when everything goes wrong.<div class="explanation"><strong>Example:</strong> Today was a <strong>bad hair day</strong> for me.</div></li>
+                    <li><span class="feature">cheek-by-jowl:</span> close together.<div class="explanation"><strong>Example:</strong> The houses were placed in the room <strong>cheek-by-jowl</strong>.</div></li>
+                    <li><span class="feature">gray matter:</span> intelligence.<div class="explanation"><strong>Example:</strong> The young man seems to be lacking in <strong>gray matter</strong>.</div></li>
+                    <li><span class="feature">head shrinker:</span> a psychiatrist.<div class="explanation"><strong>Example:</strong> He is a <strong>head shrinker</strong>.</div></li>
+                    <li><span class="feature">mind-numbing:</span> boring.<div class="explanation"><strong>Example:</strong> His speech was <strong>mind-numbing</strong>.</div></li>
+                    <li><span class="feature">neither hide nor hair:</span> no indication of someone or something.<div class="explanation"><strong>Example:</strong> I have seen <strong>neither hide nor hair</strong> of that girl.</div></li>
+                    <li><span class="feature">tongue-in-cheek:</span> jokingly.<div class="explanation"><strong>Example:</strong> The remark was made <strong>tongue-in-cheek</strong>.</div></li>
+                </ul>
+            </section>
+            
+            <section id="cat-heart" class="content-section">
+                 <h2>Category: Heart</h2>
+                 <ul class="example-list">
+                    <li><span class="feature">heart and soul:</span> with all of one's energy and effort.<div class="explanation"><strong>Example:</strong> She loved him with her <strong>heart and soul</strong>.</div></li>
+                </ul>
+            </section>
+            
+            <section id="cat-i" class="content-section">
+                <h2>Category: I</h2>
+                <ul class="example-list">
+                    <li><span class="feature">I will be a monkey's uncle:</span> I cannot believe it.<div class="explanation"><strong>Example:</strong> If he won the race, <strong>I will be a monkey's uncle</strong>.</div></li>
+                    <li><span class="feature">in a family way:</span> pregnant.<div class="explanation"><strong>Example:</strong> She is <strong>in a family way</strong>.</div></li>
+                    <li><span class="feature">in a jiffy:</span> in a minute; soon.<div class="explanation"><strong>Example:</strong> I'll be there <strong>in a jiffy</strong>.</div></li>
+                    <li><span class="feature">in deep doo-doo:</span> in a serious difficulty.<div class="explanation"><strong>Example:</strong> I found myself in <strong>deep doo-doo</strong>.</div></li>
+                    <li><span class="feature">in cahoots:</span> like partners; helping each other.<div class="explanation"><strong>Example:</strong> I think the judge and the lawyer are in <strong>cahoots</strong>.</div></li>
+                </ul>
+            </section>
+            
+            <section id="cat-initials" class="content-section">
+                 <h2>Category: Initials</h2>
+                <ul class="example-list">
+                    <li><span class="feature">CIA:</span> Central Intelligence Agency.<div class="explanation"><strong>Example:</strong> The <strong>CIA</strong> freed the kidnapped pilot.</div></li>
+                    <li><span class="feature">DIY:</span> do-it-yourself.<div class="explanation"><strong>Example:</strong> This is a <strong>DIY</strong> project.</div></li>
+                    <li><span class="feature">ETA:</span> estimated time of arrival.<div class="explanation"><strong>Example:</strong> What is your <strong>ETA</strong>?</div></li>
+                    <li><span class="feature">GMT:</span> Greenwich Mean Time.<div class="explanation"><strong>Example:</strong> The time is 5 PM <strong>GMT</strong>.</div></li>
+                    <li><span class="feature">IOU:</span> I owe you.<div class="explanation"><strong>Example:</strong> He gave me an <strong>IOU</strong> for the money I lent him.</div></li>
+                    <li><span class="feature">NASA:</span> National Aeronautics and Space Administration.</li>
+                    <li><span class="feature">NATO:</span> North Atlantic Treaty Organization.</li>
+                    <li><span class="feature">PTO:</span> Please turn over.</li>
+                    <li><span class="feature">RSVP:</span> Please reply (from French 'Répondez s'il vous plaît').</li>
+                </ul>
+            </section>
+            
+            <section id="cat-j" class="content-section">
+                <h2>Category: J</h2>
+                <ul class="example-list">
+                    <li><span class="feature">jack me around:</span> to tell me lies; to deceive.<div class="explanation"><strong>Example:</strong> Don't <strong>jack me around</strong>, just tell the truth.</div></li>
+                    <li><span class="feature">jeepers:</span> oh gosh; an expression of surprise.<div class="explanation"><strong>Example:</strong> <strong>Jeepers!</strong> I don't know what to say.</div></li>
+                    <li><span class="feature">joe-job:</span> a routine task that nobody wants to do.<div class="explanation"><strong>Example:</strong> If you're the junior employee, you'll have to do the <strong>joe-jobs</strong>.</div></li>
+                    <li><span class="feature">John Hancock:</span> a signature.<div class="explanation"><strong>Example:</strong> Put your <strong>John Hancock</strong> on the form.</div></li>
+                    <li><span class="feature">jungle mouth:</span> unpleasant odor on the breath.<div class="explanation"><strong>Example:</strong> Most people have <strong>jungle mouth</strong> when they wake up in the morning.</div></li>
+                    <li><span class="feature">just a smidgen:</span> just a little.<div class="explanation"><strong>Example:</strong> Would you like more cream? "Just a <strong>smidgen</strong>."</div></li>
+                </ul>
+            </section>
+            
+            <section id="cat-k" class="content-section">
+                 <h2>Category: K</h2>
+                <ul class="example-list">
+                    <li><span class="feature">kaput:</span> broken or ruined.<div class="explanation"><strong>Example:</strong> We have a car but it is <strong>kaput</strong>.</div></li>
+                    <li><span class="feature">keep up with the Joneses:</span> to try to buy what the neighbors buy.<div class="explanation"><strong>Example:</strong> I can't afford to <strong>keep up with the Joneses</strong>.</div></li>
+                    <li><span class="feature">keister:</span> buttocks.<div class="explanation"><strong>Example:</strong> She fell down from the horse and landed on her <strong>keister</strong>.</div></li>
+                    <li><span class="feature">kick the bucket:</span> to die.<div class="explanation"><strong>Example:</strong> At 98, he finally <strong>kicked the bucket</strong>.</div></li>
+                    <li><span class="feature">kiss the blarney stone:</span> to say a lot of compliments.<div class="explanation"><strong>Example:</strong> Stop <strong>kissing the blarney stone</strong> and just tell me what you want.</div></li>
+                </ul>
+            </section>
+            
+            <section id="cat-l" class="content-section">
+                <h2>Category: L</h2>
+                <ul class="example-list">
+                    <li><span class="feature">last hurrah:</span> a last big event for an old person.<div class="explanation"><strong>Example:</strong> His daughter's marriage is a <strong>last hurrah</strong> for him.</div></li>
+                    <li><span class="feature">lead pipe cinch:</span> something that is certain.<div class="explanation"><strong>Example:</strong> They are a <strong>lead pipe cinch</strong> to win the game.</div></li>
+                    <li><span class="feature">life is just a bowl of cherries:</span> life is just wonderful.<div class="explanation"><strong>Example:</strong> Since I got this job, <strong>life is just a bowl of cherries</strong>.</div></li>
+                    <li><span class="feature">light in the loafers:</span> homosexual.<div class="explanation"><strong>Example:</strong> He is <strong>light in the loafers</strong>.</div></li>
+                    <li><span class="feature">like a bat out of hell:</span> very fast.<div class="explanation"><strong>Example:</strong> She was driving <strong>like a bat out of hell</strong>.</div></li>
+                    <li><span class="feature">like a chicken on a June bug:</span> very quickly.<div class="explanation"><strong>Example:</strong> He vanished <strong>like a chicken on a June bug</strong>.</div></li>
+                    <li><span class="feature">lock, stock, and barrel:</span> everything.<div class="explanation"><strong>Example:</strong> They took everything with them - <strong>lock, stock, and barrel</strong>.</div></li>
+                    <li><span class="feature">look out for number one:</span> to help yourself first.<div class="explanation"><strong>Example:</strong> You can <strong>look out for number one</strong> as well as help your friends.</div></li>
+                    <li><span class="feature">loony bin:</span> a mental hospital.<div class="explanation"><strong>Example:</strong> It was open to the <strong>loony bin</strong>.</div></li>
+                    <li><span class="feature">lovelies:</span> ladies, women, or girls.<div class="explanation"><strong>Example:</strong> In the party, I met three <strong>lovelies</strong>, with whom I danced.</div></li>
+                </ul>
+            </section>
+            
+            <section id="cat-leg" class="content-section">
+                <h2>Category: Leg & Foot</h2>
+                 <ul class="example-list">
+                    <li><span class="feature">foot the bill:</span> to pay for something.<div class="explanation"><strong>Example:</strong> The company will <strong>foot the bill</strong> for the damages.</div></li>
+                </ul>
+            </section>
+
+            <section id="cat-love" class="content-section">
+                <h2>Category: Love & Relationship</h2>
+                 <ul class="example-list">
+                    <li><span class="feature">on the rocks:</span> in a difficult position.<div class="explanation"><strong>Example:</strong> Their relationship appears to be <strong>on the rocks</strong>.</div></li>
+                    <li><span class="feature">pop the question:</span> to ask someone to marry.<div class="explanation"><strong>Example:</strong> He decided to <strong>pop the question</strong> to his girlfriend.</div></li>
+                </ul>
+            </section>
+
+            <section id="cat-m" class="content-section">
+                <h2>Category: M</h2>
+                <ul class="example-list">
+                    <li><span class="feature">mad as a hatter:</span> strange or eccentric.<div class="explanation"><strong>Example:</strong> If you wear that pink wig, people will think you are <strong>mad as a hatter</strong>.</div></li>
+                    <li><span class="feature">make a boo-boo:</span> to make a mistake.<div class="explanation"><strong>Example:</strong> Oh no! I <strong>made a boo-boo</strong>.</div></li>
+                    <li><span class="feature">make a federal con of it:</span> to make a mountain out of a molehill.<div class="explanation"><strong>Example:</strong> OK, I used your hair dryer. So, don't <strong>make a federal con of it</strong>.</div></li>
+                    <li><span class="feature">make a mincemeat of:</span> to defeat badly.<div class="explanation"><strong>Example:</strong> The heavyweight champ <strong>made a mincemeat of</strong> the young boxer.</div></li>
+                </ul>
+            </section>
+            
+            <section id="cat-medical" class="content-section">
+                 <h2>Category: Medical & Health</h2>
+                <ul class="example-list">
+                    <li><span class="feature">as fit as a fiddle:</span> healthy; physically fit.<div class="explanation"><strong>Example:</strong> My grandfather is <strong>as fit as a fiddle</strong>.</div></li>
+                    <li><span class="feature">go under the knife:</span> to have an operation.<div class="explanation"><strong>Example:</strong> I decided to <strong>go under the knife</strong>.</div></li>
+                    <li><span class="feature">splitting headache:</span> a severe headache.<div class="explanation"><strong>Example:</strong> I have got a <strong>splitting headache</strong>.</div></li>
+                </ul>
+            </section>
+            
+            <section id="cat-money" class="content-section">
+                 <h2>Category: Money</h2>
+                <ul class="example-list">
+                    <li><span class="feature">almighty dollar:</span> money, when viewed as the most important thing.<div class="explanation"><strong>Example:</strong> He spent most of his life chasing the <strong>almighty dollar</strong>.</div></li>
+                    <li><span class="feature">as phony as a 3-dollar bill:</span> not genuine.<div class="explanation"><strong>Example:</strong> He is <strong>as phony as a 3-dollar bill</strong>.</div></li>
+                    <li><span class="feature">Dutch treat:</span> each person pays their share of the expenses.<div class="explanation"><strong>Example:</strong> The movie was a <strong>Dutch treat</strong>.</div></li>
+                    <li><span class="feature">have a Midas touch:</span> ability to make money easily.<div class="explanation"><strong>Example:</strong> My uncle has a <strong>Midas touch</strong>.</div></li>
+                    <li><span class="feature">highway robbery:</span> charging a high price.<div class="explanation"><strong>Example:</strong> The amount of money they are charging is a <strong>highway robbery</strong>.</div></li>
+                    <li><span class="feature">to pay a king's ransom:</span> to pay a high price.<div class="explanation"><strong>Example:</strong> I had to <strong>pay a king's ransom</strong> for the cinema ticket.</div></li>
+                    <li><span class="feature">stone broke:</span> to have no money.<div class="explanation"><strong>Example:</strong> I am <strong>stone broke</strong>.</div></li>
+                </ul>
+            </section>
+            
+            <section id="cat-mouth" class="content-section">
+                 <h2>Category: Mouth & Teeth</h2>
+                <ul class="example-list">
+                    <li><span class="feature">guard one's tongue:</span> to be careful of what one says.<div class="explanation"><strong>Example:</strong> I have to <strong>guard my tongue</strong> when I am speaking to my parents.</div></li>
+                    <li><span class="feature">keep a civil tongue:</span> to speak politely.<div class="explanation"><strong>Example:</strong> I <strong>kept a civil tongue</strong> during my argument with him.</div></li>
+                </ul>
+            </section>
+            
+            <section id="cat-number" class="content-section">
+                 <h2>Category: Number</h2>
+                 <ul class="example-list">
+                    <li><span class="feature">Catch-22:</span> a no-win situation.<div class="explanation"><strong>Example:</strong> It is a <strong>Catch-22</strong> situation for me.</div></li>
+                    <li><span class="feature">catch forty winks:</span> to get some sleep.<div class="explanation"><strong>Example:</strong> I need to <strong>catch forty winks</strong>.</div></li>
+                    <li><span class="feature">a nine-day wonder:</span> someone or something that briefly attracts attention.<div class="explanation"><strong>Example:</strong> He was a <strong>nine-day wonder</strong> and was soon forgotten by people.</div></li>
+                </ul>
+            </section>
+
+            <section id="cat-o" class="content-section">
+                <h2>Category: O</h2>
+                <ul class="example-list">
+                    <li><span class="feature">off-kilter:</span> off-balance; not straight.<div class="explanation"><strong>Example:</strong> One of the legs of the table was <strong>off-kilter</strong>.</div></li>
+                    <li><span class="feature">off the cuff:</span> quickly, without thinking.<div class="explanation"><strong>Example:</strong> Whatever I said, I said it <strong>off the cuff</strong>.</div></li>
+                    <li><span class="feature">Old Boys' Club:</span> a group of wealthy old men with political power.<div class="explanation"><strong>Example:</strong> For city approval, talk to him. He's in the <strong>Old Boys' Club</strong>.</div></li>
+                    <li><span class="feature">Oh my Gosh!:</span> Oh no!; an expression of shock.<div class="explanation"><strong>Example:</strong> <strong>Oh my Gosh!</strong> I've lost my key.</div></li>
+                    <li><span class="feature">old wives' tale:</span> a myth or a story that contains little truth.<div class="explanation"><strong>Example:</strong> One <strong>old wives' tale</strong> says that a goose foot will cure a cold.</div></li>
+                    <li><span class="feature">old money:</span> inheritance; money that has been in the family for decades.<div class="explanation"><strong>Example:</strong> She bought a property with the <strong>old money</strong>.</div></li>
+                    <li><span class="feature">on cloud nine:</span> very happy.<div class="explanation"><strong>Example:</strong> I was on <strong>cloud nine</strong> when I heard the news.</div></li>
+                    <li><span class="feature">on all fours:</span> on your hands and knees.<div class="explanation"><strong>Example:</strong> She was on <strong>all fours</strong>, looking for the contact lens.</div></li>
+                    <li><span class="feature">on tenterhooks:</span> carefully; cautiously.<div class="explanation"><strong>Example:</strong> After the accident, he drives around on <strong>tenterhooks</strong>.</div></li>
+                    <li><span class="feature">on the double:</span> quickly; now.<div class="explanation"><strong>Example:</strong> The coach said, "Get over here - <strong>on the double</strong>!"</div></li>
+                    <li><span class="feature">on the fritz:</span> not operating; out of order.<div class="explanation"><strong>Example:</strong> The TV is <strong>on the fritz</strong> again.</div></li>
+                    <li><span class="feature">on the QT:</span> as a secret.<div class="explanation"><strong>Example:</strong> I am telling you this <strong>on the QT</strong>.</div></li>
+                    <li><span class="feature">on the up and up:</span> legal; within the law.<div class="explanation"><strong>Example:</strong> If our company gives away cars to all its employees, can it be <strong>on the up and up</strong>?</div></li>
+                    <li><span class="feature">one for the money, two for the show:</span> a children's countdown.<div class="explanation"><strong>Example:</strong> Before bedtime, dad would say, "<strong>One for the money, two for the show</strong>".</div></li>
+                    <li><span class="feature">over the rainbow:</span> weird; eccentric.<div class="explanation"><strong>Example:</strong> She is <strong>over the rainbow</strong>.</div></li>
+                </ul>
+            </section>
+            
+            <section id="cat-p" class="content-section">
+                <h2>Category: P</h2>
+                <ul class="example-list">
+                    <li><span class="feature">plumb loco:</span> completely crazy.<div class="explanation"><strong>Example:</strong> He is <strong>plumb loco</strong>.</div></li>
+                    <li><span class="feature">pocket Hercules:</span> a small person with great strength.<div class="explanation"><strong>Example:</strong> He is a <strong>pocket Hercules</strong>.</div></li>
+                    <li><span class="feature">popcorn brain:</span> one who has not learned to think; stupid.<div class="explanation"><strong>Example:</strong> When I forget my phone number, they called me <strong>popcorn brain</strong>.</div></li>
+                    <li><span class="feature">pretty as a picture:</span> very pretty.<div class="explanation"><strong>Example:</strong> You look <strong>pretty as a picture</strong> in your new dress.</div></li>
+                    <li><span class="feature">puddle-jumper:</span> a small car.<div class="explanation"><strong>Example:</strong> Why did you buy this <strong>puddle-jumper</strong>?</div></li>
+                    <li><span class="feature">put the kibosh on:</span> to prevent or stop.<div class="explanation"><strong>Example:</strong> He <strong>put the kibosh on</strong> our plan.</div></li>
+                </ul>
+            </section>
+            
+            <section id="cat-q" class="content-section">
+                <h2>Category: Q</h2>
+                <ul class="example-list">
+                    <li><span class="feature">quick and dirty:</span> fast and easy.<div class="explanation"><strong>Example:</strong> I know a <strong>quick and dirty</strong> way of calculating interest.</div></li>
+                    <li><span class="feature">quicker than you can say Jack Robinson:</span> very quickly.<div class="explanation"><strong>Example:</strong> The work will be done <strong>quicker than you can say Jack Robinson</strong>.</div></li>
+                </ul>
+            </section>
+            
+            <section id="cat-r" class="content-section">
+                <h2>Category: R</h2>
+                <ul class="example-list">
+                    <li><span class="feature">rant and rave:</span> to yell or complain.<div class="explanation"><strong>Example:</strong> The old man was <strong>ranting and raving</strong> about his lost goats.</div></li>
+                    <li><span class="feature">rattle my chain:</span> to annoy or argue with me.<div class="explanation"><strong>Example:</strong> Don't <strong>rattle my chain</strong> with those silly questions.</div></li>
+                    <li><span class="feature">razzle-dazzle:</span> a spectacular show.<div class="explanation"><strong>Example:</strong> It was a <strong>razzle-dazzle</strong> performance.</div></li>
+                    <li><span class="feature">rigmarole:</span> a long and complicated process.<div class="explanation"><strong>Example:</strong> To get a refund of $50, they asked me 100 questions. What a <strong>rigmarole</strong>!</div></li>
+                    <li><span class="feature">Rob Peter to pay Paul:</span> moving money from one part of the budget to another.<div class="explanation"><strong>Example:</strong> If we use grocery money to buy a car, we are <strong>robbing Peter to pay Paul</strong>.</div></li>
+                    <li><span class="feature">rubber match:</span> a final match.<div class="explanation"><strong>Example:</strong> The two teams are playing the <strong>rubber match</strong> today.</div></li>
+                </ul>
+            </section>
+            
+            <section id="cat-religion" class="content-section">
+                <h2>Category: Religion</h2>
+                <ul class="example-list">
+                    <li><span class="feature">as wise as Solomon:</span> very wise.<div class="explanation"><strong>Example:</strong> He is <strong>as wise as Solomon</strong>.</div></li>
+                    <li><span class="feature">doubting Thomas:</span> a person who insists on proof before believing.<div class="explanation"><strong>Example:</strong> Don't be a <strong>doubting Thomas</strong>; just trust me.</div></li>
+                    <li><span class="feature">Sunday-go-to-meeting clothes:</span> one's best clothes.<div class="explanation"><strong>Example:</strong> We were wearing our <strong>Sunday-go-to-meeting clothes</strong>.</div></li>
+                    <li><span class="feature">until hell freezes over:</span> never.<div class="explanation"><strong>Example:</strong> He would never leave the apartment <strong>until hell freezes over</strong>.</div></li>
+                </ul>
+            </section>
+
+            <section id="cat-s" class="content-section">
+                <h2>Category: S</h2>
+                <ul class="example-list">
+                    <li><span class="feature">scared spitless:</span> very frightened.<div class="explanation"><strong>Example:</strong> Believe me, I was <strong>scared spitless</strong> when the noise started to howl.</div></li>
+                    <li><span class="feature">scout's honor:</span> I say is the truth.<div class="explanation"><strong>Example:</strong> We didn't take your ball - <strong>scout's honor</strong>.</div></li>
+                    <li><span class="feature">scumbag:</span> an unpleasant person.<div class="explanation"><strong>Example:</strong> He is a <strong>scumbag</strong>.</div></li>
+                    <li><span class="feature">see hide nor hair:</span> to not see a person.<div class="explanation"><strong>Example:</strong> You won't <strong>see hide nor hair</strong> of him after he borrows money.</div></li>
+                    <li><span class="feature">shit fire and apple butter:</span> getting upset.<div class="explanation"><strong>Example:</strong> You are still having showers. <strong>Shit fire and apple butter!</strong> We have to leave in 10 minutes.</div></li>
+                    <li><span class="feature">silkhead:</span> a bald person.<div class="explanation"><strong>Example:</strong> He's a <strong>silkhead</strong>.</div></li>
+                    <li><span class="feature">silver-tongued:</span> a nice talker; well-spoken.<div class="explanation"><strong>Example:</strong> He is a <strong>silver-tongued</strong> salesman.</div></li>
+                    <li><span class="feature">skivvies:</span> men's underwear.<div class="explanation"><strong>Example:</strong> He only had his <strong>skivvies</strong> on.</div></li>
+                    <li><span class="feature">slime bucket:</span> an immoral person.<div class="explanation"><strong>Example:</strong> He is a <strong>slime bucket</strong>.</div></li>
+                    <li><span class="feature">small potatoes:</span> an unimportant thing.<div class="explanation"><strong>Example:</strong> Don't worry about the broken dish. That's <strong>small potatoes</strong>.</div></li>
+                    <li><span class="feature">sometimes life is a bucket of shit and the handle is inside:</span> life can be very difficult.<div class="explanation"><strong>Example:</strong> It's a tough world out there; <strong>sometimes life is a bucket of shit and the handle is inside</strong>.</div></li>
+                    <li><span class="feature">Sophie's choice:</span> choosing between the death of your children.<div class="explanation"><strong>Example:</strong> He was presented with a <strong>Sophie's choice</strong>.</div></li>
+                    <li><span class="feature">Sunday best:</span> one's best clothes.<div class="explanation"><strong>Example:</strong> He was in his <strong>Sunday best</strong>.</div></li>
+                    <li><span class="feature">swear like a sailor:</span> to use vulgar language.<div class="explanation"><strong>Example:</strong> I won't take you to the party because you <strong>swear like a sailor</strong>.</div></li>
+                </ul>
+            </section>
+            
+            <section id="cat-t" class="content-section">
+                <h2>Category: T</h2>
+                <ul class="example-list">
+                    <li><span class="feature">take a powder:</span> to leave quickly.<div class="explanation"><strong>Example:</strong> He <strong>took a powder</strong> when he heard the siren.</div></li>
+                    <li><span class="feature">take 5:</span> to rest for 5 minutes.<div class="explanation"><strong>Example:</strong> We've been working for hours, let's <strong>take 5</strong>.</div></li>
+                    <li><span class="feature">take umbrage:</span> to feel hurt or offended.<div class="explanation"><strong>Example:</strong> If you don't invite him to the party, he will <strong>take umbrage</strong>.</div></li>
+                    <li><span class="feature">talk turkey:</span> to discuss frankly.<div class="explanation"><strong>Example:</strong> If the man really wants to sell this flat, he will <strong>talk turkey</strong>.</div></li>
+                    <li><span class="feature">ten-four:</span> yes; ok; I hear you.<div class="explanation"><strong>Example:</strong> "See you in a minute." "<strong>Ten-four</strong>."</div></li>
+                    <li><span class="feature">that will be the Frosty Friday:</span> that day will never come.<div class="explanation"><strong>Example:</strong> Pakistan becoming a part of India? <strong>That will be the Frosty Friday</strong>.</div></li>
+                    <li><span class="feature">thanks a bunch / a million:</span> thanks very much.<div class="explanation"><strong>Example:</strong> <strong>Thanks a bunch</strong>, mate!</div></li>
+                    <li><span class="feature">that's the way the ball bounces:</span> that is fate.<div class="explanation"><strong>Example:</strong> Even though his interview wasn't great, he got the job. <strong>That's the way the ball bounces</strong>.</div></li>
+                    <li><span class="feature">the apple doesn't fall far from the tree:</span> kids are like their parents.<div class="explanation"><strong>Example:</strong> Her daughter is a great singer just like her; <strong>the apple doesn't fall far from the tree</strong>.</div></li>
+                    <li><span class="feature">the bee's knees:</span> the best; superb.<div class="explanation"><strong>Example:</strong> She thinks she is the <strong>bee's knees</strong>.</div></li>
+                    <li><span class="feature">the family jewels:</span> a man's genitals.<div class="explanation"><strong>Example:</strong> Please wear the abdominal guard to protect the <strong>family jewels</strong>.</div></li>
+                    <li><span class="feature">the life of Riley:</span> a good life.<div class="explanation"><strong>Example:</strong> He's living the <strong>life of Riley</strong> in Australia.</div></li>
+                    <li><span class="feature">the proof of the pudding is in the eating:</span> do not jump to conclusions.<div class="explanation"><strong>Example:</strong> Wait to see the results before you praise the new strategy; <strong>the proof of the pudding is in the eating</strong>.</div></li>
+                    <li><span class="feature">the real McCoy:</span> the genuine article; a real thing.<div class="explanation"><strong>Example:</strong> This painting is the <strong>real McCoy</strong>.</div></li>
+                    <li><span class="feature">tickety-boo:</span> operating well; okay.<div class="explanation"><strong>Example:</strong> After they gave him an injection, everything was <strong>tickety-boo</strong>.</div></li>
+                    <li><span class="feature">tickled pink:</span> happy.<div class="explanation"><strong>Example:</strong> When she heard the news, she was <strong>tickled pink</strong>.</div></li>
+                    <li><span class="feature">tied to your mother's apron strings:</span> still dependent on your mother.<div class="explanation"><strong>Example:</strong> He is 30, but still <strong>tied to his mother's apron strings</strong>.</div></li>
+                    <li><span class="feature">tin Lizzie:</span> a car, an old car.<div class="explanation"><strong>Example:</strong> You can park your <strong>tin Lizzie</strong> in the garden.</div></li>
+                    <li><span class="feature">to the nth degree:</span> to the very last detail.<div class="explanation"><strong>Example:</strong> He analyzes the problem <strong>to the nth degree</strong>.</div></li>
+                    <li><span class="feature">true blue:</span> loyal and faithful.<div class="explanation"><strong>Example:</strong> He is a <strong>true blue</strong> friend.</div></li>
+                    <li><span class="feature">twinkle toes:</span> a dancer.<div class="explanation"><strong>Example:</strong> He is a real <strong>twinkle toes</strong>.</div></li>
+                </ul>
+            </section>
+            
+            <section id="cat-w" class="content-section">
+                <h2>Category: W</h2>
+                <ul class="example-list">
+                    <li><span class="feature">wacko:</span> crazy.<div class="explanation"><strong>Example:</strong> Are you <strong>wacko</strong>?</div></li>
+                    <li><span class="feature">wake up and smell the coffee:</span> be more aware.<div class="explanation"><strong>Example:</strong> You don't know about the fraud? <strong>Wake up and smell the coffee!</strong></div></li>
+                    <li><span class="feature">walk on eggshells:</span> to be very careful.<div class="explanation"><strong>Example:</strong> Your son is so much afraid of making a mistake, he is <strong>walking on eggshells</strong>.</div></li>
+                    <li><span class="feature">wallflower:</span> a girl who is not invited to dance.<div class="explanation"><strong>Example:</strong> I won't go to the party because I feel like a <strong>wallflower</strong> when the boys don't ask me to dance.</div></li>
+                    <li><span class="feature">wasn't born yesterday:</span> not inexperienced.<div class="explanation"><strong>Example:</strong> He can survive in the workplace; he <strong>wasn't born yesterday</strong>.</div></li>
+                    <li><span class="feature">watch your P's and Q's:</span> to mind your manners.<div class="explanation"><strong>Example:</strong> In the party, <strong>watch your P's and Q's</strong>.</div></li>
+                    <li><span class="feature">wax eloquent:</span> to speak beautifully.<div class="explanation"><strong>Example:</strong> His speech <strong>waxed eloquent</strong>.</div></li>
+                    <li><span class="feature">weasel words:</span> ambiguous or vague words.<div class="explanation"><strong>Example:</strong> Try to find the <strong>weasel words</strong> in the contract.</div></li>
+                    <li><span class="feature">wear out your welcome:</span> to stay or visit too long.<div class="explanation"><strong>Example:</strong> If we stay for more than three days, we will <strong>wear out our welcome</strong>.</div></li>
+                    <li><span class="feature">what the Sam Hill:</span> what the hell.<div class="explanation"><strong>Example:</strong> <strong>What the Sam Hill</strong> did you do to my bike?</div></li>
+                    <li><span class="feature">what's your poison?:</span> what's your liquor; what do you want to drink?<div class="explanation"><strong>Example:</strong> "<strong>What's your poison?</strong>" the bartender asked.</div></li>
+                    <li><span class="feature">what-cha-ma-call-it:</span> what do you call it.<div class="explanation"><strong>Example:</strong> To finish the job, I need a... <strong>what-cha-ma-call-it</strong>. A trowel.</div></li>
+                    <li><span class="feature">white elephant:</span> a useless object.<div class="explanation"><strong>Example:</strong> That phone is a <strong>white elephant</strong>.</div></li>
+                    <li><span class="feature">whore's bath:</span> a hasty, superficial wash.<div class="explanation"><strong>Example:</strong> I only have time for a <strong>whore's bath</strong> before we go.</div></li>
+                    <li><span class="feature">willy-nilly:</span> whether you want it or not.<div class="explanation"><strong>Example:</strong> I keep on receiving the junk mail <strong>willy-nilly</strong>.</div></li>
+                    <li><span class="feature">windbag:</span> a talkative person.<div class="explanation"><strong>Example:</strong> He is a <strong>windbag</strong>.</div></li>
+                    <li><span class="feature">wino:</span> a drunk.<div class="explanation"><strong>Example:</strong> See that <strong>wino</strong> is coming towards us.</div></li>
+                    <li><span class="feature">without a stitch of clothes on:</span> nude.<div class="explanation"><strong>Example:</strong> I saw her <strong>without a stitch of clothes on</strong>.</div></li>
+                </ul>
+            </section>
+            
+            <section id="cat-y" class="content-section">
+                <h2>Category: Y</h2>
+                <ul class="example-list">
+                    <li><span class="feature">yak:</span> to talk a lot.<div class="explanation"><strong>Example:</strong> He is just a <strong>yak</strong>.</div></li>
+                    <li><span class="feature">yellow:</span> lacking courage.<div class="explanation"><strong>Example:</strong> He is <strong>yellow</strong>. That's why he doesn't fight.</div></li>
+                    <li><span class="feature">yeppers:</span> yes.<div class="explanation"><strong>Example:</strong> Do I have to come home by 9? <strong>Yeppers</strong>, that's what I agreed.</div></li>
+                    <li><span class="feature">you snooze, you lose:</span> if you don't act fast, you lose an opportunity.<div class="explanation"><strong>Example:</strong> Sometimes they charge less for a product. <strong>You snooze, you lose</strong>.</div></li>
+                    <li><span class="feature">yo-yo:</span> a fool.<div class="explanation"><strong>Example:</strong> He is a <strong>yo-yo</strong>.</div></li>
+                </ul>
+            </section>
+
+            <section id="cat-z" class="content-section">
+                <h2>Category: Z</h2>
+                <ul class="example-list">
+                    <li><span class="feature">zilch:</span> zero; nothing.<div class="explanation"><strong>Example:</strong> How much did you spend? <strong>Zilch</strong>.</div></li>
+                    <li><span class="feature">zinger:</span> a sarcastic word.<div class="explanation"><strong>Example:</strong> Stop using <strong>zingers</strong>.</div></li>
+                    <li><span class="feature">zipperhead:</span> a serviceman or administrator.<div class="explanation"><strong>Example:</strong> He is a <strong>zipperhead</strong>.</div></li>
+                    <li><span class="feature">zonked:</span> tired.<div class="explanation"><strong>Example:</strong> Now, I am <strong>zonked</strong>.</div></li>
+                </ul>
+            </section>
+            
+            <section id="cat-slang" class="content-section">
+                <h2>Category: ESL Slangs</h2>
+                <ul class="example-list">
+                    <li><span class="feature">airhead:</span> a stupid person.<div class="explanation"><strong>Example:</strong> I can't believe he made the same mistake again; he's such an <strong>airhead</strong>.</div></li>
+                    <li><span class="feature">amigo:</span> a friend.<div class="explanation"><strong>Example:</strong> I met many <strong>amigos</strong> in the college.</div></li>
+                    <li><span class="feature">ammunition:</span> toilet paper.<div class="explanation"><strong>Example:</strong> We're completely out of <strong>ammunition</strong>.</div></li>
+                    <li><span class="feature">anti-freeze:</span> alcohol.<div class="explanation"><strong>Example:</strong> I had a lot of <strong>anti-freeze</strong> yesterday.</div></li>
+                    <li><span class="feature">barf:</span> to vomit.<div class="explanation"><strong>Example:</strong> The dog <strong>barfed</strong> all over the carpet.</div></li>
+                    <li><span class="feature">bazillion:</span> an infinite number.<div class="explanation"><strong>Example:</strong> I have taught a <strong>bazillion</strong> students.</div></li>
+                    <li><span class="feature">beemer:</span> a BMW car.<div class="explanation"><strong>Example:</strong> I want to buy a <strong>beemer</strong> this month.</div></li>
+                    <li><span class="feature">boob tube:</span> a television.<div class="explanation"><strong>Example:</strong> He is always in front of the <strong>boob tube</strong>.</div></li>
+                    <li><span class="feature">bread:</span> money.<div class="explanation"><strong>Example:</strong> Can I borrow some <strong>bread</strong>?</div></li>
+                    <li><span class="feature">brew:</span> beer.<div class="explanation"><strong>Example:</strong> I would like to have a <strong>brew</strong>.</div></li>
+                    <li><span class="feature">cooler:</span> jail.<div class="explanation"><strong>Example:</strong> You'll have to spend some time in the <strong>cooler</strong> if you drink and drive.</div></li>
+                    <li><span class="feature">dino:</span> money.<div class="explanation"><strong>Example:</strong> I wish I had more <strong>dino</strong>.</div></li>
+                    <li><span class="feature">dirt:</span> an extremely bad person.<div class="explanation"><strong>Example:</strong> He is a <strong>dirt</strong>.</div></li>
+                    <li><span class="feature">el cheapo:</span> cheap.<div class="explanation"><strong>Example:</strong> He always purchases the <strong>el cheapo</strong> brand.</div></li>
+                    <li><span class="feature">gross:</span> marijuana.<div class="explanation"><strong>Example:</strong> Have you ever smoked <strong>gross</strong>?</div></li>
+                    <li><span class="feature">head:</span> a toilet.<div class="explanation"><strong>Example:</strong> I really need to use the <strong>head</strong>.</div></li>
+                    <li><span class="feature">hickey:</span> a love bite on the skin.<div class="explanation"><strong>Example:</strong> Is that a <strong>hickey</strong> on your neck?</div></li>
+                    <li><span class="feature">icky:</span> unpleasant.<div class="explanation"><strong>Example:</strong> The food was really <strong>icky</strong>.</div></li>
+                    <li><span class="feature">jillion:</span> an immense number.<div class="explanation"><strong>Example:</strong> I have taught a <strong>jillion</strong> students.</div></li>
+                    <li><span class="feature">john:</span> a toilet.<div class="explanation"><strong>Example:</strong> Where is the <strong>john</strong>?</div></li>
+                    <li><span class="feature">love handles:</span> excess fat around the waist.<div class="explanation"><strong>Example:</strong> Is it possible for you to lose your <strong>love handles</strong>?</div></li>
+                    <li><span class="feature">mickey:</span> unimportant or time-wasting.<div class="explanation"><strong>Example:</strong> I am sick of this <strong>mickey</strong>-mouse job.</div></li>
+                    <li><span class="feature">pad:</span> home.<div class="explanation"><strong>Example:</strong> Can I sleep at your <strong>pad</strong> tonight?</div></li>
+                    <li><span class="feature">pot:</span> a toilet.<div class="explanation"><strong>Example:</strong> Who's on the <strong>pot</strong>?</div></li>
+                    <li><span class="feature">razz:</span> to annoy.<div class="explanation"><strong>Example:</strong> Will you please stop <strong>razzing</strong> me?</div></li>
+                    <li><span class="feature">smurfbrain:</span> stupid.<div class="explanation"><strong>Example:</strong> Stop acting like a <strong>smurfbrain</strong>.</div></li>
+                    <li><span class="feature">technicolor yawn:</span> to vomit.<div class="explanation"><strong>Example:</strong> My dog did a <strong>technicolor yawn</strong> on the carpet.</div></li>
+                    <li><span class="feature">tints:</span> sunglasses.<div class="explanation"><strong>Example:</strong> Please wear your <strong>tints</strong>.</div></li>
+                    <li><span class="feature">unlax:</span> to relax.<div class="explanation"><strong>Example:</strong> Please <strong>unlax</strong>.</div></li>
+                    <li><span class="feature">zit:</span> a pimple.<div class="explanation"><strong>Example:</strong> He has a lot of <strong>zits</strong>.</div></li>
+                </ul>
+            </section>
+            
+            <section id="cat-siddhuisms" class="content-section">
+                <h2>Category: Siddhuisms (Figurative Expressions)</h2>
+                <ul class="example-list">
+                    <li>A girl born beautiful is half-married.</li>
+                    <li>In London, they drive on the left; in India, we drive on what is left.</li>
+                    <li>He is like an Indian transistor which does not work until you give it two slaps.</li>
+                    <li>There is light at the end of the tunnel for him, but it's that of an incoming train which will run him over.</li>
+                    <li>He has thrown a drowning man both ends of the rope.</li>
+                    <li>He is like an Indian three-wheeler which will pull a lot of load but cannot go beyond 30.</li>
+                    <li>One who does not throw the dice will never get a six.</li>
+                    <li>He cannot find his own buttocks with his two hands.</li>
+                    <li>He is like a one-legged man in a fanny-kicking competition.</li>
+                    <li>The only thing you can get without hard work is dandruff.</li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-column a');
+            const contentSections = document.querySelectorAll('.content-section');
+            const contentColumn = document.querySelector('.content-column');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    navLinks.forEach(nav => nav.classList.remove('active'));
+                    this.classList.add('active');
+                    const targetId = this.getAttribute('href');
+                    contentSections.forEach(section => {
+                        if ('#' + section.id === targetId) {
+                            section.classList.add('active');
+                        } else {
+                            section.classList.remove('active');
+                        }
+                    });
+                    contentColumn.scrollTop = 0;
+                });
+            });
+            
+             const firstLink = document.querySelector('.nav-column a');
+             if(firstLink) {
+                firstLink.classList.add('active');
+                document.querySelector(firstLink.getAttribute('href')).classList.add('active');
+             }
+        });
+    </script>
+
+</body>
+</html>

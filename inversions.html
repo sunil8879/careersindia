@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Grammar: Inversion</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            /* Blue and white gridline background */
+            background-color: #f0f8ff; 
+            background-image: 
+                repeating-linear-gradient(to right, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 30px),
+                repeating-linear-gradient(to bottom, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 30px);
+            background-size: 30px 30px;
+        }
+
+        /* Header Styling */
+        header {
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        header h1 {
+            display: inline-block;
+            background-color: #0056b3;
+            color: white;
+            padding: 20px 40px;
+            border: 3px solid white;
+            border-radius: 15px;
+            /* 3D Box Effect */
+            box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.4), inset 2px 2px 5px rgba(255, 255, 255, 0.3);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-size: 2.2em;
+            margin: 0;
+        }
+
+        /* Main Container for Two-Column Layout */
+        .container {
+            display: flex;
+            max-width: 1400px;
+            margin: 20px auto;
+            background: #ffffff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.15);
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 80vh;
+        }
+
+        /* Left Navigation Column */
+        .nav-column {
+            flex: 1;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+            background-color: #f8f9fa;
+            height: 80vh;
+            overflow-y: auto;
+        }
+
+        .nav-column ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-column li a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: #0056b3;
+            border-radius: 5px;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 0.95em;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .nav-column li a:hover,
+        .nav-column li a.active {
+            background-color: #0056b3;
+            color: #fff;
+        }
+
+        /* Right Content Column */
+        .content-column {
+            flex: 3;
+            padding: 25px 35px;
+            height: 100%;
+            overflow-y: auto;
+        }
+
+        .content-section {
+            display: none;
+        }
+        
+        .content-section.active {
+            display: block;
+        }
+        
+        h2 {
+            font-size: 1.8em;
+            color: #0056b3;
+            border-bottom: 3px solid #0056b3;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        
+        h3 {
+            font-size: 1.4em;
+            color: #333;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        
+        .rule {
+            background-color: #e7f3fe;
+            border: 1px solid #b3d7f7;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 5px;
+        }
+
+        .example-list {
+            list-style-type: decimal;
+            padding-left: 25px;
+        }
+
+        .example-list li {
+            margin-bottom: 20px;
+            padding-left: 10px;
+        }
+        
+        .explanation {
+            font-style: italic;
+            color: #555;
+            margin-top: 5px;
+        }
+        
+        .feature {
+            font-weight: bold;
+            color: #0056b3;
+            text-decoration: underline;
+        }
+        
+        .correct { color: green; font-weight: bold; }
+        .incorrect { color: red; font-weight: bold; }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>ADVANCED GRAMMAR: INVERSION</h1>
+    </header>
+
+    <div class="container">
+        <nav class="nav-column">
+            <ul>
+                <li><a href="#definition" class="nav-link active">Definition & Concept</a></li>
+                <li><a href="#rules" class="nav-link">Rules & Syntax</a></li>
+                <li><a href="#identify" class="nav-link">How to Identify</a></li>
+                <li><a href="#examples" class="nav-link">100 Examples</a></li>
+            </ul>
+        </nav>
+
+        <main class="content-column">
+            <section id="definition" class="content-section active">
+                <h2>Definition & Concept</h2>
+                <div class="rule">
+                    <strong>Concept:</strong> Inversion is a grammatical construction where the normal word order of a sentence is reversed, usually by placing the verb (or helping verb) **before** the subject. The standard order is `Subject + Verb`, while the inverted order is `Verb + Subject`.
+                </div>
+                <h3>Where and How It Is Used</h3>
+                <p>Inversion is not used randomly. It appears in specific grammatical situations, primarily for:</p>
+                <ul>
+                    <li><strong>Asking Questions:</strong> The most common use of inversion.</li>
+                    <li><strong>Emphasis:</strong> To make a statement more formal, literary, or emphatic, especially after negative or limiting words.</li>
+                    <li><strong>Conditional Clauses:</strong> To create formal conditional sentences without using the word 'if'.</li>
+                </ul>
+            </section>
+            
+            <section id="rules" class="content-section">
+                <h2>Rules & Syntax</h2>
+                <div class="rule">
+                    <h3>Rule 1: In Questions</h3>
+                    <p><strong>Syntax:</strong> `Helping Verb + Subject + Main Verb?`</p>
+                    <p><strong>Usage:</strong> The helping verb (or modal) moves before the subject to form a question.</p>
+                </div>
+                 <div class="rule">
+                    <h3>Rule 2: After Negative or Limiting Adverbials</h3>
+                    <p><strong>Syntax:</strong> `Negative Adverbial + Helping Verb + Subject + Main Verb`</p>
+                    <p><strong>Usage:</strong> When a sentence starts with a negative or limiting adverbial for emphasis, inversion is mandatory. Common triggers include: `No sooner`, `Hardly`, `Scarcely`, `Rarely`, `Seldom`, `Never`, `Not only`, `Under no circumstances`, `At no time`.</p>
+                </div>
+                 <div class="rule">
+                    <h3>Rule 3: In Conditional Sentences</h3>
+                    <p><strong>Syntax:</strong> `Were + Subject ...`, `Had + Subject ...`, or `Should + Subject ...`</p>
+                    <p><strong>Usage:</strong> To form formal conditional clauses by omitting 'if' and inverting the subject and helping verb.</p>
+                </div>
+            </section>
+            
+            <section id="identify" class="content-section">
+                <h2>How to Identify Inversion</h2>
+                <div class="rule">
+                    Spotting inversion (or the lack of it, which is an error) involves a 3-step check.
+                </div>
+                <h3>A 3-Step Guide to Identification</h3>
+                <ol>
+                    <li><strong>1. Check the Beginning of the Sentence:</strong> Look for sentences that start with something other than a typical subject. Pay close attention to negative words (`Never`, `No sooner`), limiting words (`Only after`, `Hardly`), or conditional helping verbs (`Had`, `Were`, `Should`).</li>
+                    <li><strong>2. Locate the Subject and Verb:</strong> Find the main subject and the helping verb of the clause that follows the trigger word.</li>
+                    <li><strong>3. Verify the Order:</strong> Check if the helping verb comes **before** the subject.
+                        <ul>
+                            <li><span class="correct">Correct Inversion:</span> `Hardly` <span class="feature">had he</span> `left...` (Verb before Subject)</li>
+                            <li><span class="incorrect">Incorrect (Error):</span> `Hardly` <span class="feature">he had</span> `left...` (Subject before Verb - this is a common exam question)</li>
+                        </ul>
+                    </li>
+                </ol>
+            </section>
+            
+            <section id="examples" class="content-section">
+                <h2>100 Examples of Inversion</h2>
+                <ol class="example-list">
+                    <!-- Questions -->
+                    <h3>Category 1: Inversion in Questions (1-10)</h3>
+                    <li><span class="feature">Are you</span> ready for the test?</li>
+                    <li><span class="feature">Did he</span> finish the report on time?</li>
+                    <li><span class="feature">Have they</span> arrived yet?</li>
+                    <li><span class="feature">Will she</span> accept the new job offer?</li>
+                    <li>Where <span class="feature">is the</span> nearest station?</li>
+                    <li>How <span class="feature">can I</span> help you?</li>
+                    <li><span class="feature">Should we</span> inform the manager?</li>
+                    <li>Why <span class="feature">was she</span> crying?</li>
+                    <li><span class="feature">Does your company</span> provide health insurance?</li>
+                    <li>When <span class="feature">did the</span> Industrial Revolution begin?</li>
+
+                    <!-- Negative Adverbials -->
+                    <h3>Category 2: Inversion after Negative & Limiting Adverbials (11-60)</h3>
+                    <h4>Hardly / Scarcely ... when</h4>
+                    <li><span class="feature">Hardly had I</span> left the house when it started to rain.</li>
+                    <li><span class="feature">Scarcely had the movie</span> started when the power went out.</li>
+                    <li><span class="feature">Hardly had the sun</span> risen when the farmers went to the fields.</li>
+                    <li><span class="feature">Scarcely had she</span> finished her speech when the audience erupted in applause.</li>
+                    <li><span class="feature">Hardly had we</span> reached the station when the train departed.</li>
+                    <li><span class="feature">Scarcely had he</span> closed his eyes when the alarm clock rang.</li>
+                    <li><span class="feature">Hardly had the concert</span> begun when a string on his guitar broke.</li>
+                    <li><span class="feature">Scarcely had they</span> sat down to eat when the doorbell rang.</li>
+                    <li><span class="feature">Hardly ever do we</span> get to see such a spectacular performance.</li>
+                    <li><span class="feature">Scarcely had I</span> understood the question when the time was up.</li>
+                    <h4>No sooner ... than</h4>
+                    <li><span class="feature">No sooner did he</span> see the police than he ran away.</li>
+                    <li><span class="feature">No sooner had the teacher</span> entered the classroom than the students became silent.</li>
+                    <li><span class="feature">No sooner had we</span> heard the news than we rushed to the hospital.</li>
+                    <li><span class="feature">No sooner did the bell</span> ring than the children ran out to play.</li>
+                    <li><span class="feature">No sooner had she</span> accepted the proposal than she began to have doubts.</li>
+                    <li><span class="feature">No sooner did they</span> launch the product than it became a bestseller.</li>
+                    <li><span class="feature">No sooner had the sun</span> set than the temperature dropped sharply.</li>
+                    <li><span class="feature">No sooner did the witness</span> take the stand than the lawyer began questioning him.</li>
+                    <li><span class="feature">No sooner had he</span> bought the car than it broke down.</li>
+                    <li><span class="feature">No sooner did she</span> open the book than she was completely engrossed.</li>
+                    <h4>Never / Seldom / Rarely / Little</h4>
+                    <li><span class="feature">Never have I</span> seen such a beautiful sight.</li>
+                    <li><span class="feature">Seldom do we</span> get a chance to relax like this.</li>
+                    <li><span class="feature">Rarely does it</span> snow in this part of the country.</li>
+                    <li><span class="feature">Little did I</span> know about the surprise they had planned.</li>
+                    <li><span class="feature">Never again will I</span> trust that person.</li>
+                    <li><span class="feature">Seldom has a</span> politician been so honest with the public.</li>
+                    <li><span class="feature">Rarely have we</span> witnessed such bravery.</li>
+                    <li><span class="feature">Little did she</span> realize the danger she was in.</li>
+                    <li><span class="feature">Never in my life have I</span> been so embarrassed.</li>
+                    <li><span class="feature">Seldom does he</span> talk about his past.</li>
+                    <h4>Not only ... but also</h4>
+                    <li><span class="feature">Not only does he</span> play the guitar, but he also sings beautifully.</li>
+                    <li><span class="feature">Not only is he</span> intelligent, but he is also hardworking.</li>
+                    <li><span class="feature">Not only did they</span> miss the train, but they also lost their luggage.</li>
+                    <li><span class="feature">Not only did she</span> win the award, but she also received a scholarship.</li>
+                    <li><span class="feature">Not only was the</span> hotel expensive, but it was also very noisy.</li>
+                    <h4>Other Negative Phrases (Under no circumstances, At no time, etc.)</h4>
+                    <li>Under no circumstances <span class="feature">should you</span> leave this building.</li>
+                    <li>At no time <span class="feature">were the students</span> allowed to use their phones.</li>
+                    <li>In no way <span class="feature">can he</span> be held responsible for the accident.</li>
+                    <li>Not a single word <span class="feature">did she</span> say during the entire meeting.</li>
+                    <li>Not until I saw it with my own eyes <span class="feature">did I</span> believe it.</li>
+                    <li>Only after finishing his homework <span class="feature">was he</span> allowed to play.</li>
+                    <li>Only then <span class="feature">did I</span> understand the real problem.</li>
+                    <li>Only in this way <span class="feature">can you</span> achieve your goals.</li>
+                    <li>On no account <span class="feature">should the</span> door be left unlocked.</li>
+                    <li>Not for a moment <span class="feature">did I</span> doubt his intentions.</li>
+
+                    <!-- Conditional Inversion -->
+                    <h3>Category 3: Inversion in Conditional Sentences (61-80)</h3>
+                    <li><span class="feature">Had I known</span> the truth, I would have acted differently. <div class="explanation">(Instead of 'If I had known...')</div></li>
+                    <li><span class="feature">Were I</span> you, I would not accept that offer. <div class="explanation">(Instead of 'If I were you...')</div></li>
+                    <li><span class="feature">Should you</span> need any help, do not hesitate to ask. <div class="explanation">(Instead of 'If you should need...')</div></li>
+                    <li><span class="feature">Had he</span> studied harder, he would have passed the exam.</li>
+                    <li><span class="feature">Were the government</span> to announce the policy, there would be protests.</li>
+                    <li><span class="feature">Should the train</span> be late, we will miss our connecting flight.</li>
+                    <li><span class="feature">Had I</span> been there, this tragic accident would not have happened.</li>
+                    <li><span class="feature">Were she</span> to apologize for her behavior, I would forgive her.</li>
+                    <li><span class="feature">Should you</span> change your mind about the plan, please let me know.</li>
+                    <li><span class="feature">Had they</span> invested their money wisely, they would be rich now.</li>
+                    <li><span class="feature">Were I</span> a bird, I would fly all over the world.</li>
+                    <li><span class="feature">Should it</span> rain tomorrow, the match will be cancelled.</li>
+                    <li><span class="feature">Had she</span> not helped me, I would have failed.</li>
+                    <li><span class="feature">Were the roles</span> reversed, you would understand my position.</li>
+                    <li><span class="feature">Should he</span> call, tell him I am not at home.</li>
+                    <li><span class="feature">Had we</span> arrived earlier, we would have seen the opening ceremony.</li>
+                    <li><span class="feature">Were it not</span> for his help, we would be in serious trouble.</li>
+                    <li><span class="feature">Should there be</span> any problem, contact the customer service.</li>
+                    <li><span class="feature">Had I</span> a million dollars, I would start a charity. (Less common, means 'If I had')</li>
+                    <li><span class="feature">Were this</span> true, it would change everything.</li>
+
+                    <!-- Inversion for Emphasis -->
+                    <h3>Category 4: Inversion for Emphasis (So/Such) (81-90)</h3>
+                    <li>So beautiful <span class="feature">was the painting</span> that I couldn't take my eyes off it.</li>
+                    <li>So fast <span class="feature">did he run</span> that no one could catch him.</li>
+                    <li>Such <span class="feature">was the force</span> of the storm that trees were uprooted.</li>
+                    <li>So great <span class="feature">was his</span> courage that he was awarded a medal.</li>
+                    <li>So confusing <span class="feature">were the</span> instructions that nobody could understand them.</li>
+                    <li>So tired <span class="feature">was he</span> that he fell asleep immediately.</li>
+                    <li>So brilliant <span class="feature">was her</span> performance that she received a standing ovation.</li>
+                    <li>Such <span class="feature">is the</span> complexity of the issue that there is no easy solution.</li>
+                    <li>So rarely <span class="feature">does a</span> talent like this emerge.</li>
+                    <li>So dark <span class="feature">was the</span> night that I couldn't see my own hand.</li>
+
+                    <!-- Inversion after Adverbials of Place -->
+                    <h3>Category 5: Inversion after Adverbials of Place (91-100)</h3>
+                    <li>On the hill <span class="feature">stands a</span> large castle.</li>
+                    <li>Around the corner <span class="feature">came the</span> bus.</li>
+                    <li>Down the street <span class="feature">marched the</span> soldiers.</li>
+                    <li>Into the room <span class="feature">walked the</span> mysterious stranger.</li>
+                    <li>Along the river <span class="feature">ran the</span> happy children.</li>
+                    <li>Under the table <span class="feature">sat a</span> small cat.</li>
+                    <li>Out of the bushes <span class="feature">jumped a</span> rabbit.</li>
+                    <li>At the top of the stairs <span class="feature">was a</span> locked door.</li>
+                    <li>Next to the library <span class="feature">is the</span> new science lab.</li>
+                    <li>Over the wall <span class="feature">flew the</span> ball.</li>
+                </ol>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-column a');
+            const contentSections = document.querySelectorAll('.content-section');
+            const contentColumn = document.querySelector('.content-column');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    navLinks.forEach(nav => nav.classList.remove('active'));
+                    this.classList.add('active');
+                    const targetId = this.getAttribute('href');
+                    contentSections.forEach(section => {
+                        if ('#' + section.id === targetId) {
+                            section.classList.add('active');
+                        } else {
+                            section.classList.remove('active');
+                        }
+                    });
+                    contentColumn.scrollTop = 0;
+                });
+            });
+            
+             const firstLink = document.querySelector('.nav-column a');
+             if(firstLink) {
+                firstLink.classList.add('active');
+                document.querySelector(firstLink.getAttribute('href')).classList.add('active');
+             }
+        });
+    </script>
+
+</body>
+</html>

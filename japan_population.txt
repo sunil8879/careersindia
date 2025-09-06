@@ -1,0 +1,267 @@
+{
+  "description": "Top Japanese Municipalities by Indian Population, broken down by the 47 Prefectures.",
+  "source": "Immigration Services Agency of Japan, Statistics on Foreign Residents (End of 2022)",
+  "data": [
+    {
+      "rank": 1,
+      "country": "Japan",
+      "prefecture": "Tokyo",
+      "prefecture_indian_population": 16564,
+      "percentage_of_total_prefecture_population": 0.12,
+      "cities": [
+        {
+          "city": "Edogawa Ward",
+          "indian_population": 5913,
+          "percentage_of_city_population": 0.85,
+          "comment": "Known as Tokyo's 'Little India'."
+        },
+        {
+          "city": "Koto Ward",
+          "indian_population": 1285,
+          "percentage_of_city_population": 0.24
+        },
+        {
+          "city": "Minato Ward",
+          "indian_population": 1102,
+          "percentage_of_city_population": 0.42
+        },
+        {
+          "city": "Setagaya Ward",
+          "indian_population": 721,
+          "percentage_of_city_population": 0.08
+        },
+        {
+          "city": "Shinagawa Ward",
+          "indian_population": 655,
+          "percentage_of_city_population": 0.16
+        },
+        {
+          "city": "Adachi Ward",
+          "indian_population": 589,
+          "percentage_of_city_population": 0.09
+        },
+        {
+          "city": "Itabashi Ward",
+          "indian_population": 510,
+          "percentage_of_city_population": 0.09
+        },
+        {
+          "city": "Nerima Ward",
+          "indian_population": 485,
+          "percentage_of_city_population": 0.07
+        },
+        {
+          "city": "Shinjuku Ward",
+          "indian_population": 451,
+          "percentage_of_city_population": 0.13
+        },
+        {
+          "city": "Chuo Ward",
+          "indian_population": 415,
+          "percentage_of_city_population": 0.23
+        },
+        {
+          "city": "Shibuya Ward",
+          "indian_population": 398,
+          "percentage_of_city_population": 0.17
+        },
+        {
+          "city": "Ota Ward",
+          "indian_population": 365,
+          "percentage_of_city_population": 0.05
+        },
+        {
+          "city": "Suginami Ward",
+          "indian_population": 320,
+          "percentage_of_city_population": 0.06
+        },
+        {
+          "city": "Taito Ward",
+          "indian_population": 295,
+          "percentage_of_city_population": 0.14
+        },
+        {
+          "city": "Hachioji City",
+          "indian_population": 280,
+          "percentage_of_city_population": 0.05
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "country": "Japan",
+      "prefecture": "Kanagawa",
+      "prefecture_indian_population": 6851,
+      "percentage_of_total_prefecture_population": 0.07,
+      "cities": [
+        {
+          "city": "Yokohama",
+          "indian_population": 3985,
+          "percentage_of_city_population": 0.11
+        },
+        {
+          "city": "Kawasaki",
+          "indian_population": 1850,
+          "percentage_of_city_population": 0.12
+        },
+        {
+          "city": "Ebina",
+          "indian_population": 155,
+          "percentage_of_city_population": 0.11
+        },
+        {
+          "city": "Yamato",
+          "indian_population": 140,
+          "percentage_of_city_population": 0.06
+        },
+        {
+          "city": "Fujisawa",
+          "indian_population": 135,
+          "percentage_of_city_population": 0.03
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "country": "Japan",
+      "prefecture": "Chiba",
+      "prefecture_indian_population": 3115,
+      "percentage_of_total_prefecture_population": 0.05,
+      "cities": [
+        {
+          "city": "Ichikawa",
+          "indian_population": 650,
+          "percentage_of_city_population": 0.13
+        },
+        {
+          "city": "Chiba City",
+          "indian_population": 580,
+          "percentage_of_city_population": 0.06
+        },
+        {
+          "city": "Funabashi",
+          "indian_population": 510,
+          "percentage_of_city_population": 0.08
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "country": "Japan",
+      "prefecture": "Hyogo",
+      "prefecture_indian_population": 2510,
+      "percentage_of_total_prefecture_population": 0.05,
+      "cities": [
+        {
+          "city": "Kobe",
+          "indian_population": 1950,
+          "percentage_of_city_population": 0.13,
+          "comment": "Has one of Japan's oldest and most established Indian communities."
+        }
+      ]
+    },
+    {
+      "rank": 5,
+      "country": "Japan",
+      "prefecture": "Saitama",
+      "prefecture_indian_population": 2350,
+      "percentage_of_total_prefecture_population": 0.03,
+      "cities": [
+        {
+          "city": "Kawaguchi",
+          "indian_population": 620,
+          "percentage_of_city_population": 0.10
+        },
+        {
+          "city": "Saitama City",
+          "indian_population": 550,
+          "percentage_of_city_population": 0.04
+        }
+      ]
+    },
+    {
+      "rank": 6,
+      "country": "Japan",
+      "prefecture": "Osaka",
+      "prefecture_indian_population": 2180,
+      "percentage_of_total_prefecture_population": 0.02,
+      "cities": [
+        {
+          "city": "Osaka City",
+          "indian_population": 1550,
+          "percentage_of_city_population": 0.06
+        },
+        {
+          "city": "Suita",
+          "indian_population": 150,
+          "percentage_of_city_population": 0.04
+        }
+      ]
+    },
+    {
+      "rank": 7,
+      "country": "Japan",
+      "prefecture": "Aichi",
+      "prefecture_indian_population": 1850,
+      "percentage_of_total_prefecture_population": 0.02,
+      "cities": [
+        {
+          "city": "Nagoya",
+          "indian_population": 950,
+          "percentage_of_city_population": 0.04
+        }
+      ]
+    },
+    {
+      "rank": 8,
+      "country": "Japan",
+      "prefecture": "Ibaraki",
+      "prefecture_indian_population": 1510,
+      "percentage_of_total_prefecture_population": 0.05,
+      "cities": [
+        {
+          "city": "Tsukuba",
+          "indian_population": 850,
+          "percentage_of_city_population": 0.34,
+          "comment": "A major science and research city attracting many Indian researchers."
+        }
+      ]
+    },
+    {
+      "rank": 9,
+      "country": "Japan",
+      "prefecture": "Fukuoka",
+      "prefecture_indian_population": 890,
+      "percentage_of_total_prefecture_population": 0.02,
+      "cities": [
+        {
+          "city": "Fukuoka City",
+          "indian_population": 650,
+          "percentage_of_city_population": 0.04
+        }
+      ]
+    },
+    {
+      "rank": 10,
+      "country": "Japan",
+      "prefecture": "Hiroshima",
+      "prefecture_indian_population": 750,
+      "percentage_of_total_prefecture_population": 0.03,
+      "cities": [
+        {
+          "city": "Hiroshima City",
+          "indian_population": 450,
+          "percentage_of_city_population": 0.04
+        },
+        {
+          "city": "Higashihiroshima",
+          "indian_population": 150,
+          "percentage_of_city_population": 0.08
+        }
+      ]
+    },
+    {
+      "comment": "The remaining 37 prefectures have significantly smaller Indian populations, typically numbering in the low hundreds or less per prefecture. The major ones among them include Kyoto (680), Shizuoka (650), Tochigi (550), Gunma (510), and Hokkaido (450). The population is usually concentrated in the prefectural capital city."
+    }
+  ]
+}

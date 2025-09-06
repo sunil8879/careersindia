@@ -1,0 +1,301 @@
+{
+  "country": "Italy",
+  "currency": "EUR",
+  "source": "Numbeo (User-Contributed Data)",
+  "cost_of_living": {
+    "restaurants": [
+      {
+        "item": "Meal, Inexpensive Restaurant",
+        "average_price": 15.00,
+        "range": { "min": 10.00, "max": 25.00 }
+      },
+      {
+        "item": "Meal for 2 People, Mid-range Restaurant, Three-course",
+        "average_price": 70.00,
+        "range": { "min": 50.00, "max": 100.00 }
+      },
+      {
+        "item": "McMeal at McDonalds (or Equivalent Combo Meal)",
+        "average_price": 10.00,
+        "range": { "min": 9.00, "max": 12.00 }
+      },
+      {
+        "item": "Domestic Beer (0.5 liter draught)",
+        "average_price": 5.00,
+        "range": { "min": 3.00, "max": 7.00 }
+      },
+      {
+        "item": "Imported Beer (0.33 liter bottle)",
+        "average_price": 4.73,
+        "range": { "min": 3.00, "max": 6.99 }
+      },
+      {
+        "item": "Cappuccino (regular)",
+        "average_price": 1.70,
+        "range": { "min": 1.20, "max": 2.50 }
+      },
+      {
+        "item": "Coke/Pepsi (0.33 liter bottle)",
+        "average_price": 2.58,
+        "range": { "min": 1.90, "max": 3.50 }
+      },
+      {
+        "item": "Water (0.33 liter bottle)",
+        "average_price": 1.17,
+        "range": { "min": 1.00, "max": 2.00 }
+      }
+    ],
+    "markets": [
+      {
+        "item": "Milk (regular), (1 liter)",
+        "average_price": 1.43,
+        "range": { "min": 1.00, "max": 2.00 }
+      },
+      {
+        "item": "Loaf of Fresh White Bread (500g)",
+        "average_price": 2.05,
+        "range": { "min": 1.00, "max": 3.50 }
+      },
+      {
+        "item": "Rice (white), (1kg)",
+        "average_price": 2.60,
+        "range": { "min": 1.50, "max": 4.00 }
+      },
+      {
+        "item": "Eggs (regular) (12)",
+        "average_price": 3.51,
+        "range": { "min": 2.00, "max": 5.40 }
+      },
+      {
+        "item": "Local Cheese (1kg)",
+        "average_price": 14.39,
+        "range": { "min": 8.00, "max": 26.00 }
+      },
+      {
+        "item": "Chicken Fillets (1kg)",
+        "average_price": 10.76,
+        "range": { "min": 6.00, "max": 15.00 }
+      },
+      {
+        "item": "Beef Round (1kg) (or Equivalent Back Leg Red Meat)",
+        "average_price": 17.54,
+        "range": { "min": 10.00, "max": 25.00 }
+      },
+      {
+        "item": "Apples (1kg)",
+        "average_price": 2.19,
+        "range": { "min": 1.00, "max": 3.00 }
+      },
+      {
+        "item": "Banana (1kg)",
+        "average_price": 1.88,
+        "range": { "min": 1.10, "max": 3.00 }
+      },
+      {
+        "item": "Oranges (1kg)",
+        "average_price": 2.31,
+        "range": { "min": 1.00, "max": 4.00 }
+      },
+      {
+        "item": "Tomato (1kg)",
+        "average_price": 2.88,
+        "range": { "min": 1.00, "max": 5.00 }
+      },
+      {
+        "item": "Potato (1kg)",
+        "average_price": 1.71,
+        "range": { "min": 0.90, "max": 2.70 }
+      },
+      {
+        "item": "Onion (1kg)",
+        "average_price": 1.60,
+        "range": { "min": 1.00, "max": 2.76 }
+      },
+      {
+        "item": "Lettuce (1 head)",
+        "average_price": 1.32,
+        "range": { "min": 0.80, "max": 2.00 }
+      },
+      {
+        "item": "Water (1.5 liter bottle)",
+        "average_price": 0.46,
+        "range": { "min": 0.25, "max": 1.00 }
+      },
+      {
+        "item": "Bottle of Wine (Mid-Range)",
+        "average_price": 6.00,
+        "range": { "min": 3.00, "max": 10.00 }
+      },
+      {
+        "item": "Domestic Beer (0.5 liter bottle)",
+        "average_price": 1.55,
+        "range": { "min": 1.00, "max": 2.50 }
+      },
+      {
+        "item": "Imported Beer (0.33 liter bottle)",
+        "average_price": 2.13,
+        "range": { "min": 1.00, "max": 4.00 }
+      },
+      {
+        "item": "Cigarettes 20 Pack (Marlboro)",
+        "average_price": 6.00,
+        "range": { "min": 5.50, "max": 6.50 }
+      }
+    ],
+    "transportation": [
+      {
+        "item": "One-way Ticket (Local Transport)",
+        "average_price": 1.70,
+        "range": { "min": 1.40, "max": 2.30 }
+      },
+      {
+        "item": "Monthly Pass (Regular Price)",
+        "average_price": 37.00,
+        "range": { "min": 30.00, "max": 53.00 }
+      },
+      {
+        "item": "Taxi Start (Normal Tariff)",
+        "average_price": 5.00,
+        "range": { "min": 4.00, "max": 10.00 }
+      },
+      {
+        "item": "Taxi 1km (Normal Tariff)",
+        "average_price": 1.50,
+        "range": { "min": 1.10, "max": 3.00 }
+      },
+      {
+        "item": "Taxi 1hour Waiting (Normal Tariff)",
+        "average_price": 30.00,
+        "range": { "min": 24.00, "max": 50.00 }
+      },
+      {
+        "item": "Gasoline (1 liter)",
+        "average_price": 1.78,
+        "range": { "min": 1.70, "max": 1.90 }
+      },
+      {
+        "item": "Volkswagen Golf 1.4 90 KW Trendline (Or Equivalent New Car)",
+        "average_price": 28000.00,
+        "range": { "min": 25000.00, "max": 31000.00 }
+      },
+      {
+        "item": "Toyota Corolla Sedan 1.6l 97kW Comfort (Or Equivalent New Car)",
+        "average_price": 29225.79,
+        "range": { "min": 25000.00, "max": 33400.00 }
+      }
+    ],
+    "utilities_monthly": [
+      {
+        "item": "Basic (Electricity, Heating, Cooling, Water, Garbage) for 85m2 Apartment",
+        "average_price": 195.41,
+        "range": { "min": 125.00, "max": 309.09 }
+      },
+      {
+        "item": "Mobile Phone Monthly Plan with Calls and 10GB+ Data",
+        "average_price": 10.66,
+        "range": { "min": 6.00, "max": 14.99 }
+      },
+      {
+        "item": "Internet (60 Mbps or More, Unlimited Data, Cable/ADSL)",
+        "average_price": 27.22,
+        "range": { "min": 24.00, "max": 35.00 }
+      }
+    ],
+    "sports_and_leisure": [
+      {
+        "item": "Fitness Club, Monthly Fee for 1 Adult",
+        "average_price": 49.39,
+        "range": { "min": 30.00, "max": 79.17 }
+      },
+      {
+        "item": "Tennis Court Rent (1 Hour on Weekend)",
+        "average_price": 21.99,
+        "range": { "min": 14.00, "max": 30.96 }
+      },
+      {
+        "item": "Cinema, International Release, 1 Seat",
+        "average_price": 9.00,
+        "range": { "min": 8.00, "max": 12.00 }
+      }
+    ],
+    "childcare": [
+      {
+        "item": "Preschool (or Kindergarten), Full Day, Private, Monthly for 1 Child",
+        "average_price": 489.48,
+        "range": { "min": 300.00, "max": 800.00 }
+      },
+      {
+        "item": "International Primary School, Yearly for 1 Child",
+        "average_price": 8980.17,
+        "range": { "min": 5000.00, "max": 17280.00 }
+      }
+    ],
+    "clothing_and_shoes": [
+      {
+        "item": "1 Pair of Jeans (Levis 501 Or Similar)",
+        "average_price": 79.24,
+        "range": { "min": 40.00, "max": 120.00 }
+      },
+      {
+        "item": "1 Summer Dress in a Chain Store (Zara, H&M, ...)",
+        "average_price": 34.93,
+        "range": { "min": 20.00, "max": 60.00 }
+      },
+      {
+        "item": "1 Pair of Nike Running Shoes (Mid-Range)",
+        "average_price": 86.84,
+        "range": { "min": 50.00, "max": 120.00 }
+      },
+      {
+        "item": "1 Pair of Men Leather Business Shoes",
+        "average_price": 113.98,
+        "range": { "min": 65.00, "max": 200.00 }
+      }
+    ],
+    "rent_per_month": [
+      {
+        "item": "Apartment (1 bedroom) in City Centre",
+        "average_price": 735.88,
+        "range": { "min": 500.00, "max": 1410.00 }
+      },
+      {
+        "item": "Apartment (1 bedroom) Outside of Centre",
+        "average_price": 568.18,
+        "range": { "min": 400.00, "max": 991.43 }
+      },
+      {
+        "item": "Apartment (3 bedrooms) in City Centre",
+        "average_price": 1274.50,
+        "range": { "min": 800.00, "max": 2827.59 }
+      },
+      {
+        "item": "Apartment (3 bedrooms) Outside of Centre",
+        "average_price": 930.30,
+        "range": { "min": 600.00, "max": 1885.00 }
+      }
+    ],
+    "buy_apartment_price": [
+      {
+        "item": "Price per Square Meter to Buy Apartment in City Centre",
+        "average_price": 3585.41,
+        "range": { "min": 2000.00, "max": 8870.81 }
+      },
+      {
+        "item": "Price per Square Meter to Buy Apartment Outside of Centre",
+        "average_price": 2268.98,
+        "range": { "min": 1300.00, "max": 4563.28 }
+      }
+    ],
+    "salaries_and_financing": [
+      {
+        "item": "Average Monthly Net Salary (After Tax)",
+        "average_price": 1651.07
+      },
+      {
+        "item": "Mortgage Interest Rate in Percentages (%), Yearly, for 20 Years Fixed-Rate",
+        "average_price": 4.29,
+        "range": { "min": 2.80, "max": 5.00 }
+      }
+    ]
+  }
+}

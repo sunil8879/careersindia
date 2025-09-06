@@ -1,0 +1,403 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses After HSC (12th) - Careers India</title>
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
+
+<style>
+    :root {
+        --primary-color: #0056b3;
+        --secondary-color: #007bff;
+        --accent-color: #ff6f61;
+        --text-dark: #343a49;
+        --text-light: #6c757d;
+        --bg-light: #f8f9fa;
+        --bg-white: #ffffff;
+        --border-color: #dee2e6;
+        --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+        --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: var(--bg-light);
+        color: var(--text-dark);
+        line-height: 1.6;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    /* --- Filter Controls Styling --- */
+    .filter-container {
+        max-width: 1000px;
+        margin: 40px auto;
+        padding: 30px;
+        background-color: var(--bg-white);
+        border-radius: 12px;
+        box-shadow: var(--shadow-md);
+        text-align: center;
+    }
+    .filter-container h1 {
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        margin-bottom: 5px;
+    }
+    .filter-container p {
+        color: var(--text-light);
+        margin-bottom: 20px;
+    }
+    #course-search {
+        width: 100%;
+        padding: 15px;
+        font-size: 1.1em;
+        border-radius: 8px;
+        border: 2px solid var(--border-color);
+        margin-top: 20px;
+        margin-bottom: 20px;
+        transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    #course-search:focus {
+        outline: none;
+        border-color: var(--secondary-color);
+        box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+    }
+    #category-filters {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+    #category-filters .filter-btn {
+        padding: 10px 20px;
+        border: 1px solid var(--secondary-color);
+        background-color: var(--bg-white);
+        color: var(--secondary-color);
+        border-radius: 50px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+    #category-filters .filter-btn:hover {
+        background-color: var(--secondary-color);
+        color: var(--bg-white);
+    }
+    #category-filters .filter-btn.active {
+        background-color: var(--primary-color);
+        color: var(--bg-white);
+        border-color: var(--primary-color);
+    }
+    #no-results {
+        display: none;
+        text-align: center;
+        padding: 40px;
+        font-size: 1.2em;
+        color: var(--text-light);
+    }
+
+    /* --- Course List Styling --- */
+    .course-list-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 20px;
+        margin-top: 40px;
+    }
+    .course-item {
+        background: var(--bg-white);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        padding: 20px;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .course-item:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-md);
+    }
+    .course-item h3 {
+        margin: 0;
+        font-size: 1.1rem;
+    }
+    .course-item a {
+        text-decoration: none;
+        color: var(--primary-color);
+        font-weight: 600;
+    }
+    .course-item a:hover {
+        text-decoration: underline;
+    }
+
+    /* --- Back to Top Button --- */
+    #back-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: none;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: var(--accent-color);
+        color: white;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        box-shadow: var(--shadow-md);
+        z-index: 1000;
+    }
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- FILTER CONTROLS -->
+    <div class="filter-container">
+        <h1>Courses After HSC (12th)</h1>
+        <p>Search for a specific degree or select a stream to explore your options.</p>
+
+        <input type="text" id="course-search" onkeyup="filterCourses()" placeholder="e.g., Search for 'MBBS', 'Engineering', 'Psychology'...">
+
+        <div id="category-filters">
+            <button class="filter-btn active" onclick="filterByCategory('all')">All Streams</button>
+            <button class="filter-btn" onclick="filterByCategory('medical')">Medical & Pharma</button>
+            <button class="filter-btn" onclick="filterByCategory('engineering')">Engineering & Tech</button>
+            <button class="filter-btn" onclick="filterByCategory('science')">Pure & Applied Science</button>
+            <button class="filter-btn" onclick="filterByCategory('commerce-management')">Commerce & Management</button>
+            <button class="filter-btn" onclick="filterByCategory('arts-humanities')">Arts & Humanities</button>
+            <button class="filter-btn" onclick="filterByCategory('law')">Law</button>
+            <button class="filter-btn" onclick="filterByCategory('design')">Design & Fine Arts</button>
+            <button class="filter-btn" onclick="filterByCategory('education')">Education</button>
+        </div>
+    </div>
+    
+    <div id="no-results">
+        <p>😔<br>No courses match your search criteria.</p>
+    </div>
+
+    <!-- COURSE LIST -->
+    <div class="course-list-container" id="course-list">
+        <!-- Medical & Pharma -->
+        <div class="course-item" data-category="medical"><h3><a href="hsc.html#hsc-bachelor-of-medicine-bachelor-of-surgery-mbbs" target="_blank">Bachelor of Medicine, Bachelor of Surgery (MBBS)</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="hsc.html#hsc-bachelor-of-dental-surgery-bds" target="_blank">Bachelor of Dental Surgery (BDS)</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="hsc.html#hsc-bachelor-of-ayurvedic-medicine-surgery-bams" target="_blank">Bachelor of Ayurvedic Medicine and Surgery (BAMS)</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="hsc.html#hsc-bachelor-of-homeopathic-medicine-surgery-bhms" target="_blank">Bachelor of Homeopathic Medicine and Surgery (BHMS)</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="hsc.html#hsc-bachelor-of-unani-medicine-surgery-bums" target="_blank">Bachelor of Unani Medicine and Surgery (BUMS)</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="hsc.html#hsc-bachelor-of-veterinary-science-animal-husbandry-bvsc-ah" target="_blank">Bachelor of Veterinary Science & Animal Husbandry (BVSc & AH)</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="hsc.html#hsc-bachelor-of-physiotherapy-bpt" target="_blank">Bachelor of Physiotherapy (BPT)</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="hsc.html#hsc-bachelor-of-occupational-therapy-bot" target="_blank">Bachelor of Occupational Therapy (BOT)</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="hsc.html#hsc-bachelor-of-pharmacy-bpharm" target="_blank">Bachelor of Pharmacy (B.Pharm)</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="hsc.html#hsc-bsc-in-nursing" target="_blank">B.Sc. in Nursing</a></h3></div>
+        
+        <!-- Science -->
+        <div class="course-item" data-category="science"><h3><a href="hsc.html#hsc-bachelor-of-science-bsc-in-agriculture" target="_blank">Bachelor of Science (B.Sc.) in Agriculture</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="hsc.html#hsc-bsc-in-biochemistry" target="_blank">B.Sc. in Biochemistry</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="hsc.html#hsc-bsc-in-biology" target="_blank">B.Sc. in Biology</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="hsc.html#hsc-bsc-in-biotechnology" target="_blank">B.Sc. in Biotechnology</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="hsc.html#hsc-bsc-in-botany" target="_blank">B.Sc. in Botany</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="hsc.html#hsc-bsc-in-chemistry" target="_blank">B.Sc. in Chemistry</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="hsc.html#hsc-bsc-in-computer-science" target="_blank">B.Sc. in Computer Science</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="hsc.html#hsc-bsc-in-data-science" target="_blank">B.Sc. in Data Science</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="hsc.html#hsc-bsc-in-dietetics-nutrition" target="_blank">B.Sc. in Dietetics and Nutrition</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="hsc.html#hsc-bsc-in-electronics" target="_blank">B.Sc. in Electronics</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="hsc.html#hsc-bsc-in-environmental-science" target="_blank">B.Sc. in Environmental Science</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="hsc.html#hsc-bsc-in-food-technology" target="_blank">B.Sc. in Food Technology</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="hsc.html#hsc-bsc-in-forensic-science" target="_blank">B.Sc. in Forensic Science</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="hsc.html#hsc-bsc-in-geology" target="_blank">B.Sc. in Geology</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="hsc.html#hsc-bsc-in-horticulture" target="_blank">B.Sc. in Horticulture</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="hsc.html#hsc-bsc-in-information-technology-it" target="_blank">B.Sc. in Information Technology (IT)</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="hsc.html#hsc-bsc-in-mathematics" target="_blank">B.Sc. in Mathematics</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="hsc.html#hsc-bsc-in-medical-laboratory-technology-mlt" target="_blank">B.Sc. in Medical Laboratory Technology (MLT)</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="hsc.html#hsc-bsc-in-microbiology" target="_blank">B.Sc. in Microbiology</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="hsc.html#hsc-bsc-in-nautical-science" target="_blank">B.Sc. in Nautical Science</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="hsc.html#hsc-bsc-in-optometry" target="_blank">B.Sc. in Optometry</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="hsc.html#hsc-bsc-in-perfusion-technology" target="_blank">B.Sc. in Perfusion Technology</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="hsc.html#hsc-bsc-in-physics" target="_blank">B.Sc. in Physics</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="hsc.html#hsc-bsc-in-radiography-imaging-technology" target="_blank">B.Sc. in Radiography and Imaging Technology</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="hsc.html#hsc-bsc-in-statistics" target="_blank">B.Sc. in Statistics</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="hsc.html#hsc-bsc-in-zoology" target="_blank">B.Sc. in Zoology</a></h3></div>
+
+        <!-- Engineering & Tech -->
+        <div class="course-item" data-category="engineering"><h3><a href="hsc.html#hsc-bachelor-of-technology-btech-bachelor-of-engineering-be-in-aeronautical-engineering" target="_blank">B.Tech./B.E. in Aeronautical Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="hsc.html#hsc-btech-be-in-agricultural-engineering" target="_blank">B.Tech./B.E. in Agricultural Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="hsc.html#hsc-btech-be-in-artificial-intelligence-machine-learning" target="_blank">B.Tech./B.E. in Artificial Intelligence and Machine Learning</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="hsc.html#hsc-btech-be-in-automobile-engineering" target="_blank">B.Tech./B.E. in Automobile Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="hsc.html#hsc-btech-be-in-biomedical-engineering" target="_blank">B.Tech./B.E. in Biomedical Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="hsc.html#hsc-btech-be-in-biotechnology-engineering" target="_blank">B.Tech./B.E. in Biotechnology Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="hsc.html#hsc-btech-be-in-ceramic-engineering" target="_blank">B.Tech./B.E. in Ceramic Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="hsc.html#hsc-btech-be-in-chemical-engineering" target="_blank">B.Tech./B.E. in Chemical Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="hsc.html#hsc-btech-be-in-civil-engineering" target="_blank">B.Tech./B.E. in Civil Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="hsc.html#hsc-btech-be-in-computer-engineering" target="_blank">B.Tech./B.E. in Computer Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="hsc.html#hsc-btech-be-in-computer-science-engineering-cse" target="_blank">B.Tech./B.E. in Computer Science and Engineering (CSE)</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="hsc.html#hsc-btech-be-in-cyber-security" target="_blank">B.Tech./B.E. in Cyber Security</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="hsc.html#hsc-btech-be-in-electrical-electronics-engineering-eee" target="_blank">B.Tech./B.E. in Electrical and Electronics Engineering (EEE)</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="hsc.html#hsc-btech-be-in-electrical-engineering" target="_blank">B.Tech./B.E. in Electrical Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="hsc.html#hsc-btech-be-in-electronics-communication-engineering-ece" target="_blank">B.Tech./B.E. in Electronics and Communication Engineering (ECE)</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="hsc.html#hsc-btech-be-in-electronics-engineering" target="_blank">B.Tech./B.E. in Electronics Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="hsc.html#hsc-btech-be-in-environmental-engineering" target="_blank">B.Tech./B.E. in Environmental Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="hsc.html#hsc-btech-be-in-food-technology" target="_blank">B.Tech./B.E. in Food Technology</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="hsc.html#hsc-btech-be-in-genetic-engineering" target="_blank">B.Tech./B.E. in Genetic Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="hsc.html#hsc-btech-be-in-industrial-engineering" target="_blank">B.Tech./B.E. in Industrial Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="hsc.html#hsc-btech-be-in-information-science" target="_blank">B.Tech./B.E. in Information Science</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="hsc.html#hsc-btech-be-in-information-technology-it" target="_blank">B.Tech./B.E. in Information Technology (IT)</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="hsc.html#hsc-btech-be-in-instrumentation-engineering" target="_blank">B.Tech./B.E. in Instrumentation Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="hsc.html#hsc-btech-be-in-marine-engineering" target="_blank">B.Tech./B.E. in Marine Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="hsc.html#hsc-btech-be-in-materials-science-engineering" target="_blank">B.Tech./B.E. in Materials Science and Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="hsc.html#hsc-btech-be-in-mechanical-engineering" target="_blank">B.Tech./B.E. in Mechanical Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="hsc.html#hsc-btech-be-in-mechatronics-engineering" target="_blank">B.Tech./B.E. in Mechatronics Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="hsc.html#hsc-btech-be-in-metallurgical-engineering" target="_blank">B.Tech./B.E. in Metallurgical Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="hsc.html#hsc-btech-be-in-mining-engineering" target="_blank">B.Tech./B.E. in Mining Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="hsc.html#hsc-btech-be-in-nanotechnology" target="_blank">B.Tech./B.E. in Nanotechnology</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="hsc.html#hsc-btech-be-in-nuclear-engineering" target="_blank">B.Tech./B.E. in Nuclear Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="hsc.html#hsc-btech-be-in-petroleum-engineering" target="_blank">B.Tech./B.E. in Petroleum Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="hsc.html#hsc-btech-be-in-plastic-engineering" target="_blank">B.Tech./B.E. in Plastic Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="hsc.html#hsc-btech-be-in-polymer-engineering" target="_blank">B.Tech./B.E. in Polymer Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="hsc.html#hsc-btech-be-in-production-engineering" target="_blank">B.Tech./B.E. in Production Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="hsc.html#hsc-btech-be-in-robotics-engineering" target="_blank">B.Tech./B.E. in Robotics Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="hsc.html#hsc-btech-be-in-software-engineering" target="_blank">B.Tech./B.E. in Software Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="hsc.html#hsc-bachelor-of-architecture-barch" target="_blank">Bachelor of Architecture (B.Arch.)</a></h3></div>
+
+        <!-- Design & Fine Arts -->
+        <div class="course-item" data-category="design"><h3><a href="hsc.html#hsc-bachelor-of-fine-arts-bfa" target="_blank">Bachelor of Fine Arts (BFA)</a></h3></div>
+        <div class="course-item" data-category="design"><h3><a href="hsc.html#hsc-bachelor-of-design-bdes" target="_blank">Bachelor of Design (B.Des)</a></h3></div>
+        <div class="course-item" data-category="design"><h3><a href="hsc.html#hsc-bachelor-of-fashion-technology-bftech" target="_blank">Bachelor of Fashion Technology (B.F.Tech)</a></h3></div>
+        <div class="course-item" data-category="design"><h3><a href="hsc.html#hsc-bachelor-of-interior-design-bides" target="_blank">Bachelor of Interior Design (B.I.Des)</a></h3></div>
+        <div class="course-item" data-category="design"><h3><a href="hsc.html#hsc-bachelor-of-performing-arts-bpa" target="_blank">Bachelor of Performing Arts (BPA)</a></h3></div>
+        <div class="course-item" data-category="design"><h3><a href="hsc.html#hsc-bachelor-of-film-television-production-bftp" target="_blank">Bachelor of Film and Television Production (BFTP)</a></h3></div>
+        <div class="course-item" data-category="design"><h3><a href="hsc.html#hsc-bachelor-of-multimedia-bmm" target="_blank">Bachelor of Multimedia (BMM)</a></h3></div>
+        <div class="course-item" data-category="design"><h3><a href="hsc.html#hsc-bachelor-of-visual-arts-bva" target="_blank">Bachelor of Visual Arts (BVA)</a></h3></div>
+
+        <!-- Arts & Humanities -->
+        <div class="course-item" data-category="arts-humanities"><h3><a href="hsc.html#hsc-bachelor-of-arts-ba-in-economics" target="_blank">Bachelor of Arts (BA) in Economics</a></h3></div>
+        <div class="course-item" data-category="arts-humanities"><h3><a href="hsc.html#hsc-ba-in-english" target="_blank">BA in English</a></h3></div>
+        <div class="course-item" data-category="arts-humanities"><h3><a href="hsc.html#hsc-ba-in-history" target="_blank">BA in History</a></h3></div>
+        <div class="course-item" data-category="arts-humanities"><h3><a href="hsc.html#hsc-ba-in-journalism-mass-communication" target="_blank">BA in Journalism and Mass Communication</a></h3></div>
+        <div class="course-item" data-category="arts-humanities"><h3><a href="hsc.html#hsc-ba-in-political-science" target="_blank">BA in Political Science</a></h3></div>
+        <div class="course-item" data-category="arts-humanities"><h3><a href="hsc.html#hsc-ba-in-psychology" target="_blank">BA in Psychology</a></h3></div>
+        <div class="course-item" data-category="arts-humanities"><h3><a href="hsc.html#hsc-ba-in-sociology" target="_blank">BA in Sociology</a></h3></div>
+        <div class="course-item" data-category="arts-humanities"><h3><a href="hsc.html#hsc-bachelor-of-journalism-mass-communication-bjmc" target="_blank">Bachelor of Journalism and Mass Communication (BJMC)</a></h3></div>
+        <div class="course-item" data-category="arts-humanities"><h3><a href="hsc.html#hsc-bachelor-of-social-work-bsw" target="_blank">Bachelor of Social Work (BSW)</a></h3></div>
+        <div class="course-item" data-category="arts-humanities"><h3><a href="hsc.html#hsc-bachelor-of-rural-studies-brs" target="_blank">Bachelor of Rural Studies (BRS)</a></h3></div>
+        <div class="course-item" data-category="arts-humanities"><h3><a href="hsc.html#hsc-bachelor-of-library-information-science-blibsc" target="_blank">Bachelor of Library and Information Science (B.Lib.Sc)</a></h3></div>
+        <div class="course-item" data-category="arts-humanities"><h3><a href="hsc.html#hsc-bachelor-of-public-relations-bpr" target="_blank">Bachelor of Public Relations (BPR)</a></h3></div>
+
+        <!-- Commerce & Management -->
+        <div class="course-item" data-category="commerce-management"><h3><a href="hsc.html#hsc-bachelor-of-business-administration-bba" target="_blank">Bachelor of Business Administration (BBA)</a></h3></div>
+        <div class="course-item" data-category="commerce-management"><h3><a href="hsc.html#hsc-bachelor-of-commerce-bcom" target="_blank">Bachelor of Commerce (B.Com)</a></h3></div>
+        <div class="course-item" data-category="commerce-management"><h3><a href="hsc.html#hsc-bachelor-of-hotel-management-bhm" target="_blank">Bachelor of Hotel Management (BHM)</a></h3></div>
+        <div class="course-item" data-category="commerce-management"><h3><a href="hsc.html#hsc-bachelor-of-aviation-science-bas" target="_blank">Bachelor of Aviation Science (B.A.S)</a></h3></div>
+        <div class="course-item" data-category="commerce-management"><h3><a href="hsc.html#hsc-bachelor-of-business-economics-bbe" target="_blank">Bachelor of Business Economics (BBE)</a></h3></div>
+        <div class="course-item" data-category="commerce-management"><h3><a href="hsc.html#hsc-bachelor-of-event-management-bem" target="_blank">Bachelor of Event Management (BEM)</a></h3></div>
+        <div class="course-item" data-category="commerce-management"><h3><a href="hsc.html#hsc-bachelor-of-hospitality-tourism-management-bhtm" target="_blank">Bachelor of Hospitality and Tourism Management (BHTM)</a></h3></div>
+        <div class="course-item" data-category="commerce-management"><h3><a href="hsc.html#hsc-bachelor-of-information-management-bim" target="_blank">Bachelor of Information Management (BIM)</a></h3></div>
+        <div class="course-item" data-category="commerce-management"><h3><a href="hsc.html#hsc-bachelor-of-sports-management-bsm" target="_blank">Bachelor of Sports Management (BSM)</a></h3></div>
+        <div class="course-item" data-category="commerce-management"><h3><a href="hsc.html#hsc-bachelor-of-travel-tourism-management-bttm" target="_blank">Bachelor of Travel and Tourism Management (BTTM)</a></h3></div>
+        <div class="course-item" data-category="commerce-management"><h3><a href="hsc.html#hsc-integrated-mba" target="_blank">Integrated MBA</a></h3></div>
+        
+        <!-- Law -->
+        <div class="course-item" data-category="law"><h3><a href="hsc.html#hsc-bachelor-of-law-llb" target="_blank">Bachelor of Law (LLB) (3-year, after graduation)</a></h3></div>
+        <div class="course-item" data-category="law"><h3><a href="hsc.html#hsc-integrated-ba-llb" target="_blank">Integrated B.A. LLB (5-year)</a></h3></div>
+        <div class="course-item" data-category="law"><h3><a href="hsc.html#hsc-integrated-bsc-llb" target="_blank">Integrated B.Sc. LLB (5-year)</a></h3></div>
+        <div class="course-item" data-category="law"><h3><a href="hsc.html#hsc-integrated-bcom-llb" target="_blank">Integrated B.Com LLB (5-year)</a></h3></div>
+        <div class="course-item" data-category="law"><h3><a href="hsc.html#hsc-bachelor-of-legislative-law-bls" target="_blank">Bachelor of Legislative Law (BLS) LLB (5-year integrated)</a></h3></div>
+        
+        <!-- Education -->
+        <div class="course-item" data-category="education"><h3><a href="hsc.html#hsc-bachelor-of-education-bed" target="_blank">Bachelor of Education (B.Ed) (after graduation)</a></h3></div>
+        <div class="course-item" data-category="education"><h3><a href="hsc.html#hsc-diploma-in-elementary-education-deled" target="_blank">Diploma in Elementary Education (D.El.Ed)</a></h3></div>
+        <div class="course-item" data-category="education"><h3><a href="hsc.html#hsc-bachelor-of-physical-education-bped" target="_blank">Bachelor of Physical Education (B.P.Ed)</a></h3></div>
+        <div class="course-item" data-category="education"><h3><a href="hsc.html#hsc-integrated-bed-med" target="_blank">Integrated B.Ed + M.Ed</a></h3></div>
+        <div class="course-item" data-category="education"><h3><a href="hsc.html#hsc-integrated-ba-bed" target="_blank">Integrated BA + B.Ed</a></h3></div>
+        <div class="course-item" data-category="education"><h3><a href="hsc.html#hsc-integrated-bsc-bed" target="_blank">Integrated B.Sc + B.Ed</a></h3></div>
+
+        <!-- Other Integrated Courses -->
+        <div class="course-item" data-category="engineering"><h3><a href="hsc.html#hsc-integrated-btech-mtech" target="_blank">Integrated B.Tech + M.Tech</a></h3></div>
+        <div class="course-item" data-category="science"><h3><a href="hsc.html#hsc-integrated-msc" target="_blank">Integrated M.Sc</a></h3></div>
+        <div class="course-item" data-category="commerce-management"><h3><a href="hsc.html#hsc-bachelor-of-computer-applications-bca" target="_blank">Bachelor of Computer Applications (BCA)</a></h3></div>
+        <div class="course-item" data-category="commerce-management"><h3><a href="hsc.html#hsc-bachelor-of-vocational-studies-bvoc" target="_blank">Bachelor of Vocational Studies (B.Voc)</a></h3></div>
+        
+    </div>
+</div>
+
+<button id="back-to-top" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+
+<script>
+    // --- LIVE SEARCH FILTER FUNCTION ---
+    function filterCourses() {
+        const input = document.getElementById('course-search');
+        const filter = input.value.toUpperCase();
+        const courseList = document.getElementById('course-list');
+        const courseItems = courseList.getElementsByClassName('course-item');
+        const noResults = document.getElementById('no-results');
+        let visibleCount = 0;
+
+        for (let i = 0; i < courseItems.length; i++) {
+            const a = courseItems[i].getElementsByTagName("a")[0];
+            const txtValue = a.textContent || a.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                courseItems[i].style.display = "";
+                visibleCount++;
+            } else {
+                courseItems[i].style.display = "none";
+            }
+        }
+        noResults.style.display = visibleCount === 0 ? "block" : "none";
+    }
+
+    // --- CATEGORY FILTER FUNCTION ---
+    function filterByCategory(category) {
+        const courseItems = document.querySelectorAll('.course-item');
+        const buttons = document.querySelectorAll('#category-filters .filter-btn');
+        const noResults = document.getElementById('no-results');
+        let visibleCount = 0;
+
+        buttons.forEach(button => {
+            if (button.getAttribute('onclick') === `filterByCategory('${category}')`) {
+                button.classList.add('active');
+            } else {
+                button.classList.remove('active');
+            }
+        });
+
+        courseItems.forEach(item => {
+            if (category === 'all' || item.dataset.category === category) {
+                item.style.display = "";
+                visibleCount++;
+            } else {
+                item.style.display = "none";
+            }
+        });
+        
+        noResults.style.display = visibleCount === 0 ? "block" : "none";
+        document.getElementById('course-search').value = ""; // Clear search bar
+    }
+
+    // --- BACK TO TOP BUTTON SCRIPT ---
+    const topButton = document.getElementById("back-to-top");
+    window.onscroll = function() {
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            topButton.style.display = "block";
+        } else {
+            topButton.style.display = "none";
+        }
+    };
+    topButton.onclick = function() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    };
+</script>
+
+</body>
+</html>

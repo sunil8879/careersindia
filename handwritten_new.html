@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rapid Maths - Digital Notes</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-font: 'Lato', sans-serif;
+            --heading-font: 'Roboto Slab', serif;
+            --background-color: #f4f7f9;
+            --container-bg: #ffffff;
+            --text-color: #333;
+            --accent-color: #007bff;
+            --border-color: #e0e0e0;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+        body { margin: 0; font-family: var(--primary-font); background-color: var(--background-color); color: var(--text-color); display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; padding: 2rem 1rem; box-sizing: border-box; }
+        .notes-container { width: 100%; max-width: 900px; background-color: var(--container-bg); border-radius: 12px; box-shadow: var(--shadow); overflow: hidden; }
+        header { text-align: center; padding: 2rem 1.5rem; border-bottom: 1px solid var(--border-color); background-color: #fafafa; }
+        header h1 { font-family: var(--heading-font); margin: 0 0 0.5rem 0; font-size: 2.5rem; color: #2c3e50; }
+        header p { margin: 0; color: #7f8c8d; font-size: 1.1rem; }
+        
+        .note-viewer { padding: 2rem; background-color: #fcfcfc; }
+        .note-page { background-color: #fff; border: 1px solid var(--border-color); border-radius: 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); overflow: hidden; }
+        
+        #noteImage { display: block; width: 100%; height: auto; }
+        #noteFrame { width: 100%; height: 75vh; border: none; }
+        .hidden { display: none; }
+        
+        .pagination { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 2rem; border-top: 1px solid var(--border-color); background-color: #fafafa; }
+        .pagination button { background-color: var(--accent-color); color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 6px; font-size: 1rem; font-weight: bold; cursor: pointer; transition: background-color 0.2s ease, transform 0.1s ease; }
+        .pagination button:hover:not(:disabled) { background-color: #0056b3; transform: translateY(-2px); }
+        .pagination button:disabled { background-color: #c0c0c0; cursor: not-allowed; transform: none; }
+        #pageIndicator { font-family: var(--heading-font); font-weight: bold; color: #555; font-size: 1.1rem; }
+        .page-selector { display: flex; align-items: center; gap: 0.5rem; }
+        #pageSelect { padding: 0.5rem; border-radius: 5px; border: 1px solid var(--border-color); font-family: var(--primary-font); font-size: 1rem; max-width: 200px; }
+        
+        @media (max-width: 700px) {
+            body { padding: 0; }
+            .notes-container { border-radius: 0; box-shadow: none; min-height: 100vh; }
+            .note-viewer { padding: 1rem; }
+            .pagination { flex-direction: column; gap: 1rem; }
+            .pagination .page-selector { order: -1; }
+            header h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="notes-container">
+        <header>
+            <h1>Rapid Maths - Digital Notes</h1>
+            <p>Your comprehensive guide, presented digitally.</p>
+        </header>
+
+        <main class="note-viewer">
+            <div class="note-page">
+                <img id="noteImage" src="" alt="Note page" class="hidden">
+                <iframe id="noteFrame" src="" title="Note content" class="hidden"></iframe>
+            </div>
+        </main>
+
+        <nav class="pagination">
+            <button id="prevButton" title="Previous Page">&larr; Previous</button>
+            <div class="page-selector">
+                <select id="pageSelect"></select>
+            </div>
+            <span id="pageIndicator"></span>
+            <button id="nextButton" title="Next Page">Next &rarr;</button>
+        </nav>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+        // =========================================================================
+        // IMPORTANT: EDIT THIS LIST TO MATCH YOUR FILES AND DESIRED ORDER
+        // Replace the 'path' and 'title' values with your real filenames and titles.
+        // =========================================================================
+        const contentMap = [
+            // --- START WITH YOUR 4 HTM FILES ---
+            { type: 'htm', path: 'maths_square_cube.htm', title: 'Squares and cubes' },
+            { type: 'htm', path: 'maths_division_square_root.htm', title: 'Division $ Square roots' },
+            { type: 'htm', path: 'maths_multiplication.htm', title: 'Multiplication' },
+            { type: 'htm', path: 'maths_tables_cuberoot.htm', title: 'Tables and cube roots' },
+
+            // --- THEN ADD ALL 42 PNG FILES IN ORDER ---
+          
+            
+ { type: 'png', path: 'RapidMaths-05.png', title: 'Page 5' },
+ { type: 'png', path: 'RapidMaths-06.png', title: 'Page 5' },
+ { type: 'png', path: 'RapidMaths-07.png', title: 'Page 5' },
+ { type: 'png', path: 'RapidMaths-08.png', title: 'Page 5' },
+ { type: 'png', path: 'RapidMaths-09.png', title: 'Page 5' },
+ { type: 'png', path: 'RapidMaths-10.png', title: 'Page 5' },
+ { type: 'png', path: 'RapidMaths-11.png', title: 'Page 5' },
+ { type: 'png', path: 'RapidMaths-12.png', title: 'Page 5' },
+ { type: 'png', path: 'RapidMaths-13.png', title: 'Page 5' },
+ { type: 'png', path: 'RapidMaths-14.png', title: 'Page 5' },
+ { type: 'png', path: 'RapidMaths-15.png', title: 'Page 5' },
+ { type: 'png', path: 'RapidMaths-16.png', title: 'Page 5' },
+ { type: 'png', path: 'RapidMaths-17.png', title: 'Page 5' },
+ { type: 'png', path: 'RapidMaths-18.png', title: 'Page 5' },
+ { type: 'png', path: 'RapidMaths-19.png', title: 'Page 5' },
+ { type: 'png', path: 'RapidMaths-20.png', title: 'Page 5' },
+ { type: 'png', path: 'RapidMaths-21.png', title: 'Page 5' },
+ { type: 'png', path: 'RapidMaths-22.png', title: 'Page 5' },
+ { type: 'png', path: 'RapidMaths-23.png', title: 'Page 5' },
+ { type: 'png', path: 'RapidMaths-24.png', title: 'Page 5' },
+ { type: 'png', path: 'RapidMaths-25.png', title: 'Page 5' },
+ { type: 'png', path: 'RapidMaths-26.png', title: 'Page 5' },
+ { type: 'png', path: 'RapidMaths-27.png', title: 'Page 5' },
+ { type: 'png', path: 'RapidMaths-28.png', title: 'Page 5' },
+ { type: 'png', path: 'RapidMaths-29.png', title: 'Page 5' },
+ { type: 'png', path: 'RapidMaths-30.png', title: 'Page 5' },
+ { type: 'png', path: 'RapidMaths-31.png', title: 'Page 5' },
+ { type: 'png', path: 'RapidMaths-32.png', title: 'Page 5' },
+ { type: 'png', path: 'RapidMaths-33.png', title: 'Page 5' },
+ { type: 'png', path: 'RapidMaths-34.png', title: 'Page 5' },
+ { type: 'png', path: 'RapidMaths-35.png', title: 'Page 5' },
+ { type: 'png', path: 'RapidMaths-36.png', title: 'Page 5' },
+ { type: 'png', path: 'RapidMaths-37.png', title: 'Page 5' },
+ { type: 'png', path: 'RapidMaths-38.png', title: 'Page 5' },
+ { type: 'png', path: 'RapidMaths-39.png', title: 'Page 5' },
+ { type: 'png', path: 'RapidMaths-40.png', title: 'Page 5' },
+ { type: 'png', path: 'RapidMaths-41.png', title: 'Page 5' },
+ { type: 'png', path: 'RapidMaths-42.png', title: 'Page 5' }
+
+           
+        ];
+        // =========================================================================
+
+        let currentPageIndex = 0;
+        const totalPages = contentMap.length;
+
+        // DOM Elements
+        const imgElement = document.getElementById('noteImage');
+        const iframeElement = document.getElementById('noteFrame');
+        const pageIndicator = document.getElementById('pageIndicator');
+        const prevButton = document.getElementById('prevButton');
+        const nextButton = document.getElementById('nextButton');
+        const pageSelect = document.getElementById('pageSelect');
+        
+        // Populate the dropdown menu
+        contentMap.forEach((item, index) => {
+            const option = document.createElement('option');
+            option.value = index;
+            option.textContent = `(${index + 1}/${totalPages}) ${item.title}`;
+            pageSelect.appendChild(option);
+        });
+
+        // The main function to display content
+        function updateView(index) {
+            const item = contentMap[index];
+
+            if (item.type === 'png') {
+                imgElement.src = `notes/${item.path}`;
+                imgElement.alt = item.title;
+                imgElement.classList.remove('hidden');
+                iframeElement.classList.add('hidden');
+            } else if (item.type === 'htm') {
+                iframeElement.src = `notes/${item.path}`;
+                iframeElement.classList.remove('hidden');
+                imgElement.classList.add('hidden');
+            }
+            
+            currentPageIndex = index;
+            updateUI();
+        }
+        
+        // Update UI elements
+        function updateUI() {
+            pageIndicator.textContent = `Page ${currentPageIndex + 1} of ${totalPages}`;
+            pageSelect.value = currentPageIndex;
+            prevButton.disabled = (currentPageIndex === 0);
+            nextButton.disabled = (currentPageIndex === totalPages - 1);
+        }
+
+        // Event Listeners
+        prevButton.addEventListener('click', () => {
+            if (currentPageIndex > 0) {
+                updateView(currentPageIndex - 1);
+            }
+        });
+
+        nextButton.addEventListener('click', () => {
+            if (currentPageIndex < totalPages - 1) {
+                updateView(currentPageIndex + 1);
+            }
+        });
+        
+        pageSelect.addEventListener('change', (e) => {
+            const newIndex = parseInt(e.target.value, 10);
+            updateView(newIndex);
+        });
+
+        // Initial Load
+        updateView(0); // Show the very first item
+    });
+    </script>
+
+</body>
+</html>
