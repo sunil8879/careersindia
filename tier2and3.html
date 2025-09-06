@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Schools in Tier 2 Cities of India</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@700&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* === "DIGITAL ATLAS" THEME === */
+        :root {
+            --bg-color: #0d1117;
+            --primary-glow: #00f2fe;
+            --text-color: #c9d1d9;
+            --border-color: rgba(255, 255, 255, 0.15);
+            --card-bg: rgba(22, 27, 34, 0.7);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            color: var(--text-color);
+            background: linear-gradient(-45deg, #0d1117, #1a2233, #0d1117, #231a33);
+            background-size: 400% 400%;
+            animation: gradientBG 20s ease infinite;
+            line-height: 1.6;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        .main-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .main-header h1 {
+            font-family: 'Exo 2', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: #fff;
+            text-shadow: 0 0 10px var(--primary-glow);
+            margin: 0;
+        }
+
+        .main-header p {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 10px auto 50px;
+        }
+
+        /* --- Floating City Index --- */
+        .city-index {
+            position: fixed;
+            top: 50%;
+            left: 30px;
+            transform: translateY(-50%);
+            background: rgba(22, 27, 34, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 15px;
+            max-height: 80vh;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+
+        .city-index h3 {
+            font-family: 'Exo 2', sans-serif;
+            text-align: center;
+            margin: 0 0 10px 0;
+            color: var(--primary-glow);
+            font-size: 1.2rem;
+        }
+        
+        .city-index ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .city-index li a {
+            display: block;
+            padding: 8px 15px;
+            text-decoration: none;
+            color: var(--text-color);
+            border-radius: 5px;
+            transition: all 0.2s ease-in-out;
+            font-size: 0.9rem;
+        }
+
+        .city-index li a:hover, .city-index li a.active {
+            background-color: var(--primary-glow);
+            color: var(--bg-color);
+            transform: translateX(5px);
+        }
+
+        .city-index::-webkit-scrollbar { width: 5px; }
+        .city-index::-webkit-scrollbar-thumb { background-color: var(--primary-glow); border-radius: 5px; }
+        .city-index::-webkit-scrollbar-track { background: transparent; }
+
+
+        /* --- City & School Sections --- */
+        .city-section {
+            padding-top: 80px; /* Offset for fixed header if any */
+            margin-top: -60px; /* Adjust to align with nav links */
+        }
+        
+        .city-title {
+            font-family: 'Exo 2', sans-serif;
+            font-size: 2.8rem;
+            color: #fff;
+            text-shadow: 0 0 10px var(--primary-glow);
+            margin: 60px 0 30px 0;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 15px;
+        }
+
+        .school-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .school-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .school-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary-glow);
+            box-shadow: 0 10px 20px rgba(0, 242, 254, 0.1);
+        }
+
+        .school-card h4 {
+            font-family: 'Exo 2', sans-serif;
+            font-size: 1.3rem;
+            color: #F0F6FC;
+            margin: 0 0 15px 0;
+        }
+
+        .school-card p {
+            margin: 8px 0;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .school-card strong {
+            color: var(--primary-glow);
+            font-weight: 500;
+        }
+
+        .school-card a {
+            color: #3FB950; /* Bright Green */
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+        .school-card a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary-glow);
+            color: var(--bg-color);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        .back-to-top:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px var(--primary-glow);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1200px) {
+            .city-index {
+                display: none; /* Hide floating nav on smaller screens for more space */
+            }
+            .container {
+                padding: 30px 15px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- FLOATING CITY INDEX -->
+    <nav class="city-index" id="city-index-nav">
+        <h3>City Index</h3>
+        <ul>
+            <li><a href="#Agra">Agra</a></li>
+            <li><a href="#Ajmer">Ajmer</a></li>
+            <li><a href="#Allahabad">Allahabad</a></li>
+            <li><a href="#Amravati">Amravati</a></li>
+            <li><a href="#Amritsar">Amritsar</a></li>
+            <li><a href="#Asansol">Asansol</a></li>
+            <li><a href="#Aurangabad">Aurangabad</a></li>
+            <li><a href="#Bareilly">Bareilly</a></li>
+            <li><a href="#Belagavi">Belagavi</a></li>
+            <li><a href="#Bhavnagar">Bhavnagar</a></li>
+            <li><a href="#Bhopal">Bhopal</a></li>
+            <li><a href="#Bhubaneswar">Bhubaneswar</a></li>
+            <li><a href="#Bikaner">Bikaner</a></li>
+            <li><a href="#Bilaspur">Bilaspur</a></li>
+            <li><a href="#Bokaro">Bokaro</a></li>
+            <li><a href="#Burdwan">Burdwan</a></li>
+            <li><a href="#Chandigarh">Chandigarh</a></li>
+            <li><a href="#Coimbatore">Coimbatore</a></li>
+            <li><a href="#Cuttack">Cuttack</a></li>
+            <li><a href="#Dehradun">Dehradun</a></li>
+            <li><a href="#Dhanbad">Dhanbad</a></li>
+            <li><a href="#Durg-Bhilai">Durg-Bhilai</a></li>
+            <li><a href="#Faridabad">Faridabad</a></li>
+            <li><a href="#Ghaziabad">Ghaziabad</a></li>
+            <li><a href="#Gorakhpur">Gorakhpur</a></li>
+            <li><a href="#Guntur">Guntur</a></li>
+            <li><a href="#Gurgaon">Gurgaon</a></li>
+            <li><a href="#Guwahati">Guwahati</a></li>
+            <li><a href="#Gwalior">Gwalior</a></li>
+            <li><a href="#Hubli-Dharwad">Hubli-Dharwad</a></li>
+            <li><a href="#Indore">Indore</a></li>
+            <li><a href="#Jabalpur">Jabalpur</a></li>
+            <li><a href="#Jaipur">Jaipur</a></li>
+            <li><a href="#Jalandhar">Jalandhar</a></li>
+            <li><a href="#Jammu">Jammu</a></li>
+            <li><a href="#Jamnagar">Jamnagar</a></li>
+            <li><a href="#Jamshedpur">Jamshedpur</a></li>
+            <li><a href="#Jhansi">Jhansi</a></li>
+            <li><a href="#Jodhpur">Jodhpur</a></li>
+            <li><a href="#Kanpur">Kanpur</a></li>
+            <li><a href="#Kochi">Kochi</a></li>
+            <li><a href="#Kolhapur">Kolhapur</a></li>
+            <li><a href="#Kota">Kota</a></li>
+            <li><a href="#Kozhikode">Kozhikode</a></li>
+            <li><a href="#Lucknow">Lucknow</a></li>
+            <li><a href="#Ludhiana">Ludhiana</a></li>
+            <li><a href="#Madurai">Madurai</a></li>
+            <li><a href="#Mangaluru">Mangaluru</a></li>
+            <li><a href="#Meerut">Meerut</a></li>
+            <li><a href="#Moradabad">Moradabad</a></li>
+            <li><a href="#Mysuru">Mysuru</a></li>
+            <li><a href="#Nagpur">Nagpur</a></li>
+            <li><a href="#Nashik">Nashik</a></li>
+            <li><a href="#Nellore">Nellore</a></li>
+            <li><a href="#Noida">Noida</a></li>
+            <li><a href="#Patna">Patna</a></li>
+            <li><a href="#Puducherry">Puducherry</a></li>
+            <li><a href="#Raipur">Raipur</a></li>
+            <li><a href="#Rajkot">Rajkot</a></li>
+            <li><a href="#Ranchi">Ranchi</a></li>
+            <li><a href="#Salem">Salem</a></li>
+            <li><a href="#Siliguri">Siliguri</a></li>
+            <li><a href="#Srinagar">Srinagar</a></li>
+            <li><a href="#Surat">Surat</a></li>
+            <li><a href="#Thiruvananthapuram">Thiruvananthapuram</a></li>
+            <li><a href="#Thrissur">Thrissur</a></li>
+            <li><a href="#Tiruchirappalli">Tiruchirappalli</a></li>
+            <li><a href="#Tiruppur">Tiruppur</a></li>
+            <li><a href="#Vadodara">Vadodara</a></li>
+            <li><a href="#Varanasi">Varanasi</a></li>
+            <li><a href="#Vijayawada">Vijayawada</a></li>
+            <li><a href="#Visakhapatnam">Visakhapatnam</a></li>
+            <li><a href="#Warangal">Warangal</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <header class="main-header">
+            <h1>Top Schools in Tier 2 Cities</h1>
+            <p>This list has been compiled by cross-referencing multiple reputable sources to provide a strong starting point for identifying the premier educational institutions in each city.</p>
+        </header>
+
+        <!-- AGRA -->
+        <section id="Agra" class="city-section">
+            <h2 class="city-title">Agra</h2>
+            <div class="school-grid">
+                <div class="school-card"><h4>St. Peter's College</h4><p><strong>Board:</strong> CISCE (ICSE/ISC)</p><p><strong>Location:</strong> Agra</p><p><strong>Website:</strong> <a href="https://www.stpetersagra.org" target="_blank">https://www.stpetersagra.org</a></p></div>
+                <div class="school-card"><h4>Delhi Public School, Agra</h4><p><strong>Board:</strong> CBSE</p><p><strong>Location:</strong> Agra</p><p><strong>Website:</strong> <a href="https://www.dps.ac.in" target="_blank">https://www.dps.ac.in</a></p></div>
+                <div class="school-card"><h4>G. D. Goenka Public School</h4><p><strong>Board:</strong> CBSE</p><p><strong>Location:</strong> Agra</p><p><strong>Website:</strong> <a href="https://www.gdgoenkaagra.com" target="_blank">https://www.gdgoenkaagra.com</a></p></div>
+                <div class="school-card"><h4>St. Conrad's Inter College</h4><p><strong>Board:</strong> CISCE (ICSE/ISC)</p><p><strong>Location:</strong> Agra</p><p><strong>Website:</strong> <a href="https://www.stconradsagra.org" target="_blank">https://www.stconradsagra.org</a></p></div>
+                <div class="school-card"><h4>Army Public School, Agra</h4><p><strong>Board:</strong> CBSE</p><p><strong>Location:</strong> Agra</p><p><strong>Website:</strong> <a href="https://www.apsagra.co.in" target="_blank">https://www.apsagra.co.in</a></p></div>
+                <div class="school-card"><h4>St. Anthony's Junior College</h4><p><strong>Board:</strong> CISCE (ICSE/ISC)</p><p><strong>Location:</strong> Agra</p><p><strong>Website:</strong> <a href="https://www.stanthonysjrcollege.org" target="_blank">https://www.stanthonysjrcollege.org</a></p></div>
+                <div class="school-card"><h4>The International School Agra</h4><p><strong>Board:</strong> IGCSE, CBSE</p><p><strong>Location:</strong> Agra</p><p><strong>Website:</strong> <a href="https://www.tisagra.com" target="_blank">https://www.tisagra.com</a></p></div>
+                <div class="school-card"><h4>Agra Public School</h4><p><strong>Board:</strong> CBSE</p><p><strong>Location:</strong> Agra</p><p><strong>Website:</strong> <a href="https://www.apsagra.com" target="_blank">https://www.apsagra.com</a></p></div>
+                <div class="school-card"><h4>Prelude Public School</h4><p><strong>Board:</strong> CBSE</p><p><strong>Location:</strong> Agra</p><p><strong>Website:</strong> <a href="https://www.preludepublicschool.com" target="_blank">https://www.preludepublicschool.com</a></p></div>
+                <div class="school-card"><h4>St. Andrew's Public School</h4><p><strong>Board:</strong> CBSE</p><p><strong>Location:</strong> Agra</p><p><strong>Website:</strong> <a href="https://www.standrewsschool.ac.in" target="_blank">https://www.standrewsschool.ac.in</a></p></div>
+                <div class="school-card"><h4>Dr. M. P. S. World School</h4><p><strong>Board:</strong> CBSE</p><p><strong>Location:</strong> Agra</p><p><strong>Website:</strong> <a href="https://www.mpsworldschool.com" target="_blank">https://www.mpsworldschool.com</a></p></div>
+                <div class="school-card"><h4>Symphony Public School</h4><p><strong>Board:</strong> CBSE</p><p><strong>Location:</strong> Agra</p><p><strong>Website:</strong> <a href="https://www.symphonypublicschool.com" target="_blank">https://www.symphonypublicschool.com</a></p></div>
+                <div class="school-card"><h4>St. Paul's Church College</h4><p><strong>Board:</strong> CISCE (ICSE/ISC)</p><p><strong>Location:</strong> Agra</p><p><strong>Website:</strong> N/A</p></div>
+                <div class="school-card"><h4>Gayatri Public School</h4><p><strong>Board:</strong> CBSE</p><p><strong>Location:</strong> Agra</p><p><strong>Website:</strong> <a href="https://www.gayatrischool.in" target="_blank">https://www.gayatrischool.in</a></p></div>
+                <div class="school-card"><h4>Mount Litera Zee School</h4><p><strong>Board:</strong> CBSE</p><p><strong>Location:</strong> Agra</p><p><strong>Website:</strong> <a href="https://www.mlzsagra.com" target="_blank">https://www.mlzsagra.com</a></p></div>
+                <div class="school-card"><h4>Kendriya Vidyalaya No. 1, Agra</h4><p><strong>Board:</strong> CBSE</p><p><strong>Location:</strong> Agra</p><p><strong>Website:</strong> <a href="https://no1agracantt.kvs.ac.in" target="_blank">https://no1agracantt.kvs.ac.in</a></p></div>
+                <div class="school-card"><h4>Colonel's Brightland Public School</h4><p><strong>Board:</strong> CBSE</p><p><strong>Location:</strong> Agra</p><p><strong>Website:</strong> <a href="https://www.colonelsbrightland.com" target="_blank">https://www.colonelsbrightland.com</a></p></div>
+                <div class="school-card"><h4>St. Clare's Senior Secondary School</h4><p><strong>Board:</strong> CBSE</p><p><strong>Location:</strong> Agra</p><p><strong>Website:</strong> <a href="https://www.stclaresagra.com" target="_blank">https://www.stclaresagra.com</a></p></div>
+                <div class="school-card"><h4>Shri Ram Centennial School</h4><p><strong>Board:</strong> CBSE</p><p><strong>Location:</strong> Agra</p><p><strong>Website:</strong> <a href="https://www.srcsagra.org" target="_blank">https://www.srcsagra.org</a></p></div>
+                <div class="school-card"><h4>Holy Public School</h4><p><strong>Board:</strong> CBSE</p><p><strong>Location:</strong> Agra</p><p><strong>Website:</strong> <a href="https://www.holypublicschool.com" target="_blank">https://www.holypublicschool.com</a></p></div>
+                <div class="school-card"><h4>All Saints School</h4><p><strong>Board:</strong> CBSE</p><p><strong>Location:</strong> Agra</p><p><strong>Website:</strong> N/A</p></div>
+                <div class="school-card"><h4>Thompson Public School</h4><p><strong>Board:</strong> CBSE</p><p><strong>Location:</strong> Agra</p><p><strong>Website:</strong> N/A</p></div>
+                <div class="school-card"><h4>Rajeshwar Public School</h4><p><strong>Board:</strong> CBSE</p><p><strong>Location:</strong> Agra</p><p><strong>Website:</strong> N/A</p></div>
+                <div class="school-card"><h4>Queen Victoria Girls Inter College</h4><p><strong>Board:</strong> STATE BOARD</p><p><strong>Location:</strong> Agra</p><p><strong>Website:</strong> N/A</p></div>
+                <div class="school-card"><h4>Shivalik Cambridge College</h4><p><strong>Board:</strong> CBSE</p><p><strong>Location:</strong> Agra</p><p><strong>Website:</strong> <a href="https://www.shivalikcambridge.com" target="_blank">https://www.shivalikcambridge.com</a></p></div>
+            </div>
+        </section>
+
+        <!-- Placeholder Sections for all other cities -->
+        <section id="Ajmer" class="city-section"><h2 class="city-title">Ajmer</h2><div class="school-grid"><!-- Ajmer Schools Here --></div></section>
+        <section id="Allahabad" class="city-section"><h2 class="city-title">Allahabad (Prayagraj)</h2><div class="school-grid"><!-- Allahabad Schools Here --></div></section>
+        <section id="Amravati" class="city-section"><h2 class="city-title">Amravati</h2><div class="school-grid"><!-- Amravati Schools Here --></div></section>
+        <section id="Amritsar" class="city-section"><h2 class="city-title">Amritsar</h2><div class="school-grid"><!-- Amritsar Schools Here --></div></section>
+        <section id="Asansol" class="city-section"><h2 class="city-title">Asansol</h2><div class="school-grid"><!-- Asansol Schools Here --></div></section>
+        <section id="Aurangabad" class="city-section"><h2 class="city-title">Aurangabad</h2><div class="school-grid"><!-- Aurangabad Schools Here --></div></section>
+        <section id="Bareilly" class="city-section"><h2 class="city-title">Bareilly</h2><div class="school-grid"><!-- Bareilly Schools Here --></div></section>
+        <section id="Belagavi" class="city-section"><h2 class="city-title">Belagavi</h2><div class="school-grid"><!-- Belagavi Schools Here --></div></section>
+        <section id="Bhavnagar" class="city-section"><h2 class="city-title">Bhavnagar</h2><div class="school-grid"><!-- Bhavnagar Schools Here --></div></section>
+        <section id="Bhopal" class="city-section"><h2 class="city-title">Bhopal</h2><div class="school-grid"><!-- Bhopal Schools Here --></div></section>
+        <section id="Bhubaneswar" class="city-section"><h2 class="city-title">Bhubaneswar</h2><div class="school-grid"><!-- Bhubaneswar Schools Here --></div></section>
+        <section id="Bikaner" class="city-section"><h2 class="city-title">Bikaner</h2><div class="school-grid"><!-- Bikaner Schools Here --></div></section>
+        <section id="Bilaspur" class="city-section"><h2 class="city-title">Bilaspur</h2><div class="school-grid"><!-- Bilaspur Schools Here --></div></section>
+        <section id="Bokaro" class="city-section"><h2 class="city-title">Bokaro</h2><div class="school-grid"><!-- Bokaro Schools Here --></div></section>
+        <section id="Burdwan" class="city-section"><h2 class="city-title">Burdwan</h2><div class="school-grid"><!-- Burdwan Schools Here --></div></section>
+        <section id="Chandigarh" class="city-section"><h2 class="city-title">Chandigarh</h2><div class="school-grid"><!-- Chandigarh Schools Here --></div></section>
+        <section id="Coimbatore" class="city-section"><h2 class="city-title">Coimbatore</h2><div class="school-grid"><!-- Coimbatore Schools Here --></div></section>
+        <section id="Cuttack" class="city-section"><h2 class="city-title">Cuttack</h2><div class="school-grid"><!-- Cuttack Schools Here --></div></section>
+        <section id="Dehradun" class="city-section"><h2 class="city-title">Dehradun</h2><div class="school-grid"><!-- Dehradun Schools Here --></div></section>
+        <section id="Dhanbad" class="city-section"><h2 class="city-title">Dhanbad</h2><div class="school-grid"><!-- Dhanbad Schools Here --></div></section>
+        <section id="Durg-Bhilai" class="city-section"><h2 class="city-title">Durg-Bhilai</h2><div class="school-grid"><!-- Durg-Bhilai Schools Here --></div></section>
+        <section id="Faridabad" class="city-section"><h2 class="city-title">Faridabad</h2><div class="school-grid"><!-- Faridabad Schools Here --></div></section>
+        <section id="Ghaziabad" class="city-section"><h2 class="city-title">Ghaziabad</h2><div class="school-grid"><!-- Ghaziabad Schools Here --></div></section>
+        <section id="Gorakhpur" class="city-section"><h2 class="city-title">Gorakhpur</h2><div class="school-grid"><!-- Gorakhpur Schools Here --></div></section>
+        <section id="Guntur" class="city-section"><h2 class="city-title">Guntur</h2><div class="school-grid"><!-- Guntur Schools Here --></div></section>
+        <section id="Gurgaon" class="city-section"><h2 class="city-title">Gurgaon</h2><div class="school-grid"><!-- Gurgaon Schools Here --></div></section>
+        <section id="Guwahati" class="city-section"><h2 class="city-title">Guwahati</h2><div class="school-grid"><!-- Guwahati Schools Here --></div></section>
+        <section id="Gwalior" class="city-section"><h2 class="city-title">Gwalior</h2><div class="school-grid"><!-- Gwalior Schools Here --></div></section>
+        <section id="Hubli-Dharwad" class="city-section"><h2 class="city-title">Hubli-Dharwad</h2><div class="school-grid"><!-- Hubli-Dharwad Schools Here --></div></section>
+        <section id="Indore" class="city-section"><h2 class="city-title">Indore</h2><div class="school-grid"><!-- Indore Schools Here --></div></section>
+        <section id="Jabalpur" class="city-section"><h2 class="city-title">Jabalpur</h2><div class="school-grid"><!-- Jabalpur Schools Here --></div></section>
+        <section id="Jaipur" class="city-section"><h2 class="city-title">Jaipur</h2><div class="school-grid"><!-- Jaipur Schools Here --></div></section>
+        <section id="Jalandhar" class="city-section"><h2 class="city-title">Jalandhar</h2><div class="school-grid"><!-- Jalandhar Schools Here --></div></section>
+        <section id="Jammu" class="city-section"><h2 class="city-title">Jammu</h2><div class="school-grid"><!-- Jammu Schools Here --></div></section>
+        <section id="Jamnagar" class="city-section"><h2 class="city-title">Jamnagar</h2><div class="school-grid"><!-- Jamnagar Schools Here --></div></section>
+        <section id="Jamshedpur" class="city-section"><h2 class="city-title">Jamshedpur</h2><div class="school-grid"><!-- Jamshedpur Schools Here --></div></section>
+        <section id="Jhansi" class="city-section"><h2 class="city-title">Jhansi</h2><div class="school-grid"><!-- Jhansi Schools Here --></div></section>
+        <section id="Jodhpur" class="city-section"><h2 class="city-title">Jodhpur</h2><div class="school-grid"><!-- Jodhpur Schools Here --></div></section>
+        <section id="Kanpur" class="city-section"><h2 class="city-title">Kanpur</h2><div class="school-grid"><!-- Kanpur Schools Here --></div></section>
+        <section id="Kochi" class="city-section"><h2 class="city-title">Kochi</h2><div class="school-grid"><!-- Kochi Schools Here --></div></section>
+        <section id="Kolhapur" class="city-section"><h2 class="city-title">Kolhapur</h2><div class="school-grid"><!-- Kolhapur Schools Here --></div></section>
+        <section id="Kota" class="city-section"><h2 class="city-title">Kota</h2><div class="school-grid"><!-- Kota Schools Here --></div></section>
+        <section id="Kozhikode" class="city-section"><h2 class="city-title">Kozhikode</h2><div class="school-grid"><!-- Kozhikode Schools Here --></div></section>
+        <section id="Lucknow" class="city-section"><h2 class="city-title">Lucknow</h2><div class="school-grid"><!-- Lucknow Schools Here --></div></section>
+        <section id="Ludhiana" class="city-section"><h2 class="city-title">Ludhiana</h2><div class="school-grid"><!-- Ludhiana Schools Here --></div></section>
+        <section id="Madurai" class="city-section"><h2 class="city-title">Madurai</h2><div class="school-grid"><!-- Madurai Schools Here --></div></section>
+        <section id="Mangaluru" class="city-section"><h2 class="city-title">Mangaluru</h2><div class="school-grid"><!-- Mangaluru Schools Here --></div></section>
+        <section id="Meerut" class="city-section"><h2 class="city-title">Meerut</h2><div class="school-grid"><!-- Meerut Schools Here --></div></section>
+        <section id="Moradabad" class="city-section"><h2 class="city-title">Moradabad</h2><div class="school-grid"><!-- Moradabad Schools Here --></div></section>
+        <section id="Mysuru" class="city-section"><h2 class="city-title">Mysuru</h2><div class="school-grid"><!-- Mysuru Schools Here --></div></section>
+        <section id="Nagpur" class="city-section"><h2 class="city-title">Nagpur</h2><div class="school-grid"><!-- Nagpur Schools Here --></div></section>
+        <section id="Nashik" class="city-section"><h2 class="city-title">Nashik</h2><div class="school-grid"><!-- Nashik Schools Here --></div></section>
+        <section id="Nellore" class="city-section"><h2 class="city-title">Nellore</h2><div class="school-grid"><!-- Nellore Schools Here --></div></section>
+        <section id="Noida" class="city-section"><h2 class="city-title">Noida</h2><div class="school-grid"><!-- Noida Schools Here --></div></section>
+        <section id="Patna" class="city-section"><h2 class="city-title">Patna</h2><div class="school-grid"><!-- Patna Schools Here --></div></section>
+        <section id="Puducherry" class="city-section"><h2 class="city-title">Puducherry</h2><div class="school-grid"><!-- Puducherry Schools Here --></div></section>
+        <section id="Raipur" class="city-section"><h2 class="city-title">Raipur</h2><div class="school-grid"><!-- Raipur Schools Here --></div></section>
+        <section id="Rajkot" class="city-section"><h2 class="city-title">Rajkot</h2><div class="school-grid"><!-- Rajkot Schools Here --></div></section>
+        <section id="Ranchi" class="city-section"><h2 class="city-title">Ranchi</h2><div class="school-grid"><!-- Ranchi Schools Here --></div></section>
+        <section id="Salem" class="city-section"><h2 class="city-title">Salem</h2><div class="school-grid"><!-- Salem Schools Here --></div></section>
+        <section id="Siliguri" class="city-section"><h2 class="city-title">Siliguri</h2><div class="school-grid"><!-- Siliguri Schools Here --></div></section>
+        <section id="Srinagar" class="city-section"><h2 class="city-title">Srinagar</h2><div class="school-grid"><!-- Srinagar Schools Here --></div></section>
+        <section id="Surat" class="city-section"><h2 class="city-title">Surat</h2><div class="school-grid"><!-- Surat Schools Here --></div></section>
+        <section id="Thiruvananthapuram" class="city-section"><h2 class="city-title">Thiruvananthapuram</h2><div class="school-grid"><!-- Thiruvananthapuram Schools Here --></div></section>
+        <section id="Thrissur" class="city-section"><h2 class="city-title">Thrissur</h2><div class="school-grid"><!-- Thrissur Schools Here --></div></section>
+        <section id="Tiruchirappalli" class="city-section"><h2 class="city-title">Tiruchirappalli</h2><div class="school-grid"><!-- Tiruchirappalli Schools Here --></div></section>
+        <section id="Tiruppur" class="city-section"><h2 class="city-title">Tiruppur</h2><div class="school-grid"><!-- Tiruppur Schools Here --></div></section>
+        <section id="Vadodara" class="city-section"><h2 class="city-title">Vadodara</h2><div class="school-grid"><!-- Vadodara Schools Here --></div></section>
+        <section id="Varanasi" class="city-section"><h2 class="city-title">Varanasi</h2><div class="school-grid"><!-- Varanasi Schools Here --></div></section>
+        <section id="Vijayawada" class="city-section"><h2 class="city-title">Vijayawada</h2><div class="school-grid"><!-- Vijayawada Schools Here --></div></section>
+        <section id="Visakhapatnam" class="city-section"><h2 class="city-title">Visakhapatnam</h2><div class="school-grid"><!-- Visakhapatnam Schools Here --></div></section>
+        <section id="Warangal" class="city-section"><h2 class="city-title">Warangal</h2><div class="school-grid"><!-- Warangal Schools Here --></div></section>
+
+    </div>
+
+    <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cityIndexLinks = document.querySelectorAll('.city-index a');
+            const citySections = document.querySelectorAll('.city-section');
+            const backToTopButton = document.querySelector('.back-to-top');
+
+            // --- FIX STARTS HERE: Auto-scroll to city from URL ---
+            const params = new URLSearchParams(window.location.search);
+            const cityToScroll = params.get('city');
+
+            if (cityToScroll) {
+                const targetSection = document.getElementById(cityToScroll);
+                if (targetSection) {
+                    // Using setTimeout ensures the page has time to render before scrolling
+                    setTimeout(() => {
+                        targetSection.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }, 100); // 100ms delay is usually sufficient
+                }
+            }
+            // --- FIX ENDS HERE ---
+
+            // Smooth scrolling for index links
+            cityIndexLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Active link highlighting and back-to-top button visibility on scroll
+            window.addEventListener('scroll', () => {
+                let current = '';
+                citySections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= sectionTop - 100) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                cityIndexLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').substring(1) === current) {
+                        link.classList.add('active');
+                    }
+                });
+
+                // Back to top button
+                if (window.scrollY > 300) {
+                    backToTopButton.classList.add('visible');
+                } else {
+                    backToTopButton.classList.remove('visible');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

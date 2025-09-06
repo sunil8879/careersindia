@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Tenses: A Comprehensive Guide</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            /* Blue and white gridline background */
+            background-color: #f0f8ff; 
+            background-image: 
+                repeating-linear-gradient(to right, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 30px),
+                repeating-linear-gradient(to bottom, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 30px);
+            background-size: 30px 30px;
+        }
+
+        /* Header Styling */
+        header {
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        header h1 {
+            display: inline-block;
+            background-color: #0056b3;
+            color: white;
+            padding: 20px 40px;
+            border: 3px solid white;
+            border-radius: 15px;
+            /* 3D Box Effect */
+            box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.4), inset 2px 2px 5px rgba(255, 255, 255, 0.3);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-size: 2.2em;
+            margin: 0;
+        }
+
+        /* Main Container for Two-Column Layout */
+        .container {
+            display: flex;
+            max-width: 1300px;
+            margin: 20px auto;
+            background: #ffffff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.15);
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        /* Left Navigation Column */
+        .nav-column {
+            flex: 1;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+            background-color: #f8f9fa;
+        }
+
+        .nav-column ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            position: sticky;
+            top: 20px; /* Makes the nav stick on scroll */
+        }
+
+        .nav-column li a {
+            display: block;
+            padding: 12px 15px;
+            text-decoration: none;
+            color: #0056b3;
+            border-radius: 5px;
+            margin-bottom: 8px;
+            font-weight: bold;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .nav-column li a:hover,
+        .nav-column li a.active {
+            background-color: #0056b3;
+            color: #fff;
+        }
+        
+        .nav-column h3 {
+            font-size: 1.2em;
+            color: #333;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        /* Right Content Column */
+        .content-column {
+            flex: 3;
+            padding: 25px 35px;
+            height: 80vh; /* Set a height to enable scrolling */
+            overflow-y: auto; /* Enable vertical scrollbar */
+        }
+
+        .content-section {
+            display: none;
+        }
+        
+        .content-section.active {
+            display: block;
+        }
+        
+        h2 {
+            font-size: 1.8em;
+            color: #0056b3;
+            border-bottom: 3px solid #0056b3;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        
+        h3 {
+            font-size: 1.4em;
+            color: #333;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        
+        .example-list {
+            list-style-type: decimal;
+            padding-left: 20px;
+        }
+
+        .example-list li {
+            margin-bottom: 8px;
+        }
+        
+        .keywords {
+            font-style: italic;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>ENGLISH TENSES: A COMPREHENSIVE GUIDE</h1>
+    </header>
+
+    <div class="container">
+        <nav class="nav-column">
+            <h3>Present Tenses</h3>
+            <ul>
+                <li><a href="#simple-present" class="nav-link active">Simple Present</a></li>
+                <li><a href="#present-continuous" class="nav-link">Present Continuous</a></li>
+                <li><a href="#present-perfect" class="nav-link">Present Perfect</a></li>
+                <li><a href="#present-perfect-continuous" class="nav-link">Present Perfect Continuous</a></li>
+            </ul>
+             <h3>Past Tenses</h3>
+            <ul>
+                <li><a href="#simple-past" class="nav-link">Simple Past</a></li>
+                <li><a href="#past-continuous" class="nav-link">Past Continuous</a></li>
+                <li><a href="#past-perfect" class="nav-link">Past Perfect</a></li>
+                <li><a href="#past-perfect-continuous" class="nav-link">Past Perfect Continuous</a></li>
+            </ul>
+             <h3>Future Tenses</h3>
+            <ul>
+                <li><a href="#simple-future" class="nav-link">Simple Future</a></li>
+                <li><a href="#future-continuous" class="nav-link">Future Continuous</a></li>
+                <li><a href="#future-perfect" class="nav-link">Future Perfect</a></li>
+                <li><a href="#future-perfect-continuous" class="nav-link">Future Perfect Continuous</a></li>
+            </ul>
+             <h3>Quick Identification</h3>
+             <ul>
+                <li><a href="#identify" class="nav-link">Identify Tenses in Seconds</a></li>
+            </ul>
+        </nav>
+
+        <main class="content-column">
+            <!-- PRESENT TENSES -->
+            <section id="simple-present" class="content-section active">
+                <h2>Simple Present Tense</h2>
+                <p>Used to express habitual actions, universal truths, fixed future actions, and in specific clauses (time, conditional).</p>
+                <ol class="example-list">
+                    <li>I <strong>get up</strong> at 5 AM every day. (Habit)</li>
+                    <li>The Earth <strong>revolves</strong> around the Sun. (Universal Truth)</li>
+                    <li>Here <strong>comes</strong> the bus. (Immediate Present)</li>
+                    <li>He <strong>works</strong> in this office. (Present Period)</li>
+                    <li>The train <strong>starts</strong> at 5 PM. (Future Fixed Action)</li>
+                    <li>The commentary says, "Ram <strong>rushes</strong> forward and <strong>kicks</strong> the ball." (Vivid Narrative)</li>
+                    <li>I shall wait till you <strong>come</strong>. (Time Clause)</li>
+                    <li>If it <strong>rains</strong>, we shall get wet. (Conditional Clause)</li>
+                    <li>Shakespeare <strong>says</strong>, "Frailty, thy name is woman." (Quotation)</li>
+                    <li>There she <strong>goes</strong>! (Exclamatory Sentence)</li>
+                </ol>
+            </section>
+            
+            <section id="present-continuous" class="content-section">
+                <h2>Present Continuous Tense (is/am/are + V-ing)</h2>
+                <p>Used for an action happening at the time of speaking, a temporary action, or a planned future action.</p>
+                <ol class="example-list">
+                    <li>The boys <strong>are playing</strong> football right now. (Action at time of speaking)</li>
+                    <li>I <strong>am reading</strong> 'Tom Sawyer' these days. (Temporary action)</li>
+                    <li>I <strong>am going</strong> to the circus tonight. (Planned future action)</li>
+                    <li>He <strong>is always helping</strong> the weak. (Repeated action with 'always')</li>
+                    <li>She <strong>is teaching</strong> English at Delhi University. (Temporary action)</li>
+                    <li>Look! It <strong>is raining</strong> outside. (Action at time of speaking)</li>
+                    <li>My sister <strong>is getting</strong> married next week. (Planned future action)</li>
+                    <li>He <strong>is constantly complaining</strong> about his job. (Repeated action with 'constantly')</li>
+                    <li>We <strong>are working</strong> on a new project at the moment. (Action at time of speaking)</li>
+                    <li>Why <strong>are you making</strong> so much noise? (Action at time of speaking)</li>
+                </ol>
+            </section>
+            
+            <section id="present-perfect" class="content-section">
+                <h2>Present Perfect Tense (has/have + V3)</h2>
+                <p>Used for actions just completed, past actions with no defined time, or actions starting in the past and continuing to the present.</p>
+                <ol class="example-list">
+                    <li>He <strong>has just returned</strong> from the office. (Just completed)</li>
+                    <li>Mr. Ram <strong>has been</strong> to the USA. (Past action, undefined time)</li>
+                    <li>I <strong>have cut</strong> my finger. (Effect continues)</li>
+                    <li>I <strong>have known</strong> him for a long time. (Continuing to the present)</li>
+                    <li>She <strong>has lived</strong> here for ten years. (Still living here)</li>
+                    <li>The train <strong>has arrived</strong> at the platform. (Just completed)</li>
+                    <li><strong>Have you</strong> ever <strong>seen</strong> a ghost? (Past action, undefined time)</li>
+                    <li>I <strong>have finished</strong> my work, so I can go home. (Effect continues)</li>
+                    <li>He <strong>has been</strong> ill since last week. (Continuing to the present)</li>
+                    <li>We <strong>have</strong> already <strong>watched</strong> that movie. (Past action, undefined time)</li>
+                </ol>
+            </section>
+
+            <section id="present-perfect-continuous" class="content-section">
+                <h2>Present Perfect Continuous Tense (has/have been + V-ing)</h2>
+                <p>Used for an action that began in the past and is still continuing, or for drawing conclusions from evidence.</p>
+                <ol class="example-list">
+                    <li>They <strong>have been playing</strong> since 4 o'clock. (Started in past, still continuing)</li>
+                    <li>We <strong>have been building</strong> this house for six months. (Unfinished action)</li>
+                    <li>Her eyes are red; she <strong>has been crying</strong>. (Drawing a conclusion)</li>
+                    <li>He <strong>has been working</strong> here for ten years. (Started in past, still continuing)</li>
+                    <li>I <strong>have been waiting</strong> for you all morning. (Unfinished action)</li>
+                    <li>The ground is wet. It <strong>has been raining</strong>. (Drawing a conclusion)</li>
+                    <li>She <strong>has been learning</strong> French since last year. (Started in past, still continuing)</li>
+                    <li>They <strong>have been talking</strong> on the phone for an hour. (Unfinished action)</li>
+                    <li>He looks tired because he <strong>has been studying</strong> all night. (Drawing a conclusion)</li>
+                    <li>We <strong>have been living</strong> in this city since 2010. (Started in past, still continuing)</li>
+                </ol>
+            </section>
+
+            <!-- PAST TENSES -->
+            <section id="simple-past" class="content-section">
+                <h2>Simple Past Tense (V2)</h2>
+                <p>Used to indicate a completed action in the past, often with a time adverb, or for past habits.</p>
+                 <ol class="example-list">
+                    <li>I <strong>read</strong> the letter yesterday. (Completed action with time adverb)</li>
+                    <li>I <strong>didn't sleep</strong> well last night. (Completed action, time implied)</li>
+                    <li>He always <strong>carried</strong> a bag to school. (Past habit)</li>
+                    <li>She <strong>took</strong> a long walk every morning when she was young. (Past habit)</li>
+                    <li>We <strong>studied</strong> chemistry for two years in college. (Action over a past period)</li>
+                    <li>Who <strong>left</strong> the door open? (Completed action, time implied)</li>
+                    <li>They <strong>visited</strong> the Taj Mahal last year. (Completed action with time adverb)</li>
+                    <li>The company <strong>launched</strong> the product in 2020. (Completed action with time adverb)</li>
+                    <li>He <strong>never told</strong> a lie. (Past habit)</li>
+                    <li>I <strong>bought</strong> this car a month ago. (Completed action with time adverb)</li>
+                </ol>
+            </section>
+            
+            <section id="past-continuous" class="content-section">
+                <h2>Past Continuous Tense (was/were + V-ing)</h2>
+                <p>Used for an action that was in progress at some time in the past, or for persistent past habits.</p>
+                <ol class="example-list">
+                    <li>He <strong>was listening</strong> to the radio all day. (Action in progress in the past)</li>
+                    <li>She <strong>was weeping</strong> bitterly when I saw her. (Action in progress in the past)</li>
+                    <li>It <strong>was raining</strong> all night. (Emphasizing continuity)</li>
+                    <li>He <strong>was always grumbling</strong> about something. (Persistent past habit)</li>
+                    <li>I <strong>was wondering</strong> if you could help me. (Polite enquiry)</li>
+                    <li>The children <strong>were doing</strong> their homework when the guests arrived. (Action in progress in the past)</li>
+                    <li>It <strong>was still raining</strong> when I woke up. (Emphasizing duration)</li>
+                    <li>She <strong>was constantly checking</strong> her phone during the movie. (Persistent past habit)</li>
+                    <li>What <strong>were you doing</strong> at 8 PM yesterday? (Action in progress in the past)</li>
+                    <li>They <strong>were living</strong> in Paris at that time. (Action in progress in the past)</li>
+                </ol>
+            </section>
+            
+            <section id="past-perfect" class="content-section">
+                <h2>Past Perfect Tense (had + V3)</h2>
+                <p>Used to describe an action completed before another action in the past (the "past of the past").</p>
+                 <ol class="example-list">
+                    <li>The patient <strong>had died</strong> when the doctor arrived.</li>
+                    <li>I <strong>had written</strong> the letter before he arrived.</li>
+                    <li>I <strong>had thought</strong> of sending him a letter but couldn't. (Unfulfilled wish)</li>
+                    <li>When I reached the station, the train <strong>had already left</strong>.</li>
+                    <li>After he <strong>had finished</strong> his work, he went home.</li>
+                    <li>She <strong>had hoped</strong> to win the competition. (Unfulfilled wish)</li>
+                    <li>By the time the police arrived, the thief <strong>had escaped</strong>.</li>
+                    <li>He told me he <strong>had never seen</strong> such a thing before.</li>
+                    <li>I <strong>had wanted</strong> to thank you, but I didn't get the chance. (Unfulfilled wish)</li>
+                    <li>She <strong>had</strong> already <strong>eaten</strong>, so she didn't join us for dinner.</li>
+                </ol>
+            </section>
+
+            <section id="past-perfect-continuous" class="content-section">
+                <h2>Past Perfect Continuous Tense (had been + V-ing)</h2>
+                <p>Used for an action that began before a certain time in the past and continued up to that time.</p>
+                <ol class="example-list">
+                    <li>At that time, he <strong>had been editing</strong> the newspaper for two years.</li>
+                    <li>The children <strong>had been practicing</strong> for two hours until I called them.</li>
+                    <li>Her eyes were red; it was obvious she <strong>had been crying</strong> all day.</li>
+                    <li>By the time he got the job, he <strong>had been searching</strong> for months.</li>
+                    <li>They <strong>had been waiting</strong> for an hour before the bus arrived.</li>
+                    <li>He was tired because he <strong>had been working</strong> since morning.</li>
+                    <li>She <strong>had been living</strong> in that city for five years when she decided to move.</li>
+                    <li>When I found my keys, I <strong>had been looking</strong> for them for hours.</li>
+                    <li>The team <strong>had been training</strong> hard before they finally won the championship.</li>
+                    <li>He <strong>had been feeling</strong> unwell for a week before he went to the doctor.</li>
+                </ol>
+            </section>
+            
+            <!-- FUTURE TENSES -->
+             <section id="simple-future" class="content-section">
+                <h2>Simple Future Tense (will/shall + V1)</h2>
+                <p>Used for an action that has still to take place, or to express a plan or intention.</p>
+                <ol class="example-list">
+                    <li>I <strong>shall see</strong> him tomorrow.</li>
+                    <li>The price of goods <strong>will rise</strong> by the year's end.</li>
+                    <li>The college <strong>opens</strong> on 10th July. (Using Simple Present for future)</li>
+                    <li>He <strong>is arriving</strong> this evening. (Using Present Continuous for future)</li>
+                    <li>I <strong>am going to think</strong> about your proposal. (Using 'going to')</li>
+                    <li>He <strong>is going to be</strong> a doctor when he grows up. (Using 'going to')</li>
+                    <li>They <strong>will finish</strong> the project next week.</li>
+                    <li>I think it <strong>will rain</strong> today.</li>
+                    <li>We <strong>shall overcome</strong> this challenge.</li>
+                    <li>The ceremony <strong>will begin</strong> at 10 AM.</li>
+                </ol>
+            </section>
+            
+            <section id="future-continuous" class="content-section">
+                <h2>Future Continuous Tense (will be + V-ing)</h2>
+                <p>Used to represent an action as going on at some time in the future or for planned future events.</p>
+                <ol class="example-list">
+                    <li>The guests <strong>will be arriving</strong> any time from now.</li>
+                    <li>He <strong>will be meeting</strong> us next month.</li>
+                    <li>I <strong>shall be seeing</strong> the President tonight.</li>
+                    <li><strong>Will you be doing</strong> it in our absence? (Polite question)</li>
+                    <li>This time tomorrow, I <strong>will be travelling</strong> to London.</li>
+                    <li>Don't call me at 9 PM; I <strong>will be watching</strong> the movie.</li>
+                    <li>Next year, we <strong>will be celebrating</strong> our anniversary in Paris.</li>
+                    <li>He <strong>will be working</strong> on the new project all of next week.</li>
+                    <li>She <strong>will be waiting</strong> for you at the station.</li>
+                    <li>They <strong>will be playing</strong> football on Sunday afternoon.</li>
+                </ol>
+            </section>
+            
+            <section id="future-perfect" class="content-section">
+                <h2>Future Perfect Tense (will have + V3)</h2>
+                <p>Used to indicate the completion of an action by a certain time in the future.</p>
+                <ol class="example-list">
+                    <li>I <strong>will have returned</strong> by 2025.</li>
+                    <li>Before you come, he <strong>will have slept</strong>.</li>
+                    <li>By next month, I <strong>will have finished</strong> this book.</li>
+                    <li>By 8 PM, she <strong>will have cooked</strong> dinner.</li>
+                    <li>They <strong>will have built</strong> the bridge by the end of the year.</li>
+                    <li>By the time we arrive, the movie <strong>will have started</strong>.</li>
+                    <li>She <strong>will have graduated</strong> from university by next June.</li>
+                    <li>He <strong>will have saved</strong> enough money to buy a car by then.</li>
+                    <li>In three more years, we <strong>will have been</strong> married for a decade.</li>
+                    <li>By next week, I <strong>will have completed</strong> my training.</li>
+                </ol>
+            </section>
+
+            <section id="future-perfect-continuous" class="content-section">
+                <h2>Future Perfect Continuous Tense (will have been + V-ing)</h2>
+                <p>Used to indicate an action that will be in progress over a period of time that will end in the future.</p>
+                 <ol class="example-list">
+                    <li>By next June, we <strong>shall have been living</strong> here for four years.</li>
+                    <li>I <strong>will have been studying</strong> for two hours when she calls me tonight.</li>
+                    <li>By the end of this year, he <strong>will have been working</strong> at this company for a decade.</li>
+                    <li>In September, they <strong>will have been building</strong> that road for a full year.</li>
+                    <li>By 10 PM, she <strong>will have been watching</strong> TV for three hours.</li>
+                    <li>When he retires, he <strong>will have been teaching</strong> for over thirty years.</li>
+                    <li>By the time you arrive, I <strong>will have been waiting</strong> for an hour.</li>
+                    <li>Next month, I <strong>will have been learning</strong> Spanish for two years.</li>
+                    <li>At 5 o'clock, he <strong>will have been driving</strong> for six hours straight.</li>
+                    <li>By the end of the match, the team <strong>will have been playing</strong> for 90 minutes.</li>
+                </ol>
+            </section>
+            
+            <!-- IDENTIFY TENSES SECTION -->
+            <section id="identify" class="content-section">
+                <h2>How to Identify Tenses in Seconds</h2>
+                <p>This is a quick-reference guide for competitive exams. Focus on the verb structure and keywords to identify the tense instantly.</p>
+                
+                <h3>1. Simple Present Tense</h3>
+                <p><strong>How to Identify:</strong> Look for the base verb (V1) or the verb ending in -s/-es. In questions/negatives, look for `do` or `does`.</p>
+                <p class="keywords">Keywords: always, usually, often, every day, never, sometimes, on Mondays, seldom.</p>
+                <ol class="example-list">
+                    <li>The sun <strong>rises</strong> in the east.</li>
+                    <li>She <strong>goes</strong> to the gym every day.</li>
+                    <li>They often <strong>play</strong> football on Sundays.</li>
+                    <li>He never <strong>tells</strong> a lie.</li>
+                    <li>Water <strong>boils</strong> at 100 degrees Celsius.</li>
+                    <li>My father <strong>reads</strong> the newspaper in the morning.</li>
+                    <li>I usually <strong>drink</strong> coffee for breakfast.</li>
+                    <li>The train to Mumbai <strong>leaves</strong> at 8 PM.</li>
+                    <li>Do you <strong>like</strong> classical music?</li>
+                    <li>The Earth <strong>rotates</strong> on its axis.</li>
+                </ol>
+
+                <h3>2. Present Continuous Tense</h3>
+                <p><strong>How to Identify:</strong> Look for the structure `am / is / are + verb-ing`.</p>
+                <p class="keywords">Keywords: now, right now, at the moment, currently, Look!, Listen!.</p>
+                <ol class="example-list">
+                    <li>I <strong>am writing</strong> an email at the moment.</li>
+                    <li>Listen! Someone <strong>is playing</strong> the piano.</li>
+                    <li>They <strong>are working</strong> on a new project currently.</li>
+                    <li>She <strong>is talking</strong> on the phone right now.</li>
+                    <li>What <strong>are you doing</strong> here?</li>
+                    <li>The children <strong>are sleeping</strong> now.</li>
+                    <li>He <strong>is waiting</strong> for the bus.</li>
+                    <li>We <strong>are planning</strong> a party.</li>
+                    <li>Look! The plane <strong>is taking off</strong>.</li>
+                    <li>My brother <strong>is studying</strong> for his final exams.</li>
+                </ol>
+
+                <h3>3. Present Perfect Tense</h3>
+                <p><strong>How to Identify:</strong> Look for the structure `have / has + past participle (V3)`.</p>
+                <p class="keywords">Keywords: already, yet, just, ever, never, since, for, so far, recently.</p>
+                <ol class="example-list">
+                    <li>She <strong>has just finished</strong> her homework.</li>
+                    <li>Have you ever <strong>been</strong> to Japan?</li>
+                    <li>They haven't <strong>arrived</strong> yet.</li>
+                    <li>I <strong>have seen</strong> this movie before.</li>
+                    <li>He <strong>has lived</strong> in this city for five years.</li>
+                    <li>We <strong>have</strong> already <strong>eaten</strong> lunch.</li>
+                    <li>She <strong>has</strong> never <strong>visited</strong> that museum.</li>
+                    <li>I <strong>have lost</strong> my keys.</li>
+                    <li>He <strong>has worked</strong> here since 2015.</li>
+                    <li>The company <strong>has launched</strong> a new product recently.</li>
+                </ol>
+
+                <h3>4. Present Perfect Continuous Tense</h3>
+                <p><strong>How to Identify:</strong> Look for the structure `have / has + been + verb-ing`.</p>
+                <p class="keywords">Keywords: for, since, all day, all morning, for hours.</p>
+                <ol class="example-list">
+                    <li>He <strong>has been working</strong> on this report for three hours.</li>
+                    <li>I <strong>have been waiting</strong> for you since 10 AM.</li>
+                    <li>She <strong>has been studying</strong> all day.</li>
+                    <li>They <strong>have been playing</strong> outside since morning.</li>
+                    <li>We <strong>have been living</strong> in this house for ten years.</li>
+                    <li>It <strong>has been raining</strong> all week.</li>
+                    <li>How long <strong>have you been learning</strong> English?</li>
+                    <li>He <strong>has been feeling</strong> unwell since yesterday.</li>
+                    <li>I <strong>have been trying</strong> to call you all day.</li>
+                    <li>The team <strong>has been practicing</strong> for the match.</li>
+                </ol>
+                
+                <h3>5. Simple Past Tense</h3>
+                <p><strong>How to Identify:</strong> Look for the past tense form of the verb (V2), which often ends in -ed. In questions/negatives, look for `did`.</p>
+                <p class="keywords">Keywords: yesterday, last week/month/year, ago, in 2010, the other day.</p>
+                 <ol class="example-list">
+                    <li>They <strong>visited</strong> Paris last summer.</li>
+                    <li>I <strong>saw</strong> that movie two days ago.</li>
+                    <li>She <strong>did not attend</strong> the meeting yesterday.</li>
+                    <li>He <strong>finished</strong> his work and left the office.</li>
+                    <li>We <strong>went</strong> to the beach last weekend.</li>
+                    <li>The company <strong>was founded</strong> in 1990.</li>
+                    <li>She <strong>wrote</strong> a letter to her friend.</li>
+                    <li>I <strong>bought</strong> a new phone last week.</li>
+                    <li>When <strong>did you arrive</strong>?</li>
+                    <li>He <strong>lived</strong> in London for several years.</li>
+                </ol>
+                
+                <h3>6. Past Continuous Tense</h3>
+                <p><strong>How to Identify:</strong> Look for the structure `was / were + verb-ing`.</p>
+                <p class="keywords">Keywords: while, when, as, at 5 PM yesterday.</p>
+                <ol class="example-list">
+                    <li>I <strong>was watching</strong> television when the power went out.</li>
+                    <li>He <strong>was sleeping</strong> while she was studying.</li>
+                    <li>At this time yesterday, we <strong>were travelling</strong> to the mountains.</li>
+                    <li>She <strong>was cooking</strong> dinner when the phone rang.</li>
+                    <li>What <strong>were you doing</strong> at 10 PM last night?</li>
+                    <li>The sun <strong>was shining</strong> and the birds <strong>were singing</strong>.</li>
+                    <li>He <strong>was waiting</strong> at the bus stop.</li>
+                    <li>They <strong>were playing</strong> in the park when it started to rain.</li>
+                    <li>I <strong>was living</strong> in Delhi at that time.</li>
+                    <li>She <strong>was wearing</strong> a beautiful red dress.</li>
+                </ol>
+
+                <h3>7. Past Perfect Tense</h3>
+                <p><strong>How to Identify:</strong> Look for the structure `had + past participle (V3)`. It describes an action that happened before another past action.</p>
+                <p class="keywords">Keywords: before, after, already, by the time, when.</p>
+                <ol class="example-list">
+                    <li>The train <strong>had</strong> already <strong>left</strong> by the time I reached the station.</li>
+                    <li>After he <strong>had finished</strong> his work, he went home.</li>
+                    <li>She told me she <strong>had never seen</strong> such a beautiful place before.</li>
+                    <li>I <strong>had</strong> just <strong>gone</strong> to bed when the doorbell rang.</li>
+                    <li>He <strong>had</strong> not <strong>studied</strong>, so he failed the test.</li>
+                    <li>By the time the police arrived, the thieves <strong>had escaped</strong>.</li>
+                    <li>She <strong>had lived</strong> in New York before she moved to California.</li>
+                    <li>I didn't go to the movie because I <strong>had</strong> already <strong>seen</strong> it.</li>
+                    <li>He <strong>had</strong> already <strong>eaten</strong> when I offered him the cake.</li>
+                    <li>When we arrived, the party <strong>had</strong> already <strong>started</strong>.</li>
+                </ol>
+
+                <h3>8. Past Perfect Continuous Tense</h3>
+                <p><strong>How to Identify:</strong> Look for the structure `had + been + verb-ing`.</p>
+                <p class="keywords">Keywords: for, since, by the time.</p>
+                <ol class="example-list">
+                    <li>He <strong>had been waiting</strong> for an hour before she finally arrived.</li>
+                    <li>By the time he passed the exam, he <strong>had been studying</strong> since January.</li>
+                    <li>They <strong>had been travelling</strong> for days when they reached their destination.</li>
+                    <li>She <strong>had been working</strong> there for five years when she got promoted.</li>
+                    <li>He was tired because he <strong>had been driving</strong> all night.</li>
+                    <li>The ground was wet because it <strong>had been raining</strong>.</li>
+                    <li>I <strong>had been trying</strong> to solve the puzzle for an hour before I gave up.</li>
+                    <li>They <strong>had been living</strong> in that house since 2010.</li>
+                    <li>She <strong>had been feeling</strong> unwell for a week before she saw a doctor.</li>
+                    <li>By the time the concert started, we <strong>had been waiting</strong> in line for two hours.</li>
+                </ol>
+                
+                <h3>9. Simple Future Tense</h3>
+                <p><strong>How to Identify:</strong> Look for the structure `will + base verb (V1)` or `am/is/are + going to + V1`.</p>
+                <p class="keywords">Keywords: tomorrow, next week/month/year, soon, later, in the future.</p>
+                <ol class="example-list">
+                    <li>I <strong>will call</strong> you tomorrow.</li>
+                    <li>They <strong>are going to launch</strong> the product next month.</li>
+                    <li>He <strong>will be</strong> here soon.</li>
+                    <li>We <strong>shall overcome</strong> this problem.</li>
+                    <li>I think it <strong>will rain</strong> this afternoon.</li>
+                    <li>She <strong>is going to start</strong> a new job next week.</li>
+                    <li>The concert <strong>will begin</strong> at 7 PM.</li>
+                    <li>He <strong>will help</strong> you with your homework.</li>
+                    <li>I <strong>am going to visit</strong> my grandparents this weekend.</li>
+                    <li>They <strong>will travel</strong> to Europe next summer.</li>
+                </ol>
+                
+                <h3>10. Future Continuous Tense</h3>
+                <p><strong>How to Identify:</strong> Look for the structure `will be + verb-ing`.</p>
+                <p class="keywords">Keywords: at this time tomorrow, by this time next week, at 8 PM tonight.</p>
+                <ol class="example-list">
+                    <li>At 9 PM tomorrow, I <strong>will be watching</strong> the final match.</li>
+                    <li>Don't call me in the morning; I <strong>will be working</strong>.</li>
+                    <li>This time next year, she <strong>will be studying</strong> at university.</li>
+                    <li>He <strong>will be waiting</strong> for you when you arrive.</li>
+                    <li>They <strong>will be travelling</strong> to London this time next week.</li>
+                    <li>I <strong>will be having</strong> dinner at 8 PM, so please call after that.</li>
+                    <li>She <strong>will be giving</strong> a presentation at the conference.</li>
+                    <li>We <strong>will be celebrating</strong> our anniversary next month.</li>
+                    <li>This time tomorrow, he <strong>will be flying</strong> to New York.</li>
+                    <li>The team <strong>will be practicing</strong> all day tomorrow.</li>
+                </ol>
+                
+                <h3>11. Future Perfect Tense</h3>
+                <p><strong>How to Identify:</strong> Look for the structure `will have + past participle (V3)`.</p>
+                <p class="keywords">Keywords: by, by the time, by next week/month/year.</p>
+                <ol class="example-list">
+                    <li>By 8 PM, I <strong>will have finished</strong> my dinner.</li>
+                    <li>She <strong>will have graduated</strong> by next year.</li>
+                    <li>By the time you arrive, the movie <strong>will have started</strong>.</li>
+                    <li>He <strong>will have completed</strong> the project by the deadline.</li>
+                    <li>They <strong>will have left</strong> before you get there.</li>
+                    <li>By next month, I <strong>will have saved</strong> enough money for the trip.</li>
+                    <li>She <strong>will have read</strong> the entire book by the end of the day.</li>
+                    <li>We <strong>will have been</strong> married for ten years next April.</li>
+                    <li>He <strong>will have learned</strong> Spanish by the time he moves to Spain.</li>
+                    <li>By 2030, scientists <strong>will have found</strong> a cure.</li>
+                </ol>
+
+                <h3>12. Future Perfect Continuous Tense</h3>
+                <p><strong>How to Identify:</strong> Look for the structure `will have been + verb-ing`.</p>
+                <p class="keywords">Keywords: for, by the time.</p>
+                 <ol class="example-list">
+                    <li>By December, I <strong>will have been working</strong> here for five years.</li>
+                    <li>By the time he retires, he <strong>will have been teaching</strong> for over thirty years.</li>
+                    <li>Next week, we <strong>will have been living</strong> in this house for a year.</li>
+                    <li>When you arrive, they <strong>will have been waiting</strong> for an hour.</li>
+                    <li>By 6 PM, he <strong>will have been studying</strong> for four hours straight.</li>
+                    <li>In May, she <strong>will have been travelling</strong> for six months.</li>
+                    <li>By the end of the marathon, the athletes <strong>will have been running</strong> for hours.</li>
+                    <li>Next year, they <strong>will have been building</strong> that bridge for three years.</li>
+                    <li>By the time the movie ends, we <strong>will have been watching</strong> it for two hours.</li>
+                    <li>He <strong>will have been driving</strong> for ten hours by the time he reaches his destination.</li>
+                </ol>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const contentSections = document.querySelectorAll('.content-section');
+            const contentColumn = document.querySelector('.content-column');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+
+                    navLinks.forEach(nav => nav.classList.remove('active'));
+                    contentSections.forEach(section => section.classList.remove('active'));
+
+                    this.classList.add('active');
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        targetSection.classList.add('active');
+                        contentColumn.scrollTop = 0; // Scroll to top of content area on click
+                    }
+                });
+            });
+            // Auto-activate the first link on page load
+            document.querySelector('.nav-link').classList.add('active');
+            document.querySelector('.content-section').classList.add('active');
+        });
+    </script>
+
+</body>
+</html>

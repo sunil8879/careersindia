@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schools in Tezpur</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Teko:wght@400;600&family=Raleway:wght@400;500&display=swap');
+        
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: #fff0f0;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: auto;
+        }
+
+        .header {
+            background: #c21500;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #ffc500, #c21500);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #ffc500, #c21500); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-family: 'Teko', sans-serif;
+            margin: 0;
+            font-size: 4em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        
+        .header p {
+            margin: 0;
+            font-size: 1.3em;
+            font-weight: 500;
+        }
+
+        .masonry {
+            column-count: 4;
+            column-gap: 15px;
+        }
+
+        .school-card {
+            display: inline-block;
+            width: 100%;
+            background: #fff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            border-radius: 4px;
+            margin-bottom: 15px;
+            padding: 18px;
+            break-inside: avoid-column;
+        }
+
+        .school-card h3 {
+            font-family: 'Teko', sans-serif;
+            margin: 0 0 10px 0;
+            font-size: 1.6em;
+            color: #b71c1c;
+            border-bottom: 2px solid #fce4ec;
+            padding-bottom: 5px;
+        }
+
+        .school-card p {
+            margin: 0 0 5px 0;
+            font-size: 0.95em;
+        }
+        
+        .school-card a {
+            color: #e65100;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .school-card a:hover {
+            text-decoration: underline;
+        }
+
+        .not-available {
+            color: #8d8d8d;
+        }
+        
+        /* Responsive Masonry */
+        @media (max-width: 1200px) { .masonry { column-count: 3; } }
+        @media (max-width: 992px)  { .masonry { column-count: 2; } }
+        @media (max-width: 768px)  { .masonry { column-count: 1; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Schools in Tezpur</h1>
+            <p>Assam</p>
+        </div>
+        <div class="masonry">
+            <div class="school-card"><h3>Don Bosco High School</h3><p><strong>Board:</strong> SEBA</p><p><strong>Location:</strong> Tezpur</p><p><strong>Website:</strong> <a href="http://donboscotezpur.org" target="_blank">donboscotezpur.org</a></p></div>
+            <div class="school-card"><h3>Kendriya Vidyalaya No. 1</h3><p><strong>Board:</strong> CBSE</p><p><strong>Location:</strong> Solmara, Tezpur</p><p><strong>Website:</strong> <a href="https://no1tezpur.kvs.ac.in" target="_blank">no1tezpur.kvs.ac.in</a></p></div>
+            <div class="school-card"><h3>Tezpur Government Higher Secondary School</h3><p><strong>Board:</strong> SEBA</p><p><strong>Location:</strong> Tezpur</p><p><strong>Website:</strong> <span class="not-available">Not Available</span></p></div>
+            <div class="school-card"><h3>Sacred Heart High School</h3><p><strong>Board:</strong> SEBA</p><p><strong>Location:</strong> Tezpur</p><p><strong>Website:</strong> <span class="not-available">Not Available</span></p></div>
+            <div class="school-card"><h3>Army Public School</h3><p><strong>Board:</strong> CBSE</p><p><strong>Location:</strong> Tezpur</p><p><strong>Website:</strong> <a href="http://apstezpur.org" target="_blank">apstezpur.org</a></p></div>
+            <div class="school-card"><h3>St. Joseph's Convent High School</h3><p><strong>Board:</strong> SEBA</p><p><strong>Location:</strong> Tezpur</p><p><strong>Website:</strong> <span class="not-available">Not Available</span></p></div>
+            <div class="school-card"><h3>Tezpur Academy</h3><p><strong>Board:</strong> SEBA</p><p><strong>Location:</strong> Tezpur</p><p><strong>Website:</strong> <span class="not-available">Not Available</span></p></div>
+            <div class="school-card"><h3>Darrang College</h3><p><strong>Board:</strong> AHSEC</p><p><strong>Location:</strong> Tezpur</p><p><strong>Website:</strong> <a href="http://darrangcollege.in" target="_blank">darrangcollege.in</a></p></div>
+            <div class="school-card"><h3>Vivekananda Kendra Vidyalaya</h3><p><strong>Board:</strong> CBSE</p><p><strong>Location:</strong> Tezpur</p><p><strong>Website:</strong> <a href="http://vkvtezpur.org" target="_blank">vkvtezpur.org</a></p></div>
+            <div class="school-card"><h3>Gyan Bharati Academy</h3><p><strong>Board:</strong> SEBA</p><p><strong>Location:</strong> Tezpur</p><p><strong>Website:</strong> <span class="not-available">Not Available</span></p></div>
+            <div class="school-card"><h3>St. John's School</h3><p><strong>Board:</strong> SEBA</p><p><strong>Location:</strong> Tezpur</p><p><strong>Website:</strong> <span class="not-available">Not Available</span></p></div>
+            <div class="school-card"><h3>Government Girls' Higher Secondary School</h3><p><strong>Board:</strong> SEBA</p><p><strong>Location:</strong> Tezpur</p><p><strong>Website:</strong> <span class="not-available">Not Available</span></p></div>
+            <div class="school-card"><h3>Tezpur Bengali Boys' H.S. School</h3><p><strong>Board:</strong> SEBA</p><p><strong>Location:</strong> Tezpur</p><p><strong>Website:</strong> <span class="not-available">Not Available</span></p></div>
+            <div class="school-card"><h3>Tezpur Bengali Girls' H.S. School</h3><p><strong>Board:</strong> SEBA</p><p><strong>Location:</strong> Tezpur</p><p><strong>Website:</strong> <span class="not-available">Not Available</span></p></div>
+            <div class="school-card"><h3>Sankardev Sishu Niketan</h3><p><strong>Board:</strong> SEBA</p><p><strong>Location:</strong> Tezpur</p><p><strong>Website:</strong> <span class="not-available">Not Available</span></p></div>
+            <div class="school-card"><h3>Guru Nanak Model School</h3><p><strong>Board:</strong> CBSE</p><p><strong>Location:</strong> Tezpur</p><p><strong>Website:</strong> <span class="not-available">Not Available</span></p></div>
+            <div class="school-card"><h3>Radha Govinda Baruah College</h3><p><strong>Board:</strong> AHSEC</p><p><strong>Location:</strong> Tezpur</p><p><strong>Website:</strong> <span class="not-available">Not Available</span></p></div>
+            <div class="school-card"><h3>Little Stars School</h3><p><strong>Board:</strong> SEBA</p><p><strong>Location:</strong> Tezpur</p><p><strong>Website:</strong> <span class="not-available">Not Available</span></p></div>
+            <div class="school-card"><h3>Assam Valley Junior College</h3><p><strong>Board:</strong> AHSEC</p><p><strong>Location:</strong> Tezpur</p><p><strong>Website:</strong> <span class="not-available">Not Available</span></p></div>
+            <div class="school-card"><h3>Children's Paradise School</h3><p><strong>Board:</strong> SEBA</p><p><strong>Location:</strong> Tezpur</p><p><strong>Website:</strong> <span class="not-available">Not Available</span></p></div>
+            <div class="school-card"><h3>Rose Bud School</h3><p><strong>Board:</strong> SEBA</p><p><strong>Location:</strong> Tezpur</p><p><strong>Website:</strong> <span class="not-available">Not Available</span></p></div>
+            <div class="school-card"><h3>Jatiya Vidyalaya</h3><p><strong>Board:</strong> SEBA</p><p><strong>Location:</strong> Tezpur</p><p><strong>Website:</strong> <span class="not-available">Not Available</span></p></div>
+            <div class="school-card"><h3>Lokapriya Gopinath Bordoloi Regional Institute of Mental Health</h3><p><strong>Board:</strong> Not a traditional school</p><p><strong>Location:</strong> Tezpur</p><p><strong>Website:</strong> <a href="http://lgbrimh.gov.in" target="_blank">lgbrimh.gov.in</a></p></div>
+            <div class="school-card"><h3>Tezpur College</h3><p><strong>Board:</strong> AHSEC</p><p><strong>Location:</strong> Tezpur</p><p><strong>Website:</strong> <a href="http://tezpurcollege.org" target="_blank">tezpurcollege.org</a></p></div>
+            <div class="school-card"><h3>Hazarapar Primary School</h3><p><strong>Board:</strong> SEBA</p><p><strong>Location:</strong> Tezpur</p><p><strong>Website:</strong> <span class="not-available">Not Available</span></p></div>
+        </div>
+    </div>
+</body>
+</html>
