@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Abroad Consultants in Sikkim</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Russo+One&display=swap" rel="stylesheet">
+    <style>
+        /* CSS STYLES */
+        :root {
+            --bg-color: #1a1a1a; /* Black background */
+            --grid-line-color: rgba(255, 255, 255, 0.08); /* White grid lines */
+            --primary-color: #90EE90; /* Light Green */
+            --text-color: #FFFFFF; /* White */
+            --card-bg-color: #2c2c2c;
+            --shadow-color: #000000;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            background-image:
+                linear-gradient(var(--grid-line-color) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-line-color) 1px, transparent 1px);
+            background-size: 40px 40px;
+            padding: 2rem;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* 3D Title Box Styling */
+        .title-box {
+            border: 2px solid var(--primary-color);
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+            background-color: rgba(44, 44, 44, 0.5);
+            backdrop-filter: blur(5px);
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 0 25px rgba(144, 238, 144, 0.3);
+            perspective: 1000px; /* For 3D effect */
+        }
+
+        .title-3d {
+            font-family: 'Russo One', sans-serif;
+            font-size: 3.5rem;
+            color: var(--text-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow:
+                0 1px 0 #ccc,
+                0 2px 0 #c9c9c9,
+                0 3px 0 #bbb,
+                0 4px 0 #b9b9b9,
+                0 5px 0 #aaa,
+                0 6px 1px rgba(0,0,0,.1),
+                0 0 5px rgba(0,0,0,.1),
+                0 1px 3px rgba(0,0,0,.3),
+                0 3px 5px rgba(0,0,0,.2),
+                0 5px 10px rgba(0,0,0,.25),
+                0 10px 10px rgba(0,0,0,.2),
+                0 20px 20px rgba(0,0,0,.15);
+            animation: float 5s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px) rotateX(0deg); }
+            50% { transform: translateY(-10px) rotateX(5deg); }
+            100% { transform: translateY(0px) rotateX(0deg); }
+        }
+
+        /* Search Bar Styling */
+        .search-container {
+            margin-bottom: 2.5rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        #search-bar {
+            width: 70%;
+            padding: 1rem;
+            font-size: 1.1rem;
+            background-color: var(--card-bg-color);
+            border: 2px solid var(--primary-color);
+            color: var(--text-color);
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        #search-bar:focus {
+            outline: none;
+            box-shadow: 0 0 20px var(--primary-color);
+            transform: scale(1.02);
+        }
+
+        #search-bar::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Consultant Grid Layout */
+        #consultant-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: 2rem;
+        }
+        
+        .section-title {
+            grid-column: 1 / -1; /* Make title span all columns */
+            font-family: 'Russo One', sans-serif;
+            font-size: 2rem;
+            color: var(--primary-color);
+            text-align: center;
+            margin: 2rem 0 1rem 0;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+        }
+
+        /* Consultant Card Styling */
+        .consultant-card {
+            background-color: var(--card-bg-color);
+            border: 1px solid rgba(144, 238, 144, 0.3);
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            opacity: 0;
+            animation: fadeIn 0.5s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .consultant-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 0 25px var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .consultant-card h2 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(144, 238, 144, 0.2);
+            padding-bottom: 0.5rem;
+        }
+
+        .consultant-card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .consultant-card strong {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .consultant-card a {
+            color: #FFDAB9; /* Peach Puff for links */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .consultant-card a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            .title-3d {
+                font-size: 2.5rem;
+            }
+            #search-bar {
+                width: 90%;
+            }
+            #consultant-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="title-box">
+            <h1 class="title-3d">Study Abroad Consultants in Sikkim</h1>
+        </header>
+
+        <div class="search-container">
+            <input type="text" id="search-bar" placeholder="Search by name or location (e.g., IDP or Gangtok)...">
+        </div>
+
+        <main id="consultant-grid">
+            <!-- Consultant cards will be dynamically inserted here by JavaScript -->
+        </main>
+    </div>
+
+    <script>
+        // JAVASCRIPT LOGIC
+
+        // Data for Study Abroad Consultants in and serving Sikkim.
+        const consultantsData = [
+            // --- Consultants Based in Sikkim ---
+            {
+                name: 'Abroad Education Counsel',
+                location: 'MG Marg, Gangtok',
+                website: 'https://www.aecindia.com',
+                services: 'Counselling, Application, Visa, Test Prep',
+                year: '2008',
+                reviews: 'Google: 4.8/5',
+                category: 'local'
+            },
+            {
+                name: 'Canam Consultants',
+                location: 'MG Marg, Gangtok',
+                website: 'https://www.canamconsultants.com',
+                services: 'Canada Specialist, Study & Work Permits',
+                year: '1995',
+                reviews: 'Google: 4.5/5',
+                category: 'local'
+            },
+            {
+                name: 'Edwise International',
+                location: 'MG Marg, Gangtok',
+                website: 'https://www.edwiseinternational.com',
+                services: 'Comprehensive services for 16 countries',
+                year: '1991',
+                reviews: 'Google: 4.5/5',
+                category: 'local'
+            },
+            {
+                name: 'Global Reach',
+                location: 'Tadong, Gangtok',
+                website: 'https://www.globalreach.in',
+                services: 'Australia Specialist, Student Visas',
+                year: '1991',
+                reviews: 'Google: 4.5/5',
+                category: 'local'
+            },
+            {
+                name: 'IDP Education',
+                location: 'MG Marg, Gangtok',
+                website: 'https://www.idp.com/india/',
+                services: 'Co-owner of IELTS, Global University Network',
+                year: '1969',
+                reviews: 'Google: 4.6/5',
+                category: 'local'
+            },
+            {
+                name: 'KC Overseas Education',
+                location: 'Tadong, Gangtok',
+                website: 'https://www.kcoverseas.com',
+                services: 'Global University Representation, Applications',
+                year: '1998',
+                reviews: 'Google: 4.6/5',
+                category: 'local'
+            },
+            {
+                name: 'SIEC Education',
+                location: 'MG Marg, Gangtok',
+                website: 'https://www.siecindia.com',
+                services: 'Global Education, Test Preparation',
+                year: '1995',
+                reviews: 'Google: 4.6/5',
+                category: 'local'
+            },
+            {
+                name: 'Sikkim Manipal University (International Admissions)',
+                location: 'Tadong, Gangtok',
+                website: 'https://smu.edu.in/smu-international.html',
+                services: 'University Tie-ups, Student Exchange',
+                year: '1995',
+                reviews: 'Google: 4.3/5',
+                category: 'local'
+            },
+            {
+                name: 'Sikkim Overseas Education',
+                location: 'Deorali, Gangtok',
+                website: 'https://www.sikkimoverseas.com',
+                services: 'Student Visas, IELTS, University Shortlisting',
+                year: '2019',
+                reviews: 'Google: 4.9/5',
+                category: 'local'
+            },
+            // --- National / Online Consultants Serving Sikkim ---
+            {
+                name: 'AECC Global',
+                location: 'Online / National',
+                website: 'https://www.aeccglobal.in',
+                services: 'Global University Applications, Student Visas',
+                year: '2008',
+                reviews: 'Google: 4.6/5',
+                category: 'national'
+            },
+            {
+                name: 'Azent Overseas Education',
+                location: 'Online / National',
+                website: 'https://www.azent.com',
+                services: 'AI-Powered Counselling, Virtual Fairs',
+                year: '2019',
+                reviews: 'Google: 4.9/5',
+                category: 'national'
+            },
+            {
+                name: 'Chopras Global (TC Global)',
+                location: 'Online / National',
+                website: 'https://www.tcglobal.com',
+                services: 'Global Ed, Learning, Investment',
+                year: '1995',
+                reviews: 'Trustpilot: 4.2/5',
+                category: 'national'
+            },
+            {
+                name: 'Collegepond',
+                location: 'Online / National',
+                website: 'https://www.collegepond.com',
+                services: 'GRE/GMAT Prep, Admissions, Loan Assistance',
+                year: '2003',
+                reviews: 'Google: 4.9/5',
+                category: 'national'
+            },
+            {
+                name: 'Fateh Education',
+                location: 'Online / National',
+                website: 'https://www.fateheducation.com',
+                services: 'UK & Ireland Specialist Education Consultants',
+                year: '2004',
+                reviews: 'Google: 4.9/5',
+                category: 'national'
+            },
+            {
+                name: 'ForeignAdmits',
+                location: 'Online',
+                website: 'https://www.foreignadmits.com',
+                services: 'Peer-to-Peer Mentoring, Application Help',
+                year: '2019',
+                reviews: 'Google: 4.9/5',
+                category: 'national'
+            },
+            {
+                name: 'GeeBee Education',
+                location: 'Online / National',
+                website: 'https://www.geebeeworld.com',
+                services: 'IELTS, TOEFL, PTE coaching, Admissions',
+                year: '2001',
+                reviews: 'Google: 4.7/5',
+                category: 'national'
+            },
+            {
+                name: 'GyanDhan',
+                location: 'Online',
+                website: 'https://www.gyandhan.com',
+                services: 'Education Loans, Admissions Counselling',
+                year: '2015',
+                reviews: 'Trustpilot: 4.7/5',
+                category: 'national'
+            },
+            {
+                name: 'Imperial Overseas Education',
+                location: 'Online / National',
+                website: 'https://www.imperial-overseas.com',
+                services: 'Comprehensive Counselling, Test Prep, Visa',
+                year: '2008',
+                reviews: 'Google: 4.9/5',
+                category: 'national'
+            },
+            {
+                name: 'Jamboree Education',
+                location: 'Online / National',
+                website: 'https://www.jamboreeindia.com',
+                services: 'GMAT, GRE, SAT Coaching & Admissions',
+                year: '1993',
+                reviews: 'Google: 4.7/5',
+                category: 'national'
+            },
+            {
+                name: 'LeapScholar',
+                location: 'Online',
+                website: 'https://leapscholar.com',
+                services: 'IELTS Prep, Counselling, Loans, Visa',
+                year: '2019',
+                reviews: 'Trustpilot: 4.5/5',
+                category: 'national'
+            },
+            {
+                name: 'Leverage Edu',
+                location: 'Online',
+                website: 'https://leverageedu.com',
+                services: 'AI-based platform, Counselling, Finance',
+                year: '2017',
+                reviews: 'Google: 4.8/5',
+                category: 'national'
+            },
+            {
+                name: 'Manya - The Princeton Review',
+                location: 'Online / National',
+                website: 'https://www.manyagroup.com',
+                services: 'Test Prep (SAT, ACT, GMAT, GRE), Admissions',
+                year: '2002',
+                reviews: 'Google: 4.6/5',
+                category: 'national'
+            },
+            {
+                name: 'Prodigy Finance',
+                location: 'Online',
+                website: 'https://prodigyfinance.com',
+                services: 'Loans for international masters degrees',
+                year: '2007',
+                reviews: 'Trustpilot: 4.6/5',
+                category: 'national'
+            },
+            {
+                name: 'SI-UK',
+                location: 'Online / National',
+                website: 'https://www.studyin-uk.in',
+                services: 'UK University Specialist, Oxbridge Applications',
+                year: '2006',
+                reviews: 'Google: 4.9/5',
+                category: 'national'
+            },
+            {
+                name: 'Study Smart',
+                location: 'Online / National',
+                website: 'https://www.studysmart.co.in',
+                services: 'IELTS, PTE, UK & Ireland Applications',
+                year: '2009',
+                reviews: 'Google: 4.8/5',
+                category: 'national'
+            },
+            {
+                name: 'UNIABROAD',
+                location: 'Online',
+                website: 'https://www.uniabroad.com',
+                services: 'AI-powered shortlisting, application tracking',
+                year: '2018',
+                reviews: 'Google: 4.9/5',
+                category: 'national'
+            },
+            {
+                name: 'Unicreds',
+                location: 'Online',
+                website: 'https://unicreds.com',
+                services: 'Education Loans, Scholarship Assistance',
+                year: '2020',
+                reviews: 'Google: 4.7/5',
+                category: 'national'
+            },
+            {
+                name: 'Whizstorm',
+                location: 'Online',
+                website: 'https://www.whizstorm.com',
+                services: 'Online Platform, Application Assistance',
+                year: '2016',
+                reviews: 'Google: 4.9/5',
+                category: 'national'
+            },
+            {
+                name: 'Y-Axis',
+                location: 'Online / National',
+                website: 'https://www.y-axis.com',
+                services: 'Immigration, Visas, Overseas Careers',
+                year: '1999',
+                reviews: 'Trustpilot: 4.3/5',
+                category: 'national'
+            },
+            {
+                name: 'Yes Germany',
+                location: 'Online / National',
+                website: 'https://www.yesgermany.com',
+                services: 'German Education Specialist',
+                year: '2014',
+                reviews: 'Google: 4.9/5',
+                category: 'national'
+            }
+        ];
+
+        const consultantGrid = document.getElementById('consultant-grid');
+        const searchBar = document.getElementById('search-bar');
+
+        const createCard = (consultant, index) => {
+            const card = document.createElement('div');
+            card.className = 'consultant-card';
+            card.style.animationDelay = `${index * 0.05}s`;
+            
+            card.innerHTML = `
+                <h2>${consultant.name}</h2>
+                <p><strong>Location:</strong> ${consultant.location}</p>
+                <p><strong>Website:</strong> <a href="${consultant.website}" target="_blank" rel="noopener noreferrer">${consultant.website}</a></p>
+                <p><strong>Services Offered:</strong> ${consultant.services}</p>
+                <p><strong>Established:</strong> ${consultant.year}</p>
+                <p><strong>Reviews:</strong> ${consultant.reviews}</p>
+            `;
+            return card;
+        };
+
+        const displayConsultants = (consultants) => {
+            consultantGrid.innerHTML = ''; // Clear existing cards
+
+            if (consultants.length === 0) {
+                consultantGrid.innerHTML = `<p style="color: var(--primary-color); grid-column: 1 / -1; text-align: center; font-size: 1.2rem;">No consultants found matching your search.</p>`;
+                return;
+            }
+
+            const localConsultants = consultants.filter(c => c.category === 'local');
+            const nationalConsultants = consultants.filter(c => c.category === 'national');
+            let cardIndex = 0;
+
+            if (localConsultants.length > 0) {
+                const localTitle = document.createElement('h2');
+                localTitle.className = 'section-title';
+                localTitle.textContent = 'Consultants Based in Sikkim';
+                consultantGrid.appendChild(localTitle);
+                localConsultants.forEach(consultant => {
+                    consultantGrid.appendChild(createCard(consultant, cardIndex++));
+                });
+            }
+
+            if (nationalConsultants.length > 0) {
+                const nationalTitle = document.createElement('h2');
+                nationalTitle.className = 'section-title';
+                nationalTitle.textContent = 'National / Online Consultants Serving Sikkim';
+                consultantGrid.appendChild(nationalTitle);
+                nationalConsultants.forEach(consultant => {
+                    consultantGrid.appendChild(createCard(consultant, cardIndex++));
+                });
+            }
+        };
+
+        searchBar.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            
+            const filteredConsultants = consultantsData.filter(consultant => {
+                const nameMatch = consultant.name.toLowerCase().includes(searchTerm);
+                const locationMatch = consultant.location.toLowerCase().includes(searchTerm);
+                return nameMatch || locationMatch;
+            });
+
+            displayConsultants(filteredConsultants);
+        });
+
+        // Initial display of all consultants, sorted alphabetically
+        const sortedData = consultantsData.sort((a, b) => a.name.localeCompare(b.name));
+        displayConsultants(sortedData);
+
+    </script>
+</body>
+</html>
