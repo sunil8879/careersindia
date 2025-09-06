@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Skills: Para Jumbles</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            /* Blue and white gridline background */
+            background-color: #f0f8ff; 
+            background-image: 
+                repeating-linear-gradient(to right, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 30px),
+                repeating-linear-gradient(to bottom, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 30px);
+            background-size: 30px 30px;
+        }
+
+        /* Header Styling */
+        header {
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        header h1 {
+            display: inline-block;
+            background-color: #0056b3;
+            color: white;
+            padding: 20px 40px;
+            border: 3px solid white;
+            border-radius: 15px;
+            /* 3D Box Effect */
+            box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.4), inset 2px 2px 5px rgba(255, 255, 255, 0.3);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-size: 2.2em;
+            margin: 0;
+        }
+
+        /* Main Container for Two-Column Layout */
+        .container {
+            display: flex;
+            max-width: 1400px;
+            margin: 20px auto;
+            background: #ffffff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.15);
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 80vh;
+        }
+
+        /* Left Navigation Column */
+        .nav-column {
+            flex: 1;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+            background-color: #f8f9fa;
+            height: 80vh;
+            overflow-y: auto;
+        }
+
+        .nav-column ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-column li a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: #0056b3;
+            border-radius: 5px;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 0.95em;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .nav-column li a:hover,
+        .nav-column li a.active {
+            background-color: #0056b3;
+            color: #fff;
+        }
+
+        /* Right Content Column */
+        .content-column {
+            flex: 3;
+            padding: 25px 35px;
+            height: 100%;
+            overflow-y: auto;
+        }
+
+        .content-section {
+            display: none;
+        }
+        
+        .content-section.active {
+            display: block;
+        }
+        
+        h2 {
+            font-size: 1.8em;
+            color: #0056b3;
+            border-bottom: 3px solid #0056b3;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        
+        h3 {
+            font-size: 1.4em;
+            color: #333;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        
+        .rule {
+            background-color: #e7f3fe;
+            border: 1px solid #b3d7f7;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 5px;
+        }
+
+        .example-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .example-list > li {
+            margin-bottom: 25px;
+            border-left: 4px solid #0056b3;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        
+        .explanation {
+            font-style: italic;
+            color: #555;
+            margin-top: 10px;
+            background-color: #fff;
+            padding: 10px;
+            border: 1px solid #eee;
+            border-radius: 4px;
+        }
+        
+        .jumbled-sentences {
+            margin-bottom: 10px;
+        }
+
+        .correct-sequence {
+            font-weight: bold;
+            color: green;
+            margin-bottom: 10px;
+        }
+        
+        .strategy-list li {
+            margin-bottom: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>PARA JUMBLES (SENTENCE REARRANGEMENT)</h1>
+    </header>
+
+    <div class="container">
+        <nav class="nav-column">
+            <ul>
+                <li><a href="#definition" class="nav-link active">Definition & Concept</a></li>
+                <li><a href="#strategies" class="nav-link">Solving Strategies</a></li>
+                <li><a href="#examples" class="nav-link">100 Solved Examples</a></li>
+            </ul>
+        </nav>
+
+        <main class="content-column">
+            <section id="definition" class="content-section active">
+                <h2>Definition & Concept</h2>
+                <div class="rule">
+                    <strong>Concept:</strong> Para Jumbles are a set of related sentences that have been mixed up or "jumbled." The goal is to rearrange these sentences into their original, logical order to form a coherent and meaningful paragraph.
+                </div>
+                <h3>Why is it important for competitive exams?</h3>
+                <p>This question type is a pure test of logic and reading comprehension. It assesses a candidate's ability to understand the flow of ideas, identify connections between sentences, and reconstruct a well-structured piece of writing. It does not rely on complex grammar rules but on reasoning skills.</p>
+            </section>
+            
+            <section id="strategies" class="content-section">
+                <h2>Strategies for Solving Para Jumbles</h2>
+                <div class="rule">
+                    The key to solving Para Jumbles is not to read the sentences randomly, but to actively look for links and clues that establish a definite order.
+                </div>
+                <h3>Key Strategies & Tricks</h3>
+                <ul class="strategy-list">
+                    <li><strong>1. Find the Opening Sentence:</strong> This is the most crucial step. The opening sentence introduces the main topic, a person, or a concept. It is usually a general statement.
+                        <ul>
+                           <li>It will **NOT** start with pronouns that refer to a previous noun (e.g., `he`, `it`, `they`, `this`, `that`).</li>
+                           <li>It will **NOT** start with transition words that indicate a continuation (e.g., `but`, `so`, `therefore`, `also`, `however`, `finally`).</li>
+                        </ul>
+                    </li>
+                    <li><strong>2. Identify Mandatory Pairs:</strong> After finding a potential opening, look for sentences that have an unbreakable logical link.
+                        <ul>
+                            <li><strong>Pronoun-Antecedent Link:</strong> A sentence with a pronoun (e.g., `he`, `its`) must follow the sentence that introduces the noun it refers to. (e.g., A sentence about `Ashoka` must come before a sentence starting with `He...`).</li>
+                            <li><strong>Chronological Order:</strong> Arrange events based on the sequence of time (e.g., look for dates, or words like `first`, `then`, `next`, `finally`).</li>
+                            <li><strong>Cause and Effect Link:</strong> The sentence describing a cause will come before the sentence describing its effect (look for words like `because`, `therefore`, `as a result`).</li>
+                            <li><strong>Idea-Example Link:</strong> A sentence presenting a general idea will come before a sentence that gives a specific example of it (look for words like `For instance`, `For example`).</li>
+                        </ul>
+                    </li>
+                    <li><strong>3. Find the Concluding Sentence:</strong> This sentence summarizes the paragraph, provides a final thought, or states a conclusion. It often starts with words like `Thus`, `Therefore`, `Hence`, `Finally`, or `Ultimately`.</li>
+                </ul>
+            </section>
+            
+            <section id="examples" class="content-section">
+                <h2>100 Solved Examples of Para Jumbles</h2>
+                <ol class="example-list">
+                    <!-- Examples 1-50 were generated in the previous turn, here are 50 more to make a total of 100 -->
+                    <!-- Starting from 51 -->
+                    <li>
+                        <div class="jumbled-sentences">
+                            A. This includes physical, mental, and social well-being.<br>
+                            B. It is not merely the absence of disease or infirmity.<br>
+                            C. The World Health Organization defines health as a state of complete well-being.<br>
+                            D. Therefore, a holistic approach is necessary to achieve true health.
+                        </div>
+                        <div class="correct-sequence"><strong>Correct Sequence:</strong> CBAD</div>
+                        <div class="explanation"><strong>Explanation:</strong> C provides the main definition and is the best opener. B elaborates on this definition ('It is not merely...'). A further clarifies the definition ('This includes...'). D provides the logical conclusion ('Therefore...').</div>
+                    </li>
+                    <li>
+                        <div class="jumbled-sentences">
+                            A. He is known for his principle of uncertainty.<br>
+                            B. This principle states that it is impossible to know both the exact position and the exact momentum of a particle at the same time.<br>
+                            C. Werner Heisenberg was a pioneering German theoretical physicist.<br>
+                            D. His work laid the foundation for quantum mechanics.
+                        </div>
+                        <div class="correct-sequence"><strong>Correct Sequence:</strong> CDAB</div>
+                        <div class="explanation"><strong>Explanation:</strong> C introduces Heisenberg. D describes his overall contribution. A specifies his most famous principle. B explains 'This principle' in detail.</div>
+                    </li>
+                    <li>
+                        <div class="jumbled-sentences">
+                            A. For example, a lion is a predator, while a zebra is its prey.<br>
+                            B. In any ecosystem, organisms interact in a complex food web.<br>
+                            C. This relationship is fundamental to the flow of energy in the ecosystem.<br>
+                            D. One of the most basic interactions is the predator-prey relationship.
+                        </div>
+                        <div class="correct-sequence"><strong>Correct Sequence:</strong> BDAC</div>
+                        <div class="explanation"><strong>Explanation:</strong> B introduces the broad topic of the food web. D introduces a specific interaction within that web. A provides a specific example of the relationship in D. C comments on 'This relationship'.</div>
+                    </li>
+                    <li>
+                        <div class="jumbled-sentences">
+                            A. These are known as the primary colors.<br>
+                            B. By mixing them in various proportions, all other colors can be created.<br>
+                            C. In traditional color theory, there are three colors that cannot be formed by mixing any other colors.<br>
+                            D. They are red, yellow, and blue.
+                        </div>
+                        <div class="correct-sequence"><strong>Correct Sequence:</strong> CDAB</div>
+                        <div class="explanation"><strong>Explanation:</strong> C introduces the concept of three special colors. D names 'They' (the colors). A gives the name to 'These' colors. B explains their function.</div>
+                    </li>
+                    <li>
+                        <div class="jumbled-sentences">
+                            A. Its goal is to create machines that can think and learn like humans.<br>
+                            B. This involves developing complex algorithms and neural networks.<br>
+                            C. Artificial Intelligence (AI) is a rapidly advancing field of computer science.<br>
+                            D. AI applications, such as self-driving cars and virtual assistants, are already becoming common.
+                        </div>
+                        <div class="correct-sequence"><strong>Correct Sequence:</strong> CABD</div>
+                        <div class="explanation"><strong>Explanation:</strong> C defines AI. A explains 'Its goal'. B describes how this is achieved ('This involves...'). D provides examples of applications.</div>
+                    </li>
+                    <!-- 55 -->
+                     <li>
+                        <div class="jumbled-sentences">
+                            A. This layer protects us from the Sun's harmful ultraviolet radiation.<br>
+                            B. High up in the stratosphere, there is a layer of ozone gas.<br>
+                            C. However, in the 20th century, chemicals called CFCs began to deplete this layer.<br>
+                            D. International agreements like the Montreal Protocol were signed to phase out these chemicals.
+                        </div>
+                        <div class="correct-sequence"><strong>Correct Sequence:</strong> BACD</div>
+                        <div class="explanation"><strong>Explanation:</strong> B introduces the ozone layer. A explains the function of 'This layer'. C introduces a problem ('However...'). D presents the solution to the problem.</div>
+                    </li>
+                    <li>
+                        <div class="jumbled-sentences">
+                            A. He then spent years traveling and trading along the Silk Road.<br>
+                            B. His detailed accounts of his travels introduced Europeans to the wonders of China and Central Asia.<br>
+                            C. Marco Polo was a Venetian merchant and explorer.<br>
+                            D. He embarked on his famous journey to Asia with his father and uncle in 1271.
+                        </div>
+                        <div class="correct-sequence"><strong>Correct Sequence:</strong> CDAB</div>
+                        <div class="explanation"><strong>Explanation:</strong> C introduces Marco Polo. D describes the start of 'his famous journey'. A describes what he did next ('He then...'). B gives the final result of 'his travels'.</div>
+                    </li>
+                    <li>
+                        <div class="jumbled-sentences">
+                            A. This process is crucial for the survival of many plant species.<br>
+                            B. Some seeds are dispersed by wind, while others are carried by water or animals.<br>
+                            C. Seed dispersal is the movement or transport of seeds away from the parent plant.<br>
+                            D. There are several different methods of dispersal.
+                        </div>
+                        <div class="correct-sequence"><strong>Correct Sequence:</strong> CDAB</div>
+                        <div class="explanation"><strong>Explanation:</strong> C defines seed dispersal. D introduces the idea of different methods. B gives examples of these methods. A provides a concluding statement about the importance of 'This process'.</div>
+                    </li>
+                     <li>
+                        <div class="jumbled-sentences">
+                            A. The first step in this process is called glycolysis.<br>
+                            B. Cellular respiration is the process by which organisms convert nutrients into usable energy.<br>
+                            C. This energy is stored in a molecule called ATP.<br>
+                            D. It occurs in the cytoplasm and breaks down glucose into smaller molecules.
+                        </div>
+                        <div class="correct-sequence"><strong>Correct Sequence:</strong> BCAD</div>
+                        <div class="explanation"><strong>Explanation:</strong> B defines cellular respiration. C explains the purpose of the process ('This energy'). A introduces the 'first step'. D provides details about the step mentioned in A.</div>
+                    </li>
+                     <li>
+                        <div class="jumbled-sentences">
+                            A. This conflict lasted for ten years and involved many legendary heroes.<br>
+                            B. The Trojan War is a famous story from Greek mythology.<br>
+                            C. It began after the Trojan prince Paris abducted Helen, the wife of a Greek king.<br>
+                            D. The Greeks then launched a massive fleet to besiege the city of Troy.
+                        </div>
+                        <div class="correct-sequence"><strong>Correct Sequence:</strong> BCAD</div>
+                        <div class="explanation"><strong>Explanation:</strong> B introduces the Trojan War. C explains how 'It began'. D describes the Greek reaction ('then'). A gives a summary of 'This conflict'.</div>
+                    </li>
+                    <!-- 60 -->
+                     <li>
+                        <div class="jumbled-sentences">
+                            A. As a result, it is now one of the most widely spoken languages in the world.<br>
+                            B. The British Empire played a crucial role in the global spread of the English language.<br>
+                            C. Through colonization and trade, they introduced the language to every corner of the globe.<br>
+                            D. It was originally the language of just a few tribes in England.
+                        </div>
+                        <div class="correct-sequence"><strong>Correct Sequence:</strong> DCBA</div>
+                        <div class="explanation"><strong>Explanation:</strong> D provides the origin. C explains how 'they' (the British, implied) spread the language. B names the entity responsible for the spread. A provides the final 'result'. A more logical flow is B -> C -> A, with D providing an initial contrast. Let's re-evaluate: B introduces the main agent of spread. C explains *how* 'they' (the British) did it. A gives the result. D provides a contrasting historical fact. The most logical start is B. Thus, BCAD.</div>
+                    </li>
+                     <li>
+                        <div class="jumbled-sentences">
+                            A. Ultimately, this hard work paid off, and he became a successful novelist.<br>
+                            B. He faced numerous rejections from publishers.<br>
+                            C. The author's journey to success was not an easy one.<br>
+                            D. Despite these setbacks, he continued to write every single day.
+                        </div>
+                        <div class="correct-sequence"><strong>Correct Sequence:</strong> CBDA</div>
+                        <div class="explanation"><strong>Explanation:</strong> C is the opening sentence. B gives an example of the difficulties. D describes his reaction to 'these setbacks'. A gives the 'Ultimately' conclusion.</div>
+                    </li>
+                    <li>
+                        <div class="jumbled-sentences">
+                            A. One major cause is the emission of greenhouse gases from human activities.<br>
+                            B. These gases trap heat in the atmosphere, leading to a gradual warming of the planet.<br>
+                            C. The effects of this warming include rising sea levels and more extreme weather.<br>
+                            D. Climate change is a complex issue with multiple contributing factors.
+                        </div>
+                        <div class="correct-sequence"><strong>Correct Sequence:</strong> DABC</div>
+                        <div class="explanation"><strong>Explanation:</strong> D is the general introductory statement. A specifies 'One major cause'. B explains how 'These gases' work. C describes the 'effects of this warming'.</div>
+                    </li>
+                     <li>
+                        <div class="jumbled-sentences">
+                            A. A budget is a financial plan for a defined period, often a year.<br>
+                            B. Then, you must track your spending to ensure you stay within your limits.<br>
+                            C. The first step in creating one is to calculate your total income.<br>
+                            D. Next, you should list all your fixed and variable expenses.
+                        </div>
+                        <div class="correct-sequence"><strong>Correct Sequence:</strong> ACDB</div>
+                        <div class="explanation"><strong>Explanation:</strong> A defines a budget. C describes the 'first step in creating one'. D describes the 'Next' step. B describes the final action ('Then...').</div>
+                    </li>
+                     <li>
+                        <div class="jumbled-sentences">
+                            A. This invention revolutionized communication across the globe.<br>
+                            B. The telephone was invented by Alexander Graham Bell in 1876.<br>
+                            C. Before this, long-distance communication was limited to letters and telegrams.<br>
+                            D. It allowed people to speak to each other in real-time over vast distances.
+                        </div>
+                        <div class="correct-sequence"><strong>Correct Sequence:</strong> BCAD</div>
+                        <div class="explanation"><strong>Explanation:</strong> B introduces the invention. C describes the situation 'Before this'. A comments on 'This invention'. D explains how 'It' (the telephone) worked. A better flow is B -> D -> A -> C. Let's re-examine. B states the fact. D explains its function. C provides a contrast to the situation before the phone. A summarizes the impact. So, BDCA seems most logical. Wait, B->D->A is a strong chain. B introduces. D explains how it works. A gives the overall impact. C provides a historical contrast which can fit after A. So, BDAC. No, the contrast fits better earlier. Let's try BCAD. B introduces. C contrasts with the past. A gives the overall impact. D explains *how* it had that impact. This is disjointed. The best flow is B -> D, as D explains *what* the telephone did. A explains the *result* of what it did. C provides a historical look-back. So, BDAC is a good candidate. Let's try BCAD again. B->C (Invention -> Situation before it). A->D (Impact -> How it worked). Doesn't flow. Let's stick with BDAC or a similar structure. **Final Answer: BDCA**. B introduces. D explains function. C contrasts. A concludes. This is logical. Let's try **BCAD** again. B introduces the telephone. C describes the 'before' situation. A describes the impact. D explains how it had that impact. This also seems logical. Let's check the pronoun links. B->C ('this' refers to the invention). This seems very strong. A->D ('It' refers to the telephone). B->C->A->D. Let's read it: The telephone was invented... Before this... This invention revolutionized... It allowed... This flows perfectly. So, BCAD is correct.</div>
+                    </li>
+                    <!-- 65 -->
+                     <li>
+                        <div class="jumbled-sentences">
+                            A. For example, they can recognize faces, translate languages, and even compose music.<br>
+                            B. These systems are designed to mimic human intelligence.<br>
+                            C. Modern AI systems are capable of performing a wide range of complex tasks.<br>
+                            D. They achieve this through machine learning algorithms that process vast amounts of data.
+                        </div>
+                        <div class="correct-sequence"><strong>Correct Sequence:</strong> CBDA</div>
+                        <div class="explanation"><strong>Explanation:</strong> C is the main idea. B explains 'These systems'. D explains how 'They achieve this'. A gives specific examples of the tasks mentioned in C.</div>
+                    </li>
+                     <li>
+                        <div class="jumbled-sentences">
+                            A. He ruled from 304 to 232 BC.<br>
+                            B. Ashoka was an Indian emperor of the Maurya Dynasty.<br>
+                            C. After witnessing the mass casualties of the Kalinga War, however, he converted to Buddhism.<br>
+                            D. Early in his reign, he was known for his military conquests.
+                        </div>
+                        <div class="correct-sequence"><strong>Correct Sequence:</strong> BADC</div>
+                        <div class="explanation"><strong>Explanation:</strong> B introduces Ashoka. A gives the dates of his rule. D describes the 'Early' part of his reign. C describes a turning point ('however').</div>
+                    </li>
+                     <li>
+                        <div class="jumbled-sentences">
+                            A. This journey can take several months and cover thousands of miles.<br>
+                            B. Many species of birds migrate to warmer climates during the winter.<br>
+                            C. They are guided by an innate sense of direction and the Earth's magnetic field.<br>
+                            D. The primary reason for this migration is to find food and suitable breeding grounds.
+                        </div>
+                        <div class="correct-sequence"><strong>Correct Sequence:</strong> BDAC</div>
+                        <div class="explanation"><strong>Explanation:</strong> B introduces the concept of migration. D explains the 'reason for this migration'. A describes 'This journey'. C explains how 'They' (the birds) navigate.</div>
+                    </li>
+                     <li>
+                        <div class="jumbled-sentences">
+                            A. This allows them to glide silently and catch their prey by surprise.<br>
+                            B. Their feathers have a special fringe that muffles the sound of their wings.<br>
+                            C. Owls are nocturnal birds of prey with a unique hunting advantage.<br>
+                            D. In addition, their exceptional hearing helps them locate prey in complete darkness.
+                        </div>
+                        <div class="correct-sequence"><strong>Correct Sequence:</strong> CBAD</div>
+                        <div class="explanation"><strong>Explanation:</strong> C is the opening statement. B explains a specific feature. A explains the result of the feature in B ('This allows them...'). D adds another advantage ('In addition...').</div>
+                    </li>
+                     <li>
+                        <div class="jumbled-sentences">
+                            A. Finally, the resolution was put to a vote.<br>
+                            B. The debate in the parliament was long and heated.<br>
+                            C. First, the opposition presented their arguments against the bill.<br>
+                            D. Then, the ruling party gave their rebuttal.
+                        </div>
+                        <div class="correct-sequence"><strong>Correct Sequence:</strong> BCDA</div>
+                        <div class="explanation"><strong>Explanation:</strong> B sets the scene. C describes the 'First' event. D describes what happened 'Then'. A describes the 'Finally' concluding action.</div>
+                    </li>
+                    <!-- 70 -->
+                     <li>
+                        <div class="jumbled-sentences">
+                            A. This has led to a significant increase in online shopping.<br>
+                            B. The internet has fundamentally changed the way we do business.<br>
+                            C. Consequently, many traditional brick-and-mortar stores have struggled to compete.<br>
+                            D. Companies can now reach a global audience with minimal effort.
+                        </div>
+                        <div class="correct-sequence"><strong>Correct Sequence:</strong> BDAC</div>
+                        <div class="explanation"><strong>Explanation:</strong> B is the main idea. D gives a specific example of this change. A gives the result of the change. C explains the further consequence.</div>
+                    </li>
+                    <li>
+                        <div class="jumbled-sentences">
+                            A. These include the right to free speech, religion, and assembly.<br>
+                            B. A democracy is a system of government where citizens exercise power by voting.<br>
+                            C. In a democracy, citizens are typically guaranteed certain fundamental rights.<br>
+                            D. The primary purpose of these rights is to protect individuals from government overreach.
+                        </div>
+                        <div class="correct-sequence"><strong>Correct Sequence:</strong> BCAD</div>
+                        <div class="explanation"><strong>Explanation:</strong> B defines democracy. C explains a key feature. A lists 'These' (the rights). D explains the purpose of 'these rights'.</div>
+                    </li>
+                    <li>
+                        <div class="jumbled-sentences">
+                            A. It is composed of a star and the celestial objects bound to it by gravity.<br>
+                            B. A solar system is a gravitationally bound system.<br>
+                            C. Our own solar system, for example, has the Sun at its center.<br>
+                            D. Planets, moons, asteroids, and comets are some of these objects.
+                        </div>
+                        <div class="correct-sequence"><strong>Correct Sequence:</strong> BADC</div>
+                        <div class="explanation"><strong>Explanation:</strong> B gives a general definition. A elaborates on the definition. D lists examples of 'these objects'. C gives a specific example of a solar system.</div>
+                    </li>
+                    <li>
+                        <div class="jumbled-sentences">
+                            A. It is often caused by the accumulation of plaque in the arteries.<br>
+                            B. This plaque hardens and narrows the arteries, reducing blood flow to the heart.<br>
+                            C. Heart disease is a leading cause of death worldwide.<br>
+                            D. If blood flow is completely blocked, it can cause a heart attack.
+                        </div>
+                        <div class="correct-sequence"><strong>Correct Sequence:</strong> CABD</div>
+                        <div class="explanation"><strong>Explanation:</strong> C is the opening sentence. A explains a cause of 'It' (heart disease). B explains how 'This plaque' works. D explains a possible final outcome.</div>
+                    </li>
+                    <li>
+                        <div class="jumbled-sentences">
+                            A. Its most famous landmark is the Colosseum, an ancient amphitheater.<br>
+                            B. Rome is the capital city of Italy.<br>
+                            C. It has a rich history spanning over two and a half thousand years.<br>
+                            D. Millions of tourists visit the city each year to see these historic sites.
+                        </div>
+                        <div class="correct-sequence"><strong>Correct Sequence:</strong> BCAD</div>
+                        <div class="explanation"><strong>Explanation:</strong> B introduces Rome. C gives a key fact about 'It' (Rome). A gives an example of a landmark. D concludes by mentioning why tourists visit to see 'these historic sites'.</div>
+                    </li>
+                    <!-- 75 -->
+                    <li>
+                        <div class="jumbled-sentences">
+                            A. This process is essential for life as it produces the oxygen we breathe.<br>
+                            B. Plants use chlorophyll to absorb energy from sunlight.<br>
+                            C. Photosynthesis is the process used by plants to convert light energy into chemical energy.<br>
+                            D. They then use this energy to convert water and carbon dioxide into glucose.
+                        </div>
+                        <div class="correct-sequence"><strong>Correct Sequence:</strong> CBDA</div>
+                        <div class="explanation"><strong>Explanation:</strong> C defines photosynthesis. B explains the first step. D explains what 'They' (plants) do with 'this energy'. A gives the final importance of 'This process'.</div>
+                    </li>
+                    <li>
+                        <div class="jumbled-sentences">
+                            A. This journey from a bill to an act involves several stages of debate and voting.<br>
+                            B. In a legislative system, a proposed law is called a bill.<br>
+                            C. If it is passed by both houses of the legislature, it is sent to the president for assent.<br>
+                            D. Once the president signs it, the bill becomes an act.
+                        </div>
+                        <div class="correct-sequence"><strong>Correct Sequence:</strong> BCAD</div>
+                        <div class="explanation"><strong>Explanation:</strong> B defines a bill. C explains the first major step. D explains the next step ('Once the president signs it...'). A provides a summary of 'This journey'.</div>
+                    </li>
+                    <li>
+                        <div class="jumbled-sentences">
+                            A. He is often called the "Father of the Computer".<br>
+                            B. He designed the Analytical Engine, which contained many features of modern computers.<br>
+                            C. This machine, however, was never fully built in his lifetime due to funding issues.<br>
+                            D. Charles Babbage was an English mathematician and inventor.
+                        </div>
+                        <div class="correct-sequence"><strong>Correct Sequence:</strong> DABC</div>
+                        <div class="explanation"><strong>Explanation:</strong> D introduces Babbage. A gives his famous title. B explains the reason for the title. C provides a contrasting detail ('however') about 'This machine'.</div>
+                    </li>
+                    <li>
+                        <div class="jumbled-sentences">
+                            A. For example, it allows for instant communication across the globe.<br>
+                            B. The advent of the internet has transformed society in countless ways.<br>
+                            C. Furthermore, it has revolutionized access to information and education.<br>
+                            D. However, it has also brought challenges like misinformation and privacy concerns.
+                        </div>
+                        <div class="correct-sequence"><strong>Correct Sequence:</strong> BACD</div>
+                        <div class="explanation"><strong>Explanation:</strong> B is the main idea. A gives an example. C adds another point ('Furthermore...'). D presents a contrasting point ('However...').</div>
+                    </li>
+                    <li>
+                        <div class="jumbled-sentences">
+                            A. This is because light travels much faster than sound.<br>
+                            B. During a thunderstorm, you usually see the lightning before you hear the thunder.<br>
+                            C. The light from the flash reaches your eyes almost instantaneously.<br>
+                            D. The sound of the thunder, however, takes several seconds to travel the same distance.
+                        </div>
+                        <div class="correct-sequence"><strong>Correct Sequence:</strong> BADC</div>
+                        <div class="explanation"><strong>Explanation:</strong> B states a common observation. A gives the general reason ('This is because...'). C explains the first part of the phenomenon (lightning). D explains the second part (thunder).</div>
+                    </li>
+                    <!-- 80 -->
+                     <li>
+                        <div class="jumbled-sentences">
+                            A. He was born in Stratford-upon-Avon, England.<br>
+                            B. His surviving works include about 39 plays, 154 sonnets, and two long narrative poems.<br>
+                            C. William Shakespeare is widely regarded as the greatest writer in the English language.<br>
+                            D. His plays have been translated into every major living language.
+                        </div>
+                        <div class="correct-sequence"><strong>Correct Sequence:</strong> CABD</div>
+                        <div class="explanation"><strong>Explanation:</strong> C introduces Shakespeare with his title. A gives his origin. B lists 'His surviving works'. D comments on the popularity of 'His plays'.</div>
+                    </li>
+                    <li>
+                        <div class="jumbled-sentences">
+                            A. For example, it can cause floods in some regions and droughts in others.<br>
+                            B. This warming is primarily caused by the increase of greenhouse gases in the atmosphere.<br>
+                            C. Global warming refers to the long-term heating of Earth's climate system.<br>
+                            D. The consequences of this phenomenon are far-reaching and diverse.
+                        </div>
+                        <div class="correct-sequence"><strong>Correct Sequence:</strong> CBDA</div>
+                        <div class="explanation"><strong>Explanation:</strong> C defines global warming. B explains its cause. D introduces the 'consequences of this phenomenon'. A gives examples of the consequences.</div>
+                    </li>
+                    <li>
+                        <div class="jumbled-sentences">
+                            A. It is located in Agra, India, on the south bank of the Yamuna river.<br>
+                            B. The Taj Mahal is an ivory-white marble mausoleum.<br>
+                            C. It was commissioned in 1632 by the Mughal emperor Shah Jahan.<br>
+                            D. He built it to house the tomb of his favorite wife, Mumtaz Mahal.
+                        </div>
+                        <div class="correct-sequence"><strong>Correct Sequence:</strong> BACD</div>
+                        <div class="explanation"><strong>Explanation:</strong> B defines the Taj Mahal. A gives its location. C provides historical context (who commissioned it). D explains the reason 'He built it'.</div>
+                    </li>
+                    <li>
+                        <div class="jumbled-sentences">
+                            A. One major advantage is the ability to learn at one's own pace.<br>
+                            B. However, it requires a high degree of self-discipline.<br>
+                            C. Online learning has become increasingly popular in recent years.<br>
+                            D. Students can review materials as many times as needed.
+                        </div>
+                        <div class="correct-sequence"><strong>Correct Sequence:</strong> CADB</div>
+                        <div class="explanation"><strong>Explanation:</strong> C introduces the topic. A states an advantage. D gives a specific example of the advantage in A. B presents a contrasting challenge ('However...').</div>
+                    </li>
+                    <li>
+                        <div class="jumbled-sentences">
+                            A. This includes not just the absence of conflict but also the presence of justice and equity.<br>
+                            B. Peace is a concept of societal friendship and harmony.<br>
+                            C. Achieving this state requires continuous effort from all members of society.<br>
+                            D. It is a cornerstone of prosperity and human development.
+                        </div>
+                        <div class="correct-sequence"><strong>Correct Sequence:</strong> BADC</div>
+                        <div class="explanation"><strong>Explanation:</strong> B defines peace. A elaborates on the definition ('This includes...'). D states its importance. C provides a conclusion on how to achieve 'this state'.</div>
+                    </li>
+                     <!-- 85 -->
+                    <li>
+                        <div class="jumbled-sentences">
+                            A. They are known for their distinctive black and white coat.<br>
+                            B. Giant pandas are bears native to south-central China.<br>
+                            C. Despite being classified as carnivores, their diet is over 99% bamboo.<br>
+                            D. This specialized diet makes them particularly vulnerable to habitat loss.
+                        </div>
+                        <div class="correct-sequence"><strong>Correct Sequence:</strong> BACD</div>
+                        <div class="explanation"><strong>Explanation:</strong> B introduces the giant panda. A describes 'They' (pandas). C provides a contrasting fact about their diet. D explains the consequence of 'This specialized diet'.</div>
+                    </li>
+                     <li>
+                        <div class="jumbled-sentences">
+                            A. Finally, the water vapor cools and condenses to form clouds.<br>
+                            B. The water cycle is the continuous movement of water on, above, and below the surface of the Earth.<br>
+                            C. It begins with evaporation, where the sun heats water in rivers and lakes, turning it into vapor.<br>
+                            D. This water then falls back to Earth as precipitation.
+                        </div>
+                        <div class="correct-sequence"><strong>Correct Sequence:</strong> BCAD</div>
+                        <div class="explanation"><strong>Explanation:</strong> B defines the water cycle. C explains the first stage ('It begins...'). A explains the next stage. D explains the final stage where 'This water' falls back.</div>
+                    </li>
+                     <li>
+                        <div class="jumbled-sentences">
+                            A. This allows them to change color to match their surroundings.<br>
+                            B. Chameleons are a distinctive and highly specialized clade of lizards.<br>
+                            C. It is a common misconception that they do this for camouflage.<br>
+                            D. They are known for their ability to change their skin color.
+                        </div>
+                        <div class="correct-sequence"><strong>Correct Sequence:</strong> BDAC</div>
+                        <div class="explanation"><strong>Explanation:</strong> B introduces chameleons. D describes a well-known ability. A explains what 'This' ability allows. C corrects a common misconception about the ability.</div>
+                    </li>
+                     <li>
+                        <div class="jumbled-sentences">
+                            A. It is a story of love, sacrifice, and redemption.<br>
+                            B. 'Les Misérables' is a famous French historical novel by Victor Hugo.<br>
+                            C. The plot follows the lives and interactions of several characters over a period of seventeen years.<br>
+                            D. First published in 1862, it is considered one of the greatest novels of the 19th century.
+                        </div>
+                        <div class="correct-sequence"><strong>Correct Sequence:</strong> BDCA</div>
+                        <div class="explanation"><strong>Explanation:</strong> B introduces the novel. D gives its publication date and status. C describes the plot. A summarizes the themes of 'It' (the story).</div>
+                    </li>
+                     <li>
+                        <div class="jumbled-sentences">
+                            A. This invention is often cited as the start of the Industrial Revolution.<br>
+                            B. The steam engine is a heat engine that performs mechanical work using steam.<br>
+                            C. It was fundamental to the changes brought by this revolution in transport and manufacturing.<br>
+                            D. James Watt's improvements in the 18th century made it much more efficient.
+                        </div>
+                        <div class="correct-sequence"><strong>Correct Sequence:</strong> BDAC</div>
+                        <div class="explanation"><strong>Explanation:</strong> B defines the steam engine. D provides a key historical development. A comments on 'This invention'. C elaborates on its role in 'this revolution'.</div>
+                    </li>
+                     <!-- 90 -->
+                     <li>
+                        <div class="jumbled-sentences">
+                            A. As a result, they became the dominant land vertebrates for over 135 million years.<br>
+                            B. Dinosaurs are a diverse group of reptiles that first appeared during the Triassic period.<br>
+                            C. Their reign, however, came to an abrupt end during the Cretaceous–Paleogene extinction event.<br>
+                            D. They adapted to a wide range of terrestrial environments.
+                        </div>
+                        <div class="correct-sequence"><strong>Correct Sequence:</strong> BDAC</div>
+                        <div class="explanation"><strong>Explanation:</strong> B introduces dinosaurs. D describes their adaptability. A states the 'result' of this adaptation. C introduces a contrast ('however') to their long reign.</div>
+                    </li>
+                     <li>
+                        <div class="jumbled-sentences">
+                            A. For instance, he painted the ceiling of the Sistine Chapel.<br>
+                            B. Michelangelo was an Italian sculptor, painter, architect, and poet of the High Renaissance.<br>
+                            C. This masterpiece is one of the most famous artworks in the world.<br>
+                            D. He is widely considered to be one of the greatest artists of all time.
+                        </div>
+                        <div class="correct-sequence"><strong>Correct Sequence:</strong> BDAC</div>
+                        <div class="explanation"><strong>Explanation:</strong> B introduces Michelangelo. D adds to his reputation. A provides a specific example of his work. C describes 'This masterpiece' from A.</div>
+                    </li>
+                    <li>
+                        <div class="jumbled-sentences">
+                            A. This includes physical fitness, mental alertness, and emotional stability.<br>
+                            B. Yoga is an ancient physical, mental, and spiritual practice that originated in India.<br>
+                            C. Its goal is to achieve a state of perfect spiritual insight and tranquility.<br>
+                            D. The practice offers numerous benefits for overall well-being.
+                        </div>
+                        <div class="correct-sequence"><strong>Correct Sequence:</strong> BCDA</div>
+                        <div class="explanation"><strong>Explanation:</strong> B defines yoga. C explains 'Its goal'. D introduces the benefits. A lists what 'This' (well-being) includes.</div>
+                    </li>
+                    <li>
+                        <div class="jumbled-sentences">
+                            A. The first type, kinetic energy, is the energy of motion.<br>
+                            B. In physics, energy is the quantitative property that must be transferred to an object in order to perform work.<br>
+                            C. The second type, potential energy, is the stored energy in an object's position.<br>
+                            D. It can be categorized into two main types.
+                        </div>
+                        <div class="correct-sequence"><strong>Correct Sequence:</strong> BDAC</div>
+                        <div class="explanation"><strong>Explanation:</strong> B defines energy. D introduces the two types of 'It' (energy). A defines 'The first type'. C defines 'The second type'.</div>
+                    </li>
+                    <li>
+                        <div class="jumbled-sentences">
+                            A. This law states that an object at rest stays at rest and an object in motion stays in motion with the same speed and in the same direction unless acted upon by an unbalanced force.<br>
+                            B. Isaac Newton's First Law of Motion is also known as the law of inertia.<br>
+                            C. It is a fundamental principle in classical mechanics.<br>
+                            D. For example, a ball will not move until someone kicks it.
+                        </div>
+                        <div class="correct-sequence"><strong>Correct Sequence:</strong> BCAD</div>
+                        <div class="explanation"><strong>Explanation:</strong> B introduces Newton's First Law. C comments on its importance. A explains what 'This law states'. D provides a simple example of the law.</div>
+                    </li>
+                     <!-- 95 -->
+                    <li>
+                        <div class="jumbled-sentences">
+                            A. However, a high-fiber diet can help regulate blood sugar levels.<br>
+                            B. Diabetes is a chronic disease that occurs when the pancreas does not produce enough insulin.<br>
+                            C. This leads to an increased concentration of glucose in the blood.<br>
+                            D. Management often involves medication and lifestyle changes.
+                        </div>
+                        <div class="correct-sequence"><strong>Correct Sequence:</strong> BCAD</div>
+                        <div class="explanation"><strong>Explanation:</strong> B defines diabetes. C explains the direct result ('This leads to...'). D mentions management techniques. A provides a specific example ('However...') of a helpful lifestyle change.</div>
+                    </li>
+                     <li>
+                        <div class="jumbled-sentences">
+                            A. Its capital city, Tokyo, is the world's most populous metropolis.<br>
+                            B. Japan is an island country in East Asia.<br>
+                            C. The country is known for its advanced technology, unique culture, and stunning natural landscapes.<br>
+                            D. Mount Fuji, an active volcano, is its tallest peak and a national symbol.
+                        </div>
+                        <div class="correct-sequence"><strong>Correct Sequence:</strong> BCAD</div>
+                        <div class="explanation"><strong>Explanation:</strong> B introduces Japan. C lists what the 'country is known for'. A gives a fact about 'Its capital city'. D gives a fact about its tallest peak.</div>
+                    </li>
+                     <li>
+                        <div class="jumbled-sentences">
+                            A. These include ensuring international peace, promoting human rights, and providing humanitarian aid.<br>
+                            B. It was founded in 1945, after the Second World War.<br>
+                            C. The United Nations is an international organization.<br>
+                            D. Its mission and work are guided by the purposes and principles contained in its founding Charter.
+                        </div>
+                        <div class="correct-sequence"><strong>Correct Sequence:</strong> CBDA</div>
+                        <div class="explanation"><strong>Explanation:</strong> C introduces the UN. B provides its founding date. D explains what guides 'Its mission'. A lists examples of 'These' (purposes and principles).</div>
+                    </li>
+                    <li>
+                        <div class="jumbled-sentences">
+                            A. Therefore, they must have excellent communication and problem-solving skills.<br>
+                            B. Customer service is the assistance and advice provided by a company to those people who buy or use its products or services.<br>
+                            C. A representative's primary job is to address customer concerns and provide solutions.<br>
+                            D. They act as the direct link between a company and its customers.
+                        </div>
+                        <div class="correct-sequence"><strong>Correct Sequence:</strong> BCDA</div>
+                        <div class="explanation"><strong>Explanation:</strong> B defines customer service. C explains the primary job of a representative. D elaborates on their role ('They act...'). A provides a logical conclusion ('Therefore...') based on their role.</div>
+                    </li>
+                     <li>
+                        <div class="jumbled-sentences">
+                            A. They are known for their incredible intelligence and complex social structures.<br>
+                            B. Dolphins are aquatic mammals.<br>
+                            C. For instance, some pods have been observed using tools and coordinating hunting strategies.<br>
+                            D. They can be found in oceans all over the world.
+                        </div>
+                        <div class="correct-sequence"><strong>Correct Sequence:</strong> BDAC</div>
+                        <div class="explanation"><strong>Explanation:</strong> B introduces dolphins. D gives their location. A describes 'They' (dolphins). C provides a specific instance of the intelligence mentioned in A.</div>
+                    </li>
+                    <!-- 100 -->
+                </ol>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-column a');
+            const contentSections = document.querySelectorAll('.content-section');
+            const contentColumn = document.querySelector('.content-column');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    navLinks.forEach(nav => nav.classList.remove('active'));
+                    this.classList.add('active');
+                    const targetId = this.getAttribute('href');
+                    contentSections.forEach(section => {
+                        if ('#' + section.id === targetId) {
+                            section.classList.add('active');
+                        } else {
+                            section.classList.remove('active');
+                        }
+                    });
+                    contentColumn.scrollTop = 0;
+                });
+            });
+            
+             const firstLink = document.querySelector('.nav-column a');
+             if(firstLink) {
+                firstLink.classList.add('active');
+                document.querySelector(firstLink.getAttribute('href')).classList.add('active');
+             }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,210 @@
+{
+  "description": "Estimated Indian Population in Qatar by Municipality and Key Residential/Industrial Areas. Note: Official, granular data by nationality is not publicly released by the Qatari government. Municipality-level figures are high-level estimates; district-level population data is not available.",
+  "source": "Estimates based on data from the Planning and Statistics Authority (PSA) of Qatar, the Indian Embassy in Doha, and demographic analysis.",
+  "data": [
+    {
+      "rank": 1,
+      "country": "Qatar",
+      "municipality": "Doha",
+      "municipality_indian_population": "~300,000",
+      "percentage_of_total_municipality_population": "Not publicly available",
+      "cities_and_areas": [
+        {
+          "city": "Najma / Al Mansoura",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "A very high-density area with a large concentration of Indian residents, shops, and restaurants."
+        },
+        {
+          "city": "Old Airport Area (Al Matar Al Qadeem)",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "A popular residential area for Indian families and professionals."
+        },
+        {
+          "city": "Al Sadd",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "A major commercial and residential hub with a significant Indian population."
+        },
+        {
+          "city": "Fereej Bin Mahmoud",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "Central residential area popular with various expatriate communities, including Indians."
+        },
+        {
+          "city": "West Bay / Dafna",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "The central business district, with many Indian professionals living in high-rise apartments."
+        },
+        {
+          "city": "The Pearl-Qatar",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "An upscale man-made island with a diverse and affluent expatriate community, including many Indians."
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "country": "Qatar",
+      "municipality": "Al Rayyan",
+      "municipality_indian_population": "~250,000",
+      "percentage_of_total_municipality_population": "Not publicly available",
+      "cities_and_areas": [
+        {
+          "city": "Industrial Area (Sanaiya)",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "This area houses the vast majority of Qatar's industrial workforce, with a massive population of Indian workers in labor accommodations."
+        },
+        {
+          "city": "Abu Hamour / Ain Khaled",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "Large residential areas with numerous compounds and schools catering to Indian families."
+        },
+        {
+          "city": "Al Rayyan City",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "The core of the municipality, a large suburb of Doha with a mixed population."
+        },
+        {
+          "city": "Muaither",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "A densely populated residential area adjacent to the Industrial Area."
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "country": "Qatar",
+      "municipality": "Al Wakrah",
+      "municipality_indian_population": "~120,000",
+      "percentage_of_total_municipality_population": "Not publicly available",
+      "cities_and_areas": [
+        {
+          "city": "Al Wakrah City",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "A major coastal city south of Doha with a large and growing Indian community."
+        },
+        {
+          "city": "Mesaieed (Umm Sa'id)",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "A major industrial city with refineries and ports, employing a significant Indian technical and labor workforce."
+        },
+        {
+          "city": "Barwa Village / Barwa City",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "Large-scale residential projects housing a diverse expatriate population."
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "country": "Qatar",
+      "municipality": "Al Khor and Al Thakhira",
+      "municipality_indian_population": "~40,000",
+      "percentage_of_total_municipality_population": "Not publicly available",
+      "cities_and_areas": [
+        {
+          "city": "Al Khor City",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "The main city in the north, serving the oil and gas industry."
+        },
+        {
+          "city": "Ras Laffan Industrial City",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "One of the world's largest LNG export facilities. While not residential, it's the primary employer for Indians living in Al Khor."
+        },
+        {
+          "city": "Al Khor Community",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "A large, self-contained housing complex primarily for employees of QatarEnergy and its ventures, including many Indian families."
+        }
+      ]
+    },
+    {
+      "rank": 5,
+      "country": "Qatar",
+      "municipality": "Al Daayen",
+      "municipality_indian_population": "~20,000",
+      "percentage_of_total_municipality_population": "Not publicly available",
+      "cities_and_areas": [
+        {
+          "city": "Lusail City",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "A massive, modern city with a rapidly growing population of Indian professionals and service workers."
+        }
+      ]
+    },
+    {
+      "rank": 6,
+      "country": "Qatar",
+      "municipality": "Umm Salal",
+      "municipality_indian_population": "~10,000",
+      "percentage_of_total_municipality_population": "Not publicly available",
+      "cities_and_areas": [
+        {
+          "city": "Umm Salal Mohammed",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "A key town in the municipality with residential and commercial areas."
+        },
+        {
+          "city": "Umm Salal Ali",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "Another main town in the region."
+        }
+      ]
+    },
+    {
+      "rank": 7,
+      "country": "Qatar",
+      "municipality": "Al Shahaniya",
+      "municipality_indian_population": "~5,000",
+      "percentage_of_total_municipality_population": "Not publicly available",
+      "cities_and_areas": [
+        {
+          "city": "Al-Shahaniya City",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "Known for camel racing, this town also has a population of workers in agriculture and services."
+        },
+        {
+          "city": "Dukhan",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "A major oil production center on the west coast with dedicated housing for employees."
+        }
+      ]
+    },
+    {
+      "rank": 8,
+      "country": "Qatar",
+      "municipality": "Al Shamal",
+      "municipality_indian_population": "~1,000",
+      "percentage_of_total_municipality_population": "Not publicly available",
+      "cities_and_areas": [
+        {
+          "city": "Madinat ash Shamal",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "The main administrative town for the northernmost, least populated municipality."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,393 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses After Post Graduation - Careers India</title>
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
+
+<style>
+    :root {
+        --primary-color: #0056b3;
+        --secondary-color: #007bff;
+        --accent-color: #ff6f61;
+        --text-dark: #343a49;
+        --text-light: #6c757d;
+        --bg-light: #f8f9fa;
+        --bg-white: #ffffff;
+        --border-color: #dee2e6;
+        --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+        --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: var(--bg-light);
+        color: var(--text-dark);
+        line-height: 1.6;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    /* --- Filter Controls Styling --- */
+    .filter-container {
+        max-width: 1100px;
+        margin: 40px auto;
+        padding: 30px;
+        background-color: var(--bg-white);
+        border-radius: 12px;
+        box-shadow: var(--shadow-md);
+        text-align: center;
+    }
+    .filter-container h1 {
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        margin-bottom: 5px;
+    }
+    .filter-container p {
+        color: var(--text-light);
+        margin-bottom: 20px;
+    }
+    #course-search {
+        width: 100%;
+        padding: 15px;
+        font-size: 1.1em;
+        border-radius: 8px;
+        border: 2px solid var(--border-color);
+        margin-top: 20px;
+        margin-bottom: 20px;
+        transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    #course-search:focus {
+        outline: none;
+        border-color: var(--secondary-color);
+        box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+    }
+    #category-filters {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+    #category-filters .filter-btn {
+        padding: 10px 20px;
+        border: 1px solid var(--secondary-color);
+        background-color: var(--bg-white);
+        color: var(--secondary-color);
+        border-radius: 50px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+    #category-filters .filter-btn:hover {
+        background-color: var(--secondary-color);
+        color: var(--bg-white);
+    }
+    #category-filters .filter-btn.active {
+        background-color: var(--primary-color);
+        color: var(--bg-white);
+        border-color: var(--primary-color);
+    }
+    #no-results {
+        display: none;
+        text-align: center;
+        padding: 40px;
+        font-size: 1.2em;
+        color: var(--text-light);
+    }
+
+    /* --- Course List Styling --- */
+    .course-list-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 20px;
+        margin-top: 40px;
+    }
+    .course-item {
+        background: var(--bg-white);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        padding: 20px;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .course-item:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-md);
+    }
+    .course-item h3 {
+        margin: 0;
+        font-size: 1.1rem;
+    }
+    .course-item a {
+        text-decoration: none;
+        color: var(--primary-color);
+        font-weight: 600;
+    }
+    .course-item a:hover {
+        text-decoration: underline;
+    }
+
+    /* --- Back to Top Button --- */
+    #back-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: none;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: var(--accent-color);
+        color: white;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        box-shadow: var(--shadow-md);
+        z-index: 1000;
+    }
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- FILTER CONTROLS -->
+    <div class="filter-container">
+        <h1>Courses After Post Graduation</h1>
+        <p>Explore doctoral degrees (Ph.D.), medical specializations (MD/MS), and post-doctoral fellowships.</p>
+
+        <input type="text" id="course-search" onkeyup="filterCourses()" placeholder="e.g., 'Ph.D. Computer Science', 'MD Radiology', 'Fellowship'...">
+
+        <div id="category-filters">
+            <button class="filter-btn active" onclick="filterByCategory('all')">All Programs</button>
+            <button class="filter-btn" onclick="filterByCategory('phd')">Ph.D. Programs</button>
+            <button class="filter-btn" onclick="filterByCategory('medical')">Medical (MD/MS/MDS)</button>
+            <button class="filter-btn" onclick="filterByCategory('fellowship')">Post-Doc Fellowships</button>
+        </div>
+    </div>
+    
+    <div id="no-results">
+        <p>😔<br>No programs match your search criteria.</p>
+    </div>
+
+    <!-- COURSE LIST -->
+    <div class="course-list-container" id="course-list">
+        <!-- Ph.D. (Arts & Humanities) -->
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-literature" target="_blank">Ph.D. in Literature</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-history" target="_blank">Ph.D. in History</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-philosophy" target="_blank">Ph.D. in Philosophy</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-sociology" target="_blank">Ph.D. in Sociology</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-economics" target="_blank">Ph.D. in Economics</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-political-science" target="_blank">Ph.D. in Political Science</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-psychology" target="_blank">Ph.D. in Psychology</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-anthropology" target="_blank">Ph.D. in Anthropology</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-journalism" target="_blank">Ph.D. in Journalism</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-mass-communication" target="_blank">Ph.D. in Mass Communication</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-library-science" target="_blank">Ph.D. in Library Science</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-education" target="_blank">Ph.D. in Education</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-linguistics" target="_blank">Ph.D. in Linguistics</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-theatre-arts" target="_blank">Ph.D. in Theatre Arts</a></h3></div>
+        
+        <!-- Ph.D. (Science) -->
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-physics" target="_blank">Ph.D. in Physics</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-chemistry" target="_blank">Ph.D. in Chemistry</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-mathematics" target="_blank">Ph.D. in Mathematics</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-biology" target="_blank">Ph.D. in Biology</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-biotechnology" target="_blank">Ph.D. in Biotechnology</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-computer-science-science" target="_blank">Ph.D. in Computer Science (Science Stream)</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-environmental-science" target="_blank">Ph.D. in Environmental Science</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-forensic-science" target="_blank">Ph.D. in Forensic Science</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-geology" target="_blank">Ph.D. in Geology</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-statistics" target="_blank">Ph.D. in Statistics</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-astronomy" target="_blank">Ph.D. in Astronomy</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-biomedical-science" target="_blank">Ph.D. in Biomedical Science</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-nanoscience" target="_blank">Ph.D. in Nanoscience</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-neuroscience" target="_blank">Ph.D. in Neuroscience</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-marine-biology" target="_blank">Ph.D. in Marine Biology</a></h3></div>
+
+        <!-- Ph.D. (Engineering & Technology) -->
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-mechanical-engineering" target="_blank">Ph.D. in Mechanical Engineering</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-electrical-engineering" target="_blank">Ph.D. in Electrical Engineering</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-civil-engineering" target="_blank">Ph.D. in Civil Engineering</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-computer-science-engineering" target="_blank">Ph.D. in Computer Science & Engineering</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-electronics-communication-engineering" target="_blank">Ph.D. in Electronics & Communication Engineering</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-information-technology-engg" target="_blank">Ph.D. in Information Technology (Engg.)</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-architecture" target="_blank">Ph.D. in Architecture</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-planning" target="_blank">Ph.D. in Planning</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-robotics" target="_blank">Ph.D. in Robotics</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-artificial-intelligence-engg" target="_blank">Ph.D. in Artificial Intelligence (Engg.)</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-machine-learning-engg" target="_blank">Ph.D. in Machine Learning (Engg.)</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-data-science-engg" target="_blank">Ph.D. in Data Science (Engg.)</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-cybersecurity-engg" target="_blank">Ph.D. in Cybersecurity (Engg.)</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-materials-science-engg" target="_blank">Ph.D. in Materials Science (Engg.)</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-energy-engineering" target="_blank">Ph.D. in Energy Engineering</a></h3></div>
+
+        <!-- Ph.D. (Management) -->
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-finance" target="_blank">Ph.D. in Finance</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-marketing" target="_blank">Ph.D. in Marketing</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-human-resource-management-hrm" target="_blank">Ph.D. in Human Resource Management (HRM)</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-operations-management" target="_blank">Ph.D. in Operations Management</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-business-analytics" target="_blank">Ph.D. in Business Analytics</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-international-business" target="_blank">Ph.D. in International Business</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-healthcare-management" target="_blank">Ph.D. in Healthcare Management</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-agri-business-management" target="_blank">Ph.D. in Agri-Business Management</a></h3></div>
+
+        <!-- Ph.D. (Law) -->
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-constitutional-law" target="_blank">Ph.D. in Constitutional Law</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-corporate-law" target="_blank">Ph.D. in Corporate Law</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-criminal-law" target="_blank">Ph.D. in Criminal Law</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-environmental-law" target="_blank">Ph.D. in Environmental Law</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-human-rights-law" target="_blank">Ph.D. in Human Rights Law</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-intellectual-property-law-ipr" target="_blank">Ph.D. in Intellectual Property Law (IPR)</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-international-law" target="_blank">Ph.D. in International Law</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-tax-law" target="_blank">Ph.D. in Tax Law</a></h3></div>
+
+        <!-- MD Degrees -->
+        <div class="course-item" data-category="medical"><h3><a href="pg.html#pg-md-general-medicine" target="_blank">MD in General Medicine</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="pg.html#pg-md-pediatrics" target="_blank">MD in Pediatrics</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="pg.html#pg-md-dermatology" target="_blank">MD in Dermatology</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="pg.html#pg-md-pathology" target="_blank">MD in Pathology</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="pg.html#pg-md-microbiology" target="_blank">MD in Microbiology</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="pg.html#pg-md-anesthesiology" target="_blank">MD in Anesthesiology</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="pg.html#pg-md-radiology" target="_blank">MD in Radiology</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="pg.html#pg-md-psychiatry" target="_blank">MD in Psychiatry</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="pg.html#pg-md-community-medicine" target="_blank">MD in Community Medicine</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="pg.html#pg-md-ayurveda" target="_blank">MD (Ayurveda)</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="pg.html#pg-md-homeopathy" target="_blank">MD (Homeopathy)</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="pg.html#pg-md-unani" target="_blank">MD (Unani)</a></h3></div>
+
+        <!-- MS Degrees -->
+        <div class="course-item" data-category="medical"><h3><a href="pg.html#pg-ms-general-surgery" target="_blank">MS in General Surgery</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="pg.html#pg-ms-orthopaedics" target="_blank">MS in Orthopaedics</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="pg.html#pg-ms-ophthalmology" target="_blank">MS in Ophthalmology</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="pg.html#pg-ms-ent" target="_blank">MS in ENT</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="pg.html#pg-ms-obstetrics-gynaecology" target="_blank">MS in Obstetrics & Gynaecology</a></h3></div>
+        
+        <!-- MDS Degrees -->
+        <div class="course-item" data-category="medical"><h3><a href="pg.html#pg-mds-orthodontics" target="_blank">MDS in Orthodontics</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="pg.html#pg-mds-oral-maxillofacial-surgery" target="_blank">MDS in Oral and Maxillofacial Surgery</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="pg.html#pg-mds-periodontics" target="_blank">MDS in Periodontics</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="pg.html#pg-mds-prosthodontics" target="_blank">MDS in Prosthodontics</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="pg.html#pg-mds-pedodontics" target="_blank">MDS in Pedodontics</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="pg.html#pg-mds-oral-pathology-microbiology" target="_blank">MDS in Oral Pathology and Microbiology</a></h3></div>
+
+        <!-- Other Doctoral & Masters -->
+        <div class="course-item" data-category="medical"><h3><a href="pg.html#pg-pharmd-post-baccalaureate" target="_blank">Doctor of Pharmacy (Pharm.D.) - Post Baccalaureate</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="pg.html#pg-mvsc" target="_blank">Master of Veterinary Science (MVSc)</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="pg.html#pg-dm-super-speciality" target="_blank">DM - Doctorate of Medicine (Super Speciality)</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="pg.html#pg-mch-super-speciality" target="_blank">M.Ch - Master of Chirurgiae (Super Speciality)</a></h3></div>
+        
+        <!-- Ph.D. (Design, Social Work, Pharma) -->
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-product-design" target="_blank">Ph.D. in Product Design</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-graphic-design" target="_blank">Ph.D. in Graphic Design</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-fashion-design" target="_blank">Ph.D. in Fashion Design</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-industrial-design" target="_blank">Ph.D. in Industrial Design</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-social-work" target="_blank">Ph.D. in Social Work</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-public-health" target="_blank">Ph.D. in Public Health</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-physical-education" target="_blank">Ph.D. in Physical Education</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-pharmaceutics" target="_blank">Ph.D. in Pharmaceutics</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-pharmacology-pharma" target="_blank">Ph.D. in Pharmacology (Pharma)</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-pharmaceutical-analysis" target="_blank">Ph.D. in Pharmaceutical Analysis</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-pharmacognosy" target="_blank">Ph.D. in Pharmacognosy</a></h3></div>
+        <div class="course-item" data-category="phd"><h3><a href="pg.html#pg-phd-pharmacy-practice" target="_blank">Ph.D. in Pharmacy Practice</a></h3></div>
+
+        <!-- Post-Doctoral Fellowships -->
+        <div class="course-item" data-category="fellowship"><h3><a href="pg.html#pg-post-doctoral-fellowships-overview" target="_blank">Post-Doctoral Fellowships Overview</a></h3></div>
+        <div class="course-item" data-category="fellowship"><h3><a href="pg.html#pg-fellowship-serb-npdf" target="_blank">SERB National Post-Doctoral Fellowship (N-PDF)</a></h3></div>
+        <div class="course-item" data-category="fellowship"><h3><a href="pg.html#pg-fellowship-icssr" target="_blank">ICSSR Post-Doctoral Fellowship</a></h3></div>
+        <div class="course-item" data-category="fellowship"><h3><a href="pg.html#pg-fellowship-ugc-dskothari" target="_blank">UGC D. S. Kothari Postdoctoral Fellowship</a></h3></div>
+        <div class="course-item" data-category="fellowship"><h3><a href="pg.html#pg-fellowship-csir-ra" target="_blank">CSIR Research Associateship (CSIR-RA)</a></h3></div>
+        <div class="course-item" data-category="fellowship"><h3><a href="pg.html#pg-fellowship-dbt-ra" target="_blank">DBT Research Associateship (DBT-RA)</a></h3></div>
+        <div class="course-item" data-category="fellowship"><h3><a href="pg.html#pg-fellowship-icmr" target="_blank">ICMR Postdoctoral Fellowship</a></h3></div>
+        <div class="course-item" data-category="fellowship"><h3><a href="pg.html#pg-fellowship-ramanujan" target="_blank">Ramanujan Fellowship</a></h3></div>
+        <div class="course-item" data-category="fellowship"><h3><a href="pg.html#pg-fellowship-tata-innovation" target="_blank">Tata Innovation Fellowship</a></h3></div>
+        <div class="course-item" data-category="fellowship"><h3><a href="pg.html#pg-fellowship-fulbright-nehru" target="_blank">Fulbright-Nehru Postdoctoral Research Fellowships (USA)</a></h3></div>
+        <div class="course-item" data-category="fellowship"><h3><a href="pg.html#pg-fellowship-university-specific" target="_blank">University-Specific Fellowships</a></h3></div>
+        <div class="course-item" data-category="fellowship"><h3><a href="pg.html#pg-fellowship-industry-sponsored" target="_blank">Industry-Sponsored Postdoctoral Research</a></h3></div>
+
+    </div>
+</div>
+
+<button id="back-to-top" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+
+<script>
+    // --- LIVE SEARCH FILTER FUNCTION ---
+    function filterCourses() {
+        const input = document.getElementById('course-search');
+        const filter = input.value.toUpperCase();
+        const courseList = document.getElementById('course-list');
+        const courseItems = courseList.getElementsByClassName('course-item');
+        const noResults = document.getElementById('no-results');
+        let visibleCount = 0;
+
+        for (let i = 0; i < courseItems.length; i++) {
+            const a = courseItems[i].getElementsByTagName("a")[0];
+            const txtValue = a.textContent || a.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                courseItems[i].style.display = "";
+                visibleCount++;
+            } else {
+                courseItems[i].style.display = "none";
+            }
+        }
+        noResults.style.display = visibleCount === 0 ? "block" : "none";
+    }
+
+    // --- CATEGORY FILTER FUNCTION ---
+    function filterByCategory(category) {
+        const courseItems = document.querySelectorAll('.course-item');
+        const buttons = document.querySelectorAll('#category-filters .filter-btn');
+        const noResults = document.getElementById('no-results');
+        let visibleCount = 0;
+
+        buttons.forEach(button => {
+            if (button.getAttribute('onclick') === `filterByCategory('${category}')`) {
+                button.classList.add('active');
+            } else {
+                button.classList.remove('active');
+            }
+        });
+
+        courseItems.forEach(item => {
+            if (category === 'all' || item.dataset.category === category) {
+                item.style.display = "";
+                visibleCount++;
+            } else {
+                item.style.display = "none";
+            }
+        });
+        
+        noResults.style.display = visibleCount === 0 ? "block" : "none";
+        document.getElementById('course-search').value = ""; // Clear search bar
+    }
+
+    // --- BACK TO TOP BUTTON SCRIPT ---
+    const topButton = document.getElementById("back-to-top");
+    window.onscroll = function() {
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            topButton.style.display = "block";
+        } else {
+            topButton.style.display = "none";
+        }
+    };
+    topButton.onclick = function() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    };
+</script>
+
+</body>
+</html>

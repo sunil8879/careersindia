@@ -1,0 +1,293 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scholarship Program for Punjab State</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* --- CSS STYLES --- */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #e6e7ee; /* A neutral, soft background */
+            color: #333;
+            margin: 0;
+            padding: 25px 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .title-container {
+            width: 95%;
+            max-width: 850px;
+            padding: 30px 35px;
+            margin-bottom: 40px;
+            background-color: #e6e7ee;
+            border-radius: 25px;
+            /* High Intense Bevel Shape (Neumorphism) using box-shadow */
+            box-shadow: 
+                -7px -7px 20px 0px #fff,
+                -4px -4px 5px 0px #fff,
+                7px 7px 20px 0px #0002,
+                4px 4px 5px 0px #0001,
+                inset 0px 0px 0px 0px #fff,
+                inset 0px 0px 0px 0px #0001,
+                inset -7px -7px 20px 0px #fff,
+                inset -4px -4px 5px 0px #fff,
+                inset 7px 7px 20px 0px #0002,
+                inset 4px 4px 5px 0px #0001;
+            text-align: center;
+        }
+
+        .title-container h1 {
+            margin: 0;
+            font-size: 2.3em;
+            font-weight: 600;
+            color: #4a5668;
+            /* 3D Text Effect */
+            text-shadow: 1px 1px 1px #fff, -1px -1px 1px #00000030;
+        }
+
+        .scholarship-container {
+            width: 100%;
+            max-width: 750px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .category {
+            position: relative;
+            width: 100%;
+        }
+
+        .dropdown-btn {
+            width: 100%;
+            background: linear-gradient(145deg, #FF9800, #F57C00); /* Vibrant Orange Gradient */
+            color: white;
+            padding: 16px 22px;
+            font-size: 1.15em;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.3s ease;
+            box-shadow: 5px 5px 10px #c3c4ca, -5px -5px 10px #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .dropdown-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 7px 7px 15px #c3c4ca, -7px -7px 15px #ffffff;
+        }
+
+        .dropdown-btn::after {
+            content: '▼';
+            font-size: 0.8em;
+            transition: transform 0.3s ease;
+        }
+        
+        .dropdown-btn.active::after {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-content {
+            display: none; /* Hidden by default */
+            margin-top: 8px;
+            background-color: #f9f9f9;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            z-index: 1;
+            overflow: hidden;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .dropdown-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .dropdown-content li {
+            padding: 16px 22px;
+            cursor: pointer;
+            transition: background-color 0.2s ease, color 0.2s ease;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 1em;
+            color: #444;
+        }
+
+        .dropdown-content li:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-content li:hover {
+            background-color: #fff8e1;
+            color: #F57C00;
+            font-weight: 600;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .title-container h1 {
+                font-size: 1.7em;
+            }
+            .dropdown-btn {
+                font-size: 1.05em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="title-container">
+        <h1>Scholarship Program for Punjab State</h1>
+    </div>
+
+    <div class="scholarship-container">
+
+        <!-- Category 1: Government Scholarships -->
+        <div class="category">
+            <button class="dropdown-btn">1. Government Scholarships</button>
+            <div class="dropdown-content">
+                <ul>
+                    <li data-link="https://scholarships.punjab.gov.in/">Post Matric Scholarship for SC/OBC (Dr. Ambedkar Portal)</li>
+                    <li data-link="https://connect.punjab.gov.in/service/citizen/scheme/chief-minister-scholarship-scheme">Chief Minister Scholarship Scheme</li>
+                    <li data-link="https://scholarships.punjab.gov.in/">Ashirwad Scheme (Post Matric Scholarship for BC/EBC)</li>
+                    <li data-link="https://www.punjab.gov.in">State Merit Scholarship Scheme</li>
+                    <li data-link="https://bocw.punjab.gov.in">Punjab BOCW Board Scholarship</li>
+                    <li data-link="https://scholarships.gov.in/">National Scholarship Portal (for Central Schemes)</li>
+                    <li data-link="https://ksb.gov.in">Prime Minister's Scholarship Scheme (PMSS)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Category 2: Private & Corporate Scholarships -->
+        <div class="category">
+            <button class="dropdown-btn">2. Private & Corporate Scholarships</button>
+            <div class="dropdown-content">
+                <ul>
+                    <li data-link="http://www.sitaramjindalfoundation.org">Sitaram Jindal Foundation Scholarship</li>
+                    <li data-link="https://www.scholarships.reliancefoundation.org">Reliance Foundation Undergraduate Scholarships</li>
+                    <li data-link="https://www.buddy4study.com/page/hdfc-bank-parivartans-ecss-programme">HDFC Bank Parivartan's ECSS Programme</li>
+                    <li data-link="https://www.buddy4study.com/page/the-tata-capital-pankh-scholarship-programme">Tata Capital Pankh Scholarship Programme</li>
+                    <li data-link="https://www.colgate.co.in">Keep India Smiling Foundational Scholarship</li>
+                    <li data-link="https://ffe.org/">Foundation for Excellence (FFE) Scholarship</li>
+                    <li data-link="https://iocl.com">IndianOil Academic Scholarships</li>
+                    <li data-link="https://licindia.in/hi/golden-jubilee-scholarship-scheme">LIC Golden Jubilee Scholarship</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Category 3: Merit-based Scholarships -->
+        <div class="category">
+            <button class="dropdown-btn">3. Merit-based Scholarships</button>
+            <div class="dropdown-content">
+                 <ul>
+                    <li data-link="https://connect.punjab.gov.in">Chief Minister Scholarship Scheme</li>
+                    <li data-link="https://scholarships.gov.in/">Central Sector Scheme of Scholarship</li>
+                    <li data-link="https://ncert.nic.in">National Talent Search Examination (NTSE)</li>
+                    <li data-link="https://ksb.gov.in">Prime Minister's Scholarship Scheme (PMSS)</li>
+                    <li data-link="https://www.jntataendowment.org">J.N. Tata Endowment Loan Scholarship</li>
+                    <li data-link="https://www.thapar.edu">Thapar Institute Merit Scholarships</li>
+                    <li data-link="https://www.lpu.in">Lovely Professional University (LPU) Scholarships</li>
+                 </ul>
+            </div>
+        </div>
+
+        <!-- Category 4: Means-based Scholarships -->
+        <div class="category">
+            <button class="dropdown-btn">4. Means-based Scholarships</button>
+            <div class="dropdown-content">
+                <ul>
+                    <li data-link="https://scholarships.punjab.gov.in/">Post Matric Scholarship (SC/OBC)</li>
+                    <li data-link="https://scholarships.punjab.gov.in/">Ashirwad Scheme (BC/EBC)</li>
+                    <li data-link="https://bocw.punjab.gov.in">Punjab BOCW Board Scholarship</li>
+                    <li data-link="https://www.reliancefoundation.org">Reliance Foundation Scholarships</li>
+                    <li data-link="https://www.buddy4study.com/page/hdfc-bank-parivartans-ecss-programme">HDFC Bank Parivartan's ECSS Programme</li>
+                    <li data-link="https://ffe.org/">Foundation for Excellence (FFE) Scholarship</li>
+                    <li data-link="http://www.sitaramjindalfoundation.org">Sitaram Jindal Foundation Scholarship</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Category 5: College/University-Specific Scholarships -->
+        <div class="category">
+            <button class="dropdown-btn">5. College/University-Specific Scholarships</button>
+            <div class="dropdown-content">
+                <ul>
+                    <li data-link="https://www.iitrpr.ac.in">IIT Ropar - Scholarships</li>
+                    <li data-link="https://www.nitj.ac.in">NIT Jalandhar - Scholarships</li>
+                    <li data-link="https://scholarships.puchd.ac.in/">Panjab University, Chandigarh - Scholarships</li>
+                    <li data-link="https://www.thapar.edu">Thapar Institute of Engineering & Technology - Scholarships</li>
+                    <li data-link="https://www.lpu.in">Lovely Professional University (LPU) - Scholarships</li>
+                    <li data-link="https://www.cuchd.in">Chandigarh University - Scholarships</li>
+                    <li data-link="https://online.gndu.ac.in">Guru Nanak Dev University (GNDU) - Scholarships</li>
+                    <li data-link="https://www.pau.edu">Punjab Agricultural University (PAU) - Scholarships</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // --- JAVASCRIPT LOGIC ---
+        document.addEventListener('DOMContentLoaded', function () {
+            const dropdownBtns = document.querySelectorAll('.dropdown-btn');
+
+            // Logic to toggle dropdown visibility
+            dropdownBtns.forEach(btn => {
+                btn.addEventListener('click', function (event) {
+                    event.stopPropagation(); // Prevent the window click event from firing immediately
+                    
+                    const content = this.nextElementSibling;
+                    const isActive = this.classList.contains('active');
+
+                    // Close all other dropdowns
+                    document.querySelectorAll('.dropdown-content').forEach(c => c.style.display = 'none');
+                    document.querySelectorAll('.dropdown-btn').forEach(b => b.classList.remove('active'));
+
+                    // Toggle the current one
+                    if (!isActive) {
+                        this.classList.add('active');
+                        content.style.display = 'block';
+                    }
+                });
+            });
+
+            // Logic to handle clicking on a scholarship item
+            const scholarshipItems = document.querySelectorAll('.dropdown-content li');
+            scholarshipItems.forEach(item => {
+                item.addEventListener('click', function () {
+                    const link = this.dataset.link;
+                    if (link) {
+                        window.open(link, '_blank'); // Open link in a new tab
+                    }
+                });
+            });
+
+            // Logic to close dropdowns if user clicks outside of them
+            window.addEventListener('click', function(e) {
+                document.querySelectorAll('.dropdown-content').forEach(c => c.style.display = 'none');
+                document.querySelectorAll('.dropdown-btn').forEach(b => b.classList.remove('active'));
+            });
+        });
+    </script>
+
+</body>
+</html>

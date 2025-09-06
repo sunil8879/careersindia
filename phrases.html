@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentence Building Blocks: Phrases</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            /* Blue and white gridline background */
+            background-color: #f0f8ff; 
+            background-image: 
+                repeating-linear-gradient(to right, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 30px),
+                repeating-linear-gradient(to bottom, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 30px);
+            background-size: 30px 30px;
+        }
+
+        /* Header Styling */
+        header {
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        header h1 {
+            display: inline-block;
+            background-color: #0056b3;
+            color: white;
+            padding: 20px 40px;
+            border: 3px solid white;
+            border-radius: 15px;
+            /* 3D Box Effect */
+            box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.4), inset 2px 2px 5px rgba(255, 255, 255, 0.3);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-size: 2.2em;
+            margin: 0;
+        }
+
+        /* Main Container for Two-Column Layout */
+        .container {
+            display: flex;
+            max-width: 1300px;
+            margin: 20px auto;
+            background: #ffffff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.15);
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        /* Left Navigation Column */
+        .nav-column {
+            flex: 1;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+            background-color: #f8f9fa;
+        }
+
+        .nav-column ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            position: sticky;
+            top: 20px; /* Makes the nav stick on scroll */
+        }
+
+        .nav-column li a {
+            display: block;
+            padding: 12px 15px;
+            text-decoration: none;
+            color: #0056b3;
+            border-radius: 5px;
+            margin-bottom: 8px;
+            font-weight: bold;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .nav-column li a:hover,
+        .nav-column li a.active {
+            background-color: #0056b3;
+            color: #fff;
+        }
+
+        /* Right Content Column */
+        .content-column {
+            flex: 3;
+            padding: 25px 35px;
+            height: 80vh; /* Set a height to enable scrolling */
+            overflow-y: auto; /* Enable vertical scrollbar */
+        }
+
+        .content-section {
+            display: none;
+        }
+        
+        .content-section.active {
+            display: block;
+        }
+        
+        h2 {
+            font-size: 1.8em;
+            color: #0056b3;
+            border-bottom: 3px solid #0056b3;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        
+        h3 {
+            font-size: 1.4em;
+            color: #333;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        
+        .example-list {
+            list-style-type: decimal;
+            padding-left: 20px;
+        }
+
+        .example-list li {
+            margin-bottom: 15px;
+        }
+        
+        .note {
+            font-style: italic;
+            color: #555;
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-left: 4px solid #0056b3;
+            margin-top: 10px;
+        }
+        
+        .phrase {
+            background-color: #d4e7f5; /* Light blue */
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #0056b3;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>SENTENCE BUILDING BLOCKS: PHRASES</h1>
+    </header>
+
+    <div class="container">
+        <nav class="nav-column">
+            <ul>
+                <li><a href="#definition" class="nav-link active">What is a Phrase?</a></li>
+                <li><a href="#noun-phrase" class="nav-link">Noun Phrase</a></li>
+                <li><a href="#verb-phrase" class="nav-link">Verb Phrase</a></li>
+                <li><a href="#adjective-phrase" class="nav-link">Adjective Phrase</a></li>
+                <li><a href="#adverb-phrase" class="nav-link">Adverb Phrase</a></li>
+                <li><a href="#prepositional-phrase" class="nav-link">Prepositional Phrase</a></li>
+                <li><a href="#infinitive-phrase" class="nav-link">Infinitive Phrase</a></li>
+                <li><a href="#gerund-phrase" class="nav-link">Gerund Phrase</a></li>
+                <li><a href="#participial-phrase" class="nav-link">Participial Phrase</a></li>
+                <li><a href="#identification-guide" class="nav-link">Quick Identification Guide</a></li>
+            </ul>
+        </nav>
+
+        <main class="content-column">
+            <section id="definition" class="content-section active">
+                <h2>What is a Phrase?</h2>
+                <p>A phrase is a group of related words that acts as a single part of speech but **does not contain both a subject and a verb**. This is the key difference between a phrase and a clause.</p>
+                <ul>
+                    <li><strong>Phrase:</strong> <span class="phrase">on the table</span> (No subject or verb)</li>
+                    <li><strong>Clause:</strong> <span class="phrase">because she was tired</span> (Has a subject 'she' and a verb 'was')</li>
+                </ul>
+                <h3>10 Examples of Phrases:</h3>
+                <ol class="example-list">
+                    <li><span class="phrase">The very tall man</span> (Noun Phrase)</li>
+                    <li><span class="phrase">has been studying</span> (Verb Phrase)</li>
+                    <li><span class="phrase">in the morning</span> (Prepositional Phrase acting as an Adverb Phrase)</li>
+                    <li><span class="phrase">to win the game</span> (Infinitive Phrase)</li>
+                    <li><span class="phrase">running a marathon</span> (Gerund Phrase)</li>
+                    <li><span class="phrase">extremely happy</span> (Adjective Phrase)</li>
+                    <li><span class="phrase">with great speed</span> (Prepositional Phrase acting as an Adverb Phrase)</li>
+                    <li><span class="phrase">damaged in the storm</span> (Participial Phrase)</li>
+                    <li><span class="phrase">a book of great importance</span> (Noun Phrase with a Prepositional Phrase)</li>
+                    <li><span class="phrase">under the old wooden bridge</span> (Prepositional Phrase)</li>
+                </ol>
+            </section>
+            
+            <section id="noun-phrase" class="content-section">
+                <h2>Noun Phrase</h2>
+                <p>A phrase that acts as a noun in a sentence (it can be a subject, object, or complement). It is built around a single noun or pronoun.</p>
+                <div class="note"><strong>Wh- Question to ask:</strong> Who? or What?</div>
+                <h3>10 Examples:</h3>
+                <ol class="example-list">
+                    <li><span class="phrase">The tall, athletic boy</span> won the race. (Acts as the subject)</li>
+                    <li>She bought <span class="phrase">a beautiful red car</span>. (Acts as the direct object)</li>
+                    <li>He is <span class="phrase">my best friend</span>. (Acts as the subject complement)</li>
+                    <li><span class="phrase">A house with a large garden</span> is for sale. (Acts as the subject)</li>
+                    <li>We saw <span class="phrase">the new movie that everyone is talking about</span>. (Acts as the direct object)</li>
+                    <li><span class="phrase">The girl in the blue dress</span> is my sister.</li>
+                    <li>I want to read <span class="phrase">that interesting book</span>.</li>
+                    <li><span class="phrase">All the students in the class</span> passed the exam.</li>
+                    <li>He told us <span class="phrase">a very funny story</span>.</li>
+                    <li><span class="phrase">The old, dusty painting</span> was worth a fortune.</li>
+                </ol>
+            </section>
+
+            <section id="verb-phrase" class="content-section">
+                <h2>Verb Phrase</h2>
+                <p>A phrase made up of a main verb and one or more helping (auxiliary) verbs.</p>
+                <div class="note"><strong>Wh- Question to ask:</strong> What is the action or state of being? (This identifies the entire verb unit)</div>
+                <h3>10 Examples:</h3>
+                <ol class="example-list">
+                    <li>She <span class="phrase">is running</span> a marathon.</li>
+                    <li>He <span class="phrase">has been studying</span> for three hours.</li>
+                    <li>They <span class="phrase">will have finished</span> by tomorrow.</li>
+                    <li>I <span class="phrase">should have called</span> you earlier.</li>
+                    <li>The package <span class="phrase">might be delivered</span> today.</li>
+                    <li>We <span class="phrase">were waiting</span> for the bus.</li>
+                    <li>He <span class="phrase">did not attend</span> the meeting.</li>
+                    <li>You <span class="phrase">must complete</span> the task.</li>
+                    <li>The problem <span class="phrase">can be solved</span> easily.</li>
+                    <li>I <span class="phrase">am going to travel</span> next month.</li>
+                </ol>
+            </section>
+            
+            <section id="adjective-phrase" class="content-section">
+                <h2>Adjective Phrase</h2>
+                <p>A group of words that describes a noun or pronoun in a sentence. The entire phrase acts as a single adjective.</p>
+                <div class="note"><strong>Wh- Question to ask:</strong> What kind? Which one? or How is it described?</div>
+                <h3>10 Examples:</h3>
+                <ol class="example-list">
+                    <li>The man <span class="phrase">with the red hat</span> is my uncle. (Describes 'man')</li>
+                    <li>She was <span class="phrase">very happy about the news</span>. (Describes 'She')</li>
+                    <li>This is a decision <span class="phrase">of great importance</span>. (Describes 'decision')</li>
+                    <li>He is a person <span class="phrase">fond of music</span>. (Describes 'person')</li>
+                    <li>The girl <span class="phrase">wearing the blue dress</span> is my sister. (Describes 'girl')</li>
+                    <li>The book on the top shelf is <span class="phrase">incredibly interesting</span>. (Describes 'book')</li>
+                    <li>He works in a building <span class="phrase">taller than any other in the city</span>. (Describes 'building')</li>
+                    <li>She felt <span class="phrase">extremely tired after the long journey</span>. (Describes 'She')</li>
+                    <li>I read a story <span class="phrase">full of adventure and mystery</span>. (Describes 'story')</li>
+                    <li>The path <span class="phrase">covered in snow</span> was difficult to walk on. (Describes 'path')</li>
+                </ol>
+            </section>
+            
+            <section id="adverb-phrase" class="content-section">
+                <h2>Adverb Phrase</h2>
+                <p>A group of words that modifies a verb, an adjective, or another adverb. The entire phrase acts as a single adverb.</p>
+                <div class="note"><strong>Wh- Question to ask:</strong> How? When? Where? or Why?</div>
+                <h3>10 Examples:</h3>
+                <ol class="example-list">
+                    <li>He ran <span class="phrase">with great speed</span>. (How did he run?)</li>
+                    <li>She arrived <span class="phrase">in the morning</span>. (When did she arrive?)</li>
+                    <li>They are studying <span class="phrase">at the library</span>. (Where are they studying?)</li>
+                    <li>He works hard <span class="phrase">to earn a living</span>. (Why does he work hard?)</li>
+                    <li>Please put the box <span class="phrase">over there</span>. (Where?)</li>
+                    <li>We will meet <span class="phrase">in a few minutes</span>. (When?)</li>
+                    <li>She spoke <span class="phrase">in a very soft voice</span>. (How?)</li>
+                    <li>He left the company <span class="phrase">for personal reasons</span>. (Why?)</li>
+                    <li>They travel <span class="phrase">all over the world</span>. (Where?)</li>
+                    <li>He answered the question <span class="phrase">as quickly as possible</span>. (How?)</li>
+                </ol>
+            </section>
+            
+            <section id="prepositional-phrase" class="content-section">
+                <h2>Prepositional Phrase</h2>
+                <p>A phrase that begins with a preposition and ends with its object (a noun or pronoun). It can function as either an adjective or an adverb.</p>
+                <div class="note"><strong>Wh- Question to ask:</strong> It answers Adjective questions (Which one?) or Adverb questions (Where? When? How?).</div>
+                <h3>10 Examples:</h3>
+                <ol class="example-list">
+                    <li>The book <span class="phrase">on the table</span> is mine. (Adjective phrase describing 'book')</li>
+                    <li>He is sleeping <span class="phrase">on the sofa</span>. (Adverb phrase modifying 'is sleeping')</li>
+                    <li>The girl <span class="phrase">with the red hair</span> is my cousin. (Adjective phrase describing 'girl')</li>
+                    <li>We will meet <span class="phrase">after lunch</span>. (Adverb phrase modifying 'will meet')</li>
+                    <li>He is the captain <span class="phrase">of the team</span>. (Adjective phrase describing 'captain')</li>
+                    <li>She ran <span class="phrase">around the track</span>. (Adverb phrase modifying 'ran')</li>
+                    <li>The keys <span class="phrase">to the car</span> are missing. (Adjective phrase describing 'keys')</li>
+                    <li>They live <span class="phrase">in a big city</span>. (Adverb phrase modifying 'live')</li>
+                    <li>A man <span class="phrase">from the village</span> came to see you. (Adjective phrase describing 'man')</li>
+                    <li>He hid the gift <span class="phrase">under the bed</span>. (Adverb phrase modifying 'hid')</li>
+                </ol>
+            </section>
+            
+            <section id="infinitive-phrase" class="content-section">
+                <h2>Infinitive Phrase</h2>
+                <p>A phrase that starts with an infinitive (to + verb) and includes any objects or modifiers. It can function as a noun, an adjective, or an adverb.</p>
+                <div class="note"><strong>Wh- Question to ask:</strong> Varies by function. "What?" (if noun), "Why?" (if adverb), or "Which one?" (if adjective).</div>
+                <h3>10 Examples:</h3>
+                <ol class="example-list">
+                    <li><span class="phrase">To win the game</span> is his only goal. (Noun phrase, subject)</li>
+                    <li>He works hard <span class="phrase">to support his family</span>. (Adverb phrase, modifies 'works')</li>
+                    <li>This is the best way <span class="phrase">to solve the problem</span>. (Adjective phrase, modifies 'way')</li>
+                    <li>She wants <span class="phrase">to learn Spanish</span>. (Noun phrase, direct object)</li>
+                    <li>He went to the store <span class="phrase">to buy some milk</span>. (Adverb phrase, modifies 'went')</li>
+                    <li>I need a book <span class="phrase">to read on my vacation</span>. (Adjective phrase, modifies 'book')</li>
+                    <li>His dream is <span class="phrase">to become a pilot</span>. (Noun phrase, subject complement)</li>
+                    <li>They were happy <span class="phrase">to see us</span>. (Adverb phrase, modifies 'happy')</li>
+                    <li>The decision <span class="phrase">to move to a new city</span> was difficult. (Adjective phrase, modifies 'decision')</li>
+                    <li><span class="phrase">To tell the truth</span> requires courage. (Noun phrase, subject)</li>
+                </ol>
+            </section>
+            
+            <section id="gerund-phrase" class="content-section">
+                <h2>Gerund Phrase</h2>
+                <p>A phrase that starts with a gerund (a verb ending in -ing) and includes its modifiers and objects. The entire phrase functions as a noun.</p>
+                <div class="note"><strong>Wh- Question to ask:</strong> What?</div>
+                <h3>10 Examples:</h3>
+                <ol class="example-list">
+                    <li><span class="phrase">Running every morning</span> is good for your health. (Subject)</li>
+                    <li>He enjoys <span class="phrase">playing the guitar</span>. (Direct object)</li>
+                    <li>Her favorite hobby is <span class="phrase">painting landscapes</span>. (Subject complement)</li>
+                    <li>I am tired of <span class="phrase">listening to your complaints</span>. (Object of a preposition)</li>
+                    <li><span class="phrase">Finishing the project on time</span> requires a lot of effort. (Subject)</li>
+                    <li>She started <span class="phrase">working at the new company</span> last week. (Direct object)</li>
+                    <li>My biggest challenge is <span class="phrase">managing my time effectively</span>. (Subject complement)</li>
+                    <li>Thank you for <span class="phrase">helping me with my homework</span>. (Object of a preposition)</li>
+                    <li><span class="phrase">Eating healthy food</span> is important. (Subject)</li>
+                    <li>He regretted <span class="phrase">not studying harder for the exam</span>. (Direct object)</li>
+                </ol>
+            </section>
+
+            <section id="participial-phrase" class="content-section">
+                <h2>Participial Phrase</h2>
+                <p>A phrase that starts with a participle (a verb form ending in -ing for present or -ed/-en for past) and includes its modifiers and objects. The entire phrase functions as an adjective.</p>
+                <div class="note"><strong>Wh- Question to ask:</strong> Which one? or What kind? (It always describes a noun)</div>
+                <h3>10 Examples:</h3>
+                <ol class="example-list">
+                    <li>The man <span class="phrase">wearing the blue hat</span> is my uncle. (Describes 'man')</li>
+                    <li>The car, <span class="phrase">damaged in the accident</span>, was towed away. (Describes 'car')</li>
+                    <li><span class="phrase">Blinded by the light</span>, he stumbled and fell. (Describes 'he')</li>
+                    <li>I saw a dog <span class="phrase">wagging its tail excitedly</span>. (Describes 'dog')</li>
+                    <li>The letter, <span class="phrase">written in a hurry</span>, was difficult to read. (Describes 'letter')</li>
+                    <li>The students <span class="phrase">working on the project</span> are very talented. (Describes 'students')</li>
+                    <li><span class="phrase">Known for his generosity</span>, he was loved by everyone. (Describes 'he')</li>
+                    <li>The team, <span class="phrase">inspired by their coach's speech</span>, played brilliantly. (Describes 'team')</li>
+                    <li>We saw a movie <span class="phrase">starring my favorite actor</span>. (Describes 'movie')</li>
+                    <li>The treasure, <span class="phrase">hidden for centuries</span>, was finally discovered. (Describes 'treasure')</li>
+                </ol>
+            </section>
+            
+            <section id="identification-guide" class="content-section">
+                <h2>Quick Identification Guide</h2>
+                <p>Use this table as a quick reference to identify the type of phrase based on the question it answers.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Type of Phrase</th>
+                            <th>Wh- Question to Ask</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Noun Phrase</strong></td>
+                            <td>Who? or What?</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Verb Phrase</strong></td>
+                            <td>What is the action/state of being?</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Adjective Phrase</strong></td>
+                            <td>What kind? Which one?</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Adverb Phrase</strong></td>
+                            <td>How? When? Where? or Why?</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Prepositional Phrase</strong></td>
+                            <td>Answers Adjective (Which one?) or Adverb (Where? When? How?) questions.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Infinitive Phrase</strong></td>
+                            <td>What? (as a noun), Why? (as an adverb), or Which one? (as an adjective).</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Gerund Phrase</strong></td>
+                            <td>What? (always acts as a noun).</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Participial Phrase</strong></td>
+                            <td>Which one? or What kind? (always acts as an adjective).</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const contentSections = document.querySelectorAll('.content-section');
+            const contentColumn = document.querySelector('.content-column');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+
+                    navLinks.forEach(nav => nav.classList.remove('active'));
+                    contentSections.forEach(section => section.classList.remove('active'));
+
+                    this.classList.add('active');
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        targetSection.classList.add('active');
+                        contentColumn.scrollTop = 0; // Scroll to top of content area on click
+                    }
+                });
+            });
+            // Auto-activate the first link on page load
+            document.querySelector('.nav-link').classList.add('active');
+            document.querySelector('.content-section').classList.add('active');
+        });
+    </script>
+
+</body>
+</html>

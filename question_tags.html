@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Grammar: Question Tags</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            /* Blue and white gridline background */
+            background-color: #f0f8ff; 
+            background-image: 
+                repeating-linear-gradient(to right, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 30px),
+                repeating-linear-gradient(to bottom, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 30px);
+            background-size: 30px 30px;
+        }
+
+        /* Header Styling */
+        header {
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        header h1 {
+            display: inline-block;
+            background-color: #0056b3;
+            color: white;
+            padding: 20px 40px;
+            border: 3px solid white;
+            border-radius: 15px;
+            /* 3D Box Effect */
+            box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.4), inset 2px 2px 5px rgba(255, 255, 255, 0.3);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-size: 2.2em;
+            margin: 0;
+        }
+
+        /* Main Container for Two-Column Layout */
+        .container {
+            display: flex;
+            max-width: 1400px;
+            margin: 20px auto;
+            background: #ffffff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.15);
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 80vh;
+        }
+
+        /* Left Navigation Column */
+        .nav-column {
+            flex: 1;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+            background-color: #f8f9fa;
+            height: 80vh;
+            overflow-y: auto;
+        }
+
+        .nav-column ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-column li a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: #0056b3;
+            border-radius: 5px;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 0.95em;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .nav-column li a:hover,
+        .nav-column li a.active {
+            background-color: #0056b3;
+            color: #fff;
+        }
+
+        /* Right Content Column */
+        .content-column {
+            flex: 3;
+            padding: 25px 35px;
+            height: 100%;
+            overflow-y: auto;
+        }
+
+        .content-section {
+            display: none;
+        }
+        
+        .content-section.active {
+            display: block;
+        }
+        
+        h2 {
+            font-size: 1.8em;
+            color: #0056b3;
+            border-bottom: 3px solid #0056b3;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        
+        h3 {
+            font-size: 1.4em;
+            color: #333;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        
+        .rule {
+            background-color: #e7f3fe;
+            border: 1px solid #b3d7f7;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 5px;
+        }
+
+        .example-list {
+            list-style-type: decimal;
+            padding-left: 25px;
+        }
+
+        .example-list li {
+            margin-bottom: 20px;
+            padding-left: 10px;
+        }
+        
+        .explanation {
+            font-style: italic;
+            color: #555;
+            margin-top: 5px;
+        }
+        
+        .feature {
+            font-weight: bold;
+            color: #0056b3;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>ADVANCED GRAMMAR: QUESTION TAGS</h1>
+    </header>
+
+    <div class="container">
+        <nav class="nav-column">
+            <ul>
+                <li><a href="#definition" class="nav-link active">Definition & Concept</a></li>
+                <li><a href="#rules" class="nav-link">Rules & Syntax</a></li>
+                <li><a href="#identify" class="nav-link">How to Identify</a></li>
+                <li><a href="#examples" class="nav-link">100 Examples</a></li>
+            </ul>
+        </nav>
+
+        <main class="content-column">
+            <section id="definition" class="content-section active">
+                <h2>Definition & Concept</h2>
+                <div class="rule">
+                    <strong>Concept:</strong> A question tag is a mini-question that is added to the end of a statement. Its primary purpose is to ask for confirmation or to check if the other person agrees with the statement. It essentially turns a statement into a question.
+                </div>
+                <h3>Where and How They Are Used</h3>
+                <p>Question tags are very common in spoken English. In competitive exams, they are frequently tested in "Fill in the Blanks" and "Sentence Correction" sections. The key is to correctly identify the helping verb and the pronoun required for the tag.</p>
+                <ul class="example-list">
+                    <li>Statement: It's a beautiful day.</li>
+                    <li>Question Tag: ..., isn't it?</li>
+                    <li>Full Sentence: It's a beautiful day, <span class="feature">isn't it?</span></li>
+                </ul>
+            </section>
+            
+            <section id="rules" class="content-section">
+                <h2>Rules & Syntax</h2>
+                <div class="rule">
+                    <h3>Core Rule: The Rule of Opposites</h3>
+                    <ul>
+                        <li>If the main statement is **positive**, the question tag must be **negative**.</li>
+                        <li>If the main statement is **negative**, the question tag must be **positive**.</li>
+                    </ul>
+                </div>
+                 <div class="rule">
+                    <h3>Syntax: `Helping Verb + Pronoun?`</h3>
+                    <ul>
+                        <li>**Helping Verb:** The tag uses the same helping verb (or modal) from the main statement (e.g., `is`, `are`, `has`, `have`, `will`, `can`). If there is no helping verb (as in simple present/past), use a form of `do` (`do`, `does`, `did`).</li>
+                        <li>**Pronoun:** The tag always uses a pronoun (`I`, `you`, `he`, `she`, `it`, `we`, `they`) that matches the subject of the statement.</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section id="identify" class="content-section">
+                <h2>How to Identify the Correct Tag</h2>
+                <div class="rule">
+                    Follow this 3-step process to form any question tag correctly.
+                </div>
+                <h3>A 3-Step Guide</h3>
+                <ol class="example-list">
+                    <li>
+                        <strong>Check if the statement is positive or negative.</strong> This will determine if your tag should be positive or negative. Remember that words like `never`, `hardly`, `seldom`, `nobody`, `nothing` make a statement negative.
+                    </li>
+                    <li>
+                        <strong>Identify the helping verb or main verb.</strong>
+                        <ul>
+                            <li>If there's a helping verb (`is`, `are`, `was`, `have`, `will`, `can`, etc.), use the same verb in the tag.</li>
+                            <li>If there's only a main verb, use `do`, `does`, or `did` based on the tense.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Identify the subject and replace it with a pronoun.</strong>
+                        <ul>
+                            <li>'The boy' → `he`</li>
+                            <li>'The cars' → `they`</li>
+                            <li>'Mary' → `she`</li>
+                            <li>'This' or 'That' → `it`</li>
+                        </ul>
+                    </li>
+                </ol>
+            </section>
+            
+            <section id="examples" class="content-section">
+                <h2>100 Examples of Question Tags</h2>
+                <ol class="example-list">
+                    <!-- Simple Tenses -->
+                    <h3>Basic Rules: Simple Tenses</h3>
+                    <li>He is a doctor, <span class="feature">isn't he?</span><div class="explanation">Positive `is` → Negative `isn't`. Subject `He` → pronoun `he`.</div></li>
+                    <li>She isn't coming, <span class="feature">is she?</span><div class="explanation">Negative `isn't` → Positive `is`. Subject `She` → pronoun `she`.</div></li>
+                    <li>They play cricket, <span class="feature">don't they?</span><div class="explanation">Simple present verb `play` → `don't`. Subject `They` → pronoun `they`.</div></li>
+                    <li>He likes coffee, <span class="feature">doesn't he?</span><div class="explanation">Singular present verb `likes` → `doesn't`. Subject `He` → pronoun `he`.</div></li>
+                    <li>You don't know the answer, <span class="feature">do you?</span><div class="explanation">Negative `don't know` → Positive `do`. Subject `You` → pronoun `you`.</div></li>
+                    <li>She went to the market, <span class="feature">didn't she?</span><div class="explanation">Simple past verb `went` → `didn't`. Subject `She` → pronoun `she`.</div></li>
+                    <li>They didn't complete the task, <span class="feature">did they?</span><div class="explanation">Negative `didn't complete` → Positive `did`. Subject `They` → pronoun `they`.</div></li>
+                    <li>The cat sleeps a lot, <span class="feature">doesn't it?</span><div class="explanation">Verb `sleeps` → `doesn't`. Subject `The cat` → pronoun `it`.</div></li>
+                    <li>Your brother works hard, <span class="feature">doesn't he?</span><div class="explanation">Verb `works` → `doesn't`. Subject `Your brother` → pronoun `he`.</div></li>
+                    <li>The children made a mess, <span class="feature">didn't they?</span><div class="explanation">Verb `made` → `didn't`. Subject `The children` → pronoun `they`.</div></li>
+                    <li>We don't have a choice, <span class="feature">do we?</span></li>
+                    <li>The sun sets in the west, <span class="feature">doesn't it?</span></li>
+                    <li>She sings beautifully, <span class="feature">doesn't she?</span></li>
+                    <li>He didn't recognize me, <span class="feature">did he?</span></li>
+                    <li>They live in London, <span class="feature">don't they?</span></li>
+
+                    <!-- Continuous Tenses -->
+                    <h3>Basic Rules: Continuous Tenses</h3>
+                    <li>We are studying, <span class="feature">aren't we?</span><div class="explanation">Helping verb `are` is used in the tag.</div></li>
+                    <li>He was sleeping, <span class="feature">wasn't he?</span><div class="explanation">Helping verb `was` is used in the tag.</div></li>
+                    <li>They weren't playing, <span class="feature">were they?</span><div class="explanation">Negative `weren't` takes positive `were`.</div></li>
+                    <li>She is writing a letter, <span class="feature">isn't she?</span></li>
+                    <li>You are listening to me, <span class="feature">aren't you?</span></li>
+                    <li>It was raining heavily, <span class="feature">wasn't it?</span></li>
+                    <li>The students were not paying attention, <span class="feature">were they?</span></li>
+                    <li>I am working on it, <span class="feature">aren't I?</span> (Special Case)</li>
+                    
+                    <!-- Perfect Tenses -->
+                    <h3>Basic Rules: Perfect Tenses</h3>
+                    <li>She has finished her work, <span class="feature">hasn't she?</span><div class="explanation">Helping verb `has` is used in the tag.</div></li>
+                    <li>They have arrived, <span class="feature">haven't they?</span><div class="explanation">Helping verb `have` is used in the tag.</div></li>
+                    <li>He hadn't left, <span class="feature">had he?</span><div class="explanation">Negative `hadn't` takes positive `had`.</div></li>
+                    <li>You had seen it before, <span class="feature">hadn't you?</span><div class="explanation">Helping verb `had` is used in the tag.</div></li>
+                    <li>We have been working hard, <span class="feature">haven't we?</span></li>
+                    <li>It has been raining, <span class="feature">hasn't it?</span></li>
+                    <li>She has not submitted the report, <span class="feature">has she?</span></li>
+                    <li>They had already eaten, <span class="feature">hadn't they?</span></li>
+                    <li>He has never been to Paris, <span class="feature">has he?</span><div class="explanation">'never' makes the statement negative, so the tag is positive.</div></li>
+                    <li>You have completed the course, <span class="feature">haven't you?</span></li>
+                    <li>The project has been approved, <span class="feature">hasn't it?</span></li>
+                    <li>She had never met him, <span class="feature">had she?</span></li>
+                    
+                    <!-- Modals -->
+                    <h3>Modals</h3>
+                    <li>He can swim, <span class="feature">can't he?</span><div class="explanation">Modal 'can' is used in the tag.</div></li>
+                    <li>She will come tomorrow, <span class="feature">won't she?</span><div class="explanation">The negative tag for 'will' is 'won't'.</div></li>
+                    <li>We should go now, <span class="feature">shouldn't we?</span><div class="explanation">Modal 'should' is used in the tag.</div></li>
+                    <li>They must follow the rules, <span class="feature">mustn't they?</span><div class="explanation">Modal 'must' is used in the tag.</div></li>
+                    <li>You couldn't do it, <span class="feature">could you?</span><div class="explanation">Negative 'couldn't' takes positive 'could'.</div></li>
+                    <li>It wouldn't be a problem, <span class="feature">would it?</span><div class="explanation">Negative 'wouldn't' takes positive 'would'.</div></li>
+                    <li>She may come, <span class="feature">mayn't she?</span><div class="explanation">The formal tag for 'may' is 'mayn't'.</div></li>
+                    <li>He might pass the exam, <span class="feature">mightn't he?</span></li>
+                    <li>You ought to help, <span class="feature">shouldn't you?</span><div class="explanation">The tag for 'ought to' is usually 'shouldn't'.</div></li>
+                    <li>We shall proceed, <span class="feature">shan't we?</span><div class="explanation">The tag for 'shall' is 'shan't'.</div></li>
+                    <li>He can't drive, <span class="feature">can he?</span></li>
+                    <li>They won't complain, <span class="feature">will they?</span></li>
+                    <li>I should not have done that, <span class="feature">should I?</span></li>
+                    <li>He would like a coffee, <span class="feature">wouldn't he?</span></li>
+                    <li>We could try again, <span class="feature">couldn't we?</span></li>
+                    <li>She might not agree, <span class="feature">might she?</span></li>
+                    <li>You must not touch that, <span class="feature">must you?</span></li>
+                    <li>It will be fine, <span class="feature">won't it?</span></li>
+                    <li>He cannot be trusted, <span class="feature">can he?</span></li>
+                    <li>We must hurry, <span class="feature">mustn't we?</span></li>
+                    
+                    <!-- Special Cases -->
+                    <h3>Special Cases</h3>
+                    <li>I am late, <span class="feature">aren't I?</span><div class="explanation"><strong>Special Case:</strong> The tag for a positive 'I am' statement is 'aren't I?'.</div></li>
+                    <li>I'm not bothering you, <span class="feature">am I?</span><div class="explanation"><strong>Special Case:</strong> The tag for 'I am not' is the standard 'am I?'.</div></li>
+                    <li>Let's go for a walk, <span class="feature">shall we?</span><div class="explanation"><strong>Special Case:</strong> Suggestions with 'Let's' (Let us) always take the tag 'shall we?'.</div></li>
+                    <li>Let us go, <span class="feature">will you?</span><div class="explanation"><strong>Special Case:</strong> When 'Let us' means 'allow us' to do something, the tag is 'will you?'.</div></li>
+                    <li>Close the door, <span class="feature">will you?</span><div class="explanation"><strong>Special Case:</strong> Imperatives (commands) take the tag 'will you?'.</div></li>
+                    <li>Please help me, <span class="feature">won't you?</span><div class="explanation"><strong>Special Case:</strong> Polite requests often use 'won't you?'.</div></li>
+                    <li>Don't make a noise, <span class="feature">will you?</span><div class="explanation">Negative imperatives take a positive 'will you?' tag.</div></li>
+                    <li>Everybody has come, <span class="feature">haven't they?</span><div class="explanation"><strong>Special Case:</strong> 'Everybody' is grammatically singular ('has') but logically plural, so the pronoun in the tag is 'they'.</div></li>
+                    <li>Someone is at the door, <span class="feature">aren't they?</span><div class="explanation"><strong>Special Case:</strong> 'Someone' is singular ('is') but takes the plural pronoun 'they' and the corresponding verb 'are' in the tag.</div></li>
+                    <li>Nobody called, <span class="feature">did they?</span><div class="explanation"><strong>Special Case:</strong> 'Nobody' is negative, so it takes a positive tag. It also uses the plural pronoun 'they'.</div></li>
+                    <li>Nothing was lost, <span class="feature">was it?</span><div class="explanation"><strong>Special Case:</strong> 'Nothing' is negative and refers to a thing, so it takes a positive tag with the pronoun 'it'.</div></li>
+                    <li>No one was present, <span class="feature">were they?</span><div class="explanation">'No one' is negative and takes 'they' as the pronoun. The verb 'were' matches 'they'.</div></li>
+                    <li>Something is wrong, <span class="feature">isn't it?</span><div class="explanation">'Something' is singular and takes 'it' as the pronoun.</div></li>
+                    <li>He hardly ever speaks, <span class="feature">does he?</span><div class="explanation"><strong>Special Case:</strong> Negative adverbs like 'hardly', 'seldom', 'rarely' make the statement negative, requiring a positive tag.</div></li>
+                    <li>She seldom visits, <span class="feature">does she?</span><div class="explanation">'seldom' is a negative word, so the tag is positive.</div></li>
+                    <li>They rarely eat out, <span class="feature">do they?</span><div class="explanation">'rarely' is a negative word, so the tag is positive.</div></li>
+                    <li>This is your car, <span class="feature">isn't it?</span><div class="explanation"><strong>Special Case:</strong> The subject 'This' takes the pronoun 'it' in the tag.</div></li>
+                    <li>That was a mistake, <span class="feature">wasn't it?</span><div class="explanation">The subject 'That' takes the pronoun 'it'.</div></li>
+                    <li>These are my books, <span class="feature">aren't they?</span><div class="explanation">The subject 'These' takes the pronoun 'they'.</div></li>
+                    <li>Those weren't your friends, <span class="feature">were they?</span><div class="explanation">The subject 'Those' takes the pronoun 'they'.</div></li>
+                    <li>There is a problem, <span class="feature">isn't there?</span><div class="explanation"><strong>Special Case:</strong> Sentences starting with 'There' use 'there' as the subject in the tag.</div></li>
+                    <li>There were many people, <span class="feature">weren't there?</span><div class="explanation">The verb and subject 'there' are repeated from the statement.</div></li>
+                    <li>There is no water, <span class="feature">is there?</span><div class="explanation">'no' makes the statement negative.</div></li>
+                    <li>He has a car, <span class="feature">doesn't he?</span><div class="explanation"><strong>Special Case:</strong> When 'has' is the main verb (possession), the tag uses 'do/does'.</div></li>
+                    <li>They have lunch at 1 PM, <span class="feature">don't they?</span><div class="explanation"><strong>Special Case:</strong> When 'have' is a main verb, use 'do/don't'.</div></li>
+                    <li>She had a great time, <span class="feature">didn't she?</span><div class="explanation">When 'had' is a main verb in the past, use 'did/didn't'.</div></li>
+                    <li>He has to go, <span class="feature">doesn't he?</span><div class="explanation">'has to' functions like a simple present verb.</div></li>
+                    <li>They have to study, <span class="feature">don't they?</span><div class="explanation">'have to' functions like a simple present verb.</div></li>
+                    <li>He used to live here, <span class="feature">didn't he?</span><div class="explanation"><strong>Special Case:</strong> For 'used to', the tag is 'didn't'.</div></li>
+                    <li>One must do one's duty, <span class="feature">mustn't one?</span><div class="explanation">The subject 'one' is repeated in the tag.</div></li>
+                    <li>The jury has given its verdict, <span class="feature">hasn't it?</span><div class="explanation">A collective noun acting as a unit is singular ('it').</div></li>
+                    <li>The team are fighting, <span class="feature">aren't they?</span><div class="explanation">A collective noun acting as individuals is plural ('they').</div></li>
+                    <li>A few people were present, <span class="feature">weren't they?</span><div class="explanation">'A few' is positive, so it takes a negative tag.</div></li>
+                    <li>Few people were present, <span class="feature">were they?</span><div class="explanation">'Few' is negative, so it takes a positive tag.</div></li>
+                    <li>A little sugar was added, <span class="feature">wasn't it?</span><div class="explanation">'A little' is positive.</div></li>
+                    <li>Little progress has been made, <span class="feature">has it?</span><div class="explanation">'Little' is negative.</div></li>
+                    <li>The police are on their way, <span class="feature">aren't they?</span><div class="explanation">'Police' is a plural noun.</div></li>
+                    <li>The cattle are grazing, <span class="feature">aren't they?</span><div class="explanation">'Cattle' is a plural noun.</div></li>
+                    <li>The United States is a powerful country, <span class="feature">isn't it?</span><div class="explanation">A single country is referred to as 'it'.</div></li>
+                    <li>Everything is fine, <span class="feature">isn't it?</span><div class="explanation">'Everything' is singular and takes 'it'.</div></li>
+                    <li>The news was shocking, <span class="feature">wasn't it?</span><div class="explanation">'News' is singular.</div></li>
+                </ol>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-column a');
+            const contentSections = document.querySelectorAll('.content-section');
+            const contentColumn = document.querySelector('.content-column');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    navLinks.forEach(nav => nav.classList.remove('active'));
+                    this.classList.add('active');
+                    const targetId = this.getAttribute('href');
+                    contentSections.forEach(section => {
+                        if ('#' + section.id === targetId) {
+                            section.classList.add('active');
+                        } else {
+                            section.classList.remove('active');
+                        }
+                    });
+                    contentColumn.scrollTop = 0;
+                });
+            });
+            
+             const firstLink = document.querySelector('.nav-column a');
+             if(firstLink) {
+                firstLink.classList.add('active');
+                document.querySelector(firstLink.getAttribute('href')).classList.add('active');
+             }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Grammar: Parallelism</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            /* Blue and white gridline background */
+            background-color: #f0f8ff; 
+            background-image: 
+                repeating-linear-gradient(to right, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 30px),
+                repeating-linear-gradient(to bottom, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 30px);
+            background-size: 30px 30px;
+        }
+
+        /* Header Styling */
+        header {
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        header h1 {
+            display: inline-block;
+            background-color: #0056b3;
+            color: white;
+            padding: 20px 40px;
+            border: 3px solid white;
+            border-radius: 15px;
+            /* 3D Box Effect */
+            box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.4), inset 2px 2px 5px rgba(255, 255, 255, 0.3);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-size: 2.2em;
+            margin: 0;
+        }
+
+        /* Main Container for Two-Column Layout */
+        .container {
+            display: flex;
+            max-width: 1400px;
+            margin: 20px auto;
+            background: #ffffff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.15);
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 80vh;
+        }
+
+        /* Left Navigation Column */
+        .nav-column {
+            flex: 1;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+            background-color: #f8f9fa;
+            height: 80vh;
+            overflow-y: auto;
+        }
+
+        .nav-column ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-column li a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: #0056b3;
+            border-radius: 5px;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 0.95em;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .nav-column li a:hover,
+        .nav-column li a.active {
+            background-color: #0056b3;
+            color: #fff;
+        }
+
+        /* Right Content Column */
+        .content-column {
+            flex: 3;
+            padding: 25px 35px;
+            height: 100%;
+            overflow-y: auto;
+        }
+
+        .content-section {
+            display: none;
+        }
+        
+        .content-section.active {
+            display: block;
+        }
+        
+        h2 {
+            font-size: 1.8em;
+            color: #0056b3;
+            border-bottom: 3px solid #0056b3;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        
+        h3 {
+            font-size: 1.4em;
+            color: #333;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        
+        .rule {
+            background-color: #e7f3fe;
+            border: 1px solid #b3d7f7;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 5px;
+        }
+
+        .example-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .example-list.decimal {
+             list-style-type: decimal;
+            padding-left: 25px;
+        }
+
+        .example-list > li {
+            margin-bottom: 20px;
+            border-left: 4px solid #0056b3;
+            padding-left: 15px;
+        }
+        
+        .explanation {
+            font-style: italic;
+            color: #555;
+            margin-top: 5px;
+        }
+        
+        .feature {
+            font-weight: bold;
+            text-decoration: underline;
+            color: #0056b3;
+        }
+        
+        .correct { color: green; font-weight: bold; }
+        .incorrect { color: red; font-weight: bold; }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>ADVANCED GRAMMAR: PARALLELISM</h1>
+    </header>
+
+    <div class="container">
+        <nav class="nav-column">
+            <ul>
+                <li><a href="#definition" class="nav-link active">Definition & Concept</a></li>
+                <li><a href="#rules" class="nav-link">Rules & Syntax</a></li>
+                <li><a href="#identify" class="nav-link">How to Identify Errors</a></li>
+                <li><a href="#examples" class="nav-link">100 Examples</a></li>
+            </ul>
+        </nav>
+
+        <main class="content-column">
+            <section id="definition" class="content-section active">
+                <h2>Definition & Concept</h2>
+                <div class="rule">
+                    <strong>Concept:</strong> Parallelism, also known as parallel structure, is a grammatical rule which states that elements in a sentence that are alike in function must also be alike in structure (form). It's about creating balance and rhythm in your writing.
+                </div>
+                <h3>Why is it important?</h3>
+                <p>Parallelism makes sentences clearer, more elegant, and easier to understand. A lack of parallelism can make sentences sound awkward and confusing. It is one of the most frequently tested topics in sentence correction sections of competitive exams.</p>
+                <ul class="example-list">
+                    <li><span class="incorrect">Not Parallel:</span> She likes to swim, hiking, and to ride a bicycle.</li>
+                    <li><span class="correct">Parallel:</span> She likes <span class="feature">to swim</span>, <span class="feature">to hike</span>, and <span class="feature">to ride</span> a bicycle.</li>
+                    <li><span class="correct">Also Parallel:</span> She likes <span class="feature">swimming</span>, <span class="feature">hiking</span>, and <span class="feature">riding</span> a bicycle.</li>
+                </ul>
+            </section>
+            
+            <section id="rules" class="content-section">
+                <h2>Rules & Syntax</h2>
+                <div class="rule">
+                    <strong>Syntax:</strong> Parallelism applies to words, phrases, and clauses.
+                </div>
+                <h3>Where and How to Use Parallel Structure</h3>
+                <ul>
+                    <li><strong>1. With Coordinating Conjunctions (FANBOYS):</strong> When connecting items with `for`, `and`, `nor`, `but`, `or`, `yet`, `so`, ensure the items have the same grammatical form.
+                        <ul><li>Example: He is <span class="feature">tall</span>, <span class="feature">strong</span>, and <span class="feature">handsome</span>. (Parallel adjectives)</li></ul>
+                    </li>
+                     <li><strong>2. With Correlative Conjunctions:</strong> The grammatical structure following the first part of the pair must match the structure following the second part. Common pairs are `not only...but also`, `either...or`, `neither...nor`, `both...and`.
+                        <ul><li>Example: She is not only <span class="feature">a great singer</span> but also <span class="feature">an excellent dancer</span>. (Parallel noun phrases)</li></ul>
+                    </li>
+                     <li><strong>3. In Comparisons:</strong> When comparing two things using words like `than` or `as`, the items being compared should be grammatically parallel.
+                        <ul><li>Example: <span class="feature">Working hard</span> is better than <span class="feature">not working</span> at all. (Parallel gerund phrases)</li></ul>
+                    </li>
+                     <li><strong>4. In Lists or Series:</strong> All items in a list, whether separated by commas or semicolons, should be in the same form.
+                        <ul><li>Example: The manager's duties are <span class="feature">hiring new employees</span>, <span class="feature">training the staff</span>, and <span class="feature">evaluating performance</span>. (Parallel gerund phrases)</li></ul>
+                    </li>
+                </ul>
+            </section>
+            
+            <section id="identify" class="content-section">
+                <h2>How to Identify Parallelism Errors</h2>
+                <div class="rule">
+                    <strong>How to Identify:</strong> Spotting these errors requires a systematic approach.
+                </div>
+                <h3>A 3-Step Guide to Identification</h3>
+                <ol class="example-list decimal">
+                    <li>
+                        <strong>Find the Conjunction/Marker:</strong> First, look for the words that link items together. These are your triggers.
+                        <ul>
+                            <li>Coordinating Conjunctions: `and`, `but`, `or`.</li>
+                            <li>Correlative Conjunctions: `not only...but also`, `either...or`, `neither...nor`.</li>
+                            <li>Comparison Words: `than`, `as`.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Identify the Items in the List/Comparison:</strong> Carefully identify the words, phrases, or clauses that are being linked by the conjunction.
+                    </li>
+                    <li>
+                        <strong>Check for Grammatical Balance:</strong> Compare the grammatical form of each item in the list. Are they all nouns? All infinitives (`to + verb`)? All gerunds (`-ing` nouns)? All prepositional phrases? If you find a mix of different forms, you have found a parallelism error.
+                    </li>
+                </ol>
+                <div class="explanation">
+                    <strong>Example Analysis:</strong> `The witness spoke calmly and with confidence.`<br>
+                    1. <strong>Conjunction:</strong> `and`.<br>
+                    2. <strong>Items in List:</strong> The first item is `calmly`. The second item is `with confidence`.<br>
+                    3. <strong>Check Balance:</strong> `calmly` is an adverb. `with confidence` is a prepositional phrase. They are not in the same grammatical form. This is a parallelism error.<br>
+                    <strong>Correction:</strong> `The witness spoke calmly and confidently.` (Two adverbs).
+                </div>
+            </section>
+            
+            <section id="examples" class="content-section">
+                <h2>100 Examples of Parallelism (50 Pairs)</h2>
+                <ul class="example-list">
+                    <!-- 1 -->
+                    <li><span class="incorrect">Incorrect:</span> She likes swimming, hiking, and to ride a bicycle.</li>
+                    <li><span class="correct">Correct:</span> She likes <span class="feature">swimming</span>, <span class="feature">hiking</span>, and <span class="feature">riding</span> a bicycle.<div class="explanation"><strong>Correction:</strong> All items in the list are now parallel gerunds.</div></li>
+                    <!-- 2 -->
+                    <li><span class="incorrect">Incorrect:</span> The report was written clearly, concisely, and it was accurate.</li>
+                    <li><span class="correct">Correct:</span> The report was written clearly, concisely, and <span class="feature">accurately</span>.<div class="explanation"><strong>Correction:</strong> All three items are now parallel adverbs modifying 'written'.</div></li>
+                    <!-- 3 -->
+                    <li><span class="incorrect">Incorrect:</span> He was asked to stop talking, to put away his phone, and that he should pay attention.</li>
+                    <li><span class="correct">Correct:</span> He was asked to stop talking, to put away his phone, and <span class="feature">to pay attention</span>.<div class="explanation"><strong>Correction:</strong> The structure is now a parallel list of three infinitive phrases.</div></li>
+                    <!-- 4 -->
+                    <li><span class="incorrect">Incorrect:</span> The manager is not only a good leader but also he is a great mentor.</li>
+                    <li><span class="correct">Correct:</span> The manager is not only a good leader but also <span class="feature">a great mentor</span>.<div class="explanation"><strong>Correction:</strong> Both items (`a good leader` and `a great mentor`) are now parallel noun phrases.</div></li>
+                    <!-- 5 -->
+                    <li><span class="incorrect">Incorrect:</span> To succeed is opening a new opportunity.</li>
+                    <li><span class="correct">Correct:</span> To succeed is <span class="feature">to open</span> a new opportunity.<div class="explanation"><strong>Correction:</strong> Both sides of the linking verb 'is' are now parallel infinitives.</div></li>
+                    <!-- 6 -->
+                    <li><span class="incorrect">Incorrect:</span> The witness spoke calmly and with confidence.</li>
+                    <li><span class="correct">Correct:</span> The witness spoke calmly and <span class="feature">confidently</span>.<div class="explanation"><strong>Correction:</strong> Mixes an adverb with a prepositional phrase. Corrected to two parallel adverbs.</div></li>
+                    <!-- 7 -->
+                    <li><span class="incorrect">Incorrect:</span> My friend is kind, generous, and likes to help.</li>
+                    <li><span class="correct">Correct:</span> My friend is kind, generous, and <span class="feature">helpful</span>.<div class="explanation"><strong>Correction:</strong> Mixes adjectives with a verb phrase. Corrected to three parallel adjectives.</div></li>
+                    <!-- 8 -->
+                    <li><span class="incorrect">Incorrect:</span> The company's objectives are to increase profits, reducing costs, and to improve quality.</li>
+                    <li><span class="correct">Correct:</span> The company's objectives are <span class="feature">to increase profits</span>, <span class="feature">to reduce costs</span>, and <span class="feature">to improve quality</span>.<div class="explanation"><strong>Correction:</strong> Mixes infinitives with a gerund. Corrected to a parallel list of infinitives.</div></li>
+                    <!-- 9 -->
+                    <li><span class="incorrect">Incorrect:</span> What you say is less important than the way you are acting.</li>
+                    <li><span class="correct">Correct:</span> <span class="feature">What you say</span> is less important than <span class="feature">what you do</span>.<div class="explanation"><strong>Correction:</strong> Compares a noun clause with a noun phrase. Corrected to two parallel noun clauses.</div></li>
+                    <!-- 10 -->
+                    <li><span class="incorrect">Incorrect:</span> His new car is sleek, fast, and has a lot of power.</li>
+                    <li><span class="correct">Correct:</span> His new car is sleek, fast, and <span class="feature">powerful</span>.<div class="explanation"><strong>Correction:</strong> Mixes adjectives with a verb phrase. Corrected to three parallel adjectives.</div></li>
+                    <!-- 11 -->
+                    <li><span class="incorrect">Incorrect:</span> The presentation was both informative and it was also entertaining.</li>
+                    <li><span class="correct">Correct:</span> The presentation was both <span class="feature">informative</span> and <span class="feature">entertaining</span>.<div class="explanation"><strong>Correction:</strong> The correlative conjunction `both...and` joins an adjective with a clause. Corrected to join two parallel adjectives.</div></li>
+                    <!-- 12 -->
+                    <li><span class="incorrect">Incorrect:</span> The candidate's experience is better than his opponent.</li>
+                    <li><span class="correct">Correct:</span> The candidate's experience is better than <span class="feature">his opponent's experience</span>. (or `that of his opponent`)<div class="explanation"><strong>Correction:</strong> An illogical comparison between 'experience' and a person ('opponent'). Corrected to compare experience with experience.</div></li>
+                    <!-- 13 -->
+                    <li><span class="incorrect">Incorrect:</span> She is a writer, a mother, and works as a teacher.</li>
+                    <li><span class="correct">Correct:</span> She is a writer, a mother, and <span class="feature">a teacher</span>.<div class="explanation"><strong>Correction:</strong> Mixes nouns with a verb phrase. Corrected to a parallel list of three nouns.</div></li>
+                    <!-- 14 -->
+                    <li><span class="incorrect">Incorrect:</span> I would rather work at home than going to the office.</li>
+                    <li><span class="correct">Correct:</span> I would rather <span class="feature">work</span> at home than <span class="feature">go</span> to the office.<div class="explanation"><strong>Correction:</strong> `Rather...than` requires parallel verb forms. `work` (base verb) must be parallel with `go` (base verb).</div></li>
+                    <!-- 15 -->
+                    <li><span class="incorrect">Incorrect:</span> The city is famous for its museums, its parks, and you can visit the old castle.</li>
+                    <li><span class="correct">Correct:</span> The city is famous for its museums, its parks, and <span class="feature">its old castle</span>.<div class="explanation"><strong>Correction:</strong> Mixes noun phrases with a clause. Corrected to a parallel list of three noun phrases.</div></li>
+                    <!-- 16 -->
+                    <li><span class="incorrect">Incorrect:</span> He is either a fool or is a madman.</li>
+                    <li><span class="correct">Correct:</span> He is either <span class="feature">a fool</span> or <span class="feature">a madman</span>.<div class="explanation"><strong>Correction:</strong> `either...or` should join parallel elements. The verb `is` applies to both.</div></li>
+                    <!-- 17 -->
+                    <li><span class="incorrect">Incorrect:</span> The benefits of exercise include strengthening the heart, to lose weight, and improving your mood.</li>
+                    <li><span class="correct">Correct:</span> The benefits of exercise include <span class="feature">strengthening</span> the heart, <span class="feature">losing</span> weight, and <span class="feature">improving</span> your mood.<div class="explanation"><strong>Correction:</strong> A mix of gerunds and an infinitive. Corrected to a parallel list of gerunds.</div></li>
+                    <!-- 18 -->
+                    <li><span class="incorrect">Incorrect:</span> The instructions were to assemble the parts, connecting the wires, and to test the device.</li>
+                    <li><span class="correct">Correct:</span> The instructions were <span class="feature">to assemble</span> the parts, <span class="feature">to connect</span> the wires, and <span class="feature">to test</span> the device.<div class="explanation"><strong>Correction:</strong> A mix of infinitive and participle. Corrected to three parallel infinitives.</div></li>
+                    <!-- 19 -->
+                    <li><span class="incorrect">Incorrect:</span> He is a man of great intelligence and who has a lot of courage.</li>
+                    <li><span class="correct">Correct:</span> He is a man <span class="feature">of great intelligence</span> and <span class="feature">of great courage</span>.<div class="explanation"><strong>Correction:</strong> A prepositional phrase is mixed with a relative clause. Corrected to two parallel prepositional phrases.</div></li>
+                    <!-- 20 -->
+                    <li><span class="incorrect">Incorrect:</span> The manager praised the team for their hard work and because they were dedicated.</li>
+                    <li><span class="correct">Correct:</span> The manager praised the team for <span class="feature">their hard work</span> and <span class="feature">their dedication</span>.<div class="explanation"><strong>Correction:</strong> A noun phrase is mixed with a clause. Corrected to two parallel noun phrases.</div></li>
+                    <!-- 21 -->
+                    <li><span class="incorrect">Incorrect:</span> It is easier to tell the truth than living with a lie.</li>
+                    <li><span class="correct">Correct:</span> It is easier <span class="feature">to tell</span> the truth than <span class="feature">to live</span> with a lie.<div class="explanation"><strong>Correction:</strong> Compares an infinitive with a gerund phrase. Corrected to two parallel infinitives.</div></li>
+                    <!-- 22 -->
+                    <li><span class="incorrect">Incorrect:</span> The storm was powerful, destructive, and lasted for hours.</li>
+                    <li><span class="correct">Correct:</span> The storm was powerful, destructive, and <span class="feature">long-lasting</span>.<div class="explanation"><strong>Correction:</strong> Mixes adjectives with a verb phrase. Corrected to three parallel adjectives.</div></li>
+                    <!-- 23 -->
+                    <li><span class="incorrect">Incorrect:</span> He is a politician who is well-known and respected by many people.</li>
+                    <li><span class="correct">Correct:</span> He is a politician who is <span class="feature">well-known</span> and <span class="feature">respected</span> by many people.<div class="explanation"><strong>Correction:</strong> Joins a simple adjective `well-known` with a passive verb `is respected`. Corrected to join two parallel past participles acting as adjectives.</div></li>
+                    <!-- 24 -->
+                    <li><span class="incorrect">Incorrect:</span> She spent her vacation reading novels, visiting museums, and she took a lot of pictures.</li>
+                    <li><span class="correct">Correct:</span> She spent her vacation <span class="feature">reading novels</span>, <span class="feature">visiting museums</span>, and <span class="feature">taking a lot of pictures</span>.<div class="explanation"><strong>Correction:</strong> Mixes gerund phrases with a clause. Corrected to three parallel gerund phrases.</div></li>
+                    <!-- 25 -->
+                    <li><span class="incorrect">Incorrect:</span> The climate in the south is hotter than the north.</li>
+                    <li><span class="correct">Correct:</span> The climate in the south is hotter than <span class="feature">the climate in the north</span>. (or `that of the north`)<div class="explanation"><strong>Correction:</strong> Illogically compares 'climate' with a place ('the north'). Corrected to compare climate with climate.</div></li>
+                </ul>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-column a');
+            const contentSections = document.querySelectorAll('.content-section');
+            const contentColumn = document.querySelector('.content-column');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+
+                    // Update active link in the navigation
+                    navLinks.forEach(nav => nav.classList.remove('active'));
+                    this.classList.add('active');
+
+                    // Hide all content sections
+                    contentSections.forEach(section => section.classList.remove('active'));
+
+                    // Show the target content section
+                    const targetId = this.getAttribute('href'); // e.g., "#definition"
+                    const targetSection = document.querySelector(targetId);
+                    if (targetSection) {
+                        targetSection.classList.add('active');
+                        contentColumn.scrollTop = 0; // Scroll content to top
+                    }
+                });
+            });
+            
+            // Auto-activate the first link on page load
+             const firstLink = document.querySelector('.nav-column a');
+             if(firstLink) {
+                firstLink.classList.add('active');
+                document.querySelector(firstLink.getAttribute('href')).classList.add('active');
+             }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premier Institutes of India</title>
+ <style>
+    @import url('https://fonts.cdnfonts.com/css/impact');
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Orbitron:wght@700&display=swap');
+
+    :root {
+        --white: #ffffff;
+        --light-gray: #f8f9fa;
+     --turquoise: #007BFF; /* A modern blue */ /* A medium grey */
+        --dark-text: #212529;
+        --border-color: #dee2e6;
+    }
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: 'Roboto', sans-serif;
+        background-color: var(--white); /* MODIFIED: White background */
+        color: var(--dark-text); /* MODIFIED: Black font */
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    /* --- Header and Title --- */
+    header {
+        padding: 20px;
+        text-align: center;
+        background-color: var(--white);
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .title-box {
+        display: inline-block;
+       background: var(--turquoise); /* This is now the grey color */ /* MODIFIED: Light grey background */
+        border: 1px solid var(--border-color);
+        padding: 15px 30px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* Modern, simple shadow */
+        border-radius: 15px;
+    }
+
+    /* MODIFIED: The Intense 3D Impact Font Title */
+    .main-title {
+        font-family: 'Impact', sans-serif;
+        font-size: 3.5em;
+        font-weight: normal;
+        line-height: 1.0;
+       color: white; /* MODIFIED: Black font */
+        
+        /* The Intense, Layered 3D Text Shadow */
+        text-shadow: 
+            1px 1px 0px rgba(0,0,0,0.1), 
+            2px 2px 0px rgba(0,0,0,0.1), 
+            3px 3px 0px rgba(0,0,0,0.1),
+            4px 4px 8px rgba(0,0,0,0.15);
+    }
+
+    /* --- Main Page Layout --- */
+    .page-container {
+        display: flex;
+        flex-grow: 1;
+        overflow: hidden;
+    }
+
+    /* --- Left Navigation Tabs --- */
+    .nav-tabs {
+        flex: 0 0 200px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        background-color: var(--white);
+        border-right: 1px solid var(--border-color);
+    }
+
+    /* MODIFIED: Light Theme Nav Tabs */
+    .tab {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 1.8em;
+        font-weight: 700;
+        padding: 20px 10px;
+        text-align: center;
+        cursor: pointer;
+        border-radius: 12px;
+        color: var(--dark-text);
+        transition: all 0.3s ease;
+        position: relative;
+        background: var(--light-gray); /* MODIFIED: Light grey background */
+        border: 1px solid var(--border-color);
+        box-shadow: none; /* Removed old shadows */
+        text-shadow: none;
+    }
+
+    .tab:hover {
+        transform: translateY(-3px);
+        border-color: var(--turquoise);
+        color: var(--turquoise);
+    }
+
+    .tab.active {
+        color: var(--white);
+        background-color: var(--turquoise);
+        border-color: var(--turquoise);
+        transform: scale(1.05);
+        box-shadow: 0 5px 15px rgba(64, 224, 208, 0.4);
+        text-shadow: none;
+    }
+
+    /* --- Right Content Area --- */
+    .content-area {
+        flex-grow: 1;
+        padding: 20px;
+        overflow-y: auto;
+        background-color: var(--light-gray); /* Set a base color for the scrolling area */
+    }
+
+    .content {
+        display: none;
+    }
+
+    .content.active {
+        display: block;
+    }
+
+    .institute-card {
+        background-color: var(--white);
+        border-left: 5px solid var(--turquoise);
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: var(--shadow);
+        border: 1px solid var(--border-color);
+    }
+
+    .institute-card h2 {
+        font-family: 'Orbitron', sans-serif;
+        color: var(--dark-text);
+        margin-bottom: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .institute-card h2 .rank {
+        font-size: 0.8em;
+        color: var(--white);
+        background-color: var(--turquoise);
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
+
+    .institute-card dl {
+        display: grid;
+        grid-template-columns: 150px 1fr;
+        gap: 10px;
+    }
+
+    .institute-card dt {
+        font-weight: 700;
+        color: var(--dark-text);
+    }
+
+    .institute-card dd {
+        color: #555; /* Slightly lighter for readability */
+        line-height: 1.6;
+    }
+
+    .institute-card a {
+        color: var(--turquoise);
+        text-decoration: none;
+        font-weight: bold;
+    }
+    .institute-card a:hover {
+        text-decoration: underline;
+    }
+
+    /* Custom Scrollbar */
+    .content-area::-webkit-scrollbar {
+        width: 10px;
+    }
+    .content-area::-webkit-scrollbar-track {
+        background: var(--light-gray);
+    }
+    .content-area::-webkit-scrollbar-thumb {
+        background-color: #ccc;
+        border-radius: 20px;
+        border: 3px solid var(--light-gray);
+    }
+    .content-area::-webkit-scrollbar-thumb:hover {
+        background-color: #aaa;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .page-container {
+            flex-direction: column;
+        }
+        .nav-tabs {
+            flex-direction: row;
+            flex: 0 0 auto;
+            justify-content: space-around;
+            border-right: none;
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px;
+        }
+        .tab {
+            font-size: 1.2em;
+            padding: 10px;
+        }
+        .main-title {
+            font-size: 2.5em;
+        }
+    }
+
+</style>
+</head>
+<body>
+
+    <header>
+        <div class="title-box">
+            <h1 class="main-title">PREMIER INSTITUTES OF INDIA</h1>
+        </div>
+    </header>
+
+    <div class="page-container">
+        <nav class="nav-tabs">
+            <div class="tab active" data-content="iim-content">IIM</div>
+            <div class="tab" data-content="iit-content">IIT</div>
+            <div class="tab" data-content="iisc-content">IISc</div>
+        </nav>
+
+        <main class="content-area">
+            <div id="iim-content" class="content active"></div>
+            <div id="iit-content" class="content"></div>
+            <div id="iisc-content" class="content"></div>
+        </main>
+    </div>
+
+<script>
+// Raw text content from the file
+const contentData = `
+--- START OF IIMs ---
+--- IIM Ahmedabad ---
+Location: Ahmedabad, Gujarat
+Established: 1961
+Website: https://www.iima.ac.in/
+NIRF 2023 Ranking: 1
+Flagship Course: Post Graduate Programme in Management (PGP)
+Duration: 2 Years
+Eligibility: Bachelor's Degree and a valid CAT score.
+Approx. Fees (PGP): INR 25 Lakhs
+Syllabus Overview (PGP): The curriculum is primarily case-study based. Year 1 covers core courses in Marketing, Finance, HR, Operations, Strategy, and Economics. Year 2 consists of electives chosen by students based on their specialization interests.
+Other Key Courses: PGP in Food and Agribusiness Management (PGP-FABM), Post Graduate Programme for Executives (PGPX), PhD Programme.
+Placement Scenario (2021-23): 100% placement. Average Salary: ~INR 34.36 LPA. Highest Salary: ~INR 1.15 CPA (International). Major Recruiters: Boston Consulting Group, McKinsey, Bain & Company, Goldman Sachs, Microsoft.
+USP: Widely regarded as the best B-school in India. Renowned for its rigorous case-study methodology, strong alumni network, and leadership in consulting and finance placements.
+
+--- IIM Bangalore ---
+Location: Bangalore, Karnataka
+Established: 1973
+Website: https://www.iimb.ac.in/
+NIRF 2023 Ranking: 2
+Flagship Course: Master of Business Administration (MBA) - formerly PGP
+Duration: 2 Years
+Eligibility: Bachelor's Degree and a valid CAT score.
+Approx. Fees (MBA): INR 24.5 Lakhs
+Syllabus Overview (MBA): Mix of case studies, lectures, and projects. Year 1 has core courses. Year 2 is dedicated to electives. Strong focus on analytics and digital management.
+Other Key Courses: MBA Business Analytics, MBA for Executives (EPGP), PhD.
+Placement Scenario (2021-23): 100% placement. Average Salary: ~INR 35.31 LPA. Highest Salary: Not officially disclosed, but in a similar range to IIM A. Major Recruiters: Accenture Strategy, Amazon, Bain & Company, Kearney, Microsoft, TATA Steel.
+USP: Located in India's "Silicon Valley," it is the premier IIM for technology, IT, and product management roles. Known for its strong focus on analytics and entrepreneurship through the NSRCEL incubation center.
+
+--- IIM Calcutta ---
+Location: Kolkata, West Bengal
+Established: 1961
+Website: https://www.iimcal.ac.in/
+NIRF 2023 Ranking: 4
+Flagship Course: Master of Business Administration (MBA) - formerly PGP
+Duration: 2 Years
+Eligibility: Bachelor's Degree and a valid CAT score.
+Approx. Fees (MBA): INR 27 Lakhs
+Syllabus Overview (MBA): Known for its quantitative rigor. Year 1 covers foundational management subjects. Year 2 has a wide array of electives, with exceptional depth in finance.
+Other Key Courses: MBA for Executives (MBAEx), Post Graduate Diploma in Business Analytics (PGDBA - jointly with ISI Kolkata & IIT Kharagpur).
+Placement Scenario (2021-23): 100% placement. Average Salary: ~INR 35.07 LPA. Highest Salary: ~INR 1.15 CPA (International). Major Recruiters: Goldman Sachs, Bank of America, JP Morgan, McKinsey, Bain & Company, EY-Parthenon.
+USP: Known as the "Finance Mecca of India." It has the strongest reputation for quantitative finance, investment banking, and trading roles. The PGDBA program is considered the best in the country for analytics.
+
+--- IIM Lucknow ---
+Location: Lucknow, Uttar Pradesh
+Established: 1984
+Website: https://www.iiml.ac.in/
+NIRF 2023 Ranking: 6
+Flagship Course: Post Graduate Programme in Management (PGP)
+Duration: 2 Years
+Eligibility: Bachelor's Degree and a valid CAT score.
+Approx. Fees (PGP): INR 20.7 Lakhs
+Syllabus Overview (PGP): Balanced curriculum with a focus on leadership. Year 1 is core subjects. Year 2 is elective-based. Strong in Marketing and Strategy.
+Other Key Courses: PGP in Agribusiness Management (PGP-ABM), PGP in Sustainable Management (PGP-SM), International Programme in Management for Executives (IPMX).
+Placement Scenario (2021-23): 100% placement. Average Salary: ~INR 32.2 LPA. Highest Salary: ~INR 1 CPA (Domestic). Major Recruiters: Deloitte, PwC, Amazon, Aditya Birla Group, Bain & Company.
+USP: Known for producing strong, all-round general managers and leaders. It has a strong foothold in sales & marketing roles and is a consistent top-tier IIM.
+
+--- IIM Kozhikode ---
+Location: Kozhikode, Kerala
+Established: 1996
+Website: https://iimk.ac.in/
+NIRF 2023 Ranking: 3
+Flagship Course: Post Graduate Programme (PGP)
+Duration: 2 Years
+Eligibility: Bachelor's Degree and a valid CAT score.
+Approx. Fees (PGP): INR 20.5 Lakhs
+Syllabus Overview (PGP): Focus on analytical and leadership skills. Standard Year 1 (core) and Year 2 (elective) structure. Pioneer in offering programs in Liberal Arts & Management.
+Other Key Courses: PGP in Finance, PGP in Liberal Studies & Management, PhD in Management.
+Placement Scenario (2021-23): 100% placement. Average Salary: ~INR 31.02 LPA. Highest Salary: ~INR 67.02 LPA. Major Recruiters: Bain & Company, BCG, Deloitte, EY, Goldman Sachs, Microsoft.
+USP: Known for its scenic campus and pioneering academic initiatives like the PGP in Liberal Studies. It has a strong focus on diversity and has consistently risen in rankings, now competing with the top IIMs.
+
+--- IIM Indore ---
+Location: Indore, Madhya Pradesh
+Established: 1996
+Website: https://www.iimidr.ac.in/
+NIRF 2023 Ranking: 8
+Flagship Course: Post Graduate Programme in Management (PGP)
+Duration: 2 Years
+Eligibility: Bachelor's Degree and a valid CAT score.
+Approx. Fees (PGP): INR 21.1 Lakhs
+Syllabus Overview (PGP): Comprehensive curriculum covering all management domains. Standard core and elective structure.
+Other Key Courses: Five-Year Integrated Programme in Management (IPM), Post Graduate Programme in Human Resource Management (PGP-HRM).
+Placement Scenario (2021-23): 100% placement. Average Salary: ~INR 30.21 LPA. Highest Salary: ~INR 1.14 CPA. Major Recruiters: Accenture, Amazon, BCG, Goldman Sachs, HDFC Bank.
+USP: The pioneer of the five-year Integrated Program in Management (IPM) for students right after Class 12. Known for having the largest batch size among IIMs. Strong in sales, marketing, and consulting roles.
+
+--- IIM Shillong ---
+Location: Shillong, Meghalaya
+Established: 2007
+Website: https://www.iimshillong.ac.in/
+NIRF 2023 Ranking: 26
+Flagship Course: Post Graduate Programme (PGP)
+Duration: 2 Years
+Eligibility: Bachelor's Degree and a valid CAT score.
+Approx. Fees (PGP): INR 17.5 Lakhs
+Syllabus Overview (PGP): Focus on sustainable development and responsible management. Includes a mandatory "Sustainability" course. Standard core and elective model.
+Other Key Courses: PGP for Executives (PGPEx), PhD.
+Placement Scenario (2021-23): 100% placement. Average Salary: ~INR 26.96 LPA. Highest Salary: ~INR 71.30 LPA. Major Recruiters: Bain & Company, Deloitte, JP Morgan Chase, Nomura, TATA Steel.
+USP: The first IIM in the second generation of IIMs. Known for its focus on sustainability and its "Campus in the Clouds" scenic location. It punches above its weight in placements, competing with older IIMs.
+
+--- IIM Rohtak ---
+Location: Rohtak, Haryana
+Established: 2009
+Website: https://www.iimrohtak.ac.in/
+NIRF 2023 Ranking: 12
+Flagship Course: Post Graduate Programme in Management (PGP)
+Duration: 2 Years
+Eligibility: Bachelor's Degree and a valid CAT score.
+Approx. Fees (PGP): INR 17.9 Lakhs
+Syllabus Overview (PGP): Focus on creating all-round managers with strong analytical skills.
+Other Key Courses: Five-Year Integrated Programme in Management (IPM), Five-Year Integrated Programme in Law (IPL).
+Placement Scenario (2021-23): 100% placement. Average Salary: ~INR 18.73 LPA. Highest Salary: ~INR 36 LPA. Major Recruiters: Accenture, Capgemini, Cognizant, ICICI Bank, Tata Steel.
+USP: Strategically located in the National Capital Region (NCR), giving it strong industry connections. Second IIM to offer the five-year IPM program and the first to offer an Integrated Programme in Law (BBA+LLB).
+
+--- IIM Ranchi ---
+Location: Ranchi, Jharkhand
+Established: 2009
+Website: https://www.iimranchi.ac.in/
+NIRF 2023 Ranking: 24
+Flagship Course: Master of Business Administration (MBA)
+Duration: 2 Years
+Eligibility: Bachelor's Degree and a valid CAT score.
+Approx. Fees (MBA): INR 17.5 Lakhs
+Syllabus Overview (MBA): Standard curriculum with a unique focus on Human Resources through its dedicated MBA-HR program.
+Other Key Courses: MBA in Human Resources (MBA-HR), MBA in Business Analytics, PhD.
+Placement Scenario (2021-23): 100% placement. Average Salary: ~INR 17.3 LPA. Highest Salary: ~INR 67 LPA (International). Major Recruiters: Deloitte, EY, IBM, L&T, TATA Steel.
+USP: The only IIM to offer a full-fledged, two-year MBA in Human Resource Management, which is highly regarded. Mentored by IIM Calcutta, it has a strong academic foundation.
+
+--- IIM Raipur ---
+Location: Raipur, Chhattisgarh
+Established: 2010
+Website: https://www.iimraipur.ac.in/
+NIRF 2023 Ranking: 11
+Flagship Course: Post Graduate Programme (PGP)
+Duration: 2 Years
+Eligibility: Bachelor's Degree and a valid CAT score.
+Approx. Fees (PGP): INR 16.1 Lakhs
+Syllabus Overview (PGP): Balanced curriculum with an emphasis on ethics and social responsibility. Strong in Operations and IT.
+Other Key Courses: PhD, Executive Fellow Programme.
+Placement Scenario (2021-23): 100% placement. Average Salary: ~INR 21.04 LPA. Highest Salary: ~INR 43.43 LPA. Major Recruiters: Accenture, Cognizant, L&T, HDFC Bank, ICICI Bank.
+USP: Has shown very rapid growth in rankings and placements. Known for its strong industry integration in the mineral-rich state of Chhattisgarh, focusing on operations and supply chain management.
+
+--- IIM Trichy (Tiruchirappalli) ---
+Location: Tiruchirappalli, Tamil Nadu
+Established: 2011
+Website: https://www.iimtrichy.ac.in/
+NIRF 2023 Ranking: 22
+Flagship Course: Post Graduate Programme in Management (PGPM)
+Duration: 2 Years
+Eligibility: Bachelor's Degree and a valid CAT score.
+Approx. Fees (PGPM): INR 19.5 Lakhs
+Syllabus Overview (PGPM): Academically rigorous curriculum with a focus on data analytics. Mentored by IIM Bangalore.
+Other Key Courses: PGPM in Human Resources (PGPM-HR), PhD.
+Placement Scenario (2021-23): 100% placement. Average Salary: ~INR 20.55 LPA. Highest Salary: ~INR 41.61 LPA. Major Recruiters: JP Morgan Chase, Bain & Company, Samsung, Wells Fargo, ICICI Bank.
+USP: Known for its strong academic rigor and state-of-the-art new campus. It performs very well in Finance and Analytics placements, leveraging its IIM Bangalore mentorship.
+
+--- IIM Udaipur ---
+Location: Udaipur, Rajasthan
+Established: 2011
+Website: https://www.iimu.ac.in/
+NIRF 2023 Ranking: 16
+Flagship Course: Master of Business Administration (MBA)
+Duration: 2 Years
+Eligibility: Bachelor's Degree and a valid CAT score.
+Approx. Fees (MBA): INR 20.5 Lakhs
+Syllabus Overview (MBA): Focus on entrepreneurship and digital transformation. Unique "Rural Immersion" component where students work on projects in villages.
+Other Key Courses: MBA in Global Supply Chain Management, MBA in Digital Enterprise Management, PhD.
+Placement Scenario (2021-23): 100% placement. Average Salary: ~INR 20.02 LPA. Highest Salary: ~INR 35.04 LPA. Major Recruiters: Goldman Sachs, Amazon, Bain & Company, BNY Mellon, OfBusiness.
+USP: The first of the newer IIMs to be AACSB accredited. It has a strong focus on entrepreneurship, a beautiful campus, and is known for its forward-thinking curriculum in digital and supply chain management.
+
+--- IIM Kashipur ---
+Location: Kashipur, Uttarakhand
+Established: 2011
+Website: https://www.iimkashipur.ac.in/
+NIRF 2023 Ranking: 19
+Flagship Course: Master of Business Administration (MBA)
+Duration: 2 Years
+Eligibility: Bachelor's Degree and a valid CAT score.
+Approx. Fees (MBA): INR 17.3 Lakhs
+Syllabus Overview (MBA): General management focus with growing strength in Analytics.
+Other Key Courses: MBA Analytics, Executive MBA.
+Placement Scenario (2021-23): 100% placement. Average Salary: ~INR 18.1 LPA. Highest Salary: ~INR 37 LPA. Major Recruiters: ICICI Bank, L&T, Capgemini, RBL Bank, Wipro.
+USP: Known for its specialized MBA in Analytics, which is gaining a strong reputation. Benefits from its location in an industrial belt, providing good industry exposure, particularly in manufacturing and operations.
+
+--- IIM Nagpur ---
+Location: Nagpur, Maharashtra
+Established: 2015
+Website: https://www.iimnagpur.ac.in/
+NIRF 2023 Ranking: 43
+Flagship Course: Master of Business Administration (MBA)
+Duration: 2 Years
+Eligibility: Bachelor's Degree and a valid CAT score.
+Approx. Fees: INR 18.9 Lakhs
+Syllabus Overview: Mentored by IIM Ahmedabad. Located in the logistical hub of Nagpur, it aims to develop a focus on logistics and supply chain management. Has a new, state-of-the-art campus.
+Other Key Courses: PhD
+Placement Scenario (2021-23): Average Salary: ~INR 16.74 LPA.
+USP: Mentored by IIM Ahmedabad. Located in the logistical hub of Nagpur, it aims to develop a focus on logistics and supply chain management. Has a new, state-of-the-art campus.
+
+--- IIM Visakhapatnam ---
+Location: Visakhapatnam, Andhra Pradesh
+Established: 2015
+Website: https://www.iimv.ac.in/
+NIRF 2023 Ranking: 29
+Flagship Course: Post Graduate Programme (PGP)
+Duration: 2 Years
+Eligibility: Bachelor's Degree and a valid CAT score.
+Approx. Fees: INR 17.6 Lakhs
+Syllabus Overview: Mentored by IIM Bangalore. Located in a major port city, it has a natural advantage in operations, logistics, and international trade. Focuses on producing socially conscious and responsible leaders.
+Other Key Courses: PhD
+Placement Scenario (2021-23): Average Salary: ~INR 16.61 LPA.
+USP: Mentored by IIM Bangalore. Located in a major port city, it has a natural advantage in operations, logistics, and international trade. Focuses on producing socially conscious and responsible leaders.
+
+--- IIM Amritsar ---
+Location: Amritsar, Punjab
+Established: 2015
+Website: https://iimamritsar.ac.in/
+NIRF 2023 Ranking: 51
+Flagship Course: Master of Business Administration (MBA)
+Duration: 2 Years
+Eligibility: Bachelor's Degree and a valid CAT score.
+Approx. Fees: INR 16 Lakhs
+Syllabus Overview: Mentored by IIM Kozhikode. Growing focus on data science and analytics. Its location provides unique opportunities for studying cross-border trade and SME management.
+Other Key Courses: MBA Analytics
+Placement Scenario (2021-23): Average Salary: ~INR 16.51 LPA.
+USP: Mentored by IIM Kozhikode. Growing focus on data science and analytics. Its location provides unique opportunities for studying cross-border trade and SME management.
+
+--- IIM Bodh Gaya ---
+Location: Bodh Gaya, Bihar
+Established: 2015
+Website: https://iimbg.ac.in/
+NIRF 2023 Ranking: 53
+Flagship Course: Master of Business Administration (MBA)
+Duration: 2 Years
+Eligibility: Bachelor's Degree and a valid CAT score.
+Approx. Fees: INR 15.5 Lakhs
+Syllabus Overview: Mentored by IIM Calcutta. The campus is built on the principles of "Mindfulness," aligning with the heritage of its location. Aims to integrate ethics and sustainable practices into its core curriculum.
+Other Key Courses: IPM
+Placement Scenario (2021-23): Average Salary: ~INR 16 LPA.
+USP: Mentored by IIM Calcutta. The campus is built on the principles of "Mindfulness," aligning with the heritage of its location. Aims to integrate ethics and sustainable practices into its core curriculum.
+
+--- IIM Sambalpur ---
+Location: Sambalpur, Odisha
+Established: 2015
+Website: https://www.iimsambalpur.ac.in/
+NIRF 2023 Ranking: 58
+Flagship Course: Master of Business Administration (MBA)
+Duration: 2 Years
+Eligibility: Bachelor's Degree and a valid CAT score.
+Approx. Fees: INR 13 Lakhs
+Syllabus Overview: Mentored by IIM Indore. Known for its innovative "Flipped Classroom" pedagogy, where students learn concepts before class and use class time for application and discussion. Focus on Digitalisation and an entrepreneurial mindset.
+Other Key Courses: PhD
+Placement Scenario (2021-23): Average Salary: ~INR 16.63 LPA.
+USP: Mentored by IIM Indore. Known for its innovative "Flipped Classroom" pedagogy, where students learn concepts before class and use class time for application and discussion. Focus on Digitalisation and an entrepreneurial mindset.
+
+--- IIM Sirmaur ---
+Location: Sirmaur, Himachal Pradesh
+Established: 2015
+Website: https://www.iimsirmaur.ac.in/
+NIRF 2023 Ranking: 98
+Flagship Course: Master of Business Administration (MBA)
+Duration: 2 Years
+Eligibility: Bachelor's Degree and a valid CAT score.
+Approx. Fees: INR 16 Lakhs
+Syllabus Overview: Mentored by IIM Lucknow. Located in the Himalayan foothills, it offers a unique MBA in Tourism & Hospitality Management, leveraging its location's strengths. Focuses on nurturing business leaders for the region's unique economy.
+Other Key Courses: MBA Tourism
+Placement Scenario (2021-23): Average Salary: ~INR 14.45 LPA.
+USP: Mentored by IIM Lucknow. Located in the Himalayan foothills, it offers a unique MBA in Tourism & Hospitality Management, leveraging its location's strengths. Focuses on nurturing business leaders for the region's unique economy.
+
+--- IIM Jammu ---
+Location: Jammu, Jammu & Kashmir
+Established: 2016
+Website: https://www.iimj.ac.in/
+NIRF 2023 Ranking: 41
+Flagship Course: Master of Business Administration (MBA)
+Duration: 2 Years
+Eligibility: Bachelor's Degree and a valid CAT score.
+Approx. Fees: INR 17.2 Lakhs
+Syllabus Overview: Mentored by IIM Lucknow. Aims to be a center of excellence for management in the region, with a focus on entrepreneurship, tourism, and public policy. Also offers an IPM program.
+Other Key Courses: IPM
+Placement Scenario (2021-23): Average Salary: ~INR 16.50 LPA.
+USP: Mentored by IIM Lucknow. Aims to be a center of excellence for management in the region, with a focus on entrepreneurship, tourism, and public policy. Also offers an IPM program.
+--- END OF IIMs ---
+
+--- START OF IITs ---
+--- IIT Madras (IITM) ---
+Location: Chennai, Tamil Nadu
+Established: 1959
+Website: https://www.iitm.ac.in/
+NIRF 2023 Ranking (Engineering): 1
+Flagship Course: Bachelor of Technology (B.Tech)
+Duration (B.Tech): 4 Years
+Approx. Fees (B.Tech): ~INR 2.2 Lakhs per year (with waivers for various income groups).
+Syllabus Overview (B.Tech): First year has common foundational courses for all branches (Math, Physics, Chemistry, Intro to Programming). From the second year, students delve into core departmental courses, with a wide range of professional electives in the final years. Known for its flexible curriculum with options for interdisciplinary dual degrees.
+Other Key Courses: Dual Degree (B.Tech + M.Tech), M.Tech, M.Sc, MBA, PhD, BS in Data Science and Applications (Online).
+Placement Scenario (2023-24): Traditionally has one of the highest placement rates and packages. Average Salary: ~INR 20-25 LPA (varies by branch). Highest packages often cross INR 1.5-2 CPA (including international offers). Major Recruiters: Microsoft, Google, Apple, Goldman Sachs, Texas Instruments, Qualcomm, Bain & Company.
+USP: Consistently ranked #1 in India. It boasts a unique, self-contained campus with a forest ecosystem and has India's first university-based Research Park, fostering deep tech startups and strong industry-academia collaboration. Pioneer in online degrees with its BS in Data Science.
+
+--- IIT Delhi (IITD) ---
+Location: New Delhi, Delhi
+Established: 1961
+Website: https://home.iitd.ac.in/
+NIRF 2023 Ranking (Engineering): 2
+Flagship Course: Bachelor of Technology (B.Tech)
+Duration (B.Tech): 4 Years
+Approx. Fees (B.Tech): ~INR 2.3 Lakhs per year.
+Syllabus Overview (B.Tech): Follows the standard IIT structure with a common first year and specialization from the second year. Known for its strong focus on research and practical projects.
+Other Key Courses: Dual Degree, M.Tech, M.Des, M.Sc, MBA, PhD.
+Placement Scenario (2023-24): Extremely strong placements, especially in Computer Science, and high-frequency trading. Average Salary: ~INR 20-25 LPA. Highest packages often exceed INR 2 CPA. Major Recruiters: Microsoft, Intel, Oracle, Goldman Sachs, Jane Street, Tower Research, McKinsey & Company.
+USP: Its location in the national capital provides unparalleled access to industry leaders, government bodies, and a vibrant startup ecosystem. It is a powerhouse for entrepreneurship and is often the top choice for students aiming for Computer Science Engineering.
+
+--- IIT Bombay (IITB) ---
+Location: Mumbai, Maharashtra
+Established: 1958
+Website: https://www.iitb.ac.in/
+NIRF 2023 Ranking (Engineering): 3
+Flagship Course: Bachelor of Technology (B.Tech)
+Duration (B.Tech): 4 Years
+Approx. Fees (B.Tech): ~INR 2.2 Lakhs per year.
+Syllabus Overview (B.Tech): Rigorous curriculum with a strong emphasis on problem-solving. Common first year followed by specialized streams. Offers a lot of flexibility in choosing electives and minor/honors programs.
+Other Key Courses: Dual Degree, M.Tech, M.Des, M.Sc, PhD, MBA (via SJMSOM).
+Placement Scenario (2023-24): Considered the "dream" IIT for many. Exceptional placements across engineering, finance, and consulting. Average Salary: ~INR 22-28 LPA. Highest packages consistently among the best in the country. Major Recruiters: Google, Samsung, Airbus, JP Morgan Chase, BCG, American Express.
+USP: Renowned for its vibrant campus life and the "Powai Valley" entrepreneurial ecosystem, which has produced numerous successful startups (e.g., Ola Cabs, Housing.com). It is the most sought-after IIT for B.Tech CSE and attracts top-tier finance and consulting firms.
+
+--- IIT Kanpur (IITK) ---
+Location: Kanpur, Uttar Pradesh
+Established: 1959
+Website: https://www.iitk.ac.in/
+NIRF 2023 Ranking (Engineering): 4
+Flagship Course: Bachelor of Technology (B.Tech)
+Duration (B.Tech): 4 Years
+Approx. Fees (B.Tech): ~INR 2.2 Lakhs per year.
+Syllabus Overview (B.Tech): Known for its academic rigor and strong theoretical foundation, especially in core engineering disciplines like Mechanical and Electrical. It was the first IIT to introduce Computer Science.
+Other Key Courses: Dual Degree, M.Tech, M.Des, M.Sc, BS in multiple disciplines, PhD.
+Placement Scenario (2023-24): Excellent placements with a reputation for producing technically sound engineers. Average Salary: ~INR 20-24 LPA. Major Recruiters: Texas Instruments, Qualcomm, Goldman Sachs, Intel, Sprinklr.
+USP: Famed for its strong research culture and academic flexibility. It has a reputation for being academically more challenging than other IITs, producing graduates with very strong fundamental knowledge.
+
+--- IIT Kharagpur (IITKGP) ---
+Location: Kharagpur, West Bengal
+Established: 1951
+Website: http://www.iitkgp.ac.in/
+NIRF 2023 Ranking (Engineering): 6
+Flagship Course: Bachelor of Technology (B.Tech)
+Duration (B.Tech): 4 Years
+Approx. Fees (B.Tech): ~INR 2.2 Lakhs per year.
+Syllabus Overview (B.Tech): Standard structure. Due to its size, it offers the widest range of engineering disciplines and electives.
+Other Key Courses: B.Arch, Dual Degree, LLB in Intellectual Property Law, M.Tech, M.Sc, MBA (via VGSOM), PhD.
+Placement Scenario (2023-24): High volume of placements due to the largest batch size. Average Salary: ~INR 18-22 LPA. Major Recruiters: Google, Microsoft, Apple, Tata Steel, Larsen & Toubro.
+USP: It is the first, oldest, and largest IIT, with the biggest campus and the most extensive alumni network globally. It offers a diverse range of disciplines beyond traditional engineering, including Architecture, Law, and Management.
+
+--- IIT Roorkee (IITR) ---
+Location: Roorkee, Uttarakhand
+Established: 1847 (converted to IIT in 2001)
+Website: https://www.iitr.ac.in/
+NIRF 2023 Ranking (Engineering): 5
+Flagship Course: Bachelor of Technology (B.Tech)
+Duration (B.Tech): 4 Years
+Approx. Fees (B.Tech): ~INR 2.3 Lakhs per year.
+Syllabus Overview (B.Tech): Comprehensive curriculum with strong roots in civil engineering and earth sciences.
+Other Key Courses: B.Arch, Integrated M.Tech, M.Sc, MBA, PhD.
+Placement Scenario (2023-24): Very strong placements, especially in core engineering and analytics roles. Average Salary: ~INR 18-22 LPA. Major Recruiters: Google, Microsoft, JP Morgan, BNY Mellon, Oracle.
+USP: It is India's oldest technical institution. It has a legacy of excellence in Civil Engineering, Architecture, and Earth Sciences. Its beautiful campus and strong alumni network make it a top-tier choice.
+
+--- IIT Guwahati (IITG) ---
+Location: Guwahati, Assam
+Established: 1994
+Website: https://www.iitg.ac.in/
+NIRF 2023 Ranking (Engineering): 7
+Flagship Course: Bachelor of Technology (B.Tech)
+Duration (B.Tech): 4 Years
+Approx. Fees (B.Tech): ~INR 2.4 Lakhs per year.
+Syllabus Overview (B.Tech): Modern and well-structured curriculum. Strong in both theoretical and practical aspects.
+Other Key Courses: B.Des, M.Tech, M.Sc, PhD.
+Placement Scenario (2023-24): Excellent placements that compete with the older IITs. Average Salary: ~INR 18-22 LPA. Major Recruiters: Google, Microsoft, Uber, Texas Instruments, Oracle.
+USP: Known for having one of the most beautiful campuses in India, situated on the banks of the Brahmaputra River. It has a top-ranked Department of Design (B.Des program) and a very strong research output for its age.
+
+--- IIT Hyderabad (IITH) ---
+Location: Hyderabad, Telangana
+Established: 2008
+Website: https://www.iith.ac.in/
+NIRF 2023 Ranking (Engineering): 8
+Flagship Course: B.Tech
+Duration: 4 Years
+Approx. Fees: ~INR 2.4 Lakhs per year
+Syllabus Overview: Known for its highly innovative "Fractal Academics" curriculum, allowing students to take courses from different departments. It has a very strong focus on research from the undergraduate level.
+Placement Scenario: Excellent, comparable to older IITs.
+USP: Known for its highly innovative "Fractal Academics" curriculum, allowing students to take courses from different departments. It has a very strong focus on research from the undergraduate level and an exceptional coding culture, making it a top choice among the newer IITs.
+
+--- IIT (BHU) Varanasi ---
+Location: Varanasi, Uttar Pradesh
+Established: 1919 (converted to IIT in 2012)
+Website: https://www.iitbhu.ac.in/
+NIRF 2023 Ranking (Engineering): 15
+Flagship Course: B.Tech
+Duration: 4 Years
+Approx. Fees: ~INR 2.3 Lakhs per year
+Syllabus Overview: Standard IIT curriculum with specific strengths in Metallurgical and Mining engineering.
+Placement Scenario: Strong, especially in core engineering sectors.
+USP: A unique IIT with a rich heritage, being part of the Banaras Hindu University campus. It has legacy strengths in Metallurgical, Mining, and Ceramic Engineering, which are unique among IITs.
+
+--- IIT Indore (IITI) ---
+Location: Indore, Madhya Pradesh
+Established: 2009
+Website: https://www.iiti.ac.in/
+NIRF 2023 Ranking (Engineering): 14
+Flagship Course: B.Tech
+Duration: 4 Years
+Approx. Fees: ~INR 2.3 Lakhs per year
+Syllabus Overview: Modern curriculum with strong focus on interdisciplinary research.
+Placement Scenario: Very good and improving rapidly.
+USP: It boasts one of the best research infrastructures among the newer IITs, with state-of-the-art labs and equipment. Strong focus on interdisciplinary research.
+
+--- IIT Gandhinagar (IITGN) ---
+Location: Gandhinagar, Gujarat
+Established: 2008
+Website: https://iitgn.ac.in/
+NIRF 2023 Ranking (Engineering): 18
+Flagship Course: B.Tech
+Duration: 4 Years
+Approx. Fees: ~INR 2.4 Lakhs per year
+Syllabus Overview: Progressive curriculum with project-based learning and a mandatory humanities & social sciences component.
+Placement Scenario: Good with strong international internship opportunities.
+USP: Known for its progressive, student-centric approach. It emphasizes project-based learning, a robust humanities & social sciences component, and numerous international collaborations for student exchange programs.
+
+--- IIT Patna (IITP) ---
+Location: Patna, Bihar
+Established: 2008
+Website: https://www.iitp.ac.in/
+NIRF 2023 Ranking (Engineering): 41
+Flagship Course: B.Tech
+Duration: 4 Years
+Approx. Fees: ~INR 2.2 Lakhs per year
+Syllabus Overview: Standard IIT curriculum.
+Placement Scenario: Steadily growing placements.
+USP: Rapidly growing with a fully functional modern campus. It has established strong research centers in areas like AI, and materials science, and is steadily improving its placement statistics.
+
+--- IIT Ropar (IITRPR) ---
+Location: Rupnagar, Punjab
+Established: 2008
+Website: https://www.iitrpr.ac.in/
+NIRF 2023 Ranking (Engineering): 22
+Flagship Course: B.Tech
+Duration: 4 Years
+Approx. Fees: ~INR 2.2 Lakhs per year
+Syllabus Overview: Strong research oriented curriculum.
+Placement Scenario: Good, particularly in CSE and Electrical.
+USP: Has made significant strides in research and global rankings. Its location near the developing semiconductor hub in Mohali gives it a strategic advantage for electronics and VLSI engineering.
+
+--- IIT Bhubaneswar (IITBBS) ---
+Location: Bhubaneswar, Odisha
+Established: 2008
+Website: https://www.iitbbs.ac.in/
+NIRF 2023 Ranking (Engineering): 47
+Flagship Course: B.Tech
+Duration: 4 Years
+Approx. Fees: ~INR 2.3 Lakhs per year
+Syllabus Overview: Curriculum focuses on sustainability and climate sciences.
+Placement Scenario: Good and growing.
+USP: Focuses on sustainability and climate sciences, leveraging its location in a region prone to climate events. It has a beautiful, greenfield campus designed for sustainability.
+
+--- IIT Jodhpur (IITJ) ---
+Location: Jodhpur, Rajasthan
+Established: 2008
+Website: https://www.iitj.ac.in/
+NIRF 2023 Ranking (Engineering): 30
+Flagship Course: B.Tech
+Duration: 4 Years
+Approx. Fees: ~INR 2.2 Lakhs per year
+Syllabus Overview: Specialized curriculum with focus on AI & Data Science.
+Placement Scenario: Strong in tech roles.
+USP: Has carved a niche for itself with a curriculum focused on AI and Data Science. It offers a B.Tech in AI & Data Science and has strong interdisciplinary programs blending technology with medicine and digital humanities.
+
+--- IIT Mandi ---
+Location: Mandi, Himachal Pradesh
+Established: 2009
+Website: https://www.iitmandi.ac.in/
+NIRF 2023 Ranking (Engineering): 33
+Flagship Course: B.Tech
+Duration: 4 Years
+Approx. Fees: ~INR 2.3 Lakhs per year
+Syllabus Overview: Unique curriculum with focus on Bioengineering, VLSI and robotics.
+Placement Scenario: Good.
+USP: Located in the Himalayas, it focuses on developing technology for mountainous regions. Offers a unique B.Tech in Bioengineering and has strong programs in VLSI and robotics.
+
+--- IIT Tirupati (IITTP) ---
+Location: Tirupati, Andhra Pradesh
+Established: 2015
+Website: https://www.iittp.ac.in/
+NIRF 2023 Ranking (Engineering): 59
+Flagship Course: B.Tech
+Duration: 4 Years
+Approx. Fees: ~INR 2.2 Lakhs per year
+Syllabus Overview: Mentored by IIT Madras.
+Placement Scenario: Growing.
+USP: Mentored by IIT Madras, it benefits from a strong academic foundation. It is developing a focus on "smart infrastructure" and has a fully operational permanent campus.
+
+--- IIT Palakkad (IITPKD) ---
+Location: Palakkad, Kerala
+Established: 2015
+Website: https://iitpkd.ac.in/
+NIRF 2023 Ranking (Engineering): 69
+Flagship Course: B.Tech
+Duration: 4 Years
+Approx. Fees: ~INR 2.2 Lakhs per year
+Syllabus Overview: Mentored by IIT Madras with focus on data science.
+Placement Scenario: Growing.
+USP: Also mentored by IIT Madras. It is building strengths in data science and intelligent collaborative systems. Located in a scenic environment, promoting a close-knit academic community.
+
+--- IIT Jammu (IITJMU) ---
+Location: Jammu, Jammu & Kashmir
+Established: 2016
+Website: https://iitjammu.ac.in/
+NIRF 2023 Ranking (Engineering): 67
+Flagship Course: B.Tech
+Duration: 4 Years
+Approx. Fees: ~INR 2.2 Lakhs per year
+Syllabus Overview: Mentored by IIT Delhi.
+Placement Scenario: Growing.
+USP: Mentored by IIT Delhi. It aims to be a center of excellence for technology in the Himalayan region, focusing on areas like tunnel engineering and atmospheric sciences.
+
+--- IIT Bhilai ---
+Location: Bhilai, Chhattisgarh
+Established: 2016
+Website: https://www.iitbhilai.ac.in/
+NIRF 2023 Ranking (Engineering): Not Ranked
+Flagship Course: B.Tech
+Duration: 4 Years
+Approx. Fees: ~INR 2.2 Lakhs per year
+Syllabus Overview: Mentored by IIT Hyderabad.
+Placement Scenario: Developing.
+USP: Mentored by IIT Hyderabad, it imbibes a research-oriented culture. Located in a major industrial hub, it focuses on collaborating with local steel and power industries.
+
+--- IIT Goa ---
+Location: Ponda, Goa
+Established: 2016
+Website: https://iitgoa.ac.in/
+NIRF 2023 Ranking (Engineering): Not Ranked
+Flagship Course: B.Tech
+Duration: 4 Years
+Approx. Fees: ~INR 2.2 Lakhs per year
+Syllabus Overview: Mentored by IIT Bombay.
+Placement Scenario: Developing.
+USP: Mentored by IIT Bombay. It leverages its location to focus on marine engineering and tourism-related technology. Offers a vibrant student life in a unique location.
+
+--- IIT Dharwad ---
+Location: Dharwad, Karnataka
+Established: 2016
+Website: https://www.iitdh.ac.in/
+NIRF 2023 Ranking (Engineering): 93
+Flagship Course: B.Tech
+Duration: 4 Years
+Approx. Fees: ~INR 2.2 Lakhs per year
+Syllabus Overview: Mentored by IIT Bombay with focus on systems science.
+Placement Scenario: Growing.
+USP: Mentored by IIT Bombay. It has a strong focus on systems science and is located between the industrial hubs of Bengaluru and Pune, offering good potential for industry collaboration.
+--- END OF IITs ---
+
+--- START OF IISC ---
+--- The Indian Institute of Science (IISc) ---
+Location: Bangalore, Karnataka
+Established: 1909
+Website: https://iisc.ac.in/
+NIRF 2023 Ranking: #1 in India (Universities Category), #2 in India (Overall Category)
+Courses Offered, Duration, Eligibility, and Fees: IISc is primarily a postgraduate and doctoral research institution, but it offers a highly sought-after undergraduate science program.
+1. Undergraduate Program: Bachelor of Science (Research)
+Duration: 4 Years. The 4th year is a mandatory research project. Students can graduate after 4 years with a BS degree or continue for a 5th year to get a Master of Science (MS) degree.
+Eligibility: Class 12 (or equivalent). Admission is based on the rank secured in one of the following national entrance exams: JEE Main, JEE Advanced, NEET-UG.
+Approx. Fees: Highly subsidized. Around INR 40,000 - 50,000 per year.
+Syllabus Overview: Years 1 & 1.5: All students study common foundational courses in Physics, Chemistry, Mathematics, Biology, Engineering, and Humanities. Years 1.5 - 3: Students choose a "major" specialization. Year 4: Dedicated almost entirely to a research project.
+2. Postgraduate (Course) Programs: Master of Technology (M.Tech), Master of Design (M.Des), Master of Management (M.Mgt).
+Duration: 2 Years.
+Eligibility: High scores in GATE (for M.Tech/M.Des) or CAT/GMAT (for M.Mgt).
+3. Postgraduate (Research) & Doctoral Programs: Integrated PhD and PhD.
+Duration: Typically 5-7 years.
+Eligibility: High scores in GATE, CSIR-UGC NET, JRF, followed by intensive interviews.
+Placement Scenario: For course-based programs, placements are exceptional and on par with top IITs, especially in R&D, data science, and quantitative finance roles. Many UG students opt for higher studies at top global universities.
+USP (Unique Selling Proposition) of IISc: India's #1 Research Institution. Its entire ecosystem is geared towards fundamental research and innovation. It offers unparalleled academic freedom and is a globally recognized stamp of academic excellence, serving as a direct pathway to top-tier academic careers worldwide.
+--- END OF IISC ---
+`;
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    // --- Tab Switching Logic ---
+    const tabs = document.querySelectorAll('.tab');
+    const contents = document.querySelectorAll('.content');
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            // Deactivate all
+            tabs.forEach(t => t.classList.remove('active'));
+            contents.forEach(c => c.classList.remove('active'));
+
+            // Activate clicked
+            tab.classList.add('active');
+            const contentId = tab.getAttribute('data-content');
+            document.getElementById(contentId).classList.add('active');
+        });
+    });
+
+    // --- Content Parsing and Rendering ---
+    
+    // Generic function to parse key-value data from a text block
+    function parseDetails(textBlock) {
+        const details = {};
+        const lines = textBlock.split('\n');
+        lines.forEach(line => {
+            const parts = line.split(':');
+            if (parts.length > 1) {
+                const key = parts[0].trim();
+                const value = parts.slice(1).join(':').trim();
+                details[key] = value;
+            }
+        });
+        return details;
+    }
+    
+    // Generic function to create an HTML card for an institute
+    function createInstituteCard(name, rank, rankText, details) {
+        let dlContent = '';
+        for (const [key, value] of Object.entries(details)) {
+            // Make website a clickable link
+            if (key === 'Website' && value.startsWith('http')) {
+                dlContent += `<dt>${key}</dt><dd><a href="${value}" target="_blank">${value}</a></dd>`;
+            } else {
+                dlContent += `<dt>${key}</dt><dd>${value}</dd>`;
+            }
+        }
+
+        return `
+            <div class="institute-card">
+                <h2>
+                    ${name}
+                    ${rank ? `<span class="rank">${rankText}: ${rank}</span>` : ''}
+                </h2>
+                <dl>${dlContent}</dl>
+            </div>
+        `;
+    }
+
+     // Function to parse, sort, and render a section
+    function renderSection(sectionName, delimiter, rankKey) {
+        // Helper function to escape special regex characters
+        function escapeRegExp(string) {
+            return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
+        }
+
+        const startMarker = `--- START OF ${sectionName} ---`;
+        const endMarker = `--- END OF ${sectionName} ---`;
+        const sectionRegex = new RegExp(`${startMarker}([\\s\\S]*?)${endMarker}`);
+        const sectionContent = contentData.match(sectionRegex)[1];
+
+        const institutes = sectionContent.split(delimiter).filter(text => text.trim() !== '');
+
+        const instituteData = institutes.map(block => {
+            const lines = block.trim().split('\n');
+            const name = lines[0].replace('---', '').replace('---', '').trim();
+            const detailsText = lines.slice(1).join('\n');
+            
+            // ** THE FIX IS HERE **
+            // Escape the rankKey to handle special characters like parentheses
+            const escapedRankKey = escapeRegExp(rankKey);
+            const rankRegex = new RegExp(`${escapedRankKey}: (\\d+|Not Ranked)`);
+            const rankMatch = detailsText.match(rankRegex);
+            // ** END OF FIX **
+            
+            let ranking = 999; // Default for sorting unranked items to the end
+            let rankDisplay = 'N/A';
+            if (rankMatch) {
+                rankDisplay = rankMatch[1];
+                if (rankDisplay !== 'Not Ranked') {
+                    ranking = parseInt(rankDisplay, 10);
+                }
+            }
+            
+            return {
+                name,
+                ranking,
+                rankDisplay,
+                details: parseDetails(detailsText)
+            };
+        });
+
+        // Sort by ranking
+        instituteData.sort((a, b) => a.ranking - b.ranking);
+        
+        // Render HTML
+        const containerId = `${sectionName.toLowerCase().split('s')[0]}-content`;
+        const container = document.getElementById(containerId);
+        container.innerHTML = instituteData.map(inst => 
+            createInstituteCard(inst.name, inst.rankDisplay, rankKey.split(' (')[0], inst.details)
+        ).join('');
+    }
+    // Render IIMs and IITs
+    renderSection('IIMs', '--- IIM', 'NIRF 2023 Ranking');
+    renderSection('IITs', '--- IIT', 'NIRF 2023 Ranking (Engineering)');
+
+    // Special handling for IISc (single entity)
+    function renderIISc() {
+        const startMarker = `--- START OF IISC ---`;
+        const endMarker = `--- END OF IISC ---`;
+        const iiscRegex = new RegExp(`${startMarker}([\\s\\S]*?)${endMarker}`);
+        const iiscContent = contentData.match(iiscRegex)[1];
+        
+        const lines = iiscContent.trim().split('\n');
+        const name = lines[0].replace(/---/g, '').trim();
+        const detailsText = lines.slice(1).join('\n');
+        
+        const rankMatch = detailsText.match(/NIRF 2023 Ranking: (.*?)\n/);
+        const rank = rankMatch ? rankMatch[1] : 'N/A';
+        const details = parseDetails(detailsText);
+        
+        const container = document.getElementById('iisc-content');
+        container.innerHTML = createInstituteCard(name, rank, 'NIRF 2023 Ranking', details);
+    }
+    renderIISc();
+
+});
+</script>
+
+</body>
+</html>
