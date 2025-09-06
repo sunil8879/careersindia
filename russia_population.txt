@@ -1,0 +1,62 @@
+{
+  "description": "Estimated Indian Population in Russia by key Federal Subjects and Cities. Note: Official, granular data on expatriate populations is not publicly released by the Russian government. All figures are high-level estimates. The Indian population is highly concentrated in a few major cities.",
+  "source": "Estimates based on data from the Embassy of India in Moscow, media reports, and demographic analysis.",
+  "data": {
+    "primary_hubs": [
+      {
+        "rank": 1,
+        "country": "Russia",
+        "federal_subject": "Moscow (Federal City)",
+        "subject_indian_population": "~10,000 - 12,000",
+        "comment": "The undisputed center of the Indian community in Russia. It is home to professionals in sectors like pharmaceuticals, engineering, and IT, as well as business owners, embassy staff, and students at major universities like Lomonosov Moscow State University and Peoples' Friendship University of Russia (RUDN)."
+      },
+      {
+        "rank": 2,
+        "country": "Russia",
+        "federal_subject": "Saint Petersburg (Federal City)",
+        "subject_indian_population": "~2,000 - 3,000",
+        "comment": "The second-largest hub, with a community of professionals, students (particularly in medicine and technical fields), and those involved in the tourism and trade sectors."
+      }
+    ],
+    "secondary_hubs_university_cities": [
+      {
+        "federal_subject": "Republic of Tatarstan",
+        "city": "Kazan",
+        "comment": "A major center for medical education, attracting a significant number of Indian students to Kazan State Medical University and Kazan Federal University."
+      },
+      {
+        "federal_subject": "Nizhny Novgorod Oblast",
+        "city": "Nizhny Novgorod",
+        "comment": "Home to the Privolzhsky Research Medical University, another popular destination for Indian medical students."
+      },
+      {
+        "federal_subject": "Samara Oblast",
+        "city": "Samara",
+        "comment": "Samara State Medical University hosts a notable community of students from India."
+      },
+      {
+        "federal_subject": "Volgograd Oblast",
+        "city": "Volgograd",
+        "comment": "Volgograd State Medical University is a well-known institution for Indian medical aspirants."
+      },
+      {
+        "federal_subject": "Novosibirsk Oblast",
+        "city": "Novosibirsk",
+        "comment": "A major scientific and educational center in Siberia with Indian students and researchers at Novosibirsk State University."
+      },
+      {
+        "federal_subject": "Sverdlovsk Oblast",
+        "city": "Yekaterinburg",
+        "comment": "A major industrial city with a small community of Indian professionals and students at Ural Federal University."
+      },
+      {
+        "federal_subject": "Primorsky Krai",
+        "city": "Vladivostok",
+        "comment": "Far Eastern Federal University attracts some Indian students, and the city's port status supports a small business community."
+      }
+    ],
+    "other_federal_subjects": {
+      "comment": "The remaining ~75+ federal subjects of Russia have a very small, scattered, or non-existent Indian population. The numbers in any given city within these regions would be in the single or low-double digits, consisting almost entirely of a few students or individuals on specific short-term work projects. Therefore, providing a city-by-city list for these subjects is not feasible or informative."
+    }
+  }
+}

@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post-Graduation Course ROI Calculator</title>
+
+    <!-- Using the same fonts for consistency -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+    /* Using CSS variables from your provided HTML for a consistent look and feel */
+    :root {
+        --primary-color: #0056b3;
+        --secondary-color: #007bff;
+        --accent-color: #ff6f61;
+        --success-color: #28a745;
+        --text-dark: #343a49;
+        --text-light: #6c757d;
+        --bg-light: #f8f9fa;
+        --bg-white: #ffffff;
+        --border-color: #dee2e6;
+        --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: var(--bg-light);
+        color: var(--text-dark);
+        line-height: 1.6;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    /* --- ROI Calculator Styling --- */
+    .roi-calculator-container {
+        max-width: 700px;
+        width: 100%;
+        margin: 40px auto;
+        padding: 40px;
+        background-color: var(--bg-white);
+        border-radius: 12px;
+        box-shadow: var(--shadow-md);
+        border-top: 5px solid var(--primary-color);
+    }
+    .roi-calculator-container h2 {
+        font-size: 2.2rem;
+        color: var(--primary-color);
+        margin-top: 0;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    .roi-calculator-container p {
+        color: var(--text-light);
+        margin-bottom: 30px;
+        text-align: center;
+        font-size: 1.1rem;
+    }
+
+    /* Input Section */
+    .roi-input {
+        margin-bottom: 30px;
+    }
+    .roi-input label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 10px;
+        font-size: 1.2rem;
+    }
+    #roi-course-select {
+        width: 100%;
+        padding: 15px;
+        font-size: 1.1em;
+        border-radius: 8px;
+        border: 2px solid var(--border-color);
+        background-color: #fff;
+        transition: border-color 0.3s, box-shadow 0.3s;
+        cursor: pointer;
+    }
+    #roi-course-select:focus {
+        outline: none;
+        border-color: var(--secondary-color);
+        box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+    }
+
+    /* Output Section */
+    #roi-results {
+        background-color: var(--bg-light);
+        padding: 25px;
+        border-radius: 8px;
+        border: 1px solid var(--border-color);
+    }
+    .result-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 0;
+        font-size: 1.1rem;
+    }
+    .result-item:not(:last-child) {
+        border-bottom: 1px solid var(--border-color);
+    }
+    .result-item .label {
+        color: var(--text-dark);
+        font-weight: 500;
+    }
+    .result-item .value {
+        font-weight: 600;
+        color: var(--primary-color);
+    }
+    .result-item .payback-value {
+        color: var(--accent-color); 
+        font-weight: 700;
+    }
+
+    /* Final ROI Styling */
+    .result-item.roi-final {
+        font-size: 1.4rem;
+        margin-top: 10px;
+    }
+    .result-item.roi-final .label {
+        color: var(--primary-color);
+    }
+    .result-item.roi-final .value {
+        color: var(--success-color);
+        background-color: #e9f7ec;
+        padding: 5px 12px;
+        border-radius: 50px;
+    }
+    
+    /* Explanation Box Styling */
+    .explanation-box {
+        margin-top: 30px;
+        padding: 20px;
+        background-color: #f0f8ff;
+        border-left: 4px solid var(--secondary-color);
+        border-radius: 0 8px 8px 0;
+    }
+    .explanation-box h4 {
+        margin-top: 0;
+        color: var(--primary-color);
+    }
+    .explanation-box p {
+        font-size: 0.95rem;
+        color: var(--text-dark);
+        text-align: left;
+        margin-bottom: 10px;
+    }
+    .explanation-box p:last-child {
+        margin-bottom: 0;
+    }
+</style>
+</head>
+<body>
+
+<div class="roi-calculator-container">
+    <h2>Post-Graduation Course ROI Calculator</h2>
+    <p>Select a Master's degree or certification to estimate its total cost, salary potential, and return on investment.</p>
+
+    <!-- Input: Dropdown for selecting a course -->
+    <div class="roi-input">
+        <label for="roi-course-select">Select a Course:</label>
+        <select id="roi-course-select" onchange="calculateROI()">
+            <option value="">-- Please choose a course --</option>
+            <!-- Options will be populated by JavaScript -->
+        </select>
+    </div>
+
+    <!-- Output: Display for results -->
+    <div id="roi-results">
+        <div class="result-item">
+            <span class="label">Total Estimated Cost:</span>
+            <span id="course-cost" class="value">₹ --</span>
+        </div>
+        <div class="result-item">
+            <span class="label">Average Salary After Course (p.a.):</span>
+            <span id="course-salary" class="value">₹ --</span>
+        </div>
+        <div class="result-item">
+            <span class="label">Payback Period:</span>
+            <span id="course-payback" class="value payback-value">--</span>
+        </div>
+        <div class="result-item roi-final">
+            <span class="label">Return on Investment (1st Year):</span>
+            <span id="course-roi" class="value">-- %</span>
+        </div>
+    </div>
+    
+    <!-- Explanation Box for Metrics -->
+    <div class="explanation-box">
+        <h4>What do these numbers mean?</h4>
+        <p>
+            <strong>Payback Period:</strong> The estimated time it takes to earn back your initial course cost from your salary. 
+            <em>A shorter period is better.</em>
+        </p>
+        <p>
+            <strong>Return on Investment (ROI):</strong>ROI tells a student:
+“Is this course/college financially worth it compared to what I’ll earn after?” High ROI (e.g., 200%+)
+Means the salary after completing the course is much higher than the cost.
+        </p>
+    </div>
+</div>
+
+
+<script>
+    // --- DATA SOURCE ---
+    // This is the complete list of all 335+ courses from grad1.html with plausible placeholder data.
+    const courseData = {
+        // Management & Commerce
+        'grad-master-of-business-administration-mba': { name: 'Master of Business Administration (MBA) - General', cost: 1500000, salary: 1800000 },
+        'grad-mba-finance': { name: 'MBA in Finance', cost: 1800000, salary: 2200000 },
+        'grad-mba-marketing': { name: 'MBA in Marketing', cost: 1600000, salary: 1900000 },
+        'grad-mba-human-resource-management-hrm': { name: 'MBA in Human Resource Management (HRM)', cost: 1200000, salary: 1500000 },
+        'grad-mba-operations-management': { name: 'MBA in Operations Management', cost: 1400000, salary: 1800000 },
+        'grad-mba-business-analytics': { name: 'MBA in Business Analytics', cost: 2000000, salary: 2500000 },
+        'grad-mba-data-analytics': { name: 'MBA in Data Analytics', cost: 2000000, salary: 2500000 },
+        'grad-mba-information-technology-it': { name: 'MBA in Information Technology (IT)', cost: 1500000, salary: 1900000 },
+        'grad-master-of-commerce-mcom': { name: 'Master of Commerce (M.Com) - General', cost: 100000, salary: 500000 },
+        'grad-mcom-accounting': { name: 'M.Com - Accounting', cost: 120000, salary: 550000 },
+        'grad-mcom-finance': { name: 'M.Com - Finance', cost: 150000, salary: 600000 },
+        'grad-mcom-banking-and-insurance': { name: 'M.Com - Banking and Insurance', cost: 130000, salary: 580000 },
+        'grad-mcom-business-economics': { name: 'M.Com - Business Economics', cost: 110000, salary: 520000 },
+        'grad-mcom-financial-management': { name: 'M.Com - Financial Management', cost: 150000, salary: 620000 },
+        'grad-mcom-international-business': { name: 'M.Com - International Business', cost: 180000, salary: 650000 },
+        'grad-mcom-taxation': { name: 'M.Com - Taxation', cost: 140000, salary: 570000 },
+        'grad-mcom-e-commerce': { name: 'M.Com - E-Commerce', cost: 160000, salary: 600000 },
+        'grad-mcom-human-resource-management': { name: 'M.Com - Human Resource Management', cost: 120000, salary: 530000 },
+        'grad-mcom-marketing': { name: 'M.Com - Marketing', cost: 130000, salary: 550000 },
+        'grad-mcom-computer-applications': { name: 'M.Com - Computer Applications', cost: 150000, salary: 580000 },
+        'grad-master-of-financial-management-mfm': { name: 'Master of Financial Management (MFM)', cost: 600000, salary: 900000 },
+        'grad-master-of-human-resource-management-mhrm': { name: 'Master of Human Resource Management (MHRM)', cost: 500000, salary: 800000 },
+        'grad-master-of-international-business-mib': { name: 'Master of International Business (MIB)', cost: 700000, salary: 1000000 },
+        'grad-master-of-business-economics-mbe': { name: 'Master of Business Economics (MBE)', cost: 400000, salary: 850000 },
+        'grad-master-of-management-studies-mms': { name: 'Master of Management Studies (MMS)', cost: 800000, salary: 1200000 },
+        'grad-master-of-retail-management-mrm': { name: 'Master of Retail Management (MRM)', cost: 400000, salary: 700000 },
+        'grad-master-of-tourism-administration-mta': { name: 'Master of Tourism Administration (MTA)', cost: 300000, salary: 600000 },
+        'grad-master-of-travel-tourism-management-mttm': { name: 'Master of Travel and Tourism Management (MTTM)', cost: 300000, salary: 600000 },
+        'grad-master-of-hospital-administration-mha': { name: 'Master of Hospital Administration (MHA)', cost: 500000, salary: 800000 },
+
+        // Science (M.Sc.)
+        'grad-master-of-science-msc': { name: 'Master of Science (M.Sc.) - General Overview', cost: 150000, salary: 500000 },
+        'grad-msc-agriculture': { name: 'M.Sc. - Agriculture', cost: 200000, salary: 550000 },
+        'grad-msc-agroforestry': { name: 'M.Sc. - Agroforestry', cost: 220000, salary: 530000 },
+        'grad-msc-analytical-chemistry': { name: 'M.Sc. - Analytical Chemistry', cost: 180000, salary: 580000 },
+        'grad-msc-anatomy': { name: 'M.Sc. - Anatomy', cost: 250000, salary: 550000 },
+        'grad-msc-animal-husbandry': { name: 'M.Sc. - Animal Husbandry', cost: 190000, salary: 510000 },
+        'grad-msc-anthropology': { name: 'M.Sc. - Anthropology', cost: 150000, salary: 480000 },
+        'grad-msc-applied-geology': { name: 'M.Sc. - Applied Geology', cost: 220000, salary: 600000 },
+        'grad-msc-applied-mathematics': { name: 'M.Sc. - Applied Mathematics', cost: 120000, salary: 580000 },
+        'grad-msc-applied-microbiology': { name: 'M.Sc. - Applied Microbiology', cost: 200000, salary: 550000 },
+        'grad-msc-aquaculture': { name: 'M.Sc. - Aquaculture', cost: 250000, salary: 570000 },
+        'grad-msc-astronomy': { name: 'M.Sc. - Astronomy', cost: 300000, salary: 700000 },
+        'grad-msc-biochemistry': { name: 'M.Sc. - Biochemistry', cost: 180000, salary: 500000 },
+        'grad-msc-bioinformatics': { name: 'M.Sc. - Bioinformatics', cost: 280000, salary: 680000 },
+        'grad-msc-biology': { name: 'M.Sc. - Biology', cost: 130000, salary: 450000 },
+        'grad-msc-biomedical-science': { name: 'M.Sc. - Biomedical Science', cost: 300000, salary: 600000 },
+        'grad-msc-biophysics': { name: 'M.Sc. - Biophysics', cost: 220000, salary: 580000 },
+        'grad-msc-biotechnology': { name: 'M.Sc. - Biotechnology', cost: 300000, salary: 650000 },
+        'grad-msc-botany': { name: 'M.Sc. - Botany', cost: 140000, salary: 460000 },
+        'grad-msc-chemistry': { name: 'M.Sc. - Chemistry', cost: 150000, salary: 520000 },
+        'grad-msc-clinical-research': { name: 'M.Sc. - Clinical Research', cost: 350000, salary: 650000 },
+        'grad-msc-computer-science': { name: 'M.Sc. - Computer Science', cost: 250000, salary: 700000 },
+        'grad-msc-criminology': { name: 'M.Sc. - Criminology', cost: 200000, salary: 550000 },
+        'grad-msc-data-science': { name: 'M.Sc. - Data Science', cost: 500000, salary: 900000 },
+        'grad-msc-environmental-science': { name: 'M.Sc. - Environmental Science', cost: 200000, salary: 550000 },
+        'grad-msc-fashion-technology': { name: 'M.Sc. - Fashion Technology', cost: 400000, salary: 600000 },
+        'grad-msc-food-science-and-technology': { name: 'M.Sc. - Food Science and Technology', cost: 280000, salary: 580000 },
+        'grad-msc-forensic-science': { name: 'M.Sc. - Forensic Science', cost: 350000, salary: 600000 },
+        'grad-msc-forestry': { name: 'M.Sc. - Forestry', cost: 230000, salary: 540000 },
+        'grad-msc-genetics': { name: 'M.Sc. - Genetics', cost: 320000, salary: 620000 },
+        'grad-msc-geography': { name: 'M.Sc. - Geography', cost: 120000, salary: 470000 },
+        'grad-msc-geology': { name: 'M.Sc. - Geology', cost: 200000, salary: 590000 },
+        'grad-msc-horticulture': { name: 'M.Sc. - Horticulture', cost: 180000, salary: 520000 },
+        'grad-msc-human-genetics': { name: 'M.Sc. - Human Genetics', cost: 330000, salary: 630000 },
+        'grad-msc-information-technology-it': { name: 'M.Sc. - Information Technology (IT)', cost: 260000, salary: 720000 },
+        'grad-msc-instrumentation': { name: 'M.Sc. - Instrumentation', cost: 220000, salary: 580000 },
+        'grad-msc-marine-biology': { name: 'M.Sc. - Marine Biology', cost: 280000, salary: 600000 },
+        'grad-msc-materials-science': { name: 'M.Sc. - Materials Science', cost: 250000, salary: 650000 },
+        'grad-msc-mathematics': { name: 'M.Sc. - Mathematics', cost: 100000, salary: 550000 },
+        'grad-msc-medical-lab-technology': { name: 'M.Sc. - Medical Lab Technology', cost: 280000, salary: 550000 },
+        'grad-msc-microbiology': { name: 'M.Sc. - Microbiology', cost: 190000, salary: 520000 },
+        'grad-msc-molecular-biology': { name: 'M.Sc. - Molecular Biology', cost: 250000, salary: 600000 },
+        'grad-msc-nanoscience': { name: 'M.Sc. - Nanoscience', cost: 400000, salary: 750000 },
+        'grad-msc-neuroscience': { name: 'M.Sc. - Neuroscience', cost: 380000, salary: 700000 },
+        'grad-msc-nursing': { name: 'M.Sc. - Nursing', cost: 300000, salary: 600000 },
+        'grad-msc-nutrition-and-dietetics': { name: 'M.Sc. - Nutrition and Dietetics', cost: 250000, salary: 500000 },
+        'grad-msc-operations-research': { name: 'M.Sc. - Operations Research', cost: 180000, salary: 680000 },
+        'grad-msc-optometry': { name: 'M.Sc. - Optometry', cost: 350000, salary: 600000 },
+        'grad-msc-pharmaceutical-chemistry': { name: 'M.Sc. - Pharmaceutical Chemistry', cost: 280000, salary: 620000 },
+        'grad-msc-physics': { name: 'M.Sc. - Physics', cost: 120000, salary: 580000 },
+        'grad-msc-physiology': { name: 'M.Sc. - Physiology', cost: 200000, salary: 530000 },
+        'grad-msc-plant-pathology': { name: 'M.Sc. - Plant Pathology', cost: 180000, salary: 500000 },
+        'grad-msc-polymer-science': { name: 'M.Sc. - Polymer Science', cost: 220000, salary: 590000 },
+        'grad-msc-psychology': { name: 'M.Sc. - Psychology', cost: 180000, salary: 520000 },
+        'grad-msc-quantum-computing': { name: 'M.Sc. - Quantum Computing', cost: 500000, salary: 950000 },
+        'grad-msc-remote-sensing-and-gis': { name: 'M.Sc. - Remote Sensing and GIS', cost: 250000, salary: 600000 },
+        'grad-msc-robotics': { name: 'M.Sc. - Robotics', cost: 450000, salary: 850000 },
+        'grad-msc-soil-science': { name: 'M.Sc. - Soil Science', cost: 170000, salary: 510000 },
+        'grad-msc-statistics': { name: 'M.Sc. - Statistics', cost: 110000, salary: 600000 },
+        'grad-msc-textile-chemistry': { name: 'M.Sc. - Textile Chemistry', cost: 200000, salary: 550000 },
+        'grad-msc-toxicology': { name: 'M.Sc. - Toxicology', cost: 230000, salary: 580000 },
+        'grad-msc-wildlife-biology': { name: 'M.Sc. - Wildlife Biology', cost: 280000, salary: 550000 },
+        'grad-msc-zoology': { name: 'M.Sc. - Zoology', cost: 140000, salary: 460000 },
+        
+        // Engineering (M.Tech)
+        'grad-master-of-technology-meng': { name: 'M.Tech./M.E. - General Overview', cost: 500000, salary: 900000 },
+        'grad-mtech-aerospace-engineering': { name: 'M.Tech. - Aerospace Engineering', cost: 600000, salary: 1100000 },
+        'grad-mtech-agricultural-engineering': { name: 'M.Tech. - Agricultural Engineering', cost: 350000, salary: 750000 },
+        'grad-mtech-artificial-intelligence': { name: 'M.Tech. - Artificial Intelligence', cost: 800000, salary: 1500000 },
+        'grad-mtech-automobile-engineering': { name: 'M.Tech. - Automobile Engineering', cost: 450000, salary: 900000 },
+        'grad-mtech-biochemical-engineering': { name: 'M.Tech. - Biochemical Engineering', cost: 500000, salary: 950000 },
+        'grad-mtech-biomedical-engineering': { name: 'M.Tech. - Biomedical Engineering', cost: 550000, salary: 980000 },
+        'grad-mtech-bioprocess-engineering': { name: 'M.Tech. - Bioprocess Engineering', cost: 520000, salary: 960000 },
+        'grad-mtech-biotechnology-engineering': { name: 'M.Tech. - Biotechnology Engineering', cost: 580000, salary: 1000000 },
+        'grad-mtech-ceramic-engineering': { name: 'M.Tech. - Ceramic Engineering', cost: 400000, salary: 800000 },
+        'grad-mtech-chemical-engineering': { name: 'M.Tech. - Chemical Engineering', cost: 500000, salary: 950000 },
+        'grad-mtech-civil-engineering': { name: 'M.Tech. - Civil Engineering', cost: 400000, salary: 800000 },
+        'grad-mtech-communication-engineering': { name: 'M.Tech. - Communication Engineering', cost: 480000, salary: 980000 },
+        'grad-mtech-cse': { name: 'M.Tech. - Computer Science and Engineering (CSE)', cost: 700000, salary: 1400000 },
+        'grad-mtech-control-and-automation': { name: 'M.Tech. - Control and Automation', cost: 500000, salary: 1000000 },
+        'grad-mtech-cyber-security': { name: 'M.Tech. - Cyber Security', cost: 600000, salary: 1200000 },
+        'grad-mtech-data-science-and-analytics': { name: 'M.Tech. - Data Science & Analytics', cost: 800000, salary: 1500000 },
+        'grad-mtech-design-engineering': { name: 'M.Tech. - Design Engineering', cost: 450000, salary: 900000 },
+        'grad-mtech-digital-forensics': { name: 'M.Tech. - Digital Forensics', cost: 580000, salary: 1100000 },
+        'grad-mtech-earthquake-engineering': { name: 'M.Tech. - Earthquake Engineering', cost: 450000, salary: 900000 },
+        'grad-mtech-electrical-engineering': { name: 'M.Tech. - Electrical Engineering', cost: 420000, salary: 880000 },
+        'grad-mtech-ece': { name: 'M.Tech. - Electronics & Communication Engineering (ECE)', cost: 500000, salary: 1000000 },
+        'grad-mtech-energy-engineering': { name: 'M.Tech. - Energy Engineering', cost: 500000, salary: 950000 },
+        'grad-mtech-environmental-engineering-standalone': { name: 'M.Tech. - Environmental Engineering', cost: 450000, salary: 850000 },
+        'grad-mtech-food-technology-engineering': { name: 'M.Tech. - Food Technology Engineering', cost: 400000, salary: 800000 },
+        'grad-mtech-geoinformatics': { name: 'M.Tech. - Geoinformatics', cost: 380000, salary: 820000 },
+        'grad-mtech-industrial-engineering': { name: 'M.Tech. - Industrial Engineering', cost: 430000, salary: 900000 },
+        'grad-mtech-information-technology': { name: 'M.Tech. - Information Technology', cost: 680000, salary: 1350000 },
+        'grad-mtech-instrumentation-engineering': { name: 'M.Tech. - Instrumentation Engineering', cost: 450000, salary: 920000 },
+        'grad-mtech-integrated-electronics-and-circuits': { name: 'M.Tech. - Integrated Electronics and Circuits', cost: 520000, salary: 1100000 },
+        'grad-mtech-manufacturing-technology': { name: 'M.Tech. - Manufacturing Technology', cost: 400000, salary: 850000 },
+        'grad-mtech-marine-engineering': { name: 'M.Tech. - Marine Engineering', cost: 700000, salary: 1200000 },
+        'grad-mtech-materials-engineering': { name: 'M.Tech. - Materials Engineering', cost: 480000, salary: 950000 },
+        'grad-mtech-mechanical-engineering': { name: 'M.Tech. - Mechanical Engineering', cost: 450000, salary: 850000 },
+        'grad-mtech-mechatronics': { name: 'M.Tech. - Mechatronics', cost: 550000, salary: 1050000 },
+        'grad-mtech-metallurgical-engineering': { name: 'M.Tech. - Metallurgical Engineering', cost: 470000, salary: 900000 },
+        'grad-mtech-mining-engineering': { name: 'M.Tech. - Mining Engineering', cost: 500000, salary: 980000 },
+        'grad-mtech-nanotechnology': { name: 'M.Tech. - Nanotechnology', cost: 650000, salary: 1100000 },
+        'grad-mtech-nuclear-engineering': { name: 'M.Tech. - Nuclear Engineering', cost: 750000, salary: 1300000 },
+        'grad-mtech-petroleum-engineering': { name: 'M.Tech. - Petroleum Engineering', cost: 700000, salary: 1250000 },
+        'grad-mtech-polymer-technology': { name: 'M.Tech. - Polymer Technology', cost: 420000, salary: 850000 },
+        'grad-mtech-production-engineering': { name: 'M.Tech. - Production Engineering', cost: 410000, salary: 860000 },
+        'grad-mtech-renewable-energy-technologies': { name: 'M.Tech. - Renewable Energy Technologies', cost: 520000, salary: 970000 },
+        'grad-mtech-robotics-and-automation': { name: 'M.Tech. - Robotics and Automation', cost: 700000, salary: 1100000 },
+        'grad-mtech-software-engineering': { name: 'M.Tech. - Software Engineering', cost: 650000, salary: 1300000 },
+        'grad-mtech-structural-engineering': { name: 'M.Tech. - Structural Engineering', cost: 430000, salary: 880000 },
+        'grad-mtech-systems-engineering': { name: 'M.Tech. - Systems Engineering', cost: 550000, salary: 1150000 },
+        'grad-mtech-telecommunication-engineering': { name: 'M.Tech. - Telecommunication Engineering', cost: 490000, salary: 1000000 },
+        'grad-mtech-textile-engineering': { name: 'M.Tech. - Textile Engineering', cost: 380000, salary: 780000 },
+        'grad-mtech-thermal-engineering': { name: 'M.Tech. - Thermal Engineering', cost: 460000, salary: 900000 },
+        'grad-mtech-vlsi-design': { name: 'M.Tech. - VLSI Design', cost: 750000, salary: 1400000 },
+        'grad-mtech-water-resources-engineering-standalone': { name: 'M.Tech. - Water Resources Engineering', cost: 440000, salary: 860000 },
+        
+        // Arts & Humanities (M.A.)
+        'grad-master-of-arts-humanities-social-sciences': { name: 'Master of Arts (M.A.) - General Overview', cost: 70000, salary: 450000 },
+        'grad-ma-anthropology': { name: 'M.A. - Anthropology', cost: 80000, salary: 450000 },
+        'grad-ma-archaeology': { name: 'M.A. - Archaeology', cost: 100000, salary: 480000 },
+        'grad-ma-buddhist-studies': { name: 'M.A. - Buddhist Studies', cost: 50000, salary: 400000 },
+        'grad-ma-child-development': { name: 'M.A. - Child Development', cost: 90000, salary: 460000 },
+        'grad-ma-classical-languages': { name: 'M.A. - Classical Languages', cost: 40000, salary: 420000 },
+        'grad-ma-comparative-literature': { name: 'M.A. - Comparative Literature', cost: 60000, salary: 440000 },
+        'grad-ma-criminology': { name: 'M.A. - Criminology', cost: 120000, salary: 530000 },
+        'grad-ma-dance': { name: 'M.A. - Dance', cost: 150000, salary: 380000 },
+        'grad-ma-development-studies': { name: 'M.A. - Development Studies', cost: 130000, salary: 550000 },
+        'grad-ma-economics': { name: 'M.A. - Economics', cost: 80000, salary: 600000 },
+        'grad-ma-education': { name: 'M.A. - Education', cost: 70000, salary: 480000 },
+        'grad-ma-english-literature': { name: 'M.A. - English Literature', cost: 60000, salary: 450000 },
+        'grad-ma-environmental-studies': { name: 'M.A. - Environmental Studies', cost: 120000, salary: 520000 },
+        'grad-ma-film-studies': { name: 'M.A. - Film Studies', cost: 250000, salary: 480000 },
+        'grad-ma-fine-arts': { name: 'M.A. - Fine Arts', cost: 180000, salary: 400000 },
+        'grad-ma-folklore': { name: 'M.A. - Folklore', cost: 50000, salary: 390000 },
+        'grad-ma-foreign-languages': { name: 'M.A. - Foreign Languages', cost: 100000, salary: 550000 },
+        'grad-ma-gender-studies': { name: 'M.A. - Gender Studies', cost: 90000, salary: 470000 },
+        'grad-ma-geography': { name: 'M.A. - Geography', cost: 70000, salary: 460000 },
+        'grad-ma-hindi-literature': { name: 'M.A. - Hindi Literature', cost: 40000, salary: 410000 },
+        'grad-ma-history': { name: 'M.A. - History', cost: 50000, salary: 420000 },
+        'grad-ma-international-relations': { name: 'M.A. - International Relations', cost: 150000, salary: 650000 },
+        'grad-ma-journalism-and-mass-communication': { name: 'M.A. - Journalism and Mass Communication', cost: 200000, salary: 550000 },
+        'grad-ma-labour-studies': { name: 'M.A. - Labour Studies', cost: 80000, salary: 500000 },
+        'grad-ma-linguistics': { name: 'M.A. - Linguistics', cost: 70000, salary: 490000 },
+        'grad-ma-music': { name: 'M.A. - Music', cost: 160000, salary: 390000 },
+        'grad-ma-museology-and-archival-studies': { name: 'M.A. - Museology and Archival Studies', cost: 110000, salary: 470000 },
+        'grad-ma-peace-and-conflict-studies': { name: 'M.A. - Peace and Conflict Studies', cost: 100000, salary: 530000 },
+        'grad-ma-performing-arts': { name: 'M.A. - Performing Arts', cost: 170000, salary: 400000 },
+        'grad-ma-philosophy': { name: 'M.A. - Philosophy', cost: 40000, salary: 400000 },
+        'grad-ma-political-science': { name: 'M.A. - Political Science', cost: 60000, salary: 500000 },
+        'grad-ma-population-studies': { name: 'M.A. - Population Studies', cost: 80000, salary: 510000 },
+        'grad-ma-psychology': { name: 'M.A. - Psychology', cost: 150000, salary: 500000 },
+        'grad-ma-public-administration': { name: 'M.A. - Public Administration', cost: 70000, salary: 520000 },
+        'grad-ma-public-policy': { name: 'M.A. - Public Policy', cost: 180000, salary: 680000 },
+        'grad-ma-rural-development': { name: 'M.A. - Rural Development', cost: 60000, salary: 470000 },
+        'grad-ma-sociology': { name: 'M.A. - Sociology', cost: 60000, salary: 450000 },
+        'grad-ma-social-work': { name: 'M.A. - Social Work', cost: 100000, salary: 470000 },
+        'grad-ma-theatre-arts': { name: 'M.A. - Theatre Arts', cost: 180000, salary: 410000 },
+        'grad-ma-translation-and-interpretation': { name: 'M.A. - Translation and Interpretation', cost: 90000, salary: 500000 },
+        'grad-ma-womens-studies': { name: 'M.A. - Women\'s Studies', cost: 80000, salary: 460000 },
+        'grad-master-of-social-work-msw': { name: 'Master of Social Work (MSW)', cost: 120000, salary: 480000 },
+        'grad-master-of-development-studies-mds': { name: 'Master of Development Studies (MDS)', cost: 150000, salary: 560000 },
+        
+        // Education
+        'grad-master-of-education-med': { name: 'Master of Education (M.Ed.)', cost: 100000, salary: 500000 },
+        'grad-master-of-physical-education-mped': { name: 'Master of Physical Education (M.P.Ed.)', cost: 120000, salary: 520000 },
+        'grad-master-of-library-and-information-science-mlisc': { name: 'Master of Library and Information Science (MLISc)', cost: 80000, salary: 450000 },
+        
+        // Law
+        'grad-master-of-laws-llm': { name: 'Master of Laws (LL.M.) - General Overview', cost: 300000, salary: 800000 },
+        'grad-llm-constitutional-law': { name: 'LL.M. - Constitutional Law', cost: 320000, salary: 850000 },
+        'grad-llm-corporate-law': { name: 'LL.M. - Corporate Law', cost: 400000, salary: 1000000 },
+        'grad-llm-criminal-law': { name: 'LL.M. - Criminal Law', cost: 350000, salary: 850000 },
+        'grad-llm-environmental-law': { name: 'LL.M. - Environmental Law', cost: 330000, salary: 820000 },
+        'grad-llm-human-rights-law': { name: 'LL.M. - Human Rights Law', cost: 300000, salary: 800000 },
+        'grad-llm-intellectual-property-law': { name: 'LL.M. - Intellectual Property Law', cost: 380000, salary: 950000 },
+        'grad-llm-international-law': { name: 'LL.M. - International Law', cost: 360000, salary: 900000 },
+        'grad-llm-tax-law': { name: 'LL.M. - Tax Law', cost: 370000, salary: 920000 },
+        'grad-master-of-legislative-law-ml': { name: 'Master of Legislative Law (ML)', cost: 300000, salary: 810000 },
+        
+        // Design
+        'grad-master-of-design-mdes': { name: 'Master of Design (M.Des) - General Overview', cost: 800000, salary: 900000 },
+        'grad-mdes-product-design': { name: 'M.Des - Product Design', cost: 900000, salary: 1000000 },
+        'grad-mdes-graphic-design': { name: 'M.Des - Graphic Design', cost: 700000, salary: 800000 },
+        'grad-mdes-fashion-design': { name: 'M.Des - Fashion Design', cost: 850000, salary: 950000 },
+        'grad-mdes-textile-design': { name: 'M.Des - Textile Design', cost: 750000, salary: 850000 },
+        'grad-mdes-ceramic-and-glass-design': { name: 'M.Des - Ceramic and Glass Design', cost: 650000, salary: 750000 },
+        'grad-mdes-animation-film-design': { name: 'M.Des - Animation Film Design', cost: 950000, salary: 980000 },
+        'grad-mdes-digital-game-design': { name: 'M.Des - Digital Game Design', cost: 1000000, salary: 1100000 },
+        'grad-mdes-strategic-design-management': { name: 'M.Des - Strategic Design Management', cost: 1100000, salary: 1200000 },
+        'grad-master-of-fine-arts-mfa': { name: 'Master of Fine Arts (MFA)', cost: 300000, salary: 500000 },
+        'grad-master-of-performing-arts-mpa': { name: 'Master of Performing Arts (MPA)', cost: 320000, salary: 450000 },
+        'grad-master-of-visual-arts-mva': { name: 'Master of Visual Arts (MVA)', cost: 310000, salary: 480000 },
+        
+        // Medical PG & Pharma
+        'grad-master-of-pharmacy-mpharm': { name: 'Master of Pharmacy (M.Pharm)', cost: 500000, salary: 700000 },
+        'grad-master-of-public-health-mph': { name: 'Master of Public Health (MPH)', cost: 600000, salary: 800000 },
+        'grad-master-of-science-in-clinical-research-mscr': { name: 'Master of Science in Clinical Research (MSCR)', cost: 450000, salary: 750000 },
+        'grad-master-of-sports-physiotherapy-msp': { name: 'Master of Sports Physiotherapy (MSP)', cost: 550000, salary: 780000 },
+        
+        // PG Diplomas
+        'grad-post-graduate-diploma-programs': { name: 'PGDM - General Overview', cost: 1200000, salary: 1500000 },
+        'grad-pgdm-business-analytics': { name: 'PGDM in Business Analytics', cost: 800000, salary: 1200000 },
+        'grad-pgdm-data-science': { name: 'PGDM in Data Science', cost: 900000, salary: 1400000 },
+        'grad-pgdm-digital-marketing': { name: 'PGDM in Digital Marketing', cost: 500000, salary: 800000 },
+        'grad-pgdm-finance': { name: 'PGDM in Finance', cost: 1000000, salary: 1400000 },
+        'grad-pgdm-human-resource-management': { name: 'PGDM in Human Resource Management', cost: 700000, salary: 1000000 },
+        'grad-pgdm-international-business': { name: 'PGDM in International Business', cost: 900000, salary: 1300000 },
+        'grad-pgdm-logistics-and-supply-chain-management': { name: 'PGDM in Logistics & Supply Chain Management', cost: 600000, salary: 900000 },
+        'grad-pgdm-marketing': { name: 'PGDM in Marketing', cost: 800000, salary: 1100000 },
+        'grad-pgdm-operations-management': { name: 'PGDM in Operations Management', cost: 750000, salary: 1050000 },
+        'grad-pgdm-rural-management': { name: 'PGDM in Rural Management', cost: 500000, salary: 700000 },
+        'grad-pgdm-agri-business-management': { name: 'PGDM in Agri-Business Management', cost: 550000, salary: 750000 },
+        'grad-pgdm-hospital-management': { name: 'PGDM in Hospital Management', cost: 600000, salary: 850000 },
+        'grad-pgdm-event-management': { name: 'PGDM in Event Management', cost: 400000, salary: 650000 },
+        'grad-pgdm-retail-management': { name: 'PGDM in Retail Management', cost: 450000, salary: 700000 },
+        'grad-pgdm-financial-planning': { name: 'PGDM in Financial Planning', cost: 300000, salary: 750000 },
+        'grad-pgdm-investment-banking': { name: 'PGDM in Investment Banking', cost: 500000, salary: 1100000 },
+        'grad-pgdm-risk-management': { name: 'PGDM in Risk Management', cost: 450000, salary: 950000 },
+        'grad-pgdm-project-management': { name: 'PGDM in Project Management', cost: 400000, salary: 900000 },
+        'grad-pgdm-ngo-management': { name: 'PGDM in NGO Management', cost: 250000, salary: 500000 },
+        'grad-pgdm-public-relations-management': { name: 'PGDM in Public Relations Management', cost: 300000, salary: 600000 },
+        'grad-pgdm-industrial-relations-and-personnel-management': { name: 'PGDM in Industrial Relations and Personnel Management', cost: 350000, salary: 700000 },
+        'grad-pgdm-entrepreneurship-development': { name: 'PGDM in Entrepreneurship Development', cost: 400000, salary: 750000 },
+        'grad-pgdca': { name: 'PG Diploma in Computer Applications (PGDCA)', cost: 80000, salary: 450000 },
+        'grad-pgd-cyber-security': { name: 'PG Diploma in Cyber Security', cost: 300000, salary: 750000 },
+        'grad-pgd-data-science': { name: 'PG Diploma in Data Science', cost: 450000, salary: 900000 },
+        'grad-pgd-artificial-intelligence-and-machine-learning': { name: 'PG Diploma in Artificial Intelligence & Machine Learning', cost: 400000, salary: 800000 },
+        'grad-pgd-web-development': { name: 'PG Diploma in Web Development', cost: 150000, salary: 550000 },
+        'grad-pgd-software-development': { name: 'PG Diploma in Software Development', cost: 200000, salary: 600000 },
+        'grad-pgd-cloud-computing': { name: 'PG Diploma in Cloud Computing', cost: 250000, salary: 700000 },
+        'grad-pgd-blockchain-technology': { name: 'PG Diploma in Blockchain Technology', cost: 300000, salary: 850000 },
+        'grad-pgd-embedded-systems': { name: 'PG Diploma in Embedded Systems', cost: 220000, salary: 650000 },
+        'grad-pgd-internet-of-things-iot': { name: 'PG Diploma in Internet of Things (IoT)', cost: 250000, salary: 700000 },
+        'grad-pgd-hardware-and-networking': { name: 'PG Diploma in Hardware and Networking', cost: 100000, salary: 480000 },
+        'grad-pgd-journalism-and-mass-communication': { name: 'PG Diploma in Journalism and Mass Communication', cost: 150000, salary: 500000 },
+        'grad-pgd-public-relations-and-advertising': { name: 'PG Diploma in Public Relations and Advertising', cost: 180000, salary: 520000 },
+        'grad-pgd-digital-marketing-media-arts': { name: 'PG Diploma in Digital Marketing (Media/Arts)', cost: 120000, salary: 550000 },
+        'grad-pgd-film-and-tv-production': { name: 'PG Diploma in Film and TV Production', cost: 300000, salary: 450000 },
+        'grad-pgd-animation-and-vfx': { name: 'PG Diploma in Animation and VFX', cost: 280000, salary: 500000 },
+        'grad-pgd-graphic-design': { name: 'PG Diploma in Graphic Design', cost: 150000, salary: 450000 },
+        'grad-pgd-interior-design': { name: 'PG Diploma in Interior Design', cost: 200000, salary: 480000 },
+        'grad-pgd-fashion-design': { name: 'PG Diploma in Fashion Design', cost: 220000, salary: 500000 },
+        'grad-pgd-photography': { name: 'PG Diploma in Photography', cost: 180000, salary: 400000 },
+        'grad-pgd-sound-engineering': { name: 'PG Diploma in Sound Engineering', cost: 250000, salary: 480000 },
+        'grad-pgd-event-management-media-arts': { name: 'PG Diploma in Event Management (Media/Arts)', cost: 170000, salary: 450000 },
+        'grad-pgd-sports-journalism': { name: 'PG Diploma in Sports Journalism', cost: 200000, salary: 500000 },
+        'grad-pgd-clinical-research': { name: 'PG Diploma in Clinical Research', cost: 250000, salary: 550000 },
+        'grad-pgd-hospital-administration': { name: 'PG Diploma in Hospital Administration', cost: 280000, salary: 600000 },
+        'grad-pgd-medical-laboratory-technology-advanced': { name: 'PG Diploma in Medical Laboratory Technology (Advanced)', cost: 150000, salary: 450000 },
+        'grad-pgd-dietetics-and-public-health-nutrition': { name: 'PG Diploma in Dietetics and Public Health Nutrition', cost: 120000, salary: 420000 },
+        'grad-pgd-healthcare-management': { name: 'PG Diploma in Healthcare Management', cost: 300000, salary: 650000 },
+        'grad-pgd-radiography-and-imaging-techniques': { name: 'PG Diploma in Radiography and Imaging Techniques', cost: 180000, salary: 480000 },
+        'grad-pgd-perfusion-technology': { name: 'PG Diploma in Perfusion Technology', cost: 200000, salary: 500000 },
+        'grad-pgd-cardiac-technology': { name: 'PG Diploma in Cardiac Technology', cost: 210000, salary: 510000 },
+        'grad-pgd-dialysis-technology': { name: 'PG Diploma in Dialysis Technology', cost: 190000, salary: 490000 },
+        'grad-pgd-child-health': { name: 'PG Diploma in Child Health', cost: 150000, salary: 460000 },
+        'grad-pgd-guidance-and-counseling': { name: 'PG Diploma in Guidance and Counseling', cost: 100000, salary: 400000 },
+        'grad-pgd-educational-management': { name: 'PG Diploma in Educational Management', cost: 90000, salary: 450000 },
+        'grad-pgd-rehabilitation-psychology': { name: 'PG Diploma in Rehabilitation Psychology', cost: 120000, salary: 480000 },
+        'grad-pgd-human-rights': { name: 'PG Diploma in Human Rights', cost: 80000, salary: 430000 },
+        'grad-pgd-international-relations': { name: 'PG Diploma in International Relations', cost: 130000, salary: 550000 },
+        'grad-pgd-rural-development': { name: 'PG Diploma in Rural Development', cost: 70000, salary: 420000 },
+        'grad-pgd-criminology-and-police-administration': { name: 'PG Diploma in Criminology and Police Administration', cost: 100000, salary: 500000 },
+        'grad-pgd-labour-law-and-administrative-law': { name: 'PG Diploma in Labour Law and Administrative Law', cost: 90000, salary: 520000 },
+        'grad-pgd-environmental-health-and-hygiene': { name: 'PG Diploma in Environmental Health & Hygiene', cost: 110000, salary: 490000 },
+        'grad-pgd-social-work': { name: 'PG Diploma in Social Work', cost: 80000, salary: 410000 },
+        'grad-pgd-disaster-management': { name: 'PG Diploma in Disaster Management', cost: 100000, salary: 530000 },
+        'grad-pgd-geoinformatics': { name: 'PG Diploma in Geoinformatics', cost: 120000, salary: 540000 },
+        'grad-pgd-sustainable-development': { name: 'PG Diploma in Sustainable Development', cost: 130000, salary: 560000 },
+        'grad-pgd-water-resources-management': { name: 'PG Diploma in Water Resources Management', cost: 110000, salary: 550000 },
+        'grad-pgd-renewable-energy': { name: 'PG Diploma in Renewable Energy', cost: 150000, salary: 600000 },
+        'grad-pgd-quality-control-and-assurance': { name: 'PG Diploma in Quality Control and Assurance', cost: 100000, salary: 580000 },
+        'grad-pgd-industrial-safety': { name: 'PG Diploma in Industrial Safety', cost: 90000, salary: 570000 },
+        'grad-pgd-environmental-management': { name: 'PG Diploma in Environmental Management', cost: 120000, salary: 580000 },
+        'grad-pgd-forensic-science': { name: 'PG Diploma in Forensic Science', cost: 150000, salary: 500000 },
+        'grad-pgd-counselling': { name: 'PG Diploma in Counselling', cost: 100000, salary: 400000 },
+        'grad-pgd-foreign-languages-advanced': { name: 'PG Diploma in Foreign Languages (Advanced)', cost: 80000, salary: 500000 },
+        
+        // Professional Certifications
+        'grad-professional-certifications-specialized-training': { name: 'Overview of Prof. Certifications', cost: 100000, salary: 600000 },
+        'grad-cert-ca': { name: 'Chartered Accountancy (CA)', cost: 300000, salary: 1200000 },
+        'grad-cert-cs': { name: 'Company Secretary (CS)', cost: 150000, salary: 800000 },
+        'grad-cert-cma-india': { name: 'Cost and Management Accountancy (CMA - India)', cost: 180000, salary: 900000 },
+        'grad-cert-cfa': { name: 'Chartered Financial Analyst (CFA)', cost: 400000, salary: 1500000 },
+        'grad-cert-cpa': { name: 'Certified Public Accountant (CPA)', cost: 350000, salary: 1400000 },
+        'grad-cert-frm': { name: 'Financial Risk Manager (FRM)', cost: 200000, salary: 1300000 },
+        'grad-cert-cma-us': { name: 'Certified Management Accountant (CMA - US)', cost: 250000, salary: 1100000 },
+        'grad-cert-cfp': { name: 'Certified Financial Planner (CFP)', cost: 100000, salary: 700000 },
+        'grad-cert-bat': { name: 'Business Accounting and Taxation (BAT)', cost: 80000, salary: 500000 },
+        'grad-cert-nism': { name: 'NISM Certifications', cost: 20000, salary: 550000 },
+        'grad-cert-tally': { name: 'Tally ERP 9 / Prime Certification', cost: 15000, salary: 350000 },
+        'grad-cert-gst': { name: 'GST Certification Course', cost: 25000, salary: 400000 },
+        'grad-cert-sap-fico': { name: 'SAP FICO Certification', cost: 300000, salary: 700000 },
+        'grad-cert-investment-banking': { name: 'Investment Banking (Specialized Training)', cost: 150000, salary: 800000 },
+        'grad-cert-equity-research': { name: 'Equity Research (Specialized Training)', cost: 120000, salary: 750000 },
+        'grad-cert-derivatives-and-futures-trading': { name: 'Derivatives and Futures Trading', cost: 80000, salary: 650000 },
+        'grad-cert-chrp': { name: 'Certified Human Resources Professional (CHRP) - General', cost: 100000, salary: 650000 },
+        'grad-chrp-recruitment-and-selection': { name: 'CHRP - Recruitment and Selection', cost: 50000, salary: 600000 },
+        'grad-chrp-compensation-and-benefits': { name: 'CHRP - Compensation and Benefits', cost: 60000, salary: 680000 },
+        'grad-chrp-learning-and-development': { name: 'CHRP - Learning and Development', cost: 55000, salary: 660000 },
+        'grad-cert-advanced-graphic-design': { name: 'Advanced Graphic Design Certification', cost: 70000, salary: 450000 },
+        'grad-cert-video-editing-advanced': { name: 'Video Editing Certification (Advanced)', cost: 80000, salary: 480000 },
+        'grad-cert-motion-graphics': { name: 'Motion Graphics Certification', cost: 100000, salary: 520000 },
+        'grad-cert-photography-advanced': { name: 'Photography Certification (Advanced)', cost: 90000, salary: 400000 },
+        'grad-cert-film-production-specialized': { name: 'Film Production Certification (Specialized)', cost: 150000, salary: 500000 },
+        'grad-cert-vfx': { name: 'VFX Certification', cost: 180000, salary: 550000 },
+        'grad-cert-advanced-foreign-language': { name: 'Advanced Foreign Language Certification', cost: 50000, salary: 480000 },
+        'grad-cert-translation-and-interpretation-certified': { name: 'Translation and Interpretation Certification', cost: 60000, salary: 500000 },
+        'grad-cert-public-speaking-advanced': { name: 'Public Speaking Certification (Advanced)', cost: 40000, salary: 450000 },
+        'grad-cert-nutrition-and-dietetics-advanced': { name: 'Nutrition and Dietetics Certification (Advanced)', cost: 80000, salary: 420000 },
+        'grad-cert-yoga-teacher-training-advanced': { name: 'Yoga Teacher Training (Advanced)', cost: 100000, salary: 380000 },
+        'grad-cert-fitness-trainer-certifications': { name: 'Fitness Trainer Certifications', cost: 70000, salary: 400000 },
+        'grad-cert-counselling-skills-specialized': { name: 'Counselling Skills Certification (Specialized)', cost: 60000, salary: 410000 },
+        'grad-cert-medical-coding': { name: 'Medical Coding Certification', cost: 50000, salary: 400000 },
+        'grad-cert-medical-transcription': { name: 'Medical Transcription Certification', cost: 40000, salary: 380000 },
+        'grad-cert-supply-chain-management-advanced': { name: 'Supply Chain Management Certification (Advanced)', cost: 120000, salary: 700000 },
+        'grad-cert-logistics-and-warehousing': { name: 'Logistics and Warehousing Certification', cost: 80000, salary: 600000 },
+        'grad-cert-export-import-procedures-advanced': { name: 'Export-Import Procedures Certification (Advanced)', cost: 90000, salary: 650000 },
+        'grad-cert-entrepreneurship-development-program-edp': { name: 'Entrepreneurship Development Program (EDP)', cost: 70000, salary: 550000 },
+        'grad-cert-sustainability-certifications': { name: 'Sustainability Certifications', cost: 100000, salary: 750000 },
+        'grad-cert-iot-specialist': { name: 'IoT Specialist Certification', cost: 90000, salary: 700000 },
+        'grad-cert-drone-operation-and-maintenance': { name: 'Drone Operation and Maintenance Certification', cost: 110000, salary: 600000 },
+        'grad-cert-robotics-programming': { name: 'Robotics Programming Certification', cost: 120000, salary: 750000 }
+    };
+
+    /**
+     * Populates the course dropdown menu when the page loads.
+     */
+    function populateDropdown() {
+        const selectElement = document.getElementById('roi-course-select');
+        
+        const sortedCourses = Object.entries(courseData).sort(([,a],[,b]) => a.name.localeCompare(b.name));
+
+        for (const [key, course] of sortedCourses) {
+            const option = document.createElement('option');
+            option.value = key;
+            option.textContent = course.name;
+            selectElement.appendChild(option);
+        }
+    }
+
+    /**
+     * Calculates and displays the ROI and Payback Period based on the selected course.
+     */
+    function calculateROI() {
+        const selectElement = document.getElementById('roi-course-select');
+        const selectedCourseKey = selectElement.value;
+        
+        const costEl = document.getElementById('course-cost');
+        const salaryEl = document.getElementById('course-salary');
+        const roiEl = document.getElementById('course-roi');
+        const paybackEl = document.getElementById('course-payback');
+
+        if (selectedCourseKey && courseData[selectedCourseKey]) {
+            const course = courseData[selectedCourseKey];
+            const cost = course.cost;
+            const salary = course.salary;
+
+            // --- 1. Payback Period Calculation ---
+            const paybackInYears = cost / salary;
+            let formattedPayback;
+
+            if (paybackInYears < 1) {
+                const months = Math.round(paybackInYears * 12);
+                const displayMonths = months < 1 ? 1 : months; 
+                formattedPayback = `Approx. ${displayMonths} ${displayMonths === 1 ? 'month' : 'months'}`;
+            } else {
+                const years = Math.floor(paybackInYears);
+                const remainingMonths = Math.round((paybackInYears - years) * 12);
+                
+                let periodString = `${years} ${years === 1 ? 'year' : 'years'}`;
+                if (remainingMonths > 0) {
+                    periodString += ` & ${remainingMonths} ${remainingMonths === 1 ? 'month' : 'months'}`;
+                }
+                formattedPayback = periodString;
+            }
+            
+            // --- 2. ROI Calculation ---
+            const roi = ((salary - cost) / cost) * 100;
+            
+            const formattedCost = `₹ ${cost.toLocaleString('en-IN')}`;
+            const formattedSalary = `₹ ${salary.toLocaleString('en-IN')}`;
+            const formattedROI = `${roi.toFixed(1)} %`;
+
+            // Update the output fields
+            costEl.textContent = formattedCost;
+            salaryEl.textContent = formattedSalary;
+            paybackEl.textContent = formattedPayback;
+            roiEl.textContent = formattedROI;
+
+        } else {
+            // Reset fields if default option is selected
+            costEl.textContent = '₹ --';
+            salaryEl.textContent = '₹ --';
+            roiEl.textContent = '-- %';
+            paybackEl.textContent = '--';
+        }
+    }
+
+    // Run the populateDropdown function once the window has loaded
+    window.onload = populateDropdown;
+
+</script>
+
+</body>
+</html>

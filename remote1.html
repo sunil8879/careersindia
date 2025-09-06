@@ -1,0 +1,405 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remote Job Platforms for Indians</title>
+    <style>
+        /* --- Basic Setup --- */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f6f9;
+            color: #333;
+            overflow: hidden; /* Prevent body scroll */
+        }
+
+        /* --- Header and Filter --- */
+        .header {
+            background-color: #ffffff;
+            padding: 15px 30px;
+            border-bottom: 1px solid #e0e0e0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 1.5em;
+            color: #1a253c;
+        }
+
+        #category-filter {
+            padding: 10px;
+            font-size: 1em;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+        }
+
+        /* --- Main Two-Column Container --- */
+        .container {
+            display: flex;
+            height: calc(100vh - 75px); /* Full height minus header */
+        }
+
+        /* --- Left Pane (Platform List) --- */
+        .left-pane {
+            flex: 0 0 300px; /* Fixed width */
+            background-color: #ffffff;
+            border-right: 1px solid #e0e0e0;
+            overflow-y: auto;
+        }
+
+        .platform-list a {
+            display: block;
+            padding: 15px 20px;
+            text-decoration: none;
+            color: #333;
+            border-bottom: 1px solid #f0f0f0;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            font-size: 0.95em;
+        }
+
+        .platform-list a:hover {
+            background-color: #f0f8ff;
+        }
+
+        .platform-list a.active {
+            background-color: #e0f0ff;
+            font-weight: 600;
+            border-left: 3px solid #007bff;
+            padding-left: 17px;
+        }
+
+        /* --- Right Pane (Platform Details) --- */
+        .right-pane {
+            flex-grow: 1;
+            padding: 30px;
+            overflow-y: auto;
+        }
+
+        .platform-details {
+            display: none; /* Hidden by default */
+            background-color: #ffffff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .platform-details.active {
+            display: block;
+        }
+        
+        .platform-details h2 {
+            margin-top: 0;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+            color: #1a253c;
+        }
+
+        .platform-details h4 {
+            color: #555;
+            margin-bottom: 5px;
+            margin-top: 20px;
+            font-size: 1em;
+        }
+
+        .platform-details p, .platform-details ul {
+            margin-top: 5px;
+            line-height: 1.6;
+        }
+        
+        .platform-details ul {
+            padding-left: 20px;
+        }
+        
+        .platform-details .website-link {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.2s;
+        }
+
+        .platform-details .website-link:hover {
+            background-color: #0056b3;
+        }
+        
+        /* Utility class for filtering */
+        .hidden {
+            display: none !important;
+        }
+        
+        /* --- Responsive Design for Mobile --- */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                height: auto;
+            }
+            .left-pane {
+                flex: 0 0 auto;
+                max-height: 35vh;
+            }
+            .right-pane {
+                max-height: 65vh;
+            }
+            .header {
+                flex-direction: column;
+                padding-bottom: 10px;
+            }
+            .header h1 {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Remote Job Platforms</h1>
+        <select id="category-filter" onchange="filterPlatforms()">
+            <option value="all">All Categories</option>
+            <option value="general">General Remote Job Boards</option>
+            <option value="freelance">Freelance & Gig Platforms</option>
+            <option value="tech">Software Development / Tech</option>
+            <option value="design">Design & Creative</option>
+            <option value="writing">Writing, Proofreading & Content</option>
+            <option value="transcription">Transcription</option>
+            <option value="testing">Software & User Testing</option>
+            <option value="marketing">Marketing & Sales</option>
+            <option value="support">Customer Support</option>
+            <option value="va">Virtual Assistant / Admin</option>
+            <option value="data">Data Science & Analytics</option>
+            <option value="education">Tutoring & Education</option>
+            <option value="microtask">Micro-tasks & Data Entry</option>
+        </select>
+    </div>
+
+    <div class="container">
+        <div class="left-pane">
+            <div class="platform-list">
+                <!-- Platform links will be injected here by JavaScript -->
+            </div>
+        </div>
+
+        <div class="right-pane">
+            <div id="welcome-message" class="platform-details active">
+                <h2>Welcome!</h2>
+                <p>Select a platform from the list on the left to see its details.</p>
+                <p>You can also use the dropdown menu at the top to filter platforms by their primary category.</p>
+                <hr>
+                <p><strong>Disclaimer:</strong> Salary ranges are estimates and can vary greatly based on your experience, skills, the specific role, and the client/company.</p>
+            </div>
+            <!-- Platform detail divs will be injected here by JavaScript -->
+        </div>
+    </div>
+
+    <script>
+        const platforms = [
+            // General Remote Job Boards
+            { id: 'linkedin', name: 'LinkedIn', category: 'general', link: 'https://www.linkedin.com/jobs/', salary: 'Varies widely (₹4 LPA - ₹50 LPA+)', profile: 'Software Engineer, Marketing Manager, HR Specialist', eligibility: 'Varies by role; strong profile and networking are key.' },
+            { id: 'naukri', name: 'Naukri.com', category: 'general', link: 'https://www.naukri.com/', salary: 'Varies widely (₹3 LPA - ₹40 LPA+)', profile: 'IT Roles, Sales Executives, BPO, Finance', eligibility: 'Beginner to senior levels across all Indian industries.' },
+            { id: 'indeed', name: 'Indeed', category: 'general', link: 'https://in.indeed.com/', salary: 'Varies widely', profile: 'Almost any role imaginable', eligibility: 'All levels, from entry-level to executive.' },
+            { id: 'foundit', name: 'FoundIt (formerly Monster)', category: 'general', link: 'https://www.foundit.in/', salary: 'Varies (₹3 LPA - ₹35 LPA+)', profile: 'Tech, Sales, Marketing, Operations', eligibility: 'Mid to senior-level professionals primarily.' },
+            { id: 'remoteok', name: 'Remote OK', category: 'general', link: 'https://remoteok.com/', salary: 'High (often $50k - $150k+)', profile: 'Software Developer, Product Manager, Designer', eligibility: 'Global roles, often requires high skill and experience.' },
+            { id: 'weworkremotely', name: 'We Work Remotely', category: 'general', link: 'https://weworkremotely.com/', salary: 'High (often $60k - $180k+)', profile: 'Programming, Design, Customer Support, Marketing', eligibility: 'Focus on experienced professionals for global companies.' },
+            { id: 'flexjobs', name: 'FlexJobs', category: 'general', link: 'https://www.flexjobs.com/', salary: 'Varies widely (subscription-based)', profile: 'Writer, Developer, Project Manager, Customer Service', eligibility: 'Vetted, legitimate remote & flexible jobs. All levels.' },
+            { id: 'remotive', name: 'Remotive', category: 'general', link: 'https://remotive.com/', salary: 'Competitive (Global & Indian roles)', profile: 'Software Eng, Product, Marketing, Sales', eligibility: 'Curated list of jobs, good for mid-level professionals.' },
+            { id: 'wellfound', name: 'Wellfound (AngelList)', category: 'general', link: 'https://wellfound.com/', salary: 'Competitive + Equity Options', profile: 'Full-Stack Developer, Product Manager, UI/UX Designer', eligibility: 'Primarily for startup roles, from intern to founding engineer.' },
+            { id: 'cutshort', name: 'Cutshort', category: 'general', link: 'https://cutshort.io/', salary: 'Competitive (₹6 LPA - ₹50 LPA+)', profile: 'Tech roles, Marketing, Sales, Product', eligibility: 'Uses AI matchmaking; strong focus on Indian tech scene.' },
+            { id: 'instahyre', name: 'Instahyre', category: 'general', link: 'https://www.instahyre.com/', salary: 'High (₹10 LPA - ₹80 LPA+)', profile: 'Premium tech and product roles', eligibility: 'Focus on top talent from premium institutes and companies.' },
+
+            // Freelance & Gig Platforms
+            { id: 'upwork', name: 'Upwork', category: 'freelance', link: 'https://www.upwork.com/', salary: 'Hourly ($10 - $100+) or Fixed-price', profile: 'Web Developer, Graphic Designer, Virtual Assistant, Writer', eligibility: 'Beginner to expert; portfolio and reviews are crucial.' },
+            { id: 'fiverr', name: 'Fiverr', category: 'freelance', link: 'https://www.fiverr.com/', salary: 'Per-gig basis ($5 - $1000+)', profile: 'Logo Design, Voice Over, SEO Specialist, Social Media Manager', eligibility: 'Service-based; good for beginners to build a portfolio.' },
+            { id: 'freelancer', name: 'Freelancer.com', category: 'freelance', link: 'https://www.freelancer.com/', salary: 'Project-based or Hourly', profile: 'Data Entry, PHP Developer, Content Writing', eligibility: 'Very broad; competitive bidding process.' },
+            { id: 'toptal', name: 'Toptal', category: 'freelance', link: 'https://www.toptal.com/', salary: 'Very High (often $60 - $200+/hour)', profile: 'Senior Software Engineer, Finance Expert, Project Manager', eligibility: 'Strict screening process; top 3% of freelance talent.' },
+            { id: 'peopleperhour', name: 'PeoplePerHour', category: 'freelance', link: 'https://www.peopleperhour.com/', salary: 'Hourly or Fixed-price', profile: 'Web Design, Writing, Digital Marketing', eligibility: 'Focus on web-based projects; good for intermediate freelancers.' },
+            { id: 'guru', name: 'Guru', category: 'freelance', link: 'https://www.guru.com/', salary: 'Varies (Fixed-price, Hourly, Retainer)', profile: 'Programmer, Designer, Admin Support', eligibility: 'Good for long-term projects and building client relationships.' },
+            { id: 'gigindia', name: 'GigIndia', category: 'freelance', link: 'https://www.gigindia.in/', salary: 'Task-based (micro-gigs)', profile: 'Field Sales, Merchant Onboarding, Audits, Tele-calling', eligibility: 'Student-focused; great for part-time "gigs" in India.' },
+
+            // Software Development / Tech
+            { id: 'turing', name: 'Turing', category: 'tech', link: 'https://www.turing.com/', salary: 'Very High (Global Silicon Valley rates)', profile: 'Senior Backend/Frontend/AI/ML Engineer', eligibility: 'Extensive vetting and testing; for highly skilled senior developers.' },
+            { id: 'arc', name: 'Arc.dev', category: 'tech', link: 'https://arc.dev/', salary: 'High ($60k - $200k+)', profile: 'Remote Software Developer, Engineering Manager', eligibility: 'Vetted developers for permanent or freelance roles.' },
+            { id: 'stackoverflow', name: 'Stack Overflow Jobs', category: 'tech', link: 'https://stackoverflow.com/jobs', salary: 'Competitive to High', profile: 'Developer roles of all specializations', eligibility: 'Strong technical skills required; profile is important.' },
+            { id: 'hired', name: 'Hired.com', category: 'tech', link: 'https://hired.com/', salary: 'High (₹15 LPA - ₹1 Cr+)', profile: 'Software Engineer, Data Scientist, Product Manager', eligibility: 'Companies apply to you; for experienced tech professionals.' },
+            { id: 'crossover', name: 'Crossover', category: 'tech', link: 'https://www.crossover.com/', salary: 'High (Standardized global pay)', profile: 'Chief Architect, Software Engineer, Engineering Manager', eligibility: 'Rigorous testing process for full-time remote roles.' },
+            { id: 'gunio', name: 'Gun.io', category: 'tech', link: 'https://gun.io/', salary: 'High (Freelance & Full-time)', profile: 'Senior freelance developers', eligibility: 'Highly vetted community of elite developers.' },
+            { id: 'andela', name: 'Andela', category: 'tech', link: 'https://andela.com/', salary: 'Competitive global rates', profile: 'Software Engineer (various stacks)', eligibility: 'Connects global talent with companies.' },
+            { id: 'braintrust', name: 'Braintrust', category: 'tech', link: 'https://www.braintrust.com/', salary: 'High (User-owned talent network)', profile: 'Tech, Design, and Strategy roles', eligibility: 'Vetted talent for major enterprises like Nike, Deloitte.' },
+            
+            // Design & Creative
+            { id: 'dribbble', name: 'Dribbble', category: 'design', link: 'https://dribbble.com/jobs', salary: 'Competitive to High', profile: 'Product Designer, UI/UX Designer, Illustrator', eligibility: 'Portfolio is everything. High-quality design community.' },
+            { id: 'behance', name: 'Behance', category: 'design', link: 'https://www.behance.net/joblist', salary: 'Varies widely', profile: 'Graphic Designer, Art Director, Motion Designer', eligibility: 'Adobe\'s portfolio platform; great for creative roles.' },
+            { id: '99designs', name: '99designs', category: 'design', link: 'https://99designs.com/', salary: 'Contest-based or Project-based', profile: 'Logo Design, Web Design, Branding', eligibility: 'Contest-based model, good for building a portfolio.' },
+            { id: 'awesomic', name: 'Awesomic', category: 'design', link: 'https://www.awesomic.io/', salary: 'Subscription based for clients', profile: 'UI/UX Designer, Graphic Designer', eligibility: 'Designers matched with clients for ongoing tasks.' },
+            { id: 'workingnotworking', name: 'Working Not Working', category: 'design', link: 'https://workingnotworking.com/', salary: 'High', profile: 'Creative Director, Copywriter, Designer', eligibility: 'Curated community for high-end creative talent.' },
+
+            // Writing, Proofreading & Content
+            { id: 'problogger', name: 'ProBlogger', category: 'writing', link: 'https://problogger.com/jobs/', salary: 'Varies (per-word, per-article, full-time)', profile: 'Blogger, Content Marketer, Copywriter, Editor', eligibility: 'Strong writing portfolio and niche expertise.' },
+            { id: 'contena', name: 'Contena', category: 'writing', link: 'https://www.contena.co/', salary: 'Varies (subscription-based)', profile: 'Freelance Writer, Editor, Content Strategist', eligibility: 'Aggregates writing gigs; requires paid membership.' },
+            { id: 'clearvoice', name: 'ClearVoice', category: 'writing', link: 'https://www.clearvoice.com/', salary: 'Per-project basis', profile: 'Brand Journalist, Content Strategist, Ghostwriter', eligibility: 'Matches vetted writers with major brands.' },
+            { id: 'scripted', name: 'Scripted', category: 'writing', link: 'https://www.scripted.com/', salary: 'Project-based', profile: 'Blog Writer, Social Media Copywriter', eligibility: 'Must pass a writing test to join the platform.' },
+            { id: 'scribendi', name: 'Scribendi', category: 'writing', link: 'https://www.scribendi.com/careers', salary: 'Hourly (CAD $20-30)', profile: 'Editor, Proofreader', eligibility: 'Requires degree, experience, and passing a stringent test.' },
+            { id: 'proofreadingservices', name: 'ProofreadingServices.com', category: 'writing', link: 'https://www.proofreadingservices.com/en/careers', salary: 'Competitive hourly ($19-46)', profile: 'Proofreader, Editor', eligibility: 'Very competitive, must pass a timed preliminary test.' },
+            { id: 'kirkus', name: 'Kirkus Reviews', category: 'writing', link: 'https://www.kirkusreviews.com/careers', salary: 'Per-review basis', profile: 'Book Reviewer', eligibility: 'Requires experience in book reviewing and a writing sample.' },
+            
+            // Transcription
+            { id: 'rev', name: 'Rev', category: 'transcription', link: 'https://www.rev.com/freelancers', salary: 'Per audio minute ($0.30 - $1.10)', profile: 'Transcriptionist, Captioner, Subtitler', eligibility: 'Must pass a grammar and transcription test to be accepted.' },
+            { id: 'gotranscript', name: 'GoTranscript', category: 'transcription', link: 'https://gotranscript.com/transcription-jobs', salary: 'Per audio minute (up to $0.60)', profile: 'Transcriptionist', eligibility: 'Open to beginners, but requires passing a test. Flexible work.' },
+            { id: 'scribie', name: 'Scribie', category: 'transcription', link: 'https://scribie.com/freelance-transcription', salary: 'Per audio hour ($5 - $20)', profile: 'Transcriptionist (audio/video)', eligibility: 'Good for beginners. Application includes a test.' },
+            { id: 'transcribeme', name: 'TranscribeMe', category: 'transcription', link: 'https://www.transcribeme.com/transcription-jobs', salary: 'Per audio hour ($15 - $22)', profile: 'Transcriptionist for short audio clips', eligibility: 'Must pass an entrance exam. No experience needed to apply.' },
+
+            // Software & User Testing
+            { id: 'utest', name: 'uTest', category: 'testing', link: 'https://www.utest.com/', salary: 'Per bug found or per test case', profile: 'Software Tester, QA Tester', eligibility: 'All levels. Build reputation by participating in test cycles.' },
+            { id: 'usertesting', name: 'UserTesting', category: 'testing', link: 'https://www.usertesting.com/get-paid-to-test', salary: '$4 for 5 min, $10 for 20 min, $30-120 for live interviews', profile: 'Website & App Tester', eligibility: 'Need a computer with a microphone. Must pass a practice test.' },
+            { id: 'testlio', name: 'Testlio', category: 'testing', link: 'https://testlio.com/for-testers/', salary: 'Hourly or per-project', profile: 'Freelance Software Tester', eligibility: 'Vetted community of testers. Focus on more experienced QA pros.' },
+            { id: 'trymyui', name: 'TryMyUI', category: 'testing', link: 'https://www.trymyui.com/worker/signup', salary: '$10 for a 15-20 minute test', profile: 'Usability Tester', eligibility: 'Requires providing verbal feedback while using websites/apps.' },
+            
+            // Marketing & Sales
+            { id: 'marketerhire', name: 'MarketerHire', category: 'marketing', link: 'https://marketerhire.com/', salary: 'High (Freelance)', profile: 'Digital Marketer, SEO Expert, Social Media Marketer', eligibility: 'Vetted, top-tier marketing freelancers.' },
+            { id: 'growthcollective', name: 'GrowthCollective', category: 'marketing', link: 'https://www.growthcollective.com/', salary: 'High (Freelance)', profile: 'Growth Marketer, PPC Specialist', eligibility: 'Connects businesses with vetted freelance marketing experts.' },
+            { id: 'mayple', name: 'Mayple', category: 'marketing', link: 'https://www.mayple.com/', salary: 'Varies', profile: 'Marketing experts and agencies', eligibility: 'Matches businesses with vetted marketing talent.' },
+
+            // Customer Support
+            { id: 'supportdrive', name: 'Support Driven', category: 'support', link: 'https://supportdriven.com/jobs/', salary: 'Competitive', profile: 'Customer Support Rep, Technical Support, Community Manager', eligibility: 'Niche job board for the support community.' },
+            { id: 'justremote', name: 'JustRemote', category: 'support', link: 'https://justremote.co/remote-customer-service-jobs', salary: 'Varies widely', profile: 'Customer Happiness Officer, Tech Support Engineer', eligibility: 'Curates remote jobs from various sources.' },
+            
+            // Virtual Assistant / Admin
+            { id: 'timeetc', name: 'Time etc', category: 'va', link: 'https://www.timeetc.com/us/be-a-virtual-assistant/', salary: 'Hourly ($11 - $16+)', profile: 'Virtual Assistant for US/UK clients', eligibility: 'Requires experience and passing an application process.' },
+            { id: 'fancyhands', name: 'Fancy Hands', category: 'va', link: 'https://www.fancyhands.com/jobs', salary: 'Per-task basis', profile: 'Virtual Assistant for small tasks', eligibility: 'Good for flexible, task-based work.' },
+            { id: 'belay', name: 'BELAY', category: 'va', link: 'https://belaysolutions.com/jobs/', salary: 'Competitive hourly rates', profile: 'Virtual Assistant, Bookkeeper, Social Media Manager', eligibility: 'US-based, but a model for VA work.' },
+            
+            // Data Science & Analytics
+            { id: 'kaggle', name: 'Kaggle Jobs', category: 'data', link: 'https://www.kaggle.com/jobs', salary: 'High', profile: 'Data Scientist, Machine Learning Engineer, Data Analyst', eligibility: 'Strong Kaggle profile and competition performance is a plus.' },
+            { id: 'aiforjobs', name: 'AI-Jobs.net', category: 'data', link: 'https://ai-jobs.net/', salary: 'High', profile: 'AI/ML Engineer, NLP Scientist, Computer Vision Engineer', eligibility: 'Niche job board for Artificial Intelligence roles.' },
+            { id: 'icrunchdata', name: 'icrunchdata', category: 'data', link: 'https://icrunchdata.com/', salary: 'Competitive to High', profile: 'Data Engineer, Business Analyst, Big Data Specialist', eligibility: 'Jobs in data, analytics, and AI.' },
+
+            // Tutoring & Education
+            { id: 'cambly', name: 'Cambly', category: 'education', link: 'https://www.cambly.com/en/tutors', salary: '$10.20/hour ($0.17/min)', profile: 'English Conversation Tutor', eligibility: 'Native or fluent English speaker. No degree/experience required.' },
+            { id: 'italki', name: 'italki', category: 'education', link: 'https://www.italki.com/become-a-teacher', salary: 'Tutors set their own rates ($8 - $30+/hour)', profile: 'Language Tutor (various languages)', eligibility: 'Professional Teachers (with certification) or Community Tutors (fluent speakers).' },
+            { id: 'preply', name: 'Preply', category: 'education', link: 'https://preply.com/en/teach', salary: 'Tutors set their own rates ($10 - $40+/hour)', profile: 'Online Tutor for languages, academic subjects, hobbies', eligibility: 'No specific certification required, but experience helps.' },
+            { id: 'vedantu', name: 'Vedantu', category: 'education', link: 'https://www.vedantu.com/become-a-teacher', salary: 'Varies (per hour/session)', profile: 'Online Tutor for K-12 and competitive exams', eligibility: 'Requires teaching experience and subject matter expertise.' },
+            { id: 'byjus', name: 'BYJU\'S', category: 'education', link: 'https://byjus.com/careers-at-byjus/', salary: 'Competitive', profile: 'Academic Specialist, Mentor (often remote)', eligibility: 'Strong subject knowledge and communication skills.' },
+            { id: 'chegg', name: 'Chegg Tutors', category: 'education', link: 'https://www.chegg.com/tutors/become-a-tutor/', salary: 'Hourly ($20+)', profile: 'Online Tutor (various subjects)', eligibility: 'Must be enrolled in or a graduate of a university.' },
+            { id: 'udemy', name: 'Udemy', category: 'education', link: 'https://www.udemy.com/teaching/', salary: 'Varies (revenue share from course sales)', profile: 'Course Instructor', eligibility: 'Expertise in any subject you want to teach.' },
+            { id: 'vipkid', name: 'VIPKid', category: 'education', link: 'https://www.vipkid.com/teach', salary: '$14-22/hour', profile: 'Online English Teacher', eligibility: 'Eligibility criteria can change; historically required degree and experience.' },
+{ id: 'rafalreyzer', name: 'Rafal Reyzer', category: 'education', link: 'https://rafalreyzer.com/', salary: 'Varies (Resource Site)', profile: 'ESL Job Board & Resources', eligibility: 'A resource and job board for TEFL and online teaching opportunities.' },
+            { id: 'camblykids', name: 'Cambly Kids', category: 'education', link: 'https://www.cambly.com/en/tutors?lang=en', salary: '$12/hour ($0.20/min)', profile: 'English Tutor for Children', eligibility: 'Specialized for children, slightly higher pay than regular Cambly. No degree needed.' },
+            { id: 'skimatalk', name: 'SkimaTalk', category: 'education', link: 'https://www.skimatalk.com/en/teacher_info', salary: 'Tutor sets rate (typically $8-16/hr)', profile: 'English Conversation Tutor', eligibility: 'Native English speakers. Short 25-minute sessions.' },
+            { id: 'gogokid', name: 'GoGoKid', category: 'education', link: 'https://teacher.gogokid.com/', salary: '~$14–25/hr', profile: 'Online English Teacher for Kids', eligibility: 'Requires tutors from US/Canada. Pre-made lesson materials are provided.' },
+            { id: 'qkids', name: 'Qkids', category: 'education', link: 'https://teacher.qkids.com/be-our-teacher', salary: '$12-20/hr', profile: 'Group English Teacher (1-4 kids)', eligibility: 'Materials and booking managed by the platform. US/Canada based.' },
+            { id: 'palfish', name: 'PalFish', category: 'education', link: 'https://www.palfish.com/klian/web/dist/home.html', salary: 'Flexible rates ($10–30/hr)', profile: 'English Tutor (via app)', eligibility: 'Accepts non-native fluent speakers. Good for teaching from a phone/tablet.' },
+            { id: 'dada', name: 'DaDa', category: 'education', link: 'https://www.dadaabc.com/teacher/job/overview', salary: 'Up to $25/hr', profile: 'One-on-one English Tutor', eligibility: 'Focus on Chinese students. Provides training and support for new tutors.' },
+            { id: 'magicears', name: 'Magic Ears', category: 'education', link: 'https://t.mmears.com/', salary: '$18–26/hr', profile: 'Group English Teacher (1-4 kids)', eligibility: 'Requires US/Canada-based tutors. High-energy teaching style preferred.' },
+            { id: '51talk', name: '51Talk', category: 'education', link: 'https://www.51talk.ph/tutor-ph/', salary: '~$15-18/hr', profile: 'Online English Teacher for Chinese students', eligibility: 'Philippines-based platform with a large student base.' },
+            { id: 'berlitz', name: 'Berlitz', category: 'education', link: 'https://www.berlitz.com/en-us/careers', salary: '~$14/hr+', profile: 'Language Instructor', eligibility: 'Established company with a virtual classroom model. Professional environment.' },
+            { id: 'openenglish', name: 'Open English', category: 'education', link: 'https://www.openenglish.com/en/careers/', salary: 'Varies', profile: 'Online English Teacher', eligibility: 'Focuses on Latin American students. No strict degree qualifications usually required.' },
+            { id: 'landi', name: 'Landi', category: 'education', link: 'https://www.landichina.com/', salary: 'Up to $23/hr', profile: 'Peer Study English Tutor', eligibility: 'Uses CLIL (Content and Language Integrated Learning) Peer Study methods.' },
+            { id: 'sayabc', name: 'SayABC', category: 'education', link: 'https://t.sayabc.com/apply.php', salary: 'Up to $21/hr', profile: 'Group Teacher for kids (5-12)', eligibility: 'Teaches Chinese students. All coursework and tools are provided.' },
+            { id: 'engoo', name: 'Engoo', category: 'education', link: 'https://engoo.com/app/become-a-tutor', salary: '~$10/hr', profile: 'English Conversation Tutor', eligibility: 'Structured lessons provided. No degree required. Good for entry-level tutors.' },
+            { id: 'amazingtalker', name: 'AmazingTalker', category: 'education', link: 'https://en.amazingtalker.com/tutor-application/create', salary: 'Tutor sets rate ($15–30+/hr)', profile: 'Specialized Language & Subject Tutor', eligibility: 'Good for experienced teachers who can market their specialized skills.' },
+            { id: 'twenix', name: 'Twenix', category: 'education', link: 'https://twenix.com/become-a-teacher/', salary: '€7–15/hr', profile: 'Business English Tutor', eligibility: 'Focus on short (26-min) lessons for professionals in Spain and Italy.' },
+            { id: 'fluentbe', name: 'FluentBe', category: 'education', link: 'https://fluentbe.com/become-a-tutor/', salary: '$7.50–12/hr', profile: 'Group Conversation Tutor', eligibility: 'Focus on Central European students. Conversation-based lessons.' },
+            { id: 'lingoda', name: 'Lingoda', category: 'education', link: 'https://www.lingoda.com/en/become-teacher/', salary: '~$13/hr', profile: 'Group or Private Language Tutor', eligibility: 'Requires TEFL certification & experience. Uses Zoom for classes.' },
+            { id: 'itutorgroup', name: 'iTutorGroup', category: 'education', link: 'https://www.itutorgroup.com/', salary: 'Broad range (~$10–30/hr)', profile: 'Online Tutor', eligibility: 'Materials are provided. One of the largest online education platforms.' },
+            { id: 'lingoace', name: 'LingoAce', category: 'education', link: 'https://www.lingoace.com/sg/about/careers', salary: 'Up to $30/hr', profile: 'One-to-one Language Tutor for kids', eligibility: 'Requires TEFL certification and a degree. Focus on immersive learning.' },
+            
+            // Micro-tasks & Data Entry
+            { id: 'mturk', name: 'Amazon Mechanical Turk', category: 'microtask', link: 'https://www.mturk.com/', salary: 'Very low, task-based ($1-5/hour is common)', profile: 'Data Annotation, Surveys, Image Tagging, Typing', eligibility: 'Amazon account. Approval process can take time.' },
+            { id: 'clickworker', name: 'Clickworker', category: 'microtask', link: 'https://www.clickworker.com/clickworker-job/', salary: 'Low, per-task basis', profile: 'Typing, Data Categorization, Surveys, App Testing', eligibility: 'Must pass assessments to unlock more jobs.' },
+            { id: 'appen', name: 'Appen', category: 'microtask', link: 'https://appen.com/jobs/', salary: 'Project-based hourly ($5-15/hour)', profile: 'Search Media Evaluator, Social Media Evaluator, Data Annotation', eligibility: 'Often requires passing project-specific qualification exams.' },
+            { id: '2captcha', name: '2Captcha', category: 'microtask', link: 'https://2captcha.com/', salary: 'Extremely low (~$0.50 per 1000 captchas)', profile: 'Captcha Solver / Data Entry', eligibility: 'No experience needed. Not recommended as a primary income source.' }
+        ];
+
+        const platformList = document.querySelector('.platform-list');
+        const rightPane = document.querySelector('.right-pane');
+
+        // --- Populate the list and details ---
+        platforms.sort((a, b) => a.name.localeCompare(b.name)).forEach(p => {
+            const link = document.createElement('a');
+            link.href = '#';
+            link.dataset.target = p.id;
+            link.dataset.category = p.category;
+            link.textContent = p.name;
+            platformList.appendChild(link);
+
+            const detail = document.createElement('div');
+            detail.id = p.id;
+            detail.className = 'platform-details';
+            detail.innerHTML = `
+                <h2>${p.name}</h2>
+                <h4>Category Type</h4>
+                <p>${p.category.charAt(0).toUpperCase() + p.category.slice(1).replace('-', ' & ')}</p>
+                
+                <h4>Common Job Profiles</h4>
+                <ul>
+                    ${p.profile.split(', ').map(item => `<li>${item}</li>`).join('')}
+                </ul>
+                
+                <h4>General Salary Range</h4>
+                <p>${p.salary}</p>
+                
+                <h4>Typical Eligibility</h4>
+                <p>${p.eligibility}</p>
+                
+                <a href="${p.link}" class="website-link" target="_blank" rel="noopener noreferrer">Visit Website</a>
+            `;
+            rightPane.appendChild(detail);
+        });
+
+        // --- Event Listener for Clicks ---
+        platformList.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (e.target.tagName === 'A') {
+                const targetId = e.target.dataset.target;
+                platformList.querySelectorAll('a').forEach(a => a.classList.remove('active'));
+                e.target.classList.add('active');
+                rightPane.querySelectorAll('.platform-details').forEach(d => d.classList.remove('active'));
+                document.getElementById(targetId).classList.add('active');
+            }
+        });
+
+        // --- Filter Function ---
+        function filterPlatforms() {
+            const selectedCategory = document.getElementById('category-filter').value;
+            const links = platformList.querySelectorAll('a');
+            let firstVisibleLink = null;
+            
+            links.forEach(link => {
+                if (selectedCategory === 'all' || link.dataset.category === selectedCategory) {
+                    link.classList.remove('hidden');
+                    if (!firstVisibleLink) {
+                        firstVisibleLink = link;
+                    }
+                } else {
+                    link.classList.add('hidden');
+                }
+            });
+            
+            rightPane.querySelectorAll('.platform-details').forEach(d => d.classList.remove('active'));
+            platformList.querySelectorAll('a').forEach(a => a.classList.remove('active'));
+
+            if (firstVisibleLink) {
+                 firstVisibleLink.click();
+            } else {
+                document.getElementById('welcome-message').classList.add('active');
+            }
+        }
+        
+        // Initial load
+        filterPlatforms();
+    </script>
+</body>
+</html>

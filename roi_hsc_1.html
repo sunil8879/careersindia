@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HSC Course Financial Calculator</title>
+
+    <!-- Using the same fonts for consistency -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+    /* Using CSS variables for a consistent look and feel */
+    :root {
+        --primary-color: #0056b3;
+        --secondary-color: #007bff;
+        --accent-color: #ff6f61;
+        --success-color: #28a745;
+        --text-dark: #343a49;
+        --text-light: #6c757d;
+        --bg-light: #f8f9fa;
+        --bg-white: #ffffff;
+        --border-color: #dee2e6;
+        --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: var(--bg-light);
+        color: var(--text-dark);
+        line-height: 1.6;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    /* --- Calculator Styling --- */
+    .roi-calculator-container {
+        max-width: 700px;
+        width: 100%;
+        margin: 40px auto;
+        padding: 40px;
+        background-color: var(--bg-white);
+        border-radius: 12px;
+        box-shadow: var(--shadow-md);
+        border-top: 5px solid var(--primary-color);
+    }
+    .roi-calculator-container h2 {
+        font-size: 2.2rem;
+        color: var(--primary-color);
+        margin-top: 0;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    .roi-calculator-container p {
+        color: var(--text-light);
+        margin-bottom: 30px;
+        text-align: center;
+        font-size: 1.1rem;
+    }
+
+    /* Input Section */
+    .roi-input {
+        margin-bottom: 30px;
+    }
+    .roi-input label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 10px;
+        font-size: 1.2rem;
+    }
+    #roi-course-select {
+        width: 100%;
+        padding: 15px;
+        font-size: 1.1em;
+        border-radius: 8px;
+        border: 2px solid var(--border-color);
+        background-color: #fff;
+        transition: border-color 0.3s, box-shadow 0.3s;
+        cursor: pointer;
+    }
+    #roi-course-select:focus {
+        outline: none;
+        border-color: var(--secondary-color);
+        box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+    }
+
+    /* Output Section */
+    #roi-results {
+        background-color: var(--bg-light);
+        padding: 25px;
+        border-radius: 8px;
+        border: 1px solid var(--border-color);
+    }
+    .result-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 0;
+        font-size: 1.1rem;
+    }
+    .result-item:not(:last-child) {
+        border-bottom: 1px solid var(--border-color);
+    }
+    .result-item .label {
+        color: var(--text-dark);
+        font-weight: 500;
+    }
+    .result-item .value {
+        font-weight: 600;
+        color: var(--primary-color);
+    }
+    .result-item .payback-value {
+        color: var(--accent-color); 
+        font-weight: 700;
+    }
+    
+    /* CIR Section Styling */
+    .result-item.cir-section {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 20px;
+        margin-top: 10px;
+        border-top: 1px solid var(--border-color);
+        border-bottom: none; /* remove double border */
+    }
+    .result-item.cir-section .label {
+        margin-bottom: 15px;
+        font-size: 1.2rem;
+        color: var(--primary-color);
+    }
+    .cir-values {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 10px;
+        width: 100%;
+        text-align: center;
+    }
+    .cir-values span {
+        background-color: #e9f7ec;
+        color: var(--success-color);
+        padding: 8px 12px;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 1rem;
+    }
+
+    /* Explanation Box Styling */
+    .explanation-box {
+        margin-top: 30px;
+        padding: 20px;
+        background-color: #f0f8ff;
+        border-left: 4px solid var(--secondary-color);
+        border-radius: 0 8px 8px 0;
+    }
+    .explanation-box h4 {
+        margin-top: 0;
+        color: var(--primary-color);
+    }
+    .explanation-box p {
+        font-size: 0.95rem;
+        color: var(--text-dark);
+        text-align: left;
+        margin-bottom: 10px;
+    }
+    .explanation-box p:last-child {
+        margin-bottom: 0;
+    }
+</style>
+</head>
+<body>
+
+<div class="roi-calculator-container">
+    <h2>HSC (12th) Course Financial Calculator</h2>
+    <p>Select a course to see its cost, salary, payback period, and Cost to Income Ratio (CIR).</p>
+
+    <!-- Input: Dropdown for selecting a course -->
+    <div class="roi-input">
+        <label for="roi-course-select">Select a Course:</label>
+        <select id="roi-course-select" onchange="calculateMetrics()">
+            <option value="">-- Please choose a course --</option>
+            <!-- Options will be populated by JavaScript -->
+        </select>
+    </div>
+
+    <!-- Output: Display for results -->
+    <div id="roi-results">
+        <div class="result-item">
+            <span class="label">Total Estimated Cost:</span>
+            <span id="course-cost" class="value">₹ --</span>
+        </div>
+        <div class="result-item">
+            <span class="label">Average Starting Salary (p.a.):</span>
+            <span id="course-salary" class="value">₹ --</span>
+        </div>
+        <div class="result-item">
+            <span class="label">Payback Period:</span>
+            <span id="course-payback" class="value payback-value">--</span>
+        </div>
+        <!-- 5-Year CIR Section -->
+        <div class="result-item cir-section">
+            <span class="label">Cost to Income Ratio (CIR) over 5 Years:</span>
+            <div id="course-cir-list" class="cir-values">
+                <span>Year 1: -- %</span>
+                <span>Year 2: -- %</span>
+                <span>Year 3: -- %</span>
+                <span>Year 4: -- %</span>
+                <span>Year 5: -- %</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Updated explanation box for CIR -->
+    <div class="explanation-box">
+        <h4>What do these numbers mean?</h4>
+        <p>
+            <strong>Payback Period:</strong> The estimated time it takes to earn back your initial course cost from your salary. 
+            <em>A shorter period is better.</em>
+        </p>
+        <p>
+            <strong>Cost to Income Ratio (CIR):</strong> This shows what percentage of your annual salary the course fee represents. For example, a CIR of 16.7% means the course fee is only 16.7% of your first year's salary. A salary hike of 10% is assumed here.
+            <strong>A lower CIR is better</strong>, as it indicates a quicker return on your educational investment.
+        </p>
+    </div>
+</div>
+
+
+<script>
+    // --- DATA SOURCE ---
+    // In a real application, this data would come from a database.
+    // Costs are total for the entire course duration. Salaries are average starting per annum.
+    const courseData = {
+        // Medical & Pharma
+        'hsc-bachelor-of-medicine-bachelor-of-surgery-mbbs': { name: 'Bachelor of Medicine, Bachelor of Surgery (MBBS)', cost: 5000000, salary: 900000 },
+        'hsc-bachelor-of-dental-surgery-bds': { name: 'Bachelor of Dental Surgery (BDS)', cost: 2000000, salary: 500000 },
+        'hsc-bachelor-of-ayurvedic-medicine-surgery-bams': { name: 'Bachelor of Ayurvedic Medicine and Surgery (BAMS)', cost: 1500000, salary: 450000 },
+        'hsc-bachelor-of-homeopathic-medicine-surgery-bhms': { name: 'Bachelor of Homeopathic Medicine and Surgery (BHMS)', cost: 1200000, salary: 400000 },
+        'hsc-bachelor-of-unani-medicine-surgery-bums': { name: 'Bachelor of Unani Medicine and Surgery (BUMS)', cost: 1000000, salary: 380000 },
+        'hsc-bachelor-of-veterinary-science-animal-husbandry-bvsc-ah': { name: 'Bachelor of Veterinary Science & Animal Husbandry (BVSc & AH)', cost: 800000, salary: 550000 },
+        'hsc-bachelor-of-physiotherapy-bpt': { name: 'Bachelor of Physiotherapy (BPT)', cost: 600000, salary: 420000 },
+        'hsc-bachelor-of-occupational-therapy-bot': { name: 'Bachelor of Occupational Therapy (BOT)', cost: 500000, salary: 400000 },
+        'hsc-bachelor-of-pharmacy-bpharm': { name: 'Bachelor of Pharmacy (B.Pharm)', cost: 700000, salary: 450000 },
+        'hsc-bsc-in-nursing': { name: 'B.Sc. in Nursing', cost: 500000, salary: 380000 },
+
+        // Pure & Applied Science
+        'hsc-bachelor-of-science-bsc-in-agriculture': { name: 'Bachelor of Science (B.Sc.) in Agriculture', cost: 300000, salary: 350000 },
+        'hsc-bsc-in-biochemistry': { name: 'B.Sc. in Biochemistry', cost: 200000, salary: 320000 },
+        'hsc-bsc-in-biology': { name: 'B.Sc. in Biology', cost: 150000, salary: 300000 },
+        'hsc-bsc-in-biotechnology': { name: 'B.Sc. in Biotechnology', cost: 350000, salary: 420000 },
+        'hsc-bsc-in-botany': { name: 'B.Sc. in Botany', cost: 150000, salary: 300000 },
+        'hsc-bsc-in-chemistry': { name: 'B.Sc. in Chemistry', cost: 180000, salary: 330000 },
+        'hsc-bsc-in-computer-science': { name: 'B.Sc. in Computer Science', cost: 250000, salary: 450000 },
+        'hsc-bsc-in-data-science': { name: 'B.Sc. in Data Science', cost: 400000, salary: 600000 },
+        'hsc-bsc-in-dietetics-nutrition': { name: 'B.Sc. in Dietetics and Nutrition', cost: 280000, salary: 350000 },
+        'hsc-bsc-in-electronics': { name: 'B.Sc. in Electronics', cost: 220000, salary: 380000 },
+        'hsc-bsc-in-environmental-science': { name: 'B.Sc. in Environmental Science', cost: 250000, salary: 360000 },
+        'hsc-bsc-in-food-technology': { name: 'B.Sc. in Food Technology', cost: 300000, salary: 400000 },
+        'hsc-bsc-in-forensic-science': { name: 'B.Sc. in Forensic Science', cost: 400000, salary: 450000 },
+        'hsc-bsc-in-geology': { name: 'B.Sc. in Geology', cost: 200000, salary: 380000 },
+        'hsc-bsc-in-horticulture': { name: 'B.Sc. in Horticulture', cost: 280000, salary: 340000 },
+        'hsc-bsc-in-information-technology-it': { name: 'B.Sc. in Information Technology (IT)', cost: 250000, salary: 480000 },
+        'hsc-bsc-in-mathematics': { name: 'B.Sc. in Mathematics', cost: 120000, salary: 350000 },
+        'hsc-bsc-in-medical-laboratory-technology-mlt': { name: 'B.Sc. in Medical Laboratory Technology (MLT)', cost: 300000, salary: 360000 },
+        'hsc-bsc-in-microbiology': { name: 'B.Sc. in Microbiology', cost: 220000, salary: 340000 },
+        'hsc-bsc-in-nautical-science': { name: 'B.Sc. in Nautical Science', cost: 1000000, salary: 800000 },
+        'hsc-bsc-in-optometry': { name: 'B.Sc. in Optometry', cost: 400000, salary: 400000 },
+        'hsc-bsc-in-perfusion-technology': { name: 'B.Sc. in Perfusion Technology', cost: 450000, salary: 420000 },
+        'hsc-bsc-in-physics': { name: 'B.Sc. in Physics', cost: 180000, salary: 350000 },
+        'hsc-bsc-in-radiography-imaging-technology': { name: 'B.Sc. in Radiography and Imaging Technology', cost: 350000, salary: 380000 },
+        'hsc-bsc-in-statistics': { name: 'B.Sc. in Statistics', cost: 150000, salary: 400000 },
+        'hsc-bsc-in-zoology': { name: 'B.Sc. in Zoology', cost: 150000, salary: 300000 },
+
+        // Engineering & Tech
+        'hsc-bachelor-of-technology-btech-bachelor-of-engineering-be-in-aeronautical-engineering': { name: 'B.Tech./B.E. in Aeronautical Engineering', cost: 1000000, salary: 700000 },
+        'hsc-btech-be-in-agricultural-engineering': { name: 'B.Tech./B.E. in Agricultural Engineering', cost: 600000, salary: 500000 },
+        'hsc-btech-be-in-artificial-intelligence-machine-learning': { name: 'B.Tech./B.E. in AI and Machine Learning', cost: 1200000, salary: 900000 },
+        'hsc-btech-be-in-automobile-engineering': { name: 'B.Tech./B.E. in Automobile Engineering', cost: 800000, salary: 600000 },
+        'hsc-btech-be-in-biomedical-engineering': { name: 'B.Tech./B.E. in Biomedical Engineering', cost: 700000, salary: 550000 },
+        'hsc-btech-be-in-biotechnology-engineering': { name: 'B.Tech./B.E. in Biotechnology Engineering', cost: 750000, salary: 580000 },
+        'hsc-btech-be-in-ceramic-engineering': { name: 'B.Tech./B.E. in Ceramic Engineering', cost: 500000, salary: 480000 },
+        'hsc-btech-be-in-chemical-engineering': { name: 'B.Tech./B.E. in Chemical Engineering', cost: 900000, salary: 650000 },
+        'hsc-btech-be-in-civil-engineering': { name: 'B.Tech./B.E. in Civil Engineering', cost: 800000, salary: 550000 },
+        'hsc-btech-be-in-computer-engineering': { name: 'B.Tech./B.E. in Computer Engineering', cost: 1000000, salary: 800000 },
+        'hsc-btech-be-in-computer-science-engineering-cse': { name: 'B.Tech./B.E. in Computer Science and Engineering (CSE)', cost: 1100000, salary: 850000 },
+        'hsc-btech-be-in-cyber-security': { name: 'B.Tech./B.E. in Cyber Security', cost: 900000, salary: 750000 },
+        'hsc-btech-be-in-electrical-electronics-engineering-eee': { name: 'B.Tech./B.E. in Electrical and Electronics Engineering (EEE)', cost: 850000, salary: 620000 },
+        'hsc-btech-be-in-electrical-engineering': { name: 'B.Tech./B.E. in Electrical Engineering', cost: 800000, salary: 600000 },
+        'hsc-btech-be-in-electronics-communication-engineering-ece': { name: 'B.Tech./B.E. in Electronics and Communication Engineering (ECE)', cost: 900000, salary: 680000 },
+        'hsc-btech-be-in-electronics-engineering': { name: 'B.Tech./B.E. in Electronics Engineering', cost: 880000, salary: 650000 },
+        'hsc-btech-be-in-environmental-engineering': { name: 'B.Tech./B.E. in Environmental Engineering', cost: 650000, salary: 520000 },
+        'hsc-btech-be-in-food-technology': { name: 'B.Tech./B.E. in Food Technology', cost: 550000, salary: 480000 },
+        'hsc-btech-be-in-genetic-engineering': { name: 'B.Tech./B.E. in Genetic Engineering', cost: 1000000, salary: 650000 },
+        'hsc-btech-be-in-industrial-engineering': { name: 'B.Tech./B.E. in Industrial Engineering', cost: 700000, salary: 580000 },
+        'hsc-btech-be-in-information-science': { name: 'B.Tech./B.E. in Information Science', cost: 950000, salary: 780000 },
+        'hsc-btech-be-in-information-technology-it': { name: 'B.Tech./B.E. in Information Technology (IT)', cost: 980000, salary: 800000 },
+        'hsc-btech-be-in-instrumentation-engineering': { name: 'B.Tech./B.E. in Instrumentation Engineering', cost: 750000, salary: 600000 },
+        'hsc-btech-be-in-marine-engineering': { name: 'B.Tech./B.E. in Marine Engineering', cost: 1200000, salary: 900000 },
+        'hsc-btech-be-in-materials-science-engineering': { name: 'B.Tech./B.E. in Materials Science and Engineering', cost: 800000, salary: 620000 },
+        'hsc-btech-be-in-mechanical-engineering': { name: 'B.Tech./B.E. in Mechanical Engineering', cost: 850000, salary: 600000 },
+        'hsc-btech-be-in-mechatronics-engineering': { name: 'B.Tech./B.E. in Mechatronics Engineering', cost: 950000, salary: 700000 },
+        'hsc-btech-be-in-metallurgical-engineering': { name: 'B.Tech./B.E. in Metallurgical Engineering', cost: 700000, salary: 580000 },
+        'hsc-btech-be-in-mining-engineering': { name: 'B.Tech./B.E. in Mining Engineering', cost: 750000, salary: 650000 },
+        'hsc-btech-be-in-nanotechnology': { name: 'B.Tech./B.E. in Nanotechnology', cost: 1100000, salary: 750000 },
+        'hsc-btech-be-in-nuclear-engineering': { name: 'B.Tech./B.E. in Nuclear Engineering', cost: 1300000, salary: 850000 },
+        'hsc-btech-be-in-petroleum-engineering': { name: 'B.Tech./B.E. in Petroleum Engineering', cost: 1200000, salary: 800000 },
+        'hsc-btech-be-in-plastic-engineering': { name: 'B.Tech./B.E. in Plastic Engineering', cost: 600000, salary: 500000 },
+        'hsc-btech-be-in-polymer-engineering': { name: 'B.Tech./B.E. in Polymer Engineering', cost: 620000, salary: 520000 },
+        'hsc-btech-be-in-production-engineering': { name: 'B.Tech./B.E. in Production Engineering', cost: 700000, salary: 570000 },
+        'hsc-btech-be-in-robotics-engineering': { name: 'B.Tech./B.E. in Robotics Engineering', cost: 1000000, salary: 720000 },
+        'hsc-btech-be-in-software-engineering': { name: 'B.Tech./B.E. in Software Engineering', cost: 1050000, salary: 820000 },
+        'hsc-bachelor-of-architecture-barch': { name: 'Bachelor of Architecture (B.Arch.)', cost: 1200000, salary: 600000 },
+        
+        // Design & Fine Arts
+        'hsc-bachelor-of-fine-arts-bfa': { name: 'Bachelor of Fine Arts (BFA)', cost: 500000, salary: 350000 },
+        'hsc-bachelor-of-design-bdes': { name: 'Bachelor of Design (B.Des)', cost: 1000000, salary: 600000 },
+        'hsc-bachelor-of-fashion-technology-bftech': { name: 'Bachelor of Fashion Technology (B.F.Tech)', cost: 800000, salary: 550000 },
+        'hsc-bachelor-of-interior-design-bides': { name: 'Bachelor of Interior Design (B.I.Des)', cost: 700000, salary: 480000 },
+        'hsc-bachelor-of-performing-arts-bpa': { name: 'Bachelor of Performing Arts (BPA)', cost: 400000, salary: 300000 },
+        'hsc-bachelor-of-film-television-production-bftp': { name: 'Bachelor of Film and Television Production (BFTP)', cost: 900000, salary: 450000 },
+        'hsc-bachelor-of-multimedia-bmm': { name: 'Bachelor of Multimedia (BMM)', cost: 500000, salary: 420000 },
+        'hsc-bachelor-of-visual-arts-bva': { name: 'Bachelor of Visual Arts (BVA)', cost: 450000, salary: 320000 },
+        
+        // Arts & Humanities
+        'hsc-bachelor-of-arts-ba-in-economics': { name: 'Bachelor of Arts (BA) in Economics', cost: 100000, salary: 400000 },
+        'hsc-ba-in-english': { name: 'BA in English', cost: 80000, salary: 320000 },
+        'hsc-ba-in-history': { name: 'BA in History', cost: 60000, salary: 300000 },
+        'hsc-ba-in-journalism-mass-communication': { name: 'BA in Journalism and Mass Communication', cost: 250000, salary: 380000 },
+        'hsc-ba-in-political-science': { name: 'BA in Political Science', cost: 70000, salary: 350000 },
+        'hsc-ba-in-psychology': { name: 'BA in Psychology', cost: 150000, salary: 360000 },
+        'hsc-ba-in-sociology': { name: 'BA in Sociology', cost: 70000, salary: 320000 },
+        'hsc-bachelor-of-journalism-mass-communication-bjmc': { name: 'Bachelor of Journalism and Mass Communication (BJMC)', cost: 300000, salary: 400000 },
+        'hsc-bachelor-of-social-work-bsw': { name: 'Bachelor of Social Work (BSW)', cost: 120000, salary: 300000 },
+        'hsc-bachelor-of-rural-studies-brs': { name: 'Bachelor of Rural Studies (BRS)', cost: 100000, salary: 280000 },
+        'hsc-bachelor-of-library-information-science-blibsc': { name: 'Bachelor of Library and Information Science (B.Lib.Sc)', cost: 80000, salary: 290000 },
+        'hsc-bachelor-of-public-relations-bpr': { name: 'Bachelor of Public Relations (BPR)', cost: 200000, salary: 350000 },
+
+        // Commerce & Management
+        'hsc-bachelor-of-business-administration-bba': { name: 'Bachelor of Business Administration (BBA)', cost: 400000, salary: 450000 },
+        'hsc-bachelor-of-commerce-bcom': { name: 'Bachelor of Commerce (B.Com)', cost: 120000, salary: 350000 },
+        'hsc-bachelor-of-hotel-management-bhm': { name: 'Bachelor of Hotel Management (BHM)', cost: 500000, salary: 400000 },
+        'hsc-bachelor-of-aviation-science-bas': { name: 'Bachelor of Aviation Science (B.A.S)', cost: 600000, salary: 550000 },
+        'hsc-bachelor-of-business-economics-bbe': { name: 'Bachelor of Business Economics (BBE)', cost: 300000, salary: 480000 },
+        'hsc-bachelor-of-event-management-bem': { name: 'Bachelor of Event Management (BEM)', cost: 350000, salary: 380000 },
+        'hsc-bachelor-of-hospitality-tourism-management-bhtm': { name: 'Bachelor of Hospitality and Tourism Management (BHTM)', cost: 400000, salary: 390000 },
+        'hsc-bachelor-of-information-management-bim': { name: 'Bachelor of Information Management (BIM)', cost: 350000, salary: 500000 },
+        'hsc-bachelor-of-sports-management-bsm': { name: 'Bachelor of Sports Management (BSM)', cost: 450000, salary: 420000 },
+        'hsc-bachelor-of-travel-tourism-management-bttm': { name: 'Bachelor of Travel and Tourism Management (BTTM)', cost: 380000, salary: 370000 },
+        'hsc-integrated-mba': { name: 'Integrated MBA', cost: 1500000, salary: 700000 },
+
+        // Law
+        'hsc-bachelor-of-law-llb': { name: 'Bachelor of Law (LLB) (3-year, after graduation)', cost: 400000, salary: 550000 },
+        'hsc-integrated-ba-llb': { name: 'Integrated B.A. LLB (5-year)', cost: 1000000, salary: 650000 },
+        'hsc-integrated-bsc-llb': { name: 'Integrated B.Sc. LLB (5-year)', cost: 1200000, salary: 700000 },
+        'hsc-integrated-bcom-llb': { name: 'Integrated B.Com LLB (5-year)', cost: 1100000, salary: 680000 },
+        'hsc-bachelor-of-legislative-law-bls': { name: 'Bachelor of Legislative Law (BLS) LLB (5-year integrated)', cost: 1000000, salary: 650000 },
+        
+        // Education
+        'hsc-bachelor-of-education-bed': { name: 'Bachelor of Education (B.Ed) (after graduation)', cost: 100000, salary: 350000 },
+        'hsc-diploma-in-elementary-education-deled': { name: 'Diploma in Elementary Education (D.El.Ed)', cost: 80000, salary: 280000 },
+        'hsc-bachelor-of-physical-education-bped': { name: 'Bachelor of Physical Education (B.P.Ed)', cost: 150000, salary: 320000 },
+        'hsc-integrated-bed-med': { name: 'Integrated B.Ed + M.Ed', cost: 250000, salary: 420000 },
+        'hsc-integrated-ba-bed': { name: 'Integrated BA + B.Ed', cost: 200000, salary: 380000 },
+        'hsc-integrated-bsc-bed': { name: 'Integrated B.Sc + B.Ed', cost: 250000, salary: 400000 },
+        
+        // Other Integrated Courses & Diplomas
+        'hsc-integrated-btech-mtech': { name: 'Integrated B.Tech + M.Tech', cost: 1500000, salary: 950000 },
+        'hsc-integrated-msc': { name: 'Integrated M.Sc', cost: 500000, salary: 500000 },
+        'hsc-bachelor-of-computer-applications-bca': { name: 'Bachelor of Computer Applications (BCA)', cost: 300000, salary: 480000 },
+        'hsc-bachelor-of-vocational-studies-bvoc': { name: 'Bachelor of Vocational Studies (B.Voc)', cost: 150000, salary: 320000 }
+    };
+
+    /**
+     * Populates the course dropdown menu when the page loads.
+     */
+    function populateDropdown() {
+        const selectElement = document.getElementById('roi-course-select');
+        const sortedCourses = Object.entries(courseData).sort(([,a],[,b]) => a.name.localeCompare(b.name));
+        for (const [key, course] of sortedCourses) {
+            const option = document.createElement('option');
+            option.value = key;
+            option.textContent = course.name;
+            selectElement.appendChild(option);
+        }
+    }
+
+    /**
+     * Calculates and displays the CIR and Payback Period based on the selected course.
+     */
+    function calculateMetrics() {
+        const selectElement = document.getElementById('roi-course-select');
+        const selectedCourseKey = selectElement.value;
+        
+        // Get all output elements
+        const costEl = document.getElementById('course-cost');
+        const salaryEl = document.getElementById('course-salary');
+        const paybackEl = document.getElementById('course-payback');
+        const cirListEl = document.getElementById('course-cir-list');
+
+        if (selectedCourseKey && courseData[selectedCourseKey]) {
+            const course = courseData[selectedCourseKey];
+            const cost = course.cost;
+            const initialSalary = course.salary;
+
+            // --- 1. Payback Period Calculation ---
+            const paybackInYears = cost / initialSalary;
+            let formattedPayback;
+
+            if (paybackInYears < 1) {
+                const months = Math.round(paybackInYears * 12);
+                const displayMonths = months < 1 ? 1 : months; 
+                formattedPayback = `Approx. ${displayMonths} ${displayMonths === 1 ? 'month' : 'months'}`;
+            } else {
+                const years = Math.floor(paybackInYears);
+                const remainingMonths = Math.round((paybackInYears - years) * 12);
+                let periodString = `${years} ${years === 1 ? 'year' : 'years'}`;
+                if (remainingMonths > 0) {
+                    periodString += ` & ${remainingMonths} ${remainingMonths === 1 ? 'month' : 'months'}`;
+                }
+                formattedPayback = periodString;
+            }
+            
+            // --- 2. 5-Year CIR Calculation ---
+            let cirHtml = '';
+            let currentSalary = initialSalary;
+            for (let i = 1; i <= 5; i++) {
+                // Formula: (Course Cost / Annual Salary for that year) * 100
+                const cir = (cost / currentSalary) * 100;
+                cirHtml += `<span>Year ${i}: ${cir.toFixed(1)}%</span>`;
+                
+                // Assume a 10% salary hike for the next year
+                currentSalary *= 1.10;
+            }
+            
+            // Format numbers for better readability
+            const formattedCost = `₹ ${cost.toLocaleString('en-IN')}`;
+            const formattedSalary = `₹ ${initialSalary.toLocaleString('en-IN')}`;
+
+            // Update the output fields
+            costEl.textContent = formattedCost;
+            salaryEl.textContent = formattedSalary;
+            paybackEl.textContent = formattedPayback;
+            cirListEl.innerHTML = cirHtml; // Update the CIR list
+
+        } else {
+            // Reset fields if default option is selected
+            const defaultCirHtml = `
+                <span>Year 1: -- %</span>
+                <span>Year 2: -- %</span>
+                <span>Year 3: -- %</span>
+                <span>Year 4: -- %</span>
+                <span>Year 5: -- %</span>`;
+
+            costEl.textContent = '₹ --';
+            salaryEl.textContent = '₹ --';
+            paybackEl.textContent = '--';
+            cirListEl.innerHTML = defaultCirHtml; // Reset CIR list
+        }
+    }
+
+    // Run the populateDropdown function once the window has loaded
+    window.onload = populateDropdown;
+
+</script>
+
+</body>
+</html>

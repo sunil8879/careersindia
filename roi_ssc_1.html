@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course ROI & CIR Calculator</title>
+
+    <!-- Using the same fonts for consistency -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+    /* Using CSS variables from your ssc1.html for a consistent look and feel */
+    :root {
+        --primary-color: #0056b3;
+        --secondary-color: #007bff;
+        --accent-color: #ff6f61;
+        --success-color: #28a745;
+        --text-dark: #343a49;
+        --text-light: #6c757d;
+        --bg-light: #f8f9fa;
+        --bg-white: #ffffff;
+        --border-color: #dee2e6;
+        --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: var(--bg-light);
+        color: var(--text-dark);
+        line-height: 1.6;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    /* --- Calculator Styling --- */
+    .roi-calculator-container {
+        max-width: 700px;
+        width: 100%;
+        margin: 40px auto;
+        padding: 40px;
+        background-color: var(--bg-white);
+        border-radius: 12px;
+        box-shadow: var(--shadow-md);
+        border-top: 5px solid var(--primary-color);
+    }
+    .roi-calculator-container h2 {
+        font-size: 2.2rem;
+        color: var(--primary-color);
+        margin-top: 0;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    .roi-calculator-container p {
+        color: var(--text-light);
+        margin-bottom: 30px;
+        text-align: center;
+        font-size: 1.1rem;
+    }
+
+    /* Input Section */
+    .roi-input {
+        margin-bottom: 30px;
+    }
+    .roi-input label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 10px;
+        font-size: 1.2rem;
+    }
+    #roi-course-select {
+        width: 100%;
+        padding: 15px;
+        font-size: 1.1em;
+        border-radius: 8px;
+        border: 2px solid var(--border-color);
+        background-color: #fff;
+        transition: border-color 0.3s, box-shadow 0.3s;
+        cursor: pointer;
+    }
+    #roi-course-select:focus {
+        outline: none;
+        border-color: var(--secondary-color);
+        box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+    }
+
+    /* Output Section */
+    #roi-results {
+        background-color: var(--bg-light);
+        padding: 25px;
+        border-radius: 8px;
+        border: 1px solid var(--border-color);
+    }
+    .result-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 0;
+        font-size: 1.1rem;
+    }
+    .result-item:not(:last-child) {
+        border-bottom: 1px solid var(--border-color);
+    }
+    .result-item .label {
+        color: var(--text-dark);
+        font-weight: 500;
+    }
+    .result-item .value {
+        font-weight: 600;
+        color: var(--primary-color);
+    }
+    .result-item .payback-value {
+        color: var(--accent-color); /* Makes the payback time stand out */
+        font-weight: 700;
+    }
+
+    /* CIR Section Styling */
+    .result-item.cir-section {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 20px;
+        margin-top: 10px;
+        border-top: 1px solid var(--border-color);
+        border-bottom: none; /* remove double border */
+    }
+    .result-item.cir-section .label {
+        margin-bottom: 15px;
+        font-size: 1.2rem;
+        color: var(--primary-color);
+    }
+    .cir-values {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 10px;
+        width: 100%;
+        text-align: center;
+    }
+    .cir-values span {
+        background-color: #e9f7ec;
+        color: var(--success-color);
+        padding: 8px 12px;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 1rem;
+    }
+
+    /* Explanation Box */
+    .explanation-box {
+        margin-top: 30px;
+        padding: 20px;
+        background-color: #f0f8ff;
+        border-left: 4px solid var(--secondary-color);
+        border-radius: 0 8px 8px 0;
+    }
+    .explanation-box h4 {
+        margin-top: 0;
+        color: var(--primary-color);
+    }
+    .explanation-box p {
+        font-size: 0.95rem;
+        color: var(--text-dark);
+        text-align: left;
+        margin-bottom: 10px;
+    }
+    .explanation-box p:last-child {
+        margin-bottom: 0;
+    }
+</style>
+</head>
+<body>
+
+<div class="roi-calculator-container">
+    <h2>Course Financial Calculator</h2>
+    <p>Select a course to see its cost, salary, payback period, and Cost to Income Ratio (CIR).</p>
+
+    <!-- Input: Dropdown for selecting a course -->
+    <div class="roi-input">
+        <label for="roi-course-select">Select a Course:</label>
+        <select id="roi-course-select" onchange="calculateMetrics()">
+            <option value="">-- Please choose a course --</option>
+            <!-- Options will be populated by JavaScript -->
+        </select>
+    </div>
+
+    <!-- Output: Display for results -->
+    <div id="roi-results">
+        <div class="result-item">
+            <span class="label">Total Estimated Cost:</span>
+            <span id="course-cost" class="value">₹ --</span>
+        </div>
+        <div class="result-item">
+            <span class="label">Average Starting Salary (p.a.):</span>
+            <span id="course-salary" class="value">₹ --</span>
+        </div>
+        <div class="result-item">
+            <span class="label">Payback Period:</span>
+            <span id="course-payback" class="value payback-value">--</span>
+        </div>
+        <!-- 5-Year CIR Section -->
+        <div class="result-item cir-section">
+            <span class="label">Cost to Income Ratio (CIR) over 5 Years:</span>
+            <div id="course-cir-list" class="cir-values">
+                <span>Year 1: -- %</span>
+                <span>Year 2: -- %</span>
+                <span>Year 3: -- %</span>
+                <span>Year 4: -- %</span>
+                <span>Year 5: -- %</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Updated explanation box for CIR -->
+    <div class="explanation-box">
+        <h4>What do these numbers mean?</h4>
+        <p>
+            <strong>Payback Period:</strong> The estimated time it takes to earn back your initial course cost from your salary. 
+            <em>A shorter period is better.</em>
+        </p>
+        <p>
+            <strong>Cost to Income Ratio (CIR):</strong> This shows what percentage of your annual salary the course fee represents. For example, a CIR of 16.7% means the course fee is only 16.7% of your first year's salary. A salary hike of 10% is assumed here.
+            <strong>A lower CIR is better</strong>, as it indicates a quicker return on your educational investment.
+        </p>
+    </div>
+</div>
+
+<script>
+    // --- DATA SOURCE ---
+    // In a real-world application, this data would come from a database.
+    const courseData = {
+        'ssc-diploma-in-aeronautical-engineering': { name: 'Diploma in Aeronautical Engineering', cost: 135000, salary: 420000 },
+        'ssc-diploma-in-agricultural-engineering': { name: 'Diploma in Agricultural Engineering', cost: 65000, salary: 280000 },
+        'ssc-diploma-in-automobile-engineering': { name: 'Diploma in Automobile Engineering', cost: 80000, salary: 320000 },
+        'ssc-diploma-in-biomedical-engineering': { name: 'Diploma in Biomedical Engineering', cost: 95000, salary: 350000 },
+        'ssc-diploma-in-ceramic-technology': { name: 'Diploma in Ceramic Technology', cost: 55000, salary: 250000 },
+        'ssc-diploma-in-chemical-engineering': { name: 'Diploma in Chemical Engineering', cost: 110000, salary: 380000 },
+        'ssc-diploma-in-civil-engineering': { name: 'Diploma in Civil Engineering', cost: 75000, salary: 300000 },
+        'ssc-diploma-in-computer-science-engineering': { name: 'Diploma in Computer Science & Engineering', cost: 90000, salary: 360000 },
+        'ssc-diploma-in-electrical-engineering': { name: 'Diploma in Electrical Engineering', cost: 85000, salary: 310000 },
+        'ssc-diploma-in-electronics-communication-engineering': { name: 'Diploma in Electronics & Communication Engineering', cost: 88000, salary: 330000 },
+        'ssc-diploma-in-environmental-engineering': { name: 'Diploma in Environmental Engineering', cost: 70000, salary: 290000 },
+        'ssc-diploma-in-industrial-automation': { name: 'Diploma in Industrial Automation', cost: 100000, salary: 370000 },
+        'ssc-diploma-in-industrial-design': { name: 'Diploma in Industrial Design', cost: 115000, salary: 340000 },
+        'ssc-diploma-in-information-technology-it': { name: 'Diploma in Information Technology (IT)', cost: 85000, salary: 350000 },
+        'ssc-diploma-in-instrumentation-engineering': { name: 'Diploma in Instrumentation Engineering', cost: 92000, salary: 325000 },
+        'ssc-diploma-in-manufacturing-engineering': { name: 'Diploma in Manufacturing Engineering', cost: 78000, salary: 315000 },
+        'ssc-diploma-in-marine-engineering': { name: 'Diploma in Marine Engineering', cost: 150000, salary: 450000 },
+        'ssc-diploma-in-mechanical-engineering': { name: 'Diploma in Mechanical Engineering', cost: 82000, salary: 320000 },
+        'ssc-diploma-in-mechatronics-engineering': { name: 'Diploma in Mechatronics Engineering', cost: 125000, salary: 400000 },
+        'ssc-diploma-in-metallurgical-engineering': { name: 'Diploma in Metallurgical Engineering', cost: 90000, salary: 330000 },
+        'ssc-diploma-in-mining-engineering': { name: 'Diploma in Mining Engineering', cost: 98000, salary: 340000 },
+        'ssc-diploma-in-nanotechnology': { name: 'Diploma in Nanotechnology', cost: 140000, salary: 410000 },
+        'ssc-diploma-in-petrochemical-engineering': { name: 'Diploma in Petrochemical Engineering', cost: 115000, salary: 390000 },
+        'ssc-diploma-in-petroleum-engineering': { name: 'Diploma in Petroleum Engineering', cost: 130000, salary: 430000 },
+        'ssc-diploma-in-plastic-technology': { name: 'Diploma in Plastic Technology', cost: 68000, salary: 280000 },
+        'ssc-diploma-in-power-electronics': { name: 'Diploma in Power Electronics', cost: 85000, salary: 320000 },
+        'ssc-diploma-in-power-plant-engineering-operations': { name: 'Diploma in Power Plant Engineering (Operations)', cost: 95000, salary: 350000 },
+        'ssc-diploma-in-production-engineering': { name: 'Diploma in Production Engineering', cost: 75000, salary: 300000 },
+        'ssc-diploma-in-railway-signalling-telecommunication': { name: 'Diploma in Railway Signalling and Telecommunication', cost: 105000, salary: 360000 },
+        'ssc-diploma-in-robotics-engineering': { name: 'Diploma in Robotics Engineering', cost: 130000, salary: 410000 },
+        'ssc-diploma-in-textile-technology': { name: 'Diploma in Textile Technology', cost: 60000, salary: 260000 },
+        'ssc-diploma-in-tool-engineering': { name: 'Diploma in Tool Engineering', cost: 70000, salary: 290000 },
+        'ssc-diploma-in-vlsi-design': { name: 'Diploma in VLSI Design', cost: 110000, salary: 380000 },
+        'ssc-diploma-in-agriculture': { name: 'Diploma in Agriculture', cost: 45000, salary: 220000 },
+        'ssc-diploma-in-animal-husbandry': { name: 'Diploma in Animal Husbandry', cost: 50000, salary: 230000 },
+        'ssc-diploma-in-aquaculture-fish-farming': { name: 'Diploma in Aquaculture (Fish Farming)', cost: 55000, salary: 240000 },
+        'ssc-diploma-in-ayurveda-nursing': { name: 'Diploma in Ayurveda Nursing', cost: 60000, salary: 210000 },
+        'ssc-diploma-in-dairy-product-manufacturing': { name: 'Diploma in Dairy Product Manufacturing', cost: 65000, salary: 270000 },
+        'ssc-diploma-in-dental-hygiene': { name: 'Diploma in Dental Hygiene', cost: 85000, salary: 280000 },
+        'ssc-diploma-in-dental-mechanics': { name: 'Diploma in Dental Mechanics', cost: 80000, salary: 270000 },
+        'ssc-diploma-in-dialysis-technology': { name: 'Diploma in Dialysis Technology', cost: 90000, salary: 300000 },
+        'ssc-diploma-in-electrocardiogram-ecg-technology': { name: 'Diploma in Electrocardiogram (ECG) Technology', cost: 75000, salary: 260000 },
+        'ssc-diploma-in-fish-processing-technology': { name: 'Diploma in Fish Processing Technology', cost: 60000, salary: 250000 },
+        'ssc-diploma-in-floriculture': { name: 'Diploma in Floriculture', cost: 40000, salary: 200000 },
+        'ssc-diploma-in-food-production': { name: 'Diploma in Food Production', cost: 70000, salary: 280000 },
+        'ssc-diploma-in-food-science': { name: 'Diploma in Food Science', cost: 75000, salary: 290000 },
+        'ssc-diploma-in-fruit-vegetable-processing': { name: 'Diploma in Fruit and Vegetable Processing', cost: 55000, salary: 240000 },
+        'ssc-diploma-in-grain-processing-technology': { name: 'Diploma in Grain Processing Technology', cost: 58000, salary: 250000 },
+        'ssc-diploma-in-horticulture': { name: 'Diploma in Horticulture', cost: 48000, salary: 230000 },
+        'ssc-diploma-in-medical-laboratory-technology-mlt': { name: 'Diploma in Medical Laboratory Technology (MLT)', cost: 95000, salary: 310000 },
+        'ssc-diploma-in-meat-processing-technology': { name: 'Diploma in Meat Processing Technology', cost: 62000, salary: 260000 },
+        'ssc-diploma-in-nursing': { name: 'Diploma in Nursing', cost: 100000, salary: 320000 },
+        'ssc-diploma-in-occupational-health-safety': { name: 'Diploma in Occupational Health and Safety', cost: 80000, salary: 330000 },
+        'ssc-diploma-in-ophthalmic-technology': { name: 'Diploma in Ophthalmic Technology', cost: 85000, salary: 290000 },
+        'ssc-diploma-in-pharmacy': { name: 'Diploma in Pharmacy', cost: 110000, salary: 340000 },
+        'ssc-diploma-in-poultry-farming': { name: 'Diploma in Poultry Farming', cost: 50000, salary: 240000 },
+        'ssc-diploma-in-radiology-technology': { name: 'Diploma in Radiology Technology', cost: 98000, salary: 320000 },
+        'ssc-diploma-in-rural-healthcare': { name: 'Diploma in Rural Healthcare', cost: 55000, salary: 210000 },
+        'ssc-diploma-in-sanitary-inspector': { name: 'Diploma in Sanitary Inspector', cost: 60000, salary: 250000 },
+        'ssc-diploma-in-seed-technology': { name: 'Diploma in Seed Technology', cost: 52000, salary: 240000 },
+        'ssc-diploma-in-sericulture-silk-farming': { name: 'Diploma in Sericulture (Silk Farming)', cost: 58000, salary: 230000 },
+        'ssc-diploma-in-x-ray-technology': { name: 'Diploma in X-Ray Technology', cost: 92000, salary: 300000 },
+        'ssc-diploma-in-advertising-brand-management': { name: 'Diploma in Advertising and Brand Management', cost: 75000, salary: 310000 },
+        'ssc-diploma-in-banking-finance': { name: 'Diploma in Banking and Finance', cost: 65000, salary: 290000 },
+        'ssc-diploma-in-business-administration': { name: 'Diploma in Business Administration', cost: 70000, salary: 300000 },
+        'ssc-diploma-in-business-management': { name: 'Diploma in Business Management', cost: 72000, salary: 305000 },
+        'ssc-diploma-in-carbon-accounting': { name: 'Diploma in Carbon Accounting', cost: 80000, salary: 350000 },
+        'ssc-diploma-in-corporate-communication': { name: 'Diploma in Corporate Communication', cost: 78000, salary: 320000 },
+        'ssc-diploma-in-customs-clearance-freight-forwarding': { name: 'Diploma in Customs Clearance and Freight Forwarding', cost: 85000, salary: 340000 },
+        'ssc-diploma-in-digital-marketing': { name: 'Diploma in Digital Marketing', cost: 50000, salary: 280000 },
+        'ssc-diploma-in-e-accounting-taxation': { name: 'Diploma in E-Accounting Taxation', cost: 45000, salary: 250000 },
+        'ssc-diploma-in-export-import-management': { name: 'Diploma in Export-Import Management', cost: 90000, salary: 360000 },
+        'ssc-diploma-in-financial-accounting': { name: 'Diploma in Financial Accounting', cost: 55000, salary: 270000 },
+        'ssc-diploma-in-foreign-exchange-management': { name: 'Diploma in Foreign Exchange Management', cost: 88000, salary: 350000 },
+        'ssc-diploma-in-human-resource-management': { name: 'Diploma in Human Resource Management', cost: 68000, salary: 290000 },
+        'ssc-diploma-in-insurance-management': { name: 'Diploma in Insurance Management', cost: 60000, salary: 280000 },
+        'ssc-diploma-in-international-trade': { name: 'Diploma in International Trade', cost: 95000, salary: 370000 },
+        'ssc-diploma-in-investment-management': { name: 'Diploma in Investment Management', cost: 82000, salary: 340000 },
+        'ssc-diploma-in-logistics-management': { name: 'Diploma in Logistics Management', cost: 75000, salary: 310000 },
+        'ssc-diploma-in-marketing-management': { name: 'Diploma in Marketing Management', cost: 70000, salary: 300000 },
+        'ssc-diploma-in-public-relations': { name: 'Diploma in Public Relations', cost: 65000, salary: 290000 },
+        'ssc-diploma-in-quantity-surveying': { name: 'Diploma in Quantity Surveying', cost: 80000, salary: 330000 },
+        'ssc-diploma-in-retail-management': { name: 'Diploma in Retail Management', cost: 62000, salary: 280000 },
+        'ssc-diploma-in-risk-insurance': { name: 'Diploma in Risk and Insurance', cost: 68000, salary: 300000 },
+        'ssc-diploma-in-sales-management': { name: 'Diploma in Sales Management', cost: 60000, salary: 270000 },
+        'ssc-diploma-in-sports-management': { name: 'Diploma in Sports Management', cost: 90000, salary: 320000 },
+        'ssc-diploma-in-stock-market-operations': { name: 'Diploma in Stock Market Operations', cost: 75000, salary: 310000 },
+        'ssc-diploma-in-supply-chain-analytics': { name: 'Diploma in Supply Chain Analytics', cost: 85000, salary: 350000 },
+        'ssc-diploma-in-taxation': { name: 'Diploma in Taxation', cost: 50000, salary: 260000 },
+        'ssc-diploma-in-urban-planning-assistantship': { name: 'Diploma in Urban Planning Assistantship', cost: 95000, salary: 340000 },
+        'ssc-diploma-in-value-engineering': { name: 'Diploma in Value Engineering', cost: 88000, salary: 360000 },
+        'ssc-diploma-in-warehouse-management': { name: 'Diploma in Warehouse Management', cost: 65000, salary: 290000 },
+        'ssc-diploma-in-adventure-tourism': { name: 'Diploma in Adventure Tourism', cost: 70000, salary: 280000 },
+        'ssc-diploma-in-airline-cabin-crew-ground-staff': { name: 'Diploma in Airline Cabin Crew and Ground Staff', cost: 120000, salary: 350000 },
+        'ssc-diploma-in-airport-management': { name: 'Diploma in Airport Management', cost: 110000, salary: 340000 },
+        'ssc-diploma-in-bakery-confectionery': { name: 'Diploma in Bakery and Confectionery', cost: 65000, salary: 250000 },
+        'ssc-diploma-in-barista-coffee-making': { name: 'Diploma in Barista and Coffee Making', cost: 40000, salary: 200000 },
+        'ssc-diploma-in-bartending': { name: 'Diploma in Bartending', cost: 45000, salary: 220000 },
+        'ssc-diploma-in-brewing-distillery-technology': { name: 'Diploma in Brewing and Distillery Technology', cost: 90000, salary: 310000 },
+        'ssc-diploma-in-culinary-arts-chef-training': { name: 'Diploma in Culinary Arts (Chef Training)', cost: 130000, salary: 360000 },
+        'ssc-diploma-in-eco-tourism': { name: 'Diploma in Eco-Tourism', cost: 75000, salary: 290000 },
+        'ssc-diploma-in-food-beverage-service': { name: 'Diploma in Food and Beverage Service', cost: 60000, salary: 260000 },
+        'ssc-diploma-in-front-office-operations': { name: 'Diploma in Front Office Operations', cost: 55000, salary: 240000 },
+        'ssc-diploma-in-heritage-tourism': { name: 'Diploma in Heritage Tourism', cost: 68000, salary: 270000 },
+        'ssc-diploma-in-hotel-management': { name: 'Diploma in Hotel Management', cost: 95000, salary: 320000 },
+        'ssc-diploma-in-housekeeping-management': { name: 'Diploma in Housekeeping Management', cost: 50000, salary: 230000 },
+        'ssc-diploma-in-patisserie': { name: 'Diploma in Patisserie', cost: 75000, salary: 270000 },
+        'ssc-diploma-in-tourism-hospitality-management-advanced': { name: 'Diploma in Tourism and Hospitality Management (Advanced)', cost: 85000, salary: 310000 },
+        'ssc-diploma-in-travel-agency-management': { name: 'Diploma in Travel Agency Management', cost: 70000, salary: 290000 },
+        'ssc-diploma-in-acting': { name: 'Diploma in Acting', cost: 140000, salary: 300000 },
+        'ssc-diploma-in-animation-multimedia': { name: 'Diploma in Animation & Multimedia', cost: 90000, salary: 320000 },
+        'ssc-diploma-in-architecture': { name: 'Diploma in Architecture', cost: 110000, salary: 350000 },
+        'ssc-diploma-in-cinematography': { name: 'Diploma in Cinematography', cost: 120000, salary: 330000 },
+        'ssc-diploma-in-commercial-art': { name: 'Diploma in Commercial Art', cost: 80000, salary: 280000 },
+        'ssc-diploma-in-content-writing-management': { name: 'Diploma in Content Writing and Management', cost: 40000, salary: 250000 },
+        'ssc-diploma-in-dtp': { name: 'Diploma in Desktop Publishing (DTP)', cost: 25000, salary: 180000 },
+        'ssc-diploma-in-digital-film-making': { name: 'Diploma in Digital Film Making', cost: 130000, salary: 340000 },
+        'ssc-diploma-in-drone-technology': { name: 'Diploma in Drone Technology', cost: 95000, salary: 360000 },
+        'ssc-diploma-in-fashion-design': { name: 'Diploma in Fashion Design', cost: 100000, salary: 310000 },
+        'ssc-diploma-in-film-direction': { name: 'Diploma in Film Direction', cost: 150000, salary: 350000 },
+        'ssc-diploma-in-film-editing': { name: 'Diploma in Film Editing', cost: 110000, salary: 320000 },
+        'ssc-diploma-in-fine-arts': { name: 'Diploma in Fine Arts', cost: 75000, salary: 260000 },
+        'ssc-diploma-in-furniture-design': { name: 'Diploma in Furniture Design', cost: 85000, salary: 290000 },
+        'ssc-diploma-in-gemology': { name: 'Diploma in Gemology', cost: 95000, salary: 330000 },
+        'ssc-diploma-in-graphic-design': { name: 'Diploma in Graphic Design', cost: 65000, salary: 280000 },
+        'ssc-diploma-in-interior-design': { name: 'Diploma in Interior Design', cost: 98000, salary: 320000 },
+        'ssc-diploma-in-jewellery-design': { name: 'Diploma in Jewellery Design', cost: 105000, salary: 340000 },
+        'ssc-diploma-in-jewellery-manufacturing': { name: 'Diploma in Jewellery Manufacturing', cost: 115000, salary: 360000 },
+        'ssc-diploma-in-journalism': { name: 'Diploma in Journalism', cost: 70000, salary: 290000 },
+        'ssc-diploma-in-landscaping-garden-design': { name: 'Diploma in Landscaping and Garden Design', cost: 60000, salary: 250000 },
+        'ssc-diploma-in-music-production': { name: 'Diploma in Music Production', cost: 125000, salary: 310000 },
+        'ssc-diploma-in-painting-polishing': { name: 'Diploma in Painting and Polishing', cost: 35000, salary: 200000 },
+        'ssc-diploma-in-photography': { name: 'Diploma in Photography', cost: 80000, salary: 270000 },
+        'ssc-diploma-in-pottery-ceramics': { name: 'Diploma in Pottery and Ceramics', cost: 55000, salary: 220000 },
+        'ssc-diploma-in-printing-technology-digital-printing': { name: 'Diploma in Printing Technology (Digital Printing)', cost: 65000, salary: 260000 },
+        'ssc-diploma-in-screenwriting': { name: 'Diploma in Screenwriting', cost: 90000, salary: 300000 },
+        'ssc-diploma-in-sound-design': { name: 'Diploma in Sound Design', cost: 115000, salary: 320000 },
+        'ssc-diploma-in-theatre-arts': { name: 'Diploma in Theatre Arts', cost: 85000, salary: 250000 },
+        'ssc-diploma-in-ui-ux-design': { name: 'Diploma in UI/UX Design', cost: 75000, salary: 350000 },
+        'ssc-diploma-in-video-editing': { name: 'Diploma in Video Editing', cost: 70000, salary: 290000 },
+        'ssc-diploma-in-watch-clock-repairing': { name: 'Diploma in Watch and Clock Repairing', cost: 45000, salary: 210000 },
+        'ssc-certificate-in-ar-vr': { name: 'Certificate in Augmented Reality (AR) & Virtual Reality (VR)', cost: 80000, salary: 380000 },
+        'ssc-certificate-in-basic-computer-applications': { name: 'Certificate in Basic Computer Applications', cost: 15000, salary: 180000 },
+        'ssc-certificate-in-cctv-installation-maintenance': { name: 'Certificate in CCTV Installation and Maintenance', cost: 30000, salary: 220000 },
+        'ssc-certificate-in-computer-hardware-networking': { name: 'Certificate in Computer Hardware and Networking', cost: 40000, salary: 240000 },
+        'ssc-certificate-in-copa': { name: 'Certificate in Computer Operator & Programming Assistant (COPA)', cost: 35000, salary: 230000 },
+        'ssc-certificate-in-cyber-security': { name: 'Certificate in Cyber Security', cost: 65000, salary: 350000 },
+        'ssc-certificate-in-data-entry-operations': { name: 'Certificate in Data Entry Operations', cost: 20000, salary: 190000 },
+        'ssc-certificate-in-digital-forensics': { name: 'Certificate in Digital Forensics', cost: 70000, salary: 360000 },
+        'ssc-certificate-in-ethical-hacking': { name: 'Certificate in Ethical Hacking', cost: 75000, salary: 370000 },
+        'ssc-certificate-in-embedded-systems': { name: 'Certificate in Embedded Systems', cost: 85000, salary: 390000 },
+        'ssc-certificate-in-internet-of-things-iot': { name: 'Certificate in Internet of Things (IoT)', cost: 80000, salary: 380000 },
+        'ssc-certificate-in-mobile-repairing-servicing': { name: 'Certificate in Mobile Repairing and Servicing', cost: 25000, salary: 210000 },
+        'ssc-certificate-in-network-security': { name: 'Certificate in Network Security', cost: 68000, salary: 340000 },
+        'ssc-certificate-in-office-automation': { name: 'Certificate in Office Automation', cost: 22000, salary: 200000 },
+        'ssc-certificate-in-ofc-technology': { name: 'Certificate in Optical Fibre Cable (OFC) Technology', cost: 45000, salary: 260000 },
+        'ssc-certificate-in-printer-scanner-repair': { name: 'Certificate in Printer and Scanner Repair', cost: 28000, salary: 200000 },
+        'ssc-certificate-in-programming-languages': { name: 'Certificate in Programming Languages (C++, Java, Python, etc.)', cost: 50000, salary: 300000 },
+        'ssc-certificate-in-quantum-computing': { name: 'Certificate in Quantum Computing', cost: 95000, salary: 420000 },
+        'ssc-certificate-in-seo': { name: 'Certificate in Search Engine Optimization (SEO)', cost: 30000, salary: 250000 },
+        'ssc-certificate-in-social-media-marketing': { name: 'Certificate in Social Media Marketing', cost: 32000, salary: 260000 },
+        'ssc-certificate-in-web-development': { name: 'Certificate in Web Development', cost: 45000, salary: 280000 },
+        'ssc-diploma-in-apiculture-beekeeping': { name: 'Diploma in Apiculture (Beekeeping)', cost: 30000, salary: 190000 },
+        'ssc-diploma-in-boiler-operation-maintenance': { name: 'Diploma in Boiler Operation and Maintenance', cost: 60000, salary: 280000 },
+        'ssc-diploma-in-boutique-management': { name: 'Diploma in Boutique Management', cost: 70000, salary: 260000 },
+        'ssc-diploma-in-carpentry-woodwork': { name: 'Diploma in Carpentry and Woodwork', cost: 40000, salary: 220000 },
+        'ssc-diploma-in-cnc-machine-operator': { name: 'Diploma in CNC Machine Operator', cost: 65000, salary: 290000 },
+        'ssc-diploma-in-construction-management': { name: 'Diploma in Construction Management', cost: 85000, salary: 340000 },
+        'ssc-diploma-in-corrosion-technology': { name: 'Diploma in Corrosion Technology', cost: 75000, salary: 310000 },
+        'ssc-diploma-in-draughtsman-civil': { name: 'Diploma in Draughtsman (Civil)', cost: 50000, salary: 250000 },
+        'ssc-diploma-in-draughtsman-electrical': { name: 'Diploma in Draughtsman (Electrical)', cost: 52000, salary: 260000 },
+        'ssc-diploma-in-draughtsman-mechanical': { name: 'Diploma in Draughtsman (Mechanical)', cost: 55000, salary: 270000 },
+        'ssc-diploma-in-dressmaking-sewing-technology': { name: 'Diploma in Dressmaking/Sewing Technology', cost: 35000, salary: 200000 },
+        'ssc-diploma-in-electrician': { name: 'Diploma in Electrician', cost: 40000, salary: 230000 },
+        'ssc-diploma-in-fabrication-technology': { name: 'Diploma in Fabrication Technology', cost: 68000, salary: 300000 },
+        'ssc-diploma-in-fitter': { name: 'Diploma in Fitter', cost: 45000, salary: 240000 },
+        'ssc-diploma-in-foundryman': { name: 'Diploma in Foundryman', cost: 58000, salary: 270000 },
+        'ssc-diploma-in-green-building-technology': { name: 'Diploma in Green Building Technology', cost: 90000, salary: 350000 },
+        'ssc-diploma-in-grinder-machining': { name: 'Diploma in Grinder (Machining)', cost: 52000, salary: 260000 },
+        'ssc-diploma-in-hair-skin-care-beautician': { name: 'Diploma in Hair & Skin Care (Beautician)', cost: 48000, salary: 220000 },
+        'ssc-diploma-in-heat-treatment-technology': { name: 'Diploma in Heat Treatment Technology', cost: 62000, salary: 280000 },
+        'ssc-diploma-in-heavy-vehicle-mechanic': { name: 'Diploma in Heavy Vehicle Mechanic', cost: 55000, salary: 270000 },
+        'ssc-diploma-in-hydro-power-plant-technology': { name: 'Diploma in Hydro Power Plant Technology', cost: 95000, salary: 360000 },
+        'ssc-diploma-in-industrial-safety': { name: 'Diploma in Industrial Safety', cost: 70000, salary: 320000 },
+        'ssc-diploma-in-lathe-machine-operator': { name: 'Diploma in Lathe Machine Operator', cost: 50000, salary: 250000 },
+        'ssc-diploma-in-leather-goods-manufacturing': { name: 'Diploma in Leather Goods Manufacturing', cost: 60000, salary: 260000 },
+        'ssc-diploma-in-library-information-science': { name: 'Diploma in Library and Information Science', cost: 35000, salary: 210000 },
+        'ssc-diploma-in-machine-tool-technology': { name: 'Diploma in Machine Tool Technology', cost: 65000, salary: 290000 },
+        'ssc-diploma-in-machinist': { name: 'Diploma in Machinist', cost: 58000, salary: 270000 },
+        'ssc-diploma-in-maintenance-engineering': { name: 'Diploma in Maintenance Engineering', cost: 80000, salary: 330000 },
+        'ssc-diploma-in-masonry-construction': { name: 'Diploma in Masonry and Construction', cost: 42000, salary: 230000 },
+        'ssc-diploma-in-metro-rail-technology': { name: 'Diploma in Metro Rail Technology', cost: 100000, salary: 370000 },
+        'ssc-diploma-in-motor-mechanic-two-four-wheeler': { name: 'Diploma in Motor Mechanic (Two-Wheeler/Four-Wheeler)', cost: 48000, salary: 250000 },
+        'ssc-diploma-in-museum-archival-studies': { name: 'Diploma in Museum and Archival Studies', cost: 65000, salary: 280000 },
+        'ssc-diploma-in-ndt': { name: 'Diploma in Non-Destructive Testing (NDT)', cost: 78000, salary: 320000 },
+        'ssc-diploma-in-packaging-technology': { name: 'Diploma in Packaging Technology', cost: 72000, salary: 300000 },
+        'ssc-diploma-in-pattern-making-foundry': { name: 'Diploma in Pattern Making (Foundry)', cost: 55000, salary: 260000 },
+        'ssc-diploma-in-pest-management-agricultural': { name: 'Diploma in Pest Management (Agricultural)', cost: 45000, salary: 240000 },
+        'ssc-diploma-in-pipeline-engineering': { name: 'Diploma in Pipeline Engineering', cost: 95000, salary: 380000 },
+        'ssc-diploma-in-plumbing-sanitary-engineering': { name: 'Diploma in Plumbing and Sanitary Engineering', cost: 38000, salary: 220000 },
+        'ssc-diploma-in-port-management': { name: 'Diploma in Port Management', cost: 90000, salary: 350000 },
+        'ssc-diploma-in-product-design': { name: 'Diploma in Product Design', cost: 95000, salary: 330000 },
+        'ssc-diploma-in-pump-operator-mechanic': { name: 'Diploma in Pump Operator Mechanic', cost: 40000, salary: 230000 },
+        'ssc-diploma-in-quality-control-assurance': { name: 'Diploma in Quality Control and Assurance', cost: 70000, salary: 310000 },
+        'ssc-diploma-in-refrigerator-ac-mechanic': { name: 'Diploma in Refrigerator and AC Mechanic', cost: 45000, salary: 240000 },
+        'ssc-diploma-in-renewable-resource-management': { name: 'Diploma in Renewable Resource Management', cost: 80000, salary: 320000 },
+        'ssc-diploma-in-road-construction': { name: 'Diploma in Road Construction', cost: 65000, salary: 290000 },
+        'ssc-diploma-in-rolling-stock-maintenance': { name: 'Diploma in Rolling Stock Maintenance', cost: 88000, salary: 340000 },
+        'ssc-diploma-in-sheet-metal-worker': { name: 'Diploma in Sheet Metal Worker', cost: 48000, salary: 250000 },
+        'ssc-diploma-in-ship-building-technology': { name: 'Diploma in Ship Building Technology', cost: 120000, salary: 400000 },
+        'ssc-diploma-in-smart-home-automation': { name: 'Diploma in Smart Home Automation', cost: 75000, salary: 330000 },
+        'ssc-diploma-in-surveyor': { name: 'Diploma in Surveyor', cost: 55000, salary: 270000 },
+        'ssc-diploma-in-tailoring': { name: 'Diploma in Tailoring', cost: 30000, salary: 190000 },
+        'ssc-diploma-in-thermal-power-plant-technology': { name: 'Diploma in Thermal Power Plant Technology', cost: 98000, salary: 370000 },
+        'ssc-diploma-in-tractor-mechanic': { name: 'Diploma in Tractor Mechanic', cost: 50000, salary: 260000 },
+        'ssc-diploma-in-translation-interpretation': { name: 'Diploma in Translation and Interpretation', cost: 40000, salary: 240000 },
+        'ssc-diploma-in-turner': { name: 'Diploma in Turner', cost: 45000, salary: 240000 },
+        'ssc-diploma-in-vocational-training-skill-development': { name: 'Diploma in Vocational Training and Skill Development', cost: 50000, salary: 250000 },
+        'ssc-diploma-in-wastewater-treatment': { name: 'Diploma in Wastewater Treatment', cost: 70000, salary: 300000 },
+        'ssc-diploma-in-water-quality-management': { name: 'Diploma in Water Quality Management', cost: 68000, salary: 290000 },
+        'ssc-diploma-in-welder-various-types': { name: 'Diploma in Welder (Various types)', cost: 42000, salary: 230000 },
+        'ssc-diploma-in-welding-technology': { name: 'Diploma in Welding Technology', cost: 55000, salary: 270000 },
+        'ssc-diploma-in-wireman-lineman': { name: 'Diploma in Wireman and Lineman', cost: 38000, salary: 220000 },
+        'ssc-diploma-in-child-care-education': { name: 'Diploma in Child Care and Education', cost: 40000, salary: 200000 },
+        'ssc-diploma-in-geriatric-care': { name: 'Diploma in Geriatric Care', cost: 50000, salary: 220000 },
+        'ssc-diploma-in-special-education-needs': { name: 'Diploma in Special Education Needs', cost: 60000, salary: 250000 },
+        'ssc-diploma-in-spoken-english-communication-skills': { name: 'Diploma in Spoken English and Communication Skills', cost: 25000, salary: 210000 },
+        'ssc-diploma-in-ecce': { name: 'Diploma in Early Childhood Care and Education (ECCE)', cost: 45000, salary: 220000 },
+        'ssc-diploma-in-education-general': { name: 'Diploma in Education (General)', cost: 55000, salary: 240000 },
+        'ssc-diploma-in-montessori-education': { name: 'Diploma in Montessori Education', cost: 50000, salary: 230000 },
+        'ssc-diploma-in-physical-education': { name: 'Diploma in Physical Education', cost: 65000, salary: 260000 },
+        'ssc-diploma-in-remedial-education': { name: 'Diploma in Remedial Education', cost: 58000, salary: 250000 },
+        'ssc-certificate-in-sports-coaching-specific-sport': { name: 'Certificate in Sports Coaching (Specific Sport)', cost: 70000, salary: 280000 },
+        'ssc-certificate-in-yoga-instructor': { name: 'Certificate in Yoga Instructor', cost: 35000, salary: 220000 },
+        'ssc-certificate-in-yoga-naturopathy': { name: 'Certificate in Yoga and Naturopathy', cost: 45000, salary: 240000 },
+    };
+
+    /**
+     * Populates the course dropdown menu when the page loads.
+     */
+    function populateDropdown() {
+        const selectElement = document.getElementById('roi-course-select');
+        const sortedCourses = Object.entries(courseData).sort(([,a],[,b]) => a.name.localeCompare(b.name));
+        for (const [key, course] of sortedCourses) {
+            const option = document.createElement('option');
+            option.value = key;
+            option.textContent = course.name;
+            selectElement.appendChild(option);
+        }
+    }
+
+    /**
+     * Calculates and displays the CIR and Payback Period based on the selected course.
+     */
+    function calculateMetrics() {
+        const selectElement = document.getElementById('roi-course-select');
+        const selectedCourseKey = selectElement.value;
+        
+        // Get all output elements
+        const costEl = document.getElementById('course-cost');
+        const salaryEl = document.getElementById('course-salary');
+        const paybackEl = document.getElementById('course-payback');
+        const cirListEl = document.getElementById('course-cir-list');
+
+        if (selectedCourseKey && courseData[selectedCourseKey]) {
+            const course = courseData[selectedCourseKey];
+            const cost = course.cost;
+            const initialSalary = course.salary;
+
+            // --- 1. Payback Period Calculation ---
+            const paybackInYears = cost / initialSalary;
+            let formattedPayback;
+
+            if (paybackInYears < 1) {
+                const months = Math.round(paybackInYears * 12);
+                const displayMonths = months < 1 ? 1 : months; 
+                formattedPayback = `Approx. ${displayMonths} ${displayMonths === 1 ? 'month' : 'months'}`;
+            } else {
+                const years = Math.floor(paybackInYears);
+                const remainingMonths = Math.round((paybackInYears - years) * 12);
+                let periodString = `${years} ${years === 1 ? 'year' : 'years'}`;
+                if (remainingMonths > 0) {
+                    periodString += ` & ${remainingMonths} ${remainingMonths === 1 ? 'month' : 'months'}`;
+                }
+                formattedPayback = periodString;
+            }
+            
+            // --- 2. 5-Year CIR Calculation ---
+            let cirHtml = '';
+            let currentSalary = initialSalary;
+            for (let i = 1; i <= 5; i++) {
+                // Formula: (Course Cost / Annual Salary for that year) * 100
+                const cir = (cost / currentSalary) * 100;
+                cirHtml += `<span>Year ${i}: ${cir.toFixed(1)}%</span>`;
+                
+                // Assume a 10% salary hike for the next year
+                currentSalary *= 1.10;
+            }
+            
+            // Format numbers for better readability
+            const formattedCost = `₹ ${cost.toLocaleString('en-IN')}`;
+            const formattedSalary = `₹ ${initialSalary.toLocaleString('en-IN')}`;
+
+            // Update the output fields with the calculated values
+            costEl.textContent = formattedCost;
+            salaryEl.textContent = formattedSalary;
+            paybackEl.textContent = formattedPayback;
+            cirListEl.innerHTML = cirHtml; // Update the CIR list
+
+        } else {
+            // If the default option is selected, reset all fields
+            const defaultCirHtml = `
+                <span>Year 1: -- %</span>
+                <span>Year 2: -- %</span>
+                <span>Year 3: -- %</span>
+                <span>Year 4: -- %</span>
+                <span>Year 5: -- %</span>`;
+                
+            costEl.textContent = '₹ --';
+            salaryEl.textContent = '₹ --';
+            paybackEl.textContent = '--';
+            cirListEl.innerHTML = defaultCirHtml; // Reset CIR list
+        }
+    }
+
+    // Run the populateDropdown function once the window has loaded
+    window.onload = populateDropdown;
+
+</script>
+
+</body>
+</html>

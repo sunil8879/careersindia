@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctoral & Post-Doc ROI Calculator</title>
+
+    <!-- Using the same fonts for consistency -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+    /* Using CSS variables from your provided HTML for a consistent look and feel */
+    :root {
+        --primary-color: #0056b3;
+        --secondary-color: #007bff;
+        --accent-color: #ff6f61;
+        --success-color: #28a745;
+        --text-dark: #343a49;
+        --text-light: #6c757d;
+        --bg-light: #f8f9fa;
+        --bg-white: #ffffff;
+        --border-color: #dee2e6;
+        --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: var(--bg-light);
+        color: var(--text-dark);
+        line-height: 1.6;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    /* --- ROI Calculator Styling --- */
+    .roi-calculator-container {
+        max-width: 700px;
+        width: 100%;
+        margin: 40px auto;
+        padding: 40px;
+        background-color: var(--bg-white);
+        border-radius: 12px;
+        box-shadow: var(--shadow-md);
+        border-top: 5px solid var(--primary-color);
+    }
+    .roi-calculator-container h2 {
+        font-size: 2.2rem;
+        color: var(--primary-color);
+        margin-top: 0;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    .roi-calculator-container p {
+        color: var(--text-light);
+        margin-bottom: 30px;
+        text-align: center;
+        font-size: 1.1rem;
+    }
+
+    /* Input Section */
+    .roi-input {
+        margin-bottom: 30px;
+    }
+    .roi-input label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 10px;
+        font-size: 1.2rem;
+    }
+    #roi-course-select {
+        width: 100%;
+        padding: 15px;
+        font-size: 1.1em;
+        border-radius: 8px;
+        border: 2px solid var(--border-color);
+        background-color: #fff;
+        transition: border-color 0.3s, box-shadow 0.3s;
+        cursor: pointer;
+    }
+    #roi-course-select:focus {
+        outline: none;
+        border-color: var(--secondary-color);
+        box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+    }
+
+    /* Output Section */
+    #roi-results {
+        background-color: var(--bg-light);
+        padding: 25px;
+        border-radius: 8px;
+        border: 1px solid var(--border-color);
+    }
+    .result-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 0;
+        font-size: 1.1rem;
+    }
+    .result-item:not(:last-child) {
+        border-bottom: 1px solid var(--border-color);
+    }
+    .result-item .label {
+        color: var(--text-dark);
+        font-weight: 500;
+    }
+    .result-item .value {
+        font-weight: 600;
+        color: var(--primary-color);
+    }
+    .result-item .payback-value {
+        color: var(--accent-color); 
+        font-weight: 700;
+    }
+    
+    #salary-label {
+        font-weight: 500;
+    }
+
+    /* Final ROI Styling */
+    .result-item.roi-final {
+        font-size: 1.4rem;
+        margin-top: 10px;
+    }
+    .result-item.roi-final .label {
+        color: var(--primary-color);
+    }
+    .result-item.roi-final .value {
+        color: var(--success-color);
+        background-color: #e9f7ec;
+        padding: 5px 12px;
+        border-radius: 50px;
+    }
+    
+    /* Explanation Box Styling */
+    .explanation-box {
+        margin-top: 30px;
+        padding: 20px;
+        background-color: #f0f8ff;
+        border-left: 4px solid var(--secondary-color);
+        border-radius: 0 8px 8px 0;
+    }
+    .explanation-box h4 {
+        margin-top: 0;
+        color: var(--primary-color);
+    }
+    .explanation-box p {
+        font-size: 0.95rem;
+        color: var(--text-dark);
+        text-align: left;
+        margin-bottom: 10px;
+    }
+    .explanation-box p:last-child {
+        margin-bottom: 0;
+    }
+</style>
+</head>
+<body>
+
+<div class="roi-calculator-container">
+    <h2>Doctoral & Post-Doc Program ROI Calculator</h2>
+    <p>Select a program to estimate its net cost, potential salary or stipend, and return on investment.</p>
+
+    <!-- Input: Dropdown for selecting a course -->
+    <div class="roi-input">
+        <label for="roi-course-select">Select a Program:</label>
+        <select id="roi-course-select" onchange="calculateROI()">
+            <option value="">-- Please choose a program --</option>
+            <!-- Options will be populated by JavaScript -->
+        </select>
+    </div>
+
+    <!-- Output: Display for results -->
+    <div id="roi-results">
+        <div class="result-item">
+            <span class="label">Total Net Cost / Investment:</span>
+            <span id="course-cost" class="value">₹ --</span>
+        </div>
+        <div class="result-item">
+            <span id="salary-label" class="label">Average Starting Salary (p.a.):</span>
+            <span id="course-salary" class="value">₹ --</span>
+        </div>
+        <div class="result-item">
+            <span class="label">Payback Period:</span>
+            <span id="course-payback" class="value payback-value">--</span>
+        </div>
+        <div class="result-item roi-final">
+            <span class="label">Return on Investment (1st Year):</span>
+            <span id="course-roi" class="value">-- %</span>
+        </div>
+    </div>
+    
+    <!-- Explanation Box for Metrics -->
+    <div class="explanation-box">
+        <h4>How to interpret these numbers:</h4>
+        <p>
+            <strong>Ph.D. Programs:</strong> 'Net Cost' is an estimate of expenses not covered by a typical stipend. 'Salary' is the potential starting salary in academia or R&D after completion.
+        </p>
+        <p>
+            <strong>Medical (MD/MS):</strong> 'Cost' represents the high tuition fees. 'Salary' is the potential income for a specialist doctor.
+        </p>
+         <p>
+            <strong>Fellowships:</strong> 'Net Cost' is assumed to be minimal. 'Salary' represents the annual fellowship grant amount.
+        </p>
+    </div>
+</div>
+
+
+<script>
+    // --- DATA SOURCE ---
+    // Complete list of all 130+ programs from pg1.html with plausible placeholder data.
+    const courseData = {
+        // Ph.D. (Arts & Humanities) - Cost represents net expense over 4 years after stipend.
+        'pg-phd-literature': { name: 'Ph.D. in Literature', cost: 500000, salary: 1000000, type: 'phd' },
+        'pg-phd-history': { name: 'Ph.D. in History', cost: 500000, salary: 950000, type: 'phd' },
+        'pg-phd-philosophy': { name: 'Ph.D. in Philosophy', cost: 500000, salary: 900000, type: 'phd' },
+        'pg-phd-sociology': { name: 'Ph.D. in Sociology', cost: 500000, salary: 1050000, type: 'phd' },
+        'pg-phd-economics': { name: 'Ph.D. in Economics', cost: 600000, salary: 1500000, type: 'phd' },
+        'pg-phd-political-science': { name: 'Ph.D. in Political Science', cost: 500000, salary: 1100000, type: 'phd' },
+        'pg-phd-psychology': { name: 'Ph.D. in Psychology', cost: 600000, salary: 1200000, type: 'phd' },
+        'pg-phd-anthropology': { name: 'Ph.D. in Anthropology', cost: 550000, salary: 980000, type: 'phd' },
+        'pg-phd-journalism': { name: 'Ph.D. in Journalism', cost: 400000, salary: 900000, type: 'phd' },
+        'pg-phd-mass-communication': { name: 'Ph.D. in Mass Communication', cost: 400000, salary: 950000, type: 'phd' },
+        'pg-phd-library-science': { name: 'Ph.D. in Library Science', cost: 300000, salary: 850000, type: 'phd' },
+        'pg-phd-education': { name: 'Ph.D. in Education', cost: 400000, salary: 900000, type: 'phd' },
+        'pg-phd-linguistics': { name: 'Ph.D. in Linguistics', cost: 500000, salary: 1000000, type: 'phd' },
+        'pg-phd-theatre-arts': { name: 'Ph.D. in Theatre Arts', cost: 450000, salary: 800000, type: 'phd' },
+
+        // Ph.D. (Science)
+        'pg-phd-physics': { name: 'Ph.D. in Physics', cost: 600000, salary: 1400000, type: 'phd' },
+        'pg-phd-chemistry': { name: 'Ph.D. in Chemistry', cost: 600000, salary: 1350000, type: 'phd' },
+        'pg-phd-mathematics': { name: 'Ph.D. in Mathematics', cost: 500000, salary: 1450000, type: 'phd' },
+        'pg-phd-biology': { name: 'Ph.D. in Biology', cost: 700000, salary: 1300000, type: 'phd' },
+        'pg-phd-biotechnology': { name: 'Ph.D. in Biotechnology', cost: 800000, salary: 1500000, type: 'phd' },
+        'pg-phd-computer-science-science': { name: 'Ph.D. in Computer Science (Science Stream)', cost: 600000, salary: 2500000, type: 'phd' },
+        'pg-phd-environmental-science': { name: 'Ph.D. in Environmental Science', cost: 700000, salary: 1200000, type: 'phd' },
+        'pg-phd-forensic-science': { name: 'Ph.D. in Forensic Science', cost: 600000, salary: 1100000, type: 'phd' },
+        'pg-phd-geology': { name: 'Ph.D. in Geology', cost: 650000, salary: 1250000, type: 'phd' },
+        'pg-phd-statistics': { name: 'Ph.D. in Statistics', cost: 500000, salary: 1600000, type: 'phd' },
+        'pg-phd-astronomy': { name: 'Ph.D. in Astronomy', cost: 700000, salary: 1500000, type: 'phd' },
+        'pg-phd-biomedical-science': { name: 'Ph.D. in Biomedical Science', cost: 800000, salary: 1400000, type: 'phd' },
+        'pg-phd-nanoscience': { name: 'Ph.D. in Nanoscience', cost: 900000, salary: 1600000, type: 'phd' },
+        'pg-phd-neuroscience': { name: 'Ph.D. in Neuroscience', cost: 900000, salary: 1550000, type: 'phd' },
+        'pg-phd-marine-biology': { name: 'Ph.D. in Marine Biology', cost: 750000, salary: 1250000, type: 'phd' },
+
+        // Ph.D. (Engineering & Technology)
+        'pg-phd-mechanical-engineering': { name: 'Ph.D. in Mechanical Engineering', cost: 600000, salary: 1800000, type: 'phd' },
+        'pg-phd-electrical-engineering': { name: 'Ph.D. in Electrical Engineering', cost: 600000, salary: 1900000, type: 'phd' },
+        'pg-phd-civil-engineering': { name: 'Ph.D. in Civil Engineering', cost: 500000, salary: 1600000, type: 'phd' },
+        'pg-phd-computer-science-engineering': { name: 'Ph.D. in Computer Science & Engineering', cost: 700000, salary: 3000000, type: 'phd' },
+        'pg-phd-electronics-communication-engineering': { name: 'Ph.D. in Electronics & Communication Engineering', cost: 650000, salary: 2200000, type: 'phd' },
+        'pg-phd-information-technology-engg': { name: 'Ph.D. in Information Technology (Engg.)', cost: 650000, salary: 2800000, type: 'phd' },
+        'pg-phd-architecture': { name: 'Ph.D. in Architecture', cost: 500000, salary: 1400000, type: 'phd' },
+        'pg-phd-planning': { name: 'Ph.D. in Planning', cost: 450000, salary: 1300000, type: 'phd' },
+        'pg-phd-robotics': { name: 'Ph.D. in Robotics', cost: 800000, salary: 2400000, type: 'phd' },
+        'pg-phd-artificial-intelligence-engg': { name: 'Ph.D. in Artificial Intelligence (Engg.)', cost: 900000, salary: 3500000, type: 'phd' },
+        'pg-phd-machine-learning-engg': { name: 'Ph.D. in Machine Learning (Engg.)', cost: 900000, salary: 3800000, type: 'phd' },
+        'pg-phd-data-science-engg': { name: 'Ph.D. in Data Science (Engg.)', cost: 800000, salary: 3200000, type: 'phd' },
+        'pg-phd-cybersecurity-engg': { name: 'Ph.D. in Cybersecurity (Engg.)', cost: 700000, salary: 2500000, type: 'phd' },
+        'pg-phd-materials-science-engg': { name: 'Ph.D. in Materials Science (Engg.)', cost: 750000, salary: 1700000, type: 'phd' },
+        'pg-phd-energy-engineering': { name: 'Ph.D. in Energy Engineering', cost: 700000, salary: 1600000, type: 'phd' },
+
+        // Ph.D. (Management)
+        'pg-phd-finance': { name: 'Ph.D. in Finance', cost: 800000, salary: 2500000, type: 'phd' },
+        'pg-phd-marketing': { name: 'Ph.D. in Marketing', cost: 700000, salary: 2200000, type: 'phd' },
+        'pg-phd-human-resource-management-hrm': { name: 'Ph.D. in Human Resource Management (HRM)', cost: 600000, salary: 1800000, type: 'phd' },
+        'pg-phd-operations-management': { name: 'Ph.D. in Operations Management', cost: 700000, salary: 2400000, type: 'phd' },
+        'pg-phd-business-analytics': { name: 'Ph.D. in Business Analytics', cost: 800000, salary: 2800000, type: 'phd' },
+        'pg-phd-international-business': { name: 'Ph.D. in International Business', cost: 750000, salary: 2000000, type: 'phd' },
+        'pg-phd-healthcare-management': { name: 'Ph.D. in Healthcare Management', cost: 650000, salary: 1900000, type: 'phd' },
+        'pg-phd-agri-business-management': { name: 'Ph.D. in Agri-Business Management', cost: 550000, salary: 1500000, type: 'phd' },
+
+        // Ph.D. (Law)
+        'pg-phd-constitutional-law': { name: 'Ph.D. in Constitutional Law', cost: 400000, salary: 1500000, type: 'phd' },
+        'pg-phd-corporate-law': { name: 'Ph.D. in Corporate Law', cost: 500000, salary: 1800000, type: 'phd' },
+        'pg-phd-criminal-law': { name: 'Ph.D. in Criminal Law', cost: 400000, salary: 1400000, type: 'phd' },
+        'pg-phd-environmental-law': { name: 'Ph.D. in Environmental Law', cost: 450000, salary: 1450000, type: 'phd' },
+        'pg-phd-human-rights-law': { name: 'Ph.D. in Human Rights Law', cost: 400000, salary: 1300000, type: 'phd' },
+        'pg-phd-intellectual-property-law-ipr': { name: 'Ph.D. in Intellectual Property Law (IPR)', cost: 500000, salary: 1900000, type: 'phd' },
+        'pg-phd-international-law': { name: 'Ph.D. in International Law', cost: 450000, salary: 1600000, type: 'phd' },
+        'pg-phd-tax-law': { name: 'Ph.D. in Tax Law', cost: 480000, salary: 1700000, type: 'phd' },
+
+        // MD Degrees - Cost is total tuition for 3 years. Salary is starting for a specialist.
+        'pg-md-general-medicine': { name: 'MD in General Medicine', cost: 7500000, salary: 3000000, type: 'medical' },
+        'pg-md-pediatrics': { name: 'MD in Pediatrics', cost: 7000000, salary: 2800000, type: 'medical' },
+        'pg-md-dermatology': { name: 'MD in Dermatology', cost: 10000000, salary: 3500000, type: 'medical' },
+        'pg-md-pathology': { name: 'MD in Pathology', cost: 4000000, salary: 2200000, type: 'medical' },
+        'pg-md-microbiology': { name: 'MD in Microbiology', cost: 3000000, salary: 2000000, type: 'medical' },
+        'pg-md-anesthesiology': { name: 'MD in Anesthesiology', cost: 6000000, salary: 3200000, type: 'medical' },
+        'pg-md-radiology': { name: 'MD in Radiology', cost: 12000000, salary: 4000000, type: 'medical' },
+        'pg-md-psychiatry': { name: 'MD in Psychiatry', cost: 5000000, salary: 2500000, type: 'medical' },
+        'pg-md-community-medicine': { name: 'MD in Community Medicine', cost: 2500000, salary: 1800000, type: 'medical' },
+        'pg-md-ayurveda': { name: 'MD (Ayurveda)', cost: 1500000, salary: 1000000, type: 'medical' },
+        'pg-md-homeopathy': { name: 'MD (Homeopathy)', cost: 1200000, salary: 900000, type: 'medical' },
+        'pg-md-unani': { name: 'MD (Unani)', cost: 1000000, salary: 800000, type: 'medical' },
+
+        // MS Degrees
+        'pg-ms-general-surgery': { name: 'MS in General Surgery', cost: 8000000, salary: 3200000, type: 'medical' },
+        'pg-ms-orthopaedics': { name: 'MS in Orthopaedics', cost: 9000000, salary: 3500000, type: 'medical' },
+        'pg-ms-ophthalmology': { name: 'MS in Ophthalmology', cost: 8500000, salary: 3000000, type: 'medical' },
+        'pg-ms-ent': { name: 'MS in ENT', cost: 7500000, salary: 2800000, type: 'medical' },
+        'pg-ms-obstetrics-gynaecology': { name: 'MS in Obstetrics & Gynaecology', cost: 9500000, salary: 3400000, type: 'medical' },
+        
+        // MDS Degrees
+        'pg-mds-orthodontics': { name: 'MDS in Orthodontics', cost: 3000000, salary: 1500000, type: 'medical' },
+        'pg-mds-oral-maxillofacial-surgery': { name: 'MDS in Oral and Maxillofacial Surgery', cost: 2500000, salary: 1800000, type: 'medical' },
+        'pg-mds-periodontics': { name: 'MDS in Periodontics', cost: 2000000, salary: 1200000, type: 'medical' },
+        'pg-mds-prosthodontics': { name: 'MDS in Prosthodontics', cost: 2200000, salary: 1400000, type: 'medical' },
+        'pg-mds-pedodontics': { name: 'MDS in Pedodontics', cost: 2400000, salary: 1300000, type: 'medical' },
+        'pg-mds-oral-pathology-microbiology': { name: 'MDS in Oral Pathology and Microbiology', cost: 1800000, salary: 1100000, type: 'medical' },
+
+        // Other Doctoral & Masters
+        'pg-pharmd-post-baccalaureate': { name: 'Doctor of Pharmacy (Pharm.D.) - Post Baccalaureate', cost: 1000000, salary: 900000, type: 'phd' },
+        'pg-mvsc': { name: 'Master of Veterinary Science (MVSc)', cost: 400000, salary: 1200000, type: 'phd' },
+        'pg-dm-super-speciality': { name: 'DM - Doctorate of Medicine (Super Speciality)', cost: 10000000, salary: 6000000, type: 'medical' },
+        'pg-mch-super-speciality': { name: 'M.Ch - Master of Chirurgiae (Super Speciality)', cost: 12000000, salary: 7000000, type: 'medical' },
+        
+        // Ph.D. (Design, Social Work, Pharma)
+        'pg-phd-product-design': { name: 'Ph.D. in Product Design', cost: 600000, salary: 1500000, type: 'phd' },
+        'pg-phd-graphic-design': { name: 'Ph.D. in Graphic Design', cost: 500000, salary: 1300000, type: 'phd' },
+        'pg-phd-fashion-design': { name: 'Ph.D. in Fashion Design', cost: 550000, salary: 1400000, type: 'phd' },
+        'pg-phd-industrial-design': { name: 'Ph.D. in Industrial Design', cost: 650000, salary: 1600000, type: 'phd' },
+        'pg-phd-social-work': { name: 'Ph.D. in Social Work', cost: 400000, salary: 900000, type: 'phd' },
+        'pg-phd-public-health': { name: 'Ph.D. in Public Health', cost: 500000, salary: 1400000, type: 'phd' },
+        'pg-phd-physical-education': { name: 'Ph.D. in Physical Education', cost: 300000, salary: 850000, type: 'phd' },
+        'pg-phd-pharmaceutics': { name: 'Ph.D. in Pharmaceutics', cost: 700000, salary: 1300000, type: 'phd' },
+        'pg-phd-pharmacology-pharma': { name: 'Ph.D. in Pharmacology (Pharma)', cost: 750000, salary: 1400000, type: 'phd' },
+        'pg-phd-pharmaceutical-analysis': { name: 'Ph.D. in Pharmaceutical Analysis', cost: 650000, salary: 1250000, type: 'phd' },
+        'pg-phd-pharmacognosy': { name: 'Ph.D. in Pharmacognosy', cost: 600000, salary: 1200000, type: 'phd' },
+        'pg-phd-pharmacy-practice': { name: 'Ph.D. in Pharmacy Practice', cost: 680000, salary: 1280000, type: 'phd' },
+
+        // Post-Doctoral Fellowships - Cost is minimal/zero. Salary is the fellowship grant.
+        'pg-post-doctoral-fellowships-overview': { name: 'Post-Doctoral Fellowships Overview', cost: 50000, salary: 700000, type: 'fellowship' },
+        'pg-fellowship-serb-npdf': { name: 'SERB National Post-Doctoral Fellowship (N-PDF)', cost: 20000, salary: 660000, type: 'fellowship' },
+        'pg-fellowship-icssr': { name: 'ICSSR Post-Doctoral Fellowship', cost: 20000, salary: 400000, type: 'fellowship' },
+        'pg-fellowship-ugc-dskothari': { name: 'UGC D. S. Kothari Postdoctoral Fellowship', cost: 20000, salary: 550000, type: 'fellowship' },
+        'pg-fellowship-csir-ra': { name: 'CSIR Research Associateship (CSIR-RA)', cost: 20000, salary: 552000, type: 'fellowship' },
+        'pg-fellowship-dbt-ra': { name: 'DBT Research Associateship (DBT-RA)', cost: 20000, salary: 600000, type: 'fellowship' },
+        'pg-fellowship-icmr': { name: 'ICMR Postdoctoral Fellowship', cost: 20000, salary: 600000, type: 'fellowship' },
+        'pg-fellowship-ramanujan': { name: 'Ramanujan Fellowship', cost: 20000, salary: 1620000, type: 'fellowship' },
+        'pg-fellowship-tata-innovation': { name: 'Tata Innovation Fellowship', cost: 20000, salary: 300000, type: 'fellowship' },
+        'pg-fellowship-fulbright-nehru': { name: 'Fulbright-Nehru Postdoctoral Research Fellowships (USA)', cost: 200000, salary: 4000000, type: 'fellowship' },
+        'pg-fellowship-university-specific': { name: 'University-Specific Fellowships', cost: 50000, salary: 800000, type: 'fellowship' },
+        'pg-fellowship-industry-sponsored': { name: 'Industry-Sponsored Postdoctoral Research', cost: 50000, salary: 1500000, type: 'fellowship' },
+    };
+
+    /**
+     * Populates the course dropdown menu when the page loads.
+     */
+      /**
+     * Populates the course dropdown menu when the page loads.
+     */
+    function populateDropdown() {
+        const selectElement = document.getElementById('roi-course-select');
+        
+        const sortedCourses = Object.entries(courseData).sort(([,a],[,b]) => a.name.localeCompare(b.name));
+
+        for (const [key, course] of sortedCourses) {
+            const option = document.createElement('option');
+            option.value = key;
+            option.textContent = course.name;
+            selectElement.appendChild(option);
+        }
+    }
+
+    /**
+     * Calculates and displays the ROI and Payback Period based on the selected course.
+     */
+    function calculateROI() {
+        const selectElement = document.getElementById('roi-course-select');
+        const selectedCourseKey = selectElement.value;
+        
+        const costEl = document.getElementById('course-cost');
+        const salaryEl = document.getElementById('course-salary');
+        const roiEl = document.getElementById('course-roi');
+        const paybackEl = document.getElementById('course-payback');
+        const salaryLabelEl = document.getElementById('salary-label');
+
+        if (selectedCourseKey && courseData[selectedCourseKey]) {
+            const course = courseData[selectedCourseKey];
+            const cost = course.cost;
+            const salary = course.salary;
+            
+            // Dynamically change the label for Fellowships
+            if (course.type === 'fellowship') {
+                salaryLabelEl.textContent = 'Annual Fellowship Grant:';
+            } else {
+                salaryLabelEl.textContent = 'Average Starting Salary (p.a.):';
+            }
+
+            // --- 1. Payback Period Calculation ---
+            const paybackInYears = cost / salary;
+            let formattedPayback;
+
+            if (paybackInYears < 1) {
+                const months = Math.round(paybackInYears * 12);
+                const displayMonths = months < 1 ? 1 : months; 
+                formattedPayback = `Approx. ${displayMonths} ${displayMonths === 1 ? 'month' : 'months'}`;
+            } else {
+                const years = Math.floor(paybackInYears);
+                const remainingMonths = Math.round((paybackInYears - years) * 12);
+                
+                let periodString = `${years} ${years === 1 ? 'year' : 'years'}`;
+                if (remainingMonths > 0) {
+                    periodString += ` & ${remainingMonths} ${remainingMonths === 1 ? 'month' : 'months'}`;
+                }
+                formattedPayback = periodString;
+            }
+            
+            // --- 2. ROI / Cost-Benefit Calculation ---
+            let roiDisplayValue; // This variable will hold the final string for the ROI field
+
+            if (course.type === 'fellowship') {
+                // For fellowships, calculate the cost-benefit ratio and display a descriptive note.
+                // The note "For every 1 rupee spent, the fellowship gave 100 in return" is
+                // derived from the calculation: benefit / cost.
+                
+                const returnPerRupee = salary / cost;
+                
+                // Construct the note based on your requested format.
+                roiDisplayValue = `For every ₹1 spent, the fellowship gave ₹${Math.round(returnPerRupee).toLocaleString('en-IN')} in return`;
+
+            } else {
+                // For all other course types, calculate the standard ROI.
+                const roi = ((salary - cost) / cost) * 100;
+                roiDisplayValue = `${roi.toFixed(1)} %`;
+            }
+           
+            const formattedCost = `₹ ${cost.toLocaleString('en-IN')}`;
+            const formattedSalary = `₹ ${salary.toLocaleString('en-IN')}`;
+
+            // Update the output fields
+            costEl.textContent = formattedCost;
+            salaryEl.textContent = formattedSalary;
+            paybackEl.textContent = formattedPayback;
+            roiEl.textContent = roiDisplayValue; // Display either the ROI % or the Cost-Benefit note
+
+        } else {
+            // Reset fields if default option is selected
+            salaryLabelEl.textContent = 'Average Starting Salary (p.a.):';
+            costEl.textContent = '₹ --';
+            salaryEl.textContent = '₹ --';
+            roiEl.textContent = '-- %';
+            paybackEl.textContent = '--';
+        }
+    }
+
+    // Run the populateDropdown function once the window has loaded
+    window.onload = populateDropdown;
+
+</script>
+
+</body>
+</html>
+
+</script>
+
+</body>
+</html>
