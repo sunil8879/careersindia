@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grammar Rules: Modal Auxiliaries</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            /* Blue and white gridline background */
+            background-color: #f0f8ff; 
+            background-image: 
+                repeating-linear-gradient(to right, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 30px),
+                repeating-linear-gradient(to bottom, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 30px);
+            background-size: 30px 30px;
+        }
+
+        /* Header Styling */
+        header {
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        header h1 {
+            display: inline-block;
+            background-color: #0056b3;
+            color: white;
+            padding: 20px 40px;
+            border: 3px solid white;
+            border-radius: 15px;
+            /* 3D Box Effect */
+            box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.4), inset 2px 2px 5px rgba(255, 255, 255, 0.3);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-size: 2.2em;
+            margin: 0;
+        }
+
+        /* Main Container for Two-Column Layout */
+        .container {
+            display: flex;
+            max-width: 1400px;
+            margin: 20px auto;
+            background: #ffffff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.15);
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        /* Left Navigation Column */
+        .nav-column {
+            flex: 1;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+            background-color: #f8f9fa;
+            height: 80vh;
+            overflow-y: auto;
+        }
+
+        .nav-column ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-column li a {
+            display: block;
+            padding: 8px 15px;
+            text-decoration: none;
+            color: #0056b3;
+            border-radius: 5px;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 0.95em;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .nav-column li a:hover,
+        .nav-column li a.active {
+            background-color: #0056b3;
+            color: #fff;
+        }
+
+        /* Right Content Column */
+        .content-column {
+            flex: 3;
+            padding: 25px 35px;
+            height: 80vh; /* Set a height to enable scrolling */
+            overflow-y: auto; /* Enable vertical scrollbar */
+        }
+
+        .content-section {
+            display: none;
+        }
+        
+        .content-section.active {
+            display: block;
+        }
+        
+        h2 {
+            font-size: 1.8em;
+            color: #0056b3;
+            border-bottom: 3px solid #0056b3;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        
+        h3 {
+            font-size: 1.4em;
+            color: #333;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        
+        .rule {
+            background-color: #e7f3fe;
+            border: 1px solid #b3d7f7;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 5px;
+        }
+
+        .example-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .example-list li {
+            margin-bottom: 20px;
+            border-left: 4px solid #0056b3;
+            padding-left: 15px;
+        }
+        
+        .explanation {
+            font-style: italic;
+            color: #555;
+            margin-top: 5px;
+        }
+        
+        .modal {
+            font-weight: bold;
+            color: #0056b3;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>ENGLISH GRAMMAR: MODAL AUXILIARIES</h1>
+    </header>
+
+    <div class="container">
+        <nav class="nav-column">
+            <ul>
+                <li><a href="#definition" class="nav-link active">What are Modals?</a></li>
+                <li><a href="#can" class="nav-link">Can</a></li>
+                <li><a href="#could" class="nav-link">Could</a></li>
+                <li><a href="#may" class="nav-link">May</a></li>
+                <li><a href="#might" class="nav-link">Might</a></li>
+                <li><a href="#shall" class="nav-link">Shall</a></li>
+                <li><a href="#should" class="nav-link">Should</a></li>
+                <li><a href="#will" class="nav-link">Will</a></li>
+                <li><a href="#would" class="nav-link">Would</a></li>
+                <li><a href="#must" class="nav-link">Must</a></li>
+                <li><a href="#ought-to" class="nav-link">Ought to</a></li>
+                <li><a href="#need" class="nav-link">Need</a></li>
+                <li><a href="#dare" class="nav-link">Dare</a></li>
+            </ul>
+        </nav>
+
+        <main class="content-column">
+            <section id="definition" class="content-section active">
+                <h2>What are Modal Auxiliaries?</h2>
+                <p>Modal auxiliary verbs (or simply 'modals') are a type of helping verb used to express a specific mood or attitude. They indicate functions such as **ability, possibility, permission, or obligation**.</p>
+                <div class="rule">
+                    <strong>Key Characteristics:</strong>
+                    <ul>
+                        <li>They are always followed by the base form of the main verb (e.g., He <em>can run</em>, not He <em>can runs</em>).</li>
+                        <li>They do not change their form (no -s, -ed, -ing endings).</li>
+                        <li>They are used to form questions (e.g., <em>Can</em> you help?) and negatives (e.g., He <em>cannot</em> help).</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section id="can" class="content-section">
+                <h2>Modal Auxiliary: CAN</h2>
+                <p>'Can' is primarily used to express ability, possibility, and informal permission.</p>
+                
+                <h3>Usage 1: To Express Ability or Capacity</h3>
+                <ul class="example-list">
+                    <li>She <span class="modal">can</span> speak five languages fluently.
+                        <div class="explanation"><strong>Explanation:</strong> This shows her present ability to speak multiple languages.</div>
+                    </li>
+                    <li>A cheetah <span class="modal">can</span> run faster than any other land animal.
+                        <div class="explanation"><strong>Explanation:</strong> This describes the general capacity or ability of a cheetah.</div>
+                    </li>
+                    <li>I <span class="modal">can</span> solve this complex puzzle.
+                        <div class="explanation"><strong>Explanation:</strong> This expresses the speaker's personal ability to complete the task.</div>
+                    </li>
+                    <li>He <span class="modal">can</span> lift over 100 kilograms.
+                        <div class="explanation"><strong>Explanation:</strong> This highlights his physical strength and ability.</div>
+                    </li>
+                </ul>
+
+                <h3>Usage 2: To Give or Ask for Informal Permission</h3>
+                <ul class="example-list">
+                    <li><span class="modal">Can</span> I borrow your pen for a moment?
+                        <div class="explanation"><strong>Explanation:</strong> This is an informal way of asking for permission from a friend or peer.</div>
+                    </li>
+                    <li>You <span class="modal">can</span> leave early today if you finish your work.
+                        <div class="explanation"><strong>Explanation:</strong> This gives informal permission to an employee or student.</div>
+                    </li>
+                    <li>He asked if he <span class="modal">can</span> join our team.
+                        <div class="explanation"><strong>Explanation:</strong> This reports an informal request for permission.</div>
+                    </li>
+                </ul>
+
+                <h3>Usage 3: To Express Possibility</h3>
+                <ul class="example-list">
+                    <li>Loud music <span class="modal">can</span> damage your hearing.
+                        <div class="explanation"><strong>Explanation:</strong> This indicates a general possibility that is known to happen.</div>
+                    </li>
+                    <li>Even an expert <span class="modal">can</span> make a mistake.
+                        <div class="explanation"><strong>Explanation:</strong> This expresses the possibility that mistakes are not limited to beginners.</div>
+                    </li>
+                     <li>Anyone <span class="modal">can</span> win the lottery; it's all about luck.
+                        <div class="explanation"><strong>Explanation:</strong> This shows that winning is a possibility for every person who participates.</div>
+                    </li>
+                </ul>
+            </section>
+            
+             <section id="could" class="content-section">
+                <h2>Modal Auxiliary: COULD</h2>
+                <p>'Could' is used to express past ability, polite requests, possibility, and suggestions.</p>
+                
+                <h3>Usage 1: To Express Past Ability</h3>
+                <ul class="example-list">
+                    <li>When I was younger, I <span class="modal">could</span> run a mile in five minutes.
+                        <div class="explanation"><strong>Explanation:</strong> This shows an ability that existed in the past but may not exist now.</div>
+                    </li>
+                    <li>He <span class="modal">could</span> speak French when he was a child.
+                        <div class="explanation"><strong>Explanation:</strong> This describes a linguistic ability he had in the past.</div>
+                    </li>
+                </ul>
+
+                <h3>Usage 2: To Make a Polite Request</h3>
+                <ul class="example-list">
+                    <li><span class="modal">Could</span> you please pass the salt?
+                        <div class="explanation"><strong>Explanation:</strong> This is a more formal and polite way of asking for something than using 'Can'.</div>
+                    </li>
+                    <li><span class="modal">Could</span> I ask you a question?
+                        <div class="explanation"><strong>Explanation:</strong> This is a polite way to ask for permission to speak.</div>
+                    </li>
+                     <li><span class="modal">Could</span> you help me with this heavy box?
+                        <div class="explanation"><strong>Explanation:</strong> This politely requests assistance from someone.</div>
+                    </li>
+                </ul>
+
+                <h3>Usage 3: To Express Possibility (often weaker than 'can')</h3>
+                <ul class="example-list">
+                    <li>This plan <span class="modal">could</span> work, but it's risky.
+                        <div class="explanation"><strong>Explanation:</strong> This indicates a possibility that is not certain.</div>
+                    </li>
+                    <li>It <span class="modal">could</span> rain later, so take an umbrella.
+                        <div class="explanation"><strong>Explanation:</strong> This expresses a future possibility that is not guaranteed.</div>
+                    </li>
+                     <li>He <span class="modal">could</span> be at home, but I am not sure.
+                        <div class="explanation"><strong>Explanation:</strong> This shows uncertainty about a present situation.</div>
+                    </li>
+                </ul>
+                
+                <h3>Usage 4: To Make a Suggestion</h3>
+                <ul class="example-list">
+                    <li>We <span class="modal">could</span> go to the movies tonight.
+                        <div class="explanation"><strong>Explanation:</strong> This offers a suggestion for an activity.</div>
+                    </li>
+                    <li>You <span class="modal">could</span> try asking the teacher for help.
+                        <div class="explanation"><strong>Explanation:</strong> This suggests a possible course of action for someone.</div>
+                    </li>
+                </ul>
+            </section>
+            
+            <section id="may" class="content-section">
+                <h2>Modal Auxiliary: MAY</h2>
+                <p>'May' is used to express formal permission, possibility, and wishes or hopes.</p>
+                
+                <h3>Usage 1: To Give or Ask for Formal Permission</h3>
+                <ul class="example-list">
+                    <li><span class="modal">May</span> I come in, sir?
+                        <div class="explanation"><strong>Explanation:</strong> This is a very formal and polite way to ask for permission, often used with superiors.</div>
+                    </li>
+                    <li>You <span class="modal">may</span> begin your exam now.
+                        <div class="explanation"><strong>Explanation:</strong> This gives formal permission to start.</div>
+                    </li>
+                     <li>He asked if he <span class="modal">may</span> be excused.
+                        <div class="explanation"><strong>Explanation:</strong> This reports a formal request for permission.</div>
+                    </li>
+                     <li>Students <span class="modal">may</span> not use calculators during the test.
+                        <div class="explanation"><strong>Explanation:</strong> This formally denies permission.</div>
+                    </li>
+                </ul>
+
+                <h3>Usage 2: To Express Possibility (similar to 'might')</h3>
+                <ul class="example-list">
+                    <li>It <span class="modal">may</span> rain this afternoon.
+                        <div class="explanation"><strong>Explanation:</strong> This indicates a possibility of rain. It is often considered slightly more likely than 'might'.</div>
+                    </li>
+                    <li>He <span class="modal">may</span> be late due to the traffic.
+                        <div class="explanation"><strong>Explanation:</strong> This shows a possible reason for a future or present event.</div>
+                    </li>
+                    <li>The company <span class="modal">may</span> launch a new product next year.
+                        <div class="explanation"><strong>Explanation:</strong> This expresses a possible future plan that is not yet certain.</div>
+                    </li>
+                </ul>
+                
+                <h3>Usage 3: To Express a Wish or Hope</h3>
+                <ul class="example-list">
+                    <li><span class="modal">May</span> you live a long and happy life.
+                        <div class="explanation"><strong>Explanation:</strong> This is a formal way of expressing a wish for someone.</div>
+                    </li>
+                    <li><span class="modal">May</span> God bless you.
+                        <div class="explanation"><strong>Explanation:</strong> This is a common expression used to wish someone well.</div>
+                    </li>
+                     <li><span class="modal">May</span> all your dreams come true.
+                        <div class="explanation"><strong>Explanation:</strong> This expresses a hopeful wish for someone's future.</div>
+                    </li>
+                </ul>
+            </section>
+            
+            <section id="might" class="content-section">
+                <h2>Modal Auxiliary: MIGHT</h2>
+                <p>'Might' is primarily used to express a weaker or more remote possibility, and for very polite requests.</p>
+                
+                <h3>Usage 1: To Express Possibility (often weaker than 'may')</h3>
+                <ul class="example-list">
+                    <li>It <span class="modal">might</span> rain, but the sky is quite clear.
+                        <div class="explanation"><strong>Explanation:</strong> This suggests a remote or slight possibility of rain.</div>
+                    </li>
+                    <li>He <span class="modal">might</span> come to the party, but he hasn't confirmed yet.
+                        <div class="explanation"><strong>Explanation:</strong> This shows uncertainty about his attendance.</div>
+                    </li>
+                     <li>I <span class="modal">might</span> go to London next year if I save enough money.
+                        <div class="explanation"><strong>Explanation:</strong> This expresses a conditional and uncertain future possibility.</div>
+                    </li>
+                     <li>She <span class="modal">might</span> be in the library, but I haven't checked.
+                        <div class="explanation"><strong>Explanation:</strong> This is a guess about a present situation with a high degree of uncertainty.</div>
+                    </li>
+                     <li>This <span class="modal">might</span> be the solution to our problem.
+                        <div class="explanation"><strong>Explanation:</strong> This suggests a possible solution without being certain it will work.</div>
+                    </li>
+                </ul>
+
+                <h3>Usage 2: To Make a Very Polite Suggestion or Request</h3>
+                <ul class="example-list">
+                    <li><span class="modal">Might</span> I ask a question?
+                        <div class="explanation"><strong>Explanation:</strong> This is an extremely polite and formal way to ask for permission, even more so than 'may'.</div>
+                    </li>
+                    <li>You <span class="modal">might</span> want to check the document again before submitting it.
+                        <div class="explanation"><strong>Explanation:</strong> This is a very gentle and polite way to make a suggestion.</div>
+                    </li>
+                    <li>I thought we <span class="modal">might</span> go for a walk after dinner.
+                        <div class="explanation"><strong>Explanation:</strong> This offers a tentative suggestion.</div>
+                    </li>
+                    <li><span class="modal">Might</span> I have a look at your report?
+                        <div class="explanation"><strong>Explanation:</strong> This is a very formal and polite request.</div>
+                    </li>
+                    <li>You <span class="modal">might</span> try adding a little more salt.
+                        <div class="explanation"><strong>Explanation:</strong> This offers a gentle piece of advice or suggestion.</div>
+                    </li>
+                </ul>
+            </section>
+            
+            <section id="shall" class="content-section">
+                <h2>Modal Auxiliary: SHALL</h2>
+                <p>'Shall' is used in formal contexts to make offers, suggestions, ask for advice, and express future actions (traditionally with 'I' and 'we').</p>
+                
+                <h3>Usage 1: To Ask for Advice or Make a Suggestion (with I/we)</h3>
+                <ul class="example-list">
+                    <li>It's getting late. <span class="modal">Shall</span> we go home?
+                        <div class="explanation"><strong>Explanation:</strong> This is a way of suggesting an action and asking for the other person's agreement.</div>
+                    </li>
+                    <li><span class="modal">Shall</span> I open the window?
+                        <div class="explanation"><strong>Explanation:</strong> This is a polite offer or suggestion, asking for the other person's preference.</div>
+                    </li>
+                    <li>What <span class="modal">shall</span> I do with all this extra food?
+                        <div class="explanation"><strong>Explanation:</strong> This is a way of asking for advice or an opinion.</div>
+                    </li>
+                </ul>
+
+                <h3>Usage 2: To Express a Formal Future Action (with I/we)</h3>
+                <ul class="example-list">
+                    <li>I <span class="modal">shall</span> arrive at 10 AM tomorrow.
+                        <div class="explanation"><strong>Explanation:</strong> This is a formal way of stating a future action, often used in formal writing. In modern English, 'will' is more common.</div>
+                    </li>
+                    <li>We <span class="modal">shall</span> overcome this challenge together.
+                        <div class="explanation"><strong>Explanation:</strong> This expresses a strong, formal intention for the future.</div>
+                    </li>
+                     <li>I <span class="modal">shall</span> never forget your kindness.
+                        <div class="explanation"><strong>Explanation:</strong> This adds a sense of formality and determination to a future promise.</div>
+                    </li>
+                </ul>
+                
+                <h3>Usage 3: To Express a Command or Promise (with you/he/she/they)</h3>
+                <ul class="example-list">
+                    <li>You <span class="modal">shall</span> not pass!
+                        <div class="explanation"><strong>Explanation:</strong> This expresses a strong, formal command or prohibition.</div>
+                    </li>
+                    <li>He <span class="modal">shall</span> receive his reward.
+                        <div class="explanation"><strong>Explanation:</strong> This states a formal promise or guarantee.</div>
+                    </li>
+                     <li>The defendant <span class="modal">shall</span> appear in court.
+                        <div class="explanation"><strong>Explanation:</strong> This is common in legal documents to express a formal obligation or command.</div>
+                    </li>
+                    <li>They <span class="modal">shall</span> abide by the rules.
+                        <div class="explanation"><strong>Explanation:</strong> This conveys a strong command or requirement.</div>
+                    </li>
+                </ul>
+            </section>
+            
+             <section id="should" class="content-section">
+                <h2>Modal Auxiliary: SHOULD</h2>
+                <p>'Should' is primarily used to give advice, express obligation or duty, and show expectation.</p>
+                
+                <h3>Usage 1: To Give Advice or a Recommendation</h3>
+                <ul class="example-list">
+                    <li>You <span class="modal">should</span> see a doctor if you are not feeling well.
+                        <div class="explanation"><strong>Explanation:</strong> This gives a strong piece of advice.</div>
+                    </li>
+                    <li>He <span class="modal">should</span> apologize for his rude behavior.
+                        <div class="explanation"><strong>Explanation:</strong> This is a recommendation for the right course of action.</div>
+                    </li>
+                     <li>We <span class="modal">should</span> study hard for the upcoming exam.
+                        <div class="explanation"><strong>Explanation:</strong> This is advice given to oneself or a group.</div>
+                    </li>
+                     <li>You <span class="modal">should</span> always tell the truth.
+                        <div class="explanation"><strong>Explanation:</strong> This is general advice about good conduct.</div>
+                    </li>
+                </ul>
+
+                <h3>Usage 2: To Express Obligation or Duty</h3>
+                <ul class="example-list">
+                    <li>I <span class="modal">should</span> finish this report by tomorrow.
+                        <div class="explanation"><strong>Explanation:</strong> This expresses a sense of duty or obligation to complete the work.</div>
+                    </li>
+                    <li>People <span class="modal">should</span> obey the traffic rules.
+                        <div class="explanation"><strong>Explanation:</strong> This indicates a general obligation for everyone.</div>
+                    </li>
+                    <li>We <span class="modal">should</span> respect our elders.
+                        <div class="explanation"><strong>Explanation:</strong> This expresses a moral duty.</div>
+                    </li>
+                </ul>
+                
+                <h3>Usage 3: To Show Expectation or Probability</h3>
+                <ul class="example-list">
+                    <li>He left an hour ago, so he <span class="modal">should</span> be home by now.
+                        <div class="explanation"><strong>Explanation:</strong> This expresses an expectation that something is true based on known facts.</div>
+                    </li>
+                    <li>The package <span class="modal">should</span> arrive by Friday.
+                        <div class="explanation"><strong>Explanation:</strong> This shows a probable outcome or expectation.</div>
+                    </li>
+                     <li>This movie <span class="modal">should</span> be very good, considering the reviews.
+                        <div class="explanation"><strong>Explanation:</strong> This indicates an expectation of quality.</div>
+                    </li>
+                </ul>
+            </section>
+            
+            <section id="will" class="content-section">
+                <h2>Modal Auxiliary: WILL</h2>
+                <p>'Will' is used to express future actions, willingness, promises, and making predictions.</p>
+
+                <h3>Usage 1: To Express a Future Action or Certainty</h3>
+                <ul class="example-list">
+                    <li>The train <span class="modal">will</span> arrive at 10 AM.
+                        <div class="explanation"><strong>Explanation:</strong> This states a simple fact about the future.</div>
+                    </li>
+                    <li>I <span class="modal">will</span> be 30 years old next year.
+                        <div class="explanation"><strong>Explanation:</strong> This expresses a future certainty.</div>
+                    </li>
+                </ul>
+                
+                <h3>Usage 2: To Express a Promise, Offer, or Willingness</h3>
+                <ul class="example-list">
+                    <li>I <span class="modal">will</span> help you with your homework.
+                        <div class="explanation"><strong>Explanation:</strong> This is an offer of help or a statement of willingness.</div>
+                    </li>
+                    <li>We <span class="modal">will</span> always remember your contribution.
+                        <div class="explanation"><strong>Explanation:</strong> This is a promise for the future.</div>
+                    </li>
+                     <li>If you need anything, I <span class="modal">will</span> be there for you.
+                        <div class="explanation"><strong>Explanation:</strong> This is a strong promise of support.</div>
+                    </li>
+                </ul>
+
+                <h3>Usage 3: To Make a Prediction or State a Belief</h3>
+                <ul class="example-list">
+                    <li>I think it <span class="modal">will</span> rain tomorrow.
+                        <div class="explanation"><strong>Explanation:</strong> This is a prediction based on personal opinion.</div>
+                    </li>
+                    <li>He <span class="modal">will</span> probably win the election.
+                        <div class="explanation"><strong>Explanation:</strong> This expresses a belief about a future outcome.</div>
+                    </li>
+                </ul>
+                
+                <h3>Usage 4: To Make a Request or Give a Command</h3>
+                <ul class="example-list">
+                    <li><span class="modal">Will</span> you please be quiet?
+                        <div class="explanation"><strong>Explanation:</strong> This can be used as a polite request or a firm command.</div>
+                    </li>
+                    <li>You <span class="modal">will</span> do as I say.
+                        <div class="explanation"><strong>Explanation:</strong> This is a strong command.</div>
+                    </li>
+                     <li><span class="modal">Will</span> you open the door for me?
+                        <div class="explanation"><strong>Explanation:</strong> This is a common way to make a request.</div>
+                    </li>
+                </ul>
+            </section>
+            
+            <section id="would" class="content-section">
+                <h2>Modal Auxiliary: WOULD</h2>
+                <p>'Would' is very versatile and is used for polite requests, past habits, and in hypothetical situations.</p>
+                
+                <h3>Usage 1: To Make a Polite Request or Offer</h3>
+                <ul class="example-list">
+                    <li><span class="modal">Would</span> you mind closing the window?
+                        <div class="explanation"><strong>Explanation:</strong> This is a very polite and indirect way of making a request.</div>
+                    </li>
+                    <li><span class="modal">Would</span> you like a cup of tea?
+                        <div class="explanation"><strong>Explanation:</strong> This is a standard polite way to make an offer.</div>
+                    </li>
+                     <li>I <span class="modal">would</span> like to make a reservation, please.
+                        <div class="explanation"><strong>Explanation:</strong> This is a polite way of expressing a wish or desire.</div>
+                    </li>
+                </ul>
+
+                <h3>Usage 2: To Express a Past Habit</h3>
+                <ul class="example-list">
+                    <li>When I was a child, I <span class="modal">would</span> go fishing with my grandfather every weekend.
+                        <div class="explanation"><strong>Explanation:</strong> This describes a repeated, habitual action in the past.</div>
+                    </li>
+                    <li>Every evening, he <span class="modal">would</span> sit on the porch and read a book.
+                        <div class="explanation"><strong>Explanation:</strong> This indicates a regular past routine.</div>
+                    </li>
+                </ul>
+                
+                <h3>Usage 3: In Hypothetical (Unreal) Situations (Conditionals)</h3>
+                <ul class="example-list">
+                    <li>If I won the lottery, I <span class="modal">would</span> travel the world.
+                        <div class="explanation"><strong>Explanation:</strong> This describes the imaginary result of an unreal situation (Second Conditional).</div>
+                    </li>
+                    <li>If I had known you were coming, I <span class="modal">would</span> have baked a cake.
+                        <div class="explanation"><strong>Explanation:</strong> This describes an unreal past result (Third Conditional).</div>
+                    </li>
+                     <li>I <span class="modal">would</span> help you if I had the time.
+                        <div class="explanation"><strong>Explanation:</strong> This expresses a willingness to help under a hypothetical condition.</div>
+                    </li>
+                </ul>
+                
+                 <h3>Usage 4: To Express a Future Action in the Past</h3>
+                <ul class="example-list">
+                    <li>He said he <span class="modal">would</span> call me later.
+                        <div class="explanation"><strong>Explanation:</strong> This is the past tense of 'will' used in reported speech. The promise to call was made in the past.</div>
+                    </li>
+                    <li>She promised she <span class="modal">would</span> never be late again.
+                        <div class="explanation"><strong>Explanation:</strong> This reports a promise that was made in the past.</div>
+                    </li>
+                </ul>
+            </section>
+            
+            <section id="must" class="content-section">
+                <h2>Modal Auxiliary: MUST</h2>
+                <p>'Must' is used to express strong obligation, necessity, and logical deduction.</p>
+                
+                <h3>Usage 1: To Express Strong Obligation or Necessity</h3>
+                <ul class="example-list">
+                    <li>You <span class="modal">must</span> complete this assignment by Friday.
+                        <div class="explanation"><strong>Explanation:</strong> This expresses a strong, non-negotiable obligation.</div>
+                    </li>
+                    <li>All employees <span class="modal">must</span> wear their ID cards at all times.
+                        <div class="explanation"><strong>Explanation:</strong> This states a mandatory rule or regulation.</div>
+                    </li>
+                     <li>I <span class="modal">must</span> go now, or I will be late.
+                        <div class="explanation"><strong>Explanation:</strong> This shows a personal, urgent necessity.</div>
+                    </li>
+                     <li>You <span class="modal">must not</span> smoke in this area.
+                        <div class="explanation"><strong>Explanation:</strong> This expresses a strong prohibition.</div>
+                    </li>
+                </ul>
+
+                <h3>Usage 2: To Express Logical Deduction or Certainty</h3>
+                <ul class="example-list">
+                    <li>He has been working all day; he <span class="modal">must</span> be tired.
+                        <div class="explanation"><strong>Explanation:</strong> This is a logical conclusion based on the evidence that he has been working.</div>
+                    </li>
+                    <li>The lights are off, so they <span class="modal">must</span> have gone out.
+                        <div class="explanation"><strong>Explanation:</strong> This shows certainty based on a logical deduction.</div>
+                    </li>
+                    <li>She isn't answering her phone; she <span class="modal">must</span> be in a meeting.
+                        <div class="explanation"><strong>Explanation:</strong> This is the most logical explanation for the situation.</div>
+                    </li>
+                    <li>He drives a very expensive car. He <span class="modal">must</span> have a good job.
+                        <div class="explanation"><strong>Explanation:</strong> This is a strong assumption based on evidence.</div>
+                    </li>
+                     <li>You haven't eaten all day. You <span class="modal">must</span> be hungry.
+                        <div class="explanation"><strong>Explanation:</strong> This expresses a certain conclusion about someone's state.</div>
+                    </li>
+                     <li>This <span class="modal">must</span> be the place he was talking about.
+                        <div class="explanation"><strong>Explanation:</strong> This shows a high degree of certainty about a location.</div>
+                    </li>
+                </ul>
+            </section>
+            
+            <section id="ought-to" class="content-section">
+                <h2>Modal Auxiliary: OUGHT TO</h2>
+                <p>'Ought to' is very similar to 'should' and is used to express moral duty, advice, or what is right and correct.</p>
+                
+                <h3>Usage 1: To Express Moral Duty or Obligation</h3>
+                <ul class="example-list">
+                    <li>We <span class="modal">ought to</span> respect our elders.
+                        <div class="explanation"><strong>Explanation:</strong> This expresses a strong moral duty.</div>
+                    </li>
+                    <li>You <span class="modal">ought to</span> apologize for what you said.
+                        <div class="explanation"><strong>Explanation:</strong> This indicates the morally correct thing to do.</div>
+                    </li>
+                     <li>People <span class="modal">ought to</span> be more environmentally conscious.
+                        <div class="explanation"><strong>Explanation:</strong> This expresses a societal duty.</div>
+                    </li>
+                </ul>
+
+                <h3>Usage 2: To Give Strong Advice</h3>
+                <ul class="example-list">
+                    <li>You <span class="modal">ought to</span> see a doctor about that cough.
+                        <div class="explanation"><strong>Explanation:</strong> This is strong advice, similar to 'should'.</div>
+                    </li>
+                    <li>He <span class="modal">ought to</span> study more if he wants to pass the exam.
+                        <div class="explanation"><strong>Explanation:</strong> This is a strong recommendation for success.</div>
+                    </li>
+                    <li>We <span class="modal">ought to</span> leave now to avoid the traffic.
+                        <div class="explanation"><strong>Explanation:</strong> This is strong advice about a practical matter.</div>
+                    </li>
+                </ul>
+                
+                <h3>Usage 3: To Show Expectation or Probability</h3>
+                <ul class="example-list">
+                    <li>The price of this product <span class="modal">ought to</span> come down soon.
+                        <div class="explanation"><strong>Explanation:</strong> This expresses a strong expectation.</div>
+                    </li>
+                    <li>He has been practicing for months, so he <span class="modal">ought to</span> win the competition.
+                        <div class="explanation"><strong>Explanation:</strong> This shows a high probability of a future outcome.</div>
+                    </li>
+                     <li>If he started at 9 AM, he <span class="modal">ought to</span> be here by now.
+                        <div class="explanation"><strong>Explanation:</strong> This indicates a logical expectation.</div>
+                    </li>
+                     <li>This plan <span class="modal">ought to</span> work.
+                        <div class="explanation"><strong>Explanation:</strong> This shows a strong belief in the probability of success.</div>
+                    </li>
+                </ul>
+            </section>
+            
+            <section id="need" class="content-section">
+                <h2>Semi-Modal: NEED</h2>
+                <p>'Need' can act as a modal verb (usually in negatives and questions) to express necessity, or lack of it.</p>
+                
+                <h3>Usage 1: As a Modal Verb (in negatives and questions)</h3>
+                <ul class="example-list">
+                    <li>You <span class="modal">need not</span> wait for me. (Modal)
+                        <div class="explanation"><strong>Explanation:</strong> As a modal, 'need' is followed directly by 'not' and the base verb. It means 'it is not necessary'.</div>
+                    </li>
+                    <li><span class="modal">Need</span> I come to the office tomorrow? (Modal)
+                        <div class="explanation"><strong>Explanation:</strong> This is a formal way of asking if something is necessary.</div>
+                    </li>
+                    <li>He <span class="modal">need not</span> worry about the results. (Modal)
+                        <div class="explanation"><strong>Explanation:</strong> This indicates a lack of necessity to worry.</div>
+                    </li>
+                    <li>She <span class="modal">needn't</span> submit the report today. (Modal)
+                        <div class="explanation"><strong>Explanation:</strong> The contracted form 'needn't' clearly shows its use as a modal.</div>
+                    </li>
+                </ul>
+                
+                <h3>Usage 2: As a Main Verb</h3>
+                <ul class="example-list">
+                    <li>You <strong>do not need</strong> to wait for me. (Main Verb)
+                        <div class="explanation"><strong>Explanation:</strong> As a main verb, it requires 'do/does/did' for negatives and is followed by 'to'.</div>
+                    </li>
+                    <li><strong>Do I need</strong> to come to the office tomorrow? (Main Verb)
+                        <div class="explanation"><strong>Explanation:</strong> The question is formed with 'Do'.</div>
+                    </li>
+                     <li>He <strong>needs</strong> to finish his work. (Main Verb)
+                        <div class="explanation"><strong>Explanation:</strong> Here, 'needs' has an '-s' ending, proving it is a main verb.</div>
+                    </li>
+                     <li>I <strong>need</strong> some help with this project. (Main Verb)
+                        <div class="explanation"><strong>Explanation:</strong> Here, 'need' is followed by a noun, acting as a main verb.</div>
+                    </li>
+                     <li>She <strong>needed</strong> to leave early. (Main Verb)
+                        <div class="explanation"><strong>Explanation:</strong> 'needed' is in the past tense, showing it is a main verb.</div>
+                    </li>
+                     <li>What do we <strong>need</strong> to buy from the store? (Main Verb)
+                        <div class="explanation"><strong>Explanation:</strong> The question is formed with 'do'.</div>
+                    </li>
+                </ul>
+            </section>
+            
+            <section id="dare" class="content-section">
+                <h2>Semi-Modal: DARE</h2>
+                <p>'Dare' can act as a modal verb (usually in negatives and questions) to mean 'to have the courage to do something'.</p>
+                
+                <h3>Usage 1: As a Modal Verb (in negatives and questions)</h3>
+                <ul class="example-list">
+                    <li>He <span class="modal">dare not</span> challenge the authority. (Modal)
+                        <div class="explanation"><strong>Explanation:</strong> As a modal, 'dare' is followed directly by 'not' and the base verb. It means 'he doesn't have the courage'.</div>
+                    </li>
+                    <li>How <span class="modal">dare</span> you speak to me like that? (Modal)
+                        <div class="explanation"><strong>Explanation:</strong> This is a common idiomatic expression where 'dare' acts as a modal to express anger.</div>
+                    </li>
+                    <li>I <span class="modal">daren't</span> think how many people were injured. (Modal)
+                        <div class="explanation"><strong>Explanation:</strong> The contracted form 'daren't' shows its use as a modal.</div>
+                    </li>
+                    <li><span class="modal">Dare</span> we tell him the truth? (Modal)
+                        <div class="explanation"><strong>Explanation:</strong> This is a formal way of asking if we have the courage.</div>
+                    </li>
+                </ul>
+                
+                <h3>Usage 2: As a Main Verb</h3>
+                <ul class="example-list">
+                    <li>He <strong>does not dare</strong> to challenge the authority. (Main Verb)
+                        <div class="explanation"><strong>Explanation:</strong> As a main verb, it requires 'do/does/did' for negatives and can be followed by 'to'.</div>
+                    </li>
+                    <li>He <strong>dares</strong> to dream big. (Main Verb)
+                        <div class="explanation"><strong>Explanation:</strong> 'dares' has an '-s' ending, showing it is a main verb.</div>
+                    </li>
+                     <li>She <strong>dared</strong> me to jump over the fence. (Main Verb)
+                        <div class="explanation"><strong>Explanation:</strong> Here, 'dared' is in the past tense and followed by an object and an infinitive.</div>
+                    </li>
+                     <li>I don't <strong>dare</strong> to look down from such a height. (Main Verb)
+                        <div class="explanation"><strong>Explanation:</strong> The negative is formed with 'don't'.</div>
+                    </li>
+                     <li>He wouldn't <strong>dare</strong> to lie to his boss. (Main Verb)
+                        <div class="explanation"><strong>Explanation:</strong> It can follow another modal, which confirms it's a main verb.</div>
+                    </li>
+                     <li>Do you <strong>dare</strong> to enter the haunted house? (Main Verb)
+                        <div class="explanation"><strong>Explanation:</strong> The question is formed with 'Do'.</div>
+                    </li>
+                </ul>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const contentSections = document.querySelectorAll('.content-section');
+            const contentColumn = document.querySelector('.content-column');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+
+                    navLinks.forEach(nav => nav.classList.remove('active'));
+                    contentSections.forEach(section => section.classList.remove('active'));
+
+                    this.classList.add('active');
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        targetSection.classList.add('active');
+                        contentColumn.scrollTop = 0; // Scroll to top of content area on click
+                    }
+                });
+            });
+            // Auto-activate the first link on page load
+            document.querySelector('.nav-link[href="#definition"]').classList.add('active');
+            document.querySelector('#definition').classList.add('active');
+        });
+    </script>
+
+</body>
+</html>

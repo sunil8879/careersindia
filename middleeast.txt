@@ -1,0 +1,1295 @@
+
+
+const middleeast = [
+  {
+    "Scholarship Name": "King Abdullah University of Science and Technology (KAUST) Fellowship",
+    "Host Country and University": "Saudi Arabia, King Abdullah University of Science and Technology (KAUST).",
+    "Website": "https://www.kaust.edu.sa/en/study/scholarships",
+    "Level of Study": "Postgraduate (Master's and PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must hold a Bachelor's degree for Master's programs and a Master's degree for PhD programs from a recognized institution. A minimum GPA of 3.0 on a 4.0 scale is typically required, with most admitted students having a GPA above 3.5. [15, 7]",
+      "Standardized Test Scores": "A minimum TOEFL IBT score of 79 or an IELTS score of 6.5 is required. The GRE is not mandatory but is strongly recommended and can strengthen an application. [14]",
+      "Field of Study": "Programs in Biological and Environmental Sciences and Engineering; Computer, Electrical, and Mathematical Sciences and Engineering; and Physical Sciences and Engineering. [16]",
+      "Other": "Open to all nationalities. Admission to KAUST is merit-based, and every admitted student receives the fellowship. [14, 7]"
+    },
+    "Application Deadline": "There are several application deadlines throughout the year, with a main deadline often around early January. [14]",
+    "Value/Inclusions": "A fully funded scholarship that covers full tuition fees, a monthly living stipend (ranging from $20,000 to $30,000 annually), on-campus housing, medical and dental coverage, and relocation support. [14, 7]",
+    "Application Process": "Apply for admission to a graduate program through the KAUST online portal. All admitted students are automatically awarded the KAUST Fellowship. [15]",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A 750-word statement concerning your past work, academic plans, and career objectives is required. [14]",
+      "Letters of Recommendation (LORs)": "Three letters of recommendation are required. [16]",
+      "Academic Transcripts": "Official transcripts from all previously attended institutions are necessary. [14]",
+      "CV or Resume": "A detailed CV is required. [14]",
+      "Proof of English proficiency (TOEFL/IELTS scores)": "Required for non-native English speakers. [14]"
+    },
+    "How old the scholarship is": "The fellowship has been offered since the university's establishment in 2009. [14]",
+    "Age limit": "There is no specific age limit, but applicants must be at least 18 years old. [15]",
+    "Establishment date of the University": "2009 [14]"
+  },
+  {
+    "Scholarship Name": "Hamad Bin Khalifa University (HBKU) Scholarship",
+    "Host Country and University": "Qatar, Hamad Bin Khalifa University (HBKU).",
+    "Website": "https://www.hbku.edu.qa/en/admissions",
+    "Level of Study": "Undergraduate, Postgraduate (Master's and PhD), and Law programs",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must meet the specific academic requirements of the chosen Bachelor's, Master's, or PhD program. A strong academic record is essential. [9, 8]",
+      "Standardized Test Scores": "IELTS or TOEFL scores are generally required, but this may be waived for students who have studied at an English-medium institution. [8]",
+      "Field of Study": "A wide range of programs across its colleges: Islamic Studies, Humanities & Social Sciences, Science & Engineering, Law, and Health & Life Sciences. [8]",
+      "Other": "Open to Qatari and international students. [9]"
+    },
+    "Application Deadline": "Application deadlines are typically February 1 for international students and March 15 for Qatar residents. [8]",
+    "Value/Inclusions": "This is a fully funded scholarship that provides a monthly stipend (QAR 5,000 for Bachelor's/Master's and QAR 7,500 for PhD), full tuition fee coverage, accommodation, and an annual return flight ticket. Family housing may be provided for married students. [8, 42]",
+    "Application Process": "Students must first apply for and be admitted to an HBKU program. Successful applicants are then considered for the scholarship. [9]",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "Required for most graduate programs. [8]",
+      "Letters of Recommendation (LORs)": "Generally required for graduate applications. [8]",
+      "Academic Transcripts": "Required from all previous educational institutions. [8]",
+      "CV or Resume": "Required. [8]",
+      "Proof of English proficiency (TOEFL/IELTS scores)": "Required if applicable. [9]"
+    },
+    "How old the scholarship is": "The scholarship program has been in place since the university was established.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "2010 [8]"
+  },
+  {
+    "Scholarship Name": "King Abdulaziz University (KAU) Scholarship",
+    "Host Country and University": "Saudi Arabia, King Abdulaziz University (KAU).",
+    "Website": "https://dsa.kau.edu.sa/Default-315-EN",
+    "Level of Study": "Undergraduate, Postgraduate (Master's and PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "For Master's programs, a Bachelor's degree with a 'Very Good' grade is required. For PhD programs, a Master's degree with a 'Very Good' grade is necessary. [11]",
+      "Standardized Test Scores": "English proficiency test (IELTS 5 or TOEFL PBT 500/iBT 61) is required for most programs. [11]",
+      "Field of Study": "A wide range of fields including Sciences, Engineering, Humanities, Arts, Information Technology, and Business Administrations. Health Sciences programs are generally not available. [11, 34]",
+      "Other": "Open to all international students. Applicants must have good conduct and be medically fit. [11]"
+    },
+    "Application Deadline": "Applications are typically open year-round, so there is no specific deadline. [18]",
+    "Value/Inclusions": "A fully funded scholarship that covers full tuition fees, a monthly stipend, accommodation, healthcare, a preparation allowance upon arrival, a graduation allowance, and annual round-trip airfare tickets. [34, 11]",
+    "Application Process": "Apply online through the university's admission portal. There is no separate application for the scholarship.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "May be required depending on the program.",
+      "Letters of Recommendation (LORs)": "Two recommendation letters from former professors are required. [11]",
+      "Academic Transcripts": "Certified copies of all academic transcripts are required. [11]",
+      "CV or Resume": "A comprehensive CV is needed.",
+      "Passport copy": "A copy of a valid passport is required."
+    },
+    "How old the scholarship is": "This is a long-standing government-funded scholarship program.",
+    "Age limit": "Applicants should be under 35 for Master's programs and under 40 for PhD programs. For undergraduate studies, the age should be between 17 and 25. [11, 34]",
+    "Establishment date of the University": "1967"
+  },
+  {
+    "Scholarship Name": "Qatar University Scholarship for International Students",
+    "Host Country and University": "Qatar, Qatar University.",
+    "Website": "http://www.qu.edu.qa/students/admission/scholarships",
+    "Level of Study": "Undergraduate",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must have a high school certificate with an excellent academic record (minimum 95% average for competitive scholarships). [46]",
+      "Standardized Test Scores": "Must meet the admission requirements of the chosen college.",
+      "Field of Study": "All undergraduate programs offered at the university.",
+      "Other": "Open to international students who have received final acceptance into the university. [24]"
+    },
+    "Application Deadline": "Application timelines are announced on the university website, typically aligning with the general admission period.",
+    "Value/Inclusions": "Covers exemption from tuition and textbook fees, provides a monthly stipend of 500 QAR, student housing, and an annual round-trip airfare ticket. [46, 20]",
+    "Application Process": "Apply for admission to Qatar University through their online portal. Eligible admitted students are automatically considered for the scholarship. [46]",
+    "Required Documents": {
+      "Academic Transcripts": "Official high school transcripts are required. [46]",
+      "Proof of English proficiency or Arabic proficiency": "Depending on the language of instruction for the chosen program.",
+      "Passport copy": "Required.",
+      "Personal Photograph": "Required for the application."
+    },
+    "How old the scholarship is": "This has been a long-standing scholarship to attract international talent.",
+    "Age limit": "No specific age limit mentioned.",
+    "Establishment date of the University": "1977"
+  },
+  {
+    "Scholarship Name": "Doha Institute for Graduate Studies Scholarship",
+    "Host Country and University": "Qatar, Doha Institute for Graduate Studies.",
+    "Website": "https://www.dohainstitute.edu.qa/EN/Admissions/Pages/scholarships.aspx",
+    "Level of Study": "Postgraduate (Master's and PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "A Bachelor's degree from a recognized university with a strong academic record.",
+      "Standardized Test Scores": "Proficiency in Arabic and English is required, as the institute is bilingual.",
+      "Field of Study": "Programs within the School of Social Sciences and Humanities and the School of Economics, Administration and Public Policy. [43]",
+      "Other": "Open to all nationalities. Scholarships are awarded based on merit (Tamim Scholarship) or financial need (Sanad Scholarship). [19, 41]"
+    },
+    "Application Deadline": "The admission application deadline is typically January 15. [19]",
+    "Value/Inclusions": "The Tamim merit scholarship is fully funded, covering tuition, accommodation, a monthly stipend, health insurance, and two travel tickets. The Sanad need-based grant covers 10% to 100% of tuition and may include the other benefits. [32, 41]",
+    "Application Process": "Applicants should apply for admission to their chosen program through the institute's portal. They will be automatically considered for the available scholarships. [41]",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A personal statement is required. [43]",
+      "Letters of Recommendation (LORs)": "Academic references are required. [43]",
+      "Academic Transcripts": "Required from all undergraduate studies.",
+      "CV or Resume": "A detailed resume is necessary.",
+      "Proof of Language Proficiency": "Evidence of Arabic and English proficiency is required."
+    },
+    "How old the scholarship is": "These scholarships have been offered since the institute's inception.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "2014"
+  },
+  {
+    "Scholarship Name": "Kuwait Government Scholarships",
+    "Host Country and University": "Kuwait, at various public universities like Kuwait University.",
+    "Website": "https://www.mohe.edu.kw/",
+    "Level of Study": "Undergraduate, Postgraduate (Master's and PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Requires a strong academic record from previous studies. Specific GPA requirements may apply depending on the field of study. [23]",
+      "Standardized Test Scores": "While some scholarships are advertised as 'without IELTS', English or Arabic proficiency is generally required depending on the program. GMAT may be needed for MBA tracks. [23, 21]",
+      "Field of Study": "A wide range of majors in fields like medicine, engineering, and humanities. [33]",
+      "Other": "Open to international students, though specific quotas may apply per country. [23, 21]"
+    },
+    "Application Deadline": "The application period is typically around mid-June each year. [33]",
+    "Value/Inclusions": "A fully funded scholarship covering tuition fees, a monthly living stipend, housing, an annual round-trip ticket, and allowances for books and supplies. [33, 23]",
+    "Application Process": "Applications are generally submitted through the Kuwait Ministry of Higher Education's portal or through the cultural missions of Kuwait abroad. [21]",
+    "Required Documents": {
+      "Academic Transcripts": "Certified and translated transcripts are required. [23]",
+      "Passport copy": "A valid passport is necessary.",
+      "Personal Photograph": "Required for the application.",
+      "Health Certificate": "A medical fitness certificate may be required."
+    },
+    "How old the scholarship is": "This is an annual scholarship program provided by the Kuwaiti government for many years. [23]",
+    "Age limit": "No specific age limit mentioned, but typically for recent graduates.",
+    "Establishment date of the University": "Kuwait University was established in 1966."
+  },
+  {
+    "Scholarship Name": "King Saud University (KSU) Scholarship",
+    "Host Country and University": "Saudi Arabia, King Saud University (KSU).",
+    "Website": "https://scholarships.ksu.edu.sa/",
+    "Level of Study": "Undergraduate, Postgraduate (Master's and PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "A high school certificate with a 'very good' grade for undergraduate, and relevant degrees for postgraduate studies with a strong academic record. [31]",
+      "Standardized Test Scores": "Language proficiency in either Arabic or English is required, depending on the program. [39]",
+      "Field of Study": "Most programs offered by the university.",
+      "Other": "Open to all international students. [39]"
+    },
+    "Application Deadline": "Undergraduate deadline is often around mid-June, while postgraduate deadlines can be in October. [10]",
+    "Value/Inclusions": "A fully funded scholarship covering tuition, a monthly stipend, free furnished accommodation, healthcare, and relocation support. [31, 35]",
+    "Application Process": "Apply online through the university's scholarship portal.",
+    "Required Documents": {
+      "Academic Transcripts": "Required from all previous levels of study. [31]",
+      "Letters of Recommendation (LORs)": "Required for postgraduate programs.",
+      "Statement of Purpose (SOP)": "Required for postgraduate programs.",
+      "Passport copy": "A valid passport is required."
+    },
+    "How old the scholarship is": "KSU has a long history of offering scholarships to international students.",
+    "Age limit": "For undergraduate studies, applicants must be between 17 and 25 years old. [31]",
+    "Establishment date of the University": "1957"
+  },
+
+  {
+    "Scholarship Name": "King Abdullah University of Science and Technology (KAUST) Fellowship",
+    "Host Country and University": "Saudi Arabia, King Abdullah University of Science and Technology (KAUST).",
+    "Website": "https://www.kaust.edu.sa/en/study/scholarships",
+    "Level of Study": "Postgraduate (Master's and PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must hold a Bachelor's degree for Master's programs and a Master's degree for PhD programs from a recognized institution. A minimum GPA of 3.0 on a 4.0 scale is typically required, with most admitted students having a GPA above 3.5.",
+      "Standardized Test Scores": "A minimum TOEFL IBT score of 79 or an IELTS score of 6.5 is required. The GRE is not mandatory but is strongly recommended and can strengthen an application.",
+      "Field of Study": "Programs in Biological and Environmental Sciences and Engineering; Computer, Electrical, and Mathematical Sciences and Engineering; and Physical Sciences and Engineering.",
+      "Other": "Open to all nationalities. Admission to KAUST is merit-based, and every admitted student receives the fellowship."
+    },
+    "Application Deadline": "There are several application deadlines throughout the year, with a main deadline often around early January.",
+    "Value/Inclusions": "A fully funded scholarship that covers full tuition fees, a monthly living stipend (ranging from $20,000 to $30,000 annually), on-campus housing, medical and dental coverage, and relocation support.",
+    "Application Process": "Apply for admission to a graduate program through the KAUST online portal. All admitted students are automatically awarded the KAUST Fellowship.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A 750-word statement concerning your past work, academic plans, and career objectives is required.",
+      "Letters of Recommendation (LORs)": "Three letters of recommendation are required.",
+      "Academic Transcripts": "Official transcripts from all previously attended institutions are necessary.",
+      "CV or Resume": "A detailed CV is required.",
+      "Proof of English proficiency (TOEFL/IELTS scores)": "Required for non-native English speakers."
+    },
+    "How old the scholarship is": "The fellowship has been offered since the university's establishment in 2009.",
+    "Age limit": "There is no specific age limit, but applicants must be at least 18 years old.",
+    "Establishment date of the University": "2009"
+  },
+  {
+    "Scholarship Name": "Hamad Bin Khalifa University (HBKU) Scholarship",
+    "Host Country and University": "Qatar, Hamad Bin Khalifa University (HBKU).",
+    "Website": "https://www.hbku.edu.qa/en/admissions",
+    "Level of Study": "Undergraduate, Postgraduate (Master's and PhD), and Law programs",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must meet the specific academic requirements of the chosen Bachelor's, Master's, or PhD program. A strong academic record is essential.",
+      "Standardized Test Scores": "IELTS or TOEFL scores are generally required, but this may be waived for students who have studied at an English-medium institution.",
+      "Field of Study": "A wide range of programs across its colleges: Islamic Studies, Humanities & Social Sciences, Science & Engineering, Law, and Health & Life Sciences.",
+      "Other": "Open to Qatari and international students."
+    },
+    "Application Deadline": "Application deadlines are typically February 1 for international students and March 15 for Qatar residents.",
+    "Value/Inclusions": "This is a fully funded scholarship that provides a monthly stipend (QAR 5,000 for Bachelor's/Master's and QAR 7,500 for PhD), full tuition fee coverage, accommodation, and an annual return flight ticket. Family housing may be provided for married students. [42]",
+    "Application Process": "Students must first apply for and be admitted to an HBKU program. Successful applicants are then considered for the scholarship.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "Required for most graduate programs.",
+      "Letters of Recommendation (LORs)": "Generally required for graduate applications.",
+      "Academic Transcripts": "Required from all previous educational institutions.",
+      "CV or Resume": "Required.",
+      "Proof of English proficiency (TOEFL/IELTS scores)": "Required if applicable."
+    },
+    "How old the scholarship is": "The scholarship program has been in place since the university was established.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "2010"
+  },
+  {
+    "Scholarship Name": "King Abdulaziz University (KAU) Scholarship",
+    "Host Country and University": "Saudi Arabia, King Abdulaziz University (KAU).",
+    "Website": "https://dsa.kau.edu.sa/Default-315-EN",
+    "Level of Study": "Undergraduate, Postgraduate (Master's and PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "For Master's programs, a Bachelor's degree with a 'Very Good' grade is required. For PhD programs, a Master's degree with a 'Very Good' grade is necessary.",
+      "Standardized Test Scores": "English proficiency test (IELTS 5 or TOEFL PBT 500/iBT 61) is required for most programs.",
+      "Field of Study": "A wide range of fields including Sciences, Engineering, Humanities, Arts, Information Technology, and Business Administrations. Health Sciences programs are generally not available. [34]",
+      "Other": "Open to all international students. Applicants must have good conduct and be medically fit."
+    },
+    "Application Deadline": "Applications are typically open year-round, so there is no specific deadline.",
+    "Value/Inclusions": "A fully funded scholarship that covers full tuition fees, a monthly stipend, accommodation, healthcare, a preparation allowance upon arrival, a graduation allowance, and annual round-trip airfare tickets. [34]",
+    "Application Process": "Apply online through the university's admission portal. There is no separate application for the scholarship.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "May be required depending on the program.",
+      "Letters of Recommendation (LORs)": "Two recommendation letters from former professors are required.",
+      "Academic Transcripts": "Certified copies of all academic transcripts are required.",
+      "CV or Resume": "A comprehensive CV is needed.",
+      "Passport copy": "A copy of a valid passport is required."
+    },
+    "How old the scholarship is": "This is a long-standing government-funded scholarship program.",
+    "Age limit": "Applicants should be under 35 for Master's programs and under 40 for PhD programs. For undergraduate studies, the age should be between 17 and 25. [34]",
+    "Establishment date of the University": "1967"
+  },
+  {
+    "Scholarship Name": "Qatar University Scholarship for International Students",
+    "Host Country and University": "Qatar, Qatar University.",
+    "Website": "http://www.qu.edu.qa/students/admission/scholarships",
+    "Level of Study": "Undergraduate",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must have a high school certificate with an excellent academic record (minimum 95% average for competitive scholarships).",
+      "Standardized Test Scores": "Must meet the admission requirements of the chosen college.",
+      "Field of Study": "All undergraduate programs offered at the university.",
+      "Other": "Open to international students who have received final acceptance into the university."
+    },
+    "Application Deadline": "Application timelines are announced on the university website, typically aligning with the general admission period.",
+    "Value/Inclusions": "Covers exemption from tuition and textbook fees, provides a monthly stipend of 500 QAR, student housing, and an annual round-trip airfare ticket. [11]",
+    "Application Process": "Apply for admission to Qatar University through their online portal. Eligible admitted students are automatically considered for the scholarship.",
+    "Required Documents": {
+      "Academic Transcripts": "Official high school transcripts are required.",
+      "Proof of English proficiency or Arabic proficiency": "Depending on the language of instruction for the chosen program.",
+      "Passport copy": "Required.",
+      "Personal Photograph": "Required for the application."
+    },
+    "How old the scholarship is": "This has been a long-standing scholarship to attract international talent.",
+    "Age limit": "No specific age limit mentioned.",
+    "Establishment date of the University": "1977"
+  },
+  {
+    "Scholarship Name": "Doha Institute for Graduate Studies Scholarship",
+    "Host Country and University": "Qatar, Doha Institute for Graduate Studies.",
+    "Website": "https://www.dohainstitute.edu.qa/EN/Admissions/Pages/scholarships.aspx",
+    "Level of Study": "Postgraduate (Master's and PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "A Bachelor's degree from a recognized university with a strong academic record.",
+      "Standardized Test Scores": "Proficiency in Arabic and English is required, as the institute is bilingual.",
+      "Field of Study": "Programs within the School of Social Sciences and Humanities and the School of Economics, Administration and Public Policy.",
+      "Other": "Open to all nationalities. Scholarships are awarded based on merit (Tamim Scholarship) or financial need (Sanad Scholarship)."
+    },
+    "Application Deadline": "The admission application deadline is typically January 15.",
+    "Value/Inclusions": "The Tamim merit scholarship is fully funded, covering tuition, accommodation, a monthly stipend, health insurance, and two travel tickets. The Sanad need-based grant covers 10% to 100% of tuition and may include the other benefits.",
+    "Application Process": "Applicants should apply for admission to their chosen program through the institute's portal. They will be automatically considered for the available scholarships.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A personal statement is required.",
+      "Letters of Recommendation (LORs)": "Academic references are required.",
+      "Academic Transcripts": "Required from all undergraduate studies.",
+      "CV or Resume": "A detailed resume is necessary.",
+      "Proof of Language Proficiency": "Evidence of Arabic and English proficiency is required."
+    },
+    "How old the scholarship is": "These scholarships have been offered since the institute's inception.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "2014"
+  },
+  {
+    "Scholarship Name": "Kuwait Government Scholarships",
+    "Host Country and University": "Kuwait, at various public universities like Kuwait University.",
+    "Website": "https://www.mohe.edu.kw/",
+    "Level of Study": "Undergraduate, Postgraduate (Master's and PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Requires a strong academic record from previous studies. Specific GPA requirements may apply depending on the field of study.",
+      "Standardized Test Scores": "While some scholarships are advertised as 'without IELTS', English or Arabic proficiency is generally required depending on the program. GMAT may be needed for MBA tracks. [48]",
+      "Field of Study": "A wide range of majors in fields like medicine, engineering, and humanities.",
+      "Other": "Open to international students, though specific quotas may apply per country."
+    },
+    "Application Deadline": "The application period is typically around mid-June each year.",
+    "Value/Inclusions": "A fully funded scholarship covering tuition fees, a monthly living stipend, housing, an annual round-trip ticket, and allowances for books and supplies.",
+    "Application Process": "Applications are generally submitted through the Kuwait Ministry of Higher Education's portal or through the cultural missions of Kuwait abroad.",
+    "Required Documents": {
+      "Academic Transcripts": "Certified and translated transcripts are required.",
+      "Passport copy": "A valid passport is necessary.",
+      "Personal Photograph": "Required for the application.",
+      "Health Certificate": "A medical fitness certificate may be required."
+    },
+    "How old the scholarship is": "This is an annual scholarship program provided by the Kuwaiti government for many years.",
+    "Age limit": "No specific age limit mentioned, but typically for recent graduates.",
+    "Establishment date of the University": "Kuwait University was established in 1966."
+  },
+  {
+    "Scholarship Name": "King Saud University (KSU) Scholarship",
+    "Host Country and University": "Saudi Arabia, King Saud University (KSU).",
+    "Website": "https://scholarships.ksu.edu.sa/",
+    "Level of Study": "Undergraduate, Postgraduate (Master's and PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "A high school certificate with a 'very good' grade for undergraduate, and relevant degrees for postgraduate studies with a strong academic record.",
+      "Standardized Test Scores": "Language proficiency in either Arabic or English is required, depending on the program.",
+      "Field of Study": "Most programs offered by the university.",
+      "Other": "Open to all international students."
+    },
+    "Application Deadline": "Undergraduate deadline is often around mid-June, while postgraduate deadlines can be in October.",
+    "Value/Inclusions": "A fully funded scholarship covering tuition, a monthly stipend, free furnished accommodation, healthcare, and relocation support.",
+    "Application Process": "Apply online through the university's scholarship portal.",
+    "Required Documents": {
+      "Academic Transcripts": "Required from all previous levels of study.",
+      "Letters of Recommendation (LORs)": "Required for postgraduate programs.",
+      "Statement of Purpose (SOP)": "Required for postgraduate programs.",
+      "Passport copy": "A valid passport is required."
+    },
+    "How old the scholarship is": "KSU has a long history of offering scholarships to international students.",
+    "Age limit": "For undergraduate studies, applicants must be between 17 and 25 years old.",
+    "Establishment date of the University": "1957"
+  },
+  {
+    "Scholarship Name": "King Fahd University of Petroleum and Minerals (KFUPM) Scholarship",
+    "Host Country and University": "Saudi Arabia, King Fahd University of Petroleum and Minerals (KFUPM).",
+    "Website": "https://www.kfupm.edu.sa/deanships/dgs/
+",
+    "Level of Study": "Postgraduate (Master's and PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "A four-year Bachelor's degree for Master's and a two-year Master's degree for PhD applicants. A minimum GPA of 3.0 out of 4.0 is required. [4]",
+      "Standardized Test Scores": "Minimum TOEFL iBT of 70 or IELTS of 6.0 for Master's programs. For PhD, a TOEFL iBT of 80 or IELTS of 6.5 is needed. GRE is also required. [4, 17]",
+      "Field of Study": "Engineering, Sciences, Business Administration, Computer Engineering, and Environmental Design. [49, 17]",
+      "Other": "Open to all nationalities. Every admitted graduate student is offered a full scholarship. [4]"
+    },
+    "Application Deadline": "There are multiple deadlines, with one typically in mid-July. [16]",
+    "Value/Inclusions": "A fully funded scholarship that covers tuition fees, a competitive monthly stipend, free furnished accommodation, medical care, free textbooks, subsidized meals, and an annual round-trip air ticket. [10, 4]",
+    "Application Process": "Complete the online application through the KFUPM admissions portal and upload all mandatory documents before the deadline. [4]",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A one-page essay detailing career and research goals is required. [16]",
+      "Letters of Recommendation (LORs)": "Two or three letters of recommendation are required, submitted through the online system. [17, 4]",
+      "Academic Transcripts": "Official transcripts are required. [17]",
+      "CV or Resume": "Required.",
+      "Proof of English proficiency (TOEFL/IELTS scores)": "Required. [16]",
+      "GRE/GMAT scores": "GRE is required for most programs; GMAT is required for MBA. [17]"
+    },
+    "How old the scholarship is": "KFUPM has been offering these scholarships since its early years of establishment in 1963. [4]",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1963 [4]"
+  },
+  {
+    "Scholarship Name": "Islamic University of Madinah Scholarship",
+    "Host Country and University": "Saudi Arabia, Islamic University of Madinah.",
+    "Website": "https://studyinsaudi.moe.gov.sa/",
+    "Level of Study": "Undergraduate, Postgraduate (Master's and PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "High school diploma for undergraduate applicants. Bachelor's degree with a minimum GPA of 3.75 out of 5 for Master's applicants. [27, 7]",
+      "Standardized Test Scores": "For non-Gulf country Master's applicants, a minimum GRE (quantitative part) score of 130 and a TOEFL-PBT score of 450 or equivalent is required. [27, 7]",
+      "Field of Study": "Primarily focused on Islamic studies, Arabic language, Engineering, and Sciences. [27]",
+      "Other": "Open to male Muslim students from all countries. Must be of good conduct and medically fit. [27, 7]"
+    },
+    "Application Deadline": "Typically June 14 for Bachelor's programs and October 31 for Master's and PhD programs. [8, 19]",
+    "Value/Inclusions": "A fully funded scholarship covering tuition, a monthly stipend, free furnished accommodation, quality healthcare, subsidized meals, and an annual round-trip airfare ticket. [19, 27]",
+    "Application Process": "Applications are submitted through the 'Study in Saudi' platform. [8, 19]",
+    "Required Documents": {
+      "Educational Documents": "Certified high school/university certificates and transcripts. [7]",
+      "Passport copy": "A valid passport is required. [8]",
+      "Birth Certificate": "Required. [7]",
+      "Medical Report": "A report confirming the absence of infectious diseases is needed. [8]",
+      "Letters of Recommendation (LORs)": "Required. [7]"
+    },
+    "How old the scholarship is": "The university was established in 1961 by royal decree to spread Islamic teachings globally. [27]",
+    "Age limit": "Applicants must be between 17 and 25 years old for undergraduate programs. For Master's programs, the age limit is under 35. [24]",
+    "Establishment date of the University": "1961 [8]"
+  },
+  {
+    "Scholarship Name": "Qatar Foundation (QF) Merit Scholarship",
+    "Host Country and University": "Qatar, at QF partner universities (e.g., Georgetown, Texas A&M, Weill Cornell, Carnegie Mellon). [11]",
+    "Website": "https://www.qf.org.qa/education/higher-education",
+    "Level of Study": "Undergraduate",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must have completed at least two semesters (one year) of study at a QF partner university. Requires an outstanding academic record with a minimum cumulative GPA of 3.6. [18, 11]",
+      "Standardized Test Scores": "Not applicable for the scholarship itself, but required for initial admission to the university.",
+      "Field of Study": "All programs offered at the QF partner universities.",
+      "Other": "Open to all nationalities. This is a highly competitive, merit-based scholarship for continuing students."
+    },
+    "Application Deadline": "Varies by university, but applications are typically reviewed annually.",
+    "Value/Inclusions": "The scholarship covers tuition and textbook costs. It can be combined with other partial scholarships. [18, 5]",
+    "Application Process": "Students apply through their respective university's financial aid office after completing their first year of study. Requires letters of recommendation. [18]",
+    "Required Documents": {
+      "Letters of Recommendation (LORs)": "At least two letters of recommendation from a professor and an academic dean are required. [33, 18]",
+      "Academic Transcripts": "University transcripts showing a GPA of 3.6 or higher are necessary. [18]"
+    },
+    "How old the scholarship is": "This has been a key part of the Qatar Foundation's mission to foster academic excellence in Education City.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "Qatar Foundation was established in 1995; partner universities arrived subsequently."
+  },
+  {
+    "Scholarship Name": "Crown Prince’s International Scholarship Program (CPISP)",
+    "Host Country and University": "Bahrain (for selection), with studies at top international universities.",
+    "Website": "http://www.cpisp.bh/",
+    "Level of Study": "Undergraduate",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must be a Bahraini citizen in the 11th grade (or equivalent) with an outstanding cumulative GPA of 97% or higher. [12]",
+      "Standardized Test Scores": "Not required for initial application, but selected candidates undergo extensive training for IELTS, SAT, etc.",
+      "Field of Study": "Open to all fields of study at leading international universities.",
+      "Other": "Awarded to the most gifted and talented high school students in Bahrain. [12]"
+    },
+    "Application Deadline": "The application period is typically in March of each year. [12]",
+    "Value/Inclusions": "A fully funded scholarship covering tuition, fees, living expenses, books, and airfare for the entire duration of the degree program.",
+    "Application Process": "Students apply online during their 11th grade. The selection process involves qualifying tests, interviews, and a comprehensive leadership and academic training program for the top candidates before they apply to universities. [12]",
+    "Required Documents": {
+      "Academic Transcripts": "Official school transcripts showing a GPA of 97% or higher. [12]",
+      "Passport copy": "Copy of Bahraini passport."
+    },
+    "How old the scholarship is": "The program has been running annually for many years to develop future leaders for Bahrain.",
+    "Age limit": "Must be an 11th-grade student.",
+    "Establishment date of the University": "Not applicable (scholarship program)."
+  },
+  {
+    "Scholarship Name": "Taibah University Undergraduate Scholarship",
+    "Host Country and University": "Saudi Arabia, Taibah University.",
+    "Website": "https://www.taibahu.edu.sa/Pages/EN/Home.aspx",
+    "Level of Study": "Undergraduate",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must have a high school diploma or its equivalent with a strong academic record. [20, 32]",
+      "Standardized Test Scores": "No language certificate is explicitly required for application, but proficiency in the language of instruction (Arabic/English) is necessary. [22]",
+      "Field of Study": "Wide range of majors including Arts, Humanities, Engineering, Business Administration, Pharmacy, Medicine, and Sciences. [22]",
+      "Other": "Open to all non-Saudi international students. Female applicants must have a 'mahram' (male guardian) accompanying them. [32, 22]"
+    },
+    "Application Deadline": "The deadline is typically in late December. [34]",
+    "Value/Inclusions": "A fully funded scholarship covering full tuition fees, a monthly stipend, free accommodation, health insurance, and a travel allowance. [34, 20]",
+    "Application Process": "Apply online through the Taibah University admissions portal. [34]",
+    "Required Documents": {
+      "Academic Transcripts": "A copy of the high school certificate, translated into Arabic and authenticated by the Saudi embassy. [32, 22]",
+      "Passport copy": "A valid passport with at least six months of validity is required. [32]",
+      "Personal Photograph": "A recent colored photograph (4x6 cm) is required. [32]"
+    },
+    "How old the scholarship is": "This is a government-funded external scholarship program offered annually. [20]",
+    "Age limit": "Applicants must be between 17 and 25 years old. [32, 20]",
+    "Establishment date of the University": "2003 [41]"
+  },
+
+  {
+    "Scholarship Name": "King Abdullah University of Science and Technology (KAUST) Fellowship",
+    "Host Country and University": "Saudi Arabia, King Abdullah University of Science and Technology (KAUST).",
+    "Website": "https://www.kaust.edu.sa/en/study/scholarships",
+    "Level of Study": "Postgraduate (Master's and PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must hold a Bachelor's degree for Master's programs and a Master's degree for PhD programs from a recognized institution. A minimum GPA of 3.0 on a 4.0 scale is typically required, with most admitted students having a GPA above 3.5.",
+      "Standardized Test Scores": "A minimum TOEFL IBT score of 79 or an IELTS score of 6.5 is required. The GRE is not mandatory but is strongly recommended and can strengthen an application.",
+      "Field of Study": "Programs in Biological and Environmental Sciences and Engineering; Computer, Electrical, and Mathematical Sciences and Engineering; and Physical Sciences and Engineering.",
+      "Other": "Open to all nationalities. Admission to KAUST is merit-based, and every admitted student receives the fellowship."
+    },
+    "Application Deadline": "There are several application deadlines throughout the year, with a main deadline often around early January.",
+    "Value/Inclusions": "A fully funded scholarship that covers full tuition fees, a monthly living stipend (ranging from $20,000 to $30,000 annually), on-campus housing, medical and dental coverage, and relocation support.",
+    "Application Process": "Apply for admission to a graduate program through the KAUST online portal. All admitted students are automatically awarded the KAUST Fellowship.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A 750-word statement concerning your past work, academic plans, and career objectives is required.",
+      "Letters of Recommendation (LORs)": "Three letters of recommendation are required.",
+      "Academic Transcripts": "Official transcripts from all previously attended institutions are necessary.",
+      "CV or Resume": "A detailed CV is required.",
+      "Proof of English proficiency (TOEFL/IELTS scores)": "Required for non-native English speakers."
+    },
+    "How old the scholarship is": "The fellowship has been offered since the university's establishment in 2009.",
+    "Age limit": "There is no specific age limit, but applicants must be at least 18 years old.",
+    "Establishment date of the University": "2009"
+  },
+  {
+    "Scholarship Name": "Hamad Bin Khalifa University (HBKU) Scholarship",
+    "Host Country and University": "Qatar, Hamad Bin Khalifa University (HBKU).",
+    "Website": "https://www.hbku.edu.qa/en/admissions",
+    "Level of Study": "Undergraduate, Postgraduate (Master's and PhD), and Law programs",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must meet the specific academic requirements of the chosen Bachelor's, Master's, or PhD program. A strong academic record is essential.",
+      "Standardized Test Scores": "IELTS or TOEFL scores are generally required, but this may be waived for students who have studied at an English-medium institution.",
+      "Field of Study": "A wide range of programs across its colleges: Islamic Studies, Humanities & Social Sciences, Science & Engineering, Law, and Health & Life Sciences.",
+      "Other": "Open to Qatari and international students."
+    },
+    "Application Deadline": "Application deadlines are typically February 1 for international students and March 15 for Qatar residents.",
+    "Value/Inclusions": "This is a fully funded scholarship that provides a monthly stipend (QAR 5,000 for Bachelor's/Master's and QAR 7,500 for PhD), full tuition fee coverage, accommodation, and an annual return flight ticket. Family housing may be provided for married students. [42]",
+    "Application Process": "Students must first apply for and be admitted to an HBKU program. Successful applicants are then considered for the scholarship.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "Required for most graduate programs.",
+      "Letters of Recommendation (LORs)": "Generally required for graduate applications.",
+      "Academic Transcripts": "Required from all previous educational institutions.",
+      "CV or Resume": "Required.",
+      "Proof of English proficiency (TOEFL/IELTS scores)": "Required if applicable."
+    },
+    "How old the scholarship is": "The scholarship program has been in place since the university was established.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "2010"
+  },
+  {
+    "Scholarship Name": "King Abdulaziz University (KAU) Scholarship",
+    "Host Country and University": "Saudi Arabia, King Abdulaziz University (KAU).",
+    "Website": "https://dsa.kau.edu.sa/Default-315-EN",
+    "Level of Study": "Undergraduate, Postgraduate (Master's and PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "For Master's programs, a Bachelor's degree with a 'Very Good' grade is required. For PhD programs, a Master's degree with a 'Very Good' grade is necessary.",
+      "Standardized Test Scores": "English proficiency test (IELTS 5 or TOEFL PBT 500/iBT 61) is required for most programs.",
+      "Field of Study": "A wide range of fields including Sciences, Engineering, Humanities, Arts, Information Technology, and Business Administrations. Health Sciences programs are generally not available. [34]",
+      "Other": "Open to all international students. Applicants must have good conduct and be medically fit."
+    },
+    "Application Deadline": "Applications are typically open year-round, so there is no specific deadline.",
+    "Value/Inclusions": "A fully funded scholarship that covers full tuition fees, a monthly stipend, accommodation, healthcare, a preparation allowance upon arrival, a graduation allowance, and annual round-trip airfare tickets. [34]",
+    "Application Process": "Apply online through the university's admission portal. There is no separate application for the scholarship.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "May be required depending on the program.",
+      "Letters of Recommendation (LORs)": "Two recommendation letters from former professors are required.",
+      "Academic Transcripts": "Certified copies of all academic transcripts are required.",
+      "CV or Resume": "A comprehensive CV is needed.",
+      "Passport copy": "A copy of a valid passport is required."
+    },
+    "How old the scholarship is": "This is a long-standing government-funded scholarship program.",
+    "Age limit": "Applicants should be under 35 for Master's programs and under 40 for PhD programs. For undergraduate studies, the age should be between 17 and 25. [34]",
+    "Establishment date of the University": "1967"
+  },
+  {
+    "Scholarship Name": "Qatar University Scholarship for International Students",
+    "Host Country and University": "Qatar, Qatar University.",
+    "Website": "http://www.qu.edu.qa/students/admission/scholarships",
+    "Level of Study": "Undergraduate",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must have a high school certificate with an excellent academic record (minimum 95% average for competitive scholarships).",
+      "Standardized Test Scores": "Must meet the admission requirements of the chosen college.",
+      "Field of Study": "All undergraduate programs offered at the university.",
+      "Other": "Open to international students who have received final acceptance into the university."
+    },
+    "Application Deadline": "Application timelines are announced on the university website, typically aligning with the general admission period.",
+    "Value/Inclusions": "Covers exemption from tuition and textbook fees, provides a monthly stipend of 500 QAR, student housing, and an annual round-trip airfare ticket. [11]",
+    "Application Process": "Apply for admission to Qatar University through their online portal. Eligible admitted students are automatically considered for the scholarship.",
+    "Required Documents": {
+      "Academic Transcripts": "Official high school transcripts are required.",
+      "Proof of English proficiency or Arabic proficiency": "Depending on the language of instruction for the chosen program.",
+      "Passport copy": "Required.",
+      "Personal Photograph": "Required for the application."
+    },
+    "How old the scholarship is": "This has been a long-standing scholarship to attract international talent.",
+    "Age limit": "No specific age limit mentioned.",
+    "Establishment date of the University": "1977"
+  },
+  {
+    "Scholarship Name": "Doha Institute for Graduate Studies Scholarship",
+    "Host Country and University": "Qatar, Doha Institute for Graduate Studies.",
+    "Website": "https://www.dohainstitute.edu.qa/EN/Admissions/Pages/scholarships.aspx",
+    "Level of Study": "Postgraduate (Master's and PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "A Bachelor's degree from a recognized university with a strong academic record.",
+      "Standardized Test Scores": "Proficiency in Arabic and English is required, as the institute is bilingual.",
+      "Field of Study": "Programs within the School of Social Sciences and Humanities and the School of Economics, Administration and Public Policy.",
+      "Other": "Open to all nationalities. Scholarships are awarded based on merit (Tamim Scholarship) or financial need (Sanad Scholarship)."
+    },
+    "Application Deadline": "The admission application deadline is typically January 15.",
+    "Value/Inclusions": "The Tamim merit scholarship is fully funded, covering tuition, accommodation, a monthly stipend, health insurance, and two travel tickets. The Sanad need-based grant covers 10% to 100% of tuition and may include the other benefits.",
+    "Application Process": "Applicants should apply for admission to their chosen program through the institute's portal. They will be automatically considered for the available scholarships.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A personal statement is required.",
+      "Letters of Recommendation (LORs)": "Academic references are required.",
+      "Academic Transcripts": "Required from all undergraduate studies.",
+      "CV or Resume": "A detailed resume is necessary.",
+      "Proof of Language Proficiency": "Evidence of Arabic and English proficiency is required."
+    },
+    "How old the scholarship is": "These scholarships have been offered since the institute's inception.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "2014"
+  },
+  {
+    "Scholarship Name": "Kuwait Government Scholarships",
+    "Host Country and University": "Kuwait, at various public universities like Kuwait University.",
+    "Website": "https://www.mohe.edu.kw/",
+    "Level of Study": "Undergraduate, Postgraduate (Master's and PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Requires a strong academic record from previous studies. Specific GPA requirements may apply depending on the field of study.",
+      "Standardized Test Scores": "While some scholarships are advertised as 'without IELTS', English or Arabic proficiency is generally required depending on the program. GMAT may be needed for MBA tracks. [48]",
+      "Field of Study": "A wide range of majors in fields like medicine, engineering, and humanities.",
+      "Other": "Open to international students, though specific quotas may apply per country."
+    },
+    "Application Deadline": "The application period is typically around mid-June each year.",
+    "Value/Inclusions": "A fully funded scholarship covering tuition fees, a monthly living stipend, housing, an annual round-trip ticket, and allowances for books and supplies.",
+    "Application Process": "Applications are generally submitted through the Kuwait Ministry of Higher Education's portal or through the cultural missions of Kuwait abroad.",
+    "Required Documents": {
+      "Academic Transcripts": "Certified and translated transcripts are required.",
+      "Passport copy": "A valid passport is necessary.",
+      "Personal Photograph": "Required for the application.",
+      "Health Certificate": "A medical fitness certificate may be required."
+    },
+    "How old the scholarship is": "This is an annual scholarship program provided by the Kuwaiti government for many years.",
+    "Age limit": "No specific age limit mentioned, but typically for recent graduates.",
+    "Establishment date of the University": "Kuwait University was established in 1966."
+  },
+  {
+    "Scholarship Name": "King Saud University (KSU) Scholarship",
+    "Host Country and University": "Saudi Arabia, King Saud University (KSU).",
+    "Website": "https://scholarships.ksu.edu.sa/",
+    "Level of Study": "Undergraduate, Postgraduate (Master's and PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "A high school certificate with a 'very good' grade for undergraduate, and relevant degrees for postgraduate studies with a strong academic record.",
+      "Standardized Test Scores": "Language proficiency in either Arabic or English is required, depending on the program.",
+      "Field of Study": "Most programs offered by the university.",
+      "Other": "Open to all international students."
+    },
+    "Application Deadline": "Undergraduate deadline is often around mid-June, while postgraduate deadlines can be in October.",
+    "Value/Inclusions": "A fully funded scholarship covering tuition, a monthly stipend, free furnished accommodation, healthcare, and relocation support.",
+    "Application Process": "Apply online through the university's scholarship portal.",
+    "Required Documents": {
+      "Academic Transcripts": "Required from all previous levels of study.",
+      "Letters of Recommendation (LORs)": "Required for postgraduate programs.",
+      "Statement of Purpose (SOP)": "Required for postgraduate programs.",
+      "Passport copy": "A valid passport is required."
+    },
+    "How old the scholarship is": "KSU has a long history of offering scholarships to international students.",
+    "Age limit": "For undergraduate studies, applicants must be between 17 and 25 years old.",
+    "Establishment date of the University": "1957"
+  },
+  {
+    "Scholarship Name": "King Fahd University of Petroleum and Minerals (KFUPM) Scholarship",
+    "Host Country and University": "Saudi Arabia, King Fahd University of Petroleum and Minerals (KFUPM).",
+    "Website": "https://www.kfupm.edu.sa/deanships/dgs/",
+    "Level of Study": "Postgraduate (Master's and PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "A four-year Bachelor's degree for Master's and a two-year Master's degree for PhD applicants. A minimum GPA of 3.0 out of 4.0 is required. [4]",
+      "Standardized Test Scores": "Minimum TOEFL iBT of 70 or IELTS of 6.0 for Master's programs. For PhD, a TOEFL iBT of 80 or IELTS of 6.5 is needed. GRE is also required. [4, 17]",
+      "Field of Study": "Engineering, Sciences, Business Administration, Computer Engineering, and Environmental Design. [49, 17]",
+      "Other": "Open to all nationalities. Every admitted graduate student is offered a full scholarship. [4]"
+    },
+    "Application Deadline": "There are multiple deadlines, with one typically in mid-July. [16]",
+    "Value/Inclusions": "A fully funded scholarship that covers tuition fees, a competitive monthly stipend, free furnished accommodation, medical care, free textbooks, subsidized meals, and an annual round-trip air ticket. [10, 4]",
+    "Application Process": "Complete the online application through the KFUPM admissions portal and upload all mandatory documents before the deadline. [4]",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A one-page essay detailing career and research goals is required. [16]",
+      "Letters of Recommendation (LORs)": "Two or three letters of recommendation are required, submitted through the online system. [17, 4]",
+      "Academic Transcripts": "Official transcripts are required. [17]",
+      "CV or Resume": "Required.",
+      "Proof of English proficiency (TOEFL/IELTS scores)": "Required. [16]",
+      "GRE/GMAT scores": "GRE is required for most programs; GMAT is required for MBA. [17]"
+    },
+    "How old the scholarship is": "KFUPM has been offering these scholarships since its early years of establishment in 1963. [4]",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1963"
+  },
+  {
+    "Scholarship Name": "Islamic University of Madinah Scholarship",
+    "Host Country and University": "Saudi Arabia, Islamic University of Madinah.",
+    "Website": "https://studyinsaudi.moe.gov.sa/",
+    "Level of Study": "Undergraduate, Postgraduate (Master's and PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "High school diploma for undergraduate applicants. Bachelor's degree with a minimum GPA of 3.75 out of 5 for Master's applicants. [27, 7]",
+      "Standardized Test Scores": "For non-Gulf country Master's applicants, a minimum GRE (quantitative part) score of 130 and a TOEFL-PBT score of 450 or equivalent is required. [27, 7]",
+      "Field of Study": "Primarily focused on Islamic studies, Arabic language, Engineering, and Sciences. [27]",
+      "Other": "Open to male Muslim students from all countries. Must be of good conduct and medically fit. [27, 7]"
+    },
+    "Application Deadline": "Typically June 14 for Bachelor's programs and October 31 for Master's and PhD programs. [8, 19]",
+    "Value/Inclusions": "A fully funded scholarship covering tuition, a monthly stipend, free furnished accommodation, quality healthcare, subsidized meals, and an annual round-trip airfare ticket. [19, 27]",
+    "Application Process": "Applications are submitted through the 'Study in Saudi' platform. [8, 19]",
+    "Required Documents": {
+      "Educational Documents": "Certified high school/university certificates and transcripts. [7]",
+      "Passport copy": "A valid passport is required. [8]",
+      "Birth Certificate": "Required. [7]",
+      "Medical Report": "A report confirming the absence of infectious diseases is needed. [8]",
+      "Letters of Recommendation (LORs)": "Required. [7]"
+    },
+    "How old the scholarship is": "The university was established in 1961 by royal decree to spread Islamic teachings globally. [27]",
+    "Age limit": "Applicants must be between 17 and 25 years old for undergraduate programs. For Master's programs, the age limit is under 35. [24]",
+    "Establishment date of the University": "1961"
+  },
+  {
+    "Scholarship Name": "Qatar Foundation (QF) Merit Scholarship",
+    "Host Country and University": "Qatar, at QF partner universities (e.g., Georgetown, Texas A&M, Weill Cornell, Carnegie Mellon). [11]",
+    "Website": "https://www.qf.org.qa/education/higher-education",
+    "Level of Study": "Undergraduate",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must have completed at least two semesters (one year) of study at a QF partner university. Requires an outstanding academic record with a minimum cumulative GPA of 3.6. [18, 11]",
+      "Standardized Test Scores": "Not applicable for the scholarship itself, but required for initial admission to the university.",
+      "Field of Study": "All programs offered at the QF partner universities.",
+      "Other": "Open to all nationalities. This is a highly competitive, merit-based scholarship for continuing students."
+    },
+    "Application Deadline": "Varies by university, but applications are typically reviewed annually.",
+    "Value/Inclusions": "The scholarship covers tuition and textbook costs. It can be combined with other partial scholarships. [18, 5]",
+    "Application Process": "Students apply through their respective university's financial aid office after completing their first year of study. Requires letters of recommendation. [18]",
+    "Required Documents": {
+      "Letters of Recommendation (LORs)": "At least two letters of recommendation from a professor and an academic dean are required. [33, 18]",
+      "Academic Transcripts": "University transcripts showing a GPA of 3.6 or higher are necessary. [18]"
+    },
+    "How old the scholarship is": "This has been a key part of the Qatar Foundation's mission to foster academic excellence in Education City.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "Qatar Foundation was established in 1995; partner universities arrived subsequently."
+  },
+  {
+    "Scholarship Name": "Crown Prince’s International Scholarship Program (CPISP)",
+    "Host Country and University": "Bahrain (for selection), with studies at top international universities.",
+    "Website": "http://www.cpisp.bh/",
+    "Level of Study": "Undergraduate",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must be a Bahraini citizen in the 11th grade (or equivalent) with an outstanding cumulative GPA of 97% or higher. [12]",
+      "Standardized Test Scores": "Not required for initial application, but selected candidates undergo extensive training for IELTS, SAT, etc.",
+      "Field of Study": "Open to all fields of study at leading international universities.",
+      "Other": "Awarded to the most gifted and talented high school students in Bahrain. [12]"
+    },
+    "Application Deadline": "The application period is typically in March of each year. [12]",
+    "Value/Inclusions": "A fully funded scholarship covering tuition, fees, living expenses, books, and airfare for the entire duration of the degree program.",
+    "Application Process": "Students apply online during their 11th grade. The selection process involves qualifying tests, interviews, and a comprehensive leadership and academic training program for the top candidates before they apply to universities. [12]",
+    "Required Documents": {
+      "Academic Transcripts": "Official school transcripts showing a GPA of 97% or higher. [12]",
+      "Passport copy": "Copy of Bahraini passport."
+    },
+    "How old the scholarship is": "The program has been running annually for many years to develop future leaders for Bahrain.",
+    "Age limit": "Must be an 11th-grade student.",
+    "Establishment date of the University": "Not applicable (scholarship program)."
+  },
+  {
+    "Scholarship Name": "Taibah University Undergraduate Scholarship",
+    "Host Country and University": "Saudi Arabia, Taibah University.",
+    "Website": "https://www.taibahu.edu.sa/Pages/EN/Home.aspx",
+    "Level of Study": "Undergraduate",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must have a high school diploma or its equivalent with a strong academic record. [20, 32]",
+      "Standardized Test Scores": "No language certificate is explicitly required for application, but proficiency in the language of instruction (Arabic/English) is necessary. [22]",
+      "Field of Study": "Wide range of majors including Arts, Humanities, Engineering, Business Administration, Pharmacy, Medicine, and Sciences. [22]",
+      "Other": "Open to all non-Saudi international students. Female applicants must have a 'mahram' (male guardian) accompanying them. [32, 22]"
+    },
+    "Application Deadline": "The deadline is typically in late December. [34]",
+    "Value/Inclusions": "A fully funded scholarship covering full tuition fees, a monthly stipend, free accommodation, health insurance, and a travel allowance. [34, 20]",
+    "Application Process": "Apply online through the Taibah University admissions portal. [34]",
+    "Required Documents": {
+      "Academic Transcripts": "A copy of the high school certificate, translated into Arabic and authenticated by the Saudi embassy. [32, 22]",
+      "Passport copy": "A valid passport with at least six months of validity is required. [32]",
+      "Personal Photograph": "A recent colored photograph (4x6 cm) is required. [32]"
+    },
+    "How old the scholarship is": "This is a government-funded external scholarship program offered annually. [20]",
+    "Age limit": "Applicants must be between 17 and 25 years old. [32, 20]",
+    "Establishment date of the University": "2003"
+  },
+  {
+    "Scholarship Name": "Umm Al-Qura University Scholarship",
+    "Host Country and University": "Saudi Arabia, Umm Al-Qura University.",
+    "Website": "https://uqu.edu.sa/en/admission/135",
+    "Level of Study": "Undergraduate and Postgraduate",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Requires a high school diploma for undergraduate and a relevant Bachelor's/Master's degree for postgraduate studies, with a 'very good' academic standing. [25, 43]",
+      "Standardized Test Scores": "Proof of Arabic language proficiency is essential, as many courses are taught in Arabic. [25]",
+      "Field of Study": "Primarily Islamic Studies, Arabic Language, Education, and Social Sciences. Some science and engineering programs may be available. [43, 44]",
+      "Other": "Open to international Muslim students. Applicants must abide by the university's rules and regulations. [25]"
+    },
+    "Application Deadline": "The application portal is typically open for a specific period each year; check the university's admissions deanship website for exact dates. [43]",
+    "Value/Inclusions": "A fully funded scholarship providing a monthly stipend, full tuition waiver, furnished accommodation for unmarried students, healthcare, and an annual round-trip air ticket. [25, 43]",
+    "Application Process": "Apply online through the university's external scholarship portal during the application period. [44]",
+    "Required Documents": {
+      "Academic Transcripts": "Authenticated copies of all educational certificates. [43]",
+      "Passport and ID documents": "Valid passport and national ID card. [43]",
+      "Personal Photograph": "Recent passport-sized photograph.",
+      "Conduct Certificate": "A certificate of good conduct is required. [25]"
+    },
+    "How old the scholarship is": "This is a long-standing government scholarship to support students wishing to study in the holy city of Makkah. [44]",
+    "Age limit": "Applicants for undergraduate studies must be between 17 and 25 years old. [43]",
+    "Establishment date of the University": "1950 (as a college), 1981 (as a university)"
+  },
+  {
+    "Scholarship Name": "American University of Kuwait (AUK) Scholarships",
+    "Host Country and University": "Kuwait, American University of Kuwait (AUK).",
+    "Website": "https://www.auk.edu.kw/admissions/scholarships",
+    "Level of Study": "Undergraduate",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Awarded based on academic excellence. Applicants are typically expected to have a very high secondary school GPA (often 90% or higher). [29, 28]",
+      "Standardized Test Scores": "Not the primary factor, but overall academic performance is assessed. [29]",
+      "Field of Study": "All undergraduate programs offered at AUK. [29]",
+      "Other": "Open to all nationalities. These are merit-based scholarships for new and continuing students. [28]"
+    },
+    "Application Deadline": "Deadlines for Fall and Spring semesters are typically in late January and September, respectively. [29]",
+    "Value/Inclusions": "A partial tuition waiver, typically ranging from 10% to 50% of the tuition fees for a specific number of credits. It is not a fully funded scholarship. [29, 28]",
+    "Application Process": "A separate scholarship application must be submitted to the AUK admissions office after applying for admission. Requires an essay and letters of recommendation. [29]",
+    "Required Documents": {
+      "Scholarship Application Form": "Must be completed and submitted by the deadline. [29]",
+      "Personal Essay": "An essay on a specified topic is usually required. [29]",
+      "Letters of Recommendation (LORs)": "Required to support the application. [29]",
+      "Academic Transcripts": "High school transcripts are required for new students. [28]"
+    },
+    "How old the scholarship is": "AUK has offered merit-based scholarships for many years to attract high-achieving students.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "2003"
+  },
+  {
+    "Scholarship Name": "University of Bahrain Scholarship",
+    "Host Country and University": "Bahrain, University of Bahrain.",
+    "Website": "https://www.uob.edu.bh/",
+    "Level of Study": "Undergraduate",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Primarily for Bahraini citizens with excellent high school grades. A limited number of scholarships are available to non-Bahraini students, often through government agreements or for residents with exceptional merit. [31]",
+      "Standardized Test Scores": "Must meet the university's admission and aptitude test requirements.",
+      "Field of Study": "Various programs offered by the university.",
+      "Other": "The vast majority of scholarships are reserved for Bahraini nationals. [31]"
+    },
+    "Application Deadline": "Follows the general admission timeline of the university.",
+    "Value/Inclusions": "Can range from a partial tuition fee waiver to a full scholarship covering tuition and other expenses, depending on the specific award. [31]",
+    "Application Process": "Students apply for admission, and scholarship eligibility is often determined based on the information provided, or through a separate application to the Ministry of Education for government-funded awards. [31]",
+    "Required Documents": {
+      "Academic Transcripts": "Official high school transcripts.",
+      "National ID / Passport": "Required for identification.",
+      "Aptitude Test Scores": "As required by the university."
+    },
+    "How old the scholarship is": "The University of Bahrain has offered scholarships since its establishment.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1986"
+  }
+]
+
+
+Of course. Here is a continuation of the list with more distinct scholarship opportunities in Saudi Arabia, Qatar, Bahrain, and Kuwait.
+
+code
+JavaScript
+download
+content_copy
+expand_less
+
+const middleeast = [
+  {
+    "Scholarship Name": "King Abdullah University of Science and Technology (KAUST) Fellowship",
+    "Host Country and University": "Saudi Arabia, King Abdullah University of Science and Technology (KAUST).",
+    "Website": "https://www.kaust.edu.sa/en/study/scholarships",
+    "Level of Study": "Postgraduate (Master's and PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must hold a Bachelor's degree for Master's programs and a Master's degree for PhD programs from a recognized institution. A minimum GPA of 3.0 on a 4.0 scale is typically required, with most admitted students having a GPA above 3.5.",
+      "Standardized Test Scores": "A minimum TOEFL IBT score of 79 or an IELTS score of 6.5 is required. The GRE is not mandatory but is strongly recommended and can strengthen an application.",
+      "Field of Study": "Programs in Biological and Environmental Sciences and Engineering; Computer, Electrical, and Mathematical Sciences and Engineering; and Physical Sciences and Engineering.",
+      "Other": "Open to all nationalities. Admission to KAUST is merit-based, and every admitted student receives the fellowship."
+    },
+    "Application Deadline": "There are several application deadlines throughout the year, with a main deadline often around early January.",
+    "Value/Inclusions": "A fully funded scholarship that covers full tuition fees, a monthly living stipend (ranging from $20,000 to $30,000 annually), on-campus housing, medical and dental coverage, and relocation support.",
+    "Application Process": "Apply for admission to a graduate program through the KAUST online portal. All admitted students are automatically awarded the KAUST Fellowship.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A 750-word statement concerning your past work, academic plans, and career objectives is required.",
+      "Letters of Recommendation (LORs)": "Three letters of recommendation are required.",
+      "Academic Transcripts": "Official transcripts from all previously attended institutions are necessary.",
+      "CV or Resume": "A detailed CV is required.",
+      "Proof of English proficiency (TOEFL/IELTS scores)": "Required for non-native English speakers."
+    },
+    "How old the scholarship is": "The fellowship has been offered since the university's establishment in 2009.",
+    "Age limit": "There is no specific age limit, but applicants must be at least 18 years old.",
+    "Establishment date of the University": "2009"
+  },
+  {
+    "Scholarship Name": "Hamad Bin Khalifa University (HBKU) Scholarship",
+    "Host Country and University": "Qatar, Hamad Bin Khalifa University (HBKU).",
+    "Website": "https://www.hbku.edu.qa/en/admissions",
+    "Level of Study": "Undergraduate, Postgraduate (Master's and PhD), and Law programs",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must meet the specific academic requirements of the chosen Bachelor's, Master's, or PhD program. A strong academic record is essential.",
+      "Standardized Test Scores": "IELTS or TOEFL scores are generally required, but this may be waived for students who have studied at an English-medium institution.",
+      "Field of Study": "A wide range of programs across its colleges: Islamic Studies, Humanities & Social Sciences, Science & Engineering, Law, and Health & Life Sciences.",
+      "Other": "Open to Qatari and international students."
+    },
+    "Application Deadline": "Application deadlines are typically February 1 for international students and March 15 for Qatar residents.",
+    "Value/Inclusions": "This is a fully funded scholarship that provides a monthly stipend (QAR 5,000 for Bachelor's/Master's and QAR 7,500 for PhD), full tuition fee coverage, accommodation, and an annual return flight ticket. Family housing may be provided for married students. [42]",
+    "Application Process": "Students must first apply for and be admitted to an HBKU program. Successful applicants are then considered for the scholarship.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "Required for most graduate programs.",
+      "Letters of Recommendation (LORs)": "Generally required for graduate applications.",
+      "Academic Transcripts": "Required from all previous educational institutions.",
+      "CV or Resume": "Required.",
+      "Proof of English proficiency (TOEFL/IELTS scores)": "Required if applicable."
+    },
+    "How old the scholarship is": "The scholarship program has been in place since the university was established.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "2010"
+  },
+  {
+    "Scholarship Name": "King Abdulaziz University (KAU) Scholarship",
+    "Host Country and University": "Saudi Arabia, King Abdulaziz University (KAU).",
+    "Website": "https://dsa.kau.edu.sa/Default-315-EN",
+    "Level of Study": "Undergraduate, Postgraduate (Master's and PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "For Master's programs, a Bachelor's degree with a 'Very Good' grade is required. For PhD programs, a Master's degree with a 'Very Good' grade is necessary.",
+      "Standardized Test Scores": "English proficiency test (IELTS 5 or TOEFL PBT 500/iBT 61) is required for most programs.",
+      "Field of Study": "A wide range of fields including Sciences, Engineering, Humanities, Arts, Information Technology, and Business Administrations. Health Sciences programs are generally not available. [34]",
+      "Other": "Open to all international students. Applicants must have good conduct and be medically fit."
+    },
+    "Application Deadline": "Applications are typically open year-round, so there is no specific deadline.",
+    "Value/Inclusions": "A fully funded scholarship that covers full tuition fees, a monthly stipend, accommodation, healthcare, a preparation allowance upon arrival, a graduation allowance, and annual round-trip airfare tickets. [34]",
+    "Application Process": "Apply online through the university's admission portal. There is no separate application for the scholarship.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "May be required depending on the program.",
+      "Letters of Recommendation (LORs)": "Two recommendation letters from former professors are required.",
+      "Academic Transcripts": "Certified copies of all academic transcripts are required.",
+      "CV or Resume": "A comprehensive CV is needed.",
+      "Passport copy": "A copy of a valid passport is required."
+    },
+    "How old the scholarship is": "This is a long-standing government-funded scholarship program.",
+    "Age limit": "Applicants should be under 35 for Master's programs and under 40 for PhD programs. For undergraduate studies, the age should be between 17 and 25. [34]",
+    "Establishment date of the University": "1967"
+  },
+  {
+    "Scholarship Name": "Qatar University Scholarship for International Students",
+    "Host Country and University": "Qatar, Qatar University.",
+    "Website": "http://www.qu.edu.qa/students/admission/scholarships",
+    "Level of Study": "Undergraduate",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must have a high school certificate with an excellent academic record (minimum 95% average for competitive scholarships).",
+      "Standardized Test Scores": "Must meet the admission requirements of the chosen college.",
+      "Field of Study": "All undergraduate programs offered at the university.",
+      "Other": "Open to international students who have received final acceptance into the university."
+    },
+    "Application Deadline": "Application timelines are announced on the university website, typically aligning with the general admission period.",
+    "Value/Inclusions": "Covers exemption from tuition and textbook fees, provides a monthly stipend of 500 QAR, student housing, and an annual round-trip airfare ticket. [11]",
+    "Application Process": "Apply for admission to Qatar University through their online portal. Eligible admitted students are automatically considered for the scholarship.",
+    "Required Documents": {
+      "Academic Transcripts": "Official high school transcripts are required.",
+      "Proof of English proficiency or Arabic proficiency": "Depending on the language of instruction for the chosen program.",
+      "Passport copy": "Required.",
+      "Personal Photograph": "Required for the application."
+    },
+    "How old the scholarship is": "This has been a long-standing scholarship to attract international talent.",
+    "Age limit": "No specific age limit mentioned.",
+    "Establishment date of the University": "1977"
+  },
+  {
+    "Scholarship Name": "Doha Institute for Graduate Studies Scholarship",
+    "Host Country and University": "Qatar, Doha Institute for Graduate Studies.",
+    "Website": "https://www.dohainstitute.edu.qa/EN/Admissions/Pages/scholarships.aspx",
+    "Level of Study": "Postgraduate (Master's and PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "A Bachelor's degree from a recognized university with a strong academic record.",
+      "Standardized Test Scores": "Proficiency in Arabic and English is required, as the institute is bilingual.",
+      "Field of Study": "Programs within the School of Social Sciences and Humanities and the School of Economics, Administration and Public Policy.",
+      "Other": "Open to all nationalities. Scholarships are awarded based on merit (Tamim Scholarship) or financial need (Sanad Scholarship)."
+    },
+    "Application Deadline": "The admission application deadline is typically January 15.",
+    "Value/Inclusions": "The Tamim merit scholarship is fully funded, covering tuition, accommodation, a monthly stipend, health insurance, and two travel tickets. The Sanad need-based grant covers 10% to 100% of tuition and may include the other benefits.",
+    "Application Process": "Applicants should apply for admission to their chosen program through the institute's portal. They will be automatically considered for the available scholarships.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A personal statement is required.",
+      "Letters of Recommendation (LORs)": "Academic references are required.",
+      "Academic Transcripts": "Required from all undergraduate studies.",
+      "CV or Resume": "A detailed resume is necessary.",
+      "Proof of Language Proficiency": "Evidence of Arabic and English proficiency is required."
+    },
+    "How old the scholarship is": "These scholarships have been offered since the institute's inception.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "2014"
+  },
+  {
+    "Scholarship Name": "Kuwait Government Scholarships",
+    "Host Country and University": "Kuwait, at various public universities like Kuwait University.",
+    "Website": "https://www.mohe.edu.kw/",
+    "Level of Study": "Undergraduate, Postgraduate (Master's and PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Requires a strong academic record from previous studies. Specific GPA requirements may apply depending on the field of study.",
+      "Standardized Test Scores": "While some scholarships are advertised as 'without IELTS', English or Arabic proficiency is generally required depending on the program. GMAT may be needed for MBA tracks. [48]",
+      "Field of Study": "A wide range of majors in fields like medicine, engineering, and humanities.",
+      "Other": "Open to international students, though specific quotas may apply per country."
+    },
+    "Application Deadline": "The application period is typically around mid-June each year.",
+    "Value/Inclusions": "A fully funded scholarship covering tuition fees, a monthly living stipend, housing, an annual round-trip ticket, and allowances for books and supplies.",
+    "Application Process": "Applications are generally submitted through the Kuwait Ministry of Higher Education's portal or through the cultural missions of Kuwait abroad.",
+    "Required Documents": {
+      "Academic Transcripts": "Certified and translated transcripts are required.",
+      "Passport copy": "A valid passport is necessary.",
+      "Personal Photograph": "Required for the application.",
+      "Health Certificate": "A medical fitness certificate may be required."
+    },
+    "How old the scholarship is": "This is an annual scholarship program provided by the Kuwaiti government for many years.",
+    "Age limit": "No specific age limit mentioned, but typically for recent graduates.",
+    "Establishment date of the University": "Kuwait University was established in 1966."
+  },
+  {
+    "Scholarship Name": "King Saud University (KSU) Scholarship",
+    "Host Country and University": "Saudi Arabia, King Saud University (KSU).",
+    "Website": "https://scholarships.ksu.edu.sa/",
+    "Level of Study": "Undergraduate, Postgraduate (Master's and PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "A high school certificate with a 'very good' grade for undergraduate, and relevant degrees for postgraduate studies with a strong academic record.",
+      "Standardized Test Scores": "Language proficiency in either Arabic or English is required, depending on the program.",
+      "Field of Study": "Most programs offered by the university.",
+      "Other": "Open to all international students."
+    },
+    "Application Deadline": "Undergraduate deadline is often around mid-June, while postgraduate deadlines can be in October.",
+    "Value/Inclusions": "A fully funded scholarship covering tuition, a monthly stipend, free furnished accommodation, healthcare, and relocation support.",
+    "Application Process": "Apply online through the university's scholarship portal.",
+    "Required Documents": {
+      "Academic Transcripts": "Required from all previous levels of study.",
+      "Letters of Recommendation (LORs)": "Required for postgraduate programs.",
+      "Statement of Purpose (SOP)": "Required for postgraduate programs.",
+      "Passport copy": "A valid passport is required."
+    },
+    "How old the scholarship is": "KSU has a long history of offering scholarships to international students.",
+    "Age limit": "For undergraduate studies, applicants must be between 17 and 25 years old.",
+    "Establishment date of the University": "1957"
+  },
+  {
+    "Scholarship Name": "King Fahd University of Petroleum and Minerals (KFUPM) Scholarship",
+    "Host Country and University": "Saudi Arabia, King Fahd University of Petroleum and Minerals (KFUPM).",
+    "Website": "https://www.kfupm.edu.sa/deanships/dgs/",
+    "Level of Study": "Postgraduate (Master's and PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "A four-year Bachelor's degree for Master's and a two-year Master's degree for PhD applicants. A minimum GPA of 3.0 out of 4.0 is required. [4]",
+      "Standardized Test Scores": "Minimum TOEFL iBT of 70 or IELTS of 6.0 for Master's programs. For PhD, a TOEFL iBT of 80 or IELTS of 6.5 is needed. GRE is also required. [4, 17]",
+      "Field of Study": "Engineering, Sciences, Business Administration, Computer Engineering, and Environmental Design. [49, 17]",
+      "Other": "Open to all nationalities. Every admitted graduate student is offered a full scholarship. [4]"
+    },
+    "Application Deadline": "There are multiple deadlines, with one typically in mid-July. [16]",
+    "Value/Inclusions": "A fully funded scholarship that covers tuition fees, a competitive monthly stipend, free furnished accommodation, medical care, free textbooks, subsidized meals, and an annual round-trip air ticket. [10, 4]",
+    "Application Process": "Complete the online application through the KFUPM admissions portal and upload all mandatory documents before the deadline. [4]",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A one-page essay detailing career and research goals is required. [16]",
+      "Letters of Recommendation (LORs)": "Two or three letters of recommendation are required, submitted through the online system. [17, 4]",
+      "Academic Transcripts": "Official transcripts are required. [17]",
+      "CV or Resume": "Required.",
+      "Proof of English proficiency (TOEFL/IELTS scores)": "Required. [16]",
+      "GRE/GMAT scores": "GRE is required for most programs; GMAT is required for MBA. [17]"
+    },
+    "How old the scholarship is": "KFUPM has been offering these scholarships since its early years of establishment in 1963. [4]",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1963"
+  },
+  {
+    "Scholarship Name": "Islamic University of Madinah Scholarship",
+    "Host Country and University": "Saudi Arabia, Islamic University of Madinah.",
+    "Website": "https://studyinsaudi.moe.gov.sa/",
+    "Level of Study": "Undergraduate, Postgraduate (Master's and PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "High school diploma for undergraduate applicants. Bachelor's degree with a minimum GPA of 3.75 out of 5 for Master's applicants. [27, 7]",
+      "Standardized Test Scores": "For non-Gulf country Master's applicants, a minimum GRE (quantitative part) score of 130 and a TOEFL-PBT score of 450 or equivalent is required. [27, 7]",
+      "Field of Study": "Primarily focused on Islamic studies, Arabic language, Engineering, and Sciences. [27]",
+      "Other": "Open to male Muslim students from all countries. Must be of good conduct and medically fit. [27, 7]"
+    },
+    "Application Deadline": "Typically June 14 for Bachelor's programs and October 31 for Master's and PhD programs. [8, 19]",
+    "Value/Inclusions": "A fully funded scholarship covering tuition, a monthly stipend, free furnished accommodation, quality healthcare, subsidized meals, and an annual round-trip airfare ticket. [19, 27]",
+    "Application Process": "Applications are submitted through the 'Study in Saudi' platform. [8, 19]",
+    "Required Documents": {
+      "Educational Documents": "Certified high school/university certificates and transcripts. [7]",
+      "Passport copy": "A valid passport is required. [8]",
+      "Birth Certificate": "Required. [7]",
+      "Medical Report": "A report confirming the absence of infectious diseases is needed. [8]",
+      "Letters of Recommendation (LORs)": "Required. [7]"
+    },
+    "How old the scholarship is": "The university was established in 1961 by royal decree to spread Islamic teachings globally. [27]",
+    "Age limit": "Applicants must be between 17 and 25 years old for undergraduate programs. For Master's programs, the age limit is under 35. [24]",
+    "Establishment date of the University": "1961"
+  },
+  {
+    "Scholarship Name": "Qatar Foundation (QF) Merit Scholarship",
+    "Host Country and University": "Qatar, at QF partner universities (e.g., Georgetown, Texas A&M, Weill Cornell, Carnegie Mellon). [11]",
+    "Website": "https://www.qf.org.qa/education/higher-education",
+    "Level of Study": "Undergraduate",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must have completed at least two semesters (one year) of study at a QF partner university. Requires an outstanding academic record with a minimum cumulative GPA of 3.6. [18, 11]",
+      "Standardized Test Scores": "Not applicable for the scholarship itself, but required for initial admission to the university.",
+      "Field of Study": "All programs offered at the QF partner universities.",
+      "Other": "Open to all nationalities. This is a highly competitive, merit-based scholarship for continuing students."
+    },
+    "Application Deadline": "Varies by university, but applications are typically reviewed annually.",
+    "Value/Inclusions": "The scholarship covers tuition and textbook costs. It can be combined with other partial scholarships. [18, 5]",
+    "Application Process": "Students apply through their respective university's financial aid office after completing their first year of study. Requires letters of recommendation. [18]",
+    "Required Documents": {
+      "Letters of Recommendation (LORs)": "At least two letters of recommendation from a professor and an academic dean are required. [33, 18]",
+      "Academic Transcripts": "University transcripts showing a GPA of 3.6 or higher are necessary. [18]"
+    },
+    "How old the scholarship is": "This has been a key part of the Qatar Foundation's mission to foster academic excellence in Education City.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "Qatar Foundation was established in 1995; partner universities arrived subsequently."
+  },
+  {
+    "Scholarship Name": "Crown Prince’s International Scholarship Program (CPISP)",
+    "Host Country and University": "Bahrain (for selection), with studies at top international universities.",
+    "Website": "http://www.cpisp.bh/",
+    "Level of Study": "Undergraduate",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must be a Bahraini citizen in the 11th grade (or equivalent) with an outstanding cumulative GPA of 97% or higher. [12]",
+      "Standardized Test Scores": "Not required for initial application, but selected candidates undergo extensive training for IELTS, SAT, etc.",
+      "Field of Study": "Open to all fields of study at leading international universities.",
+      "Other": "Awarded to the most gifted and talented high school students in Bahrain. [12]"
+    },
+    "Application Deadline": "The application period is typically in March of each year. [12]",
+    "Value/Inclusions": "A fully funded scholarship covering tuition, fees, living expenses, books, and airfare for the entire duration of the degree program.",
+    "Application Process": "Students apply online during their 11th grade. The selection process involves qualifying tests, interviews, and a comprehensive leadership and academic training program for the top candidates before they apply to universities. [12]",
+    "Required Documents": {
+      "Academic Transcripts": "Official school transcripts showing a GPA of 97% or higher. [12]",
+      "Passport copy": "Copy of Bahraini passport."
+    },
+    "How old the scholarship is": "The program has been running annually for many years to develop future leaders for Bahrain.",
+    "Age limit": "Must be an 11th-grade student.",
+    "Establishment date of the University": "Not applicable (scholarship program)."
+  },
+  {
+    "Scholarship Name": "Taibah University Undergraduate Scholarship",
+    "Host Country and University": "Saudi Arabia, Taibah University.",
+    "Website": "https://www.taibahu.edu.sa/Pages/EN/Home.aspx",
+    "Level of Study": "Undergraduate",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must have a high school diploma or its equivalent with a strong academic record. [20, 32]",
+      "Standardized Test Scores": "No language certificate is explicitly required for application, but proficiency in the language of instruction (Arabic/English) is necessary. [22]",
+      "Field of Study": "Wide range of majors including Arts, Humanities, Engineering, Business Administration, Pharmacy, Medicine, and Sciences. [22]",
+      "Other": "Open to all non-Saudi international students. Female applicants must have a 'mahram' (male guardian) accompanying them. [32, 22]"
+    },
+    "Application Deadline": "The deadline is typically in late December. [34]",
+    "Value/Inclusions": "A fully funded scholarship covering full tuition fees, a monthly stipend, free accommodation, health insurance, and a travel allowance. [34, 20]",
+    "Application Process": "Apply online through the Taibah University admissions portal. [34]",
+    "Required Documents": {
+      "Academic Transcripts": "A copy of the high school certificate, translated into Arabic and authenticated by the Saudi embassy. [32, 22]",
+      "Passport copy": "A valid passport with at least six months of validity is required. [32]",
+      "Personal Photograph": "A recent colored photograph (4x6 cm) is required. [32]"
+    },
+    "How old the scholarship is": "This is a government-funded external scholarship program offered annually. [20]",
+    "Age limit": "Applicants must be between 17 and 25 years old. [32, 20]",
+    "Establishment date of the University": "2003"
+  },
+  {
+    "Scholarship Name": "Umm Al-Qura University Scholarship",
+    "Host Country and University": "Saudi Arabia, Umm Al-Qura University.",
+    "Website": "https://uqu.edu.sa/en/admission/135",
+    "Level of Study": "Undergraduate and Postgraduate",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Requires a high school diploma for undergraduate and a relevant Bachelor's/Master's degree for postgraduate studies, with a 'very good' academic standing. [25, 43]",
+      "Standardized Test Scores": "Proof of Arabic language proficiency is essential, as many courses are taught in Arabic. [25]",
+      "Field of Study": "Primarily Islamic Studies, Arabic Language, Education, and Social Sciences. Some science and engineering programs may be available. [43, 44]",
+      "Other": "Open to international Muslim students. Applicants must abide by the university's rules and regulations. [25]"
+    },
+    "Application Deadline": "The application portal is typically open for a specific period each year; check the university's admissions deanship website for exact dates. [43]",
+    "Value/Inclusions": "A fully funded scholarship providing a monthly stipend, full tuition waiver, furnished accommodation for unmarried students, healthcare, and an annual round-trip air ticket. [25, 43]",
+    "Application Process": "Apply online through the university's external scholarship portal during the application period. [44]",
+    "Required Documents": {
+      "Academic Transcripts": "Authenticated copies of all educational certificates. [43]",
+      "Passport and ID documents": "Valid passport and national ID card. [43]",
+      "Personal Photograph": "Recent passport-sized photograph.",
+      "Conduct Certificate": "A certificate of good conduct is required. [25]"
+    },
+    "How old the scholarship is": "This is a long-standing government scholarship to support students wishing to study in the holy city of Makkah. [44]",
+    "Age limit": "Applicants for undergraduate studies must be between 17 and 25 years old. [43]",
+    "Establishment date of the University": "1950 (as a college), 1981 (as a university)"
+  },
+  {
+    "Scholarship Name": "American University of Kuwait (AUK) Scholarships",
+    "Host Country and University": "Kuwait, American University of Kuwait (AUK).",
+    "Website": "https://www.auk.edu.kw/admissions/scholarships",
+    "Level of Study": "Undergraduate",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Awarded based on academic excellence. Applicants are typically expected to have a very high secondary school GPA (often 90% or higher). [29, 28]",
+      "Standardized Test Scores": "Not the primary factor, but overall academic performance is assessed. [29]",
+      "Field of Study": "All undergraduate programs offered at AUK. [29]",
+      "Other": "Open to all nationalities. These are merit-based scholarships for new and continuing students. [28]"
+    },
+    "Application Deadline": "Deadlines for Fall and Spring semesters are typically in late January and September, respectively. [29]",
+    "Value/Inclusions": "A partial tuition waiver, typically ranging from 10% to 50% of the tuition fees for a specific number of credits. It is not a fully funded scholarship. [29, 28]",
+    "Application Process": "A separate scholarship application must be submitted to the AUK admissions office after applying for admission. Requires an essay and letters of recommendation. [29]",
+    "Required Documents": {
+      "Scholarship Application Form": "Must be completed and submitted by the deadline. [29]",
+      "Personal Essay": "An essay on a specified topic is usually required. [29]",
+      "Letters of Recommendation (LORs)": "Required to support the application. [29]",
+      "Academic Transcripts": "High school transcripts are required for new students. [28]"
+    },
+    "How old the scholarship is": "AUK has offered merit-based scholarships for many years to attract high-achieving students.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "2003"
+  },
+  {
+    "Scholarship Name": "University of Bahrain Scholarship",
+    "Host Country and University": "Bahrain, University of Bahrain.",
+    "Website": "https://www.uob.edu.bh/",
+    "Level of Study": "Undergraduate",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Primarily for Bahraini citizens with excellent high school grades. A limited number of scholarships are available to non-Bahraini students, often through government agreements or for residents with exceptional merit. [31]",
+      "Standardized Test Scores": "Must meet the university's admission and aptitude test requirements.",
+      "Field of Study": "Various programs offered by the university.",
+      "Other": "The vast majority of scholarships are reserved for Bahraini nationals. [31]"
+    },
+    "Application Deadline": "Follows the general admission timeline of the university.",
+    "Value/Inclusions": "Can range from a partial tuition fee waiver to a full scholarship covering tuition and other expenses, depending on the specific award. [31]",
+    "Application Process": "Students apply for admission, and scholarship eligibility is often determined based on the information provided, or through a separate application to the Ministry of Education for government-funded awards. [31]",
+    "Required Documents": {
+      "Academic Transcripts": "Official high school transcripts.",
+      "National ID / Passport": "Required for identification.",
+      "Aptitude Test Scores": "As required by the university."
+    },
+    "How old the scholarship is": "The University of Bahrain has offered scholarships since its establishment.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1986"
+  },
+  {
+    "Scholarship Name": "Princess Nourah bint Abdulrahman University Scholarship for Women",
+    "Host Country and University": "Saudi Arabia, Princess Nourah bint Abdulrahman University (PNU).",
+    "Website": "https://www.pnu.edu.sa/en/Deanships/Admission/Pages/Scholarships.aspx",
+    "Level of Study": "Undergraduate",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must hold a high school certificate recognized in Saudi Arabia with a 'very good' grade or higher.",
+      "Standardized Test Scores": "Proficiency in Arabic is required as it is the primary language of instruction. The university offers an intensive Arabic language program for non-speakers.",
+      "Field of Study": "All undergraduate programs offered at the university, including Health, Science, Humanities, and Social Work.",
+      "Other": "Exclusively for non-Saudi female students. Must not have received another scholarship from a Saudi institution."
+    },
+    "Application Deadline": "The application period is announced annually on the Deanship of Admission's website.",
+    "Value/Inclusions": "A fully funded scholarship covering tuition fees, a monthly stipend, furnished accommodation, health care, and an annual round-trip air ticket.",
+    "Application Process": "Apply online through the university's application portal. The process is competitive and based on academic merit.",
+    "Required Documents": {
+      "Academic Transcripts": "Certified copy of the high school certificate.",
+      "Passport copy": "Valid passport.",
+      "Personal Photograph": "Required.",
+      "Medical Certificate": "A certificate of medical fitness."
+    },
+    "How old the scholarship is": "This has been a key government initiative to empower female students since the university's major expansion.",
+    "Age limit": "Applicants must be between 17 and 25 years old.",
+    "Establishment date of the University": "2008 (by royal decree, consolidating several colleges founded earlier)"
+  },
+  {
+    "Scholarship Name": "Alfaisal University Scholarships",
+    "Host Country and University": "Saudi Arabia, Alfaisal University.",
+    "Website": "https://www.alfaisal.edu/en/scholarship",
+    "Level of Study": "Undergraduate and Postgraduate",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Highly competitive and based on academic merit. For undergraduate, this includes high school GPA and university admission exam scores. For graduate, it includes undergraduate GPA and interview performance.",
+      "Standardized Test Scores": "Strong standardized test scores (e.g., SAT, GRE) are beneficial. English proficiency (IELTS/TOEFL) is required as instruction is in English.",
+      "Field of Study": "Colleges of Medicine, Engineering, Business, and Science.",
+      "Other": "Open to all nationalities. Both new and continuing students can apply. Scholarships are awarded as 'Merit-Based' or 'Financial Aid'."
+    },
+    "Application Deadline": "Applications are reviewed on a rolling basis, but early application is encouraged, typically before the start of each semester.",
+    "Value/Inclusions": "Partial to full tuition coverage. The percentage of the scholarship depends on the academic standing and, in some cases, financial need of the applicant. It is not a fully funded scholarship covering living expenses.",
+    "Application Process": "Students must first be admitted to an Alfaisal University program. After admission, they can submit a separate scholarship application through the university portal.",
+    "Required Documents": {
+      "Scholarship Application Form": "Required.",
+      "Academic Transcripts": "Considered from the admission application.",
+      "Financial Documents": "Required for need-based financial aid applications."
+    },
+    "How old the scholarship is": "Alfaisal University has offered merit-based scholarships since its establishment.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "2002"
+  },
+  {
+    "Scholarship Name": "Gulf University for Science and Technology (GUST) Scholarships",
+    "Host Country and University": "Kuwait, Gulf University for Science and Technology (GUST).",
+    "Website": "https://www.gust.edu.kw/scholarships",
+    "Level of Study": "Undergraduate",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Requires an excellent high school GPA (typically 90% or above for merit scholarships). Specific scholarships may exist for alumni children or those with special talents.",
+      "Standardized Test Scores": "Must meet GUST's admission requirements, including English proficiency.",
+      "Field of Study": "All undergraduate programs offered at GUST.",
+      "Other": "Open to all nationalities. Primarily merit-based."
+    },
+    "Application Deadline": "Varies by semester. Check the university's academic calendar and admissions page for specific dates.",
+    "Value/Inclusions": "A partial tuition fee waiver. The amount of the award varies based on the specific scholarship and the student's academic performance. It does not cover all expenses.",
+    "Application Process": "Students are typically assessed for scholarships automatically upon admission based on their high school grades. Separate applications may be required for special scholarships.",
+    "Required Documents": {
+      "All documents for university admission": "Used for scholarship consideration.",
+      "High School Transcript": "The primary document for assessment."
+    },
+    "How old the scholarship is": "GUST has offered scholarships for many years to maintain a competitive student body.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "2002"
+  },
+  {
+    "Scholarship Name": "American University of Bahrain (AUBH) Merit Scholarships",
+    "Host Country and University": "Bahrain, American University of Bahrain (AUBH).",
+    "Website": "https://aubh.edu.bh/scholarships/",
+    "Level of Study": "Undergraduate",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Based on academic excellence demonstrated in the final year of high school. Typically requires a GPA of 90% or above.",
+      "Standardized Test Scores": "Must meet AUBH's English proficiency requirements (IELTS/TOEFL).",
+      "Field of Study": "All undergraduate programs offered at AUBH.",
+      "Other": "Open to all nationalities applying for admission."
+    },
+    "Application Deadline": "Students must apply by the scholarship deadline, which is typically before the start of the Fall semester.",
+    "Value/Inclusions": "A partial scholarship covering a percentage of the annual tuition fees. The scholarship is renewable if the student maintains a high GPA at AUBH.",
+    "Application Process": "A separate scholarship application is required after submitting the main university application. It usually involves a personal statement or essay.",
+    "Required Documents": {
+      "Scholarship Application Form": "Required.",
+      "Personal Statement": "An essay detailing achievements and goals.",
+      "High School Transcripts": "Used for eligibility assessment."
+    },
+    "How old the scholarship is": "This scholarship was established with the founding of the university to attract top students.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "2019"
+  }
+]

@@ -1,0 +1,981 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers India - Find Your Path to Success</title>
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- A simple Favicon for a professional look -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
+
+<style>
+    /* === MODERN CAREER PORTAL THEME === */
+
+    :root {
+        --primary-color: #0056b3; /* Professional Blue */
+        --secondary-color: #007bff; /* Bright Blue for accents */
+        --accent-color: #ff6f61;   /* Vibrant Coral for CTAs */
+        --text-dark: #343a49;
+        --text-light: #6c757d;
+        --bg-light: #f8f9fa;
+        --bg-white: #ffffff;
+        --border-color: #dee2e6;
+        --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+        --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    /* --- General & Reset --- */
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: var(--bg-light);
+        color: var(--text-dark);
+        line-height: 1.6;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    /* --- Header & Navigation --- */
+    .main-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(10px);
+        box-shadow: var(--shadow-sm);
+        z-index: 1000;
+        transition: background-color 0.3s ease;
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 70px;
+        padding: 0 20px;
+    }
+    
+    .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        text-decoration: none;
+    }
+    .logo i { margin-right: 8px; }
+
+    .nav-menu {
+        display: flex;
+        list-style: none;
+        align-items: center;
+    }
+
+    .nav-menu > li {
+        position: relative;
+        margin: 0 5px;
+    }
+
+    .nav-link {
+        display: block;
+        padding: 10px 15px;
+        text-decoration: none;
+        color: var(--text-dark);
+        font-weight: 500;
+        transition: color 0.3s ease, background-color 0.3s ease;
+        border-radius: 5px;
+    }
+    
+    .nav-link:hover {
+        color: var(--primary-color);
+        background-color: rgba(0, 86, 179, 0.05);
+    }
+    
+    /* Dropdown Styling */
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: var(--bg-white);
+        box-shadow: var(--shadow-md);
+        border-radius: 8px;
+        padding: 10px;
+        min-width: 250px;
+        max-height: 400px;
+        overflow-y: auto;
+        z-index: 1001;
+        border: 1px solid var(--border-color);
+    }
+
+    .nav-menu > li:hover .dropdown-content {
+        display: block;
+    }
+    
+    .dropdown-content a {
+        display: block;
+        padding: 10px 15px;
+        color: var(--text-dark);
+        text-decoration: none;
+        font-size: 0.9rem;
+        border-radius: 5px;
+        transition: background-color 0.2s ease;
+    }
+
+    .dropdown-content a:hover {
+        background-color: var(--bg-light);
+        color: var(--primary-color);
+    }
+    
+    /* Hamburger Menu for Mobile */
+    .menu-toggle { display: none; }
+    
+    /* --- Hero Section (WOW Factor) --- */
+    .hero {
+        position: relative;
+        height: auto; /* Changed to auto to fit content */
+        min-height: 90vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+        background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070&auto=format&fit=crop');
+        background-size: cover;
+        background-position: center;
+        padding: 100px 20px 50px 20px; /* Adjusted padding */
+    }
+
+    .hero::after { /* Dark overlay for text readability */
+        content: '';
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background-color: rgba(0, 20, 40, 0.6);
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+    }
+
+ .hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    line-height: 1.2;
+    color: #fff; /* Ensures text is white */
+    
+    /* This creates the semi-transparent "box" */
+    display: inline-block; /* Allows padding and background to contain the text */
+    background-color: rgba(0, 0, 0, 0.25);
+    padding: 15px 30px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    
+    /* This is the new, stronger 3D block effect for the text */
+    text-shadow: 
+        1px 1px 0 #bbb,
+        2px 2px 0 #aaa,
+        3px 3px 0 #999,
+        4px 4px 0 #888,
+        5px 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+    .hero-tagline {
+        font-size: 1.5rem;
+        font-weight: 300;
+        margin-bottom: 30px; /* Adjusted margin */
+        opacity: 0.9;
+    }
+
+    /* --- Rotating Logo in Hero Section --- */
+    #rotating-logo {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto 30px auto; /* Centered, with margin below */
+        background-image: url('cube.png'); /* IMPORTANT: 'cube.png' must be in the same folder */
+        background-size: cover;
+        background-position: center;
+        border-radius: 12px; /* Makes the rotating element circular */
+        animation: rotateMove 8s linear infinite;
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.3); /* Adds a subtle glow */
+    }
+
+    @keyframes rotateMove {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+
+    /* --- Search Box in Hero --- */
+    .search-engine-container {
+        width: 100%;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 15px;
+        border-radius: 12px;
+        backdrop-filter: blur(5px);
+    }
+    
+    .search-box-wrapper {
+        display: flex;
+        gap: 10px;
+    }
+
+    #aiSearchInput {
+        flex-grow: 1;
+        padding: 15px 20px;
+        border-radius: 8px;
+        border: 1px solid transparent;
+        font-size: 1.1rem;
+        color: var(--text-dark);
+    }
+    #aiSearchInput:focus {
+        outline: none;
+        border-color: var(--accent-color);
+        box-shadow: 0 0 0 3px rgba(255, 111, 97, 0.4);
+    }
+    
+    #aiSearchButton {
+        flex-shrink: 0;
+        padding: 0 30px;
+        border: none;
+        border-radius: 8px;
+        background-color: var(--accent-color);
+        color: white;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    #aiSearchButton:hover {
+        background-color: #e65c50;
+        transform: translateY(-2px);
+    }
+    #aiSearchFeedback {
+        margin-top: 10px;
+        color: white;
+        font-weight: 500;
+        min-height: 20px;
+    }
+
+    /* --- Category Cards Section --- */
+    .section {
+        padding: 80px 0;
+    }
+    
+    .section-title {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+    }
+
+    .section-subtitle {
+        text-align: center;
+        font-size: 1.1rem;
+        color: var(--text-light);
+        max-width: 600px;
+        margin: 0 auto 50px auto;
+    }
+
+    .category-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+    }
+
+    .category-card {
+        background-color: var(--bg-white);
+        border-radius: 12px;
+        box-shadow: var(--shadow-sm);
+        padding: 30px;
+        text-align: center;
+        text-decoration: none;
+        color: var(--text-dark);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .category-card:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--shadow-md);
+    }
+
+    .category-card .icon {
+        font-size: 3rem;
+        color: var(--primary-color);
+        margin-bottom: 20px;
+        display: inline-block;
+    }
+
+    .category-card h3 {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+    }
+
+    .category-card p {
+        font-size: 0.9rem;
+        color: var(--text-light);
+    }
+    
+    /* --- Featured Tools Section --- */
+    .featured-section {
+        background-color: var(--bg-white);
+    }
+    
+    .featured-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        align-items: center;
+    }
+    
+    .featured-card {
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        color: white;
+        padding: 40px;
+        border-radius: 15px;
+        text-align: center;
+        box-shadow: var(--shadow-md);
+    }
+    
+    .featured-card .icon {
+        font-size: 3.5rem;
+        margin-bottom: 15px;
+    }
+    
+    .featured-card h3 {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+    }
+    
+    .featured-card p {
+        opacity: 0.9;
+        margin-bottom: 25px;
+    }
+    
+    .featured-card .btn-featured {
+        display: inline-block;
+        background-color: var(--accent-color);
+        color: white;
+        padding: 12px 30px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    
+    .featured-card .btn-featured:hover {
+        background-color: #e65c50;
+        transform: scale(1.05);
+    }
+
+    /* --- News Ticker Section --- */
+    #edu-news-container {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 15px 0;
+        text-align: center;
+    }
+    #edu-news {
+        font-size: 1rem;
+        font-weight: 500;
+    }
+    #edu-news-container strong {
+        background-color: var(--accent-color);
+        padding: 5px 10px;
+        border-radius: 5px;
+        margin-right: 15px;
+    }
+    #edu-news a {
+        color: white;
+        text-decoration: none;
+        transition: text-decoration 0.2s;
+    }
+    #edu-news a:hover {
+        text-decoration: underline;
+    }
+
+    /* --- Footer --- */
+    .main-footer {
+        background-color: #212529;
+        color: var(--text-light);
+        padding: 60px 0 20px 0;
+    }
+
+    .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 40px;
+        margin-bottom: 40px;
+    }
+
+    .footer-col h4 {
+        color: white;
+        margin-bottom: 20px;
+        font-size: 1.1rem;
+        position: relative;
+    }
+    .footer-col h4::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        width: 40px;
+        height: 2px;
+        background-color: var(--accent-color);
+    }
+    
+    .footer-col ul {
+        list-style: none;
+    }
+    
+    .footer-col ul li a {
+        color: var(--text-light);
+        text-decoration: none;
+        display: block;
+        padding: 5px 0;
+        transition: color 0.3s ease, padding-left 0.3s ease;
+    }
+    .footer-col ul li a:hover {
+        color: white;
+        padding-left: 5px;
+    }
+
+    .footer-bottom {
+        border-top: 1px solid #444;
+        padding-top: 20px;
+        text-align: center;
+        font-size: 0.9rem;
+    }
+
+    .social-icons {
+        margin-top: 20px;
+    }
+    .social-icons a {
+        color: var(--text-light);
+        font-size: 1.5rem;
+        margin: 0 10px;
+        transition: color 0.3s ease, transform 0.3s ease;
+    }
+    .social-icons a:hover {
+        color: var(--accent-color);
+        transform: translateY(-3px);
+    }
+    
+    /* --- Responsive Design --- */
+    @media (max-width: 992px) {
+        .hero-title { font-size: 2.8rem; }
+        .hero-tagline { font-size: 1.2rem; }
+        
+        .nav-menu {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            background-color: var(--bg-white);
+            box-shadow: var(--shadow-md);
+        }
+        .nav-menu.active {
+            display: flex;
+        }
+        .nav-menu li { width: 100%; text-align: center; }
+        .nav-link { padding: 15px; border-bottom: 1px solid var(--border-color); }
+        .dropdown-content { position: static; transform: none; box-shadow: none; border: none; background-color: #fdfdfd; }
+
+        .menu-toggle {
+            display: block;
+            font-size: 1.8rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: var(--primary-color);
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .hero-title { font-size: 2.2rem; }
+        .search-box-wrapper { flex-direction: column; }
+        #rotating-logo {
+            width: 80px;
+            height: 80px;
+        }
+    }
+</style>
+</head>
+<body>
+
+    <!-- ======== HEADER & NAVIGATION ======== -->
+    <header class="main-header">
+        <nav class="navbar container">
+            <a href="#" class="logo"><i class="fas fa-graduation-cap"></i> Careers India</a>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link">Academic Paths <i class="fas fa-chevron-down fa-xs"></i></a>
+                    <div class="dropdown-content">
+                        <a href="ssc1.html">After SSC (10th)</a>
+                        <a href="hsc1.html">After HSC (12th)</a>
+                        <a href="grad1.html">After Graduation</a>
+                        <a href="pg1.html">After Post Graduation</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="govt.html" class="nav-link">Government Jobs</a>
+                </li>
+                
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link">Entrance Exams <i class="fas fa-chevron-down fa-xs"></i></a>
+                    <div class="dropdown-content">
+
+ <a href="calendar1.html" target="_blank">Interactive exam calendar</a>
+
+                        <a href="afcat.html" target="_blank">AFCAT</a>
+                        <a href="aiims_mbbs.html" target="_blank">AIIMS MBBS (merged with NEET UG)</a>
+                        <a href="ailet.html" target="_blank">AILET – All India Law Entrance Test</a>
+                        <a href="aissee.html" target="_blank">AISSEE</a>
+                        <a href="bitsat.html" target="_blank">BITSAT</a>
+                        <a href="ca_final.html" target="_blank">CA Final</a>
+                        <a href="ca_foundation.html" target="_blank">CA Foundation</a>
+                        <a href="ca_intermediate.html" target="_blank">CA Intermediate</a>
+                        <a href="cat.html" target="_blank">CAT – Common Admission Test</a>
+                        <a href="cds.html" target="_blank">CDS</a>
+                        <a href="ceed.html" target="_blank">CEED</a>
+                        <a href="clat.html" target="_blank">CLAT – Common Law Admission Test</a>
+                        <a href="cma_final.html" target="_blank">CMA Final</a>
+                        <a href="cma_foundation.html" target="_blank">CMA Foundation</a>
+                        <a href="cma_intermediate.html" target="_blank">CMA Intermediate</a>
+                        <a href="cmat.html" target="_blank">CMAT – Common Management Admission Test</a>
+                        <a href="cmi_entrance_exam.html" target="_blank">CMI Entrance Exam</a>
+                        <a href="cs_executive.html" target="_blank">CS Executive</a>
+                        <a href="cs_professional.html" target="_blank">CS Professional</a>
+                        <a href="cseet.html" target="_blank">CSEET</a>
+                        <a href="csir_ugc_net.html" target="_blank">CSIR UGC NET</a>
+                        <a href="ctet.html" target="_blank">CTET</a>
+                        <a href="cuet_pg.html" target="_blank">CUET PG</a>
+                        <a href="cuet_ug.html" target="_blank">CUET UG</a>
+                        <a href="dbt_jrf.html" target="_blank">DBT JRF</a>
+                        <a href="epfo_eo_ao.html" target="_blank">EPFO EO/AO</a>
+                        <a href="epfo_ssa.html" target="_blank">EPFO SSA</a>
+                        <a href="esic_exam.html" target="_blank">ESIC Exam</a>
+                        <a href="fci_exam.html" target="_blank">FCI Exam</a>
+                        <a href="fmge.html" target="_blank">FMGE</a>
+                        <a href="ftii_jet.html" target="_blank">FTII JET</a>
+                        <a href="gate.html" target="_blank">GATE</a>
+                        <a href="ibps_clerk.html" target="_blank">IBPS Clerk</a>
+                        <a href="ibps_po.html" target="_blank">IBPS PO</a>
+                        <a href="ibps_so.html" target="_blank">IBPS SO</a>
+                        <a href="icar_aieea.html" target="_blank">ICAR AIEEA (UG/PG)</a>
+                        <a href="icmr_jrf.html" target="_blank">ICMR JRF</a>
+                        <a href="iiith_pgee.html" target="_blank">IIITH PGEE</a>
+                        <a href="iiser_aptitude_test_iat.html" target="_blank">IISER Aptitude Test (IAT)</a>
+                        <a href="ini_cet.html" target="_blank">INI-CET</a>
+                        <a href="isi_admission_test.html" target="_blank">ISI Admission Test</a>
+                        <a href="jee_advanced.html" target="_blank">JEE Advanced</a>
+                        <a href="jee_main.html" target="_blank">JEE Main</a>
+                        <a href="jest.html" target="_blank">JEST</a>
+                        <a href="jipmer_mbbs.html" target="_blank">JIPMER MBBS (merged with NEET UG)</a>
+                        <a href="jnvst.html" target="_blank">JNVST</a>
+                        <a href="kvpy.html" target="_blank">KVPY (Kishore Vaigyanik Protsahan Yojana)</a>
+                        <a href="lic_aao.html" target="_blank">LIC AAO</a>
+                        <a href="lsat_india.html" target="_blank">LSAT India – Law School Admission Test India</a>
+                        <a href="mat.html" target="_blank">MAT – Management Aptitude Test</a>
+                        <a href="nata.html" target="_blank">NATA</a>
+                        <a href="nchmct_jee.html" target="_blank">NCHMCT JEE</a>
+                        <a href="nda.html" target="_blank">NDA</a>
+                        <a href="neet_pg.html" target="_blank">NEET PG</a>
+                        <a href="neet_ug.html" target="_blank">NEET UG</a>
+                        <a href="nest.html" target="_blank">NEST (National Entrance Screening Test)</a>
+                        <a href="nid_dat.html" target="_blank">NID DAT</a>
+                        <a href="nift_entrance_exam.html" target="_blank">NIFT Entrance Exam</a>
+                        <a href="nmat.html" target="_blank">NMAT – NMIMS Management Aptitude Test</a>
+                        <a href="rbi_grade_b.html" target="_blank">RBI Grade B</a>
+                        <a href="rrb_alp.html" target="_blank">RRB ALP</a>
+                        <a href="rrb_je.html" target="_blank">RRB JE</a>
+                        <a href="rrb_ntpc.html" target="_blank">RRB NTPC</a>
+                        <a href="slat.html" target="_blank">SLAT – Symbiosis Law Admission Test</a>
+                        <a href="snap.html" target="_blank">SNAP – Symbiosis National Aptitude Test</a>
+                        <a href="srfti_jet.html" target="_blank">SRFTI JET</a>
+                        <a href="srmjeee.html" target="_blank">SRMJEEE</a>
+                        <a href="ssb_interview.html" target="_blank">SSB Interview</a>
+                        <a href="ssc_cgl.html" target="_blank">SSC CGL</a>
+                        <a href="ssc_chsl.html" target="_blank">SSC CHSL</a>
+                        <a href="ssc_mts.html" target="_blank">SSC MTS</a>
+                        <a href="tissnet.html" target="_blank">TISSNET – Tata Institute of Social Sciences National Entrance Test</a>
+                        <a href="uceed.html" target="_blank">UCEED</a>
+                        <a href="ugc_net.html" target="_blank">UGC NET</a>
+                        <a href="upsc_civil_services.html" target="_blank">UPSC Civil Services</a>
+                        <a href="viteee.html" target="_blank">VITEEE</a>
+                        <a href="xat.html" target="_blank">XAT – Xavier Aptitude Test</a>
+                    </div>
+                </li>
+                
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link">Study Abroad <i class="fas fa-chevron-down fa-xs"></i></a>
+                    <div class="dropdown-content">
+                        <a href="living_and_learning_abroad.html">Living and Learning Abroad</a>
+<a href="scholarships.html">Scholarships Info</a>
+                        <a href="consultants_tier_selection.html">Find Consultants</a>
+                        <a href="ra.html">Overseas Agencies</a>
+                        <a href="ielts.html">IELTS</a>
+                        <a href="toefl.html">TOEFL</a>
+                        <a href="gre.html">GRE</a>
+
+  <a href="pte.html">PTE</a>
+                    <a href="sat.html" >SAT</a>
+                    <a href="act.html">ACT</a>
+                    <a href="duolingo.html">DUOLINGO</a>                  
+                    <a href="gmat.html">GMAT</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link">Top Institutions <i class="fas fa-chevron-down fa-xs"></i></a>
+                     <div class="dropdown-content">
+                        <a href="premierInstitutes.html">Premier Institutes</a>
+                        <a href="list_of_schools.html">Top Schools</a>
+                        <a href="university.html">Top Universities</a>
+                        <a href="colleges.html">Top Colleges (HSC)</a>
+                        <a href="diploma.html">Top Diploma Colleges</a>
+                        <a href="graduation_colleges.html">Top Colleges (Grad)</a>
+                        <a href="vocational.html">Top Vocational Colleges</a>
+                        <a href="govt_courses.html">Colleges for Govt Jobs</a>
+                    </div>
+                </li>
+
+<!-- ==== THIS IS THE NEW DEDICATED CHARTS SECTION ==== -->
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link"> Charts <i class="fas fa-chevron-down fa-xs"></i></a>
+                     <div class="dropdown-content">
+  <a href="chart_govt_exams.html" target="_blank">Analysis of Government exams statistics</a>                     
+ <a href="chart_graduates.html" target="_blank">Analysis of Graduates Statistics</a>
+                    </div>
+                </li>
+
+
+                 <li class="nav-item dropdown">
+                    <a href="#" class="nav-link">More <i class="fas fa-chevron-down fa-xs"></i></a>
+                     <div class="dropdown-content">
+                        <a href="emerging_careers.html">Emerging Courses</a>
+                        <a href="category.html">Job Apps (Category-wise)</a>
+ <a href="scholarship_india.html">Various scholarship schemes in India</a>
+ <a href="campuscount.html">Campus Count</a>
+
+                    </div>
+                </li>
+            </ul>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Open Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- ======== HERO SECTION ======== -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Welcome to Careers India</h1>
+                <p class="hero-tagline">Endless courses, Infinite possibilities. Your future starts now.</p>
+                
+                <!-- ROTATING LOGO IS HERE -->
+                <div id="rotating-logo"></div>
+                
+                <div class="search-engine-container">
+                    <div class="search-box-wrapper">
+                        <input type="text" id="aiSearchInput" placeholder="Search for courses, colleges, or exams..." maxlength="300">
+                        <button id="aiSearchButton">Search</button>
+                    </div>
+                    <p id="aiSearchFeedback" class="search-feedback"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======== CATEGORY CARDS SECTION ======== -->
+        <section class="section" id="explore">
+            <div class="container">
+                <h2 class="section-title">Explore Your Options</h2>
+                <p class="section-subtitle">Your journey to a successful career starts here. Select a stage to discover detailed information on courses, scope, and opportunities.</p>
+                
+                <div class="category-grid">
+                    <a href="ssc.html" class="category-card">
+                        <i class="fas fa-school icon"></i>
+                        <h3>After SSC (10th)</h3>
+                        <p>Explore diplomas, vocational training, and the first steps toward your career.</p>
+                    </a>
+                    <a href="hsc.html" class="category-card">
+                        <i class="fas fa-book-open-reader icon"></i>
+                        <h3>After HSC (12th)</h3>
+                        <p>Find the right undergraduate degree from thousands of options in science, arts, & commerce.</p>
+                    </a>
+                    <a href="grad.html" class="category-card">
+                        <i class="fas fa-user-graduate icon"></i>
+                        <h3>After Graduation</h3>
+                        <p>Specialize with Master's degrees, PG Diplomas, and professional certifications.</p>
+                    </a>
+                     <a href="pg.html" class="category-card">
+                        <i class="fas fa-microscope icon"></i>
+                        <h3>After Post Graduation</h3>
+                        <p>Reach the pinnacle of academics with Doctoral programs (Ph.D.) and research.</p>
+                    </a>
+                     <a href="govt.html" class="category-card">
+                        <i class="fas fa-landmark icon"></i>
+                        <h3>Government Jobs</h3>
+                        <p>Prepare for a stable and prestigious career with exams like UPSC, SSC, Banking, and Railways.</p>
+                    </a>
+                    <a href="abroad.html" class="category-card">
+                        <i class="fas fa-plane-departure icon"></i>
+                        <h3>Study Abroad</h3>
+                        <p>Discover global opportunities, top universities, and the process to study overseas.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ======== FEATURED TOOLS SECTION ======== -->
+        <section class="section featured-section" id="tools">
+             <div class="container">
+                <h2 class="section-title" style="color: var(--text-dark);">Powerful Career Tools</h2>
+                <p class="section-subtitle">Use our specially designed tools to make informed decisions about your future.</p>
+                <div class="featured-grid">
+                     <div class="featured-card">
+                        <i class="fas fa-compass icon"></i>
+                        <h3>UDAAN</h3>
+                        <p>Don't know where to start? Take our psychometric test to discover careers that match your personality.</p>
+                        <a href="udaan_final.html" class="btn-featured">Take the Test</a>
+                    </div>
+                     <div class="featured-card">
+                        <i class="fas fa-balance-scale icon"></i>
+                        <h3>Course Comparison</h3>
+                        <p>Confused between two courses? Compare them side-by-side on curriculum, scope, and career outcomes.</p>
+                        <a href="coursecomparison.html" class="btn-featured">Compare Now</a>
+                    </div>
+                     <div class="featured-card">
+                        <i class="fas fa-lightbulb icon"></i>
+                        <h3>Emerging Careers</h3>
+                        <p>Stay ahead of the curve. Explore the most in-demand courses and careers of the future.</p>
+                        <a href="emerging_careers.html" class="btn-featured">Discover Trends</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======== NEWS TICKER ======== -->
+        <div id="edu-news-container">
+            <div class="container">
+                <div id="edu-news">
+                    <strong>NEWS:</strong>
+                    <span id="news-item">Loading latest educational news...</span>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- ======== FOOTER ======== -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Careers India</h4>
+                    <p>Your one-stop destination for navigating the world of education and careers. We provide comprehensive information to help you make the best choice for your future.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="ssc.html">After 10th</a></li>
+                        <li><a href="hsc.html">After 12th</a></li>
+                        <li><a href="grad.html">After Graduation</a></li>
+                        <li><a href="govt.html">Government Jobs</a></li>
+                        <li><a href="abroad.html">Study Abroad</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="privacy.html">Privacy Statement</a></li>
+                        <li><a href="disclaimer.html">Disclaimer</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow Us</h4>
+                    <p>Stay connected for the latest updates.</p>
+                     <div class="social-icons">
+                        <a href="https://www.linkedin.com/company/wellspokn-spoken-english-studio" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://m.youtube.com/channel/UCG8HokCKSj8RnaGA_BR31vg/videos" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.facebook.com/share/1FcoyX9bfB/" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/wellspokn1975?igsh=NnE1cml3emVpcXc1" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2024 Careers India. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+
+<script>
+    // --- SCRIPT FOR MOBILE MENU TOGGLE ---
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    }
+
+    // --- SCRIPT FOR NEWS TICKER ---
+    const rssFeeds = [
+        'https://api.rss2json.com/v1/api.json?rss_url=https://timesofindia.indiatimes.com/rssfeeds/913168846.cms',
+        'https://api.rss2json.com/v1/api.json?rss_url=https://www.theguardian.com/education/rss'
+    ];
+    let newsItems = [];
+    let currentIndex = 0;
+
+    async function fetchNews() {
+        try {
+            const responses = await Promise.all(rssFeeds.map(url => fetch(url).then(res => res.json())));
+            responses.forEach(response => {
+                if (response && response.items) {
+                    newsItems.push(...response.items.map(item => ({
+                        title: item.title,
+                        link: item.link
+                    })));
+                }
+            });
+        } catch (error) {
+            console.error("Failed to fetch news:", error);
+            document.getElementById("news-item").innerText = "Could not load news feeds.";
+        } finally {
+            startNewsRotation();
+        }
+    }
+
+    function startNewsRotation() {
+        const newsSpan = document.getElementById("news-item");
+        if (newsItems.length === 0) {
+            if (newsSpan) newsSpan.innerText = "No news available at the moment.";
+            return;
+        }
+        
+        const displayNextNews = () => {
+            const item = newsItems[currentIndex];
+            if (item && newsSpan) {
+                newsSpan.innerHTML = `<a href="${item.link}" target="_blank">${item.title}</a>`;
+                currentIndex = (currentIndex + 1) % newsItems.length;
+            }
+        };
+        
+        displayNextNews();
+        setInterval(displayNextNews, 10000);
+    }
+    
+    document.addEventListener('DOMContentLoaded', fetchNews);
+</script>
+
+<!-- SEARCH ENGINE SCRIPT -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('aiSearchInput');
+    const searchButton = document.getElementById('aiSearchButton');
+    const searchFeedback = document.getElementById('aiSearchFeedback');
+
+    const keywordRules = [
+        // High Priority Exam matches
+        { keywords: ['cat'], url: 'cat.html', priority: 20 },
+        { keywords: ['gate'], url: 'gate.html', priority: 20 },
+        { keywords: ['jee main', 'jee'], url: 'jee_main.html', priority: 20 },
+        { keywords: ['jee advanced'], url: 'jee_advanced.html', priority: 20 },
+        { keywords: ['neet ug', 'neet'], url: 'neet_ug.html', priority: 20 },
+        { keywords: ['neet pg'], url: 'neet_pg.html', priority: 20 },
+        { keywords: ['upsc', 'civil services'], url: 'upsc_civil_services.html', priority: 20 },
+        { keywords: ['clat'], url: 'clat.html', priority: 20 },
+        { keywords: ['nda'], url: 'nda.html', priority: 20 },
+        
+        // High Priority pages
+        { keywords: ['hotel management', 'hotel course'], url: 'hsc.html#hsc-bachelor-of-hotel-management-bhm', priority: 10 },
+        { keywords: ['overseas consultant', 'abroad agency'], url: 'ra.html', priority: 10 },
+        { keywords: ['premier institute'], url: 'premierInstitutes.html', priority: 10 },
+        
+        // Main Categories
+        { keywords: ['ssc', '10th', 'matriculation', 'class 10'], url: 'ssc.html', priority: 5 },
+        { keywords: ['hsc', '12th', 'intermediate', 'class 12'], url: 'hsc.html', priority: 5 },
+        { keywords: ['graduation', 'bachelor', 'degree'], url: 'grad.html', priority: 5 },
+        { keywords: ['post graduation', 'master', 'pg'], url: 'pg.html', priority: 5 },
+        { keywords: ['government', 'sarkari', 'govt jobs'], url: 'govt.html', priority: 5 },
+        { keywords: ['abroad', 'overseas', 'foreign country'], url: 'abroad.html', priority: 5 },
+        
+        // Tools & Other
+        { keywords: ['udaan', 'psychometric test'], url: 'udaan_final.html', priority: 5 },
+        { keywords: ['compare', 'comparison'], url: 'coursecomparison.html', priority: 5 },
+        { keywords: ['emerging', 'trending courses'], url: 'emerging_careers.html', priority: 5 },
+        { keywords: ['ielts', 'toefl', 'gre', 'gmat', 'english test'], url: 'abroad.html', priority: 4 },
+        
+        // Generic (Low Priority)
+        { keywords: ['college', 'top colleges'], url: 'colleges.html', priority: 1 },
+        { keywords: ['university', 'top universities'], url: 'university.html', priority: 1 },
+        { keywords: ['exam', 'entrance exam'], url: 'afcat.html', priority: 1 }
+    ];
+
+    function handleSearch() {
+        const query = searchInput.value.trim().toLowerCase();
+        if (!query) return;
+
+        let bestMatch = { priority: -1, url: null };
+
+        for (const rule of keywordRules) {
+            const anyKeywordMatches = rule.keywords.some(kw => query.includes(kw));
+            if (anyKeywordMatches && rule.priority > bestMatch.priority) {
+                bestMatch = rule;
+            }
+        }
+
+        if (bestMatch.url) {
+            searchFeedback.textContent = 'Match found! Redirecting...';
+            setTimeout(() => {
+                if(bestMatch.url.includes('#')){
+                    window.location.href = bestMatch.url;
+                } else {
+                    window.open(bestMatch.url, '_blank');
+                }
+                searchFeedback.textContent = '';
+            }, 1000);
+        } else {
+            searchFeedback.textContent = 'Sorry, no specific match found. Try a broader term.';
+        }
+    }
+
+    searchButton.addEventListener('click', handleSearch);
+    searchInput.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+            handleSearch();
+        }
+    });
+});
+</script>
+
+</body>
+</html>

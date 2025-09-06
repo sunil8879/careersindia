@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maths Tricks</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+    @import url('https://fonts.cdnfonts.com/css/impact');
+
+    /* --- Global Styles & Light Background --- */
+    :root {
+        --turquoise: #40E0D0;
+        --parrot-green: #76FF03; /* Kept for reference if needed */
+        --dark-text: #212529; /* A standard dark color for text */
+        --light-gray: #f8f9fa;
+        --border-color: #dee2e6;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif; /* Kept Poppins as the default body font */
+        color: var(--dark-text);
+        background-color: white; /* MODIFIED: Solid white background */
+        min-height: 100vh;
+    }
+
+    /* --- Title Box & Header --- */
+    header {
+        padding: 30px 20px;
+        text-align: center;
+    }
+
+    .title-box {
+        display: inline-block;
+        background-color: var(--turquoise); /* MODIFIED: Solid turquoise background */
+        padding: 20px 40px;
+        border-radius: 15px;
+        border: none; /* Removed old border */
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15); /* Modern, simple shadow */
+        transition: none; /* Removed hover effect */
+    }
+    .title-box:hover {
+        transform: none; /* Removed hover effect */
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    /* MODIFIED: The Intense 3D Impact Font Title */
+    h1 {
+        font-family: 'Impact', sans-serif;
+        font-size: 3.5em;
+        font-weight: normal;
+        line-height: 1.0;
+        color: white; /* White text for contrast on turquoise */
+        
+        /* The Intense, Layered 3D Text Shadow */
+        text-shadow: 
+            1px 1px 0px rgba(0,0,0,0.2), 
+            2px 2px 0px rgba(0,0,0,0.2), 
+            3px 3px 0px rgba(0,0,0,0.2),
+            4px 4px 0px rgba(0,0,0,0.2),
+            5px 5px 0px rgba(0,0,0,0.2),
+            6px 6px 12px rgba(0,0,0,0.4);
+    }
+
+    /* --- Two-Column Layout --- */
+    .container {
+        display: flex;
+        gap: 20px;
+        padding: 0 20px 20px 20px;
+        height: calc(100vh - 150px);
+    }
+
+    /* MODIFIED: Light theme columns */
+    .left-column {
+        flex: 1;
+        max-width: 350px;
+        background: var(--light-gray);
+        border-radius: 10px;
+        padding: 20px;
+        overflow-y: auto;
+        border: 1px solid var(--border-color);
+        box-shadow: none;
+    }
+
+    .right-column {
+        flex: 3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: white;
+        border-radius: 10px;
+        padding: 20px;
+        border: 1px solid var(--border-color);
+        box-shadow: none;
+    }
+
+    /* --- Links List (Light Theme) --- */
+    .left-column h2 {
+        color: var(--dark-text);
+        margin-bottom: 20px;
+        text-align: center;
+        border-bottom: 2px solid var(--turquoise);
+        padding-bottom: 10px;
+    }
+
+    .left-column ul {
+        list-style-type: none;
+    }
+
+    .left-column li a {
+        display: block;
+        color: var(--dark-text);
+        text-decoration: none;
+        padding: 12px 15px;
+        margin-bottom: 8px;
+        border-radius: 5px;
+        background-color: transparent;
+        border-left: 3px solid transparent;
+        transition: all 0.3s ease;
+    }
+
+    .left-column li a:hover {
+        background-color: rgba(64, 224, 208, 0.2); /* Light turquoise background */
+        border-left: 3px solid var(--turquoise);
+        color: var(--dark-text);
+        transform: translateX(10px);
+        box-shadow: none;
+    }
+
+    /* --- Right Column PDF Viewer (Light Theme) --- */
+    #placeholder {
+        text-align: center;
+        color: #6c757d; /* Softer gray color */
+    }
+
+    #placeholder h2 {
+        color: var(--dark-text);
+        margin-bottom: 15px;
+    }
+
+    .info-box {
+        margin-top: 30px;
+        padding: 15px;
+        background-color: #e9ecef; /* Light gray info box */
+        border-left: 3px solid var(--turquoise);
+        border-radius: 5px;
+        font-size: 0.9em;
+    }
+
+    #pdf-viewer {
+        width: 100%;
+        height: 100%;
+        border-radius: 8px;
+        border: 2px solid var(--border-color);
+        box-shadow: none;
+    }
+
+    /* --- Responsive Design for smaller screens --- */
+    @media (max-width: 768px) {
+        .container {
+            flex-direction: column;
+            height: auto;
+        }
+        .left-column {
+            max-width: 100%;
+            max-height: 300px;
+        }
+        .right-column {
+            min-height: 500px;
+        }
+        h1 {
+            font-size: 2.5em; /* Adjusted for mobile */
+        }
+    }
+</style>
+</head>
+<body>
+
+    <header>
+        <div class="title-box">
+            <h1>WELCOME TO MATHS TRICKS SECTION</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <nav class="left-column">
+            <h2>Select a Trick</h2>
+            <ul>
+                <!-- The links point to your PDF files inside the 'pdfs' folder -->
+                <li><a href="Trick_count_triangles.pdf">Count Triangles</a></li>
+                <li><a href="Trick_cube_of_a_number.pdf">Cube of a Number</a></li>
+                <li><a href="Trick_cube_root_of_a_number.pdf">Cube Root of a Number</a></li>
+                <li><a href="Trick_division.pdf">Division</a></li>
+                <li><a href="Trick_dot_add_1.pdf">Dot Addition</a></li>
+                <li><a href="Trick_dot_division.pdf">Dot Division</a></li>
+                <li><a href="Trick_dot_formulae.pdf">Dot Formulae</a></li>
+                <li><a href="Trick_dot_multiply.pdf">Dot Multiplication</a></li>
+                <li><a href="Trick_dot_polynomials.pdf">Dot Polynomials</a></li>
+                <li><a href="Trick_dot_subtract.pdf">Dot Subtraction</a></li>
+                <li><a href="Trick_fractions.pdf">Fractions</a></li>
+                <li><a href="Trick_hcf_lcm.pdf">HCF & LCM</a></li>
+                <li><a href="Trick_japanese_multiply.pdf">Japanese Multiplication</a></li>
+                <li><a href="Trick_multiplication.pdf">Multiplication</a></li>
+                <li><a href="Trick_multiplication_decimal_1.pdf">Decimal Multiplication</a></li>
+                <li><a href="Trick_percentage.pdf">Percentage</a></li>
+                <li><a href="Trick_square_of_a_decimal.pdf">Square of a Decimal</a></li>
+                <li><a href="Trick_square_of_a_number.pdf">Square of a Number</a></li>
+                <li><a href="Trick_square_root_of_a_decimal.pdf">Square Root of a Decimal</a></li>
+                <li><a href="Trick_square_root_of_a_number.pdf">Square Root of a Number</a></li>
+                <li><a href="Trick_tables.pdf">Tables</a></li>
+                <li><a href="Trick-trigonometry.pdf">Trigonometry</a></li>
+                <li><a href="Trick_vedic_maths.pdf">Vedic Maths</a></li>
+            </ul>
+        </nav>
+
+        <section class="right-column">
+            <div id="placeholder">
+                <h2>Your Notes Will Appear Here</h2>
+                <p>Select a topic from the list on the left to view the handwritten notes.</p>
+                <div class="info-box">
+                    <strong>Note on PDFs:</strong> This page embeds PDFs directly in the browser. This method is generally more reliable than standalone readers and should work even if Acrobat Reader is having issues on your system.
+                </div>
+            </div>
+            <iframe id="pdf-viewer" title="Maths Trick PDF Viewer" style="display:none;"></iframe>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const links = document.querySelectorAll('.left-column a');
+            const pdfViewer = document.getElementById('pdf-viewer');
+            const placeholder = document.getElementById('placeholder');
+
+            links.forEach(link => {
+                link.addEventListener('click', function (event) {
+                    // Prevent the default link behavior (opening the PDF in a new page)
+                    event.preventDefault();
+
+                    // Get the path to the PDF from the link's href attribute
+                    const pdfUrl = this.getAttribute('href');
+
+                    // Hide the placeholder text and show the iframe
+                    if (placeholder.style.display !== 'none') {
+                        placeholder.style.display = 'none';
+                        pdfViewer.style.display = 'block';
+                    }
+
+                    // Set the iframe's src to the selected PDF
+                    pdfViewer.src = pdfUrl;
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

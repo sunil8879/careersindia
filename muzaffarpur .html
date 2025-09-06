@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schools in Muzaffarpur</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #fce4ec; /* Light Pink */
+            margin: 0;
+            padding: 20px;
+        }
+
+        #muzaffarpur-container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .muzaffarpur-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .muzaffarpur-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3em;
+            color: #880e4f; /* Dark Pink */
+            font-weight: 700;
+        }
+
+        .muzaffarpur-school-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .muzaffarpur-school-card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .muzaffarpur-school-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .muzaffarpur-school-card h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25em;
+            color: #ad1457;
+            margin: 0 0 10px 0;
+        }
+        
+        .muzaffarpur-school-card .location {
+            font-size: 0.9em;
+            color: #f48fb1;
+            margin-bottom: 15px;
+        }
+        
+        .muzaffarpur-school-card .board-type {
+            font-size: 0.85em;
+            background-color: #fce4ec;
+            color: #d81b60;
+            padding: 5px 10px;
+            border-radius: 15px;
+            display: inline-block;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .muzaffarpur-school-card .website-link a {
+            color: #c2185b;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9em;
+        }
+
+        .muzaffarpur-school-card .website-link a:hover {
+            text-decoration: underline;
+        }
+        
+        .muzaffarpur-school-card .website-link .website-na {
+            color: #f8bbd0;
+            font-style: italic;
+            font-size: 0.9em;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="muzaffarpur-container">
+        <div class="muzaffarpur-header">
+            <h1>Muzaffarpur's Top Schools</h1>
+        </div>
+        <div class="muzaffarpur-school-grid">
+            
+            <div class="muzaffarpur-school-card">
+                <div>
+                    <h2>Delhi Public School</h2>
+                    <p class="location">Muzaffarpur</p>
+                    <span class="board-type">CBSE</span>
+                </div>
+                <div class="website-link">
+                    <a href="https://www.dpsmuzaffarpur.com" target="_blank">Visit Website</a>
+                </div>
+            </div>
+
+            <div class="muzaffarpur-school-card">
+                <div>
+                    <h2>D.A.V. Public School</h2>
+                    <p class="location">Malighat, Muzaffarpur</p>
+                    <span class="board-type">CBSE</span>
+                </div>
+                <div class="website-link">
+                    <a href="https://www.davmuzaffarpur.org" target="_blank">Visit Website</a>
+                </div>
+            </div>
+
+            <div class="muzaffarpur-school-card">
+                <div>
+                    <h2>St. Xavier's International School</h2>
+                    <p class="location">Muzaffarpur</p>
+                    <span class="board-type">CBSE</span>
+                </div>
+                <div class="website-link">
+                    <a href="https://www.stxaviersmuzaffarpur.com" target="_blank">Visit Website</a>
+                </div>
+            </div>
+
+            <div class="muzaffarpur-school-card">
+                <div>
+                    <h2>Kendriya Vidyalaya</h2>
+                    <p class="location">Gannipur, Muzaffarpur</p>
+                    <span class="board-type">CBSE</span>
+                </div>
+                <div class="website-link">
+                    <a href="https://muzaffarpur.kvs.ac.in" target="_blank">Visit Website</a>
+                </div>
+            </div>
+            
+            <div class="muzaffarpur-school-card">
+                <div>
+                    <h2>Sun Shine Prep/High School</h2>
+                    <p class="location">Muzaffarpur</p>
+                    <span class="board-type">CBSE</span>
+                </div>
+                <div class="website-link">
+                    <a href="https://www.sunshineschoolmuzaffarpur.com" target="_blank">Visit Website</a>
+                </div>
+            </div>
+            
+            <div class="muzaffarpur-school-card">
+                <div>
+                    <h2>Radiant International School</h2>
+                    <p class="location">Muzaffarpur</p>
+                    <span class="board-type">CBSE</span>
+                </div>
+                <div class="website-link">
+                    <a href="https://www.radiantinternational.org" target="_blank">Visit Website</a>
+                </div>
+            </div>
+            
+            <div class="muzaffarpur-school-card">
+                <div>
+                    <h2>L.S. College</h2>
+                    <p class="location">Muzaffarpur</p>
+                    <span class="board-type">BSEB</span>
+                </div>
+                <div class="website-link">
+                    <a href="https://www.lscollege.ac.in" target="_blank">Visit Website</a>
+                </div>
+            </div>
+
+            <div class="muzaffarpur-school-card">
+                <div>
+                    <h2>R.D.S. College</h2>
+                    <p class="location">Muzaffarpur</p>
+                    <span class="board-type">BSEB</span>
+                </div>
+                <div class="website-link">
+                    <a href="https://www.rdscollege.ac.in" target="_blank">Visit Website</a>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
