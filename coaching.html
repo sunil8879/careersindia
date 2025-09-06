@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top coaching institutes in India</title>
+<style>
+    /* General Body Styling */
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        background-color: turquoise; /* Turquoise background color */
+        /* Semi-transparent black square gridlines */
+        background-image: 
+            repeating-linear-gradient(to right, rgba(0,0,0,0.15) 0, rgba(0,0,0,0.15) 1px, transparent 1px, transparent 40px),
+            repeating-linear-gradient(to bottom, rgba(0,0,0,0.15) 0, rgba(0,0,0,0.15) 1px, transparent 1px, transparent 40px);
+        background-size: 40px 40px;
+        margin: 0;
+        padding: 0;
+        color: black; /* Black font for the whole page */
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    /* Header Box for Title and Dashboard Button */
+    .header-container {
+        background-color: #006400; /* Bottle Green background */
+        padding: 25px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        border-bottom: 2px solid #004d00;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* 3D Title Styling */
+    h1 {
+        color: white;
+        text-align: center;
+        font-size: 2.8em;
+        font-weight: 700;
+        margin: 0 0 20px 0;
+        text-shadow: 3px 3px 0px #003300, 6px 6px 10px rgba(0, 0, 0, 0.4);
+        letter-spacing: 1px;
+    }
+    
+    .dashboard-button-container {
+        text-align: center;
+    }
+
+    /* 3D Dashboard Button Styling */
+    .dashboard-button {
+        padding: 12px 25px;
+        font-size: 1.1em;
+        font-weight: bold;
+        color: black; /* Changed to black */
+        background-color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        box-shadow: 0 5px #ccc;
+        transition: all 0.1s ease-in-out;
+    }
+
+    .dashboard-button:hover {
+        background-color: #f0fff0;
+    }
+
+    .dashboard-button:active {
+        transform: translateY(3px);
+        box-shadow: 0 2px #999;
+    }
+
+    /* Main 2-column container */
+    .main-container {
+        display: flex;
+        flex-grow: 1;
+        padding: 25px;
+        gap: 25px;
+    }
+
+    /* Left Sidebar Styling */
+    .sidebar {
+        width: 280px;
+        flex-shrink: 0;
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+        border: 1px solid #dee2e6;
+        align-self: flex-start; /* Stick to top */
+        position: sticky;
+        top: 180px; /* Adjust based on header height */
+    }
+
+    .sidebar h3 {
+        margin-top: 0;
+        border-bottom: 2px solid #eee;
+        padding-bottom: 10px;
+        color: #000;
+    }
+
+    .search-box input {
+        width: calc(100% - 22px);
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 1em;
+    }
+    
+    .city-nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .city-nav li {
+        padding: 12px 15px;
+        margin-bottom: 8px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.2s, color 0.2s;
+        font-weight: 500;
+    }
+
+    .city-nav li:hover {
+        background-color: #eafaea;
+    }
+
+    .city-nav li.active {
+        background-color: #006400; /* Bottle Green active */
+        color: white;
+        font-weight: bold;
+    }
+
+    /* Right Content Area Styling */
+    .content {
+        flex-grow: 1;
+    }
+    
+    #institute-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+        gap: 25px;
+    }
+    
+    #institute-list .loading-message, #institute-list .error-message {
+        grid-column: 1 / -1;
+        text-align: center;
+        font-size: 1.2em;
+        color: black; /* Changed to black */
+        background: rgba(255, 255, 255, 0.7); /* Added for readability */
+        padding: 15px;
+        border-radius: 8px;
+    }
+.header-container { background-color: white; border: none; } h1 { color: black; text-shadow: none; }
+.dashboard-button { background-color: turquoise; }
+
+</style>
+</head>
+<body>
+
+    <header class="header-container">
+        <h1>Top coaching institutes in India</h1>
+        <div class="dashboard-button-container">
+            <button id="top20-btn" class="dashboard-button">ALL TIME TOP COACHING CENTERS</button>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <aside class="sidebar">
+            <div class="search-box">
+                <h3>Search Filters</h3>
+                <input type="text" id="name-search" onkeyup="filterInstitutes()" placeholder="Search by Name...">
+                <input type="text" id="rating-search" onkeyup="filterInstitutes()" placeholder="Search by Rating...">
+                <input type="text" id="course-search" onkeyup="filterInstitutes()" placeholder="Search by Course...">
+            </div>
+            <nav class="city-nav">
+                <h3>Select a City</h3>
+                <ul id="city-list">
+                    <li data-file="coaching_mumbai.html">Mumbai</li>
+                    <li data-file="coaching_delhi.html">Delhi</li>
+                    <li data-file="coaching_kolkata.html">Kolkata</li>
+                    <li data-file="coaching_chennai.html">Chennai</li>
+                    <li data-file="coaching_ahmedabad.html">Ahmedabad</li>
+                    <li data-file="coaching_hyderabad.html">Hyderabad</li>
+                    <li data-file="coaching_bengaluru.html">Bengaluru</li>
+                    <li data-file="coaching_pune.html">Pune</li>
+                    <li data-file="coaching_india.html">Other Indian Cities</li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="content">
+            <div id="institute-list">
+                <div class="loading-message">Select a city to view coaching institutes.</div>
+            </div>
+        </main>
+    </div>
+
+<script>
+    const cityListItems = document.querySelectorAll("#city-list li");
+    const instituteListContainer = document.getElementById("institute-list");
+    const top20Button = document.getElementById('top20-btn');
+
+    let allInstitutesData = []; // To store data from all files for the dashboard
+    let currentCityData = [];   // To store data for the currently selected city
+    let isDashboardActive = false;
+
+    // TOP 20 COACHING CENTERS - Based on reputation, results, faculty, infrastructure etc.
+    const top20Institutes = [
+        { name: "Allen Career Institute", location: "Kota, Rajasthan", rank: 1 },
+        { name: "Vajiram & Ravi", location: "Old Rajinder Nagar, Delhi", rank: 2 },
+        { name: "Aakash Institute", location: "All India", rank: 3 },
+        { name: "FIITJEE", location: "All India", rank: 4 },
+        { name: "Drishti IAS", location: "Mukherjee Nagar, Delhi", rank: 5 },
+        { name: "ACE Engineering Academy", location: "Hyderabad, Telangana", rank: 6 },
+        { name: "Sri Chaitanya", location: "Andhra Pradesh / Telangana", rank: 7 },
+        { name: "Brilliant Study Centre", location: "Pala, Kerala", rank: 8 },
+        { name: "Made Easy", location: "All India", rank: 9 },
+        { name: "InsightsIAS", location: "Bengaluru, Karnataka", rank: 10 },
+        { name: "Narayana Junior College", location: "Andhra Pradesh / Telangana", rank: 11 },
+        { name: "Vision IAS", location: "Old Rajinder Nagar, Delhi", rank: 12 },
+        { name: "Bakliwal Tutorials", location: "Pune, Maharashtra", rank: 13 },
+        { name: "RICE Education", location: "Kolkata, West Bengal", rank: 14 },
+        { name: "IMS Learning Center", location: "All India", rank: 15 },
+        { name: "J.K. Shah Classes", location: "All India", rank: 16 },
+        { name: "Shankar IAS Academy", location: "Chennai / All India", rank: 17 },
+        { name: "Navkar Institute", location: "Ahmedabad, Gujarat", rank: 18 },
+        { name: "Liberty Career Academy", location: "Gujarat", rank: 19 },
+        { name: "Qspiders / Jspiders", location: "Bengaluru / All India", rank: 20 }
+    ];
+
+    // Function to fetch and parse data from an HTML file
+    async function fetchAndParseHTML(fileName) {
+        try {
+            const response = await fetch(fileName);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const text = await response.text();
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(text, 'text/html');
+            const scriptTag = doc.querySelector('script');
+            // This regex is specifically designed to extract the 'institutes' array object
+            const arrayRegex = /const institutes = (\[[\s\S]*?\]);/;
+            const match = scriptTag.textContent.match(arrayRegex);
+            if (match && match[1]) {
+                // Using Function constructor to safely parse the array string
+                return new Function(`return ${match[1]}`)();
+            }
+            return [];
+        } catch (e) {
+            console.error(`Error fetching or parsing ${fileName}:`, e);
+            instituteListContainer.innerHTML = `<div class="error-message">Error: Could not load data from ${fileName}. Please ensure the file exists in the same folder.</div>`;
+            return [];
+        }
+    }
+
+    // Function to display institutes on the right side
+    function displayInstitutes(data) {
+        instituteListContainer.innerHTML = '';
+        if (data.length === 0) {
+            instituteListContainer.innerHTML = `<div class="loading-message">No institutes found matching your criteria.</div>`;
+            return;
+        }
+
+        // Alphabetical sort
+        data.sort((a, b) => a.name.localeCompare(b.name));
+
+        data.forEach(institute => {
+            const card = document.createElement('div');
+            card.className = 'institute-card';
+            card.innerHTML = `
+                <h2>${institute.name}</h2>
+                <p><strong>Location:</strong> ${institute.location || 'N/A'}</p>
+                <div class="details-grid">
+                    <p><strong>Rating:</strong> ${institute.rating || 'N/A'}</p>
+                    <p><strong>Reviews:</strong> ${institute.total_reviews || 'N/A'}</p>
+                    <p><strong>Established:</strong> ${institute.year_established || 'N/A'}</p>
+                </div>
+                <p><strong>Courses & Fees:</strong> ${institute.courses || 'N/A'}</p>
+                <p><strong>Features:</strong> ${institute.features || 'N/A'}</p>
+                <a href="${institute.website}" target="_blank" rel="noopener noreferrer">Visit Website</a>
+            `;
+            instituteListContainer.appendChild(card);
+        });
+    }
+    
+    // Function to display the top 20 dashboard
+    async function displayDashboard() {
+        isDashboardActive = true;
+        document.querySelector('.sidebar').style.display = 'none';
+        instituteListContainer.style.gridTemplateColumns = '1fr'; // Make it a single column list
+        instituteListContainer.innerHTML = `<div class="loading-message">Loading All-Time Top Centers...</div>`;
+
+        // Load all data if not already loaded
+        if (allInstitutesData.length === 0) {
+            const files = [
+                'coaching_mumbai.html', 'coaching_delhi.html', 'coaching_kolkata.html',
+                'coaching_chennai.html', 'coaching_ahmedabad.html', 'coaching_hyderabad.html',
+                'coaching_bengaluru.html', 'coaching_pune.html', 'coaching_india.html'
+            ];
+            const promises = files.map(file => fetchAndParseHTML(file));
+            const results = await Promise.all(promises);
+            allInstitutesData = results.flat();
+        }
+
+        const topInstitutesDetails = top20Institutes.map((topInst, index) => {
+            const details = allInstitutesData.find(inst => inst.name.toLowerCase().includes(topInst.name.toLowerCase()));
+            return { ...details, ...topInst, rank: index + 1 }; // Merge details with rank
+        });
+
+        instituteListContainer.innerHTML = '';
+        topInstitutesDetails.forEach(institute => {
+            if (!institute.name) return; // Skip if details not found
+            const card = document.createElement('div');
+            card.className = 'institute-card top-rank';
+            card.innerHTML = `
+                <h2><span class="rank">#${institute.rank}</span> ${institute.name}</h2>
+                <p><strong>Location:</strong> ${institute.location}</p>
+                <div class="details-grid">
+                    <p><strong>Rating:</strong> ${institute.rating || 'N/A'}</p>
+                    <p><strong>Reviews:</strong> ${institute.total_reviews || 'N/A'}</p>
+                    <p><strong>Established:</strong> ${institute.year_established || 'N/A'}</p>
+                </div>
+                <p><strong>Courses & Fees:</strong> ${institute.courses || 'N/A'}</p>
+                <p><strong>Features:</strong> ${institute.features || 'N/A'}</p>
+                <a href="${institute.website}" target="_blank" rel="noopener noreferrer">Visit Website</a>
+            `;
+            instituteListContainer.appendChild(card);
+        });
+    }
+
+    // Event listener for city selection
+    cityListItems.forEach(item => {
+        item.addEventListener('click', async () => {
+            isDashboardActive = false;
+            document.querySelector('.sidebar').style.display = 'block';
+            instituteListContainer.style.gridTemplateColumns = 'repeat(auto-fill, minmax(400px, 1fr))';
+            
+            cityListItems.forEach(li => li.classList.remove('active'));
+            item.classList.add('active');
+            
+            instituteListContainer.innerHTML = `<div class="loading-message">Loading data for ${item.textContent}...</div>`;
+            const fileName = item.getAttribute('data-file');
+            currentCityData = await fetchAndParseHTML(fileName);
+            filterInstitutes(); // Display and apply any existing filters
+        });
+    });
+    
+    // Event listener for the dashboard button
+    top20Button.addEventListener('click', () => {
+        cityListItems.forEach(li => li.classList.remove('active'));
+        displayDashboard();
+    });
+
+    // Filtering logic
+    function filterInstitutes() {
+        if (isDashboardActive) return; // Don't filter if dashboard is active
+
+        const nameQuery = document.getElementById('name-search').value.toLowerCase();
+        const ratingQuery = document.getElementById('rating-search').value.toLowerCase();
+        const courseQuery = document.getElementById('course-search').value.toLowerCase();
+
+        const filtered = currentCityData.filter(inst => {
+            const nameMatch = inst.name.toLowerCase().includes(nameQuery);
+            const ratingValue = inst.rating ? inst.rating.split('/')[0].trim().toLowerCase() : "";
+            const ratingMatch = ratingValue.startsWith(ratingQuery);
+            const courseMatch = inst.courses ? inst.courses.toLowerCase().includes(courseQuery) : false;
+
+            return nameMatch && ratingMatch && courseMatch;
+        });
+
+        displayInstitutes(filtered);
+    }
+</script>
+
+</body>
+</html>

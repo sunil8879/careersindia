@@ -1,0 +1,2336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top coaching institutes in Delhi</title>
+    <style>
+        /* General Body Styling */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            background-color: #f0f8ff; /* Light Alice Blue background */
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        /* Header Box for Title and Search */
+        .header-container {
+            background-color: #5bc0de; /* Light Blue background */
+            padding: 30px 25px;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            border: 1px solid #46b8da;
+        }
+
+        /* 3D Title Styling */
+        h1 {
+            color: white;
+            text-align: center;
+            font-size: 3em;
+            font-weight: 700;
+            margin: 0 0 25px 0;
+            /* 3D Effect using a darker blue shadow */
+            text-shadow: 3px 3px 0px #31b0d5, 6px 6px 10px rgba(0, 0, 0, 0.3);
+            letter-spacing: 1px;
+        }
+
+        /* Search Box Container */
+        .search-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        /* Search Input Fields */
+        .search-container input {
+            padding: 12px 18px;
+            font-size: 1em;
+            width: 320px;
+            max-width: 90%;
+            border: none;
+            border-radius: 50px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1) inset;
+        }
+
+        .search-container input:focus {
+            outline: none;
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.7), 0 2px 4px rgba(0,0,0,0.1) inset;
+        }
+
+        /* Main container for the institute list */
+        #institute-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 25px;
+        }
+
+        /* Individual Institute Card Styling */
+        .institute-card {
+            background-color: white;
+            border: 1px solid #e9ecef;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .institute-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+        }
+        
+        .institute-card h2 {
+            margin-top: 0;
+            font-size: 1.6em;
+            color: #31b0d5; /* Light Blue title */
+        }
+
+        .institute-card p {
+            margin: 8px 0;
+            line-height: 1.6;
+            font-size: 0.95em;
+        }
+
+        .institute-card strong {
+            color: #212529;
+            font-weight: 600;
+        }
+
+        .institute-card a {
+            color: #2aabd2;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: auto; /* Pushes the link to the bottom */
+            align-self: flex-start;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .institute-card a:hover {
+            background-color: #eaf8fb;
+            color: #28a1c5;
+        }
+        
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5px 15px;
+            margin-bottom: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="header-container">
+        <h1>Top coaching institutes in Delhi</h1>
+        <div class="search-container">
+            <input type="text" id="name-search" onkeyup="filterInstitutes()" placeholder="Search by Institute Name...">
+            <input type="text" id="rating-search" onkeyup="filterInstitutes()" placeholder="Search by Rating (e.g., 4.8)...">
+        </div>
+    </div>
+
+    <main id="institute-list">
+        <!-- Institute cards will be dynamically inserted here by JavaScript -->
+    </main>
+
+<script>
+    // Data for all 300 coaching institutes
+    const institutes = [
+        // PART 1 DATA (Entries 1-150)
+        {
+            name: "Vajiram & Ravi",
+            location: "Old Rajinder Nagar, Delhi",
+            rating: "4.3/5 (Google)",
+            total_reviews: "15,000+",
+            year_established: 1976,
+            courses: "UPSC (GS Foundation, CSAT, Optionals). Fees: Approx. ₹1,70,000 - ₹2,80,000.",
+            features: "Pros: Most famous institute for UPSC, experienced faculty, comprehensive material. Cons: Extremely large batch sizes (over 1000), less personal attention.",
+            website: "https://www.vajiramandravi.com"
+        },
+        {
+            name: "Drishti IAS",
+            location: "Mukherjee Nagar, Delhi",
+            rating: "4.7/5 (Google)",
+            total_reviews: "25,000+",
+            year_established: 1999,
+            courses: "UPSC (GS Foundation, Essay, Optionals - Hindi & English). Fees: Approx. ₹1,50,000 - ₹2,50,000.",
+            features: "Pros: Market leader for Hindi medium, excellent online presence, quality magazines. Cons: Mukherjee Nagar center is very crowded.",
+            website: "https://www.drishtiias.com"
+        },
+        {
+            name: "Vision IAS",
+            location: "Old Rajinder Nagar, Delhi",
+            rating: "4.4/5 (Google)",
+            total_reviews: "18,000+",
+            year_established: 2009,
+            courses: "UPSC (GS Foundation, Test Series). Fees: Approx. ₹1,80,000 - ₹2,60,000 for courses.",
+            features: "Pros: Unmatched reputation for its All India Test Series, excellent current affairs material. Cons: Main focus is on test series; classroom batches are huge.",
+            website: "https://www.visionias.in"
+        },
+        {
+            name: "FIITJEE",
+            location: "South Delhi (Kalu Sarai)",
+            rating: "4.2/5 (Google)",
+            total_reviews: "5,000+",
+            year_established: 1992,
+            courses: "JEE (Main & Advanced), NTSE, Olympiads. Fees: Approx. ₹2,00,000 - ₹4,00,000 for 2-year programs.",
+            features: "Pros: Pioneer in JEE coaching, highly competitive environment, proven track record. Cons: Extremely high fees, very high pressure.",
+            website: "https://www.fiitjee.com"
+        },
+        {
+            name: "Aakash Institute",
+            location: "South Extension, Delhi",
+            rating: "4.4/5 (Google)",
+            total_reviews: "6,000+",
+            year_established: 1988,
+            courses: "NEET, JEE, Foundation Courses. Fees: Approx. ₹1,80,000 - ₹3,50,000 for 2-year programs.",
+            features: "Pros: Top choice for NEET preparation, standardized curriculum, extensive test series. Cons: Large batches, fast-paced teaching.",
+            website: "https://www.aakash.ac.in"
+        },
+        {
+            name: "Allen Career Institute",
+            location: "Kalu Sarai, Delhi",
+            rating: "4.5/5 (Google)",
+            total_reviews: "7,500+",
+            year_established: 1988,
+            courses: "JEE (Main & Advanced), NEET-UG. Fees: Approx. ₹1,60,000 - ₹3,20,000 per year.",
+            features: "Pros: Kota's top institute now in Delhi, disciplined environment, excellent results. Cons: Highly commercialized, can be overwhelming for students.",
+            website: "https://www.allen.ac.in"
+        },
+        {
+            name: "Next IAS",
+            location: "Old Rajinder Nagar, Delhi",
+            rating: "4.8/5 (Google)",
+            total_reviews: "4,000+",
+            year_established: 2017,
+            courses: "UPSC (GS Foundation, Optionals). Fees: Approx. ₹1,75,000 - ₹2,50,000.",
+            features: "Pros: Initiative by Made Easy group, excellent infrastructure, highly experienced faculty. Cons: Relatively new in the core UPSC space compared to veterans.",
+            website: "https://www.nextias.com"
+        },
+        {
+            name: "Made Easy",
+            location: "Hauz Khas, Delhi",
+            rating: "4.6/5 (Google)",
+            total_reviews: "12,000+",
+            year_established: 2001,
+            courses: "ESE (IES), GATE, PSUs. Fees: Approx. ₹80,000 - ₹1,50,000.",
+            features: "Pros: Undisputed market leader for ESE and GATE, comprehensive study material, top-ranking results. Cons: Very large batches, hectic schedule.",
+            website: "https://www.madeeasy.in"
+        },
+        {
+            name: "IMS Learning Center",
+            location: "Connaught Place, Delhi",
+            rating: "4.6/5 (Google)",
+            total_reviews: "2,500+",
+            year_established: 1977,
+            courses: "CAT, GMAT, GRE, CLAT, BBA. Fees: Approx. ₹50,000 - ₹90,000 per course.",
+            features: "Pros: Excellent mentors, decades of experience, strong mock test series and analysis. Cons: Premium pricing, weekend batches are often packed.",
+            website: "https://www.imsindia.com"
+        },
+        {
+            name: "TIME (Triumphant Institute of Management Education)",
+            location: "Connaught Place, Delhi",
+            rating: "4.3/5 (Google)",
+            total_reviews: "3,000+",
+            year_established: 1992,
+            courses: "CAT, Bank PO, SSC, GMAT, GRE. Fees: Approx. ₹45,000 - ₹80,000 per course.",
+            features: "Pros: Pan-India network, vast amount of study material, numerous mock tests. Cons: Faculty quality can vary, standardized approach may not suit all.",
+            website: "https://www.time4education.com"
+        },
+        {
+            name: "Career Launcher",
+            location: "Connaught Place, Delhi",
+            rating: "4.4/5 (Google)",
+            total_reviews: "2,800+",
+            year_established: 1995,
+            courses: "CAT, CLAT, IPM, Bank PO, SSC CGL, UPSC. Fees: Approx. ₹40,000 - ₹1,50,000 depending on course.",
+            features: "Pros: Strong in law (CLAT) and management (CAT), excellent online portal (SIS). Cons: UPSC program is less known than their other courses.",
+            website: "https://www.careerlauncher.com"
+        },
+        {
+            name: "Shri Ram IAS Study Centre",
+            location: "GTB Nagar, Delhi",
+            rating: "4.2/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 1999,
+            courses: "UPSC (GS Foundation, Essay). Fees: Approx. ₹1,60,000 - ₹2,20,000.",
+            features: "Pros: Old and reputed institute, focus on conceptual clarity. Cons: Less aggressive marketing, smaller brand recall than Vajiram or Vision.",
+            website: "https://www.shriramias.com"
+        },
+        {
+            name: "Vidyamandir Classes (VMC)",
+            location: "Pitampura, Delhi",
+            rating: "4.5/5 (Google)",
+            total_reviews: "4,500+",
+            year_established: 1986,
+            courses: "JEE (Main & Advanced), NEET. Fees: Approx. ₹1,80,000 - ₹3,50,000 for 2-year programs.",
+            features: "Pros: One of the oldest and most trusted brands in Delhi for JEE, strong focus on fundamentals. Cons: Curriculum can be extremely rigorous.",
+            website: "https://www.vidyamandir.com"
+        },
+        {
+            name: "KD Campus",
+            location: "Mukherjee Nagar, Delhi",
+            rating: "4.3/5 (Google)",
+            total_reviews: "10,000+",
+            year_established: 2011,
+            courses: "SSC CGL, Bank PO, CPO, Constable. Fees: Approx. ₹12,000 - ₹25,000.",
+            features: "Pros: Run by Neetu Singh, very famous for English coaching, highly affordable. Cons: Extremely crowded, basic infrastructure.",
+            website: "https://www.kdcampus.org"
+        },
+        {
+            name: "Paramount Coaching Centre",
+            location: "Mukherjee Nagar, Delhi",
+            rating: "4.0/5 (Google)",
+            total_reviews: "6,000+",
+            year_established: 2005,
+            courses: "SSC CGL, Banking, and other government jobs. Fees: Approx. ₹12,000 - ₹22,000.",
+            features: "Pros: One of the pioneers in SSC coaching, affordable fees. Cons: Brand has faced controversies and stiff competition in recent years.",
+            website: "https://www.paramountcoaching.in"
+        },
+        {
+            name: "Rau's IAS Study Circle",
+            location: "Connaught Place, Delhi",
+            rating: "4.2/5 (Google)",
+            total_reviews: "3,500+",
+            year_established: 1953,
+            courses: "UPSC (GS Foundation, Optionals). Fees: Approx. ₹1,70,000 - ₹2,60,000.",
+            features: "Pros: One of the oldest institutes (since 1953), highly respected, focus on quality teaching. Cons: Follows a more traditional teaching methodology.",
+            website: "https://www.rauias.com"
+        },
+        {
+            name: "ForumIAS (Flintoclass)",
+            location: "Old Rajinder Nagar, Delhi",
+            rating: "4.7/5 (Google)",
+            total_reviews: "3,000+",
+            year_established: 2012,
+            courses: "UPSC (Mains Guidance Program, Test Series, GS). Fees: Approx. ₹1,50,000+ for courses.",
+            features: "Pros: Started as an online community, strong peer network, excellent for answer writing practice. Cons: Classroom presence is newer than online.",
+            website: "https://forumias.com"
+        },
+        {
+            name: "Narayana IIT Academy",
+            location: "Kalu Sarai, Delhi",
+            rating: "4.1/5 (Google)",
+            total_reviews: "3,200+",
+            year_established: 1979,
+            courses: "JEE, NEET, Foundation. Fees: Approx. ₹1,70,000 - ₹3,30,000 for 2 years.",
+            features: "Pros: South India's powerhouse, very aggressive and competitive approach. Cons: Extremely high pressure, rote learning is sometimes encouraged.",
+            website: "https://www.narayanagroup.com"
+        },
+        {
+            name: "Aldine CA",
+            location: "Laxmi Nagar, Delhi",
+            rating: "4.6/5 (Google)",
+            total_reviews: "2,000+",
+            year_established: 2003,
+            courses: "CA Final, Inter, Foundation. Fees: Approx. ₹20,000 - ₹80,000 per group.",
+            features: "Pros: Star faculty like CA Praveen Sharma, high-quality satellite/online classes. Cons: Less in-person interaction, dependency on technology.",
+            website: "https://www.aldine.edu.in"
+        },
+        {
+            name: "Pahal Design",
+            location: "Hauz Khas Village, Delhi",
+            rating: "4.8/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 1999,
+            courses: "NID, NIFT, NATA, UCEED, CEED. Fees: Approx. ₹50,000 - ₹1,20,000.",
+            features: "Pros: Top-rated institute for design entrance exams, experienced faculty, creative workshops. Cons: Niche focus, can be expensive.",
+            website: "https://www.pahaldesign.com"
+        },
+        {
+            name: "Brilliant Tutorials",
+            location: "Kalu Sarai, Delhi",
+            rating: "3.9/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: 1970,
+            courses: "JEE, NEET. Fees: Approx. ₹1,20,000 - ₹2,50,000.",
+            features: "Pros: A pioneer in correspondence courses for IIT-JEE. Cons: Has lost significant market share to newer, more aggressive players.",
+            website: "https://www.brilliant-tutorials.com"
+        },
+        {
+            name: "Chanakya IAS Academy",
+            location: "Satya Niketan, Delhi",
+            rating: "4.5/5 (Google)",
+            total_reviews: "4,000+",
+            year_established: 1993,
+            courses: "UPSC (GS, Optionals), MPSC. Fees: Approx. ₹1,80,000 - ₹2,70,000.",
+            features: "Pros: Strong focus on motivational aspects and personality development, good infrastructure. Cons: High fees.",
+            website: "https://www.chanakyaiasacademy.com"
+        },
+        {
+            name: "Plutus IAS",
+            location: "Karol Bagh, Delhi",
+            rating: "4.8/5 (Google)",
+            total_reviews: "2,500+",
+            year_established: 2009,
+            courses: "UPSC (GS, Optionals). Fees: Approx. ₹1,40,000 - ₹2,00,000.",
+            features: "Pros: Focus on small batch sizes, hybrid (online + offline) classes. Cons: Newer brand compared to the giants in ORN.",
+            website: "https://plutusias.com"
+        },
+        {
+            name: "Jamboree Education",
+            location: "Connaught Place, Delhi",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,800+",
+            year_established: 1993,
+            courses: "GMAT, GRE, SAT, IELTS, TOEFL. Fees: Approx. ₹30,000 - ₹60,000 per course.",
+            features: "Pros: Excellent study material especially for GMAT/GRE, experienced faculty. Cons: Limited focus on admissions counseling compared to specialized consultants.",
+            website: "https://www.jamboreeindia.com"
+        },
+        {
+            name: "IBT Institute",
+            location: "Laxmi Nagar, Delhi",
+            rating: "4.7/5 (Google)",
+            total_reviews: "3,000+",
+            year_established: 2009,
+            courses: "Bank PO, SSC CGL, Railways. Fees: Approx. ₹10,000 - ₹20,000.",
+            features: "Pros: Strong presence in North India for banking exams, lifetime membership card. Cons: Large batches.",
+            website: "https://www.ibtindia.com"
+        },
+        {
+            name: "Yojna IAS",
+            location: "Mukherjee Nagar, Delhi",
+            rating: "4.9/5 (Google)",
+            total_reviews: "2,000+",
+            year_established: 2014,
+            courses: "UPSC (Hindi Medium). Fees: Approx. ₹1,20,000 - ₹1,80,000.",
+            features: "Pros: Highly rated for Hindi medium coaching, personal guidance. Cons: Smaller scale operations.",
+            website: "https://yojnaias.com"
+        },
+        {
+            name: "ACE Engineering Academy",
+            location: "Kalu Sarai, Delhi",
+            rating: "4.4/5 (Google)",
+            total_reviews: "2,200+",
+            year_established: 1995,
+            courses: "GATE, ESE. Fees: Approx. ₹75,000 - ₹1,40,000.",
+            features: "Pros: Hyderabad's top institute with a strong Delhi presence, market leader alongside Made Easy. Cons: Highly technical and intensive courses.",
+            website: "https://www.aceenggacademy.com"
+        },
+        {
+            name: "Manya - The Princeton Review",
+            location: "South Extension, Delhi",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,600+",
+            year_established: 2002,
+            courses: "GMAT, GRE, SAT, ACT, AP, IELTS. Fees: Approx. ₹35,000 - ₹1,20,000.",
+            features: "Pros: Internationally recognized curriculum and teaching methods, certified trainers. Cons: Premium pricing, rigid course structure.",
+            website: "https://www.manyagroup.com"
+        },
+        {
+            name: "Vajirao & Reddy Institute",
+            location: "GTB Nagar, Delhi",
+            rating: "4.6/5 (Google)",
+            total_reviews: "5,000+",
+            year_established: 1988,
+            courses: "UPSC (GS, Optionals), State PSC. Fees: Approx. ₹1,60,000 - ₹2,40,000.",
+            features: "Pros: Another well-known name in the UPSC circuit, experienced faculty. Cons: Often confused with other institutes with similar names.",
+            website: "https://www.vajiraoinstitute.com"
+        },
+        {
+            name: "Ballygunge Shiksha Sadan (BSS)",
+            location: "Hauz Khas, Delhi",
+            rating: "4.7/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "NIFT, NID, NATA. Fees: Approx. ₹45,000 - ₹90,000.",
+            features: "Pros: Kolkata's famous design institute with a Delhi center, strong results. Cons: Less brand recall in Delhi compared to Pahal or BRDS.",
+            website: "https://www.bss-school.com"
+        },
+        {
+            name: "Career Power (Adda247)",
+            location: "Laxmi Nagar, Delhi",
+            rating: "4.5/5 (Google)",
+            total_reviews: "4,500+",
+            year_established: 2010,
+            courses: "Bank PO, SSC, CTET. Fees: Approx. ₹10,000 - ₹20,000.",
+            features: "Pros: Backed by the very popular Adda247 online platform, huge number of online mock tests. Cons: Physical classrooms are very crowded.",
+            website: "https://www.careerpower.in"
+        },
+        {
+            name: "Digital Vidya",
+            location: "South Extension, Delhi",
+            rating: "4.6/5 (Google)",
+            total_reviews: "2,000+",
+            year_established: 2009,
+            courses: "Certified Digital Marketing Master (CDMM). Fees: Approx. ₹50,000 - ₹70,000.",
+            features: "Pros: Pioneer in digital marketing training in India, strong curriculum, corporate partnerships. Cons: Primarily online-led, less focus on in-person classes.",
+            website: "https://www.digitalvidya.com"
+        },
+        {
+            name: "ALS IAS Academy",
+            location: "Shalimar Place, Delhi",
+            rating: "4.4/5 (Google)",
+            total_reviews: "3,800+",
+            year_established: 1993,
+            courses: "UPSC (GS, Optionals). Fees: Approx. ₹1,70,000 - ₹2,50,000.",
+            features: "Pros: Utilizes VSAT technology to broadcast classes across India, good faculty. Cons: Less personal interaction in VSAT centers.",
+            website: "https://www.alsias.net"
+        },
+        {
+            name: "Resonance",
+            location: "Kalu Sarai, Delhi",
+            rating: "4.2/5 (Google)",
+            total_reviews: "2,800+",
+            year_established: 2001,
+            courses: "JEE (Main & Advanced), NEET. Fees: Approx. ₹1,50,000 - ₹3,00,000 per year.",
+            features: "Pros: Strong academic system from Kota, detailed study modules. Cons: Third major player from Kota, behind Allen and Motion in brand recall.",
+            website: "https://www.resonance.ac.in"
+        },
+        {
+            name: "The Hindu Zone",
+            location: "Karol Bagh, Delhi",
+            rating: "4.8/5 (Google)",
+            total_reviews: "3,000+",
+            year_established: 2018,
+            courses: "Provides guidance and counseling for various exams like UPSC, NEET, JEE. Fees: Counseling based.",
+            features: "Pros: Acts as a meta-consultant, helping students choose the right coaching. Cons: Not a direct coaching institute.",
+            website: "https://thehinduzone.com"
+        },
+        {
+            name: "Samiksha Institute",
+            location: "Mukherjee Nagar, Delhi",
+            rating: "4.7/5 (Google)",
+            total_reviews: "800+",
+            year_established: "N/A",
+            courses: "UPSC (Geography Optional), GS. Fees: Approx. ₹50,000 for optional.",
+            features: "Pros: Extremely famous for Geography optional taught by S.S. Ojha sir. Cons: Highly specialized, focuses on one main subject.",
+            website: "https://www.samikshainstitute.com"
+        },
+        {
+            name: "Kumar IAS",
+            location: "Rajinder Nagar, Delhi",
+            rating: "4.9/5 (Google)",
+            total_reviews: "600+",
+            year_established: "N/A",
+            courses: "UPSC (Sociology Optional). Fees: Approx. ₹50,000.",
+            features: "Pros: Highly acclaimed for Sociology optional coaching. Cons: Single subject, single faculty-driven institute.",
+            website: "https://www.kumarias.com"
+        },
+        {
+            name: "Brilliant Academy of Learning",
+            location: "Janakpuri, Delhi",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: "N/A",
+            courses: "Class IX-XII (Maths & Science), B.Com. Fees: Approx. ₹30,000 - ₹70,000.",
+            features: "Pros: Strong local presence in West Delhi for school-level tuitions. Cons: Not specialized for national competitive exams.",
+            website: "https://www.brilliantacademyoflearning.com"
+        },
+        {
+            name: "ETEN IAS",
+            location: "Rajinder Nagar, Delhi",
+            rating: "4.1/5 (Google)",
+            total_reviews: "500+",
+            year_established: 2008,
+            courses: "UPSC. Fees: Approx. ₹1,20,000 - ₹1,80,000.",
+            features: "Pros: Uses technology and satellite classrooms for teaching. Cons: Part of a larger group that has seen mixed success.",
+            website: "https://www.etenias.com"
+        },
+        {
+            name: "Geeta Sahni's English Academy",
+            location: "Rajouri Garden, Delhi",
+            rating: "4.9/5 (Google)",
+            total_reviews: "700+",
+            year_established: "N/A",
+            courses: "IELTS, PTE, Spoken English. Fees: Approx. ₹15,000 - ₹25,000.",
+            features: "Pros: Exceptionally rated for IELTS coaching in West Delhi, personal attention. Cons: Small scale, individual-driven.",
+            website: "N/A"
+        },
+        {
+            name: "VSI (Vidya Sagar Institute)",
+            location: "Laxmi Nagar, Delhi",
+            rating: "4.7/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 1998,
+            courses: "CA (Foundation, Inter, Final). Fees: Approx. ₹60,000 - ₹1,50,000.",
+            features: "Pros: Known for producing All India Ranks in CA exams, disciplined approach. Cons: Very intensive schedule.",
+            website: "https://www.vsijaipur.com"
+        },
+        {
+            name: "ClearExam",
+            location: "Laxmi Nagar, Delhi",
+            rating: "4.8/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: "N/A",
+            courses: "DSSSB, KVS, NVS, CTET. Fees: Approx. ₹10,000 - ₹18,000.",
+            features: "Pros: Highly specialized and top-rated for teaching-related government exams. Cons: Niche focus.",
+            website: "https://www.clearexam.org"
+        },
+        {
+            name: "Success Mantra",
+            location: "GTB Nagar, Delhi",
+            rating: "4.7/5 (Google)",
+            total_reviews: "2,500+",
+            year_established: 2011,
+            courses: "CLAT, DU LLB, BBA, Hotel Management. Fees: Approx. ₹50,000 - ₹90,000.",
+            features: "Pros: Good reputation for non-STEM entrance exams like law and BBA. Cons: Smaller player compared to CL or IMS.",
+            website: "https://www.successmantra.com"
+        },
+        {
+            name: "LegalEdge",
+            location: "GTB Nagar, Delhi",
+            rating: "4.8/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: 2011,
+            courses: "CLAT, AILET, and other law entrances. Fees: Approx. ₹60,000 - ₹1,20,000.",
+            features: "Pros: Part of the TopRankers group, highly specialized for law entrances, excellent mock tests. Cons: Niche focus only on law.",
+            website: "https://www.legaledge.in"
+        },
+        {
+            name: "Goethe-Institut / Max Mueller Bhavan",
+            location: "Connaught Place, Delhi",
+            rating: "4.5/5 (Google)",
+            total_reviews: "2,000+",
+            year_established: 1957,
+            courses: "German Language Courses (A1-C2). Fees: Approx. ₹28,000 - ₹38,000 per level.",
+            features: "Pros: Official German cultural institute, authentic teaching, internationally recognized certificates. Cons: High demand, batches fill up instantly.",
+            website: "https://www.goethe.de/ins/in/en/sta/new.html"
+        },
+        {
+            name: "Alliance Française de Delhi",
+            location: "Lodi Estate, Delhi",
+            rating: "4.4/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 1956,
+            courses: "French Language Courses (A1-C2). Fees: Approx. ₹25,000 - ₹35,000 per level.",
+            features: "Pros: Official French cultural center, immersive learning environment, certified exams. Cons: Location might be inconvenient for some.",
+            website: "https://delhi.afindia.org"
+        },
+        {
+            name: "Mahendras Educational",
+            location: "Laxmi Nagar, Delhi",
+            rating: "4.2/5 (Google)",
+            total_reviews: "4,000+",
+            year_established: 1994,
+            courses: "Banking (IBPS, SBI), SSC. Fees: Approx. ₹10,000 - ₹18,000.",
+            features: "Pros: Affordable, strong online test portal (ST Portal). Cons: Very large, generic batches.",
+            website: "https://mahendras.org"
+        },
+        {
+            name: "Sachdeva College",
+            location: "Patel Nagar, Delhi",
+            rating: "4.0/5 (Google)",
+            total_reviews: "2,500+",
+            year_established: 1940,
+            courses: "Class XII Boards, B.Com, BBA entrance. Fees: Approx. ₹40,000 - ₹80,000.",
+            features: "Pros: One of the oldest and most legendary names in Delhi for school tuitions. Cons: Has lost its dominance in competitive exams.",
+            website: "https://www.sachdevacollege.com"
+        },
+        {
+            name: "Margshree",
+            location: "GTB Nagar, Delhi",
+            rating: "4.9/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "DU-JAT, BBA, BMS. Fees: Approx. ₹40,000 - ₹60,000.",
+            features: "Pros: Exceptionally rated for Delhi University entrance exams, personal attention. Cons: Small scale, niche focus.",
+            website: "https://www.margshree.com"
+        },
+        {
+            name: "Krishna Coaching Centre",
+            location: "Patel Nagar, Delhi",
+            rating: "4.7/5 (Google)",
+            total_reviews: "900+",
+            year_established: "N/A",
+            courses: "Judiciary Services (PCS-J), CLAT. Fees: Approx. ₹80,000 - ₹1,50,000.",
+            features: "Pros: Reputed name for Judicial Services Exam coaching. Cons: Very high fees, highly specialized.",
+            website: "https://krishnacoaching.com"
+        },
+        {
+            name: "Motion Education",
+            location: "Kalu Sarai, Delhi",
+            rating: "4.3/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 2007,
+            courses: "JEE Main & Advanced, NEET. Fees: Approx. ₹1,40,000 - ₹2,80,000 per year.",
+            features: "Pros: Another major coaching brand from Kota, good results, strong academic system. Cons: Faces stiff competition from Allen and FIITJEE in Delhi.",
+            website: "https://motion.ac.in"
+        },
+        {
+            name: "Scholars Academy",
+            location: "Dwarka, Delhi",
+            rating: "4.8/5 (Google)",
+            total_reviews: "800+",
+            year_established: "N/A",
+            courses: "Class IX-XII, NTSE. Fees: Approx. ₹50,000 - ₹1,00,000.",
+            features: "Pros: Top-rated local institute in Dwarka for school-level academics. Cons: Not for high-stakes national competitions.",
+            website: "N/A"
+        },
+        {
+            name: "DIPS Academy",
+            location: "Hauz Khas, Delhi",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: 2004,
+            courses: "IIT-JAM, CSIR-UGC (Maths). Fees: Approx. ₹35,000 - ₹50,000.",
+            features: "Pros: Market leader for higher mathematics competitive exams. Cons: Extremely niche subject area.",
+            website: "https://www.dipsacademy.com"
+        },
+        {
+            name: "Ecoholics",
+            location: "Rajinder Nagar, Delhi",
+            rating: "4.9/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: 2016,
+            courses: "UPSC (Economics Optional), IES. Fees: Approx. ₹45,000 - ₹70,000.",
+            features: "Pros: Highly rated specialized institute for Economics. Cons: Single subject focus.",
+            website: "https://ecoholics.in"
+        },
+        {
+            name: "NIIT (National Institute of Information Technology)",
+            location: "Connaught Place, Delhi",
+            rating: "4.2/5 (Google)",
+            total_reviews: "900+",
+            year_established: 1981,
+            courses: "Full Stack Development, Data Analytics. Fees: Approx. ₹60,000 - ₹2,00,000.",
+            features: "Pros: Legacy brand in IT training, structured curriculum. Cons: Faces competition from newer, more agile ed-tech platforms.",
+            website: "https://www.niit.com"
+        },
+        {
+            name: "Aptech Computer Education",
+            location: "Laxmi Nagar, Delhi",
+            rating: "4.3/5 (Google)",
+            total_reviews: "1,100+",
+            year_established: 1986,
+            courses: "IT Training, Java, Python, Networking. Fees: Approx. ₹25,000 - ₹1,50,000.",
+            features: "Pros: Wide range of courses, strong network. Cons: Curriculum can sometimes lag behind cutting-edge tech.",
+            website: "https://www.aptech-education.com"
+        },
+        {
+            name: "Frankfinn Institute of Air Hostess Training",
+            location: "Connaught Place, Delhi",
+            rating: "4.6/5 (Google)",
+            total_reviews: "3,000+",
+            year_established: 1993,
+            courses: "Aviation, Hospitality and Travel Management. Fees: Approx. ₹1,50,000 - ₹2,50,000.",
+            features: "Pros: Market leader in cabin crew training, strong placement assistance. Cons: Very high fees, industry-specific.",
+            website: "https://www.frankfinn.com"
+        },
+        {
+            name: "MAAC (Maya Academy of Advanced Cinematics)",
+            location: "Rajouri Garden, Delhi",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,800+",
+            year_established: 2001,
+            courses: "3D Animation, VFX, Game Design. Fees: Approx. ₹1,50,000 - ₹5,00,000.",
+            features: "Pros: Industry-recognized certification, hands-on training, good placement network. Cons: Very high fees and long course duration.",
+            website: "https://www.maacindia.com"
+        },
+        {
+            name: "DSIM (Delhi School of Internet Marketing)",
+            location: "Malviya Nagar, Delhi",
+            rating: "4.4/5 (Google)",
+            total_reviews: "2,200+",
+            year_established: 2011,
+            courses: "Digital Marketing. Fees: Approx. ₹45,000 - ₹65,000.",
+            features: "Pros: One of the well-known names for digital marketing training. Cons: Now part of Digital Vidya, operational autonomy might have changed.",
+            website: "https://dsim.in"
+        },
+        {
+            name: "Gravity Institute",
+            location: "Janakpuri, Delhi",
+            rating: "4.7/5 (Google)",
+            total_reviews: "1,300+",
+            year_established: "N/A",
+            courses: "JEE, NEET. Fees: Approx. ₹1,50,000 - ₹2,80,000.",
+            features: "Pros: Strong and reputed local institute in West Delhi, good alternative to national chains. Cons: Limited branches.",
+            website: "https://www.gravityinstitute.co.in"
+        },
+        {
+            name: "Rahul's IAS",
+            location: "Mukherjee Nagar, Delhi",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: 2001,
+            courses: "UPSC (Optional subjects like Public Admin, Geography). Fees: Approx. ₹45,000 - ₹60,000 for optionals.",
+            features: "Pros: Specializes in optional subjects which is crucial for UPSC mains. Cons: Not a comprehensive GS coaching center.",
+            website: "https://www.rahulsias.com"
+        },
+        {
+            name: "Gati The School",
+            location: "Laxmi Nagar, Delhi",
+            rating: "4.9/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "SSC-JE, State AE/JE. Fees: Approx. ₹20,000 - ₹40,000.",
+            features: "Pros: Highly-rated institute specializing in Junior Engineer exams for government jobs. Cons: Very niche focus.",
+            website: "N/A"
+        },
+        {
+            name: "Prowess Pursuit",
+            location: "Dwarka, Delhi",
+            rating: "5.0/5 (Google)",
+            total_reviews: "200+",
+            year_established: "N/A",
+            courses: "Class IX-XII (Physics). Fees: Approx. ₹40,000 - ₹70,000.",
+            features: "Pros: Perfect rating indicates exceptional teaching quality for Physics in Dwarka. Cons: Single subject, individual dependent.",
+            website: "N/A"
+        },
+        {
+            name: "Aim & Achieve",
+            location: "Rohini, Delhi",
+            rating: "4.8/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: "N/A",
+            courses: "NDA, CDS, AFCAT, SSB. Fees: Approx. ₹25,000 - ₹50,000.",
+            features: "Pros: Highly rated institute in North-West Delhi for defense entrance exams. Cons: Niche focus area.",
+            website: "https://www.aimandachieve.com"
+        },
+        {
+            name: "Topper's IAS",
+            location: "Old Rajinder Nagar, Delhi",
+            rating: "4.9/5 (Google)",
+            total_reviews: "800+",
+            year_established: "N/A",
+            courses: "UPSC (Anthropology, Sociology Optionals). Fees: Approx. ₹50,000.",
+            features: "Pros: Excellent reviews for specific optional subjects, personal guidance. Cons: Not for General Studies.",
+            website: "https://www.toppersias.com"
+        },
+        {
+            name: "Physics Wallah (PW) Vidyapeeth",
+            location: "Multiple (e.g., Kalu Sarai, Janakpuri)",
+            rating: "4.6/5 (Google)",
+            total_reviews: "8,000+",
+            year_established: 2016,
+            courses: "JEE, NEET, Foundation. Fees: Approx. ₹90,000 - ₹1,60,000 per year.",
+            features: "Pros: Very affordable compared to competitors, hybrid learning model, highly popular brand. Cons: Rapid expansion has led to some concerns about quality control.",
+            website: "https://www.pw.live/vidyapeeth-centres/delhi"
+        },
+        {
+            name: "Chem Academy",
+            location: "Jia Sarai, Delhi",
+            rating: "4.7/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: "N/A",
+            courses: "IIT-JAM, CSIR-UGC (Chemistry). Fees: Approx. ₹35,000 - ₹50,000.",
+            features: "Pros: Top institute for higher Chemistry competitive exams like JAM. Cons: Very specific subject focus.",
+            website: "https://www.chemacademy.co.in"
+        },
+        {
+            name: "Prerna Education",
+            location: "Pitampura, Delhi",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,100+",
+            year_established: "N/A",
+            courses: "NDA, CDS, Sainik School. Fees: Approx. ₹30,000 - ₹60,000.",
+            features: "Pros: Well-known in North Delhi for defense exam coaching. Cons: Faces competition from other specialized institutes.",
+            website: "https://www.prernaeducation.co.in"
+        },
+        {
+            name: "Tara Institute",
+            location: "Saket, Delhi",
+            rating: "4.8/5 (Google)",
+            total_reviews: "2,000+",
+            year_established: 2007,
+            courses: "NDA, AFCAT, CDS, SSC, Bank. Fees: Approx. ₹15,000 - ₹40,000.",
+            features: "Pros: Good reviews, covers a wide range of government job exams. Cons: Jack of all trades, master of none.",
+            website: "https://tarainstitute.com"
+        },
+        {
+            name: "Simpli English",
+            location: "Connaught Place, Delhi",
+            rating: "4.9/5 (Google)",
+            total_reviews: "600+",
+            year_established: "N/A",
+            courses: "Spoken English, IELTS, PTE. Fees: Approx. ₹12,000 - ₹25,000.",
+            features: "Pros: Top-rated for English language fluency and test preparation. Cons: Skill-based, not academic.",
+            website: "https://www.simplienglish.com"
+        },
+        {
+            name: "Paathshala Classes",
+            location: "Mukherjee Nagar, Delhi",
+            rating: "4.7/5 (Google)",
+            total_reviews: "900+",
+            year_established: "N/A",
+            courses: "UP-SI, Constable, SSC GD. Fees: Approx. ₹8,000 - ₹15,000.",
+            features: "Pros: Specializes in police and constable level exams, particularly for UP. Cons: Focus on lower-level government jobs.",
+            website: "N/A"
+        },
+        {
+            name: "Zenith Point",
+            location: "GTB Nagar, Delhi",
+            rating: "4.6/5 (Google)",
+            total_reviews: "700+",
+            year_established: 2009,
+            courses: "UGC-NET (Commerce, Management). Fees: Approx. ₹25,000 - ₹40,000.",
+            features: "Pros: Reputed name for UGC-NET coaching in commerce-related subjects. Cons: Highly specialized.",
+            website: "https://www.zenithpoint.in"
+        },
+        {
+            name: "IVS School of Design",
+            location: "Preet Vihar, Delhi",
+            rating: "4.8/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: "N/A",
+            courses: "Interior Design, Fashion Design (Diploma courses & coaching). Fees: Coaching approx. ₹40,000; Diplomas are much higher.",
+            features: "Pros: Good for both entrance coaching and vocational diplomas in design. Cons: Primarily a design school, not a coaching center.",
+            website: "https://www.ivsindia.com"
+        },
+        {
+            name: "Vedantu Learning Centre",
+            location: "Multiple (e.g., Anand Vihar, Janakpuri)",
+            rating: "4.5/5 (Google)",
+            total_reviews: "2,500+",
+            year_established: 2011,
+            courses: "Foundation (6-10), JEE, NEET. Fees: Approx. ₹1,00,000 - ₹2,20,000 per year.",
+            features: "Pros: Hybrid model combining online brand with offline support. Cons: A new player in the physical coaching space.",
+            website: "https://www.vedantu.com/offline"
+        },
+        {
+            name: "Byju's Tuition Centre",
+            location: "Multiple (e.g., Rajouri Garden, Rohini)",
+            rating: "4.3/5 (Google)",
+            total_reviews: "3,000+",
+            year_established: 2011,
+            courses: "School tuitions for grades 4-10. Fees: Approx. ₹45,000 - ₹85,000 per year.",
+            features: "Pros: Blends digital learning with in-person classes, strong brand name. Cons: Focus is on school curriculum, not competitive exams.",
+            website: "https://byjus.com/btc/"
+        },
+        {
+            name: "Achievers Academy",
+            location: "Preet Vihar, Delhi",
+            rating: "4.7/5 (Google)",
+            total_reviews: "800+",
+            year_established: "N/A",
+            courses: "IX-XII (All subjects). Fees: Approx. ₹40,000 - ₹90,000.",
+            features: "Pros: Strong local institute in East Delhi for school boards. Cons: Not for JEE/NEET.",
+            website: "N/A"
+        },
+        {
+            name: "British Lingua",
+            location: "Laxmi Nagar, Delhi",
+            rating: "4.4/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: 1993,
+            courses: "Spoken English, Personality Development. Fees: Approx. ₹8,000 - ₹15,000.",
+            features: "Pros: An old and well-known brand for affordable English speaking courses. Cons: Basic curriculum.",
+            website: "https://www.britishlingua.com"
+        },
+        {
+            name: "Sharma and Ambardar Classes",
+            location: "Rajouri Garden, Delhi",
+            rating: "4.9/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "Class XI-XII (Accounts, Economics). Fees: Approx. ₹30,000 - ₹60,000.",
+            features: "Pros: Exceptionally rated commerce tutorial in West Delhi. Cons: Niche, local focus.",
+            website: "N/A"
+        },
+        {
+            name: "GATEIIT",
+            location: "Jia Sarai, Delhi",
+            rating: "4.6/5 (Google)",
+            total_reviews: "900+",
+            year_established: "N/A",
+            courses: "GATE, IES, IIT-JAM. Fees: Approx. ₹50,000 - ₹90,000.",
+            features: "Pros: Covers a wide range of higher education engineering and science entrance exams. Cons: Faces stiff competition from Made Easy and ACE.",
+            website: "https://www.gateiit.com"
+        },
+        {
+            name: "Singh Study Circle",
+            location: "Rohini, Delhi",
+            rating: "4.7/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: "N/A",
+            courses: "IX-XII, CPT. Fees: Approx. ₹35,000 - ₹80,000.",
+            features: "Pros: Reputed local institute in Rohini, especially for commerce. Cons: Limited reach.",
+            website: "N/A"
+        },
+        {
+            name: "ClearIAS",
+            location: "Online (Popular in Delhi)",
+            rating: "4.5/5 (App Store)",
+            total_reviews: "15,000+",
+            year_established: 2012,
+            courses: "UPSC Prelims cum Mains Program. Fees: Approx. ₹49,000.",
+            features: "Pros: Online-first approach, very popular app, affordable compared to offline classes. Cons: Lacks physical classroom environment.",
+            website: "https://www.clearias.com"
+        },
+        {
+            name: "T.I.M.E. Kids",
+            location: "Vasant Kunj, Delhi",
+            rating: "4.6/5 (Google)",
+            total_reviews: "300+",
+            year_established: 2000,
+            courses: "Pre-school education. Fees: Approx. ₹90,000 - ₹1,60,000 per year.",
+            features: "Pros: Pre-school wing of the reputed T.I.M.E. group, structured curriculum. Cons: More of a school than a coaching institute.",
+            website: "https://www.timekidspreschools.in"
+        },
+        {
+            name: "Study IQ Education",
+            location: "Online (Office in Delhi)",
+            rating: "4.7/5 (App Store)",
+            total_reviews: "50,000+",
+            year_established: 2014,
+            courses: "UPSC, State PSC, Judiciary, Banking. Fees: Very affordable (e.g., ₹15,000 - ₹30,000 for full courses).",
+            features: "Pros: Massive YouTube presence, high-quality current affairs videos, very affordable. Cons: Primarily an online platform.",
+            website: "https://www.studyiq.com"
+        },
+        {
+            name: "Excel SSC Coaching",
+            location: "Uttam Nagar, Delhi",
+            rating: "4.8/5 (Google)",
+            total_reviews: "1,400+",
+            year_established: "N/A",
+            courses: "SSC, Bank PO. Fees: Approx. ₹10,000 - ₹18,000.",
+            features: "Pros: Highly rated institute in Uttam Nagar, providing affordable coaching. Cons: Basic infrastructure.",
+            website: "https://www.excelssc.com"
+        },
+        {
+            name: "DAMS (Delhi Academy of Medical Sciences)",
+            location: "Gautam Nagar, Delhi",
+            rating: "4.3/5 (Google)",
+            total_reviews: "2,500+",
+            year_established: 1999,
+            courses: "NEET-PG, FMGE. Fees: Approx. ₹90,000 - ₹1,60,000.",
+            features: "Pros: One of the top institutes for medical PG entrance exams, comprehensive notes. Cons: Very competitive and stressful.",
+            website: "https://www.damsdelhi.com"
+        },
+        {
+            name: "Gyan Bindu Academy",
+            location: "Jia Sarai, Delhi",
+            rating: "4.8/5 (Google)",
+            total_reviews: "800+",
+            year_established: "N/A",
+            courses: "CSIR-NET (Life Sciences). Fees: Approx. ₹30,000 - ₹45,000.",
+            features: "Pros: Top-rated institute specializing in Life Sciences for NET/JRF exams. Cons: Very niche subject focus.",
+            website: "https://gyanbinduacademy.com"
+        },
+        {
+            name: "Ambition Law Institute",
+            location: "GTB Nagar, Delhi",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,100+",
+            year_established: "N/A",
+            courses: "Judiciary Services, DU LLM. Fees: Approx. ₹1,00,000 - ₹1,80,000.",
+            features: "Pros: One of the leading institutes for the highly competitive Judicial Services Exam. Cons: Very expensive.",
+            website: "https://www.ambitionlawinstitute.com"
+        },
+        {
+            name: "A-Z Classes",
+            location: "Shahdara, Delhi",
+            rating: "4.9/5 (Google)",
+            total_reviews: "600+",
+            year_established: "N/A",
+            courses: "IX-XII, B.Com. Fees: Approx. ₹25,000 - ₹60,000.",
+            features: "Pros: Highly-rated local class in the Shahdara region. Cons: Caters to local students for board/university exams.",
+            website: "N/A"
+        },
+        {
+            name: "Anugrah IAS",
+            location: "Mukherjee Nagar, Delhi",
+            rating: "4.9/5 (Google)",
+            total_reviews: "300+",
+            year_established: "N/A",
+            courses: "UPSC (Hindi Medium, Philosophy Optional). Fees: Approx. ₹50,000 for optional.",
+            features: "Pros: Excellent reviews, especially for Hindi medium and Philosophy. Cons: Small scale.",
+            website: "N/A"
+        },
+        {
+            name: "Sankalp IAS Forum",
+            location: "GTB Nagar, Delhi",
+            rating: "4.8/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "UPSC (GS). Fees: Approx. ₹1,40,000.",
+            features: "Pros: Good reviews for quality teaching and small batches. Cons: Newer and smaller than established players.",
+            website: "N/A"
+        },
+        {
+            name: "Shubhra Ranjan IAS",
+            location: "Old Rajinder Nagar, Delhi",
+            rating: "4.8/5 (Google)",
+            total_reviews: "2,500+",
+            year_established: 2013,
+            courses: "UPSC (PSIR Optional, GS). Fees: Approx. ₹55,000 - ₹65,000 for optional.",
+            features: "Pros: The most sought-after institute for Political Science & IR optional, exceptional notes. Cons: Extremely crowded, highly academic.",
+            website: "https://shubhraranjan.com"
+        },
+        {
+            name: "KSG (Khan Study Group)",
+            location: "Hudson Lane, Delhi",
+            rating: "4.5/5 (Google)",
+            total_reviews: "3,000+",
+            year_established: 2008,
+            courses: "UPSC (GS Foundation). Fees: Approx. ₹1,80,000 - ₹2,60,000.",
+            features: "Pros: Run by Dr. Khan, strong focus on current affairs and personality development. Cons: High fees.",
+            website: "https://www.ksgindia.com"
+        },
+        {
+            name: "Pavan Kumar IAS",
+            location: "Old Rajinder Nagar, Delhi",
+            rating: "4.7/5 (Google)",
+            total_reviews: "900+",
+            year_established: "N/A",
+            courses: "UPSC (Public Administration Optional). Fees: Approx. ₹50,000.",
+            features: "Pros: A leading name for Public Administration optional, in-depth coverage. Cons: Single subject focus.",
+            website: "https://www.pavanias.com"
+        },
+        {
+            name: "Sri Chaitanya",
+            location: "Kalu Sarai, Delhi",
+            rating: "4.0/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 1986,
+            courses: "JEE, NEET. Fees: Approx. ₹1,80,000 - ₹3,50,000 for 2 years.",
+            features: "Pros: Another major player from South India, known for producing top ranks. Cons: Extremely rigorous and high-pressure environment.",
+            website: "https://srichaitanya.net"
+        },
+        {
+            name: "Bansal Classes",
+            location: "Kalu Sarai, Delhi",
+            rating: "4.1/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: 1983,
+            courses: "JEE (Main & Advanced). Fees: Approx. ₹1,50,000 - ₹3,00,000.",
+            features: "Pros: The original pioneer of the Kota coaching system. Cons: Brand has lost its former glory to newer competitors.",
+            website: "https://bansal.ac.in"
+        },
+        {
+            name: "Dhyeya IAS",
+            location: "Mukherjee Nagar, Delhi",
+            rating: "4.6/5 (Google)",
+            total_reviews: "4,000+",
+            year_established: 2003,
+            courses: "UPSC (GS, Optionals - Hindi & English). Fees: Approx. ₹1,60,000 - ₹2,20,000.",
+            features: "Pros: A major player for Hindi medium UPSC coaching, good results. Cons: Very crowded.",
+            website: "https://www.dhyeyaias.com"
+        },
+        {
+            name: "Rakesh Yadav Readers Publication",
+            location: "Mukherjee Nagar, Delhi",
+            rating: "4.4/5 (Google)",
+            total_reviews: "3,000+",
+            year_established: "N/A",
+            courses: "SSC CGL (Maths), various govt exams. Fees: Approx. ₹10,000 - ₹20,000.",
+            features: "Pros: Run by a star faculty for Maths, highly popular books and online classes. Cons: Offline batches are extremely packed.",
+            website: "N/A"
+        },
+        {
+            name: "Gagan Pratap Maths",
+            location: "Mukherjee Nagar, Delhi",
+            rating: "4.7/5 (Online rating)",
+            total_reviews: "10,000+",
+            year_established: "N/A",
+            courses: "Maths for SSC CGL, CPO etc. Fees: Approx. ₹8,000 - ₹15,000.",
+            features: "Pros: One of the most famous online Maths teachers with an offline presence, unique teaching methods. Cons: Individual faculty dependent.",
+            website: "N/A"
+        },
+        {
+            name: "Mothers Education Hub",
+            location: "Laxmi Nagar, Delhi",
+            rating: "4.6/5 (Google)",
+            total_reviews: "2,000+",
+            year_established: 2011,
+            courses: "SSC, Bank PO, Railways. Fees: Approx. ₹12,000 - ₹22,000.",
+            features: "Pros: A major coaching institute from Jaipur with a strong Delhi center, good test series. Cons: Faces stiff local competition.",
+            website: "https://www.motherseducationhub.org"
+        },
+        {
+            name: "Digiperform",
+            location: "Multiple (e.g., Lajpat Nagar, Rohini)",
+            rating: "4.8/5 (Google)",
+            total_reviews: "3,000+",
+            year_established: 2014,
+            courses: "Advanced Digital Marketing. Fees: Approx. ₹45,000 - ₹65,000.",
+            features: "Pros: Strong pan-India presence, industry-relevant curriculum, placement assistance. Cons: Franchise-based model can lead to variable quality.",
+            website: "https://digiperform.com"
+        },
+        {
+            name: "CADD Centre Training Services",
+            location: "Multiple (e.g., Hauz Khas, Laxmi Nagar)",
+            rating: "4.7/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 1988,
+            courses: "AutoCAD, SolidWorks, CATIA, Revit. Fees: Approx. ₹15,000 - ₹50,000 per software.",
+            features: "Pros: Asia's largest network for CAD/CAM/CAE training, certified courses. Cons: Niche skill-based training for engineers/architects.",
+            website: "https://www.caddcentre.com"
+        },
+        {
+            name: "Arena Animation",
+            location: "Multiple (e.g., Preet Vihar, Rajouri Garden)",
+            rating: "4.4/5 (Google)",
+            total_reviews: "2,500+",
+            year_established: 1996,
+            courses: "Animation, VFX, Gaming, Web Design. Fees: Approx. ₹1,00,000 - ₹4,50,000 for career courses.",
+            features: "Pros: One of the oldest and largest animation training institutes, good industry links. Cons: High fees.",
+            website: "https://www.arena-multimedia.com"
+        },
+        {
+            name: "IIDE - The Digital School",
+            location: "South Extension, Delhi",
+            rating: "4.8/5 (Google)",
+            total_reviews: "2,000+",
+            year_established: 2016,
+            courses: "Digital Marketing (short courses, PG program). Fees: Approx. ₹80,000 - ₹5,00,000+.",
+            features: "Pros: Premier institute for digital marketing, excellent placement record, modern curriculum. Cons: Very expensive, especially the PG program.",
+            website: "https://iide.co"
+        },
+        {
+            name: "Barry John Acting Studio",
+            location: "Saket, Delhi",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: 1999,
+            courses: "Diploma in Film Acting, workshops. Fees: Approx. ₹3,00,000+ for diploma.",
+            features: "Pros: Legendary acting school, trained numerous Bollywood stars, highly practical. Cons: Extremely expensive, success not guaranteed.",
+            website: "https://www.bjas.in"
+        },
+        {
+            name: "Tansen Sangeet Mahavidyalaya",
+            location: "Multiple (e.g., Rohini, Dwarka)",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: 1972,
+            courses: "Vocal (Classical, Light), Instruments (Guitar, Piano, Tabla), Dance. Fees: Approx. ₹2,000 - ₹5,000 per month.",
+            features: "Pros: Large network of centers for learning music and dance, certified courses. Cons: Hobby-based, quality can vary by franchise.",
+            website: "https://www.tansensangeet.com"
+        },
+        {
+            name: "The Chopras (TC Global)",
+            location: "Nehru Place, Delhi",
+            rating: "4.7/5 (Google)",
+            total_reviews: "2,000+",
+            year_established: 1995,
+            courses: "GRE, GMAT, IELTS, SAT coaching & study abroad counseling. Fees: Coaching approx. ₹25,000 - ₹60,000; counseling fees vary.",
+            features: "Pros: Premier study abroad consultant, end-to-end services from prep to visa. Cons: Services can be very expensive.",
+            website: "https://www.tcglobal.com"
+        },
+        {
+            name: "Edwise International",
+            location: "Connaught Place, Delhi",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,800+",
+            year_established: 1991,
+            courses: "IELTS, TOEFL, GMAT, GRE and study abroad counseling. Fees: Coaching approx. ₹15,000 - ₹40,000; counseling often free.",
+            features: "Pros: Represents a huge number of foreign universities, extensive experience. Cons: May push students towards partner universities.",
+            website: "https://www.edwiseinternational.com"
+        },
+
+
+
+
+
+
+        // PART 2 DATA (Entries 151-300)
+        {
+            name: "Abhimanu IAS",
+            location: "Karol Bagh, Delhi",
+            rating: "4.7/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 1999,
+            courses: "UPSC (GS, Optionals), HCS, PCS. Fees: Approx. ₹1,50,000+.",
+            features: "Pros: A major player from Chandigarh with a strong Delhi presence, good results in state PCS. Cons: Less known for UPSC than Delhi giants.",
+            website: "https://abhimanuias.com"
+        },
+        {
+            name: "Axiom",
+            location: "GTB Nagar, Delhi",
+            rating: "4.8/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "UPSC (Maths Optional). Fees: Approx. ₹50,000.",
+            features: "Pros: The most reputed institute for the difficult Mathematics optional, run by IMS Singh sir. Cons: Highly niche and technical.",
+            website: "N/A"
+        },
+        {
+            name: "IMS (for Maths)",
+            location: "Jia Sarai, Delhi",
+            rating: "4.6/5 (Google)",
+            total_reviews: "700+",
+            year_established: "N/A",
+            courses: "IIT-JAM, CSIR-NET (Maths). Fees: Approx. ₹30,000 - ₹45,000.",
+            features: "Pros: Not to be confused with IMS for CAT, this is a top institute for higher mathematics. Cons: Single subject focus.",
+            website: "https://www.ims4maths.com"
+        },
+        {
+            name: "Engineers Zone",
+            location: "Jia Sarai, Delhi",
+            rating: "4.7/5 (Google)",
+            total_reviews: "800+",
+            year_established: "N/A",
+            courses: "GATE (CS, EC, EE). Fees: Approx. ₹50,000 - ₹80,000.",
+            features: "Pros: Good local competitor to Made Easy/ACE for specific engineering branches. Cons: Smaller scale.",
+            website: "https://www.engineerszone.in"
+        },
+        {
+            name: "Zenith Academy for CA",
+            location: "Laxmi Nagar, Delhi",
+            rating: "4.8/5 (Google)",
+            total_reviews: "900+",
+            year_established: "N/A",
+            courses: "CA Final (SFM). Fees: Approx. ₹20,000 - ₹30,000.",
+            features: "Pros: Famous for SFM coaching by CA Aditya Jain. Cons: Single subject, single faculty.",
+            website: "https://www.sfmguru.in"
+        },
+        {
+            name: "MK Gupta CA Classes",
+            location: "Pitampura, Delhi",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: "N/A",
+            courses: "CA Inter & Final (Law, Audit). Fees: Approx. ₹15,000 - ₹25,000 per subject.",
+            features: "Pros: An established and respected name for CA Law and Audit coaching. Cons: Limited subject range.",
+            website: "https://www.mkguptacaclasses.com"
+        },
+        {
+            name: "L2L (Law to Law)",
+            location: "Tilak Nagar, Delhi",
+            rating: "4.9/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "DU LLB, CLAT. Fees: Approx. ₹40,000 - ₹70,000.",
+            features: "Pros: Exceptionally rated law entrance coaching in West Delhi, personal attention. Cons: Localized presence.",
+            website: "N/A"
+        },
+        {
+            name: "Bhaiyyaji English",
+            location: "Mukherjee Nagar, Delhi",
+            rating: "4.8/5 (Google)",
+            total_reviews: "700+",
+            year_established: "N/A",
+            courses: "English for SSC CGL. Fees: Approx. ₹8,000 - ₹12,000.",
+            features: "Pros: Highly popular individual teacher for SSC English. Cons: Extremely crowded.",
+            website: "N/A"
+        },
+        {
+            name: "Excelcia",
+            location: "Patel Nagar, Delhi",
+            rating: "4.9/5 (Google)",
+            total_reviews: "300+",
+            year_established: "N/A",
+            courses: "Class IX-X (Science, Maths). Fees: Approx. ₹40,000 - ₹70,000.",
+            features: "Pros: Top-rated local tuition center in Central Delhi, known for producing school toppers. Cons: Not for JEE/NEET.",
+            website: "N/A"
+        },
+        {
+            name: "A. K. Vidyamandir",
+            location: "Rohini, Delhi",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: "N/A",
+            courses: "JEE, NEET, Boards. Fees: Approx. ₹1,20,000 - ₹2,50,000.",
+            features: "Pros: A strong local brand in North-West Delhi, good alternative to national chains. Cons: Smaller network and scale.",
+            website: "https://www.akvidyamandir.com"
+        },
+        {
+            name: "F-TEC Skill Development",
+            location: "Multiple (e.g., Vasant Kunj)",
+            rating: "4.6/5 (Google)",
+            total_reviews: "800+",
+            year_established: 1995,
+            courses: "Computer Applications, Finance, Fashion Design. Fees: Approx. ₹10,000 - ₹50,000.",
+            features: "Pros: Focus on vocational skill development for job readiness. Cons: Not for competitive exams.",
+            website: "https://www.f-tec.net.in"
+        },
+        {
+            name: "Global Teachers Academy",
+            location: "Jia Sarai, Delhi",
+            rating: "4.7/5 (Google)",
+            total_reviews: "1,100+",
+            year_established: "N/A",
+            courses: "UGC-NET (Various subjects), CSIR-NET. Fees: Approx. ₹25,000 - ₹40,000.",
+            features: "Pros: Covers a wide range of subjects for the NET exam, good reviews. Cons: Quality can vary by subject faculty.",
+            website: "https://www.gtacampus.com"
+        },
+        {
+            name: "The Cavalier",
+            location: "Mukherjee Nagar, Delhi",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,800+",
+            year_established: 2001,
+            courses: "NDA, CDS, AFCAT, SSB Interview. Fees: Approx. ₹20,000 - ₹50,000.",
+            features: "Pros: Run by ex-defense officers, provides authentic SSB interview preparation. Cons: Highly niche.",
+            website: "https://www.cavalierindia.com"
+        },
+        {
+            name: "George's School of Languages",
+            location: "Dwarka, Delhi",
+            rating: "4.9/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "French, German, Spanish, Japanese. Fees: Approx. ₹15,000 - ₹25,000 per level.",
+            features: "Pros: Highly rated foreign language institute in Dwarka. Cons: Localized.",
+            website: "N/A"
+        },
+        {
+            name: "ARCH Academy of Design",
+            location: "South Extension, Delhi",
+            rating: "4.3/5 (Google)",
+            total_reviews: "600+",
+            year_established: 2000,
+            courses: "NID, NIFT, NATA coaching. Fees: Approx. ₹50,000 - ₹1,00,000.",
+            features: "Pros: Run by a well-known design college from Jaipur, good industry exposure. Cons: Main focus is their own degree programs.",
+            website: "https://www.archedu.org"
+        },
+        {
+            name: "Eurekha",
+            location: "Kalu Sarai, Delhi",
+            rating: "4.6/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "GATE (Chemical Engineering). Fees: Approx. ₹40,000 - ₹60,000.",
+            features: "Pros: Highly specialized and reputed institute for GATE Chemical Engineering. Cons: Very niche.",
+            website: "https://www.eurekhagate.com"
+        },
+        {
+            name: "Avanti Learning Centres",
+            location: "Hauz Khas, Delhi",
+            rating: "4.4/5 (Google)",
+            total_reviews: "800+",
+            year_established: 2010,
+            courses: "JEE, NEET. Fees: Approx. ₹1,20,000 - ₹2,50,000.",
+            features: "Pros: Focus on peer-to-peer learning and smaller batches, founded by IIT alumni. Cons: Less aggressive marketing than major players.",
+            website: "https://www.avanti.in"
+        },
+        {
+            name: "The GATE Academy",
+            location: "Saket, Delhi",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 2009,
+            courses: "GATE (all major branches). Fees: Approx. ₹60,000 - ₹90,000.",
+            features: "Pros: Another national player for GATE, good online resources. Cons: Faces very stiff competition from Made Easy and ACE in Delhi.",
+            website: "https://www.thegateacademy.com"
+        },
+        {
+            name: "IAS Baba",
+            location: "Old Rajinder Nagar, Delhi (Offline Centre)",
+            rating: "4.6/5 (Online rating)",
+            total_reviews: "4,000+",
+            year_established: 2015,
+            courses: "UPSC (ILP Program, Test Series). Fees: Approx. ₹1,00,000+.",
+            features: "Pros: Excellent online platform and initiatives like TLP for answer writing. Cons: Offline presence is smaller than their online footprint.",
+            website: "https://iasbaba.com"
+        },
+        {
+            name: "Decode Civils",
+            location: "Karol Bagh, Delhi",
+            rating: "4.9/5 (Google)",
+            total_reviews: "700+",
+            year_established: "N/A",
+            courses: "UPSC (GS). Fees: Approx. ₹80,000 - ₹1,20,000.",
+            features: "Pros: Highly rated for its mentorship-driven approach, smaller batches. Cons: Newer institute.",
+            website: "https://www.decodecivils.in"
+        },
+        {
+            name: "Cetking",
+            location: "Connaught Place, Delhi",
+            rating: "4.2/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: 2012,
+            courses: "CAT, CET, CMAT. Fees: Approx. ₹30,000 - ₹50,000.",
+            features: "Pros: Strong online presence and motivational content, focuses on MBA CET. Cons: Less academic rigor compared to IMS/TIME.",
+            website: "https://www.cetking.com"
+        },
+        {
+            name: "ExcelR Solutions",
+            location: "Noida (Delhi NCR)",
+            rating: "4.8/5 (Google)",
+            total_reviews: "3,500+",
+            year_established: 2014,
+            courses: "Data Science, Business Analytics, Project Management (PMP). Fees: Approx. ₹45,000 - ₹85,000.",
+            features: "Pros: Blended training model, strong placement focus, global certification. Cons: Highly technical courses.",
+            website: "https://www.excelr.com"
+        },
+        {
+            name: "Simplilearn",
+            location: "Online (Strong presence in Delhi)",
+            rating: "4.5/5 (Trustpilot)",
+            total_reviews: "20,000+",
+            year_established: 2010,
+            courses: "PMP, Data Science, Cloud Computing, Digital Marketing. Fees: Approx. ₹25,000 - ₹2,00,000.",
+            features: "Pros: Bootcamp style learning, partnerships with universities and companies like IBM. Cons: Requires high self-discipline.",
+            website: "https://www.simplilearn.com"
+        },
+        {
+            name: "Meppwells",
+            location: "GTB Nagar, Delhi",
+            rating: "4.7/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "UGC-NET (Political Science, History). Fees: Approx. ₹25,000.",
+            features: "Pros: Good reviews for UGC-NET coaching in humanities subjects. Cons: Niche focus.",
+            website: "N/A"
+        },
+        {
+            name: "Engineers Academy",
+            location: "Saket, Delhi",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: 2011,
+            courses: "SSC-JE, GATE, State AE/JE. Fees: Approx. ₹40,000 - ₹80,000.",
+            features: "Pros: Another national player for junior engineer and assistant engineer exams. Cons: Third major player after Made Easy and ACE.",
+            website: "https://www.engineersacademy.org"
+        },
+        {
+            name: "Niki's IAS",
+            location: "Old Rajinder Nagar, Delhi",
+            rating: "4.9/5 (Google)",
+            total_reviews: "300+",
+            year_established: "N/A",
+            courses: "UPSC (Anthropology Optional). Fees: Approx. ₹50,000.",
+            features: "Pros: Highly acclaimed for Anthropology optional coaching. Cons: Single subject focus.",
+            website: "https://www.nikisias.com"
+        },
+        {
+            name: "Mittal Commerce Classes",
+            location: "Pitampura, Delhi",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,300+",
+            year_established: 1998,
+            courses: "XI-XII Commerce, CA Foundation. Fees: Approx. ₹40,000 - ₹80,000.",
+            features: "Pros: A famous name from Jaipur with a center in Delhi for commerce. Cons: Faces stiff competition from local Delhi brands.",
+            website: "https://www.mccjpr.com"
+        },
+        {
+            name: "Sriram's IAS",
+            location: "Old Rajinder Nagar, Delhi",
+            rating: "4.2/5 (Google)",
+            total_reviews: "2,000+",
+            year_established: 1985,
+            courses: "UPSC (GS). Fees: Approx. ₹1,70,000.",
+            features: "Pros: Not to be confused with Shri Ram IAS, this is another old player known for its focus on GS. Cons: Less visibility than other major players.",
+            website: "https://www.sriramsias.com"
+        },
+        {
+            name: "Croma Campus",
+            location: "Noida (Delhi NCR)",
+            rating: "4.7/5 (Google)",
+            total_reviews: "4,000+",
+            year_established: 2010,
+            courses: "Data Science, AWS, Salesforce, Python. Fees: Approx. ₹20,000 - ₹60,000.",
+            features: "Pros: Wide range of IT courses, strong focus on corporate training and placements. Cons: Quality can vary by trainer.",
+            website: "https://www.cromacampus.com"
+        },
+        {
+            name: "Takshila Learning",
+            location: "Online (Office in Delhi)",
+            rating: "4.8/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 2011,
+            courses: "K-12, Skill Development, Competitive exams (Bank, SSC). Fees: Varies, mostly affordable online packages.",
+            features: "Pros: Wide variety of courses on an online platform. Cons: Lacks physical classroom interaction.",
+            website: "https://www.takshilalearning.com"
+        },
+        {
+            name: "UpGrad",
+            location: "Online (Presence in Delhi)",
+            rating: "4.2/5 (Glassdoor)",
+            total_reviews: "3,000+",
+            year_established: 2015,
+            courses: "MBA, Data Science, AI/ML (in partnership with universities). Fees: Approx. ₹2,50,000 - ₹10,00,000+.",
+            features: "Pros: University-accredited programs, strong career support. Cons: Very expensive, requires self-discipline.",
+            website: "https://www.upgrad.com"
+        },
+        {
+            name: "Wabs Talk",
+            location: "Tilak Nagar, Delhi",
+            rating: "4.8/5 (Google)",
+            total_reviews: "1,100+",
+            year_established: "N/A",
+            courses: "Spoken English, Public Speaking. Fees: Approx. ₹10,000 - ₹20,000.",
+            features: "Pros: Highly rated for personality development and public speaking, run by a motivational speaker. Cons: Skill-based.",
+            website: "https://www.wabstalk.com"
+        },
+        {
+            name: "ATTI (Air Hostess Training and Travel Institute)",
+            location: "Dwarka, Delhi",
+            rating: "4.9/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "Cabin Crew, Ground Staff training. Fees: Approx. ₹80,000 - ₹1,50,000.",
+            features: "Pros: Highly rated alternative to Frankfinn, good reviews on training quality. Cons: Niche vocational training.",
+            website: "https://www.attidelhi.com"
+        },
+        {
+            name: "IFAS (Institute for Advanced Studies)",
+            location: "Jia Sarai, Delhi",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,400+",
+            year_established: "N/A",
+            courses: "CSIR-NET, GATE (Life Sciences). Fees: Approx. ₹30,000 - ₹45,000.",
+            features: "Pros: Another major player for Life Sciences exams, strong results. Cons: Niche subject area.",
+            website: "https://www.ifasonline.com"
+        },
+        {
+            name: "Career Quest",
+            location: "Satya Niketan, Delhi",
+            rating: "4.7/5 (Google)",
+            total_reviews: "800+",
+            year_established: "N/A",
+            courses: "BBA, BMS, CLAT, Hotel Management. Fees: Approx. ₹40,000 - ₹70,000.",
+            features: "Pros: Located near South Campus, ideal for DU aspirants, good reviews. Cons: Smaller scale.",
+            website: "https://www.careerquestgroup.com"
+        },
+        {
+            name: "Jatin Verma's IAS Academy",
+            location: "Online (Based in Delhi)",
+            rating: "4.8/5 (Online reviews)",
+            total_reviews: "5,000+",
+            year_established: "N/A",
+            courses: "UPSC (Current Affairs, GS). Fees: Varies for different modules.",
+            features: "Pros: Excellent for current affairs preparation, popular online educator. Cons: Primarily online presence.",
+            website: "https://jatinverma.org"
+        },
+        {
+            name: "M. G. Institute",
+            location: "Kingsway Camp, Delhi",
+            rating: "4.9/5 (Google)",
+            total_reviews: "700+",
+            year_established: "N/A",
+            courses: "B.Com, M.Com (DU). Fees: Approx. ₹20,000 - ₹40,000.",
+            features: "Pros: Highly rated institute for Delhi University commerce subjects. Cons: Focus on university exams, not professional ones.",
+            website: "N/A"
+        },
+        {
+            name: "Adhyayan Mantra",
+            location: "Nirman Vihar, Delhi",
+            rating: "4.6/5 (Google)",
+            total_reviews: "2,500+",
+            year_established: 2011,
+            courses: "CTET, DSSSB, KVS. Fees: Approx. ₹10,000 - ₹18,000.",
+            features: "Pros: A leading institute for teacher eligibility tests, strong online presence. Cons: Niche focus.",
+            website: "https://adhyayanmantra.com"
+        },
+        {
+            name: "APTI PLUS Academy",
+            location: "Karol Bagh, Delhi",
+            rating: "4.7/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 2006,
+            courses: "UPSC, OAS, WBCS. Fees: Approx. ₹1,50,000+.",
+            features: "Pros: A top institute from Eastern India with a Delhi center, strong for state PSCs. Cons: Newer in the Delhi UPSC market.",
+            website: "https://www.aptiplus.in"
+        },
+        {
+            name: "Ashish Kumar - Singh Classes",
+            location: "Munirka, Delhi",
+            rating: "4.8/5 (Google)",
+            total_reviews: "600+",
+            year_established: "N/A",
+            courses: "Class IX-XII, NEET. Fees: Approx. ₹80,000 - ₹1,50,000.",
+            features: "Pros: Highly rated local class in South Delhi, good student-teacher ratio. Cons: Limited reach.",
+            website: "N/A"
+        },
+        {
+            name: "Delhi Institute for Civil Services (DICS)",
+            location: "GTB Nagar, Delhi",
+            rating: "4.8/5 (Google)",
+            total_reviews: "900+",
+            year_established: "N/A",
+            courses: "UPSC, State PSC. Fees: Approx. ₹1,20,000+.",
+            features: "Pros: Good reviews for personalized mentorship. Cons: Smaller scale operations.",
+            website: "https://www.dics.co.in"
+        },
+        {
+            name: "Bytescare",
+            location: "Laxmi Nagar, Delhi",
+            rating: "4.9/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "Digital Marketing, SEO. Fees: Approx. ₹25,000 - ₹40,000.",
+            features: "Pros: Highly-rated, affordable digital marketing training in East Delhi. Cons: Primarily a service company that also trains.",
+            website: "https://www.bytescare.com"
+        },
+        {
+            name: "The GATE Coach",
+            location: "Jia Sarai, Delhi",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,100+",
+            year_established: "N/A",
+            courses: "GATE (all branches). Fees: Approx. ₹50,000 - ₹80,000.",
+            features: "Pros: Another established player in the crowded Jia Sarai market for GATE. Cons: Less brand recall than the top 2.",
+            website: "https://www.thegatecoach.info"
+        },
+        {
+            name: "Study Villa",
+            location: "Rohini, Delhi",
+            rating: "4.9/5 (Google)",
+            total_reviews: "700+",
+            year_established: "N/A",
+            courses: "Class IX-XII. Fees: Approx. ₹40,000 - ₹80,000.",
+            features: "Pros: Top-rated local tuition center in Rohini. Cons: School-level focus.",
+            website: "N/A"
+        },
+        {
+            name: "National Institute of Fine Arts (NIFA)",
+            location: "Multiple (e.g., Lajpat Nagar)",
+            rating: "4.7/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 1995,
+            courses: "Fine Arts, Sketching, Painting (Hobby classes & Entrance Prep). Fees: Varies widely.",
+            features: "Pros: Well-known institute for fine arts training, caters to all age groups. Cons: Primarily a hobby institute.",
+            website: "https://www.nifafinearts.com"
+        },
+        {
+            name: "IES Master",
+            location: "Kalu Sarai, Delhi",
+            rating: "4.3/5 (Google)",
+            total_reviews: "2,000+",
+            year_established: 2011,
+            courses: "ESE, GATE. Fees: Approx. ₹80,000 - ₹1,40,000.",
+            features: "Pros: A strong competitor to Made Easy and ACE, good postal study course. Cons: The third major player in a duopoly market.",
+            website: "https://iesmaster.org"
+        },
+        {
+            name: "Teachwell Institute",
+            location: "Rohini, Delhi",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,800+",
+            year_established: 2007,
+            courses: "School Tuitions, Spoken English, Competitive Exams. Fees: Varies widely.",
+            features: "Pros: Covers a vast range of courses under one roof. Cons: Jack of all trades, quality can be inconsistent across courses.",
+            website: "https://www.teachwell.co.in"
+        },
+        {
+            name: "Aakash Chaudhry's English Classes",
+            location: "Mukherjee Nagar, Delhi",
+            rating: "4.7/5 (Google)",
+            total_reviews: "800+",
+            year_established: "N/A",
+            courses: "English for SSC, Banking. Fees: Approx. ₹8,000 - ₹12,000.",
+            features: "Pros: Another popular individual faculty for competitive English. Cons: Very crowded.",
+            website: "N/A"
+        },
+        {
+            name: "Mastermind Classes",
+            location: "Paschim Vihar, Delhi",
+            rating: "4.8/5 (Google)",
+            total_reviews: "900+",
+            year_established: "N/A",
+            courses: "XI-XII Commerce. Fees: Approx. ₹40,000 - ₹70,000.",
+            features: "Pros: Highly rated local commerce class in West Delhi. Cons: Limited reach.",
+            website: "N/A"
+        },
+        {
+            name: "S G Classes",
+            location: "Shahdara, Delhi",
+            rating: "4.9/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "Class IX-XII Science & Maths. Fees: Approx. ₹30,000 - ₹60,000.",
+            features: "Pros: Top-rated local class in East Delhi's Shahdara region. Cons: Basic infrastructure.",
+            website: "N/A"
+        },
+        {
+            name: "Mehrauli IAS",
+            location: "Mehrauli, Delhi",
+            rating: "4.8/5 (Google)",
+            total_reviews: "300+",
+            year_established: "N/A",
+            courses: "UPSC (GS). Fees: Approx. ₹1,00,000.",
+            features: "Pros: Provides coaching away from the main hubs, potentially less crowded. Cons: Smaller faculty pool.",
+            website: "N/A"
+        },
+        {
+            name: "Era IAS",
+            location: "Connaught Place, Delhi",
+            rating: "4.6/5 (Google)",
+            total_reviews: "600+",
+            year_established: "N/A",
+            courses: "UPSC (GS, Optionals). Fees: Approx. ₹1,30,000+.",
+            features: "Pros: Located in CP, caters to a different crowd than ORN/Mukherjee Nagar. Cons: Smaller brand.",
+            website: "https://www.eraias.com"
+        },
+        {
+            name: "Braintree",
+            location: "Vasant Kunj, Delhi",
+            rating: "4.7/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "IELTS, TOEFL, SAT. Fees: Approx. ₹15,000 - ₹30,000.",
+            features: "Pros: Good reviews for personalized study abroad test prep in South Delhi. Cons: Smaller scale.",
+            website: "N/A"
+        },
+        {
+            name: "JPT (Jaipuria's Professional Tutors)",
+            location: "Pitampura, Delhi",
+            rating: "4.9/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: "N/A",
+            courses: "XI-XII Commerce. Fees: Approx. ₹50,000 - ₹80,000.",
+            features: "Pros: Top-rated and well-established commerce class in the Pitampura area. Cons: Local focus.",
+            website: "N/A"
+        },
+        {
+            name: "Patanjali IAS Classes",
+            location: "Mukherjee Nagar, Delhi",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: "N/A",
+            courses: "UPSC (Hindi Medium). Fees: Approx. ₹1,20,000+.",
+            features: "Pros: Another strong player in the Hindi medium market. Cons: Faces stiff competition from Drishti and Dhyeya.",
+            website: "https://www.patanjaliias.com"
+        },
+        {
+            name: "Aakash Gupta Classes",
+            location: "Pitampura, Delhi",
+            rating: "4.8/5 (Google)",
+            total_reviews: "700+",
+            year_established: "N/A",
+            courses: "CA Inter (Taxation), CA Final. Fees: Approx. ₹15,000 - ₹25,000.",
+            features: "Pros: Well-known faculty for Taxation in CA curriculum. Cons: Single faculty driven.",
+            website: "https://www.aakashguptaclasses.com"
+        },
+        {
+            name: "Smart Champs",
+            location: "Mayur Vihar, Delhi",
+            rating: "4.9/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "Class VI-X. Fees: Approx. ₹30,000 - ₹60,000.",
+            features: "Pros: Top-rated local tuition for junior classes in East Delhi. Cons: Foundational level only.",
+            website: "N/A"
+        },
+        {
+            name: "APT (Academic Point of Tutorials)",
+            location: "Uttam Nagar, Delhi",
+            rating: "4.8/5 (Google)",
+            total_reviews: "900+",
+            year_established: "N/A",
+            courses: "IX-XII, B.Com. Fees: Approx. ₹20,000 - ₹50,000.",
+            features: "Pros: Highly-rated local tuition center in Uttam Nagar with multiple branches. Cons: School/College curriculum focus.",
+            website: "N/A"
+        },
+        {
+            name: "Sankalp Classes",
+            location: "Bhikaji Cama Place, Delhi",
+            rating: "4.7/5 (Google)",
+            total_reviews: "600+",
+            year_established: "N/A",
+            courses: "SSC, Bank PO. Fees: Approx. ₹12,000 - ₹20,000.",
+            features: "Pros: Good reviews for government job coaching in a different part of South Delhi. Cons: Smaller scale.",
+            website: "N/A"
+        },
+        {
+            name: "Abhinay Sharma Maths",
+            location: "Online / Mukherjee Nagar, Delhi",
+            rating: "4.8/5 (Online rating)",
+            total_reviews: "15,000+",
+            year_established: "N/A",
+            courses: "Maths for SSC CGL. Fees: Approx. ₹8,000 - ₹15,000.",
+            features: "Pros: A celebrity teacher for SSC Maths with a huge online following and offline classes. Cons: Individual dependent, very crowded.",
+            website: "N/A"
+        },
+        {
+            name: "Procreations",
+            location: "Rohini, Delhi",
+            rating: "4.9/5 (Google)",
+            total_reviews: "300+",
+            year_established: "N/A",
+            courses: "NATA, JEE Paper 2. Fees: Approx. ₹30,000 - ₹50,000.",
+            features: "Pros: Highly-rated architecture entrance coaching in North-West Delhi. Cons: Niche and local.",
+            website: "N/A"
+        },
+        {
+            name: "Indian School of Ethical Hacking (ISOEH)",
+            location: "Online (Delhi presence)",
+            rating: "4.8/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: 2006,
+            courses: "Ethical Hacking, Cyber Security. Fees: Approx. ₹20,000 - ₹50,000.",
+            features: "Pros: Well-regarded institute for practical cyber security training. Cons: Highly technical.",
+            website: "https://isoeh.com"
+        },
+        {
+            name: "The Knowledge Tree",
+            location: "Patel Nagar, Delhi",
+            rating: "4.8/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "CLAT, AILET. Fees: Approx. ₹60,000 - ₹1,00,000.",
+            features: "Pros: Good reviews for law entrance prep in Central Delhi. Cons: Smaller player in the law coaching market.",
+            website: "https://www.theknowledgetree.com"
+        },
+        {
+            name: "Lookcharms",
+            location: "Rohini, Delhi",
+            rating: "4.9/5 (Google)",
+            total_reviews: "800+",
+            year_established: "N/A",
+            courses: "Makeup Artist courses (Bridal, Professional). Fees: Approx. ₹50,000 - ₹1,50,000.",
+            features: "Pros: Top-rated vocational training for makeup artistry. Cons: Non-academic, skill-based.",
+            website: "https://www.lookcharms.com"
+        },
+        {
+            name: "The Study by Manikant Singh",
+            location: "Mukherjee Nagar, Delhi",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: "N/A",
+            courses: "UPSC (History Optional). Fees: Approx. ₹50,000 - ₹60,000.",
+            features: "Pros: Arguably the most famous institute for History optional, in-depth lectures. Cons: Very long class durations, highly academic.",
+            website: "https://thestudyias.com"
+        },
+        {
+            name: "Nirman IAS",
+            location: "Mukherjee Nagar, Delhi",
+            rating: "4.7/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: "N/A",
+            courses: "UPSC (Hindi Literature Optional). Fees: Approx. ₹45,000.",
+            features: "Pros: Run by Kumar Sarvesh, a very popular teacher for Hindi Literature optional. Cons: Single subject, single faculty-driven.",
+            website: "https://www.nirmanias.com"
+        },
+        {
+            name: "Pahuja Law Academy",
+            location: "GTB Nagar, Delhi",
+            rating: "4.8/5 (Google)",
+            total_reviews: "1,400+",
+            year_established: "N/A",
+            courses: "Judiciary Services (PCS-J), APO, LLM Entrance. Fees: Approx. ₹1,20,000 - ₹2,00,000.",
+            features: "Pros: Top-rated institute for judiciary exams, excellent results. Cons: Very high fees, intensive curriculum.",
+            website: "https://www.pahujalawacademy.com"
+        },
+        {
+            name: "Engineers Institute of India (EII)",
+            location: "Hauz Khas, Delhi",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,100+",
+            year_established: "N/A",
+            courses: "GATE (Chemical, Instrumentation, Biotech), PSUs. Fees: Approx. ₹50,000 - ₹80,000.",
+            features: "Pros: Specializes in niche engineering branches for GATE, good success rate. Cons: Not for core branches like Civil/Mechanical.",
+            website: "https://engineersinstitute.com"
+        },
+        {
+            name: "The WallStreet School",
+            location: "Noida (Delhi NCR)",
+            rating: "4.8/5 (Google)",
+            total_reviews: "1,800+",
+            year_established: 2011,
+            courses: "Financial Modeling, Investment Banking, CFA, FRM. Fees: Approx. ₹45,000 - ₹90,000.",
+            features: "Pros: Practical, job-oriented training in finance, strong placement assistance. Cons: Highly specialized courses.",
+            website: "https://www.thewallstreetschool.com"
+        },
+        {
+            name: "Anuj Jindal",
+            location: "Online (Office in Delhi)",
+            rating: "4.9/5 (Online)",
+            total_reviews: "10,000+",
+            year_established: 2016,
+            courses: "RBI Grade B, SEBI Grade A, NABARD. Fees: Approx. ₹10,000 - ₹20,000 per course.",
+            features: "Pros: A market leader for regulatory body exams, highly comprehensive online courses. Cons: Primarily an online platform.",
+            website: "https://anujjindal.in"
+        },
+        {
+            name: "Edutap",
+            location: "Online (Office in Delhi)",
+            rating: "4.8/5 (Online)",
+            total_reviews: "8,000+",
+            year_established: 2015,
+            courses: "RBI Grade B, SEBI, NABARD, EPFO. Fees: Approx. ₹12,000 - ₹25,000 per course.",
+            features: "Pros: Major competitor to Anuj Jindal, excellent content and success rate in regulatory body exams. Cons: Online only.",
+            website: "https://www.edutap.co.in"
+        },
+        {
+            name: "Skratch DJ Academy",
+            location: "Patel Nagar, Delhi",
+            rating: "4.9/5 (Google)",
+            total_reviews: "600+",
+            year_established: "N/A",
+            courses: "DJing (Basic to Advanced), Music Production. Fees: Approx. ₹40,000 - ₹1,20,000.",
+            features: "Pros: Highly-rated, hands-on training for aspiring DJs and music producers. Cons: Vocational, non-academic field.",
+            website: "https://www.skratchdjacademy.in"
+        },
+        {
+            name: "Korean Cultural Centre India",
+            location: "Lajpat Nagar, Delhi",
+            rating: "4.7/5 (Google)",
+            total_reviews: "2,500+",
+            year_established: 2012,
+            courses: "Korean Language Courses. Fees: Subsidized, but with high demand.",
+            features: "Pros: The official Korean government center, authentic learning, cultural immersion. Cons: Extremely difficult to get a seat.",
+            website: "https://india.korean-culture.org"
+        },
+        {
+            name: "Network Bulls",
+            location: "Gurgaon (Delhi NCR)",
+            rating: "4.7/5 (Google)",
+            total_reviews: "3,500+",
+            year_established: 2009,
+            courses: "Cisco Certifications (CCNA, CCNP, CCIE), Network Security. Fees: Approx. ₹20,000 - ₹1,50,000+.",
+            features: "Pros: Asia's biggest Cisco training lab, specializes in high-end networking certifications. Cons: Very technical and niche.",
+            website: "https://www.networkbulls.com"
+        },
+        {
+            name: "R.C. Classes",
+            location: "Vikaspuri, Delhi",
+            rating: "4.8/5 (Google)",
+            total_reviews: "800+",
+            year_established: "N/A",
+            courses: "XI-XII Commerce (Accounts, Maths, Eco). Fees: Approx. ₹40,000 - ₹70,000.",
+            features: "Pros: A very old and highly reputed commerce class in West Delhi. Cons: Local focus.",
+            website: "N/A"
+        },
+        {
+            name: "M Puri's Institute for IAS",
+            location: "Old Rajinder Nagar, Delhi",
+            rating: "4.7/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "UPSC (International Relations, GS Paper 2). Fees: Module based.",
+            features: "Pros: Run by a legendary faculty for International Relations. Cons: Focus is on specific GS modules, not a full course.",
+            website: "N/A"
+        },
+        {
+            name: "Delhi School of Photography",
+            location: "Okhla, Delhi",
+            rating: "4.8/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: 2009,
+            courses: "Photography (Basic, Advanced, Diploma). Fees: Approx. ₹25,000 - ₹1,50,000.",
+            features: "Pros: Well-structured courses, practical workshops, and photo walks. Cons: Creative skill-based.",
+            website: "https://www.delhischoolofphotography.in"
+        },
+        {
+            name: "Vidya Tutorials",
+            location: "Vasant Kunj, Delhi",
+            rating: "4.7/5 (Google)",
+            total_reviews: "600+",
+            year_established: "N/A",
+            courses: "Class IX-XII (All subjects). Fees: Approx. ₹60,000 - ₹1,20,000.",
+            features: "Pros: Reputed local tuition center in the Vasant Kunj area. Cons: School-level focus, not for national competitions.",
+            website: "N/A"
+        },
+        {
+            name: "Mitra's IAS",
+            location: "Old Rajinder Nagar, Delhi",
+            rating: "4.6/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "UPSC (Philosophy Optional). Fees: Approx. ₹45,000.",
+            features: "Pros: A leading and respected name for Philosophy optional. Cons: Single subject focus.",
+            website: "https://www.mitrasias.com"
+        },
+        {
+            name: "AnkGanit",
+            location: "Mukherjee Nagar, Delhi",
+            rating: "4.8/5 (Google)",
+            total_reviews: "900+",
+            year_established: "N/A",
+            courses: "CAT (Quant), SSC (Maths). Fees: Approx. ₹25,000 - ₹40,000.",
+            features: "Pros: Run by RaMo sir, a famous quant faculty, excellent for concept building. Cons: Individual faculty dependent.",
+            website: "https://ankgonit.com"
+        },
+        {
+            name: "AFTE (Academy of Fashion and Textile Technology)",
+            location: "Malviya Nagar, Delhi",
+            rating: "4.9/5 (Google)",
+            total_reviews: "700+",
+            year_established: "N/A",
+            courses: "Fashion Design, Textile Design (Diplomas & Coaching). Fees: Varies.",
+            features: "Pros: Highly-rated local institute for practical fashion design training. Cons: Smaller scale.",
+            website: "https://www.afte.in"
+        },
+        {
+            name: "IPA (Institute of Professional Accountants)",
+            location: "Laxmi Nagar, Delhi",
+            rating: "4.7/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: 1999,
+            courses: "Tally, GST, E-Accounting. Fees: Approx. ₹10,000 - ₹25,000.",
+            features: "Pros: Job-oriented courses for accounting roles, strong focus on practical software. Cons: Skill-based, not for CA/CS.",
+            website: "https://www.ipa.edu.in"
+        },
+        {
+            name: "Drona The Gym",
+            location: "Dwarka, Delhi",
+            rating: "4.9/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "Physical Training for Police/Defense exams. Fees: Varies.",
+            features: "Pros: Specialized coaching for the physical fitness tests required in defense and police recruitment. Cons: Very niche.",
+            website: "N/A"
+        },
+        {
+            name: "Swapnil Patni Classes",
+            location: "Laxmi Nagar, Delhi (Satellite)",
+            rating: "4.7/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 2010,
+            courses: "CA Final (ISCA, Law), CA Inter. Fees: Approx. ₹15,000 - ₹25,000 per subject.",
+            features: "Pros: One of the biggest names in India for CA, delivered via satellite/online. Cons: Lacks face-to-face interaction.",
+            website: "https://www.swapnilpatni.com"
+        },
+        {
+            name: "Modern Classes",
+            location: "Faridabad (Delhi NCR)",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,100+",
+            year_established: "N/A",
+            courses: "JEE, NEET. Fees: Approx. ₹1,20,000 - ₹2,50,000.",
+            features: "Pros: Leading local institute in Faridabad, a strong alternative to national brands in that area. Cons: Limited to Faridabad.",
+            website: "https://www.modernclasses.com"
+        },
+        {
+            name: "Sarthak IAS",
+            location: "Rajinder Nagar, Delhi",
+            rating: "4.9/5 (Google)",
+            total_reviews: "200+",
+            year_established: "N/A",
+            courses: "UPSC (Sociology Optional). Fees: Approx. ₹45,000.",
+            features: "Pros: Highly-rated institute for Sociology optional, run by a single experienced faculty. Cons: Niche focus.",
+            website: "N/A"
+        },
+        {
+            name: "Sapiens IAS",
+            location: "Karol Bagh, Delhi",
+            rating: "4.7/5 (Google)",
+            total_reviews: "1,300+",
+            year_established: "N/A",
+            courses: "UPSC (Anthropology, Zoology Optionals). Fees: Approx. ₹50,000.",
+            features: "Pros: Run by Pradip Sarkar, a very well-known name for Anthropology optional. Cons: Single faculty driven.",
+            website: "https://www.sapiensias.in"
+        },
+        {
+            name: "IGNITED MINDS",
+            location: "Jia Sarai, Delhi",
+            rating: "4.8/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "GATE (Aerospace, Mechanical). Fees: Approx. ₹50,000 - ₹70,000.",
+            features: "Pros: Top-rated institute for the very niche Aerospace Engineering GATE paper. Cons: Highly specialized.",
+            website: "N/A"
+        },
+        {
+            name: "Himanshu Sharma's Commerce Classes",
+            location: "Krishna Nagar, Delhi",
+            rating: "4.9/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "XI-XII Commerce, B.Com. Fees: Approx. ₹30,000 - ₹60,000.",
+            features: "Pros: Top-rated and popular commerce tuition in East Delhi. Cons: Localized.",
+            website: "N/A"
+        },
+        {
+            name: "Astitva I-Can",
+            location: "Kalu Sarai, Delhi",
+            rating: "4.7/5 (Google)",
+            total_reviews: "600+",
+            year_established: "N/A",
+            courses: "JEE (Main & Advanced) Dropper Batches. Fees: Approx. ₹1,00,000 - ₹1,50,000.",
+            features: "Pros: Specializes in repeater/dropper batches for JEE, focused approach. Cons: Not for regular school-going students.",
+            website: "https://astitvaican.com"
+        },
+        {
+            name: "Satish Chandra's Professional Classes",
+            location: "Patel Nagar, Delhi",
+            rating: "4.9/5 (Google)",
+            total_reviews: "300+",
+            year_established: "N/A",
+            courses: "XI-XII Maths. Fees: Approx. ₹40,000 - ₹60,000.",
+            features: "Pros: Exceptionally rated individual tutor for senior secondary Mathematics. Cons: Single subject, individual dependent.",
+            website: "N/A"
+        },
+        {
+            name: "G.S. Mentors",
+            location: "Mukherjee Nagar, Delhi",
+            rating: "4.6/5 (Google)",
+            total_reviews: "800+",
+            year_established: "N/A",
+            courses: "UPSC (GS). Fees: Approx. ₹1,20,000+.",
+            features: "Pros: A strong local player in Mukherjee Nagar with a team of experienced teachers. Cons: Faces huge competition.",
+            website: "https://www.gsmentors.com"
+        },
+        {
+            name: "Indian School of Language",
+            location: "Hauz Khas, Delhi",
+            rating: "4.7/5 (Google)",
+            total_reviews: "700+",
+            year_established: "N/A",
+            courses: "French, Spanish, German, English. Fees: Approx. ₹15,000 - ₹25,000 per level.",
+            features: "Pros: Good local language school with a focus on conversational skills. Cons: Not an official cultural center like Goethe or Alliance.",
+            website: "https://www.indianschooloflanguage.com"
+        },
+        {
+            name: "Alpha Plus",
+            location: "Faridabad (Delhi NCR)",
+            rating: "4.8/5 (Google)",
+            total_reviews: "700+",
+            year_established: "N/A",
+            courses: "IX-XII, NTSE. Fees: Approx. ₹50,000 - ₹1,00,000.",
+            features: "Pros: Top-rated local institute in Faridabad for school-level academics. Cons: Not for JEE/NEET.",
+            website: "N/A"
+        },
+        {
+            name: "Aayaam",
+            location: "Patel Nagar, Delhi",
+            rating: "4.9/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "Class IX-X (Science & Maths). Fees: Approx. ₹40,000 - ₹60,000.",
+            features: "Pros: Exceptionally rated local tuition for junior secondary classes. Cons: Foundational level only.",
+            website: "N/A"
+        },
+        {
+            name: "Elite IAS Academy",
+            location: "Mukherjee Nagar, Delhi",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 2012,
+            courses: "UPSC (GS, Optionals). Fees: Approx. ₹1,50,000+.",
+            features: "Pros: Another strong player in the crowded Mukherjee Nagar market, good faculty team. Cons: Brand recall is less than the top players.",
+            website: "https://www.eliteias.in"
+        },
+        {
+            name: "Impact IAS Academy",
+            location: "Mukherjee Nagar, Delhi",
+            rating: "4.7/5 (Google)",
+            total_reviews: "900+",
+            year_established: "N/A",
+            courses: "UPSC (GS). Fees: Approx. ₹1,30,000+.",
+            features: "Pros: Good reviews for teaching quality and personal attention. Cons: Smaller scale.",
+            website: "N/A"
+        },
+        {
+            name: "Jigyasa IAS",
+            location: "Rajinder Nagar, Delhi",
+            rating: "4.8/5 (Google)",
+            total_reviews: "300+",
+            year_established: "N/A",
+            courses: "UPSC (History Optional). Fees: Approx. ₹50,000.",
+            features: "Pros: Highly rated institute for History Optional, an alternative to Manikant Singh. Cons: Niche focus.",
+            website: "N/A"
+        },
+        {
+            name: "Ashoka Institute",
+            location: "South Extension, Delhi",
+            rating: "4.7/5 (Google)",
+            total_reviews: "700+",
+            year_established: "N/A",
+            courses: "Law Entrance, Judiciary Services. Fees: Varies.",
+            features: "Pros: A long-standing and respected name for law-related exams in South Delhi. Cons: Less aggressive marketing than newer players.",
+            website: "https://www.ashokainstitute.com"
+        },
+        {
+            name: "National School of Banking (NSB)",
+            location: "Laxmi Nagar, Delhi",
+            rating: "4.4/5 (Google)",
+            total_reviews: "900+",
+            year_established: 1978,
+            courses: "Bank PO, Clerk. Fees: Approx. ₹10,000 - ₹18,000.",
+            features: "Pros: An old and established brand specifically for banking exams. Cons: Faces stiff competition from generic SSC/Bank institutes.",
+            website: "https://www.nsbindia.com"
+        },
+        {
+            name: "K-11 School of Fitness Sciences",
+            location: "Lajpat Nagar, Delhi",
+            rating: "4.8/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: 2003,
+            courses: "Personal Trainer Certification, Nutrition Courses. Fees: Approx. ₹60,000 - ₹1,00,000+.",
+            features: "Pros: Premier institute for professional fitness trainer certification, scientifically backed curriculum. Cons: Vocational, niche field.",
+            website: "https://www.keleven.com"
+        },
+        {
+            name: "All India Institute of Local Self Government (AIILSG)",
+            location: "Lajpat Nagar, Delhi",
+            rating: "4.3/5 (Google)",
+            total_reviews: "500+",
+            year_established: 1926,
+            courses: "Diplomas in Sanitary Inspection, Local Governance. Fees: Varies.",
+            features: "Pros: A unique institute providing vocational training for jobs in municipal corporations. Cons: Highly specialized.",
+            website: "https://www.aiilsg.org"
+        },
+        {
+            name: "Gravity Classes",
+            location: "Noida (Delhi NCR)",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,100+",
+            year_established: "N/A",
+            courses: "JEE, NEET. Fees: Approx. ₹1,40,000 - ₹2,80,000.",
+            features: "Pros: Reputed institute in Noida for engineering and medical entrances. Cons: Localized to Noida.",
+            website: "https://www.gravityclasses.net"
+        },
+        {
+            name: "CLAT Possible",
+            location: "Connaught Place, Delhi",
+            rating: "4.7/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: 2008,
+            courses: "CLAT, AILET. Fees: Approx. ₹70,000 - ₹1,30,000.",
+            features: "Pros: A premier national brand for law entrance coaching, now part of the CL ecosystem but maintains its own brand. Cons: Premium pricing.",
+            website: "https://www.clatpossible.com"
+        },
+        {
+            name: "The Hind Group of Publications",
+            location: "Mukherjee Nagar, Delhi",
+            rating: "4.9/5 (Google)",
+            total_reviews: "2,000+",
+            year_established: "N/A",
+            courses: "Publishes notes and material for UPSC. Fees: N/A.",
+            features: "Pros: A famous bookstore/photocopy shop that is a hub for all UPSC aspirants to get notes. Cons: Not a coaching institute, but an essential resource.",
+            website: "N/A"
+        },
+        {
+            name: "Insights IAS",
+            location: "Old Rajinder Nagar, Delhi",
+            rating: "4.5/5 (Online)",
+            total_reviews: "5,000+",
+            year_established: 2014,
+            courses: "UPSC (Test Series, GS). Fees: Varies.",
+            features: "Pros: A Bangalore-based giant with a Delhi center, famous for its online initiatives and daily answer writing practice. Cons: Delhi center is less prominent than its online presence.",
+            website: "https://www.insightsonindia.com"
+        }
+    ];
+
+    const instituteList = document.getElementById('institute-list');
+
+    // Function to display institutes
+    function displayInstitutes(instituteArray) {
+        instituteList.innerHTML = ''; // Clear current list
+        instituteArray.forEach(institute => {
+            const card = `
+                <div class="institute-card">
+                    <h2>${institute.name}</h2>
+                    <p><strong>Location:</strong> ${institute.location}</p>
+                    <div class="details-grid">
+                        <p class="rating"><strong>Rating:</strong> ${institute.rating}</p>
+                        <p><strong>Reviews:</strong> ${institute.total_reviews}</p>
+                        <p class="established"><strong>Established:</strong> ${institute.year_established}</p>
+                    </div>
+                    <p><strong>Courses & Fees:</strong> ${institute.courses}</p>
+                    <p><strong>Features:</strong> ${institute.features}</p>
+                    <a href="${institute.website}" target="_blank" rel="noopener noreferrer">Visit Website</a>
+                </div>
+            `;
+            instituteList.innerHTML += card;
+        });
+    }
+
+    // Function to filter institutes based on search criteria
+    function filterInstitutes() {
+        const nameQuery = document.getElementById('name-search').value.toLowerCase();
+        const ratingQuery = document.getElementById('rating-search').value;
+
+        const filteredInstitutes = institutes.filter(institute => {
+            const nameMatch = institute.name.toLowerCase().includes(nameQuery);
+            // Extract the number part of the rating for a more flexible search
+            const ratingValue = institute.rating.split('/')[0].trim();
+            const ratingMatch = ratingValue.startsWith(ratingQuery);
+            
+            return nameMatch && ratingMatch;
+        });
+
+        displayInstitutes(filteredInstitutes);
+    }
+
+    // Initial display of all institutes
+    window.onload = () => {
+        displayInstitutes(institutes);
+    };
+
+</script>
+
+</body>
+</html>

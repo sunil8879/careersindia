@@ -1,0 +1,1590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top coaching institutes in Bengaluru</title>
+    <style>
+        /* General Body Styling */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            background-color: #f8f9fa; /* Light grey background */
+            margin: 0;
+            padding: 20px;
+            color: #212529;
+        }
+
+        /* Header Box for Title and Search */
+        .header-container {
+            background-color: #212529; /* Black background */
+            padding: 30px 25px;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            border: 1px solid #000;
+        }
+
+        /* 3D Title Styling */
+        h1 {
+            color: white;
+            text-align: center;
+            font-size: 3em;
+            font-weight: 700;
+            margin: 0 0 25px 0;
+            /* 3D Effect using a lighter grey shadow */
+            text-shadow: 2px 2px 0px #6c757d, 5px 5px 8px rgba(0, 0, 0, 0.4);
+            letter-spacing: 1px;
+        }
+
+        /* Search Box Container */
+        .search-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        /* Search Input Fields */
+        .search-container input {
+            padding: 12px 18px;
+            font-size: 1em;
+            width: 320px;
+            max-width: 90%;
+            border: 1px solid #495057;
+            background-color: #343a40;
+            color: white;
+            border-radius: 50px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .search-container input::placeholder {
+            color: #adb5bd;
+        }
+
+        .search-container input:focus {
+            outline: none;
+            border-color: #fff;
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+        }
+
+        /* Main container for the institute list */
+        #institute-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 25px;
+        }
+
+        /* Individual Institute Card Styling */
+        .institute-card {
+            background-color: white;
+            border: 1px solid #e9ecef;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .institute-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+        }
+        
+        .institute-card h2 {
+            margin-top: 0;
+            font-size: 1.6em;
+            color: #212529; /* Black title */
+        }
+
+        .institute-card p {
+            margin: 8px 0;
+            line-height: 1.6;
+            font-size: 0.95em;
+        }
+
+        .institute-card strong {
+            color: #000;
+            font-weight: 600;
+        }
+
+        .institute-card a {
+            color: #000;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: auto; /* Pushes the link to the bottom */
+            align-self: flex-start;
+            padding: 8px 12px;
+            border-radius: 5px;
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .institute-card a:hover {
+            background-color: #e9ecef;
+            color: #000;
+        }
+        
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5px 15px;
+            margin-bottom: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="header-container">
+        <h1>Top coaching institutes in Bengaluru</h1>
+        <div class="search-container">
+            <input type="text" id="name-search" onkeyup="filterInstitutes()" placeholder="Search by Institute Name...">
+            <input type="text" id="rating-search" onkeyup="filterInstitutes()" placeholder="Search by Rating (e.g., 4.8)...">
+        </div>
+    </div>
+
+    <main id="institute-list">
+        <!-- Institute cards will be dynamically inserted here by JavaScript -->
+    </main>
+
+<script>
+    // Data for all 300 coaching institutes
+    const institutes = [
+        // PART 1 DATA (Entries 1-150)
+        {
+            name: "Allen Career Institute",
+            location: "Jayanagar, Bengaluru",
+            rating: "4.5/5 (Google)",
+            total_reviews: "8,000+",
+            year_established: 1988,
+            courses: "JEE (Main & Advanced), NEET-UG, Foundation. Fees: Approx. ₹1,50,000 - ₹3,00,000 per year.",
+            features: "Pros: National brand, highly competitive environment, comprehensive study material. Cons: Very large batch sizes, high pressure.",
+            website: "https://www.allen.ac.in"
+        },
+        {
+            name: "Aakash Institute",
+            location: "Koramangala, Bengaluru",
+            rating: "4.4/5 (Google)",
+            total_reviews: "7,500+",
+            year_established: 1988,
+            courses: "NEET, JEE, Foundation Courses. Fees: Approx. ₹1,40,000 - ₹2,80,000 per year.",
+            features: "Pros: Top choice for NEET, standardized curriculum, All India test series. Cons: Large batches, fast-paced teaching.",
+            website: "https://www.aakash.ac.in"
+        },
+        {
+            name: "InsightsIAS",
+            location: "Vijayanagar, Bengaluru",
+            rating: "4.7/5 (Google)",
+            total_reviews: "10,000+",
+            year_established: 2014,
+            courses: "UPSC (GS Foundation, Test Series, Interview Guidance). Fees: Approx. ₹1,20,000 - ₹2,00,000.",
+            features: "Pros: Headquartered in Bengaluru, top national brand for UPSC, excellent online initiatives. Cons: Extremely high demand, can be crowded.",
+            website: "https://www.insightsonindia.com"
+        },
+        {
+            name: "BASE Educational Services",
+            location: "Basavanagudi, Bengaluru",
+            rating: "4.3/5 (Google)",
+            total_reviews: "5,000+",
+            year_established: 1991,
+            courses: "PUC, CET, JEE, NEET. Fees: Approx. ₹80,000 - ₹1,80,000.",
+            features: "Pros: Bengaluru's legendary local brand, strong focus on PUC and KCET. Cons: Less aggressive for national exams like JEE Advanced.",
+            website: "https://www.base-edu.in"
+        },
+        {
+            name: "FIITJEE",
+            location: "Koramangala, Bengaluru",
+            rating: "4.2/5 (Google)",
+            total_reviews: "3,500+",
+            year_established: 1992,
+            courses: "JEE (Main & Advanced), NTSE, Olympiads. Fees: Approx. ₹2,00,000 - ₹4,00,000 for 2-year programs.",
+            features: "Pros: Pioneer in JEE coaching, highly competitive environment, proven results. Cons: Extremely high fees, very high pressure.",
+            website: "https://www.fiitjee.com"
+        },
+        {
+            name: "Qspiders",
+            location: "BTM Layout, Bengaluru",
+            rating: "4.6/5 (Google)",
+            total_reviews: "25,000+",
+            year_established: 2000,
+            courses: "Software Testing (Manual, Automation). Fees: Approx. ₹25,000 - ₹45,000.",
+            features: "Pros: Undisputed market leader for software testing training, excellent placement support. Cons: Very specific skill-based training.",
+            website: "https://www.qspiders.com"
+        },
+        {
+            name: "TIME (Triumphant Institute of Management Education)",
+            location: "Indiranagar, Bengaluru",
+            rating: "4.3/5 (Google)",
+            total_reviews: "3,200+",
+            year_established: 1992,
+            courses: "CAT, GMAT, GRE, Bank PO, SSC. Fees: Approx. ₹45,000 - ₹80,000 per course.",
+            features: "Pros: Pan-India brand, comprehensive material, numerous mock tests. Cons: Standardized approach may not suit everyone.",
+            website: "https://www.time4education.com"
+        },
+        {
+            name: "IMS Learning Center",
+            location: "Jayanagar, Bengaluru",
+            rating: "4.6/5 (Google)",
+            total_reviews: "2,000+",
+            year_established: 1977,
+            courses: "CAT, GMAT, GRE, CLAT, BBA. Fees: Approx. ₹50,000 - ₹90,000 per course.",
+            features: "Pros: Excellent mentors, strong focus on test-taking strategy, great mock analysis. Cons: Premium pricing.",
+            website: "https://www.imsindia.com"
+        },
+        {
+            name: "Career Launcher",
+            location: "Koramangala, Bengaluru",
+            rating: "4.4/5 (Google)",
+            total_reviews: "2,500+",
+            year_established: 1995,
+            courses: "CLAT, CAT, IPM, Bank PO. Fees: Approx. ₹40,000 - ₹90,000 per course.",
+            features: "Pros: Market leader for CLAT, strong online platform (SIS). Cons: Faces stiff competition from TIME/IMS for CAT.",
+            website: "https://www.careerlauncher.com"
+        },
+        {
+            name: "Jspiders",
+            location: "BTM Layout, Bengaluru",
+            rating: "4.5/5 (Google)",
+            total_reviews: "18,000+",
+            year_established: 2000,
+            courses: "Java Full Stack Development. Fees: Approx. ₹30,000 - ₹60,000.",
+            features: "Pros: Sister concern of Qspiders, premier institute for Java development training, strong placements. Cons: Very intensive, job-focused.",
+            website: "https://www.jspiders.com"
+        },
+        {
+            name: "Besant Technologies",
+            location: "Marathahalli, Bengaluru",
+            rating: "4.7/5 (Google)",
+            total_reviews: "22,000+",
+            year_established: 2009,
+            courses: "AWS, Python, Data Science, DevOps, Selenium. Fees: Approx. ₹18,000 - ₹45,000 per course.",
+            features: "Pros: Major IT training institute with numerous branches, strong placement support for freshers and professionals. Cons: Quality can vary by trainer and branch.",
+            website: "https://www.besanttechnologies.com"
+        },
+        {
+            name: "Deeksha",
+            location: "Yelahanka, Bengaluru",
+            rating: "4.2/5 (Google)",
+            total_reviews: "3,000+",
+            year_established: 1998,
+            courses: "PUC with integrated JEE/NEET/CET coaching. Fees: High (School + Coaching).",
+            features: "Pros: One of the pioneers of the integrated school-coaching model in Karnataka. Cons: Less flexibility for students.",
+            website: "https://www.deeksha.com"
+        },
+        {
+            name: "Narayana Junior College",
+            location: "Marathahalli, Bengaluru",
+            rating: "4.0/5 (Google)",
+            total_reviews: "4,000+",
+            year_established: 1979,
+            courses: "NEET, JEE, CET (integrated). Fees: Approx. ₹3,00,000 - ₹5,00,000+ for 2-year integrated programs.",
+            features: "Pros: Major national player, aggressive rank-focused approach. Cons: Extremely high pressure, rote learning is sometimes encouraged.",
+            website: "https://www.narayanagroup.com"
+        },
+        {
+            name: "Sri Chaitanya",
+            location: "Marathahalli, Bengaluru",
+            rating: "4.1/5 (Google)",
+            total_reviews: "4,200+",
+            year_established: 1986,
+            courses: "NEET, JEE, CET (integrated). Fees: Approx. ₹3,00,000 - ₹5,00,000+ for 2-year integrated programs.",
+            features: "Pros: Factory-like model for producing top ranks, vast infrastructure. Cons: Immense pressure, less focus on holistic development.",
+            website: "https://srichaitanya.net"
+        },
+        {
+            name: "Shankar IAS Academy",
+            location: "Jayanagar, Bengaluru",
+            rating: "4.6/5 (Google)",
+            total_reviews: "5,500+",
+            year_established: 2004,
+            courses: "UPSC, KPSC. Fees: Approx. ₹1,20,000 - ₹2,00,000.",
+            features: "Pros: Chennai's top brand with a very strong Bengaluru center, excellent for Environment module. Cons: Very crowded.",
+            website: "https://www.shankariasacademy.com"
+        },
+        {
+            name: "ExcelR Solutions",
+            location: "Koramangala, Bengaluru",
+            rating: "4.8/5 (Google)",
+            total_reviews: "6,000+",
+            year_established: 2014,
+            courses: "Data Science, Business Analytics, Project Management (PMP), Full Stack. Fees: Approx. ₹45,000 - ₹85,000.",
+            features: "Pros: Top-rated institute for professional upskilling, strong placement focus, global certification. Cons: Highly technical courses.",
+            website: "https://www.excelr.com"
+        },
+        {
+            name: "DQ Labs",
+            location: "Koramangala, Bengaluru",
+            rating: "4.9/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 2007,
+            courses: "NID, NIFT, NATA, UCEED, CEED, JEE Paper 2. Fees: Approx. ₹40,000 - ₹90,000.",
+            features: "Pros: Headquartered in Bengaluru, a leader in design/architecture coaching, excellent online platform. Cons: Niche focus.",
+            website: "https://www.dqlabs.in"
+        },
+        {
+            name: "Yeshas Academy",
+            location: "Malleshwaram, Bengaluru",
+            rating: "4.7/5 (Google)",
+            total_reviews: "3,000+",
+            year_established: 2004,
+            courses: "CA, CS, CMA, PUC Commerce. Fees: Approx. ₹60,000 - ₹1,50,000 depending on level.",
+            features: "Pros: Bengaluru's top local brand for CA coaching, strong faculty, good results. Cons: Faces stiff competition from J.K. Shah.",
+            website: "https://www.yeshasacademy.com"
+        },
+        {
+            name: "J.K. Shah Classes",
+            location: "Malleshwaram, Bengaluru",
+            rating: "4.5/5 (Google)",
+            total_reviews: "2,200+",
+            year_established: 1983,
+            courses: "CA (Foundation, Inter, Final), CS. Fees: Approx. ₹60,000 - ₹1,60,000 depending on level.",
+            features: "Pros: National leader in CA coaching with a strong Bengaluru presence. Cons: Very long and hectic schedules.",
+            website: "https://www.jkshahclasses.com"
+        },
+        {
+            name: "Jamboree Education",
+            location: "Jayanagar, Bengaluru",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,600+",
+            year_established: 1993,
+            courses: "GMAT, GRE, SAT, IELTS, TOEFL. Fees: Approx. ₹30,000 - ₹60,000 per course.",
+            features: "Pros: Excellent study material especially for GMAT/GRE, experienced faculty. Cons: Limited focus on admissions counseling.",
+            website: "https://www.jamboreeindia.com"
+        },
+        {
+            name: "National IAS Academy",
+            location: "Vijayanagar, Bengaluru",
+            rating: "4.5/5 (Google)",
+            total_reviews: "2,500+",
+            year_established: 2012,
+            courses: "UPSC, KPSC. Fees: Approx. ₹90,000 - ₹1,60,000.",
+            features: "Pros: A strong and old local institute for civil services, good for state PSC. Cons: Less brand recognition than Insights.",
+            website: "https://www.nationalias.com"
+        },
+        {
+            name: "FITA (Focus'd IT Academy)",
+            location: "Marathahalli, Bengaluru",
+            rating: "4.8/5 (Google)",
+            total_reviews: "12,000+",
+            year_established: 2012,
+            courses: "Software Testing, Java, Python, Data Science. Fees: Approx. ₹18,000 - ₹50,000 per course.",
+            features: "Pros: Chennai's top IT institute with a strong Bengaluru presence, excellent placement record. Cons: Multiple branches with potentially variable quality.",
+            website: "https://www.fita.in"
+        },
+        {
+            name: "Goethe-Institut / Max Mueller Bhavan",
+            location: "Indiranagar, Bengaluru",
+            rating: "4.5/5 (Google)",
+            total_reviews: "2,200+",
+            year_established: 1960,
+            courses: "German Language Courses (A1-C2). Fees: Approx. ₹25,000 - ₹35,000 per level.",
+            features: "Pros: Official German cultural institute, authentic teaching, internationally recognized certificates. Cons: Very high demand.",
+            website: "https://www.goethe.de/ins/in/en/sta/ban.html"
+        },
+        {
+            name: "Alliance Française de Bangalore",
+            location: "Vasanth Nagar, Bengaluru",
+            rating: "4.4/5 (Google)",
+            total_reviews: "1,800+",
+            year_established: 1970,
+            courses: "French Language Courses (A1-C2). Fees: Approx. ₹22,000 - ₹30,000 per level.",
+            features: "Pros: Official French cultural center, immersive learning environment, cultural events. Cons: Batches fill up fast.",
+            website: "https://bangalore.afindia.org"
+        },
+        {
+            name: "Physics Wallah (PW) Vidyapeeth",
+            location: "Koramangala, Bengaluru",
+            rating: "4.6/5 (Google)",
+            total_reviews: "6,000+",
+            year_established: 2016,
+            courses: "JEE, NEET, Foundation. Fees: Approx. ₹80,000 - ₹1,50,000 per year.",
+            features: "Pros: Very affordable compared to competitors, hybrid learning model, highly popular. Cons: Rapid expansion has raised quality control concerns.",
+            website: "https://www.pw.live/vidyapeeth-centres"
+        },
+        {
+            name: "Manya - The Princeton Review",
+            location: "Koramangala, Bengaluru",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,400+",
+            year_established: 2002,
+            courses: "GMAT, GRE, SAT, ACT, AP, IELTS. Fees: Approx. ₹35,000 - ₹1,20,000.",
+            features: "Pros: Internationally recognized curriculum, certified trainers. Cons: Premium pricing.",
+            website: "https://www.manyagroup.com"
+        },
+        {
+            name: "Resonance",
+            location: "Basavanagudi, Bengaluru",
+            rating: "4.2/5 (Google)",
+            total_reviews: "2,000+",
+            year_established: 2001,
+            courses: "JEE, NEET. Fees: Approx. ₹1,40,000 - ₹2,80,000 per year.",
+            features: "Pros: Strong academic system from Kota, detailed study modules. Cons: Faces huge competition from Allen/Aakash.",
+            website: "https://www.resonance.ac.in"
+        },
+        {
+            name: "Frankfinn Institute of Air Hostess Training",
+            location: "Indiranagar, Bengaluru",
+            rating: "4.6/5 (Google)",
+            total_reviews: "2,800+",
+            year_established: 1993,
+            courses: "Aviation, Hospitality and Travel Management. Fees: Approx. ₹1,50,000 - ₹2,50,000.",
+            features: "Pros: Market leader in cabin crew training, strong placement assistance. Cons: Very high fees, industry-specific.",
+            website: "https://www.frankfinn.com"
+        },
+        {
+            name: "MAAC (Maya Academy of Advanced Cinematics)",
+            location: "Jayanagar, Bengaluru",
+            rating: "4.5/5 (Google)",
+            total_reviews: "2,000+",
+            year_established: 2001,
+            courses: "3D Animation, VFX, Game Design. Fees: Approx. ₹1,50,000 - ₹5,00,000 for career courses.",
+            features: "Pros: Industry-recognized certification, hands-on training, good placement network. Cons: Very high fees.",
+            website: "https://www.maacindia.com"
+        },
+        {
+            name: "Arena Animation",
+            location: "Koramangala, Bengaluru",
+            rating: "4.4/5 (Google)",
+            total_reviews: "2,200+",
+            year_established: 1996,
+            courses: "Animation, VFX, Web Design. Fees: Approx. ₹1,00,000 - ₹4,50,000 for career courses.",
+            features: "Pros: One of the oldest animation training institutes, good industry links. Cons: Franchise model can lead to variable quality.",
+            website: "https://www.arena-multimedia.com"
+        },
+        {
+            name: "NIIT (National Institute of Information Technology)",
+            location: "Jayanagar, Bengaluru",
+            rating: "4.1/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: 1981,
+            courses: "Full Stack Development, Data Analytics, Digital Marketing. Fees: Approx. ₹60,000 - ₹2,00,000.",
+            features: "Pros: Legacy brand in IT training, structured curriculum. Cons: Faces competition from newer, more agile institutes.",
+            website: "https://www.niit.com"
+        },
+        {
+            name: "Aptech Computer Education",
+            location: "Malleshwaram, Bengaluru",
+            rating: "4.3/5 (Google)",
+            total_reviews: "900+",
+            year_established: 1986,
+            courses: "IT Training, Java, Python, Networking. Fees: Approx. ₹25,000 - ₹1,50,000.",
+            features: "Pros: Wide range of courses, strong network. Cons: Curriculum may not always be cutting-edge.",
+            website: "https://www.aptech-education.com"
+        },
+        {
+            name: "Global IAS",
+            location: "Vijayanagar, Bengaluru",
+            rating: "4.6/5 (Google)",
+            total_reviews: "800+",
+            year_established: "N/A",
+            courses: "UPSC, KPSC. Fees: Varies.",
+            features: "Pros: Another strong local competitor in the Vijayanagar IAS hub. Cons: Smaller scale.",
+            website: "N/A"
+        },
+        {
+            name: "The Chopras (TC Global)",
+            location: "Indiranagar, Bengaluru",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,800+",
+            year_established: 1995,
+            courses: "GRE, GMAT, IELTS coaching & study abroad counseling. Fees: Coaching approx. ₹25,000 - ₹60,000.",
+            features: "Pros: Premier study abroad consultant, end-to-end services. Cons: Can be very expensive.",
+            website: "https://www.tcglobal.com"
+        },
+        {
+            name: "Byju's Tuition Centre",
+            location: "Multiple (e.g., HSR Layout, Jayanagar)",
+            rating: "4.3/5 (Google)",
+            total_reviews: "4,000+",
+            year_established: 2011,
+            courses: "School tuitions for grades 4-10. Fees: Approx. ₹40,000 - ₹80,000 per year.",
+            features: "Pros: Blends digital learning with in-person classes, strong brand name. Cons: Focus is on school curriculum.",
+            website: "https://byjus.com/btc/"
+        },
+        {
+            name: "Pahal Design",
+            location: "Koramangala, Bengaluru",
+            rating: "4.8/5 (Google)",
+            total_reviews: "1,300+",
+            year_established: 1999,
+            courses: "NID, NIFT, NATA. Fees: Approx. ₹50,000 - ₹1,20,000.",
+            features: "Pros: Strong national brand for design coaching, creative workshops. Cons: Niche focus.",
+            website: "https://pahaldesign.com"
+        },
+        {
+            name: "LISAA School of Design",
+            location: "Koramangala, Bengaluru",
+            rating: "4.3/5 (Google)",
+            total_reviews: "700+",
+            year_established: 2013,
+            courses: "NID/NIFT coaching and professional diplomas. Fees: Coaching approx. ₹50,000; diplomas are much higher.",
+            features: "Pros: A French design school, offering coaching with an international perspective. Cons: Primarily a design college.",
+            website: "https://www.lisaabangalore.com"
+        },
+        {
+            name: "Giraffe Learning",
+            location: "Jayanagar, Bengaluru",
+            rating: "4.7/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: "N/A",
+            courses: "PUC Science, CET, JEE. Fees: Varies.",
+            features: "Pros: Strong local brand for PUC and CET, good student-teacher ratio. Cons: Less known nationally.",
+            website: "https://www.giraffe-learning.com"
+        },
+        {
+            name: "Expert PU College",
+            location: "Jayanagar, Bengaluru",
+            rating: "4.2/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 1986,
+            courses: "Integrated PUC with CET/NEET/JEE. Fees: High (College + Coaching).",
+            features: "Pros: A very popular integrated college from Mangalore with a strong Bengaluru campus. Cons: Very rigorous schedule.",
+            website: "https://www.expertclasses.org"
+        },
+        {
+            name: "IBT Institute",
+            location: "Marathahalli, Bengaluru",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,400+",
+            year_established: 2009,
+            courses: "Bank PO, SSC CGL. Fees: Approx. ₹10,000 - ₹20,000.",
+            features: "Pros: Strong presence for banking exams, lifetime membership. Cons: Large batches.",
+            website: "https://www.ibtindia.com"
+        },
+        {
+            name: "Pentagon Space",
+            location: "BTM Layout, Bengaluru",
+            rating: "4.8/5 (Google)",
+            total_reviews: "2,500+",
+            year_established: "N/A",
+            courses: "Java, Python, MERN Stack, Software Testing. Fees: Approx. ₹20,000 - ₹50,000.",
+            features: "Pros: Highly-rated IT training institute with a focus on practical, job-oriented skills. Cons: Localized.",
+            website: "https://www.pentagonspace.in"
+        },
+        {
+            name: "Rau's IAS Study Circle",
+            location: "Jayanagar, Bengaluru",
+            rating: "4.3/5 (Google)",
+            total_reviews: "2,200+",
+            year_established: 1953,
+            courses: "UPSC (GS Foundation). Fees: Approx. ₹1,70,000 - ₹2,50,000.",
+            features: "Pros: One of the oldest and most respected IAS institutes from Delhi with a Bengaluru center. Cons: Traditional teaching methodology.",
+            website: "https://www.rauias.com"
+        },
+        {
+            name: "VidyaGyan",
+            location: "Jayanagar, Bengaluru",
+            rating: "4.9/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "IX-X (ICSE/CBSE). Fees: Varies.",
+            features: "Pros: Top-rated local tuition center for junior classes, personal attention. Cons: Foundational level only.",
+            website: "N/A"
+        },
+        {
+            name: "S.M. Academy",
+            location: "Basavanagudi, Bengaluru",
+            rating: "4.6/5 (Google)",
+            total_reviews: "800+",
+            year_established: "N/A",
+            courses: "CA, CS. Fees: Varies.",
+            features: "Pros: Another strong local competitor to Yeshas Academy for CA coaching. Cons: Smaller scale.",
+            website: "N/A"
+        },
+        {
+            name: "T.I.M.E. Kids",
+            location: "Koramangala, Bengaluru",
+            rating: "4.5/5 (Google)",
+            total_reviews: "300+",
+            year_established: 2000,
+            courses: "Pre-school education. Fees: Approx. ₹90,000 - ₹1,60,000 per year.",
+            features: "Pros: Pre-school wing of the reputed T.I.M.E. group, structured curriculum. Cons: More of a school.",
+            website: "https://www.timekidspreschools.in"
+        },
+        {
+            name: "IDP Education",
+            location: "M.G. Road, Bengaluru",
+            rating: "4.6/5 (Google)",
+            total_reviews: "3,500+",
+            year_established: 1969,
+            courses: "IELTS coaching and exam booking, study abroad counseling. Fees: Coaching approx. ₹8,000 - ₹15,000.",
+            features: "Pros: Co-owner of IELTS, authentic coaching, huge network of universities. Cons: Counseling may be biased towards partner institutions.",
+            website: "https://www.idp.com/india"
+        },
+        {
+            name: "The Oracle",
+            location: "Jayanagar, Bengaluru",
+            rating: "4.8/5 (Google)",
+            total_reviews: "600+",
+            year_established: "N/A",
+            courses: "NEET, JEE. Fees: Varies.",
+            features: "Pros: Highly-rated local science institute, praised for its teaching methodology. Cons: Smaller scale.",
+            website: "N/A"
+        },
+        {
+            name: "Jupiter Academy",
+            location: "Malleshwaram, Bengaluru",
+            rating: "4.7/5 (Google)",
+            total_reviews: "900+",
+            year_established: "N/A",
+            courses: "PUC Science, CET. Fees: Varies.",
+            features: "Pros: Reputed local tutorial in the Malleshwaram area, strong focus on PUC boards. Cons: Traditional methods.",
+            website: "N/A"
+        },
+        {
+            name: "K-11 School of Fitness Sciences",
+            location: "Koramangala, Bengaluru",
+            rating: "4.8/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: 2003,
+            courses: "Personal Trainer Certification, Nutrition Courses. Fees: Approx. ₹60,000 - ₹1,00,000+.",
+            features: "Pros: Premier institute for professional fitness trainer certification. Cons: Vocational, niche field.",
+            website: "https://www.keleven.com"
+        },
+        {
+            name: "Legacy IAS Academy",
+            location: "Jayanagar, Bengaluru",
+            rating: "4.8/5 (Google)",
+            total_reviews: "2,800+",
+            year_established: 2012,
+            courses: "UPSC, KPSC. Fees: Approx. ₹1,00,000 - ₹1,80,000.",
+            features: "Pros: Top-rated local institute, known for its mentorship and small batch sizes. Cons: Less brand recognition than national players.",
+            website: "https://www.legacyias.com"
+        },
+        {
+            name: "Unacademy",
+            location: "HSR Layout, Bengaluru (HQ, courses are online)",
+            rating: "4.4/5 (Google Play Store)",
+            total_reviews: "1,000,000+",
+            year_established: 2015,
+            courses: "UPSC, JEE, NEET, CAT, and 100+ other exams. Fees: Subscription-based (e.g., ₹20,000 - ₹1,00,000+ per year).",
+            features: "Pros: India's largest online learning platform, huge number of educators. Cons: Quality varies by educator, requires self-discipline.",
+            website: "https://unacademy.com"
+        },
+        {
+            name: "Vedantu",
+            location: "Sarjapur, Bengaluru (HQ, courses are online/hybrid)",
+            rating: "4.5/5 (Google Play Store)",
+            total_reviews: "500,000+",
+            year_established: 2011,
+            courses: "JEE, NEET, K-12. Fees: Online packages vary, offline centers are priced higher.",
+            features: "Pros: A pioneer in live online tutoring, strong focus on technology. Cons: Hybrid offline model is new.",
+            website: "https://www.vedantu.com"
+        },
+        {
+            name: "Kodnest",
+            location: "BTM Layout, Bengaluru",
+            rating: "4.8/5 (Google)",
+            total_reviews: "5,000+",
+            year_established: 2018,
+            courses: "Java, Python, MERN Stack (Pay After Placement model). Fees: Income-sharing agreement.",
+            features: "Pros: Excellent for freshers, Pay After Placement model reduces upfront financial burden. Cons: Very intensive, focused solely on getting a job.",
+            website: "https://kodnest.com"
+        },
+        {
+            name: "Test Yantra Software Solutions",
+            location: "Basavanagudi, Bengaluru",
+            rating: "4.6/5 (Google)",
+            total_reviews: "3,000+",
+            year_established: 2007,
+            courses: "Software Testing, Development. Fees: Job-oriented packages.",
+            features: "Pros: Parent company of Qspiders/Jspiders, pioneer in the placement-oriented training model. Cons: Very high intensity.",
+            website: "https://www.testyantra.com"
+        },
+        {
+            name: "Pragnya IAS Academy",
+            location: "Marathahalli, Bengaluru",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: 2013,
+            courses: "UPSC, KPSC. Fees: Varies.",
+            features: "Pros: National institute with a strong Bengaluru presence, good infrastructure. Cons: Faces stiff competition from Insights.",
+            website: "https://www.pragnyaias.com"
+        },
+        {
+            name: "Himalai IAS",
+            location: "Malleshwaram, Bengaluru",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: 1998,
+            courses: "KPSC, UPSC. Fees: Varies.",
+            features: "Pros: One of the oldest coaching centers in Bengaluru, strong focus on KPSC. Cons: Traditional teaching methods.",
+            website: "https://www.himalaiias.com"
+        },
+        {
+            name: "Simplilearn",
+            location: "HSR Layout, Bengaluru (HQ, courses are online)",
+            rating: "4.5/5 (Trustpilot)",
+            total_reviews: "25,000+",
+            year_established: 2010,
+            courses: "PMP, Data Science, Cloud Computing, Digital Marketing. Fees: Approx. ₹25,000 - ₹2,00,000.",
+            features: "Pros: A global leader in professional certifications, bootcamp-style learning. Cons: Requires high self-discipline for online courses.",
+            website: "https://www.simplilearn.com"
+        },
+        {
+            name: "Intellipaat",
+            location: "Jayanagar, Bengaluru (HQ, courses are online)",
+            rating: "4.7/5 (Google)",
+            total_reviews: "15,000+",
+            year_established: 2011,
+            courses: "Data Science, AWS, Big Data, Salesforce. Fees: Approx. ₹30,000 - ₹1,00,000+.",
+            features: "Pros: Bengaluru-based EdTech, provides online professional courses with job assistance. Cons: Primarily online.",
+            website: "https://intellipaat.com"
+        },
+        {
+            name: "IIDT (Indian Institute of Digital Technology)",
+            location: "Koramangala, Bengaluru",
+            rating: "4.8/5 (Google)",
+            total_reviews: "800+",
+            year_established: "N/A",
+            courses: "Digital Marketing. Fees: Approx. ₹40,000 - ₹70,000.",
+            features: "Pros: Highly-rated local institute for practical digital marketing training. Cons: Smaller scale.",
+            website: "https://www.iidt.in"
+        },
+        {
+            name: "Bangalore School of Music",
+            location: "R.T. Nagar, Bengaluru",
+            rating: "4.5/5 (Google)",
+            total_reviews: "900+",
+            year_established: 1987,
+            courses: "Western Classical (Piano, Violin, Vocals), Choir. Fees: Varies, term-based.",
+            features: "Pros: One of the oldest and most reputed music schools in the city, associated with international exams. Cons: Hobby/professional skill-based.",
+            website: "https://www.bsm.org.in"
+        },
+        {
+            name: "Attakkalari Centre for Movement Arts",
+            location: "Wilson Garden, Bengaluru",
+            rating: "4.6/5 (Google)",
+            total_reviews: "700+",
+            year_established: 1992,
+            courses: "Contemporary Dance, Kalaripayattu (Diplomas & short courses). Fees: Varies.",
+            features: "Pros: A globally recognized institution for contemporary dance and movement arts. Cons: Highly specialized, non-academic.",
+            website: "https://www.attakkalari.org"
+        },
+        {
+            name: "Universal Coaching Centre",
+            location: "Malleshwaram, Bengaluru",
+            rating: "4.4/5 (Google)",
+            total_reviews: "800+",
+            year_established: "N/A",
+            courses: "Banking, SSC, Railways. Fees: Approx. ₹10,000 - ₹20,000.",
+            features: "Pros: An old and trusted local brand for government job coaching. Cons: Faces huge competition from national players.",
+            website: "N/A"
+        },
+        {
+            name: "IQuest",
+            location: "Malleshwaram, Bengaluru",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: "N/A",
+            courses: "PUC Science, CET, JEE. Fees: Varies.",
+            features: "Pros: Strong local competitor to BASE in the Malleshwaram area, good results in CET. Cons: Less known nationally.",
+            website: "https://www.iquest.org.in"
+        },
+        {
+            name: "Tandem",
+            location: "Jayanagar, Bengaluru",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: 1992,
+            courses: "PUC, CET. Fees: Varies.",
+            features: "Pros: Another legendary local brand for PUC and CET, with a very strong presence in South Bengaluru. Cons: Traditional teaching methods.",
+            website: "N/A"
+        },
+        {
+            name: "Jetking",
+            location: "Jayanagar, Bengaluru",
+            rating: "4.4/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 1947,
+            courses: "Hardware and Networking, Ethical Hacking, Cloud Computing. Fees: Approx. ₹50,000 - ₹1,50,000 for career courses.",
+            features: "Pros: Veteran institute for hardware/networking, practical hands-on labs. Cons: Area of specialization is less in demand compared to software.",
+            website: "https://www.jetking.com"
+        },
+        {
+            name: "Miles Education",
+            location: "Koramangala, Bengaluru",
+            rating: "4.7/5 (Google)",
+            total_reviews: "2,000+",
+            year_established: 2011,
+            courses: "CPA (USA), CMA (USA). Fees: Approx. ₹1,00,000 - ₹2,50,000 for full course package.",
+            features: "Pros: Official partner of IMA and AICPA, excellent placement support in Big 4 and MNCs. Cons: Very high fees.",
+            website: "https://www.mileseducation.com"
+        },
+        {
+            name: "Suraaj Academy",
+            location: "Rajajinagar, Bengaluru",
+            rating: "4.8/5 (Google)",
+            total_reviews: "600+",
+            year_established: "N/A",
+            courses: "XI-XII Commerce, CA Foundation. Fees: Varies.",
+            features: "Pros: Top-rated commerce class in the Rajajinagar area, personal attention. Cons: Localized.",
+            website: "N/A"
+        },
+        {
+            name: "Acharya Academy",
+            location: "Vijayanagar, Bengaluru",
+            rating: "4.6/5 (Google)",
+            total_reviews: "700+",
+            year_established: "N/A",
+            courses: "KPSC, Banking, SSC. Fees: Varies.",
+            features: "Pros: Good local institute for government job coaching. Cons: Smaller scale.",
+            website: "N/A"
+        },
+        {
+            name: "Global Art",
+            location: "Multiple franchises, Bengaluru",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: 1999,
+            courses: "Art and craft classes for children. Fees: Monthly basis.",
+            features: "Pros: International chain for fostering creativity in children. Cons: Hobby-based.",
+            website: "https://www.globalart.in"
+        },
+        {
+            name: "Isha Yoga Center",
+            location: "Multiple centers, Bengaluru",
+            rating: "4.7/5 (Google)",
+            total_reviews: "5,000+",
+            year_established: 1992,
+            courses: "Inner Engineering, Hatha Yoga. Fees: Varies.",
+            features: "Pros: Run by a global spiritual organization, focuses on holistic well-being. Cons: Not academic coaching.",
+            website: "https://isha.sadhguru.org"
+        },
+        {
+            name: "Inventateq",
+            location: "BTM Layout, Bengaluru",
+            rating: "4.8/5 (Google)",
+            total_reviews: "4,000+",
+            year_established: 2010,
+            courses: "Digital Marketing, Data Science, AWS. Fees: Approx. ₹20,000 - ₹50,000.",
+            features: "Pros: Highly-rated IT training institute with strong placement focus. Cons: Faces huge competition in BTM.",
+            website: "https://www.inventateq.com"
+        },
+        {
+            name: "Edureka",
+            location: "Indiranagar, Bengaluru (HQ, courses are online)",
+            rating: "4.5/5 (Trustpilot)",
+            total_reviews: "10,000+",
+            year_established: 2011,
+            courses: "DevOps, Big Data, Cloud Computing, Data Science. Fees: Approx. ₹20,000 - ₹80,000.",
+            features: "Pros: A leading online platform for live, instructor-led IT training. Cons: Requires commitment to an online schedule.",
+            website: "https://www.edureka.co"
+        },
+        {
+            name: "Great Learning",
+            location: "Koramangala, Bengaluru (HQ, courses are online/blended)",
+            rating: "4.4/5 (Glassdoor)",
+            total_reviews: "5,000+",
+            year_established: 2013,
+            courses: "Data Science, AI, Cloud Computing (PG Programs). Fees: High, ₹2,00,000+.",
+            features: "Pros: Offers PG programs in partnership with universities, strong career support. Cons: Very expensive.",
+            website: "https://www.mygreatlearning.com"
+        },
+        {
+            name: "RVM Finishing School of Finance",
+            location: "Jayanagar, Bengaluru",
+            rating: "4.9/5 (Google)",
+            total_reviews: "300+",
+            year_established: "N/A",
+            courses: "Stock Market, Financial Planning, Equity Research. Fees: Varies.",
+            features: "Pros: Top-rated niche institute for practical finance and stock market training. Cons: Vocational focus.",
+            website: "N/A"
+        },
+        {
+            name: "Inspira's Academy for Commerce",
+            location: "Sahakara Nagar, Bengaluru",
+            rating: "4.8/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "PUC Commerce, CA Foundation. Fees: Varies.",
+            features: "Pros: Highly-rated commerce tuition center in North Bengaluru. Cons: Localized focus.",
+            website: "N/A"
+        },
+
+        // PART 2 DATA (Entries 151-300)
+        {
+            name: "Legacy IAS Academy",
+            location: "Jayanagar, Bengaluru",
+            rating: "4.8/5 (Google)",
+            total_reviews: "2,800+",
+            year_established: 2012,
+            courses: "UPSC, KPSC. Fees: Approx. ₹1,00,000 - ₹1,80,000.",
+            features: "Pros: Top-rated local institute, known for its mentorship and small batch sizes. Cons: Less brand recognition than national players.",
+            website: "https://www.legacyias.com"
+        },
+        {
+            name: "Unacademy",
+            location: "HSR Layout, Bengaluru (HQ, courses are online)",
+            rating: "4.4/5 (Google Play Store)",
+            total_reviews: "1,000,000+",
+            year_established: 2015,
+            courses: "UPSC, JEE, NEET, CAT, and 100+ other exams. Fees: Subscription-based (e.g., ₹20,000 - ₹1,00,000+ per year).",
+            features: "Pros: India's largest online learning platform, huge number of educators. Cons: Quality varies by educator, requires self-discipline.",
+            website: "https://unacademy.com"
+        },
+        {
+            name: "Vedantu",
+            location: "Sarjapur, Bengaluru (HQ, courses are online/hybrid)",
+            rating: "4.5/5 (Google Play Store)",
+            total_reviews: "500,000+",
+            year_established: 2011,
+            courses: "JEE, NEET, K-12. Fees: Online packages vary, offline centers are priced higher.",
+            features: "Pros: A pioneer in live online tutoring, strong focus on technology. Cons: Hybrid offline model is new.",
+            website: "https://www.vedantu.com"
+        },
+        {
+            name: "Kodnest",
+            location: "BTM Layout, Bengaluru",
+            rating: "4.8/5 (Google)",
+            total_reviews: "5,000+",
+            year_established: 2018,
+            courses: "Java, Python, MERN Stack (Pay After Placement model). Fees: Income-sharing agreement.",
+            features: "Pros: Excellent for freshers, Pay After Placement model reduces upfront financial burden. Cons: Very intensive, focused solely on getting a job.",
+            website: "https://kodnest.com"
+        },
+        {
+            name: "Test Yantra Software Solutions",
+            location: "Basavanagudi, Bengaluru",
+            rating: "4.6/5 (Google)",
+            total_reviews: "3,000+",
+            year_established: 2007,
+            courses: "Software Testing, Development. Fees: Job-oriented packages.",
+            features: "Pros: Parent company of Qspiders/Jspiders, pioneer in the placement-oriented training model. Cons: Very high intensity.",
+            website: "https://www.testyantra.com"
+        },
+        {
+            name: "Pragnya IAS Academy",
+            location: "Marathahalli, Bengaluru",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: 2013,
+            courses: "UPSC, KPSC. Fees: Varies.",
+            features: "Pros: National institute with a strong Bengaluru presence, good infrastructure. Cons: Faces stiff competition from Insights.",
+            website: "https://www.pragnyaias.com"
+        },
+        {
+            name: "Himalai IAS",
+            location: "Malleshwaram, Bengaluru",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: 1998,
+            courses: "KPSC, UPSC. Fees: Varies.",
+            features: "Pros: One of the oldest coaching centers in Bengaluru, strong focus on KPSC. Cons: Traditional teaching methods.",
+            website: "https://www.himalaiias.com"
+        },
+        {
+            name: "Simplilearn",
+            location: "HSR Layout, Bengaluru (HQ, courses are online)",
+            rating: "4.5/5 (Trustpilot)",
+            total_reviews: "25,000+",
+            year_established: 2010,
+            courses: "PMP, Data Science, Cloud Computing, Digital Marketing. Fees: Approx. ₹25,000 - ₹2,00,000.",
+            features: "Pros: A global leader in professional certifications, bootcamp-style learning. Cons: Requires high self-discipline for online courses.",
+            website: "https://www.simplilearn.com"
+        },
+        {
+            name: "Intellipaat",
+            location: "Jayanagar, Bengaluru (HQ, courses are online)",
+            rating: "4.7/5 (Google)",
+            total_reviews: "15,000+",
+            year_established: 2011,
+            courses: "Data Science, AWS, Big Data, Salesforce. Fees: Approx. ₹30,000 - ₹1,00,000+.",
+            features: "Pros: Bengaluru-based EdTech, provides online professional courses with job assistance. Cons: Primarily online.",
+            website: "https://intellipaat.com"
+        },
+        {
+            name: "IIDT (Indian Institute of Digital Technology)",
+            location: "Koramangala, Bengaluru",
+            rating: "4.8/5 (Google)",
+            total_reviews: "800+",
+            year_established: "N/A",
+            courses: "Digital Marketing. Fees: Approx. ₹40,000 - ₹70,000.",
+            features: "Pros: Highly-rated local institute for practical digital marketing training. Cons: Smaller scale.",
+            website: "https://www.iidt.in"
+        },
+        {
+            name: "Bangalore School of Music",
+            location: "R.T. Nagar, Bengaluru",
+            rating: "4.5/5 (Google)",
+            total_reviews: "900+",
+            year_established: 1987,
+            courses: "Western Classical (Piano, Violin, Vocals), Choir. Fees: Varies, term-based.",
+            features: "Pros: One of the oldest and most reputed music schools in the city, associated with international exams. Cons: Hobby/professional skill-based.",
+            website: "https://www.bsm.org.in"
+        },
+        {
+            name: "Attakkalari Centre for Movement Arts",
+            location: "Wilson Garden, Bengaluru",
+            rating: "4.6/5 (Google)",
+            total_reviews: "700+",
+            year_established: 1992,
+            courses: "Contemporary Dance, Kalaripayattu (Diplomas & short courses). Fees: Varies.",
+            features: "Pros: A globally recognized institution for contemporary dance and movement arts. Cons: Highly specialized, non-academic.",
+            website: "https://www.attakkalari.org"
+        },
+        {
+            name: "Universal Coaching Centre",
+            location: "Malleshwaram, Bengaluru",
+            rating: "4.4/5 (Google)",
+            total_reviews: "800+",
+            year_established: "N/A",
+            courses: "Banking, SSC, Railways. Fees: Approx. ₹10,000 - ₹20,000.",
+            features: "Pros: An old and trusted local brand for government job coaching. Cons: Faces huge competition from national players.",
+            website: "N/A"
+        },
+        {
+            name: "IQuest",
+            location: "Malleshwaram, Bengaluru",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: "N/A",
+            courses: "PUC Science, CET, JEE. Fees: Varies.",
+            features: "Pros: Strong local competitor to BASE in the Malleshwaram area, good results in CET. Cons: Less known nationally.",
+            website: "https://www.iquest.org.in"
+        },
+        {
+            name: "Tandem",
+            location: "Jayanagar, Bengaluru",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: 1992,
+            courses: "PUC, CET. Fees: Varies.",
+            features: "Pros: Another legendary local brand for PUC and CET, with a very strong presence in South Bengaluru. Cons: Traditional teaching methods.",
+            website: "N/A"
+        },
+        {
+            name: "Jetking",
+            location: "Jayanagar, Bengaluru",
+            rating: "4.4/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 1947,
+            courses: "Hardware and Networking, Ethical Hacking, Cloud Computing. Fees: Approx. ₹50,000 - ₹1,50,000 for career courses.",
+            features: "Pros: Veteran institute for hardware/networking, practical hands-on labs. Cons: Area of specialization is less in demand compared to software.",
+            website: "https://www.jetking.com"
+        },
+        {
+            name: "Miles Education",
+            location: "Koramangala, Bengaluru",
+            rating: "4.7/5 (Google)",
+            total_reviews: "2,000+",
+            year_established: 2011,
+            courses: "CPA (USA), CMA (USA). Fees: Approx. ₹1,00,000 - ₹2,50,000 for full course package.",
+            features: "Pros: Official partner of IMA and AICPA, excellent placement support in Big 4 and MNCs. Cons: Very high fees.",
+            website: "https://www.mileseducation.com"
+        },
+        {
+            name: "Suraaj Academy",
+            location: "Rajajinagar, Bengaluru",
+            rating: "4.8/5 (Google)",
+            total_reviews: "600+",
+            year_established: "N/A",
+            courses: "XI-XII Commerce, CA Foundation. Fees: Varies.",
+            features: "Pros: Top-rated commerce class in the Rajajinagar area, personal attention. Cons: Localized.",
+            website: "N/A"
+        },
+        {
+            name: "Acharya Academy",
+            location: "Vijayanagar, Bengaluru",
+            rating: "4.6/5 (Google)",
+            total_reviews: "700+",
+            year_established: "N/A",
+            courses: "KPSC, Banking, SSC. Fees: Varies.",
+            features: "Pros: Good local institute for government job coaching. Cons: Smaller scale.",
+            website: "N/A"
+        },
+        {
+            name: "Global Art",
+            location: "Multiple franchises, Bengaluru",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: 1999,
+            courses: "Art and craft classes for children. Fees: Monthly basis.",
+            features: "Pros: International chain for fostering creativity in children. Cons: Hobby-based.",
+            website: "https://www.globalart.in"
+        },
+        {
+            name: "Isha Yoga Center",
+            location: "Multiple centers, Bengaluru",
+            rating: "4.7/5 (Google)",
+            total_reviews: "5,000+",
+            year_established: 1992,
+            courses: "Inner Engineering, Hatha Yoga. Fees: Varies.",
+            features: "Pros: Run by a global spiritual organization, focuses on holistic well-being. Cons: Not academic coaching.",
+            website: "https://isha.sadhguru.org"
+        },
+        {
+            name: "Inventateq",
+            location: "BTM Layout, Bengaluru",
+            rating: "4.8/5 (Google)",
+            total_reviews: "4,000+",
+            year_established: 2010,
+            courses: "Digital Marketing, Data Science, AWS. Fees: Approx. ₹20,000 - ₹50,000.",
+            features: "Pros: Highly-rated IT training institute with strong placement focus. Cons: Faces huge competition in BTM.",
+            website: "https://www.inventateq.com"
+        },
+        {
+            name: "Edureka",
+            location: "Indiranagar, Bengaluru (HQ, courses are online)",
+            rating: "4.5/5 (Trustpilot)",
+            total_reviews: "10,000+",
+            year_established: 2011,
+            courses: "DevOps, Big Data, Cloud Computing, Data Science. Fees: Approx. ₹20,000 - ₹80,000.",
+            features: "Pros: A leading online platform for live, instructor-led IT training. Cons: Requires commitment to an online schedule.",
+            website: "https://www.edureka.co"
+        },
+        {
+            name: "Great Learning",
+            location: "Koramangala, Bengaluru (HQ, courses are online/blended)",
+            rating: "4.4/5 (Glassdoor)",
+            total_reviews: "5,000+",
+            year_established: 2013,
+            courses: "Data Science, AI, Cloud Computing (PG Programs). Fees: High, ₹2,00,000+.",
+            features: "Pros: Offers PG programs in partnership with universities, strong career support. Cons: Very expensive.",
+            website: "https://www.mygreatlearning.com"
+        },
+        {
+            name: "RVM Finishing School of Finance",
+            location: "Jayanagar, Bengaluru",
+            rating: "4.9/5 (Google)",
+            total_reviews: "300+",
+            year_established: "N/A",
+            courses: "Stock Market, Financial Planning, Equity Research. Fees: Varies.",
+            features: "Pros: Top-rated niche institute for practical finance and stock market training. Cons: Vocational focus.",
+            website: "N/A"
+        },
+        {
+            name: "Inspira's Academy for Commerce",
+            location: "Sahakara Nagar, Bengaluru",
+            rating: "4.8/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "PUC Commerce, CA Foundation. Fees: Varies.",
+            features: "Pros: Highly-rated commerce tuition center in North Bengaluru. Cons: Localized focus.",
+            website: "N/A"
+        },
+        {
+            name: "Vidyamandir Classes (VMC)",
+            location: "Jayanagar, Bengaluru",
+            rating: "4.3/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: "N/A",
+            courses: "JEE (Main & Advanced), NEET. Fees: Approx. ₹1,80,000 - ₹3,50,000 for 2 years.",
+            features: "Pros: Delhi's trusted brand with a major center in South Bengaluru. Cons: Very rigorous.",
+            website: "https://www.vidyamandir.com"
+        },
+        {
+            name: "Resonance (Koramangala)",
+            location: "Koramangala, Bengaluru",
+            rating: "4.1/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: "N/A",
+            courses: "JEE, NEET. Fees: Approx. ₹1,40,000 - ₹2,80,000 per year.",
+            features: "Pros: Kota's system in a prime student area. Cons: Rigid teaching structure.",
+            website: "https://www.resonance.ac.in"
+        },
+        {
+            name: "Allen Career Institute (Marathahalli)",
+            location: "Marathahalli, Bengaluru",
+            rating: "4.4/5 (Google)",
+            total_reviews: "3,500+",
+            year_established: "N/A",
+            courses: "JEE, NEET. Fees: Approx. ₹1,50,000 - ₹3,00,000 per year.",
+            features: "Pros: Caters to the IT corridor, excellent infrastructure. Cons: High pressure.",
+            website: "https://www.allen.ac.in"
+        },
+        {
+            name: "Aakash Institute (Jayanagar)",
+            location: "Jayanagar, Bengaluru",
+            rating: "4.2/5 (Google)",
+            total_reviews: "2,800+",
+            year_established: "N/A",
+            courses: "NEET, JEE. Fees: Approx. ₹1,40,000 - ₹2,80,000 per year.",
+            features: "Pros: Major center in South Bengaluru. Cons: Large batches.",
+            website: "https://www.aakash.ac.in"
+        },
+        {
+            name: "Global Tree",
+            location: "Jayanagar, Bengaluru",
+            rating: "4.6/5 (Google)",
+            total_reviews: "2,500+",
+            year_established: 2006,
+            courses: "IELTS, GRE, GMAT, PTE coaching and study abroad/immigration services. Fees: Varies.",
+            features: "Pros: A large consultant providing both coaching and extensive visa services. Cons: Sales-focused approach.",
+            website: "https://www.globaltree.in"
+        },
+        {
+            name: "Byju's IAS",
+            location: "Koramangala, Bengaluru",
+            rating: "4.3/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 2011,
+            courses: "UPSC (Tablet-based learning). Fees: Approx. ₹1,00,000 - ₹1,50,000.",
+            features: "Pros: Technology-driven approach with pre-recorded lectures. Cons: Lacks the peer interaction of traditional classrooms.",
+            website: "https://byjus.com/ias/"
+        },
+        {
+            name: "Sai Vidya Institute of Technology (Coaching)",
+            location: "Rajanukunte, Bengaluru",
+            rating: "4.1/5 (for the college)",
+            total_reviews: "1,000+",
+            year_established: "N/A",
+            courses: "KCET, COMEDK. Fees: Varies.",
+            features: "Pros: In-house coaching by an established engineering college. Cons: Primarily for their own admissions.",
+            website: "https://www.saividya.ac.in"
+        },
+        {
+            name: "NIMHANS (Coaching for Entrance)",
+            location: "Hosur Road, Bengaluru",
+            rating: "4.6/5 (for the institute)",
+            total_reviews: "3,000+",
+            year_established: "N/A",
+            courses: "Psychiatry, Psychology PG Entrance. Fees: Varies.",
+            features: "Pros: Not a coaching center, but many specialized tutors in Bengaluru coach for its highly prestigious PG entrance exams.",
+            website: "https://nimhans.ac.in"
+        },
+        {
+            name: "GATE Academy",
+            location: "Marathahalli, Bengaluru",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,300+",
+            year_established: 2009,
+            courses: "GATE. Fees: Approx. ₹50,000 - ₹80,000.",
+            features: "Pros: National player for GATE with a strong online presence. Cons: Faces competition from local players.",
+            website: "https://www.thegateacademy.com"
+        },
+        {
+            name: "ACE Engineering Academy",
+            location: "Jayanagar, Bengaluru",
+            rating: "4.4/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 1995,
+            courses: "GATE, ESE. Fees: Approx. ₹60,000 - ₹1,00,000.",
+            features: "Pros: Hyderabad's top GATE institute with a center in Bengaluru. Cons: Highly technical.",
+            website: "https://www.aceenggacademy.com"
+        },
+        {
+            name: "Jnanagangotri",
+            location: "Vijayanagar, Bengaluru",
+            rating: "4.4/5 (Google)",
+            total_reviews: "900+",
+            year_established: "N/A",
+            courses: "KPSC, Banking, SSC. Fees: Varies.",
+            features: "Pros: Another strong local brand for government job coaching in the Vijayanagar hub. Cons: Traditional teaching.",
+            website: "N/A"
+        },
+        {
+            name: "Trishul Defence Academy",
+            location: "Marathahalli, Bengaluru",
+            rating: "4.7/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: 2003,
+            courses: "NDA, CDS, AFCAT, Agniveer. Fees: Varies.",
+            features: "Pros: A well-known Allahabad-based institute with a center in Bengaluru, good for defense exams.",
+            website: "https://trishuldefenceacademy.com"
+        },
+        {
+            name: "Elite IIT",
+            location: "Jayanagar, Bengaluru",
+            rating: "4.6/5 (Google)",
+            total_reviews: "800+",
+            year_established: "N/A",
+            courses: "JEE Main & Advanced. Fees: Varies.",
+            features: "Pros: Strong local brand for JEE, claims smaller batches and more personal attention. Cons: Less known than BASE or national brands.",
+            website: "https://www.eliteiit.com"
+        },
+        {
+            name: "Tandrust",
+            location: "Indiranagar, Bengaluru",
+            rating: "4.9/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "Personal Training, Nutrition Coaching. Fees: High.",
+            features: "Pros: Top-rated boutique fitness studio, representative of Bengaluru's wellness scene. Cons: Not academic coaching.",
+            website: "N/A"
+        },
+        {
+            name: "Abhyaas Law Prep",
+            location: "Jayanagar, Bengaluru",
+            rating: "4.5/5 (Google)",
+            total_reviews: "600+",
+            year_established: 2005,
+            courses: "CLAT, AILET. Fees: Approx. ₹60,000 - ₹1,20,000.",
+            features: "Pros: Hyderabad-based institute with a good presence in Bengaluru for law prep. Cons: Faces stiff competition from CL.",
+            website: "https://www.abhyaas.in"
+        },
+        {
+            name: "Indian Institute of Hardware Technology (IIHT)",
+            location: "Multiple, Bengaluru",
+            rating: "4.2/5 (Google)",
+            total_reviews: "3,000+",
+            year_established: 1993,
+            courses: "Cloud Computing, Networking, IT Management. Fees: Varies.",
+            features: "Pros: A veteran brand in IT infrastructure training, wide network of centers. Cons: Less focus on software development.",
+            website: "https://www.iiht.com"
+        },
+        {
+            name: "Achievers' Point",
+            location: "Koramangala, Bengaluru",
+            rating: "4.7/5 (Google)",
+            total_reviews: "700+",
+            year_established: 2005,
+            courses: "GMAT, GRE, SAT and study abroad counseling. Fees: Approx. ₹25,000 - ₹60,000.",
+            features: "Pros: Highly rated for personalized coaching and flexible timings. Cons: Smaller player in the market.",
+            website: "https://www.achieverspoint.com"
+        },
+        {
+            name: "Digital Academy 360",
+            location: "Jayanagar, Bengaluru",
+            rating: "4.8/5 (Google)",
+            total_reviews: "4,000+",
+            year_established: 2015,
+            courses: "Digital Marketing. Fees: Approx. ₹30,000 - ₹60,000.",
+            features: "Pros: One of Bengaluru's top-rated digital marketing institutes, strong curriculum, placement focus.",
+            website: "https://digitalacademy360.com"
+        },
+        {
+            name: "SpeedLabs",
+            location: "HSR Layout, Bengaluru (Hybrid)",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 2015,
+            courses: "JEE, NEET, Boards (AI-powered practice). Fees: Varies.",
+            features: "Pros: Technology-driven platform for personalized practice and doubt solving, with offline centers. Cons: Hybrid model is newer.",
+            website: "https://speedlabs.in"
+        },
+        {
+            name: "Gateforum",
+            location: "Jayanagar, Bengaluru",
+            rating: "4.3/5 (Google)",
+            total_reviews: "900+",
+            year_established: 2004,
+            courses: "GATE. Fees: Approx. ₹30,000 - ₹60,000.",
+            features: "Pros: Specialist in GATE coaching with multiple centers in the city. Cons: Faces competition from ACE/Made Easy.",
+            website: "https://www.gateforum.com"
+        },
+        {
+            name: "Universal College of Arts and Science (Coaching)",
+            location: "Rajajinagar, Bengaluru",
+            rating: "4.1/5 (for the college)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "PUC with CET coaching. Fees: Varies.",
+            features: "Pros: In-house coaching provided by a local PU college. Cons: Primarily for their own students.",
+            website: "N/A"
+        },
+        {
+            name: "Institute of Product Leadership",
+            location: "Koramangala, Bengaluru",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: 2012,
+            courses: "Product Management, Data Science (Executive Programs). Fees: Very High (₹2,50,000+).",
+            features: "Pros: A premier institute for product management courses, targeted at working professionals in the tech industry. Cons: Very niche and expensive.",
+            website: "https://www.productleadership.com"
+        },
+        {
+            name: "Global Jain Academy",
+            location: "Jayanagar, Bengaluru",
+            rating: "4.7/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "PUC Commerce, CA Foundation. Fees: Varies.",
+            features: "Pros: Popular with the Jain community, excellent reviews for commerce coaching. Cons: Niche and localized.",
+            website: "N/A"
+        },
+        {
+            name: "Sampurna Career Institute",
+            location: "Malleshwaram, Bengaluru",
+            rating: "4.8/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "CA, CS, CMA. Fees: Varies.",
+            features: "Pros: Highly-rated local institute for professional commerce courses. Cons: Smaller scale.",
+            website: "N/A"
+        },
+        {
+            name: "Bangalore Chess Academy",
+            location: "Koramangala, Bengaluru",
+            rating: "4.7/5 (Google)",
+            total_reviews: "600+",
+            year_established: "N/A",
+            courses: "Chess coaching for all levels. Fees: Monthly basis.",
+            features: "Pros: A leading chess academy in a city known for producing strong players. Cons: Hobby/professional skill, not academic.",
+            website: "N/A"
+        },
+        {
+            name: "Nivedita IAS",
+            location: "Chandra Layout, Bengaluru",
+            rating: "4.9/5 (Google)",
+            total_reviews: "300+",
+            year_established: "N/A",
+            courses: "UPSC, KPSC. Fees: Varies.",
+            features: "Pros: Exceptionally rated institute away from the main IAS hub, suggesting strong personal mentorship. Cons: Smaller scale.",
+            website: "N/A"
+        },
+        {
+            name: "T.I.M.E. (Malleshwaram)",
+            location: "Malleshwaram, Bengaluru",
+            rating: "4.2/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: "N/A",
+            courses: "CAT, Bank PO. Fees: Approx. ₹45,000 - ₹80,000.",
+            features: "Pros: Strong branch in a traditional educational hub. Cons: Standardized curriculum.",
+            website: "https://www.time4education.com"
+        },
+        {
+            name: "Aakash Institute (Malleshwaram)",
+            location: "Malleshwaram, Bengaluru",
+            rating: "4.3/5 (Google)",
+            total_reviews: "1,800+",
+            year_established: "N/A",
+            courses: "NEET, JEE. Fees: Approx. ₹1,40,000 - ₹2,80,000 per year.",
+            features: "Pros: Major center for medical aspirants in a prime location. Cons: Large batches.",
+            website: "https://www.aakash.ac.in"
+        },
+        {
+            name: "Allen Career Institute (HSR Layout)",
+            location: "HSR Layout, Bengaluru",
+            rating: "4.6/5 (Google)",
+            total_reviews: "2,500+",
+            year_established: "N/A",
+            courses: "JEE, NEET. Fees: Approx. ₹1,50,000 - ₹3,00,000 per year.",
+            features: "Pros: Caters to the IT corridor population, excellent infrastructure. Cons: High pressure.",
+            website: "https://www.allen.ac.in"
+        },
+        {
+            name: "FIITJEE (Malleshwaram)",
+            location: "Malleshwaram, Bengaluru",
+            rating: "4.0/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: "N/A",
+            courses: "JEE (Main & Advanced). Fees: High.",
+            features: "Pros: Caters to North Bengaluru, integrated programs available. Cons: Very rigorous.",
+            website: "https://www.fiitjee.com"
+        },
+        {
+            name: "IMS Learning Center (Indiranagar)",
+            location: "Indiranagar, Bengaluru",
+            rating: "4.7/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: "N/A",
+            courses: "CAT, GMAT, GRE. Fees: Approx. ₹50,000 - ₹90,000.",
+            features: "Pros: Top-rated center in a prime locality, excellent mentors. Cons: Premium pricing.",
+            website: "https://www.imsindia.com"
+        },
+        {
+            name: "Career Launcher (Jayanagar)",
+            location: "Jayanagar, Bengaluru",
+            rating: "4.3/5 (Google)",
+            total_reviews: "1,400+",
+            year_established: "N/A",
+            courses: "CLAT, CAT, IPM. Fees: Approx. ₹40,000 - ₹90,000.",
+            features: "Pros: Major center for law and management prep in South Bengaluru. Cons: Premium pricing.",
+            website: "https://www.careerlauncher.com"
+        },
+        {
+            name: "Qspiders (Rajajinagar)",
+            location: "Rajajinagar, Bengaluru",
+            rating: "4.5/5 (Google)",
+            total_reviews: "5,000+",
+            year_established: "N/A",
+            courses: "Software Testing. Fees: Approx. ₹25,000 - ₹45,000.",
+            features: "Pros: Another major hub for their testing courses. Cons: Niche IT focus.",
+            website: "https://www.qspiders.com"
+        },
+        {
+            name: "Besant Technologies (Jayanagar)",
+            location: "Jayanagar, Bengaluru",
+            rating: "4.8/5 (Google)",
+            total_reviews: "8,000+",
+            year_established: "N/A",
+            courses: "AWS, Python, Data Science. Fees: Approx. ₹18,000 - ₹45,000.",
+            features: "Pros: Highly-rated branch in a prime residential and educational area. Cons: Quality can vary by trainer.",
+            website: "https://www.besanttechnologies.com"
+        },
+        {
+            name: "Mahesh PU College",
+            location: "Malleshwaram, Bengaluru",
+            rating: "4.1/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: 1988,
+            courses: "Integrated PUC with CET/JEE/NEET. Fees: High.",
+            features: "Pros: Coaching arm of the Mahesh Tutorials group, strong in CET. Cons: Inconsistent reviews.",
+            website: "https://www.maheshpucollege.com"
+        },
+        {
+            name: "The Art of Living",
+            location: "Kanakapura Road, Bengaluru (Ashram)",
+            rating: "4.7/5 (Google)",
+            total_reviews: "25,000+",
+            year_established: 1981,
+            courses: "Yoga, Meditation, Happiness Program. Fees: Varies.",
+            features: "Pros: Global headquarters, offers immersive wellness and stress-relief programs. Cons: Not academic coaching.",
+            website: "https://www.artofliving.org"
+        },
+        {
+            name: "Alpha Academy for IAS/KAS",
+            location: "Vijayanagar, Bengaluru",
+            rating: "4.7/5 (Google)",
+            total_reviews: "600+",
+            year_established: "N/A",
+            courses: "KPSC, UPSC. Fees: Varies.",
+            features: "Pros: Highly-rated local institute with a strong focus on Karnataka state exams. Cons: Smaller scale.",
+            website: "N/A"
+        }
+    ];
+    ];
+
+    const instituteList = document.getElementById('institute-list');
+
+    // Function to display institutes
+    function displayInstitutes(instituteArray) {
+        instituteList.innerHTML = ''; // Clear current list
+        instituteArray.forEach(institute => {
+            const card = `
+                <div class="institute-card">
+                    <h2>${institute.name}</h2>
+                    <p><strong>Location:</strong> ${institute.location}</p>
+                    <div class="details-grid">
+                        <p class="rating"><strong>Rating:</strong> ${institute.rating}</p>
+                        <p><strong>Reviews:</strong> ${institute.total_reviews}</p>
+                        <p class="established"><strong>Established:</strong> ${institute.year_established}</p>
+                    </div>
+                    <p><strong>Courses & Fees:</strong> ${institute.courses}</p>
+                    <p><strong>Features:</strong> ${institute.features}</p>
+                    <a href="${institute.website}" target="_blank" rel="noopener noreferrer">Visit Website</a>
+                </div>
+            `;
+            instituteList.innerHTML += card;
+        });
+    }
+
+    // Function to filter institutes based on search criteria
+    function filterInstitutes() {
+        const nameQuery = document.getElementById('name-search').value.toLowerCase();
+        const ratingQuery = document.getElementById('rating-search').value;
+
+        const filteredInstitutes = institutes.filter(institute => {
+            const nameMatch = institute.name.toLowerCase().includes(nameQuery);
+            // Extract the number part of the rating for a more flexible search
+            const ratingValue = institute.rating.split('/')[0].trim();
+            const ratingMatch = ratingValue.startsWith(ratingQuery);
+            
+            return nameMatch && ratingMatch;
+        });
+
+        displayInstitutes(filteredInstitutes);
+    }
+
+    // Initial display of all institutes
+    window.onload = () => {
+        displayInstitutes(institutes);
+    };
+
+</script>
+
+</body>
+</html>

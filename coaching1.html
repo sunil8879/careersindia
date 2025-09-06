@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top coaching institutes in India</title>
+<style>
+    @import url('https://fonts.cdnfonts.com/css/impact');
+
+    :root {
+        --white: #ffffff;
+        --modern-blue: #007BFF;
+        --modern-blue-dark: #0056b3; /* For 3D shadow */
+        --dark-text: #212529;
+        --border-color: #dee2e6;
+        --shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    /* General Body Styling */
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        background-color: var(--white);
+        background-image: none;
+        margin: 0;
+        padding: 0;
+        color: var(--dark-text);
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    /* Header Box for Title and Dashboard Button */
+    .header-container {
+        background-color: var(--modern-blue);
+        padding: 25px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        border-bottom: none;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* The Intense 3D Impact Font Title */
+    h1 {
+        font-family: 'Impact', sans-serif;
+        font-size: 3.5em;
+        font-weight: normal;
+        line-height: 1.0;
+        color: var(--white);
+        text-align: center;
+        margin: 0 0 20px 0;
+        text-shadow: 
+            1px 1px 0px var(--modern-blue-dark), 
+            2px 2px 0px var(--modern-blue-dark), 
+            3px 3px 0px var(--modern-blue-dark),
+            4px 4px 8px rgba(0,0,0,0.2);
+        letter-spacing: 1px;
+    }
+    
+    .dashboard-button-container {
+        text-align: center;
+    }
+
+    /* MODIFIED: 3D Dashboard Button Styling */
+    .dashboard-button {
+        padding: 12px 25px;
+        font-size: 1.1em;
+        font-weight: bold;
+        color: var(--dark-text);
+        background-color: var(--white);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.1s ease-in-out;
+        box-shadow: 0 5px var(--border-color); /* The 3D effect */
+    }
+    .dashboard-button:hover {
+        background-color: #f8f9fa;
+    }
+    .dashboard-button:active {
+        transform: translateY(3px); /* "Press in" effect */
+        box-shadow: 0 2px var(--border-color);
+    }
+
+    /* Main 2-column container */
+    .main-container {
+        display: flex;
+        flex-grow: 1;
+        padding: 25px;
+        gap: 25px;
+    }
+
+    /* Left Sidebar Styling */
+    .sidebar {
+        width: 280px;
+        flex-shrink: 0;
+        background-color: var(--modern-blue);
+        color: var(--white);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: var(--shadow);
+        border: 1px solid var(--modern-blue-dark);
+        align-self: flex-start;
+        position: sticky;
+        top: 180px;
+    }
+
+    .sidebar h3 {
+        margin-top: 0;
+        border-bottom: 2px solid rgba(255,255,255,0.2);
+        padding-bottom: 10px;
+        color: var(--white);
+    }
+
+    /* MODIFIED: 3D Inset Search Box */
+    .search-box input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid var(--border-color);
+        border-radius: 5px;
+        font-size: 1em;
+        box-sizing: border-box;
+        background-color: var(--white);
+        color: var(--dark-text);
+        box-shadow: inset 2px 2px 5px rgba(0,0,0,0.1); /* Inset 3D effect */
+    }
+    
+    .city-nav ul { list-style-type: none; padding: 0; margin: 0; }
+    
+    /* MODIFIED: 3D City Links */
+    .city-nav li {
+        padding: 12px 15px;
+        margin-bottom: 12px; /* Increased margin for 3D look */
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.1s ease-in-out;
+        font-weight: 500;
+        background-color: var(--white);
+        color: var(--dark-text);
+        box-shadow: 0 4px rgba(0,0,0,0.1); /* 3D effect */
+    }
+    .city-nav li:hover {
+        background-color: #f0f0f0;
+    }
+    .city-nav li:active, .city-nav li.active {
+        transform: translateY(2px); /* "Press in" effect */
+        box-shadow: 0 2px rgba(0,0,0,0.1);
+        background-color: var(--modern-blue-dark);
+        color: white;
+    }
+
+    /* Right Content Area Styling */
+    .content {
+        flex-grow: 1;
+        background-color: var(--modern-blue);
+        padding: 25px;
+        border-radius: 10px;
+        color: var(--white);
+    }
+    
+    #institute-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+        gap: 25px;
+    }
+    
+    /* Institute cards are white boxes */
+    .institute-card {
+        background-color: var(--white);
+        color: var(--dark-text);
+        border: 1px solid var(--border-color);
+        border-left: 5px solid var(--modern-blue);
+        padding: 20px;
+        border-radius: 8px;
+    }
+    
+    #institute-list .loading-message, #institute-list .error-message {
+        grid-column: 1 / -1;
+        text-align: center;
+        font-size: 1.2em;
+        color: var(--white);
+        background: transparent;
+        padding: 15px;
+        border-radius: 8px;
+    }
+</style>
+</head>
+<body>
+
+    <header class="header-container">
+        <h1>TOP COACHING INSTITUTES IN INDIA</h1>
+        <div class="dashboard-button-container">
+            <button id="top20-btn" class="dashboard-button">ALL TIME TOP COACHING CENTERS</button>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <aside class="sidebar">
+            <div class="search-box">
+                <h3>Search Filters</h3>
+                <input type="text" id="name-search" onkeyup="filterInstitutes()" placeholder="Search by Name...">
+                <input type="text" id="rating-search" onkeyup="filterInstitutes()" placeholder="Search by Rating...">
+                <input type="text" id="course-search" onkeyup="filterInstitutes()" placeholder="Search by Course...">
+            </div>
+            <nav class="city-nav">
+                <h3>Select a City</h3>
+                <ul id="city-list">
+                    <li data-file="coaching_mumbai.html">Mumbai</li>
+                    <li data-file="coaching_delhi.html">Delhi</li>
+                    <li data-file="coaching_kolkata.html">Kolkata</li>
+                    <li data-file="coaching_chennai.html">Chennai</li>
+                    <li data-file="coaching_ahmedabad.html">Ahmedabad</li>
+                    <li data-file="coaching_hyderabad.html">Hyderabad</li>
+                    <li data-file="coaching_bengaluru.html">Bengaluru</li>
+                    <li data-file="coaching_pune.html">Pune</li>
+                    <li data-file="coaching_india.html">Other Indian Cities</li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="content">
+            <div id="institute-list">
+                <div class="loading-message">Select a city to view coaching institutes.</div>
+            </div>
+        </main>
+    </div>
+
+<script>
+    const cityListItems = document.querySelectorAll("#city-list li");
+    const instituteListContainer = document.getElementById("institute-list");
+    const top20Button = document.getElementById('top20-btn');
+
+    let allInstitutesData = []; // To store data from all files for the dashboard
+    let currentCityData = [];   // To store data for the currently selected city
+    let isDashboardActive = false;
+
+    // TOP 20 COACHING CENTERS - Based on reputation, results, faculty, infrastructure etc.
+    const top20Institutes = [
+        { name: "Allen Career Institute", location: "Kota, Rajasthan", rank: 1 },
+        { name: "Vajiram & Ravi", location: "Old Rajinder Nagar, Delhi", rank: 2 },
+        { name: "Aakash Institute", location: "All India", rank: 3 },
+        { name: "FIITJEE", location: "All India", rank: 4 },
+        { name: "Drishti IAS", location: "Mukherjee Nagar, Delhi", rank: 5 },
+        { name: "ACE Engineering Academy", location: "Hyderabad, Telangana", rank: 6 },
+        { name: "Sri Chaitanya", location: "Andhra Pradesh / Telangana", rank: 7 },
+        { name: "Brilliant Study Centre", location: "Pala, Kerala", rank: 8 },
+        { name: "Made Easy", location: "All India", rank: 9 },
+        { name: "InsightsIAS", location: "Bengaluru, Karnataka", rank: 10 },
+        { name: "Narayana Junior College", location: "Andhra Pradesh / Telangana", rank: 11 },
+        { name: "Vision IAS", location: "Old Rajinder Nagar, Delhi", rank: 12 },
+        { name: "Bakliwal Tutorials", location: "Pune, Maharashtra", rank: 13 },
+        { name: "RICE Education", location: "Kolkata, West Bengal", rank: 14 },
+        { name: "IMS Learning Center", location: "All India", rank: 15 },
+        { name: "J.K. Shah Classes", location: "All India", rank: 16 },
+        { name: "Shankar IAS Academy", location: "Chennai / All India", rank: 17 },
+        { name: "Navkar Institute", location: "Ahmedabad, Gujarat", rank: 18 },
+        { name: "Liberty Career Academy", location: "Gujarat", rank: 19 },
+        { name: "Qspiders / Jspiders", location: "Bengaluru / All India", rank: 20 }
+    ];
+
+    // Function to fetch and parse data from an HTML file
+    async function fetchAndParseHTML(fileName) {
+        try {
+            const response = await fetch(fileName);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const text = await response.text();
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(text, 'text/html');
+            const scriptTag = doc.querySelector('script');
+            const arrayRegex = /const institutes = (\[[\s\S]*?\]);/;
+            const match = scriptTag.textContent.match(arrayRegex);
+            if (match && match[1]) {
+                return new Function(`return ${match[1]}`)();
+            }
+            return [];
+        } catch (e) {
+            console.error(`Error fetching or parsing ${fileName}:`, e);
+            instituteListContainer.innerHTML = `<div class="error-message">Error: Could not load data from ${fileName}. Please ensure the file exists in the same folder.</div>`;
+            return [];
+        }
+    }
+
+    // *** NEW UTILITY FUNCTION ***
+    // This function takes an array of institutes, removes duplicates by name,
+    // and updates the location to "Multiple Locations" if needed.
+    function processUniqueInstitutes(data) {
+        const uniqueInstitutesMap = new Map();
+
+        data.forEach(institute => {
+            // Normalize the name to handle variations like "Aakash" vs "aakash "
+            const instituteKey = institute.name.trim().toLowerCase();
+
+            if (uniqueInstitutesMap.has(instituteKey)) {
+                // Institute already exists. Check if location is different.
+                const existingInstitute = uniqueInstitutesMap.get(instituteKey);
+                if (existingInstitute.location && institute.location &&
+                    existingInstitute.location.trim().toLowerCase() !== institute.location.trim().toLowerCase()) 
+                {
+                    existingInstitute.location = 'Multiple Locations';
+                }
+                // We could also merge other data here, like averaging ratings
+            } else {
+                // First time seeing this institute. Add a copy to the map.
+                uniqueInstitutesMap.set(instituteKey, { ...institute });
+            }
+        });
+
+        // Return a new array containing only the unique, processed institutes
+        return Array.from(uniqueInstitutesMap.values());
+    }
+
+    // *** UPDATED displayInstitutes function ***
+    // Now uses the new utility function to process data before displaying.
+    function displayInstitutes(data) {
+        instituteListContainer.innerHTML = '';
+        
+        // Process the data to handle duplicates and multiple locations FIRST
+        const processedData = processUniqueInstitutes(data);
+
+        if (processedData.length === 0) {
+            instituteListContainer.innerHTML = `<div class="loading-message">No institutes found matching your criteria.</div>`;
+            return;
+        }
+
+        // Sort the unique, processed data alphabetically
+        processedData.sort((a, b) => a.name.localeCompare(b.name));
+
+        processedData.forEach(institute => {
+            const card = document.createElement('div');
+            card.className = 'institute-card';
+            card.innerHTML = `
+                <h2>${institute.name}</h2>
+                <p><strong>Location:</strong> ${institute.location || 'N/A'}</p>
+                <div class="details-grid">
+                    <p><strong>Rating:</strong> ${institute.rating || 'N/A'}</p>
+                    <p><strong>Reviews:</strong> ${institute.total_reviews || 'N/A'}</p>
+                    <p><strong>Established:</strong> ${institute.year_established || 'N/A'}</p>
+                </div>
+                <p><strong>Courses & Fees:</strong> ${institute.courses || 'N/A'}</p>
+                <p><strong>Features:</strong> ${institute.features || 'N/A'}</p>
+                <a href="${institute.website}" target="_blank" rel="noopener noreferrer">Visit Website</a>
+            `;
+            instituteListContainer.appendChild(card);
+        });
+    }
+    
+    // *** UPDATED displayDashboard function ***
+    // Now also uses the utility function to process the combined data from all files.
+    async function displayDashboard() {
+        isDashboardActive = true;
+        document.querySelector('.sidebar').style.display = 'none';
+        instituteListContainer.style.gridTemplateColumns = '1fr';
+        instituteListContainer.innerHTML = `<div class="loading-message">Loading All-Time Top Centers...</div>`;
+
+        if (allInstitutesData.length === 0) {
+            const files = [
+                'coaching_mumbai.html', 'coaching_delhi.html', 'coaching_kolkata.html',
+                'coaching_chennai.html', 'coaching_ahmedabad.html', 'coaching_hyderabad.html',
+                'coaching_bengaluru.html', 'coaching_pune.html', 'coaching_india.html'
+            ];
+            const promises = files.map(file => fetchAndParseHTML(file));
+            const results = await Promise.all(promises);
+            allInstitutesData = results.flat();
+        }
+
+        // Process the entire dataset to handle duplicates from different files
+        const uniqueAllInstitutes = processUniqueInstitutes(allInstitutesData);
+
+        const topInstitutesDetails = top20Institutes.map((topInst, index) => {
+            // Find details from the UNIQUE list now
+            const details = uniqueAllInstitutes.find(inst => inst.name.toLowerCase().includes(topInst.name.toLowerCase()));
+            
+            // If details are found, merge them with the rank info. Otherwise, just use the rank info.
+            const finalDetails = details ? { ...details, ...topInst } : { ...topInst };
+
+            return { ...finalDetails, rank: index + 1 };
+        });
+
+        instituteListContainer.innerHTML = '';
+        topInstitutesDetails.forEach(institute => {
+            if (!institute.name) return;
+            const card = document.createElement('div');
+            card.className = 'institute-card top-rank';
+            card.innerHTML = `
+                <h2><span class="rank">#${institute.rank}</span> ${institute.name}</h2>
+                <p><strong>Location:</strong> ${institute.location}</p>
+                <div class="details-grid">
+                    <p><strong>Rating:</strong> ${institute.rating || 'N/A'}</p>
+                    <p><strong>Reviews:</strong> ${institute.total_reviews || 'N/A'}</p>
+                    <p><strong>Established:</strong> ${institute.year_established || 'N/A'}</p>
+                </div>
+                <p><strong>Courses & Fees:</strong> ${institute.courses || 'N/A'}</p>
+                <p><strong>Features:</strong> ${institute.features || 'N/A'}</p>
+                <a href="${institute.website}" target="_blank" rel="noopener noreferrer">Visit Website</a>
+            `;
+            instituteListContainer.appendChild(card);
+        });
+    }
+
+    // Event listener for city selection
+    cityListItems.forEach(item => {
+        item.addEventListener('click', async () => {
+            isDashboardActive = false;
+            document.querySelector('.sidebar').style.display = 'block';
+            instituteListContainer.style.gridTemplateColumns = 'repeat(auto-fill, minmax(400px, 1fr))';
+            
+            cityListItems.forEach(li => li.classList.remove('active'));
+            item.classList.add('active');
+            
+            instituteListContainer.innerHTML = `<div class="loading-message">Loading data for ${item.textContent}...</div>`;
+            const fileName = item.getAttribute('data-file');
+            currentCityData = await fetchAndParseHTML(fileName);
+            filterInstitutes();
+        });
+    });
+    
+    // Event listener for the dashboard button
+    top20Button.addEventListener('click', () => {
+        cityListItems.forEach(li => li.classList.remove('active'));
+        displayDashboard();
+    });
+
+    // Filtering logic (uses the same raw city data, display function handles uniques)
+    function filterInstitutes() {
+        if (isDashboardActive) return;
+
+        const nameQuery = document.getElementById('name-search').value.toLowerCase();
+        const ratingQuery = document.getElementById('rating-search').value.toLowerCase();
+        const courseQuery = document.getElementById('course-search').value.toLowerCase();
+
+        const filtered = currentCityData.filter(inst => {
+            const nameMatch = inst.name.toLowerCase().includes(nameQuery);
+            const ratingValue = inst.rating ? inst.rating.split('/')[0].trim().toLowerCase() : "";
+            const ratingMatch = ratingValue.startsWith(ratingQuery);
+            const courseMatch = inst.courses ? inst.courses.toLowerCase().includes(courseQuery) : false;
+
+            return nameMatch && ratingMatch && courseMatch;
+        });
+
+        displayInstitutes(filtered);
+    }
+</script>
+
+</body>
+</html>

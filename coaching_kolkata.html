@@ -1,0 +1,1618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top coaching institutes in Kolkata</title>
+    <style>
+        /* General Body Styling */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            background-color: #fff5f5; /* Light red/pink background */
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        /* Header Box for Title and Search */
+        .header-container {
+            background-color: #d9534f; /* Red background */
+            padding: 30px 25px;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            border: 1px solid #c9302c;
+        }
+
+        /* 3D Title Styling */
+        h1 {
+            color: white;
+            text-align: center;
+            font-size: 3em;
+            font-weight: 700;
+            margin: 0 0 25px 0;
+            /* 3D Effect using a darker red shadow */
+            text-shadow: 3px 3px 0px #ac2925, 6px 6px 10px rgba(0, 0, 0, 0.3);
+            letter-spacing: 1px;
+        }
+
+        /* Search Box Container */
+        .search-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        /* Search Input Fields */
+        .search-container input {
+            padding: 12px 18px;
+            font-size: 1em;
+            width: 320px;
+            max-width: 90%;
+            border: none;
+            border-radius: 50px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1) inset;
+        }
+
+        .search-container input:focus {
+            outline: none;
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.7), 0 2px 4px rgba(0,0,0,0.1) inset;
+        }
+
+        /* Main container for the institute list */
+        #institute-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 25px;
+        }
+
+        /* Individual Institute Card Styling */
+        .institute-card {
+            background-color: white;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .institute-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+        }
+        
+        .institute-card h2 {
+            margin-top: 0;
+            font-size: 1.6em;
+            color: #c9302c; /* Red title */
+        }
+
+        .institute-card p {
+            margin: 8px 0;
+            line-height: 1.6;
+            font-size: 0.95em;
+        }
+
+        .institute-card strong {
+            color: #212529;
+            font-weight: 600;
+        }
+
+        .institute-card a {
+            color: #ac2925;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: auto; /* Pushes the link to the bottom */
+            align-self: flex-start;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .institute-card a:hover {
+            background-color: #fbeaea;
+            color: #8b211e;
+        }
+        
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5px 15px;
+            margin-bottom: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="header-container">
+        <h1>Top coaching institutes in Kolkata</h1>
+        <div class="search-container">
+            <input type="text" id="name-search" onkeyup="filterInstitutes()" placeholder="Search by Institute Name...">
+            <input type="text" id="rating-search" onkeyup="filterInstitutes()" placeholder="Search by Rating (e.g., 4.8)...">
+        </div>
+    </div>
+
+    <main id="institute-list">
+        <!-- Institute cards will be dynamically inserted here by JavaScript -->
+    </main>
+
+<script>
+    // Data for all 300 coaching institutes
+    const institutes = [
+        {
+            name: "FIITJEE",
+            location: "Salt Lake, Kolkata",
+            rating: "4.3/5 (Google)",
+            total_reviews: "2,500+",
+            year_established: 1992,
+            courses: "JEE (Main & Advanced), Foundation. Fees: Approx. ₹2,00,000 - ₹4,00,000 for 2-year programs.",
+            features: "Pros: National brand, highly competitive, excellent test series. Cons: Very high fees, high pressure, large batch sizes.",
+            website: "https://www.fiitjee.com"
+        },
+        {
+            name: "Aakash Institute",
+            location: "Salt Lake, Kolkata",
+            rating: "4.4/5 (Google)",
+            total_reviews: "3,000+",
+            year_established: 1988,
+            courses: "NEET, JEE, Foundation. Fees: Approx. ₹1,80,000 - ₹3,50,000 for 2-year programs.",
+            features: "Pros: Top choice for NEET, standardized study material, regular tests. Cons: Large batches, fast-paced teaching.",
+            website: "https://www.aakash.ac.in"
+        },
+        {
+            name: "RICE Education",
+            location: "Sealdah, Kolkata",
+            rating: "4.5/5 (Google)",
+            total_reviews: "10,000+",
+            year_established: 1985,
+            courses: "WBCS, SSC, Banking, Railways, PSC. Fees: Approx. ₹25,000 - ₹80,000.",
+            features: "Pros: Market leader for government jobs in West Bengal, vast network, proven track record. Cons: Extremely large batches, traditional teaching methods.",
+            website: "https://www.riceindia.org"
+        },
+        {
+            name: "Pathfinder",
+            location: "Jadavpur, Kolkata",
+            rating: "4.2/5 (Google)",
+            total_reviews: "4,000+",
+            year_established: 1995,
+            courses: "WBJEE, JEE Main, NEET, Boards (WBCHSE, CBSE, ICSE). Fees: Approx. ₹80,000 - ₹1,80,000.",
+            features: "Pros: A legendary local brand, strong focus on board exams and WBJEE. Cons: Less aggressive for national exams like JEE Advanced.",
+            website: "https://www.pathfinder.edu.in"
+        },
+        {
+            name: "TIME (Triumphant Institute of Management Education)",
+            location: "Park Street, Kolkata",
+            rating: "4.3/5 (Google)",
+            total_reviews: "2,200+",
+            year_established: 1992,
+            courses: "CAT, GMAT, GRE, Bank PO, SSC. Fees: Approx. ₹40,000 - ₹75,000 per course.",
+            features: "Pros: Pan-India brand, comprehensive material, numerous mock tests. Cons: Standardized approach may not suit everyone.",
+            website: "https://www.time4education.com"
+        },
+        {
+            name: "IMS Learning Center",
+            location: "Park Street, Kolkata",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,800+",
+            year_established: 1977,
+            courses: "CAT, GMAT, GRE, CLAT, BBA. Fees: Approx. ₹45,000 - ₹85,000 per course.",
+            features: "Pros: Excellent mentors, strong focus on test-taking strategy, great mock analysis. Cons: Premium pricing.",
+            website: "https://www.imsindia.com"
+        },
+        {
+            name: "Career Launcher",
+            location: "Salt Lake, Kolkata",
+            rating: "4.4/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 1995,
+            courses: "CLAT, CAT, IPM, Bank PO. Fees: Approx. ₹40,000 - ₹90,000 per course.",
+            features: "Pros: Market leader for CLAT, strong online platform (SIS). Cons: Course material can be very voluminous.",
+            website: "https://www.careerlauncher.com"
+        },
+        {
+            name: "Allen Career Institute",
+            location: "New Town, Kolkata",
+            rating: "4.5/5 (Google)",
+            total_reviews: "4,500+",
+            year_established: 1988,
+            courses: "JEE (Main & Advanced), NEET. Fees: Approx. ₹1,60,000 - ₹3,20,000 per year.",
+            features: "Pros: Kota's top system in Kolkata, disciplined environment, excellent results nationally. Cons: Highly commercialized, can be overwhelming.",
+            website: "https://www.allen.ac.in"
+        },
+        {
+            name: "Apti Plus Academy for Civil Services",
+            location: "Salt Lake, Kolkata",
+            rating: "4.8/5 (Google)",
+            total_reviews: "3,000+",
+            year_established: 2006,
+            courses: "IAS, WBCS, OAS. Fees: Approx. ₹90,000 - ₹1,80,000 for foundation courses.",
+            features: "Pros: One of the top institutes for Civil Services in Eastern India, excellent faculty, good infrastructure. Cons: High fees.",
+            website: "https://www.aptiplus.in"
+        },
+        {
+            name: "George School of Competitive Exams",
+            location: "Sealdah, Kolkata",
+            rating: "4.3/5 (Google)",
+            total_reviews: "2,000+",
+            year_established: 1920,
+            courses: "WBCS, Banking, SSC, Railways. Fees: Approx. ₹20,000 - ₹60,000.",
+            features: "Pros: An old and reputed competitor to RICE, experienced faculty for government jobs. Cons: Crowded, traditional approach.",
+            website: "https://www.georgecollege.org/gsce"
+        },
+        {
+            name: "J.K. Shah Classes",
+            location: "Bhawanipur, Kolkata",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: 1983,
+            courses: "CA (Foundation, Inter, Final), CS. Fees: Approx. ₹60,000 - ₹1,50,000 depending on level.",
+            features: "Pros: National leader in CA coaching, experienced faculty, extensive notes. Cons: Very long and hectic class schedules.",
+            website: "https://www.jkshahclasses.com"
+        },
+        {
+            name: "Sourav Sir's Classes",
+            location: "Ultadanga, Kolkata (and online)",
+            rating: "4.7/5 (Google)",
+            total_reviews: "1,100+",
+            year_established: 2012,
+            courses: "IIT-JAM, ISI, Economics Entrance, UPSC Maths. Fees: Varies widely by course.",
+            features: "Pros: Highly reputed for higher education entrance exams, especially in Maths, Stats, and Economics. Cons: Primarily driven by a single faculty.",
+            website: "https://www.souravsirsclasses.com"
+        },
+        {
+            name: "Vidyamandir Classes (VMC)",
+            location: "Salt Lake, Kolkata",
+            rating: "4.4/5 (Google)",
+            total_reviews: "900+",
+            year_established: 1986,
+            courses: "JEE (Main & Advanced), NEET. Fees: Approx. ₹1,80,000 - ₹3,50,000 for 2 years.",
+            features: "Pros: Delhi's trusted brand, strong focus on fundamentals, good peer group. Cons: Very rigorous curriculum.",
+            website: "https://www.vidyamandir.com"
+        },
+        {
+            name: "Mahendras Educational",
+            location: "Park Street, Kolkata",
+            rating: "4.2/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 1994,
+            courses: "Banking (IBPS, SBI), SSC. Fees: Approx. ₹10,000 - ₹18,000.",
+            features: "Pros: Affordable, strong online test portal (ST Portal). Cons: Very large and generic batches.",
+            website: "https://mahendras.org"
+        },
+        {
+            name: "TICS (Tathagata's Initiative for Civil Services)",
+            location: "Hazra, Kolkata",
+            rating: "4.6/5 (Google)",
+            total_reviews: "700+",
+            year_established: "N/A",
+            courses: "WBCS, UPSC. Fees: Approx. ₹70,000 - ₹1,20,000.",
+            features: "Pros: Strong focus on WBCS, run by experienced mentors and officers. Cons: Smaller scale compared to RICE.",
+            website: "N/A"
+        },
+        {
+            name: "Pahal Design",
+            location: "Park Street, Kolkata",
+            rating: "4.8/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: 1999,
+            courses: "NID, NIFT, NATA, UCEED, CEED. Fees: Approx. ₹50,000 - ₹1,20,000.",
+            features: "Pros: Top-rated institute for design entrance exams, creative workshops. Cons: Niche focus.",
+            website: "https://www.pahaldesign.com"
+        },
+        {
+            name: "Goethe-Institut / Max Mueller Bhavan",
+            location: "Park Mansions, Kolkata",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,800+",
+            year_established: 1957,
+            courses: "German Language Courses (A1-C2). Fees: Approx. ₹25,000 - ₹35,000 per level.",
+            features: "Pros: Official German cultural institute, authentic teaching, internationally recognized certificates. Cons: Very high demand, batches fill up instantly.",
+            website: "https://www.goethe.de/ins/in/en/sta/kol.html"
+        },
+        {
+            name: "Alliance Française du Bengale",
+            location: "Park Mansions, Kolkata",
+            rating: "4.4/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: 1940,
+            courses: "French Language Courses (A1-C2). Fees: Approx. ₹22,000 - ₹30,000 per level.",
+            features: "Pros: Official French cultural center, immersive learning environment. Cons: Prime location, can be expensive.",
+            website: "https://bengale.afindia.org"
+        },
+        {
+            name: "EduGaps",
+            location: "Sealdah, Kolkata",
+            rating: "4.9/5 (Google)",
+            total_reviews: "800+",
+            year_established: "N/A",
+            courses: "WBCS. Fees: Approx. ₹50,000 - ₹90,000.",
+            features: "Pros: Highly rated for WBCS, focuses on small batches and mentorship. Cons: Newer and smaller than established players.",
+            website: "https://edugaps.in"
+        },
+        {
+            name: "MAAC (Maya Academy of Advanced Cinematics)",
+            location: "Park Street, Kolkata",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,600+",
+            year_established: 2001,
+            courses: "3D Animation, VFX, Game Design. Fees: Approx. ₹1,50,000 - ₹5,00,000 for career courses.",
+            features: "Pros: Industry-recognized certification, hands-on training, good placement network. Cons: Very high fees.",
+            website: "https://www.maacindia.com"
+        },
+        {
+            name: "Arena Animation",
+            location: "Salt Lake, Kolkata",
+            rating: "4.4/5 (Google)",
+            total_reviews: "1,400+",
+            year_established: 1996,
+            courses: "Animation, VFX, Web Design. Fees: Approx. ₹1,00,000 - ₹4,50,000 for career courses.",
+            features: "Pros: One of the oldest animation training institutes, good industry links. Cons: Franchise model can lead to variable quality.",
+            website: "https://www.arena-multimedia.com"
+        },
+        {
+            name: "Frankfinn Institute of Air Hostess Training",
+            location: "Camac Street, Kolkata",
+            rating: "4.6/5 (Google)",
+            total_reviews: "2,500+",
+            year_established: 1993,
+            courses: "Aviation, Hospitality and Travel Management. Fees: Approx. ₹1,50,000 - ₹2,50,000.",
+            features: "Pros: Market leader in cabin crew training, strong placement assistance. Cons: Very high fees, industry-specific.",
+            website: "https://www.frankfinn.com"
+        },
+        {
+            name: "IBT Institute",
+            location: "Sealdah, Kolkata",
+            rating: "4.7/5 (Google)",
+            total_reviews: "1,800+",
+            year_established: 2009,
+            courses: "Bank PO, SSC CGL, Railways. Fees: Approx. ₹10,000 - ₹20,000.",
+            features: "Pros: Strong presence for banking exams, lifetime membership card. Cons: Large batches.",
+            website: "https://www.ibtindia.com"
+        },
+        {
+            name: "Jamboree Education",
+            location: "Salt Lake, Kolkata",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,100+",
+            year_established: 1993,
+            courses: "GMAT, GRE, SAT, IELTS, TOEFL. Fees: Approx. ₹30,000 - ₹60,000 per course.",
+            features: "Pros: Excellent study material especially for GMAT/GRE. Cons: Limited focus on admissions counseling.",
+            website: "https://www.jamboreeindia.com"
+        },
+        {
+            name: "A.B. Physics Classes",
+            location: "Jadavpur, Kolkata",
+            rating: "4.8/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "Physics for WBJEE, JEE, NEET. Fees: Approx. ₹40,000 - ₹80,000.",
+            features: "Pros: Renowned individual faculty for Physics, strong conceptual teaching. Cons: Single subject focus, limited seats.",
+            website: "N/A"
+        },
+        {
+            name: "S.N. Commerce Tutorials",
+            location: "Gariahat, Kolkata",
+            rating: "4.7/5 (Google)",
+            total_reviews: "600+",
+            year_established: "N/A",
+            courses: "XI-XII Commerce, B.Com. Fees: Approx. ₹25,000 - ₹50,000.",
+            features: "Pros: Long-standing and reputed local class for Commerce subjects. Cons: Focus on board and university exams.",
+            website: "N/A"
+        },
+        {
+            name: "Eastern India CA-Hub",
+            location: "Bhawanipur, Kolkata",
+            rating: "4.6/5 (Google)",
+            total_reviews: "700+",
+            year_established: "N/A",
+            courses: "CA, CS. Fees: Varies.",
+            features: "Pros: A strong local brand for CA coaching, competing with national players. Cons: Less brand recognition outside Kolkata.",
+            website: "N/A"
+        },
+        {
+            name: "The British Institutes",
+            location: "Park Street, Kolkata",
+            rating: "4.2/5 (Google)",
+            total_reviews: "800+",
+            year_established: 1935,
+            courses: "Spoken English, Foreign Languages. Fees: Approx. ₹10,000 - ₹25,000.",
+            features: "Pros: A very old and established institution for language training. Cons: Curriculum may seem dated.",
+            website: "https://www.thebritishinstitutes.com"
+        },
+        {
+            name: "Ramakrishna Mission, Belur Math (Language Courses)",
+            location: "Belur, Howrah (Kolkata Metropolitan Area)",
+            rating: "4.8/5 (Google for the institution)",
+            total_reviews: "15,000+",
+            year_established: 1897,
+            courses: "Spoken English, Foreign Languages (e.g., German, French, Japanese). Fees: Highly subsidized.",
+            features: "Pros: Excellent quality teaching in a disciplined environment, extremely affordable. Cons: Very high demand, difficult to get admission.",
+            website: "https://belurmath.org"
+        },
+        {
+            name: "VisionIAS",
+            location: "Salt Lake, Kolkata",
+            rating: "4.4/5 (Google)",
+            total_reviews: "1,300+",
+            year_established: 2009,
+            courses: "UPSC (GS Foundation, Test Series). Fees: Approx. ₹1,50,000+ for courses.",
+            features: "Pros: Unmatched reputation for its All India Test Series, good current affairs material. Cons: Batches are huge.",
+            website: "https://visionias.in"
+        },
+        {
+            name: "A.B. Classes for Mathematics",
+            location: "Salt Lake, Kolkata",
+            rating: "4.9/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "Maths for WBJEE, JEE. Fees: Approx. ₹40,000 - ₹80,000.",
+            features: "Pros: Top-rated local teacher for Mathematics, focuses on problem-solving skills. Cons: Individual-driven.",
+            website: "N/A"
+        },
+        {
+            name: "L2A (Learn to Achieve)",
+            location: "Salt Lake, Kolkata",
+            rating: "4.8/5 (Google)",
+            total_reviews: "600+",
+            year_established: "N/A",
+            courses: "IAS, WBCS. Fees: Approx. ₹80,000 - ₹1,50,000.",
+            features: "Pros: Good reviews for personalized guidance and small batches. Cons: Newer entrant in the civil services market.",
+            website: "https://l2a.in"
+        },
+        {
+            name: "Narayana IIT Academy",
+            location: "Salt Lake, Kolkata",
+            rating: "4.1/5 (Google)",
+            total_reviews: "1,100+",
+            year_established: 1979,
+            courses: "JEE, NEET. Fees: Approx. ₹1,70,000 - ₹3,30,000 for 2 years.",
+            features: "Pros: South India's powerhouse, very aggressive and competitive approach. Cons: Extremely high pressure.",
+            website: "https://www.narayanagroup.com"
+        },
+        {
+            name: "ILEAP",
+            location: "Hazra, Kolkata",
+            rating: "4.7/5 (Google)",
+            total_reviews: "800+",
+            year_established: 2011,
+            courses: "CLAT, AILET, other law entrances. Fees: Approx. ₹50,000 - ₹90,000.",
+            features: "Pros: Reputed local institute for law entrance coaching, good results. Cons: Faces competition from national brands.",
+            website: "https://www.ileap.net.in"
+        },
+        {
+            name: "Vanik",
+            location: "Sealdah, Kolkata",
+            rating: "4.6/5 (Google)",
+            total_reviews: "2,500+",
+            year_established: 2008,
+            courses: "Banking, SSC, Railways. Fees: Approx. ₹15,000 - ₹25,000.",
+            features: "Pros: Odisha's top institute with a strong Kolkata presence, good material. Cons: Faces stiff local competition.",
+            website: "https://www.vanik.org"
+        },
+        {
+            name: "Byju's Tuition Centre",
+            location: "Multiple (e.g., Lake Town, Behala)",
+            rating: "4.3/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: 2011,
+            courses: "School tuitions for grades 4-10. Fees: Approx. ₹40,000 - ₹80,000 per year.",
+            features: "Pros: Blends digital learning with in-person classes, strong brand name. Cons: Focus is on school curriculum.",
+            website: "https://byjus.com/btc/"
+        },
+        {
+            name: "Physics Wallah (PW) Vidyapeeth",
+            location: "New Town, Kolkata",
+            rating: "4.6/5 (Google)",
+            total_reviews: "5,000+",
+            year_established: 2016,
+            courses: "JEE, NEET, Foundation. Fees: Approx. ₹80,000 - ₹1,50,000 per year.",
+            features: "Pros: Very affordable compared to competitors, hybrid learning model, highly popular. Cons: Rapid expansion has raised quality control concerns.",
+            website: "https://www.pw.live/vidyapeeth-centres"
+        },
+        {
+            name: "EduPristine",
+            location: "Salt Lake, Kolkata",
+            rating: "4.5/5 (Google)",
+            total_reviews: "700+",
+            year_established: 2008,
+            courses: "CFA, FRM, Financial Modeling. Fees: Approx. ₹40,000 - ₹80,000 per course.",
+            features: "Pros: Strong focus on finance certifications, industry-expert faculty. Cons: Fast-paced and intensive.",
+            website: "https://www.edupristine.com"
+        },
+        {
+            name: "The British Council",
+            location: "Camac Street, Kolkata",
+            rating: "4.4/5 (Google)",
+            total_reviews: "2,000+",
+            year_established: 1948,
+            courses: "IELTS preparation and exam booking, English language courses. Fees: Approx. ₹10,000 - ₹20,000 for courses.",
+            features: "Pros: Official body, authentic material, certified trainers. Cons: Can be expensive.",
+            website: "https://www.britishcouncil.in"
+        },
+        {
+            name: "NIIT (National Institute of Information Technology)",
+            location: "Park Street, Kolkata",
+            rating: "4.1/5 (Google)",
+            total_reviews: "900+",
+            year_established: 1981,
+            courses: "Full Stack Development, Data Analytics. Fees: Approx. ₹60,000 - ₹2,00,000.",
+            features: "Pros: Legacy brand in IT training, structured curriculum. Cons: Faces competition from newer ed-tech platforms.",
+            website: "https://www.niit.com"
+        },
+        {
+            name: "Aptech Computer Education",
+            location: "Gariahat, Kolkata",
+            rating: "4.3/5 (Google)",
+            total_reviews: "800+",
+            year_established: 1986,
+            courses: "IT Training, Java, Python. Fees: Approx. ₹25,000 - ₹1,50,000.",
+            features: "Pros: Wide range of courses, strong network. Cons: Curriculum may not always be cutting-edge.",
+            website: "https://www.aptech-education.com"
+        },
+        {
+            name: "Ardent Computech Pvt. Ltd.",
+            location: "Salt Lake, Kolkata",
+            rating: "4.7/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 2010,
+            courses: "Java, Python, Data Science, Software Testing. Fees: Approx. ₹15,000 - ₹50,000.",
+            features: "Pros: Good local IT training institute, strong focus on placements in local IT companies. Cons: Less brand recognition than national chains.",
+            website: "https://www.ardentcollaborations.com"
+        },
+        {
+            name: "Judicial Coaching Centre (JCC)",
+            location: "Hazra, Kolkata",
+            rating: "4.8/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "West Bengal Judicial Services (WBJS). Fees: Approx. ₹80,000 - ₹1,50,000.",
+            features: "Pros: Highly specialized and reputed for judiciary exams, run by experienced faculty. Cons: Niche focus, high fees.",
+            website: "N/A"
+        },
+        {
+            name: "Manya - The Princeton Review",
+            location: "Sarat Bose Road, Kolkata",
+            rating: "4.5/5 (Google)",
+            total_reviews: "950+",
+            year_established: 2002,
+            courses: "GMAT, GRE, SAT, IELTS. Fees: Approx. ₹35,000 - ₹1,20,000.",
+            features: "Pros: Internationally recognized curriculum, certified trainers. Cons: Premium pricing.",
+            website: "https://www.manyagroup.com"
+        },
+        {
+            name: "Subhe's IAS",
+            location: "Salt Lake, Kolkata",
+            rating: "4.9/5 (Google)",
+            total_reviews: "300+",
+            year_established: "N/A",
+            courses: "IAS, WBCS. Fees: Varies.",
+            features: "Pros: Top-rated, focuses on mentorship by a single experienced faculty. Cons: Individual-driven.",
+            website: "https://subhesias.com"
+        },
+        {
+            name: "Avision Institute",
+            location: "Sealdah, Kolkata",
+            rating: "4.6/5 (Google)",
+            total_reviews: "2,200+",
+            year_established: 2018,
+            courses: "Banking, SSC, Railways. Fees: Approx. ₹12,000 - ₹22,000.",
+            features: "Pros: Good local competitor for government job coaching, strong online presence. Cons: Crowded.",
+            website: "https://avision.co.in"
+        },
+        {
+            name: "BRDS (Bhanwar Rathore Design Studio)",
+            location: "Park Street, Kolkata",
+            rating: "4.7/5 (Google)",
+            total_reviews: "1,100+",
+            year_established: 2005,
+            courses: "NID, NIFT, UCEED, CEED, NATA. Fees: Approx. ₹50,000 - ₹1,20,000.",
+            features: "Pros: National brand for design coaching, excellent workshops, high success rate. Cons: Intensive curriculum.",
+            website: "https://www.brdsindia.com"
+        },
+        {
+            name: "Lakshya",
+            location: "Kankurgachi, Kolkata",
+            rating: "4.5/5 (Google)",
+            total_reviews: "600+",
+            year_established: "N/A",
+            courses: "CA, CS. Fees: Varies.",
+            features: "Pros: A strong local brand for CA coaching. Cons: Faces stiff competition from J.K. Shah.",
+            website: "N/A"
+        },
+        {
+            name: "Resonance",
+            location: "Salt Lake, Kolkata",
+            rating: "4.2/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: 2001,
+            courses: "JEE, NEET. Fees: Approx. ₹1,50,000 - ₹3,00,000 per year.",
+            features: "Pros: Strong academic system from Kota, detailed study modules. Cons: Third major player from Kota, after Allen and Motion.",
+            website: "https://www.resonance.ac.in"
+        },
+        {
+            name: "Career Power (Adda247)",
+            location: "Sealdah, Kolkata",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,900+",
+            year_established: 2010,
+            courses: "Bank PO, SSC, CTET. Fees: Approx. ₹10,000 - ₹20,000.",
+            features: "Pros: Backed by the popular Adda247 online platform, huge number of online mock tests. Cons: Physical classrooms are very crowded.",
+            website: "https://www.careerpower.in"
+        },
+        {
+            name: "The Chopras (TC Global)",
+            location: "Elgin Road, Kolkata",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,400+",
+            year_established: 1995,
+            courses: "GRE, GMAT, IELTS coaching & study abroad counseling. Fees: Coaching approx. ₹25,000 - ₹60,000.",
+            features: "Pros: Premier study abroad consultant, end-to-end services. Cons: Can be very expensive.",
+            website: "https://www.tcglobal.com"
+        },
+        {
+            name: "INIFD (International Institute of Fashion Design)",
+            location: "Salt Lake, Kolkata",
+            rating: "4.3/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: 1995,
+            courses: "NID/NIFT entrance coaching, design diplomas. Fees: Coaching approx. ₹40,000; diploma fees are much higher.",
+            features: "Pros: Strong industry connections in fashion. Cons: Primarily a design college, coaching is secondary.",
+            website: "https://www.inifd.edu.in"
+        },
+        {
+            name: "Success Education",
+            location: "Garia, Kolkata",
+            rating: "4.8/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "XI-XII Commerce, B.Com. Fees: Approx. ₹20,000 - ₹40,000.",
+            features: "Pros: Highly-rated local commerce class in the Garia region. Cons: Localized focus.",
+            website: "N/A"
+        },
+        {
+            name: "AICE (Achievers Institute of Commerce Education)",
+            location: "Bhawanipur, Kolkata",
+            rating: "4.7/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "CA, CS, CMA. Fees: Varies.",
+            features: "Pros: Good local alternative for CA/CS coaching, good reviews. Cons: Smaller scale.",
+            website: "N/A"
+        },
+        {
+            name: "Hi-Tech Animation",
+            location: "Rashbehari, Kolkata",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,700+",
+            year_established: 2008,
+            courses: "Animation, VFX. Fees: Approx. ₹80,000 - ₹3,00,000.",
+            features: "Pros: Strong local animation institute with a focus on placements in Kolkata's production houses. Cons: Less national recognition.",
+            website: "https://www.hitechanimation.com"
+        },
+        {
+            name: "IIM-CAT Coaching by Pathshala",
+            location: "Salt Lake, Kolkata",
+            rating: "4.9/5 (Google)",
+            total_reviews: "300+",
+            year_established: "N/A",
+            courses: "CAT, GMAT. Fees: Approx. ₹35,000 - ₹60,000.",
+            features: "Pros: Top-rated CAT coaching run by IIM alumni, small batches, personal attention. Cons: Individual-driven, limited seats.",
+            website: "N/A"
+        },
+        {
+            name: "S.B. Institute",
+            location: "Tollygunge, Kolkata",
+            rating: "4.6/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "Banking, SSC. Fees: Approx. ₹10,000 - ₹18,000.",
+            features: "Pros: Reputed local institute for government job coaching in South Kolkata. Cons: Basic infrastructure.",
+            website: "N/A"
+        },
+        {
+            name: "The GATE Academy",
+            location: "Salt Lake, Kolkata",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,100+",
+            year_established: 2009,
+            courses: "GATE (all major branches). Fees: Approx. ₹50,000 - ₹80,000.",
+            features: "Pros: National player for GATE, good online resources. Cons: Faces stiff competition from local players and Made Easy.",
+            website: "https://www.thegateacademy.com"
+        },
+        {
+            name: "Made Easy",
+            location: "Salt Lake, Kolkata",
+            rating: "4.6/5 (Google)",
+            total_reviews: "2,000+",
+            year_established: 2001,
+            courses: "ESE (IES), GATE, PSUs. Fees: Approx. ₹70,000 - ₹1,20,000.",
+            features: "Pros: National market leader for ESE and GATE, comprehensive material. Cons: Large batches, hectic schedule.",
+            website: "https://www.madeeasy.in"
+        },
+        {
+            name: "ACE Engineering Academy",
+            location: "Salt Lake, Kolkata",
+            rating: "4.4/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 1995,
+            courses: "GATE, ESE. Fees: Approx. ₹70,000 - ₹1,20,000.",
+            features: "Pros: Hyderabad's top institute, strong competitor to Made Easy. Cons: Highly technical and intensive.",
+            website: "https://www.aceenggacademy.com"
+        },
+        {
+            name: "Edu-Search",
+            location: "Behala, Kolkata",
+            rating: "4.7/5 (Google)",
+            total_reviews: "600+",
+            year_established: "N/A",
+            courses: "IX-XII (All subjects). Fees: Approx. ₹30,000 - ₹70,000.",
+            features: "Pros: Strong local tuition center in the Behala region. Cons: Focus on school board exams.",
+            website: "N/A"
+        },
+        {
+            name: "A. S. Foundation",
+            location: "Shyambazar, Kolkata",
+            rating: "4.8/5 (Google)",
+            total_reviews: "550+",
+            year_established: "N/A",
+            courses: "XI-XII Commerce, CA Foundation. Fees: Approx. ₹30,000 - ₹60,000.",
+            features: "Pros: Top-rated commerce class in North Kolkata. Cons: Localized.",
+            website: "N/A"
+        },
+        {
+            name: "National Institute of Engineering & Management (NIEM)",
+            location: "Sealdah, Kolkata",
+            rating: "4.3/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "JELET, JECA. Fees: Approx. ₹20,000 - ₹40,000.",
+            features: "Pros: Specializes in lateral entry and MCA entrance exams for West Bengal. Cons: Highly niche.",
+            website: "N/A"
+        },
+        {
+            name: "Speakwell English Academy",
+            location: "Gariahat, Kolkata",
+            rating: "4.3/5 (Google)",
+            total_reviews: "700+",
+            year_established: 2006,
+            courses: "Spoken English, Personality Development. Fees: Approx. ₹8,000 - ₹20,000.",
+            features: "Pros: Wide network of branches, affordable courses, job placement assistance. Cons: Focus is on basic communication skills.",
+            website: "https://www.speakwell.co.in"
+        },
+        {
+            name: "CADD Centre Training Services",
+            location: "Gariahat, Kolkata",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: 1988,
+            courses: "AutoCAD, SolidWorks, CATIA. Fees: Approx. ₹15,000 - ₹50,000 per software.",
+            features: "Pros: Asia's largest network for CAD training, certified courses. Cons: Niche skill-based training.",
+            website: "https://www.caddcentre.com"
+        },
+        {
+            name: "Digital Vidya",
+            location: "Online (Kolkata office)",
+            rating: "4.6/5 (Google)",
+            total_reviews: "2,000+",
+            year_established: 2009,
+            courses: "Certified Digital Marketing Master (CDMM). Fees: Approx. ₹50,000 - ₹70,000.",
+            features: "Pros: Pioneer in digital marketing training, strong curriculum. Cons: Primarily online-led.",
+            website: "https://www.digitalvidya.com"
+        },
+        {
+            name: "Simplilearn",
+            location: "Online (Strong presence in Kolkata)",
+            rating: "4.5/5 (Trustpilot)",
+            total_reviews: "20,000+",
+            year_established: 2010,
+            courses: "PMP, Data Science, Cloud Computing. Fees: Approx. ₹25,000 - ₹2,00,000.",
+            features: "Pros: Bootcamp style learning, partnerships with universities. Cons: Requires high self-discipline.",
+            website: "https://www.simplilearn.com"
+        },
+        {
+            name: "Excelerate",
+            location: "Garia, Kolkata",
+            rating: "4.9/5 (Google)",
+            total_reviews: "350+",
+            year_established: "N/A",
+            courses: "XI-XII Science, JEE, NEET. Fees: Varies.",
+            features: "Pros: Exceptionally rated local science tutorial, personal attention. Cons: Limited reach.",
+            website: "N/A"
+        },
+        {
+            name: "Institute of Language Studies & Applied Social Sciences (ILSASS)",
+            location: "Gariahat, Kolkata",
+            rating: "4.7/5 (Google)",
+            total_reviews: "450+",
+            year_established: "N/A",
+            courses: "Foreign Languages (Japanese, Chinese, etc.). Fees: Approx. ₹15,000 - ₹25,000 per level.",
+            features: "Pros: Good local institute for learning less common foreign languages. Cons: Not an official cultural center.",
+            website: "N/A"
+        },
+        {
+            name: "Triumphant",
+            location: "Howrah AC Market (Kolkata Metropolitan Area)",
+            rating: "4.5/5 (Google)",
+            total_reviews: "800+",
+            year_established: "N/A",
+            courses: "WBCS, SSC, Banking. Fees: Approx. ₹15,000 - ₹40,000.",
+            features: "Pros: Strong local presence in Howrah for government job aspirants. Cons: Basic infrastructure.",
+            website: "N/A"
+        },
+        {
+            name: "Saha Institute",
+            location: "Baghajatin, Kolkata",
+            rating: "4.6/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "XI-XII Science, WBJEE. Fees: Varies.",
+            features: "Pros: Reputed local tutorial in the Baghajatin area for science. Cons: Focus on boards.",
+            website: "N/A"
+        },
+        {
+            name: "D.D. Commerce Classes",
+            location: "Tollygunge, Kolkata",
+            rating: "4.8/5 (Google)",
+            total_reviews: "300+",
+            year_established: "N/A",
+            courses: "XI-XII Commerce, B.Com. Fees: Approx. ₹20,000 - ₹40,000.",
+            features: "Pros: Top-rated local commerce tutorial in the Tollygunge area. Cons: Limited reach.",
+            website: "N/A"
+        },
+        {
+            name: "Motion Education",
+            location: "Salt Lake, Kolkata",
+            rating: "4.3/5 (Google)",
+            total_reviews: "800+",
+            year_established: 2007,
+            courses: "JEE Main & Advanced, NEET. Fees: Approx. ₹1,40,000 - ₹2,80,000 per year.",
+            features: "Pros: Another major coaching brand from Kota, good results, strong system. Cons: Faces stiff competition in Kolkata.",
+            website: "https://motion.ac.in"
+        },
+        {
+            name: "S.B. Gorai's Classes",
+            location: "Dum Dum, Kolkata",
+            rating: "4.7/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "Maths & Science (IX-XII). Fees: Varies.",
+            features: "Pros: Highly reputed local teacher in the Dum Dum area. Cons: Individual dependent.",
+            website: "N/A"
+        },
+        {
+            name: "T.I.M.E. Kids",
+            location: "Salt Lake, Kolkata",
+            rating: "4.5/5 (Google)",
+            total_reviews: "250+",
+            year_established: 2000,
+            courses: "Pre-school education. Fees: Approx. ₹80,000 - ₹1,50,000 per year.",
+            features: "Pros: Pre-school wing of the reputed T.I.M.E. group, structured curriculum. Cons: More of a school than a coaching institute.",
+            website: "https://www.timekidspreschools.in"
+        },
+        {
+            name: "S.S. Classes",
+            location: "Howrah Maidan (Kolkata Metropolitan Area)",
+            rating: "4.9/5 (Google)",
+            total_reviews: "350+",
+            year_established: "N/A",
+            courses: "XI-XII Commerce, CA Foundation. Fees: Approx. ₹25,000 - ₹50,000.",
+            features: "Pros: Exceptionally rated commerce class in Howrah. Cons: Highly localized.",
+            website: "N/A"
+        },
+        {
+            name: "Toppers Academy",
+            location: "Online (Popular in Kolkata)",
+            rating: "4.8/5 (Online)",
+            total_reviews: "5,000+",
+            year_established: "N/A",
+            courses: "NEET, JEE. Fees: Online packages vary.",
+            features: "Pros: Good online resources and live classes. Cons: Lacks physical classroom discipline.",
+            website: "https://toppersacademy.app"
+        },
+        {
+            name: "Mitra's Academy",
+            location: "Barasat (Kolkata Metropolitan Area)",
+            rating: "4.6/5 (Google)",
+            total_reviews: "450+",
+            year_established: "N/A",
+            courses: "IX-XII Science, WBJEE. Fees: Varies.",
+            features: "Pros: Leading local institute in the Barasat region. Cons: Focus on state-level exams.",
+            website: "N/A"
+        },
+        {
+            name: "Future IAS",
+            location: "Hazra, Kolkata",
+            rating: "4.5/5 (Google)",
+            total_reviews: "300+",
+            year_established: "N/A",
+            courses: "IAS, WBCS. Fees: Varies.",
+            features: "Pros: Good local institute with a focus on civil services. Cons: Smaller scale.",
+            website: "N/A"
+        },
+        {
+            name: "K-11 School of Fitness Sciences",
+            location: "Ballygunge, Kolkata",
+            rating: "4.8/5 (Google)",
+            total_reviews: "800+",
+            year_established: 2003,
+            courses: "Personal Trainer Certification, Nutrition Courses. Fees: Approx. ₹60,000 - ₹1,00,000+.",
+            features: "Pros: Premier institute for professional fitness trainer certification. Cons: Vocational, niche field.",
+            website: "https://www.keleven.com"
+        },
+        {
+            name: "Veta Spoken English",
+            location: "Rashbehari, Kolkata",
+            rating: "4.4/5 (Google)",
+            total_reviews: "500+",
+            year_established: 1981,
+            courses: "Spoken English. Fees: Approx. ₹7,000 - ₹15,000.",
+            features: "Pros: National chain for Spoken English with a structured curriculum. Cons: Standardized approach.",
+            website: "https://www.veta.in"
+        },
+        {
+            name: "Wisdom Academy",
+            location: "Home tuitions across Kolkata",
+            rating: "4.7/5 (Google)",
+            total_reviews: "600+",
+            year_established: 2011,
+            courses: "Home tuitions for all boards, JEE, NEET. Fees: Varies significantly based on tutor (e.g., ₹700 - ₹1800 per hour).",
+            features: "Pros: Provides personalized one-on-one tutoring at home. Cons: Can be very expensive, quality depends on the assigned tutor.",
+            website: "https://www.wisdomacademy.co.in"
+        },
+        {
+            name: "Dronas",
+            location: "Dum Dum, Kolkata",
+            rating: "4.5/5 (Google)",
+            total_reviews: "700+",
+            year_established: "N/A",
+            courses: "WBCS, Banking, SSC. Fees: Varies.",
+            features: "Pros: Reputed local institute in North Kolkata for government jobs. Cons: Faces competition from Sealdah-based giants.",
+            website: "N/A"
+        },
+        {
+            name: "A-One Institute",
+            location: "Sodepur, Kolkata",
+            rating: "4.7/5 (Google)",
+            total_reviews: "600+",
+            year_established: "N/A",
+            courses: "XI-XII Science & Commerce. Fees: Varies.",
+            features: "Pros: Leading local tuition center in the Sodepur area. Cons: School-level focus.",
+            website: "N/A"
+        },
+        {
+            name: "Jetking Infotrain",
+            location: "Salt Lake, Kolkata",
+            rating: "4.4/5 (Google)",
+            total_reviews: "900+",
+            year_established: 1947,
+            courses: "Hardware and Networking, Ethical Hacking. Fees: Approx. ₹50,000 - ₹1,50,000 for career courses.",
+            features: "Pros: Veteran institute for hardware/networking, practical labs. Cons: Area of specialization is less in demand compared to software.",
+            website: "https://www.jetking.com"
+        },
+        {
+            name: "AAT (Aspiring Achievers' Tutorial)",
+            location: "Ballygunge, Kolkata",
+            rating: "4.9/5 (Google)",
+            total_reviews: "250+",
+            year_established: "N/A",
+            courses: "IX-XII Commerce. Fees: Varies.",
+            features: "Pros: Exceptionally rated local commerce class in a prime South Kolkata location. Cons: Niche focus.",
+            website: "N/A"
+        },
+        {
+            name: "The Quiver",
+            location: "Tollygunge, Kolkata",
+            rating: "4.8/5 (Google)",
+            total_reviews: "300+",
+            year_established: "N/A",
+            courses: "IX-XII Science, NEET. Fees: Varies.",
+            features: "Pros: Highly-rated science tutorial in Tollygunge, praised for its teaching methodology. Cons: Localized.",
+            website: "N/A"
+        },
+        {
+            name: "Zenith",
+            location: "Hazra, Kolkata",
+            rating: "4.5/5 (Google)",
+            total_reviews: "450+",
+            year_established: "N/A",
+            courses: "XI-XII Science, WBJEE. Fees: Varies.",
+            features: "Pros: Another long-standing and reputed science class in South Kolkata. Cons: Focus on state boards and WBJEE.",
+            website: "N/A"
+        },
+        {
+            name: "A-Square Tutorials",
+            location: "Behala, Kolkata",
+            rating: "4.9/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "IX-XII Science & Commerce. Fees: Varies.",
+            features: "Pros: Top-rated comprehensive tuition center in Behala. Cons: Local focus.",
+            website: "N/A"
+        },
+        {
+            name: "Pro-Eminent",
+            location: "Dum Dum, Kolkata",
+            rating: "4.7/5 (Google)",
+            total_reviews: "300+",
+            year_established: "N/A",
+            courses: "XI-XII Commerce, B.Com. Fees: Varies.",
+            features: "Pros: Reputed commerce tutorial in the Dum Dum area. Cons: Limited to commerce.",
+            website: "N/A"
+        },
+        {
+            name: "A Vision",
+            location: "College Street, Kolkata",
+            rating: "4.6/5 (Google)",
+            total_reviews: "250+",
+            year_established: "N/A",
+            courses: "WBCS, PSC. Fees: Varies.",
+            features: "Pros: Located in the academic hub of Kolkata, strong focus on WBCS. Cons: Smaller scale.",
+            website: "N/A"
+        },
+        {
+            name: "Erudite",
+            location: "Park Street, Kolkata",
+            rating: "4.0/5 (Google)",
+            total_reviews: "500+",
+            year_established: 1998,
+            courses: "CAT, MAT, GMAT. Fees: Approx. ₹30,000 - ₹50,000.",
+            features: "Pros: An old and established brand for CAT coaching. Cons: Has lost significant market share and visibility to competitors like TIME and IMS.",
+            website: "https://www.erudite.in"
+        },
+        {
+            name: "Ajoy Kumar Singh's Classes",
+            location: "Salt Lake, Kolkata",
+            rating: "4.8/5 (Google)",
+            total_reviews: "600+",
+            year_established: "N/A",
+            courses: "Mathematics for JEE Main & Advanced. Fees: Approx. ₹50,000 - ₹90,000.",
+            features: "Pros: Legendary and highly respected individual faculty for JEE Mathematics. Cons: Single subject and individual-driven, very limited seats.",
+            website: "N/A"
+        },
+        {
+            name: "DAMS (Delhi Academy of Medical Sciences)",
+            location: "Elgin Road, Kolkata",
+            rating: "4.3/5 (Google)",
+            total_reviews: "1,100+",
+            year_established: 1999,
+            courses: "NEET-PG, FMGE. Fees: Approx. ₹80,000 - ₹1,50,000.",
+            features: "Pros: A top national institute for medical PG entrance exams with a Kolkata center. Cons: Very competitive and stressful environment.",
+            website: "https://www.damsdelhi.com"
+        },
+        {
+            name: "The Creative-I",
+            location: "Gariahat, Kolkata",
+            rating: "4.9/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "NATA, NID, NIFT, JEE Paper 2. Fees: Approx. ₹40,000 - ₹80,000.",
+            features: "Pros: Exceptionally rated local institute for architecture and design entrances, personal attention. Cons: Niche focus.",
+            website: "https://www.thecreativei.com"
+        },
+        {
+            name: "Seven Boats Academy",
+            location: "Salt Lake, Kolkata",
+            rating: "4.8/5 (Google)",
+            total_reviews: "2,000+",
+            year_established: 2011,
+            courses: "Digital Marketing, SEO, Social Media Marketing. Fees: Approx. ₹25,000 - ₹60,000.",
+            features: "Pros: One of Kolkata's top-rated and oldest digital marketing institutes, strong placement support. Cons: Field evolves rapidly, curriculum needs constant updates.",
+            website: "https://www.sevenboats.com"
+        },
+        {
+            name: "Calcutta School of Music",
+            location: "Sunny Park, Kolkata",
+            rating: "4.5/5 (Google)",
+            total_reviews: "800+",
+            year_established: 1915,
+            courses: "Western Classical (Piano, Violin, Cello, Vocals), Indian Music. Fees: Varies, term-based.",
+            features: "Pros: One of the oldest and most prestigious music schools in India, associated with Trinity College London exams. Cons: Hobby/professional skill-based.",
+            website: "https://www.csm.in"
+        },
+        {
+            name: "B. Singh's View Point",
+            location: "Bhawanipur, Kolkata",
+            rating: "4.7/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "XI-XII Commerce, B.Com. Fees: Approx. ₹30,000 - ₹60,000.",
+            features: "Pros: A very old and legendary commerce class in the Bhawanipur area, strong reputation. Cons: Local focus on university curriculum.",
+            website: "N/A"
+        },
+        {
+            name: "Chanakya IAS Academy",
+            location: "Salt Lake, Kolkata",
+            rating: "4.4/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: 1993,
+            courses: "UPSC, WBCS. Fees: Approx. ₹1,50,000 - ₹2,20,000.",
+            features: "Pros: National brand with a Kolkata center, strong focus on personality development. Cons: High fees.",
+            website: "https://www.chanakyaiasacademy.com"
+        },
+        {
+            name: "Institute of Spanish Studies",
+            location: "Gariahat, Kolkata",
+            rating: "4.9/5 (Google)",
+            total_reviews: "300+",
+            year_established: "N/A",
+            courses: "Spanish Language Courses (A1-C2), DELE exam prep. Fees: Approx. ₹18,000 - ₹25,000 per level.",
+            features: "Pros: Top-rated institute specifically for learning Spanish, small batches. Cons: Niche language focus.",
+            website: "https://www.instituteofspanishstudies.com"
+        },
+        {
+            name: "Ramakrishna Mission Institute of Culture",
+            location: "Golpark, Kolkata",
+            rating: "4.7/5 (Google for the institution)",
+            total_reviews: "5,000+",
+            year_established: 1938,
+            courses: "Foreign Languages (French, German, Spanish, Japanese, Chinese etc.). Fees: Extremely subsidized.",
+            features: "Pros: Unmatched quality in a serene, academic environment, very low fees. Cons: Admission is extremely competitive and seats are very limited.",
+            website: "https://sfl.rmic.in"
+        },
+        {
+            name: "Karmick Institute",
+            location: "Salt Lake, Kolkata",
+            rating: "4.6/5 (Google)",
+            total_reviews: "800+",
+            year_established: 2014,
+            courses: "Web Development, Digital Marketing, PHP/MySQL. Fees: Approx. ₹20,000 - ₹50,000.",
+            features: "Pros: Training wing of a software company, strong focus on job-ready skills. Cons: Primarily for placements within local IT ecosystem.",
+            website: "https://www.karmickinstitute.com"
+        },
+        {
+            name: "E-Job India",
+            location: "Sealdah, Kolkata",
+            rating: "4.8/5 (Google)",
+            total_reviews: "1,100+",
+            year_established: "N/A",
+            courses: "WBCS, Banking, SSC, PSC. Fees: Approx. ₹20,000 - ₹50,000.",
+            features: "Pros: Highly-rated government job coaching center, good local competitor to RICE. Cons: Crowded.",
+            website: "https://www.ejobindia.in"
+        },
+        {
+            name: "The Catalysts",
+            location: "Dum Dum, Kolkata",
+            rating: "4.9/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "JEE, NEET, WBJEE. Fees: Approx. ₹1,00,000 - ₹2,00,000.",
+            features: "Pros: Top-rated local science institute in North Kolkata, praised for its mentorship. Cons: Limited reach.",
+            website: "N/A"
+        },
+        {
+            name: "Academy of Professional Studies (APS)",
+            location: "Park Street, Kolkata",
+            rating: "4.6/5 (Google)",
+            total_reviews: "600+",
+            year_established: 2004,
+            courses: "CA, CS, CMA. Fees: Varies.",
+            features: "Pros: Another strong local player for professional commerce courses, experienced faculty. Cons: Faces huge competition from national brands.",
+            website: "https://www.apsstudies.com"
+        },
+        {
+            name: "George Telegraph Training Institute",
+            location: "Sealdah, Kolkata",
+            rating: "4.2/5 (Google)",
+            total_reviews: "1,800+",
+            year_established: 1920,
+            courses: "Vocational skills (AC & Fridge Repair, Mobile Repair, Electrical Technician). Fees: Approx. ₹15,000 - ₹50,000.",
+            features: "Pros: A legendary institution for vocational and technical skill development since 1920. Cons: Not academic coaching.",
+            website: "https://www.georgetelegraph.com"
+        },
+        {
+            name: "Padatik Dance Centre",
+            location: "Elgin Road, Kolkata",
+            rating: "4.6/5 (Google)",
+            total_reviews: "500+",
+            year_established: 1972,
+            courses: "Kathak, Contemporary Dance. Fees: Monthly/Term-based.",
+            features: "Pros: One of Kolkata's premier institutions for dance, run by renowned artists. Cons: Hobby/professional skill-based.",
+            website: "https://www.padatik.in"
+        },
+        {
+            name: "B FIT",
+            location: "Maidan, Kolkata",
+            rating: "4.8/5 (Google)",
+            total_reviews: "300+",
+            year_established: "N/A",
+            courses: "Physical training for Army, Kolkata Police, WBP Constable/SI. Fees: Varies.",
+            features: "Pros: Highly-rated outdoor physical training academy for defense and police jobs. Cons: Highly niche.",
+            website: "N/A"
+        },
+        {
+            name: "Miles Education",
+            location: "Salt Lake, Kolkata",
+            rating: "4.7/5 (Google)",
+            total_reviews: "900+",
+            year_established: 2011,
+            courses: "CPA (USA), CMA (USA). Fees: Approx. ₹1,00,000 - ₹2,50,000 for full course package.",
+            features: "Pros: Official partner of IMA and AICPA, excellent placement support in Big 4 and MNCs. Cons: Very high fees.",
+            website: "https://www.mileseducation.com"
+        },
+        {
+            name: "Calcutta Media Institute",
+            location: "Prince Anwar Shah Road, Kolkata",
+            rating: "4.5/5 (Google)",
+            total_reviews: "700+",
+            year_established: 2011,
+            courses: "Media Management, Digital Marketing, Public Relations (Diplomas & Coaching). Fees: Varies.",
+            features: "Pros: Backed by the ABP Group (The Telegraph, Anandabazar Patrika), strong industry connect. Cons: Primarily a professional diploma institute.",
+            website: "https://www.cmi.net.in"
+        },
+        {
+            name: "National Academy of Media & Events (NAME)",
+            location: "Bhawanipur, Kolkata",
+            rating: "4.6/5 (Google)",
+            total_reviews: "800+",
+            year_established: 2014,
+            courses: "Event Management, Public Relations, Wedding Planning. Fees: Diploma course fees are high.",
+            features: "Pros: Top-rated institute for the niche field of event management. Cons: Vocational training.",
+            website: "https://www.nameedu.in"
+        },
+        {
+            name: "Russian Centre of Science and Culture (Gorky Sadan)",
+            location: "Gorky Terrace, Kolkata",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: 1973,
+            courses: "Russian Language Courses. Fees: Subsidized.",
+            features: "Pros: The official Russian cultural center, authentic language training and cultural events. Cons: Niche language.",
+            website: "https://www.facebook.com/gorkysadan/"
+        },
+        {
+            name: "Image Creative Education",
+            location: "Gariahat, Kolkata",
+            rating: "4.7/5 (Google)",
+            total_reviews: "600+",
+            year_established: 1996,
+            courses: "Animation, VFX, Game Design, Fashion Design. Fees: High, diploma based.",
+            features: "Pros: National brand with a strong South India presence, good curriculum. Cons: Faces local competition.",
+            website: "https://www.image.edu.in"
+        },
+        {
+            name: "Aarohan Classes",
+            location: "Kalighat, Kolkata",
+            rating: "4.6/5 (Google)",
+            total_reviews: "300+",
+            year_established: "N/A",
+            courses: "JEE, NEET, Boards. Fees: Varies.",
+            features: "Pros: Reputed local science institute run by experienced faculty. Cons: Smaller scale.",
+            website: "N/A"
+        },
+        {
+            name: "Achievers' Circle",
+            location: "Shyambazar, Kolkata",
+            rating: "4.5/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "Government Jobs (WBCS, SSC, etc.). Fees: Approx. ₹20,000 - ₹50,000.",
+            features: "Pros: Reputed coaching in North Kolkata for competitive exams. Cons: Traditional methods.",
+            website: "N/A"
+        },
+        {
+            name: "Banerjee's Biology Classes",
+            location: "Kalighat, Kolkata",
+            rating: "4.9/5 (Google)",
+            total_reviews: "350+",
+            year_established: "N/A",
+            courses: "Biology for NEET, XI-XII Boards. Fees: Approx. ₹40,000 - ₹70,000.",
+            features: "Pros: Highly-rated individual tutor, specializing in Biology for medical entrance. Cons: Single subject focus.",
+            website: "N/A"
+        },
+        {
+            name: "LegalEdge",
+            location: "Bhawanipur, Kolkata",
+            rating: "4.8/5 (Google)",
+            total_reviews: "600+",
+            year_established: 2011,
+            courses: "CLAT, AILET. Fees: Approx. ₹60,000 - ₹1,20,000.",
+            features: "Pros: National brand specializing in law entrances, excellent mock tests and materials. Cons: Premium pricing.",
+            website: "https://www.legaledge.in"
+        },
+        {
+            name: "CLAT Possible",
+            location: "Salt Lake, Kolkata",
+            rating: "4.7/5 (Google)",
+            total_reviews: "800+",
+            year_established: 2008,
+            courses: "CLAT, AILET. Fees: Approx. ₹70,000 - ₹1,30,000.",
+            features: "Pros: A premier national brand for law entrance coaching, now part of CL ecosystem. Cons: High fees.",
+            website: "https://www.clatpossible.com"
+        },
+        {
+            name: "Ujjwal IAS Academy",
+            location: "Salt Lake, Kolkata",
+            rating: "4.5/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "UPSC, WBCS. Fees: Varies.",
+            features: "Pros: Delhi-based institute with a Kolkata branch, experienced faculty. Cons: Smaller presence in Kolkata.",
+            website: "https://www.ujjwalacademy.com"
+        },
+        {
+            name: "Dakshinee",
+            location: "Dhakuria, Kolkata",
+            rating: "4.6/5 (Google)",
+            total_reviews: "700+",
+            year_established: 1948,
+            courses: "Rabindra Sangeet. Fees: Term-based, affordable.",
+            features: "Pros: One of the most prestigious and oldest institutions for learning Tagore's songs, maintains authenticity. Cons: Highly niche, cultural education.",
+            website: "https://www.dakshinee.org.in"
+        },
+        {
+            name: "Mentor's Club",
+            location: "Barasat (Kolkata Metropolitan Area)",
+            rating: "4.8/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "XI-XII Science, NEET, WBJEE. Fees: Varies.",
+            features: "Pros: Top-rated local coaching center in Barasat, strong results in the local area. Cons: Limited reach.",
+            website: "N/A"
+        },
+        {
+            name: "Sankar's Academy",
+            location: "Serampore, Hooghly (Kolkata Metropolitan Area)",
+            rating: "4.7/5 (Google)",
+            total_reviews: "600+",
+            year_established: "N/A",
+            courses: "IX-XII Science & Commerce. Fees: Varies.",
+            features: "Pros: Leading local tuition center in the Serampore/Hooghly region. Cons: Caters to local board students.",
+            website: "N/A"
+        },
+        {
+            name: "Kolkata Film Academy",
+            location: "Tollygunge, Kolkata",
+            rating: "4.6/5 (Google)",
+            total_reviews: "450+",
+            year_established: "N/A",
+            courses: "Acting, Direction, Editing workshops. Fees: Approx. ₹30,000 - ₹1,00,000.",
+            features: "Pros: Practical, project-based learning for aspiring film professionals. Cons: Less known than SRFTI.",
+            website: "https://www.kolkatafilmacademy.com"
+        },
+        {
+            name: "Indian Institute of Jewellery (IIJ)",
+            location: "Bowbazar, Kolkata",
+            rating: "4.4/5 (Google)",
+            total_reviews: "300+",
+            year_established: "N/A",
+            courses: "Jewellery Design, Gemology. Fees: High, diploma based.",
+            features: "Pros: Located in the jewellery hub of Kolkata, strong industry connect. Cons: Highly vocational.",
+            website: "https://www.iij.net.in"
+        },
+        {
+            name: "Prayas",
+            location: "Sealdah, Kolkata",
+            rating: "4.5/5 (Google)",
+            total_reviews: "600+",
+            year_established: "N/A",
+            courses: "WBCS, Banking, SSC. Fees: Varies.",
+            features: "Pros: Another reliable name in the crowded Sealdah market for government jobs. Cons: Basic infrastructure.",
+            website: "N/A"
+        },
+        {
+            name: "Abhimanu's IAS",
+            location: "Salt Lake, Kolkata",
+            rating: "4.7/5 (Google)",
+            total_reviews: "700+",
+            year_established: 1999,
+            courses: "IAS, WBCS. Fees: Approx. ₹1,20,000+.",
+            features: "Pros: A major player from Chandigarh, good results in state PCS exams. Cons: Less known for UPSC in Kolkata compared to local giants.",
+            website: "https://abhimanuias.com"
+        },
+        {
+            name: "Success Mantra",
+            location: "Salt Lake, Kolkata",
+            rating: "4.5/5 (Google)",
+            total_reviews: "500+",
+            year_established: 2011,
+            courses: "CLAT, DU LLB, BBA, Hotel Management. Fees: Approx. ₹50,000 - ₹90,000.",
+            features: "Pros: National brand for non-STEM entrance exams with a Kolkata center. Cons: Smaller player compared to CL or IMS.",
+            website: "https://www.successmantra.com"
+        },
+        {
+            name: "A-One Coaching Centre",
+            location: "Behala, Kolkata",
+            rating: "4.8/5 (Google)",
+            total_reviews: "450+",
+            year_established: "N/A",
+            courses: "WBCS, PSC. Fees: Varies.",
+            features: "Pros: Highly-rated local coaching for competitive exams in Behala. Cons: Limited reach.",
+            website: "N/A"
+        },
+        {
+            name: "Eduquest",
+            location: "Howrah (Kolkata Metropolitan Area)",
+            rating: "4.7/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "IX-XII Science. Fees: Varies.",
+            features: "Pros: Reputed local science tutorial in Howrah. Cons: Focus on board exams.",
+            website: "N/A"
+        },
+        {
+            name: "BSE Institute Ltd",
+            location: "Park Street, Kolkata",
+            rating: "4.3/5 (Google)",
+            total_reviews: "400+",
+            year_established: 1989,
+            courses: "Courses on Capital Markets, Financial Modeling, Stock Trading. Fees: Varies widely.",
+            features: "Pros: Training arm of the Bombay Stock Exchange, high credibility. Cons: Courses are more for professionals.",
+            website: "https://www.bsebti.com"
+        },
+        {
+            name: "NSE Academy",
+            location: "Online / Workshops in Kolkata",
+            rating: "4.4/5 (Online)",
+            total_reviews: "5,000+",
+            year_established: "N/A",
+            courses: "NCFM certification prep, various capital market courses. Fees: Varies.",
+            features: "Pros: Official education wing of the National Stock Exchange. Cons: Mostly self-study or online models.",
+            website: "https://www.nseindia.com/learn"
+        },
+        {
+            name: "The Knowledge Academy",
+            location: "New Town, Kolkata (Serviced Office)",
+            rating: "4.8/5 (Trustpilot)",
+            total_reviews: "10,000+",
+            year_established: 2009,
+            courses: "PMP, PRINCE2, ITIL, Six Sigma. Fees: High, certification based.",
+            features: "Pros: A global leader in professional certification training, conducts workshops in major cities. Cons: Expensive, for working professionals.",
+            website: "https://www.theknowledgeacademy.com/in/"
+        },
+        {
+            name: "Calcutta School of Digital Photography",
+            location: "Jadavpur, Kolkata",
+            rating: "4.9/5 (Google)",
+            total_reviews: "300+",
+            year_established: "N/A",
+            courses: "Basic & Advanced Photography. Fees: Approx. ₹20,000 - ₹80,000.",
+            features: "Pros: Top-rated, hands-on workshops and practical assignments. Cons: Niche, creative field.",
+            website: "https://www.csdp.in"
+        },
+        {
+            name: "Dihika",
+            location: "Online (Kolkata-based)",
+            rating: "4.7/5 (Online)",
+            total_reviews: "2,000+",
+            year_established: "N/A",
+            courses: "WBCS (Bengali medium). Fees: Affordable online packages.",
+            features: "Pros: Popular online platform for WBCS in Bengali, good quality content. Cons: Lacks physical classroom environment.",
+            website: "https://dihikasmart.in"
+        },
+        {
+            name: "SIP Abacus",
+            location: "Multiple centers (e.g., Salt Lake)",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: 2003,
+            courses: "Abacus, Vedic Maths for children. Fees: Approx. ₹1,500 - ₹3,000 per month.",
+            features: "Pros: Helps develop mental math skills in young children. Cons: Supplementary education, not mainstream.",
+            website: "https://www.sipabacus.com"
+        },
+        {
+            name: "Study Point",
+            location: "Barrackpore (Kolkata Metropolitan Area)",
+            rating: "4.6/5 (Google)",
+            total_reviews: "700+",
+            year_established: "N/A",
+            courses: "School Section, Competitive Exams. Fees: Varies.",
+            features: "Pros: Leading comprehensive coaching center in the Barrackpore area. Cons: Local focus.",
+            website: "N/A"
+        },
+        {
+            name: "CAREER GURU",
+            location: "Barasat (Kolkata Metropolitan Area)",
+            rating: "4.7/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "Govt. Jobs (WBCS, SSC, etc.). Fees: Varies.",
+            features: "Pros: Top-rated competitive exam coaching in Barasat. Cons: Limited to its geographical area.",
+            website: "N/A"
+        },
+        {
+            name: "Zenith Commerce Academy",
+            location: "Howrah (Kolkata Metropolitan Area)",
+            rating: "4.8/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "XI-XII Commerce, B.Com. Fees: Varies.",
+            features: "Pros: Highly-rated local commerce tutorial in Howrah. Cons: Limited scope.",
+            website: "N/A"
+        },
+        {
+            name: "The Genius",
+            location: "Naihati (Kolkata Metropolitan Area)",
+            rating: "4.7/5 (Google)",
+            total_reviews: "350+",
+            year_established: "N/A",
+            courses: "IX-XII Science. Fees: Varies.",
+            features: "Pros: Leading local science coaching in the Naihati-Kanchrapara belt. Cons: Focus on board exams.",
+            website: "N/A"
+        },
+        {
+            name: "Udayer Pathey",
+            location: "Jadavpur, Kolkata",
+            rating: "4.6/5 (as an NGO)",
+            total_reviews: "200+",
+            year_established: 1999,
+            courses: "Free or highly subsidized coaching for underprivileged students for various exams. Fees: Minimal or free.",
+            features: "Pros: A noble initiative by a well-known NGO, provides quality education to the needy. Cons: Seats are reserved for specific economic criteria.",
+            website: "https://www.udayerpathey.org"
+        },
+        {
+            name: "Saha's Study Point",
+            location: "Chandannagar, Hooghly (Kolkata Metropolitan Area)",
+            rating: "4.8/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "Competitive Exams (Govt. Jobs). Fees: Varies.",
+            features: "Pros: Top-rated coaching center in the historic town of Chandannagar. Cons: Local focus.",
+            website: "N/A"
+        },
+        {
+            name: "Tapasya",
+            location: "Gariahat, Kolkata",
+            rating: "4.9/5 (Google)",
+            total_reviews: "200+",
+            year_established: "N/A",
+            courses: "IX-X (ICSE/CBSE). Fees: Varies.",
+            features: "Pros: Exceptionally rated local tuition center for junior secondary classes. Cons: Foundational level only.",
+            website: "N/A"
+        }
+    ];
+
+    const instituteList = document.getElementById('institute-list');
+
+    // Function to display institutes
+    function displayInstitutes(instituteArray) {
+        instituteList.innerHTML = ''; // Clear current list
+        instituteArray.forEach(institute => {
+            const card = `
+                <div class="institute-card">
+                    <h2>${institute.name}</h2>
+                    <p><strong>Location:</strong> ${institute.location}</p>
+                    <div class="details-grid">
+                        <p class="rating"><strong>Rating:</strong> ${institute.rating}</p>
+                        <p><strong>Reviews:</strong> ${institute.total_reviews}</p>
+                        <p class="established"><strong>Established:</strong> ${institute.year_established}</p>
+                    </div>
+                    <p><strong>Courses & Fees:</strong> ${institute.courses}</p>
+                    <p><strong>Features:</strong> ${institute.features}</p>
+                    <a href="${institute.website}" target="_blank" rel="noopener noreferrer">Visit Website</a>
+                </div>
+            `;
+            instituteList.innerHTML += card;
+        });
+    }
+
+    // Function to filter institutes based on search criteria
+    function filterInstitutes() {
+        const nameQuery = document.getElementById('name-search').value.toLowerCase();
+        const ratingQuery = document.getElementById('rating-search').value;
+
+        const filteredInstitutes = institutes.filter(institute => {
+            const nameMatch = institute.name.toLowerCase().includes(nameQuery);
+            // Extract the number part of the rating for a more flexible search
+            const ratingValue = institute.rating.split('/')[0].trim();
+            const ratingMatch = ratingValue.startsWith(ratingQuery);
+            
+            return nameMatch && ratingMatch;
+        });
+
+        displayInstitutes(filteredInstitutes);
+    }
+
+    // Initial display of all institutes
+    window.onload = () => {
+        displayInstitutes(institutes);
+    };
+
+</script>
+
+</body>
+</html>

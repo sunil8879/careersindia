@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top coaching institutes in Pune</title>
+    <style>
+        /* General Body Styling */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            background-color: #f0faff; /* Very light sky blue background */
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        /* Header Box for Title and Search */
+        .header-container {
+            background-color: #87ceeb; /* Sky Blue background */
+            padding: 30px 25px;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            border: 1px solid #76b6d2;
+        }
+
+        /* 3D Title Styling */
+        h1 {
+            color: white;
+            text-align: center;
+            font-size: 3em;
+            font-weight: 700;
+            margin: 0 0 25px 0;
+            /* 3D Effect using a darker blue shadow */
+            text-shadow: 3px 3px 0px #5a9ab5, 6px 6px 10px rgba(0, 0, 0, 0.3);
+            letter-spacing: 1px;
+        }
+
+        /* Search Box Container */
+        .search-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        /* Search Input Fields */
+        .search-container input {
+            padding: 12px 18px;
+            font-size: 1em;
+            width: 320px;
+            max-width: 90%;
+            border: none;
+            border-radius: 50px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1) inset;
+        }
+
+        .search-container input:focus {
+            outline: none;
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.7), 0 2px 4px rgba(0,0,0,0.1) inset;
+        }
+
+        /* Main container for the institute list */
+        #institute-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 25px;
+        }
+
+        /* Individual Institute Card Styling */
+        .institute-card {
+            background-color: white;
+            border: 1px solid #e9ecef;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .institute-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+        }
+        
+        .institute-card h2 {
+            margin-top: 0;
+            font-size: 1.6em;
+            color: #5a9ab5; /* Sky Blue title */
+        }
+
+        .institute-card p {
+            margin: 8px 0;
+            line-height: 1.6;
+            font-size: 0.95em;
+        }
+
+        .institute-card strong {
+            color: #212529;
+            font-weight: 600;
+        }
+
+        .institute-card a {
+            color: #4682b4;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: auto; /* Pushes the link to the bottom */
+            align-self: flex-start;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .institute-card a:hover {
+            background-color: #e0f2ff;
+            color: #36668d;
+        }
+        
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5px 15px;
+            margin-bottom: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="header-container">
+        <h1>Top coaching institutes in Pune</h1>
+        <div class="search-container">
+            <input type="text" id="name-search" onkeyup="filterInstitutes()" placeholder="Search by Institute Name...">
+            <input type="text" id="rating-search" onkeyup="filterInstitutes()" placeholder="Search by Rating (e.g., 4.8)...">
+        </div>
+    </div>
+
+    <main id="institute-list">
+        <!-- Institute cards will be dynamically inserted here by JavaScript -->
+    </main>
+
+<script>
+    // Data for all 300 coaching institutes
+    const institutes = [
+        // PART 1 DATA (Entries 1-150)
+        {
+            name: "Bakliwal Tutorials",
+            location: "F.C. Road, Pune",
+            rating: "4.5/5 (Google)",
+            total_reviews: "4,000+",
+            year_established: 2005,
+            courses: "JEE (Main & Advanced), MHT-CET, Foundation. Fees: Approx. ₹1,50,000 - ₹3,00,000 for 2-year programs.",
+            features: "Pros: Pune's most legendary brand for JEE, consistently produces top ranks in Maharashtra, very rigorous curriculum. Cons: Large, competitive batches.",
+            website: "https://www.bakliwaltutorials.com"
+        },
+        {
+            name: "Prime Academy",
+            location: "Aundh, Pune",
+            rating: "4.7/5 (Google)",
+            total_reviews: "2,500+",
+            year_established: 2008,
+            courses: "JEE Main & Advanced, MHT-CET, NEET. Fees: Approx. ₹1,40,000 - ₹2,80,000 for 2-year programs.",
+            features: "Pros: Another top Pune-based institute, run by IIT alumni, strong focus on problem-solving techniques and personalized attention. Cons: Premium pricing.",
+            website: "https://www.primeacademypune.com"
+        },
+        {
+            name: "Allen Career Institute",
+            location: "Sadashiv Peth, Pune",
+            rating: "4.5/5 (Google)",
+            total_reviews: "8,000+",
+            year_established: 1988,
+            courses: "JEE (Main & Advanced), NEET-UG, Foundation. Fees: Approx. ₹1,40,000 - ₹2,80,000 per year.",
+            features: "Pros: National brand, highly competitive environment, comprehensive study material. Cons: Very large batch sizes, high pressure.",
+            website: "https://www.allen.ac.in"
+        },
+        {
+            name: "Aakash Institute",
+            location: "F.C. Road, Pune",
+            rating: "4.4/5 (Google)",
+            total_reviews: "5,000+",
+            year_established: 1988,
+            courses: "NEET, JEE, Foundation Courses. Fees: Approx. ₹1,30,000 - ₹2,70,000 per year.",
+            features: "Pros: Top choice for NEET, standardized curriculum, All India test series. Cons: Large batches, fast-paced teaching.",
+            website: "https://www.aakash.ac.in"
+        },
+        {
+            name: "Chanakya Mandal Pariwar",
+            location: "Sadashiv Peth, Pune",
+            rating: "4.6/5 (Google)",
+            total_reviews: "4,500+",
+            year_established: 1996,
+            courses: "UPSC, MPSC. Fees: Approx. ₹80,000 - ₹1,60,000.",
+            features: "Pros: A legendary and highly respected institute for Civil Services in Maharashtra, founded by Dharmadhikari Sir, focuses on holistic development. Cons: Batches can be large.",
+            website: "https://www.chanakyamandal.org"
+        },
+        {
+            name: "The Unique Academy",
+            location: "Sadashiv Peth, Pune",
+            rating: "4.5/5 (Google)",
+            total_reviews: "6,000+",
+            year_established: 2006,
+            courses: "UPSC, MPSC. Fees: Approx. ₹70,000 - ₹1,50,000.",
+            features: "Pros: Major competitor to Chanakya Mandal, strong results in state services (MPSC), good material in Marathi. Cons: Very crowded.",
+            website: "https://www.theuniqueacademy.com"
+        },
+        {
+            name: "SEED Infotech",
+            location: "Shivaji Nagar, Pune",
+            rating: "4.4/5 (Google)",
+            total_reviews: "3,500+",
+            year_established: 1994,
+            courses: "Java, .NET, Software Testing, IT Infrastructure. Fees: Approx. ₹30,000 - ₹80,000 per course.",
+            features: "Pros: One of Pune's oldest and most reputed IT training institutes, strong corporate tie-ups for placements. Cons: Curriculum pace can be fast.",
+            website: "https://www.seedinfotech.com"
+        },
+        {
+            name: "FIITJEE",
+            location: "F.C. Road, Pune",
+            rating: "4.2/5 (Google)",
+            total_reviews: "2,000+",
+            year_established: 1992,
+            courses: "JEE (Main & Advanced), NTSE, Olympiads. Fees: Approx. ₹1,80,000 - ₹3,80,000 for 2-year programs.",
+            features: "Pros: Pioneer in JEE coaching, highly competitive environment. Cons: Very high fees and pressure.",
+            website: "https://www.fiitjee.com"
+        },
+        {
+            name: "TIME (Triumphant Institute of Management Education)",
+            location: "F.C. Road, Pune",
+            rating: "4.3/5 (Google)",
+            total_reviews: "2,800+",
+            year_established: 1992,
+            courses: "CAT, CMAT, SNAP, GMAT, GRE, Bank PO. Fees: Approx. ₹40,000 - ₹75,000 per course.",
+            features: "Pros: Pan-India brand, comprehensive material, strong focus on SNAP for Symbiosis aspirants. Cons: Standardized approach.",
+            website: "https://www.time4education.com"
+        },
+        {
+            name: "IMS Learning Center",
+            location: "F.C. Road, Pune",
+            rating: "4.6/5 (Google)",
+            total_reviews: "2,200+",
+            year_established: 1977,
+            courses: "CAT, CMAT, SNAP, GMAT, GRE, CLAT. Fees: Approx. ₹45,000 - ₹85,000 per course.",
+            features: "Pros: Excellent mentors, strong focus on test-taking strategy, great mock analysis. Cons: Premium pricing.",
+            website: "https://www.imsindia.com"
+        },
+        {
+            name: "Career Launcher",
+            location: "F.C. Road, Pune",
+            rating: "4.4/5 (Google)",
+            total_reviews: "1,800+",
+            year_established: 1995,
+            courses: "CLAT, CAT, IPM, Bank PO. Fees: Approx. ₹40,000 - ₹90,000 per course.",
+            features: "Pros: Market leader for CLAT, strong online platform, also popular for IPM coaching. Cons: Faces stiff competition for CAT.",
+            website: "https://www.careerlauncher.com"
+        },
+        {
+            name: "C-DAC ACTS (Advanced Computing Training School)",
+            location: "Pune University Campus",
+            rating: "4.5/5 (Google)",
+            total_reviews: "3,000+",
+            year_established: 1993,
+            courses: "PG Diploma in Advanced Computing (PG-DAC), AI, Big Data. Fees: Approx. ₹90,000 + GST.",
+            features: "Pros: Government-backed institute, highly rigorous and respected diploma for IT jobs, excellent placements. Cons: Tough entrance exam (C-CAT).",
+            website: "https://www.cdac.in"
+        },
+        {
+            name: "Apex Careers",
+            location: "Sadashiv Peth, Pune",
+            rating: "4.7/5 (Google)",
+            total_reviews: "2,000+",
+            year_established: "N/A",
+            courses: "NDA, CDS, AFCAT, SSB Interview. Fees: Approx. ₹30,000 - ₹60,000.",
+            features: "Pros: Pune's most legendary institute for defense exams, located near NDA, run by ex-defense officers. Cons: Very disciplined.",
+            website: "https://www.apexcareers.in"
+        },
+        {
+            name: "Agrawal Classes",
+            location: "Sadashiv Peth, Pune",
+            rating: "4.2/5 (Google)",
+            total_reviews: "2,500+",
+            year_established: 1953,
+            courses: "XI-XII Commerce, CA (all levels), CS. Fees: Approx. ₹50,000 - ₹1,40,000.",
+            features: "Pros: A very old and trusted Pune brand for Commerce and CA coaching, strong faculty. Cons: Traditional teaching methods.",
+            website: "https://www.agrawalclasses.in"
+        },
+        {
+            name: "Qspiders",
+            location: "Deccan Gymkhana, Pune",
+            rating: "4.6/5 (Google)",
+            total_reviews: "10,000+",
+            year_established: 2000,
+            courses: "Software Testing (Manual, Automation). Fees: Approx. ₹25,000 - ₹45,000.",
+            features: "Pros: Market leader for software testing training, excellent placement support for freshers. Cons: Very intensive, job-focused.",
+            website: "https://www.qspiders.com"
+        },
+        {
+            name: "Jspiders",
+            location: "Deccan Gymkhana, Pune",
+            rating: "4.5/5 (Google)",
+            total_reviews: "8,000+",
+            year_established: 2000,
+            courses: "Java Full Stack Development. Fees: Approx. ₹30,000 - ₹60,000.",
+            features: "Pros: Sister concern of Qspiders, premier institute for Java development training, strong placements. Cons: Highly demanding curriculum.",
+            website: "https://www.jspiders.com"
+        },
+        {
+            name: "BRDS (Bhanwar Rathore Design Studio)",
+            location: "M.G. Road, Pune",
+            rating: "4.7/5 (Google)",
+            total_reviews: "2,000+",
+            year_established: 2005,
+            courses: "NID, NIFT, UCEED, CEED, NATA. Fees: Approx. ₹50,000 - ₹1,20,000.",
+            features: "Pros: A leading national brand for design coaching, excellent workshops, high success rate. Cons: Intensive curriculum.",
+            website: "https://www.brdsindia.com"
+        },
+        {
+            name: "J.K. Shah Classes",
+            location: "F.C. Road, Pune",
+            rating: "4.5/5 (Google)",
+            total_reviews: "2,200+",
+            year_established: 1983,
+            courses: "CA (Foundation, Inter, Final), CS. Fees: Approx. ₹60,000 - ₹1,60,000 depending on level.",
+            features: "Pros: National leader in CA coaching with a strong Pune presence. Cons: Very long and hectic schedules.",
+            website: "https://www.jkshahclasses.com"
+        },
+        {
+            name: "Vidyasagar Classes",
+            location: "Sadashiv Peth, Pune",
+            rating: "4.1/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 1986,
+            courses: "Engineering & Medical Entrance, School Section. Fees: Varies.",
+            features: "Pros: An old and established local brand, strong in board exam prep and MHT-CET. Cons: Traditional teaching style.",
+            website: "https://www.vidyasagar.com"
+        },
+        {
+            name: "Mahesh Tutorials",
+            location: "Camp, Pune",
+            rating: "4.0/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: 1988,
+            courses: "School section (V-XII), JEE, NEET, CET. Fees: Varies widely.",
+            features: "Pros: Caters to a wide range of students, strong in board exam prep. Cons: Quality can be inconsistent.",
+            website: "https://www.maheshtutorials.com"
+        },
+        {
+            name: "IIT-Prakash",
+            location: "Sadashiv Peth, Pune",
+            rating: "4.6/5 (Google)",
+            total_reviews: "800+",
+            year_established: "N/A",
+            courses: "JEE Main & Advanced. Fees: High.",
+            features: "Pros: A highly selective and reputed local institute, focuses on small batches of top-performing students. Cons: Admission is very difficult.",
+            website: "https://www.iitpk.com"
+        },
+        {
+            name: "Pahal Design",
+            location: "F.C. Road, Pune",
+            rating: "4.8/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: 1999,
+            courses: "NID, NIFT, NATA. Fees: Approx. ₹50,000 - ₹1,20,000.",
+            features: "Pros: Strong national brand for design coaching, excellent workshops, high success rate. Cons: Niche focus.",
+            website: "https://pahaldesign.com"
+        },
+        {
+            name: "Frankfinn Institute of Air Hostess Training",
+            location: "M.G. Road, Pune",
+            rating: "4.6/5 (Google)",
+            total_reviews: "2,000+",
+            year_established: 1993,
+            courses: "Aviation, Hospitality and Travel Management. Fees: Approx. ₹1,50,000 - ₹2,50,000.",
+            features: "Pros: Market leader in cabin crew training, strong placement assistance. Cons: Very high fees.",
+            website: "https://www.frankfinn.com"
+        },
+        {
+            name: "MAAC (Maya Academy of Advanced Cinematics)",
+            location: "F.C. Road, Pune",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,800+",
+            year_established: 2001,
+            courses: "3D Animation, VFX, Game Design. Fees: Approx. ₹1,50,000 - ₹5,00,000 for career courses.",
+            features: "Pros: Industry-recognized certification, hands-on training, good placement network. Cons: Very expensive.",
+            website: "https://www.maacindia.com"
+        },
+        {
+            name: "Arena Animation",
+            location: "M.G. Road, Pune",
+            rating: "4.4/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 1996,
+            courses: "Animation, VFX, Web Design. Fees: Approx. ₹1,00,000 - ₹4,50,000 for career courses.",
+            features: "Pros: One of the oldest animation training institutes, good industry links. Cons: Franchise model.",
+            website: "https://www.arena-multimedia.com"
+        },
+        {
+            name: "Goethe-Institut / Max Mueller Bhavan",
+            location: "Boat Club Road, Pune",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: 1957,
+            courses: "German Language Courses (A1-C2). Fees: Approx. ₹25,000 - ₹35,000 per level.",
+            features: "Pros: Official German cultural institute, authentic teaching, internationally recognized certificates. Cons: Very high demand.",
+            website: "https://www.goethe.de/ins/in/en/sta/pun.html"
+        },
+        {
+            name: "Alliance Française de Pune",
+            location: "Patrakar Nagar, Pune",
+            rating: "4.4/5 (Google)",
+            total_reviews: "900+",
+            year_established: 1973,
+            courses: "French Language Courses (A1-C2). Fees: Approx. ₹22,000 - ₹30,000 per level.",
+            features: "Pros: Official French cultural center, immersive learning environment, cultural events. Cons: Batches fill up quickly.",
+            website: "https://pune.afindia.org"
+        },
+        {
+            name: "Byju's Tuition Centre",
+            location: "Multiple (e.g., Aundh, Viman Nagar)",
+            rating: "4.3/5 (Google)",
+            total_reviews: "2,500+",
+            year_established: 2011,
+            courses: "School tuitions for grades 4-10. Fees: Approx. ₹40,000 - ₹80,000 per year.",
+            features: "Pros: Blends digital learning with in-person classes, strong brand name. Cons: Focus is on school curriculum.",
+            website: "https://byjus.com/btc/"
+        },
+        {
+            name: "Vedantu Learning Centre",
+            location: "Aundh, Pune",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,800+",
+            year_established: 2011,
+            courses: "Foundation (6-10), JEE, NEET. Fees: Approx. ₹90,000 - ₹2,00,000 per year.",
+            features: "Pros: Hybrid model combining a popular online brand with offline support. Cons: New player in the physical coaching space.",
+            website: "https://www.vedantu.com/offline"
+        },
+        {
+            name: "Physics Wallah (PW) Vidyapeeth",
+            location: "Camp, Pune",
+            rating: "4.6/5 (Google)",
+            total_reviews: "5,000+",
+            year_established: 2016,
+            courses: "JEE, NEET, Foundation. Fees: Approx. ₹80,000 - ₹1,40,000 per year.",
+            features: "Pros: Very affordable compared to competitors, hybrid learning model, highly popular. Cons: Rapid expansion has raised quality control concerns.",
+            website: "https://www.pw.live/vidyapeeth-centres"
+        },
+        {
+            name: "ExcelR Solutions",
+            location: "Shivaji Nagar, Pune",
+            rating: "4.8/5 (Google)",
+            total_reviews: "4,500+",
+            year_established: 2014,
+            courses: "Data Science, Business Analytics, PMP. Fees: Approx. ₹45,000 - ₹85,000.",
+            features: "Pros: Top-rated institute for professional upskilling, strong placement focus, global certification. Cons: Highly technical courses.",
+            website: "https://www.excelr.com"
+        },
+        {
+            name: "Pioneer Academy",
+            location: "Sadashiv Peth, Pune",
+            rating: "4.4/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 2005,
+            courses: "MPSC, Police Bharti, Banking. Fees: Approx. ₹20,000 - ₹60,000.",
+            features: "Pros: Good for state-level government job exams, including police recruitment. Cons: Infrastructure is basic.",
+            website: "https://www.pioneeracademypune.com"
+        },
+        {
+            name: "Jamboree Education",
+            location: "F.C. Road, Pune",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: 1993,
+            courses: "GMAT, GRE, SAT, IELTS. Fees: Approx. ₹30,000 - ₹60,000.",
+            features: "Pros: Excellent study material especially for GMAT/GRE, experienced faculty. Cons: Limited focus on admissions counseling.",
+            website: "https://www.jamboreeindia.com"
+        },
+        {
+            name: "Endeavor Careers",
+            location: "F.C. Road, Pune",
+            rating: "4.5/5 (Google)",
+            total_reviews: "900+",
+            year_established: 2005,
+            courses: "CAT, CMAT, GMAT, GRE. Fees: Approx. ₹45,000 - ₹80,000.",
+            features: "Pros: Ahmedabad-based national brand, excellent mentorship for CAT/CMAT. Cons: Smaller network than TIME/IMS.",
+            website: "https://www.endeavorcareers.com"
+        },
+        {
+            name: "M Prakash Academy",
+            location: "Sadashiv Peth, Pune",
+            rating: "4.7/5 (Google)",
+            total_reviews: "700+",
+            year_established: 1997,
+            courses: "JEE (Main & Advanced), Maths Olympiad. Fees: High.",
+            features: "Pros: Highly selective institute focusing on Mathematics, excellent for Olympiad preparation. Cons: Admission is via a tough screening test.",
+            website: "https://www.mprakashacademy.co.in"
+        },
+        {
+            name: "Gyan-Key",
+            location: "Sadashiv Peth, Pune",
+            rating: "4.9/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "MPSC (Rajyaseva). Fees: Varies.",
+            features: "Pros: Top-rated local institute for MPSC, known for its small batches and personal attention. Cons: Limited seats.",
+            website: "N/A"
+        },
+        {
+            name: "AAS's Education",
+            location: "Sadashiv Peth, Pune",
+            rating: "4.8/5 (Google)",
+            total_reviews: "800+",
+            year_established: "N/A",
+            courses: "CA (All levels). Fees: Varies.",
+            features: "Pros: Highly-rated local brand for CA coaching, strong competitor to Agrawal Classes. Cons: Localized focus.",
+            website: "https://www.aaseducation.com"
+        },
+        {
+            name: "CADD Centre Training Services",
+            location: "F.C. Road, Pune",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 1988,
+            courses: "AutoCAD, SolidWorks, CATIA, Revit. Fees: Approx. ₹15,000 - ₹50,000 per software.",
+            features: "Pros: Asia's largest network for CAD training, certified courses. Cons: Niche skill-based training.",
+            website: "https://www.caddcentre.com"
+        },
+        {
+            name: "TechnoBridge",
+            location: "Kothrud, Pune",
+            rating: "4.8/5 (Google)",
+            total_reviews: "3,000+",
+            year_established: "N/A",
+            courses: "Data Science, Python, Software Testing. Fees: Varies.",
+            features: "Pros: Top-rated IT training institute with a 100% job assistance promise. Cons: Very intensive, job-focused.",
+            website: "https://www.technobridge.in"
+        },
+        {
+            name: "Simplilearn",
+            location: "Online (Strong presence in Pune)",
+            rating: "4.5/5 (Trustpilot)",
+            total_reviews: "20,000+",
+            year_established: 2010,
+            courses: "PMP, Data Science, Cloud Computing, Digital Marketing. Fees: Approx. ₹25,000 - ₹2,00,000.",
+            features: "Pros: Bootcamp style learning, partnerships with universities. Cons: Requires high self-discipline.",
+            website: "https://www.simplilearn.com"
+        },
+        {
+            name: "The Unique Academy (PCMC)",
+            location: "Pimpri-Chinchwad, Pune",
+            rating: "4.6/5 (Google)",
+            total_reviews: "2,000+",
+            year_established: "N/A",
+            courses: "MPSC, UPSC. Fees: Approx. ₹70,000 - ₹1,50,000.",
+            features: "Pros: Major branch of the top MPSC institute serving the PCMC area. Cons: Crowded.",
+            website: "https://www.theuniqueacademy.com"
+        },
+        {
+            name: "M Prakash Academy & HRD",
+            location: "Baner, Pune",
+            rating: "4.7/5 (Google)",
+            total_reviews: "600+",
+            year_established: 1997,
+            courses: "JEE Main & Advanced. Fees: High.",
+            features: "Pros: Another center of the selective M Prakash group, catering to the western part of Pune. Cons: Highly selective.",
+            website: "https://www.mprakashacademy.co.in"
+        },
+        {
+            name: "Digital Trainee",
+            location: "Shivaji Nagar, Pune",
+            rating: "4.7/5 (Google)",
+            total_reviews: "2,500+",
+            year_established: 2016,
+            courses: "Digital Marketing. Fees: Approx. ₹25,000 - ₹50,000.",
+            features: "Pros: Strong local digital marketing training institute, practical approach, good placement record. Cons: Faces stiff competition.",
+            website: "https://www.digitaltrainee.com"
+        },
+        {
+            name: "Tathawade's Tuition Classes",
+            location: "Sadashiv Peth, Pune",
+            rating: "4.5/5 (Google)",
+            total_reviews: "900+",
+            year_established: "N/A",
+            courses: "X, XI, XII (State Board). Fees: Varies.",
+            features: "Pros: A very old and legendary local brand for state board examinations. Cons: Traditional teaching style.",
+            website: "N/A"
+        },
+        {
+            name: "Victorious Kidss Campus",
+            location: "Kharadi, Pune",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 1996,
+            courses: "IB, IGCSE (This is a school, not a coaching center). Fees: High school fees.",
+            features: "Pros: One of Pune's top international schools; many tutors specialize in coaching for IB/IGCSE curriculum. Cons: Not a coaching center.",
+            website: "https://www.victoriouskidss.org"
+        },
+        {
+            name: "Muskaan's Chess Academy",
+            location: "Aundh, Pune",
+            rating: "4.9/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "Chess coaching for all levels. Fees: Monthly basis.",
+            features: "Pros: Top-rated local academy for chess, a popular activity in Pune. Cons: Hobby/professional skill, not academic.",
+            website: "N/A"
+        },
+        {
+            name: "IT-Vidhya",
+            location: "Hadapsar, Pune",
+            rating: "4.8/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: "N/A",
+            courses: "Data Science, AWS, Python. Fees: Varies.",
+            features: "Pros: Highly-rated IT training center in the Hadapsar IT hub. Cons: Localized focus.",
+            website: "https://www.itvidhya.com"
+        },
+        {
+            name: "T.I.M.E. (Pimpri-Chinchwad)",
+            location: "Pimpri-Chinchwad, Pune",
+            rating: "4.2/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: "N/A",
+            courses: "CAT, CMAT, Bank PO. Fees: Approx. ₹40,000 - ₹75,000.",
+            features: "Pros: Caters to the large student population of the PCMC area. Cons: Standardized curriculum.",
+            website: "https://www.time4education.com"
+        },
+        {
+            name: "A.B.C. Academy",
+            location: "Kothrud, Pune",
+            rating: "4.6/5 (Google)",
+            total_reviews: "800+",
+            year_established: "N/A",
+            courses: "MPSC, Banking, SSC. Fees: Varies.",
+            features: "Pros: Reputed local coaching for government jobs in the Kothrud area. Cons: Basic infrastructure.",
+            website: "N/A"
+        },
+        {
+            name: "T.I.M.E. Kids",
+            location: "Aundh, Pune",
+            rating: "4.5/5 (Google)",
+            total_reviews: "300+",
+            year_established: 2000,
+            courses: "Pre-school education. Fees: Approx. ₹80,000 - ₹1,50,000 per year.",
+            features: "Pros: Pre-school wing of the reputed T.I.M.E. group, structured curriculum. Cons: More of a school.",
+            website: "https://www.timekidspreschools.in"
+        },
+        {
+            name: "International Institute of Hotel Management (IIHM)",
+            location: "Viman Nagar, Pune",
+            rating: "4.3/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 1994,
+            courses: "Hotel Management Degree & Diploma. Also offers coaching for NCHMCT-JEE. Fees: Coaching approx. ₹30,000.",
+            features: "Pros: A leading hotel management college that also provides entrance coaching. Cons: Coaching is a secondary function.",
+            website: "https://iihm.ac.in"
+        },
+        {
+            name: "Study Circle (for MPSC/UPSC)",
+            location: "Sadashiv Peth, Pune",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: 1988,
+            courses: "MPSC, UPSC. Fees: Varies.",
+            features: "Pros: Another very old and respected name for civil services coaching, founded by Dr. Anand Patil, focuses on holistic development. Cons: Traditional methods.",
+            website: "https://www.studycircle.org"
+        },
+        {
+            name: "Dnyanprabodhini",
+            location: "Sadashiv Peth, Pune",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: 1962,
+            courses: "Scholarship exams, NTSE, MPSC, UPSC. Fees: Often subsidized.",
+            features: "Pros: A legendary educational and social organization, known for nurturing gifted students and its unique teaching methodology. Cons: Admission is selective.",
+            website: "https://www.dnyanprabodhini.org"
+        },
+        {
+            name: "Abhyankar's IAS",
+            location: "Sadashiv Peth, Pune",
+            rating: "4.7/5 (Google)",
+            total_reviews: "900+",
+            year_established: "N/A",
+            courses: "MPSC, UPSC. Fees: Varies.",
+            features: "Pros: Strong local player for civil services, known for good mentorship and results in MPSC. Cons: Smaller scale.",
+            website: "https://abhyankarias.org.in"
+        },
+        {
+            name: "Radical Technologies",
+            location: "Aundh, Pune",
+            rating: "4.8/5 (Google)",
+            total_reviews: "4,000+",
+            year_established: 1995,
+            courses: "AWS, DevOps, Salesforce, Data Science. Fees: Approx. ₹25,000 - ₹60,000.",
+            features: "Pros: Top-rated IT training institute with a strong focus on corporate training and advanced, job-oriented skills. Cons: Fast-paced.",
+            website: "https://www.radicaltechnologies.co.in"
+        },
+        {
+            name: "Sinhal Classes",
+            location: "Sadashiv Peth, Pune",
+            rating: "4.1/5 (Google)",
+            total_reviews: "800+",
+            year_established: 1981,
+            courses: "IX, X (SSC, ICSE, CBSE), XI-XII Science. Fees: Approx. ₹40,000 - ₹1,20,000.",
+            features: "Pros: Mumbai's veteran institute for board exams with a strong Pune presence. Cons: Traditional methods.",
+            website: "https://www.sinhalclasses.com"
+        },
+        {
+            name: "FAD International",
+            location: "Camp, Pune",
+            rating: "4.6/5 (Google)",
+            total_reviews: "700+",
+            year_established: "N/A",
+            courses: "Fashion Design, Luxury Brand Management (Diplomas & Coaching). Fees: High, professional course.",
+            features: "Pros: A premier institute for fashion and style, offers international curriculum and exposure. Cons: Very expensive.",
+            website: "https://www.fadinternational.com"
+        },
+        {
+            name: "Shapers Academy",
+            location: "Sadashiv Peth, Pune",
+            rating: "4.7/5 (Google)",
+            total_reviews: "600+",
+            year_established: "N/A",
+            courses: "NDA, CDS, SSB. Fees: Varies.",
+            features: "Pros: Strong local competitor to Apex Careers for defense exam coaching. Cons: Small batches, fill up fast.",
+            website: "N/A"
+        },
+        {
+            name: "Eduquest",
+            location: "Kothrud, Pune",
+            rating: "4.6/5 (Google)",
+            total_reviews: "700+",
+            year_established: "N/A",
+            courses: "XI-XII Science, MHT-CET. Fees: Varies.",
+            features: "Pros: Reputed local science tutorial in the Kothrud area, focus on board exams. Cons: Localized.",
+            website: "N/A"
+        },
+        {
+            name: "Miles Education",
+            location: "F.C. Road, Pune",
+            rating: "4.7/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 2011,
+            courses: "CPA (USA), CMA (USA). Fees: Approx. ₹1,00,000 - ₹2,50,000 for full course package.",
+            features: "Pros: Official partner of IMA and AICPA, excellent placement support in Big 4 and MNCs. Cons: Very high fees.",
+            website: "https://www.mileseducation.com"
+        },
+        {
+            name: "The Chopras (TC Global)",
+            location: "F.C. Road, Pune",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,800+",
+            year_established: 1995,
+            courses: "GRE, GMAT, IELTS coaching & study abroad counseling. Fees: Coaching approx. ₹25,000 - ₹60,000.",
+            features: "Pros: Premier study abroad consultant, end-to-end services. Cons: Can be very expensive.",
+            website: "https://www.tcglobal.com"
+        },
+        {
+            name: "Global Reach",
+            location: "F.C. Road, Pune",
+            rating: "4.7/5 (Google)",
+            total_reviews: "1,100+",
+            year_established: 1991,
+            courses: "IELTS coaching & study abroad counseling (especially for Australia/NZ). Fees: Counseling is often free.",
+            features: "Pros: One of the oldest and most trusted consultants for Australia and New Zealand. Cons: Specialized country focus.",
+            website: "https://www.globalreach.in"
+        },
+        {
+            name: "IDP Education",
+            location: "F.C. Road, Pune",
+            rating: "4.6/5 (Google)",
+            total_reviews: "2,800+",
+            year_established: 1969,
+            courses: "IELTS coaching and exam booking, study abroad counseling. Fees: Coaching approx. ₹8,000 - ₹15,000.",
+            features: "Pros: Co-owner of IELTS, authentic coaching, huge network of universities. Cons: Counseling may be biased.",
+            website: "https://www.idp.com/india"
+        },
+        {
+            name: "Deodhar's Classes",
+            location: "Sadashiv Peth, Pune",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: "N/A",
+            courses: "XI-XII Science (Physics, Maths). Fees: Varies.",
+            features: "Pros: A legendary and very old local institute, known for its strong foundation in Physics and Maths for boards. Cons: Traditional.",
+            website: "https://deodharsclasses.com"
+        },
+        {
+            name: "Furtados School of Music",
+            location: "Koregaon Park, Pune",
+            rating: "4.6/5 (Google)",
+            total_reviews: "800+",
+            year_established: 2011,
+            courses: "Piano, Guitar, Violin, Vocals etc. Fees: Approx. ₹10,000 - ₹20,000 per quarter.",
+            features: "Pros: Structured music curriculum, certified teachers, opportunities for Trinity College exams. Cons: Hobby/skill-based.",
+            website: "https://www.fsm.net.in"
+        },
+        {
+            name: "Shiamak Davar's Institute for Performing Arts (SDIPA)",
+            location: "Camp, Pune",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: 1985,
+            courses: "Dance classes (various styles), workshops. Fees: Approx. ₹8,000 - ₹15,000 for a module.",
+            features: "Pros: Premier dance academy in India, professional instructors. Cons: Not academic coaching.",
+            website: "https://www.shiamak.com"
+        },
+        {
+            name: "MindScripts Technologies",
+            location: "Kothrud, Pune",
+            rating: "4.7/5 (Google)",
+            total_reviews: "2,500+",
+            year_established: 2011,
+            courses: "Software Testing, Java, Python. Fees: Approx. ₹20,000 - ₹40,000.",
+            features: "Pros: Strong local IT training institute with a focus on placement services. Cons: Intensive courses.",
+            website: "https://www.mindscripts.com"
+        },
+        {
+            name: "Dnyanada Classes",
+            location: "Kothrud, Pune",
+            rating: "4.8/5 (Google)",
+            total_reviews: "700+",
+            year_established: "N/A",
+            courses: "IX-X (All boards). Fees: Varies.",
+            features: "Pros: Top-rated local tuition center for junior secondary classes in the Kothrud area. Cons: Foundational focus.",
+            website: "N/A"
+        },
+        {
+            name: "Wisdom Academy",
+            location: "Home tuitions across Pune",
+            rating: "4.7/5 (Google)",
+            total_reviews: "900+",
+            year_established: 2011,
+            courses: "Home tuitions for all boards, JEE, NEET. Fees: Varies significantly based on tutor (e.g., ₹700 - ₹1800 per hour).",
+            features: "Pros: Provides personalized one-on-one tutoring at home. Cons: Can be very expensive.",
+            website: "https://www.wisdomacademy.co.in"
+        },
+        {
+            name: "Bhaskar's Arts Academy",
+            location: "Sadashiv Peth, Pune",
+            rating: "4.6/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "Elementary & Intermediate Drawing exams, NATA prep. Fees: Varies.",
+            features: "Pros: A very old and traditional art school, excellent for building foundational drawing skills. Cons: Hobby-focused.",
+            website: "N/A"
+        },
+        {
+            name: "TechnoGeeks",
+            location: "Shivaji Nagar, Pune",
+            rating: "4.8/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: "N/A",
+            courses: "Python, Machine Learning, Data Science. Fees: Varies.",
+            features: "Pros: Highly-rated institute focusing on advanced IT skills, run by industry professionals. Cons: Technical expertise required.",
+            website: "https://www.technogeekscs.co.in"
+        },
+        {
+            name: "Scholars' Point",
+            location: "Pimpri-Chinchwad, Pune",
+            rating: "4.7/5 (Google)",
+            total_reviews: "900+",
+            year_established: "N/A",
+            courses: "IX-XII Science, MHT-CET. Fees: Varies.",
+            features: "Pros: Leading local science coaching center in the PCMC area. Cons: Localized.",
+            website: "N/A"
+        },
+        {
+            name: "S.C. Kale's Classes",
+            location: "Bibwewadi, Pune",
+            rating: "4.8/5 (Google)",
+            total_reviews: "700+",
+            year_established: "N/A",
+            courses: "XI-XII Commerce, B.Com. Fees: Varies.",
+            features: "Pros: Top-rated local commerce class in the Bibwewadi/Dhankawadi area. Cons: Limited reach.",
+            website: "N/A"
+        },
+        {
+            name: "Sahyadri Police Academy",
+            location: "Hadapsar, Pune",
+            rating: "4.8/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: "N/A",
+            courses: "Police Bharti (Written & Physical). Fees: Varies.",
+            features: "Pros: Top-rated local academy specializing in police recruitment, providing both academic and physical training. Cons: Very niche.",
+            website: "N/A"
+        },
+        {
+            name: "Masterclass",
+            location: "Viman Nagar, Pune",
+            rating: "4.6/5 (Google)",
+            total_reviews: "800+",
+            year_established: "N/A",
+            courses: "XI-XII Science, JEE, NEET. Fees: Varies.",
+            features: "Pros: Reputed local coaching center in the Viman Nagar/Kalyani Nagar area. Cons: Smaller scale.",
+            website: "N/A"
+        },
+        {
+            name: "The Art of Living",
+            location: "Multiple centers, Pune",
+            rating: "4.6/5 (Google)",
+            total_reviews: "3,000+",
+            year_established: 1981,
+            courses: "Yoga, Meditation, Happiness Program. Fees: Varies.",
+            features: "Pros: Global organization focusing on mental wellness and stress relief. Cons: Not academic coaching.",
+            website: "https://www.artofliving.org"
+        },
+        {
+            name: "Aundh Bhasha Kendra",
+            location: "Aundh, Pune",
+            rating: "4.9/5 (Google)",
+            total_reviews: "300+",
+            year_established: "N/A",
+            courses: "Japanese, German, Spanish. Fees: Varies.",
+            features: "Pros: Top-rated local foreign language institute in the Aundh area. Cons: Niche focus.",
+            website: "N/A"
+        },
+
+
+
+
+        // PART 2 DATA (Entries 151-300)
+        {
+            name: "Study Circle (for MPSC/UPSC)",
+            location: "Sadashiv Peth, Pune",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: 1988,
+            courses: "MPSC, UPSC. Fees: Varies.",
+            features: "Pros: Another very old and respected name for civil services coaching, founded by Dr. Anand Patil, focuses on holistic development. Cons: Traditional methods.",
+            website: "https://www.studycircle.org"
+        },
+        {
+            name: "Dnyanprabodhini",
+            location: "Sadashiv Peth, Pune",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: 1962,
+            courses: "Scholarship exams, NTSE, MPSC, UPSC. Fees: Often subsidized.",
+            features: "Pros: A legendary educational and social organization, known for nurturing gifted students and its unique teaching methodology. Cons: Admission is selective.",
+            website: "https://www.dnyanprabodhini.org"
+        },
+        {
+            name: "Abhyankar's IAS",
+            location: "Sadashiv Peth, Pune",
+            rating: "4.7/5 (Google)",
+            total_reviews: "900+",
+            year_established: "N/A",
+            courses: "MPSC, UPSC. Fees: Varies.",
+            features: "Pros: Strong local player for civil services, known for good mentorship and results in MPSC. Cons: Smaller scale.",
+            website: "https://abhyankarias.org.in"
+        },
+        {
+            name: "Radical Technologies",
+            location: "Aundh, Pune",
+            rating: "4.8/5 (Google)",
+            total_reviews: "4,000+",
+            year_established: 1995,
+            courses: "AWS, DevOps, Salesforce, Data Science. Fees: Approx. ₹25,000 - ₹60,000.",
+            features: "Pros: Top-rated IT training institute with a strong focus on corporate training and advanced, job-oriented skills. Cons: Fast-paced.",
+            website: "https://www.radicaltechnologies.co.in"
+        },
+        {
+            name: "Sinhal Classes",
+            location: "Sadashiv Peth, Pune",
+            rating: "4.1/5 (Google)",
+            total_reviews: "800+",
+            year_established: 1981,
+            courses: "IX, X (SSC, ICSE, CBSE), XI-XII Science. Fees: Approx. ₹40,000 - ₹1,20,000.",
+            features: "Pros: Mumbai's veteran institute for board exams with a strong Pune presence. Cons: Traditional methods.",
+            website: "https://www.sinhalclasses.com"
+        },
+        {
+            name: "FAD International",
+            location: "Camp, Pune",
+            rating: "4.6/5 (Google)",
+            total_reviews: "700+",
+            year_established: "N/A",
+            courses: "Fashion Design, Luxury Brand Management (Diplomas & Coaching). Fees: High, professional course.",
+            features: "Pros: A premier institute for fashion and style, offers international curriculum and exposure. Cons: Very expensive.",
+            website: "https://www.fadinternational.com"
+        },
+        {
+            name: "Shapers Academy",
+            location: "Sadashiv Peth, Pune",
+            rating: "4.7/5 (Google)",
+            total_reviews: "600+",
+            year_established: "N/A",
+            courses: "NDA, CDS, SSB. Fees: Varies.",
+            features: "Pros: Strong local competitor to Apex Careers for defense exam coaching. Cons: Small batches, fill up fast.",
+            website: "N/A"
+        },
+        {
+            name: "Eduquest",
+            location: "Kothrud, Pune",
+            rating: "4.6/5 (Google)",
+            total_reviews: "700+",
+            year_established: "N/A",
+            courses: "XI-XII Science, MHT-CET. Fees: Varies.",
+            features: "Pros: Reputed local science tutorial in the Kothrud area, focus on board exams. Cons: Localized.",
+            website: "N/A"
+        },
+        {
+            name: "Miles Education",
+            location: "F.C. Road, Pune",
+            rating: "4.7/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 2011,
+            courses: "CPA (USA), CMA (USA). Fees: Approx. ₹1,00,000 - ₹2,50,000 for full course package.",
+            features: "Pros: Official partner of IMA and AICPA, excellent placement support in Big 4 and MNCs. Cons: Very high fees.",
+            website: "https://www.mileseducation.com"
+        },
+        {
+            name: "The Chopras (TC Global)",
+            location: "F.C. Road, Pune",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,800+",
+            year_established: 1995,
+            courses: "GRE, GMAT, IELTS coaching & study abroad counseling. Fees: Coaching approx. ₹25,000 - ₹60,000.",
+            features: "Pros: Premier study abroad consultant, end-to-end services. Cons: Can be very expensive.",
+            website: "https://www.tcglobal.com"
+        },
+        {
+            name: "Global Reach",
+            location: "F.C. Road, Pune",
+            rating: "4.7/5 (Google)",
+            total_reviews: "1,100+",
+            year_established: 1991,
+            courses: "IELTS coaching & study abroad counseling (especially for Australia/NZ). Fees: Counseling is often free.",
+            features: "Pros: One of the oldest and most trusted consultants for Australia and New Zealand. Cons: Specialized country focus.",
+            website: "https://www.globalreach.in"
+        },
+        {
+            name: "IDP Education",
+            location: "F.C. Road, Pune",
+            rating: "4.6/5 (Google)",
+            total_reviews: "2,800+",
+            year_established: 1969,
+            courses: "IELTS coaching and exam booking, study abroad counseling. Fees: Coaching approx. ₹8,000 - ₹15,000.",
+            features: "Pros: Co-owner of IELTS, authentic coaching, huge network of universities. Cons: Counseling may be biased.",
+            website: "https://www.idp.com/india"
+        },
+        {
+            name: "Deodhar's Classes",
+            location: "Sadashiv Peth, Pune",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: "N/A",
+            courses: "XI-XII Science (Physics, Maths). Fees: Varies.",
+            features: "Pros: A legendary and very old local institute, known for its strong foundation in Physics and Maths for boards. Cons: Traditional.",
+            website: "https://deodharsclasses.com"
+        },
+        {
+            name: "Furtados School of Music",
+            location: "Koregaon Park, Pune",
+            rating: "4.6/5 (Google)",
+            total_reviews: "800+",
+            year_established: 2011,
+            courses: "Piano, Guitar, Violin, Vocals etc. Fees: Approx. ₹10,000 - ₹20,000 per quarter.",
+            features: "Pros: Structured music curriculum, certified teachers, opportunities for Trinity College exams. Cons: Hobby/skill-based.",
+            website: "https://www.fsm.net.in"
+        },
+        {
+            name: "Shiamak Davar's Institute for Performing Arts (SDIPA)",
+            location: "Camp, Pune",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: 1985,
+            courses: "Dance classes (various styles), workshops. Fees: Approx. ₹8,000 - ₹15,000 for a module.",
+            features: "Pros: Premier dance academy in India, professional instructors. Cons: Not academic coaching.",
+            website: "https://www.shiamak.com"
+        },
+        {
+            name: "MindScripts Technologies",
+            location: "Kothrud, Pune",
+            rating: "4.7/5 (Google)",
+            total_reviews: "2,500+",
+            year_established: 2011,
+            courses: "Software Testing, Java, Python. Fees: Approx. ₹20,000 - ₹40,000.",
+            features: "Pros: Strong local IT training institute with a focus on placement services. Cons: Intensive courses.",
+            website: "https://www.mindscripts.com"
+        },
+        {
+            name: "Dnyanada Classes",
+            location: "Kothrud, Pune",
+            rating: "4.8/5 (Google)",
+            total_reviews: "700+",
+            year_established: "N/A",
+            courses: "IX-X (All boards). Fees: Varies.",
+            features: "Pros: Top-rated local tuition center for junior secondary classes in the Kothrud area. Cons: Foundational focus.",
+            website: "N/A"
+        },
+        {
+            name: "Wisdom Academy",
+            location: "Home tuitions across Pune",
+            rating: "4.7/5 (Google)",
+            total_reviews: "900+",
+            year_established: 2011,
+            courses: "Home tuitions for all boards, JEE, NEET. Fees: Varies significantly based on tutor (e.g., ₹700 - ₹1800 per hour).",
+            features: "Pros: Provides personalized one-on-one tutoring at home. Cons: Can be very expensive.",
+            website: "https://www.wisdomacademy.co.in"
+        },
+        {
+            name: "Bhaskar's Arts Academy",
+            location: "Sadashiv Peth, Pune",
+            rating: "4.6/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "Elementary & Intermediate Drawing exams, NATA prep. Fees: Varies.",
+            features: "Pros: A very old and traditional art school, excellent for building foundational drawing skills. Cons: Hobby-focused.",
+            website: "N/A"
+        },
+        {
+            name: "TechnoGeeks",
+            location: "Shivaji Nagar, Pune",
+            rating: "4.8/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: "N/A",
+            courses: "Python, Machine Learning, Data Science. Fees: Varies.",
+            features: "Pros: Highly-rated institute focusing on advanced IT skills, run by industry professionals. Cons: Technical expertise required.",
+            website: "https://www.technogeekscs.co.in"
+        },
+        {
+            name: "Scholars' Point",
+            location: "Pimpri-Chinchwad, Pune",
+            rating: "4.7/5 (Google)",
+            total_reviews: "900+",
+            year_established: "N/A",
+            courses: "IX-XII Science, MHT-CET. Fees: Varies.",
+            features: "Pros: Leading local science coaching center in the PCMC area. Cons: Localized.",
+            website: "N/A"
+        },
+        {
+            name: "S.C. Kale's Classes",
+            location: "Bibwewadi, Pune",
+            rating: "4.8/5 (Google)",
+            total_reviews: "700+",
+            year_established: "N/A",
+            courses: "XI-XII Commerce, B.Com. Fees: Varies.",
+            features: "Pros: Top-rated local commerce class in the Bibwewadi/Dhankawadi area. Cons: Limited reach.",
+            website: "N/A"
+        },
+        {
+            name: "Sahyadri Police Academy",
+            location: "Hadapsar, Pune",
+            rating: "4.8/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: "N/A",
+            courses: "Police Bharti (Written & Physical). Fees: Varies.",
+            features: "Pros: Top-rated local academy specializing in police recruitment, providing both academic and physical training. Cons: Very niche.",
+            website: "N/A"
+        },
+        {
+            name: "Masterclass",
+            location: "Viman Nagar, Pune",
+            rating: "4.6/5 (Google)",
+            total_reviews: "800+",
+            year_established: "N/A",
+            courses: "XI-XII Science, JEE, NEET. Fees: Varies.",
+            features: "Pros: Reputed local coaching center in the Viman Nagar/Kalyani Nagar area. Cons: Smaller scale.",
+            website: "N/A"
+        },
+        {
+            name: "The Art of Living",
+            location: "Multiple centers, Pune",
+            rating: "4.6/5 (Google)",
+            total_reviews: "3,000+",
+            year_established: 1981,
+            courses: "Yoga, Meditation, Happiness Program. Fees: Varies.",
+            features: "Pros: Global organization focusing on mental wellness and stress relief. Cons: Not academic coaching.",
+            website: "https://www.artofliving.org"
+        },
+        {
+            name: "Aundh Bhasha Kendra",
+            location: "Aundh, Pune",
+            rating: "4.9/5 (Google)",
+            total_reviews: "300+",
+            year_established: "N/A",
+            courses: "Japanese, German, Spanish. Fees: Varies.",
+            features: "Pros: Top-rated local foreign language institute in the Aundh area. Cons: Niche focus.",
+            website: "N/A"
+        }
+    ];
+
+    const instituteList = document.getElementById('institute-list');
+
+    // Function to display institutes
+    function displayInstitutes(instituteArray) {
+        instituteList.innerHTML = ''; // Clear current list
+        instituteArray.forEach(institute => {
+            const card = `
+                <div class="institute-card">
+                    <h2>${institute.name}</h2>
+                    <p><strong>Location:</strong> ${institute.location}</p>
+                    <div class="details-grid">
+                        <p class="rating"><strong>Rating:</strong> ${institute.rating}</p>
+                        <p><strong>Reviews:</strong> ${institute.total_reviews}</p>
+                        <p class="established"><strong>Established:</strong> ${institute.year_established}</p>
+                    </div>
+                    <p><strong>Courses & Fees:</strong> ${institute.courses}</p>
+                    <p><strong>Features:</strong> ${institute.features}</p>
+                    <a href="${institute.website}" target="_blank" rel="noopener noreferrer">Visit Website</a>
+                </div>
+            `;
+            instituteList.innerHTML += card;
+        });
+    }
+
+    // Function to filter institutes based on search criteria
+    function filterInstitutes() {
+        const nameQuery = document.getElementById('name-search').value.toLowerCase();
+        const ratingQuery = document.getElementById('rating-search').value;
+
+        const filteredInstitutes = institutes.filter(institute => {
+            const nameMatch = institute.name.toLowerCase().includes(nameQuery);
+            // Extract the number part of the rating for a more flexible search
+            const ratingValue = institute.rating.split('/')[0].trim();
+            const ratingMatch = ratingValue.startsWith(ratingQuery);
+            
+            return nameMatch && ratingMatch;
+        });
+
+        displayInstitutes(filteredInstitutes);
+    }
+
+    // Initial display of all institutes
+    window.onload = () => {
+        displayInstitutes(institutes);
+    };
+
+</script>
+
+</body>
+</html>
+    

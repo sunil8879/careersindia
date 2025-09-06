@@ -1,0 +1,2689 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top coaching institutes in Mumbai</title>
+    <style>
+        /* General Body Styling */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+            color: #343a40;
+        }
+
+        /* Header Box for Title and Search */
+        .header-container {
+            background-color: #28a745; /* Green background */
+            padding: 30px 25px;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            border: 1px solid #1e7e34;
+        }
+
+        /* 3D Title Styling */
+        h1 {
+            color: white;
+            text-align: center;
+            font-size: 3em;
+            font-weight: 700;
+            margin: 0 0 25px 0;
+            text-shadow: 3px 3px 0px #1c6c2e, 6px 6px 10px rgba(0, 0, 0, 0.3);
+            letter-spacing: 1px;
+        }
+
+        /* Search Box Container */
+        .search-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        /* Search Input Fields */
+        .search-container input {
+            padding: 12px 18px;
+            font-size: 1em;
+            width: 320px;
+            max-width: 90%;
+            border: none;
+            border-radius: 50px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1) inset;
+        }
+
+        .search-container input:focus {
+            outline: none;
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.7), 0 2px 4px rgba(0,0,0,0.1) inset;
+        }
+
+        /* Main container for the institute list */
+        #institute-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 25px;
+        }
+
+        /* Individual Institute Card Styling */
+        .institute-card {
+            background-color: white;
+            border: 1px solid #e9ecef;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .institute-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+        }
+        
+        .institute-card h2 {
+            margin-top: 0;
+            font-size: 1.6em;
+            color: #28a745; /* Green title */
+        }
+
+        .institute-card p {
+            margin: 8px 0;
+            line-height: 1.6;
+            font-size: 0.95em;
+        }
+
+        .institute-card strong {
+            color: #212529;
+            font-weight: 600;
+        }
+
+        .institute-card a {
+            color: #1e7e34;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: auto; /* Pushes the link to the bottom */
+            align-self: flex-start;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .institute-card a:hover {
+            background-color: #e9f5ec;
+            color: #1c6c2e;
+        }
+        
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5px 15px;
+            margin-bottom: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="header-container">
+        <h1>Top coaching institutes in Mumbai</h1>
+        <div class="search-container">
+            <input type="text" id="name-search" onkeyup="filterInstitutes()" placeholder="Search by Institute Name...">
+            <input type="text" id="rating-search" onkeyup="filterInstitutes()" placeholder="Search by Rating (e.g., 4.8)...">
+        </div>
+    </div>
+
+    <main id="institute-list">
+        <!-- Institute cards will be dynamically inserted here by JavaScript -->
+    </main>
+
+<script>
+    // Data for all 300 coaching institutes
+    const institutes = [
+        // PART 1 DATA (Entries 1-150)
+        {
+            name: "Allen Career Institute",
+            location: "Andheri, Mumbai",
+            rating: "4.4/5 (Google)",
+            total_reviews: "5,200+",
+            year_established: 1988,
+            courses: "JEE (Main & Advanced), NEET-UG, Olympiads. Fees: Approx. ₹1,50,000 - ₹3,00,000 per year.",
+            features: "Pros: National brand, comprehensive study material, highly competitive environment. Cons: Very large batch sizes, less personal attention, high pressure.",
+            website: "https://www.allen.ac.in"
+        },
+        {
+            name: "Aakash Institute",
+            location: "Borivali, Mumbai",
+            rating: "4.3/5 (Google)",
+            total_reviews: "4,800+",
+            year_established: 1988,
+            courses: "NEET, JEE, Foundation Courses (Class 8-10). Fees: Approx. ₹1,40,000 - ₹2,80,000 per year.",
+            features: "Pros: Strong focus on medical entrance exams, structured curriculum, regular testing. Cons: High fees, fast-paced teaching can be difficult for some students.",
+            website: "https://www.aakash.ac.in"
+        },
+        {
+            name: "FIITJEE",
+            location: "Dadar, Mumbai",
+            rating: "4.1/5 (Google)",
+            total_reviews: "1,600+",
+            year_established: 1992,
+            courses: "JEE (Main & Advanced), NTSE, KVPY. Fees: Approx. ₹1,60,000 - ₹3,50,000 for 2-year programs.",
+            features: "Pros: Excellent for JEE Advanced preparation, integrated school programs. Cons: Very rigorous schedule, high fees, focus is almost exclusively on top-ranking students.",
+            website: "https://www.fiitjee.com"
+        },
+        {
+            name: "IMS Learning Center",
+            location: "Thane, Mumbai",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,300+",
+            year_established: 1977,
+            courses: "CAT, GMAT, GRE, CET, CLAT, BBA. Fees: Approx. ₹40,000 - ₹80,000 per course.",
+            features: "Pros: Experienced mentors, extensive mock test series, strong alumni network. Cons: Batch sizes can be large during peak season, course material can be exhaustive.",
+            website: "https://www.imsindia.com"
+        },
+        {
+            name: "J.K. Shah Classes",
+            location: "Vile Parle, Mumbai",
+            rating: "4.5/5 (Just Dial)",
+            total_reviews: "3,500+",
+            year_established: 1983,
+            courses: "CA (Foundation, Inter, Final), CS, CMA. Fees: Approx. ₹50,000 - ₹1,50,000 depending on the level.",
+            features: "Pros: Market leader for CA coaching, highly experienced faculty, extensive notes. Cons: Very large batches, hectic schedules near exams.",
+            website: "https://www.jkshahclasses.com"
+        },
+        {
+            name: "TIME (Triumphant Institute of Management Education)",
+            location: "Andheri, Mumbai",
+            rating: "4.4/5 (Google)",
+            total_reviews: "1,900+",
+            year_established: 1992,
+            courses: "CAT, Bank PO, SSC, GMAT, GRE. Fees: Approx. ₹35,000 - ₹70,000 per course.",
+            features: "Pros: Pan-India presence, comprehensive material, numerous mock tests. Cons: Faculty quality can vary by center, standardized approach might not suit everyone.",
+            website: "https://www.time4education.com"
+        },
+        {
+            name: "Rao IIT Academy",
+            location: "Juhu, Mumbai",
+            rating: "4.0/5 (Google)",
+            total_reviews: "2,200+",
+            year_established: 2000,
+            courses: "JEE, NEET, MHT-CET, Foundation. Fees: Approx. ₹1,20,000 - ₹2,50,000 per year.",
+            features: "Pros: Strong focus on engineering entrance, experienced founder, good results in MHT-CET. Cons: Management and faculty consistency can be an issue at some branches.",
+            website: "https://www.raoiit.com"
+        },
+        {
+            name: "Career Launcher",
+            location: "Borivali, Mumbai",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: 1995,
+            courses: "CAT, CLAT, IPM, Bank PO, SSC CGL. Fees: Approx. ₹30,000 - ₹90,000 per course.",
+            features: "Pros: Strong in law and management entrance, good online support and test platform. Cons: Fees can be on the higher side compared to some competitors.",
+            website: "https://www.careerlauncher.com"
+        },
+        {
+            name: "Resonance",
+            location: "Andheri, Mumbai",
+            rating: "4.2/5 (Google)",
+            total_reviews: "900+",
+            year_established: 2001,
+            courses: "JEE (Main & Advanced), NEET, KVPY. Fees: Approx. ₹1,30,000 - ₹2,60,000 per year.",
+            features: "Pros: Strong academic system from Kota, detailed study modules. Cons: Less brand recognition in Mumbai compared to Allen/Aakash, rigid teaching structure.",
+            website: "https://www.resonance.ac.in"
+        },
+        {
+            name: "Mahesh Tutorials",
+            location: "Ghatkopar, Mumbai",
+            rating: "3.9/5 (Just Dial)",
+            total_reviews: "2,800+",
+            year_established: 1988,
+            courses: "School section (V-XII), JEE, NEET, CET, CA. Fees: Varies widely from ₹30,000 (boards) to ₹1,50,000 (entrance exams).",
+            features: "Pros: Caters to a wide range of students, strong in board exam prep. Cons: Quality can be inconsistent across different centers and courses.",
+            website: "https://www.maheshtutorials.com"
+        },
+        {
+            name: "Vidyalankar Classes",
+            location: "Dadar, Mumbai",
+            rating: "4.3/5 (Google)",
+            total_reviews: "2,600+",
+            year_established: 1960,
+            courses: "Engineering (Degree & Diploma), MHT-CET, JEE. Fees: Approx. ₹50,000 - ₹1,80,000.",
+            features: "Pros: Stronghold in engineering and MHT-CET coaching, experienced local faculty. Cons: Less focus on national-level exams like JEE Advanced, traditional teaching methods.",
+            website: "https://www.vidyalankar.org"
+        },
+        {
+            name: "The Chopras (TC Global)",
+            location: "Churchgate, Mumbai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "1,400+",
+            year_established: 1995,
+            courses: "GRE, GMAT, IELTS, TOEFL, SAT. Fees: Approx. ₹20,000 - ₹50,000 for test prep; counselling fees vary.",
+            features: "Pros: Premier study abroad consultant, end-to-end services from test prep to visa. Cons: Services can be very expensive, focus is more on counselling than just coaching.",
+            website: "https://www.tcglobal.com"
+        },
+        {
+            name: "Silica",
+            location: "Andheri, Mumbai",
+            rating: "4.7/5 (Google)",
+            total_reviews: "800+",
+            year_established: 2001,
+            courses: "NID, NIFT, CEED, UCEED, NATA. Fees: Approx. ₹40,000 - ₹1,00,000 per course.",
+            features: "Pros: Specialized in design entrance exams, creative environment, good study material. Cons: Niche focus, batch timings might not be flexible.",
+            website: "https://www.silica.co.in"
+        },
+        {
+            name: "Jamboree Education",
+            location: "Andheri, Mumbai",
+            rating: "4.6/5 (Google)",
+            total_reviews: "950+",
+            year_established: 1993,
+            courses: "GMAT, GRE, SAT, IELTS, TOEFL. Fees: Approx. ₹25,000 - ₹60,000 per course.",
+            features: "Pros: Excellent material for GMAT/GRE, small batch sizes, good faculty. Cons: Limited focus on university counselling compared to larger consultants.",
+            website: "https://www.jamboreeindia.com"
+        },
+        {
+            name: "Sinhal Classes",
+            location: "Borivali, Mumbai",
+            rating: "4.1/5 (Just Dial)",
+            total_reviews: "1,500+",
+            year_established: 1981,
+            courses: "IX, X (SSC, ICSE, CBSE), XI-XII Science, MHT-CET. Fees: Approx. ₹40,000 - ₹1,20,000.",
+            features: "Pros: Veteran institute for board exams, strong local presence. Cons: Outdated teaching methods for some, less focus on national competitive exams.",
+            website: "https://www.sinhalclasses.com"
+        },
+        {
+            name: "A. A. Shah's IAS Institute",
+            location: "Fort, Mumbai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "1,100+",
+            year_established: 1995,
+            courses: "UPSC, MPSC. Fees: Approx. ₹80,000 - ₹1,70,000 for full courses.",
+            features: "Pros: One of the oldest and most reputed for Civil Services in Mumbai, experienced faculty. Cons: Can be crowded, location might be inconvenient for some.",
+            website: "https://www.aashah.com"
+        },
+        {
+            name: "Prime Academy",
+            location: "Pune (Strong online presence in Mumbai)",
+            rating: "4.7/5 (Google)",
+            total_reviews: "1,400+",
+            year_established: 2008,
+            courses: "JEE Main & Advanced, MHT-CET. Fees: Approx. ₹1,00,000 - ₹2,00,000 per year.",
+            features: "Pros: Run by IIT alumni, strong focus on problem-solving techniques. Cons: Primarily Pune-based, Mumbai presence is newer or more online-focused.",
+            website: "https://www.primeacademypune.com"
+        },
+        {
+            name: "Yukti",
+            location: "Nerul, Navi Mumbai",
+            rating: "4.4/5 (Google)",
+            total_reviews: "600+",
+            year_established: 2009,
+            courses: "JEE, NEET, MHT-CET. Fees: Approx. ₹90,000 - ₹1,80,000.",
+            features: "Pros: Good option in Navi Mumbai, personal attention due to moderate batch sizes. Cons: Less known compared to national chains, results might not be as widely advertised.",
+            website: "https://www.yuktionline.com"
+        },
+        {
+            name: "Manya - The Princeton Review",
+            location: "Bandra, Mumbai",
+            rating: "4.5/5 (Google)",
+            total_reviews: "850+",
+            year_established: 2002,
+            courses: "GMAT, GRE, SAT, ACT, AP, IELTS. Fees: Approx. ₹30,000 - ₹1,00,000.",
+            features: "Pros: Internationally recognized curriculum, certified trainers. Cons: Premium pricing, rigid course structure.",
+            website: "https://www.manyagroup.com"
+        },
+        {
+            name: "Pace IIT & Medical",
+            location: "Andheri, Mumbai",
+            rating: "3.8/5 (Google)",
+            total_reviews: "2,900+",
+            year_established: 1999,
+            courses: "JEE, NEET, Foundation. Fees: Approx. ₹1,50,000 - ₹3,20,000.",
+            features: "Pros: Strong brand recall in Mumbai, integrated programs with schools. Cons: Mixed reviews about management and faculty retention, very high fees.",
+            website: "https://www.iitianspace.com"
+        },
+        {
+            name: "Vidyasagar Classes",
+            location: "Borivali, Mumbai",
+            rating: "4.0/5 (Just Dial)",
+            total_reviews: "1,700+",
+            year_established: 1986,
+            courses: "School section (VIII-X), XI-XII Science & Commerce, CET. Fees: Approx. ₹35,000 - ₹1,00,000.",
+            features: "Pros: Popular for board exam preparation, multiple branches across suburbs. Cons: Not specialized for highly competitive exams like JEE Advanced/NEET.",
+            website: "https://www.vidyasagar.com"
+        },
+        {
+            name: "The Prayas India",
+            location: "Dadar, Mumbai",
+            rating: "4.9/5 (Google)",
+            total_reviews: "1,600+",
+            year_established: 2013,
+            courses: "UPSC, MPSC, Bank PO, SSC, CAT. Fees: Approx. ₹70,000 - ₹1,80,000 for civil services courses.",
+            features: "Pros: Highly rated, small batch sizes, good mentorship for competitive exams. Cons: Fees can be high, relatively new compared to some legacy institutes.",
+            website: "https://www.theprayasindia.com"
+        },
+        {
+            name: "Endeavor Careers",
+            location: "Andheri, Mumbai",
+            rating: "4.7/5 (Google)",
+            total_reviews: "700+",
+            year_established: 2005,
+            courses: "CAT, CMAT, GRE, GMAT, CLAT. Fees: Approx. ₹45,000 - ₹85,000.",
+            features: "Pros: Excellent mentorship program, strong focus on B-school admissions counseling. Cons: Smaller network compared to IMS or TIME.",
+            website: "https://www.endeavorcareers.com"
+        },
+        {
+            name: "Bhanwar Rathore Design Studio (BRDS)",
+            location: "Dadar, Mumbai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "950+",
+            year_established: 2005,
+            courses: "NID, NIFT, UCEED, CEED, NATA. Fees: Approx. ₹50,000 - ₹1,20,000.",
+            features: "Pros: High success rate in design exams, excellent infrastructure, and creative workshops. Cons: Intensive curriculum that requires significant time commitment.",
+            website: "https://www.brdsindia.com"
+        },
+        {
+            name: "Nayak's Tutorials",
+            location: "Vile Parle, Mumbai",
+            rating: "4.2/5 (Just Dial)",
+            total_reviews: "1,300+",
+            year_established: 1990,
+            courses: "IX-X (SSC, ICSE), XI-XII Science, NEET, JEE, MHT-CET. Fees: Approx. ₹60,000 - ₹1,50,000.",
+            features: "Pros: Reputed for science section, experienced local teachers. Cons: Primary focus is on board exams and MHT-CET over JEE Advanced.",
+            website: "https://www.nayaks.com"
+        },
+        {
+            name: "CPLC (Chate's Professional Learning Center)",
+            location: "Borivali, Mumbai",
+            rating: "4.1/5 (Google)",
+            total_reviews: "500+",
+            year_established: 1989,
+            courses: "CAT, CET, CMAT, NMAT, SNAP. Fees: Approx. ₹25,000 - ₹50,000.",
+            features: "Pros: Very strong focus on MAH-MBA-CET, affordable fees. Cons: Less known on a national level for CAT, smaller infrastructure.",
+            website: "https://www.cplc.net.in"
+        },
+        {
+            name: "Ideal Classes",
+            location: "Kalyan, Mumbai",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,800+",
+            year_established: 1987,
+            courses: "JEE, NEET, MHT-CET, XI-XII Science. Fees: Approx. ₹70,000 - ₹1,60,000.",
+            features: "Pros: Dominant player in the Kalyan-Dombivli region, good results in MHT-CET. Cons: Limited presence outside the central suburbs.",
+            website: "https://www.idealclasses.com"
+        },
+        {
+            name: "AT-TEE-S",
+            location: "Nashik (Residential)",
+            rating: "4.6/5 (Google)",
+            total_reviews: "600+",
+            year_established: "N/A",
+            courses: "JEE Main & Advanced, NEET. Fees: Approx. ₹1,20,000 - ₹2,00,000 (tuition only).",
+            features: "Pros: Focused environment away from city distractions, run by a renowned professor. Cons: Not located in Mumbai, requires relocation.",
+            website: "http://www.attardesir.com"
+        },
+        {
+            name: "Genesis Education",
+            location: "Kandivali, Mumbai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "IX-X (ICSE), XI-XII Science, JEE, NEET. Fees: Approx. ₹80,000 - ₹1,70,000.",
+            features: "Pros: Strong focus on ICSE board, personal attention due to smaller batches. Cons: Less known for JEE Advanced/NEET top ranks.",
+            website: "N/A"
+        },
+        {
+            name: "Clear Concept",
+            location: "Vashi, Navi Mumbai",
+            rating: "4.9/5 (Google)",
+            total_reviews: "350+",
+            year_established: 2014,
+            courses: "JEE, NEET, KVPY. Fees: Approx. ₹1,00,000 - ₹2,00,000.",
+            features: "Pros: Run by IIT graduates, highly rated for conceptual clarity, smaller batches. Cons: Newer institute, lacks the extensive infrastructure of national chains.",
+            website: "https://www.clearconcept.in"
+        },
+        {
+            name: "Kalrashukla Classes",
+            location: "Dadar, Mumbai",
+            rating: "3.9/5 (Google)",
+            total_reviews: "1,100+",
+            year_established: 1993,
+            courses: "JEE, MHT-CET, NEET, XI-XII Science. Fees: Approx. ₹90,000 - ₹1,80,000.",
+            features: "Pros: Old and established name in Mumbai, good for MHT-CET. Cons: Losing ground to national players for JEE/NEET, some students report outdated methods.",
+            website: "https://www.kalrashukla.com"
+        },
+        {
+            name: "Lakshya Prep High School & Academy",
+            location: "Panvel, Navi Mumbai",
+            rating: "4.4/5 (Google)",
+            total_reviews: "700+",
+            year_established: 2006,
+            courses: "JEE, NEET, Foundation (integrated with schooling). Fees: School + Coaching can be upwards of ₹2,50,000 per year.",
+            features: "Pros: Integrated model saves travel time, disciplined environment. Cons: Less flexibility for students, high overall cost.",
+            website: "https://www.lakshyainstitute.com"
+        },
+        {
+            name: "Roy's Institute",
+            location: "Chembur, Mumbai",
+            rating: "4.7/5 (Google)",
+            total_reviews: "250+",
+            year_established: "N/A",
+            courses: "IX-X, XI-XII Science, NEET. Fees: Approx. ₹50,000 - ₹1,30,000.",
+            features: "Pros: Reputed local institute, strong in Biology for NEET. Cons: Small scale, limited resources compared to larger institutes.",
+            website: "N/A"
+        },
+        {
+            name: "Excellent Academy of Commerce",
+            location: "Mulund, Mumbai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "300+",
+            year_established: "N/A",
+            courses: "XI-XII Commerce, CA Foundation, CS Foundation. Fees: Approx. ₹30,000 - ₹60,000.",
+            features: "Pros: Highly-rated for commerce subjects, personal attention. Cons: Niche focus, not for science students.",
+            website: "https://www.excellentacademy.in"
+        },
+        {
+            name: "Gateforum",
+            location: "Andheri, Mumbai",
+            rating: "4.3/5 (Google)",
+            total_reviews: "600+",
+            year_established: 2004,
+            courses: "GATE, IES. Fees: Approx. ₹30,000 - ₹60,000.",
+            features: "Pros: Specialist in GATE coaching, comprehensive subject-wise material. Cons: Faculty quality can vary, some branches have been converted to online-only.",
+            website: "https://www.gateforum.com"
+        },
+        {
+            name: "Bakliwal Tutorials",
+            location: "Pune (Online for Mumbai)",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 2005,
+            courses: "JEE Main & Advanced. Fees: Approx. ₹1,20,000 - ₹2,20,000.",
+            features: "Pros: Top results in Maharashtra for JEE, strong focus on problem-solving. Cons: Physical centers are in Pune, Mumbai presence is through online mode.",
+            website: "https://www.bakliwaltutorials.com"
+        },
+        {
+            name: "Edwise International",
+            location: "Marine Lines, Mumbai",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: 1991,
+            courses: "IELTS, TOEFL, PTE, GMAT, GRE, SAT coaching and study abroad counseling. Fees: Coaching from ₹15,000 - ₹40,000; counseling fees are separate.",
+            features: "Pros: One of the oldest study abroad consultants, represents many universities. Cons: Can be process-driven and less personalized, push for partner universities.",
+            website: "https://www.edwiseinternational.com"
+        },
+        {
+            name: "Q-Spiders",
+            location: "Thane, Mumbai",
+            rating: "4.4/5 (Google)",
+            total_reviews: "2,200+",
+            year_established: 2000,
+            courses: "Software Testing (Manual, Automation), Java Development. Fees: Approx. ₹20,000 - ₹40,000 per module.",
+            features: "Pros: Excellent for IT job placement training, strong industry connections. Cons: Very specific skill-based training, not academic coaching.",
+            website: "https://www.qspiders.com"
+        },
+        {
+            name: "Frankfinn Institute of Air Hostess Training",
+            location: "Andheri, Mumbai",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,800+",
+            year_established: 1993,
+            courses: "Aviation, Hospitality and Travel Management. Fees: Approx. ₹1,50,000 - ₹2,50,000 for diploma courses.",
+            features: "Pros: Market leader in cabin crew training, strong placement assistance. Cons: Very high fees, industry-specific niche.",
+            website: "https://www.frankfinn.com"
+        },
+        {
+            name: "Chetana's R.K. Institute of Management & Research",
+            location: "Bandra, Mumbai",
+            rating: "4.3/5 (for the college)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "MAH-MBA-CET. Fees: Approx. ₹20,000 - ₹35,000.",
+            features: "Pros: Run by a reputed MBA college, faculty includes industry experts and professors. Cons: Focus is almost exclusively on CET.",
+            website: "https://www.crkims.com"
+        },
+        {
+            name: "IIDE - The Digital School",
+            location: "Andheri, Mumbai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "2,500+",
+            year_established: 2016,
+            courses: "Digital Marketing, Data Science. Fees: Approx. ₹80,000 - ₹5,00,000 depending on the program.",
+            features: "Pros: Industry-relevant curriculum, live projects, good placement record. Cons: High fees for advanced courses, fast-evolving subject matter.",
+            website: "https://iide.co"
+        },
+        {
+            name: "Prime Tutorials",
+            location: "Malad, Mumbai",
+            rating: "4.1/5 (Just Dial)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "School section (VIII-X), XI-XII Commerce & Science. Fees: Approx. ₹30,000 - ₹70,000.",
+            features: "Pros: Established local class for board exams, affordable fees. Cons: Lacks specialization for national entrance exams.",
+            website: "N/A"
+        },
+        {
+            name: "EduPristine",
+            location: "Andheri, Mumbai",
+            rating: "4.6/5 (Google)",
+            total_reviews: "850+",
+            year_established: 2008,
+            courses: "CFA, FRM, Financial Modeling, Digital Marketing. Fees: Approx. ₹35,000 - ₹1,00,000 per course.",
+            features: "Pros: Industry-expert faculty, strong focus on finance certifications, placement assistance. Cons: Course structure is very fast-paced and intensive.",
+            website: "https://www.edupristine.com"
+        },
+        {
+            name: "MAAC (Maya Academy of Advanced Cinematics)",
+            location: "Andheri, Mumbai",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,150+",
+            year_established: 2001,
+            courses: "3D Animation, VFX, Game Design, Multimedia. Fees: Approx. ₹1,00,000 - ₹5,00,000 depending on the diploma duration.",
+            features: "Pros: Industry-recognized certification, hands-on training with latest software, good placement network. Cons: Very high fees, course duration is long.",
+            website: "https://www.maacindia.com"
+        },
+        {
+            name: "Lakshya Academy (for MPSC/UPSC)",
+            location: "Dadar, Mumbai",
+            rating: "4.7/5 (Google)",
+            total_reviews: "900+",
+            year_established: 2002,
+            courses: "MPSC, UPSC, Banking, PSI/STI/ASO. Fees: Approx. ₹60,000 - ₹1,50,000 for year-long programs.",
+            features: "Pros: Strong focus on Maharashtra state exams (MPSC), experienced faculty, comprehensive Marathi study material. Cons: Infrastructure could be better, less focus on UPSC than Delhi-based institutes.",
+            website: "https://www.lakshya-academy.com"
+        },
+        {
+            name: "Aptech Computer Education",
+            location: "Dadar, Mumbai",
+            rating: "4.4/5 (Google)",
+            total_reviews: "800+",
+            year_established: 1986,
+            courses: "IT Training, Java, .NET, Python, Data Science. Fees: Varies widely from ₹20,000 for short courses to ₹2,00,000 for career programs.",
+            features: "Pros: Veteran brand in IT training, wide range of courses, job placement assistance. Cons: Curriculum can sometimes lag behind cutting-edge technologies.",
+            website: "https://www.aptech-education.com"
+        },
+        {
+            name: "Anupam Kher's Actor Prepares",
+            location: "Juhu, Mumbai",
+            rating: "4.6/5 (Google)",
+            total_reviews: "600+",
+            year_established: 2005,
+            courses: "Diploma in Acting, Screenwriting, short-term workshops. Fees: Approx. ₹2,50,000+ for diploma courses.",
+            features: "Pros: High-profile faculty and guest lecturers, strong industry connection, practical curriculum. Cons: Extremely expensive, success is not guaranteed.",
+            website: "https://www.actorprepares.net"
+        },
+        {
+            name: "Pahal Design",
+            location: "Borivali, Mumbai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "500+",
+            year_established: 1999,
+            courses: "NID, NIFT, NATA, UCEED, CEED. Fees: Approx. ₹45,000 - ₹1,10,000.",
+            features: "Pros: Good student-teacher ratio, strong results in fashion and design entrance exams, mock tests. Cons: Smaller brand compared to Silica or BRDS in Mumbai.",
+            website: "https://www.pahaldesign.com"
+        },
+        {
+            name: "ACE Engineering Academy",
+            location: "Thane, Mumbai",
+            rating: "4.3/5 (Google)",
+            total_reviews: "700+",
+            year_established: 1995,
+            courses: "GATE, ESE, SSC-JE. Fees: Approx. ₹50,000 - ₹90,000.",
+            features: "Pros: Market leader for GATE/ESE coaching (originally from Hyderabad), specialized faculty for each engineering branch. Cons: Mumbai center is less established than its South India counterparts.",
+            website: "https://www.aceenggacademy.com"
+        },
+        {
+            name: "Agrawal Classes",
+            location: "Dadar, Mumbai",
+            rating: "4.0/5 (Just Dial)",
+            total_reviews: "1,200+",
+            year_established: 1953,
+            courses: "Engineering Diploma, Engineering Degree, JEE Main. Fees: Approx. ₹30,000 - ₹80,000.",
+            features: "Pros: Pioneer in coaching for Engineering Diploma and Degree subjects, very experienced faculty. Cons: Primarily focused on university exams, not national competitive exams.",
+            website: "https://www.agrawalclasses.in"
+        },
+        {
+            name: "Dr. Bhatia Medical Coaching Institute (DBMCI)",
+            location: "Sion, Mumbai",
+            rating: "4.5/5 (Google)",
+            total_reviews: "900+",
+            year_established: 1996,
+            courses: "NEET-PG, FMGE. Fees: Approx. ₹80,000 - ₹1,50,000.",
+            features: "Pros: One of the oldest and most trusted names for PG medical entrance, excellent notes, and test series. Cons: Very competitive environment, requires intense self-study.",
+            website: "https://www.dbmci.com"
+        },
+        {
+            name: "IDP Education",
+            location: "Andheri, Mumbai",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,300+",
+            year_established: 1969,
+            courses: "IELTS coaching and exam booking, study abroad counseling. Fees: Approx. ₹8,000 - ₹15,000 for coaching. Counseling is often free.",
+            features: "Pros: Co-owner of IELTS, so coaching is very authentic; extensive network of partner universities. Cons: Counseling may be biased towards partner institutions.",
+            website: "https://www.idp.com/india"
+        },
+        {
+            name: "Inspirus Education",
+            location: "Andheri, Mumbai",
+            rating: "4.9/5 (Google)",
+            total_reviews: "450+",
+            year_established: 2002,
+            courses: "GMAT, GRE, SAT, ACT, IELTS, TOEFL. Fees: Approx. ₹25,000 - ₹70,000.",
+            features: "Pros: Very highly rated, focuses on personalized attention, excellent counseling services. Cons: Premium pricing, smaller batch sizes mean seats fill up quickly.",
+            website: "https://www.inspiruseducation.com"
+        },
+        {
+            name: "The WallStreet School",
+            location: "Andheri, Mumbai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: 2011,
+            courses: "Financial Modeling & Valuations, CFA, CMA. Fees: Approx. ₹40,000 - ₹80,000.",
+            features: "Pros: Practical, job-oriented training; placement assistance in finance roles. Cons: Highly specialized courses, not suitable for general academic needs.",
+            website: "https://www.thewallstreetschool.com"
+        },
+        {
+            name: "MT Educare (Robomate+)",
+            location: "Andheri, Mumbai",
+            rating: "3.8/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 1988,
+            courses: "IX-X, XI-XII Science & Commerce, CA, JEE, NEET. Fees: Varies widely, Approx. ₹40,000 - ₹1,60,000.",
+            features: "Pros: Strong digital platform (Robomate+), wide network of branches. Cons: Quality can be inconsistent, has faced stiff competition from new players.",
+            website: "https://www.mteducare.com"
+        },
+        {
+            name: "Sheth Coaching Classes",
+            location: "Borivali, Mumbai",
+            rating: "4.7/5 (Just Dial)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "VIII-X (SSC), XI-XII Commerce. Fees: Approx. ₹25,000 - ₹50,000.",
+            features: "Pros: Highly reputed local class for Commerce board exams, personal attention. Cons: Limited scope, does not coach for professional exams like CA extensively.",
+            website: "N/A"
+        },
+        {
+            name: "Whistling Woods International",
+            location: "Film City, Mumbai",
+            rating: "4.4/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: 2006,
+            courses: "Short courses and workshops in Acting, Filmmaking, Screenwriting, Animation. Fees: Varies from ₹30,000 for a workshop to ₹20,00,000+ for degrees.",
+            features: "Pros: State-of-the-art campus, top industry professionals as faculty, immense exposure. Cons: Extremely expensive, primarily a film school not a coaching center.",
+            website: "https://www.whistlingwoods.net"
+        },
+        {
+            name: "DMTI - Digital Marketing Training Institute",
+            location: "Dadar, Mumbai",
+            rating: "4.7/5 (Google)",
+            total_reviews: "550+",
+            year_established: 2009,
+            courses: "Advanced Digital Marketing, SEO, Social Media Marketing. Fees: Approx. ₹30,000 - ₹60,000.",
+            features: "Pros: Practical, hands-on training; certified trainers; placement support. Cons: Digital marketing field evolves rapidly, curriculum needs constant updating.",
+            website: "https://www.dmti.co.in"
+        },
+        {
+            name: "Cavalier India",
+            location: "Thane, Mumbai",
+            rating: "4.5/5 (Google)",
+            total_reviews: "600+",
+            year_established: 2001,
+            courses: "NDA, CDS, AFCAT, SSB Interview Training. Fees: Approx. ₹20,000 - ₹50,000.",
+            features: "Pros: Run by ex-defense officers, provides authentic SSB interview preparation. Cons: Highly niche, success depends heavily on the candidate's physical and mental aptitude.",
+            website: "https://www.cavalierindia.com"
+        },
+        {
+            name: "Mahendras Educational Pvt. Ltd.",
+            location: "Andheri, Mumbai",
+            rating: "4.2/5 (Google)",
+            total_reviews: "1,400+",
+            year_established: 1994,
+            courses: "Banking (IBPS, SBI), SSC, Railway. Fees: Approx. ₹10,000 - ₹20,000.",
+            features: "Pros: Affordable fees, strong focus on government jobs, good online test portal. Cons: Very large batch sizes, less personalized attention.",
+            website: "https://www.mahendras.org"
+        },
+        {
+            name: "Success Mantra Smart Coaching",
+            location: "Borivali, Mumbai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "400+",
+            year_established: 2011,
+            courses: "CLAT, DU LLB, BBA, Hotel Management (NCHMCT JEE). Fees: Approx. ₹40,000 - ₹80,000.",
+            features: "Pros: Good reviews for non-STEM entrance exams, smart study material. Cons: Newer player in the Mumbai market.",
+            website: "https://www.successmantra.com"
+        },
+        {
+            name: "Aldine CA",
+            location: "Grant Road, Mumbai (primarily satellite-based)",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,100+",
+            year_established: 2003,
+            courses: "CA Final, Inter, Foundation. Fees: Approx. ₹15,000 - ₹80,000 per subject group.",
+            features: "Pros: Star faculty like CA Praveen Sharma, high-quality video lectures. Cons: Relies on satellite/recorded classes, less in-person interaction.",
+            website: "https://www.aldine.edu.in"
+        },
+        {
+            name: "DQ Labs",
+            location: "Andheri, Mumbai",
+            rating: "4.9/5 (Google)",
+            total_reviews: "500+",
+            year_established: 2007,
+            courses: "NATA, UCEED, NID, NIFT, JEE Paper 2. Fees: Approx. ₹30,000 - ₹75,000.",
+            features: "Pros: Excellent online learning platform, specializes in aptitude for architecture and design. Cons: Primarily known for its online presence, physical center is smaller.",
+            website: "https://www.dqlabs.in"
+        },
+        {
+            name: "Let's Talk Institute",
+            location: "Thane, Mumbai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "700+",
+            year_established: 2005,
+            courses: "Spoken English, Personality Development, Public Speaking. Fees: Approx. ₹8,000 - ₹20,000 per course.",
+            features: "Pros: Focuses on practical communication skills, small batches, activity-based learning. Cons: Not an academic coaching class, results are subjective.",
+            website: "https://www.letstalkinstitute.com"
+        },
+        {
+            name: "KC Overseas Education",
+            location: "Vile Parle, Mumbai",
+            rating: "4.7/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: 1998,
+            courses: "Study abroad counseling for USA, UK, Canada, etc. IELTS coaching. Fees: Counseling is often free; coaching fees are approx. ₹10,000.",
+            features: "Pros: Represents a large number of universities, provides end-to-end application support. Cons: Counselors may have very high workloads, leading to less personalized advice.",
+            website: "https://www.kcoverseas.com"
+        },
+        {
+            name: "Chemspark Academy",
+            location: "Andheri, Mumbai",
+            rating: "4.9/5 (Google)",
+            total_reviews: "200+",
+            year_established: "N/A",
+            courses: "Chemistry for XI-XII, JEE, NEET. Fees: Approx. ₹30,000 - ₹60,000 for subject-specific coaching.",
+            features: "Pros: Highly specialized in Chemistry, run by experienced professors, strong conceptual teaching. Cons: Only covers one subject.",
+            website: "https://www.chemspark.in"
+        },
+        {
+            name: "T.I.M.E. Kids",
+            location: "Vile Parle, Mumbai",
+            rating: "4.5/5 (Google - for preschools)",
+            total_reviews: "150+",
+            year_established: 2000,
+            courses: "Pre-school education (Playgroup, Nursery, KG). Fees: Approx. ₹80,000 - ₹1,50,000 per year.",
+            features: "Pros: Pre-school wing of the reputed T.I.M.E. group, structured curriculum. Cons: More of a school than a coaching institute, academic pressure can start early.",
+            website: "https://www.timekidspreschools.in"
+        },
+        {
+            name: "Arihant Institute of Hotel Management",
+            location: "Vashi, Navi Mumbai",
+            rating: "4.4/5 (Just Dial)",
+            total_reviews: "300+",
+            year_established: "N/A",
+            courses: "NCHMCT-JEE Coaching. Fees: Approx. ₹25,000 - ₹40,000.",
+            features: "Pros: Dedicated coaching for hotel management entrance exams. Cons: Very niche, small scale operations.",
+            website: "N/A"
+        },
+        {
+            name: "The Academic Junction",
+            location: "Thane, Mumbai",
+            rating: "4.9/5 (Google)",
+            total_reviews: "250+",
+            year_established: 2016,
+            courses: "Actuarial Science (ACET, CS, CM series). Fees: Approx. ₹20,000 - ₹50,000 per paper.",
+            features: "Pros: One of the few dedicated centers for Actuarial coaching, run by qualified actuaries. Cons: Extremely niche subject with a very high difficulty level.",
+            website: "https://www.theacademicjunction.co.in"
+        },
+        {
+            name: "PT Education",
+            location: "Dadar, Mumbai",
+            rating: "4.1/5 (Google)",
+            total_reviews: "400+",
+            year_established: 1993,
+            courses: "CAT, IPM, CLAT, GRE. Fees: Approx. ₹30,000 - ₹70,000.",
+            features: "Pros: Old and established brand, good material for personality development and interviews. Cons: Has lost significant market share to IMS and Career Launcher.",
+            website: "https://www.pteducation.com"
+        },
+        {
+            name: "Guidance Group",
+            location: "Thane, Mumbai",
+            rating: "4.6/5 (Google)",
+            total_reviews: "500+",
+            year_established: 2008,
+            courses: "UPSC, MPSC. Fees: Approx. ₹70,000 - ₹1,60,000.",
+            features: "Pros: Known for its MPSC results, good faculty for Marathi medium students. Cons: Limited online resources compared to national players.",
+            website: "https://www.guidancegroup.org"
+        },
+        {
+            name: "Goethe-Institut / Max Mueller Bhavan",
+            location: "Fort, Mumbai",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 1969,
+            courses: "German Language Courses (A1-C2 levels). Fees: Approx. ₹25,000 - ₹35,000 per level.",
+            features: "Pros: Official German cultural institute, internationally recognized certification, native and certified teachers. Cons: Batches fill up extremely quickly, rigid schedule.",
+            website: "https://www.goethe.de/ins/in/en/sta/mum.html"
+        },
+        {
+            name: "Alliance Française de Bombay",
+            location: "Churchgate, Mumbai",
+            rating: "4.4/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: 1938,
+            courses: "French Language Courses (A1-C2), cultural workshops. Fees: Approx. ₹20,000 - ₹30,000 per level.",
+            features: "Pros: Official French language and cultural center, authentic learning experience, certified exams (DELF, DALF). Cons: Centralized location may be far for suburban students, administrative processes can be slow.",
+            website: "https://www.bombay.afindia.org"
+        },
+        {
+            name: "The Unique Academy",
+            location: "Dadar, Mumbai",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: 2006,
+            courses: "MPSC, UPSC. Fees: Approx. ₹80,000 - ₹1,70,000 for year-long programs.",
+            features: "Pros: Major competitor for MPSC coaching, strong results in state services, good material in Marathi. Cons: Can be very crowded, focus is more on MPSC than UPSC.",
+            website: "https://www.theuniqueacademy.com"
+        },
+        {
+            name: "Pearl Academy",
+            location: "Andheri, Mumbai",
+            rating: "4.1/5 (Google - for the college)",
+            total_reviews: "900+",
+            year_established: 1993,
+            courses: "Entrance exam coaching for Design, Fashion, Media. Fees: Coaching fees are approx. ₹50,000 - ₹1,00,000.",
+            features: "Pros: Coaching is provided by a leading design college, access to excellent faculty and infrastructure. Cons: May be biased towards admission into their own institute, high fees.",
+            website: "https://www.pearlacademy.com"
+        },
+        {
+            name: "INIFD (International Institute of Fashion Design)",
+            location: "Andheri, Mumbai",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,300+",
+            year_established: 1995,
+            courses: "Entrance coaching for NID/NIFT, along with their own design diplomas. Fees: Approx. ₹40,000 for coaching; diploma fees are much higher.",
+            features: "Pros: Strong industry connections in fashion, practical workshops. Cons: Primarily a design college, coaching is a secondary function.",
+            website: "https://www.inifd.edu.in"
+        },
+        {
+            name: "Boston Institute of Analytics",
+            location: "Worli, Mumbai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "800+",
+            year_established: 2017,
+            courses: "Data Science, Artificial Intelligence, Business Analytics. Fees: Approx. ₹50,000 - ₹1,50,000.",
+            features: "Pros: Strong focus on job placement, curriculum designed by industry experts, case-study-based learning. Cons: High fees, requires a strong aptitude for statistics and programming.",
+            website: "https://www.bostoninstituteofanalytics.org"
+        },
+        {
+            name: "Digital Vidya",
+            location: "Andheri, Mumbai",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,100+",
+            year_established: 2009,
+            courses: "Certified Digital Marketing Master (CDMM), Data Science, SEO specialization. Fees: Approx. ₹50,000 - ₹1,00,000.",
+            features: "Pros: One of the oldest digital marketing training companies, strong curriculum, partnerships with Google and Microsoft. Cons: Primarily online-led training, physical classroom interaction may be limited.",
+            website: "https://www.digitalvidya.com"
+        },
+        {
+            name: "FX School",
+            location: "Andheri, Mumbai",
+            rating: "4.7/5 (Google)",
+            total_reviews: "500+",
+            year_established: 2008,
+            courses: "VFX, Animation, Photography, Digital Painting. Fees: Approx. ₹80,000 - ₹4,00,000.",
+            features: "Pros: Individualized learning with one-on-one computer access, industry-veteran faculty. Cons: High fees, intensive project-based curriculum.",
+            website: "https://www.fxschool.in"
+        },
+        {
+            name: "Marwah's Classes",
+            location: "Matunga, Mumbai",
+            rating: "4.6/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "CA Final (SFM, SCMPE), CA Inter. Fees: Approx. ₹20,000 - ₹40,000 per subject.",
+            features: "Pros: Renowned for specific CA subjects, especially by Prof. Archana Khetan and Prof. Aaditya Jain. Cons: Focus is on specific subjects, not all groups.",
+            website: "https://www.marwahs.com"
+        },
+        {
+            name: "UpGrad",
+            location: "Worli, Mumbai (HQ, courses are online)",
+            rating: "4.2/5 (Glassdoor)",
+            total_reviews: "3,000+",
+            year_established: 2015,
+            courses: "MBA, Data Science, AI/ML, Software Development (in partnership with universities). Fees: Approx. ₹2,50,000 - ₹10,00,000+ for degree/diploma programs.",
+            features: "Pros: University-accredited programs, strong mentorship and career support. Cons: Very expensive, requires high self-discipline for online learning.",
+            website: "https://www.upgrad.com"
+        },
+        {
+            name: "Geebee Education",
+            location: "Churchgate, Mumbai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "1,400+",
+            year_established: 2001,
+            courses: "IELTS, TOEFL, GRE coaching and study abroad counseling. Fees: Counseling often free; Coaching approx. ₹10,000 - ₹25,000.",
+            features: "Pros: Represents a vast number of universities, provides free counseling and application services. Cons: Can be overwhelming, may push students towards partner universities.",
+            website: "https://www.geebeeworld.com"
+        },
+        {
+            name: "Chogle Classes",
+            location: "Dombivli, Mumbai",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: "N/A",
+            courses: "VIII-X (SSC), XI-XII Science, MHT-CET. Fees: Approx. ₹40,000 - ₹1,00,000.",
+            features: "Pros: Highly dominant and reputed institute in the Dombivli-Kalyan belt, experienced faculty. Cons: Limited reach outside central suburbs, traditional teaching methods.",
+            website: "https://www.chogleclasses.com"
+        },
+        {
+            name: "NIIT (National Institute of Information Technology)",
+            location: "Borivali, Mumbai",
+            rating: "4.3/5 (Google)",
+            total_reviews: "900+",
+            year_established: 1981,
+            courses: "Full Stack Development, Data Analytics, Banking & Finance. Fees: Approx. ₹50,000 - ₹2,00,000.",
+            features: "Pros: Legacy brand in IT training, structured curriculum, placement partnerships. Cons: Curriculum can be slow to update compared to newer, agile competitors.",
+            website: "https://www.niit.com"
+        },
+        {
+            name: "Logic School of Management",
+            location: "Andheri, Mumbai",
+            rating: "4.7/5 (Google)",
+            total_reviews: "400+",
+            year_established: 2005,
+            courses: "CMA (USA), CPA (USA), CIA. Fees: Approx. ₹50,000 - ₹1,50,000 per course.",
+            features: "Pros: Specialized in international professional finance courses, official partner of IMA for CMA. Cons: Highly niche, caters only to students pursuing these specific certifications.",
+            website: "https://www.logicbom.com"
+        },
+        {
+            name: "SP Classes",
+            location: "Goregaon, Mumbai",
+            rating: "4.5/5 (Google)",
+            total_reviews: "300+",
+            year_established: "N/A",
+            courses: "XI-XII Commerce, CA Foundation, CS Foundation. Fees: Approx. ₹30,000 - ₹60,000.",
+            features: "Pros: Run by Prof. Santosh Parab, very popular for Commerce in the Goregaon-Malad area. Cons: Local focus, may not cover advanced professional exams.",
+            website: "N/A"
+        },
+        {
+            name: "Dronacharya IAS Academy",
+            location: "Thane, Mumbai",
+            rating: "4.6/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "UPSC, MPSC. Fees: Approx. ₹75,000 - ₹1,60,000.",
+            features: "Pros: Good faculty support, smaller batches than major Delhi institutes, focuses on both state and central civil services. Cons: Less brand recognition compared to A A Shah's or The Prayas.",
+            website: "https://www.dronacharyaias.com"
+        },
+        {
+            name: "Tuteja Academy",
+            location: "Andheri, Mumbai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "700+",
+            year_established: "N/A",
+            courses: "CA Final (FR, Audit), CA Inter. Fees: Approx. ₹25,000 - ₹50,000 per subject.",
+            features: "Pros: Renowned for CA coaching, especially for Financial Reporting by CA Anand Bhangariya. Cons: Primarily operates through video/satellite lectures, limited face-to-face interaction.",
+            website: "https://www.tutejaacademy.com"
+        },
+        {
+            name: "Wisdom Academy",
+            location: "Andheri, Mumbai",
+            rating: "4.7/5 (Google)",
+            total_reviews: "800+",
+            year_established: 2011,
+            courses: "Home Tuitions for all boards (SSC, ICSE, CBSE, IB, IGCSE), JEE, NEET. Fees: Varies significantly based on tutor experience and hours (e.g., ₹800 - ₹2000 per hour).",
+            features: "Pros: Provides personalized one-on-one tutoring at home. Cons: Can be very expensive, quality depends entirely on the assigned tutor.",
+            website: "https://www.wisdomacademy.co.in"
+        },
+        {
+            name: "ExcelR Solutions",
+            location: "Thane, Mumbai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: 2014,
+            courses: "Data Science, Business Analytics, Project Management (PMP). Fees: Approx. ₹40,000 - ₹80,000.",
+            features: "Pros: Blended training model (classroom + online), strong placement focus, global certification. Cons: Highly technical courses require prior aptitude.",
+            website: "https://www.excelr.com"
+        },
+        {
+            name: "NISM (National Institute of Securities Markets)",
+            location: "Vashi, Navi Mumbai",
+            rating: "4.5/5 (Google - for the institute)",
+            total_reviews: "1,000+",
+            year_established: 2006,
+            courses: "NISM Certification Exam Prep (Equity Derivatives, Mutual Funds etc.). Fees: Exam fees are low (₹1500-3000), coaching fees approx. ₹5,000 - ₹15,000 per module.",
+            features: "Pros: SEBI's official educational initiative, certification is mandatory for many jobs in the stock market. Cons: Primarily a certification body, not a traditional coaching class.",
+            website: "https://www.nism.ac.in"
+        },
+        {
+            name: "Shiamak Davar's Institute for Performing Arts (SDIPA)",
+            location: "Multiple (e.g., Bandra, Juhu, Thane)",
+            rating: "4.5/5 (Google)",
+            total_reviews: "2,000+",
+            year_established: 1985,
+            courses: "Dance classes (various styles), workshops. Fees: Approx. ₹8,000 - ₹20,000 for a 12-session module.",
+            features: "Pros: Premier dance academy in India, professional instructors, opportunities for stage performance. Cons: Not academic coaching, focuses on a hobby/profession.",
+            website: "https://www.shiamak.com"
+        },
+        {
+            name: "Miles Education",
+            location: "Andheri, Mumbai",
+            rating: "4.7/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 2011,
+            courses: "CPA (USA), CMA (USA). Fees: Approx. ₹1,00,000 - ₹2,50,000 for full course package.",
+            features: "Pros: Official partner of IMA and AICPA, excellent placement support in Big 4 and MNCs. Cons: Very high fees, intensive curriculum for working professionals.",
+            website: "https://www.mileseducation.com"
+        },
+        {
+            name: "DAD's Institute of Design",
+            location: "Thane, Mumbai",
+            rating: "4.9/5 (Google)",
+            total_reviews: "200+",
+            year_established: "N/A",
+            courses: "NATA, JEE Paper 2, NID, NIFT. Fees: Approx. ₹35,000 - ₹70,000.",
+            features: "Pros: Highly rated local institute for architecture and design, personal attention. Cons: Smaller scale compared to national chains.",
+            website: "N/A"
+        },
+        {
+            name: "State Bank of India Rural Self Employment Training Institute (SBI-RSETI)",
+            location: "Palghar, Mumbai (Thane District)",
+            rating: "4.4/5 (Google)",
+            total_reviews: "150+",
+            year_established: "N/A",
+            courses: "Skill development (e.g., tailoring, mobile repair, beauty parlor). Fees: Often free or heavily subsidized.",
+            features: "Pros: Social initiative by SBI, provides free vocational training to empower youth. Cons: Not for academic/competitive exams, focuses on self-employment.",
+            website: "https://www.sbi.co.in/web/corporate-governance/sbi-rseti"
+        },
+        {
+            name: "Simplilearn",
+            location: "Online (Strong presence in Mumbai)",
+            rating: "4.5/5 (Trustpilot)",
+            total_reviews: "20,000+",
+            year_established: 2010,
+            courses: "PMP, Data Science, Cloud Computing (AWS/Azure), Digital Marketing. Fees: Approx. ₹20,000 - ₹2,00,000.",
+            features: "Pros: Bootcamp style learning, partnerships with companies like IBM, Microsoft. Cons: Primarily self-paced or online instructor-led, requires high motivation.",
+            website: "https://www.simplilearn.com"
+        },
+        {
+            name: "Second Innings Education",
+            location: "Nerul, Navi Mumbai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "300+",
+            year_established: "N/A",
+            courses: "XI-XII Science, JEE, NEET. Fees: Approx. ₹80,000 - ₹1,80,000.",
+            features: "Pros: Highly rated institute in Navi Mumbai, founded by experienced academicians, smaller batches. Cons: Limited brand recognition outside Navi Mumbai.",
+            website: "https://www.secondinnings.org"
+        },
+        {
+            name: "Sankhe's Classes",
+            location: "Dadar, Mumbai",
+            rating: "4.2/5 (Just Dial)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "Engineering Diploma & Degree (All subjects). Fees: Approx. ₹10,000 - ₹25,000 per subject.",
+            features: "Pros: Veteran institute for university engineering exams, strong in fundamental subjects. Cons: Not for competitive entrance exams like GATE.",
+            website: "N/A"
+        },
+        {
+            name: "Career Makers",
+            location: "Thane, Mumbai",
+            rating: "4.3/5 (Google)",
+            total_reviews: "350+",
+            year_established: 1999,
+            courses: "CAT, CET, Bank PO. Fees: Approx. ₹30,000 - ₹60,000.",
+            features: "Pros: Another established name for MBA entrance exams, good material. Cons: Faces stiff competition from IMS and CL, smaller network.",
+            website: "https://www.careermakers.org"
+        },
+        {
+            name: "Study Circle",
+            location: "Andheri, Mumbai",
+            rating: "4.6/5 (Google)",
+            total_reviews: "600+",
+            year_established: 1988,
+            courses: "MPSC, UPSC, Banking. Fees: Approx. ₹50,000 - ₹1,20,000.",
+            features: "Pros: Run by Dr. Anand Patil, focuses on holistic development for civil services. Cons: Smaller batches means seats are limited.",
+            website: "https://www.studycircle.org"
+        },
+        {
+            name: "Suman Education",
+            location: "Vashi, Navi Mumbai",
+            rating: "4.9/5 (Google)",
+            total_reviews: "250+",
+            year_established: "N/A",
+            courses: "VIII-X (CBSE, ICSE, SSC), XI-XII Science. Fees: Approx. ₹50,000 - ₹1,00,000.",
+            features: "Pros: Excellent reviews for school-level coaching in Navi Mumbai, personalized attention. Cons: Not specialized in competitive exams like JEE/NEET.",
+            website: "N/A"
+        },
+        {
+            name: "Aaryans",
+            location: "Vile Parle, Mumbai",
+            rating: "4.1/5 (Google)",
+            total_reviews: "800+",
+            year_established: "N/A",
+            courses: "IX-X, XI-XII Science, JEE, NEET. Fees: Approx. ₹70,000 - ₹1,60,000.",
+            features: "Pros: Established local brand, integrated college programs. Cons: Mixed reviews on management and consistency.",
+            website: "https://www.aaryans.net"
+        },
+        {
+            name: "Learning Catalyst",
+            location: "Vile Parle, Mumbai",
+            rating: "4.7/5 (Google)",
+            total_reviews: "400+",
+            year_established: 2012,
+            courses: "Digital Marketing, SEO, SEM. Fees: Approx. ₹25,000 - ₹50,000.",
+            features: "Pros: Practical and affordable digital marketing courses, good for students and working professionals. Cons: Smaller institute, less brand value than IIDE or Digital Vidya.",
+            website: "https://www.learningcatalyst.in"
+        },
+        {
+            name: "ITM Group of Institutions (Coaching Wing)",
+            location: "Vashi, Navi Mumbai",
+            rating: "4.0/5 (Google - for college)",
+            total_reviews: "1,000+",
+            year_established: 1991,
+            courses: "NCHMCT-JEE, Design Entrance. Fees: Approx. ₹30,000 - ₹60,000.",
+            features: "Pros: Coaching run by a reputed group of colleges, good infrastructure. Cons: Main focus is on their own degree programs.",
+            website: "https://www.itm.edu"
+        },
+        {
+            name: "Aar Kay Classes",
+            location: "Chembur, Mumbai",
+            rating: "4.4/5 (Just Dial)",
+            total_reviews: "300+",
+            year_established: "N/A",
+            courses: "School Section, XI-XII Commerce. Fees: Approx. ₹25,000 - ₹50,000.",
+            features: "Pros: Well-known local class in Chembur for Commerce students. Cons: Limited scope, primarily for board exams.",
+            website: "N/A"
+        },
+        {
+            name: "Pro Talent",
+            location: "Kandivali, Mumbai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "CS (Executive, Professional), CA (Inter, Final). Fees: Approx. ₹40,000 - ₹90,000.",
+            features: "Pros: Excellent reputation for Company Secretary (CS) coaching, good results. Cons: Niche focus on CS and specific CA subjects.",
+            website: "https://www.protalent.co.in"
+        },
+        {
+            name: "National School of Photography",
+            location: "Vashi, Navi Mumbai",
+            rating: "4.9/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "Basic and Advanced Photography, Cinematography. Fees: Approx. ₹20,000 - ₹80,000.",
+            features: "Pros: Hands-on workshops, portfolio development, run by experienced professionals. Cons: Vocational skill, not academic coaching.",
+            website: "https://www.nspindia.com"
+        },
+        {
+            name: "IIT-ian's Tapasya",
+            location: "Malad, Mumbai",
+            rating: "4.7/5 (Google)",
+            total_reviews: "350+",
+            year_established: "N/A",
+            courses: "VIII-X, XI-XII Science, JEE, NEET. Fees: Approx. ₹90,000 - ₹2,00,000.",
+            features: "Pros: Run by IIT alumni, focuses on conceptual understanding, smaller batch sizes. Cons: Localized presence, less known than national brands.",
+            website: "https://www.iitianstapasya.com"
+        },
+        {
+            name: "The Design Venue",
+            location: "Panvel, Navi Mumbai",
+            rating: "4.9/5 (Google)",
+            total_reviews: "150+",
+            year_established: "N/A",
+            courses: "NATA, NID, NIFT, UCEED. Fees: Approx. ₹40,000 - ₹80,000.",
+            features: "Pros: Highly rated design coaching in the Panvel area, focuses on creativity and sketching skills. Cons: Caters to a specific local geography.",
+            website: "https://www.thedesignvenue.com"
+        },
+        {
+            name: "Vinod Gupta Classes (VGLD)",
+            location: "Satellite centers across Mumbai",
+            rating: "4.5/5 (Google)",
+            total_reviews: "900+",
+            year_established: 1997,
+            courses: "CA Final (Direct & Indirect Taxation), CA Inter. Fees: Approx. ₹20,000 - ₹40,000 per subject.",
+            features: "Pros: One of the biggest names in India for CA Taxation subjects. Cons: Primarily satellite-based lectures, less interactive.",
+            website: "https://www.vinodguptaclasses.com"
+        },
+        {
+            name: "Keerti Computer Institute",
+            location: "Dadar, Mumbai",
+            rating: "4.3/5 (Google)",
+            total_reviews: "600+",
+            year_established: 1998,
+            courses: "Tally, MS-Office, Graphic Design. Fees: Approx. ₹5,000 - ₹25,000.",
+            features: "Pros: Affordable courses for basic computer literacy and accounting software. Cons: Not for advanced IT programming or development.",
+            website: "https://www.keerti.org"
+        },
+        {
+            name: "Acharya Academy",
+            location: "Nerul, Navi Mumbai",
+            rating: "4.6/5 (Google)",
+            total_reviews: "550+",
+            year_established: "N/A",
+            courses: "JEE Main & Advanced, NEET, MHT-CET. Fees: Approx. ₹1,00,000 - ₹2,20,000.",
+            features: "Pros: Reputed name in Navi Mumbai for engineering entrance, experienced faculty. Cons: Faces tough competition from national brands setting up in the area.",
+            website: "https://www.acharyaacademy.com"
+        },
+        {
+            name: "The British Institutes",
+            location: "Fort, Mumbai",
+            rating: "4.2/5 (Google)",
+            total_reviews: "700+",
+            year_established: 1935,
+            courses: "Spoken English, Foreign Languages (French, German), Computer Courses. Fees: Approx. ₹10,000 - ₹30,000.",
+            features: "Pros: A very old and established institution for language and basic computer training. Cons: Curriculum may seem dated compared to modern digital-first institutes.",
+            website: "https://www.thebritishinstitutes.com"
+        },
+        {
+            name: "IndigoLearn",
+            location: "Online (Popular among Mumbai CA students)",
+            rating: "4.8/5 (Google Play Store)",
+            total_reviews: "10,000+",
+            year_established: 2017,
+            courses: "CA, CMA, CS (all levels). Fees: Approx. ₹5,000 - ₹20,000 per subject.",
+            features: "Pros: Engaging, animated video lectures which simplify complex topics; highly affordable. Cons: Entirely online, lacks physical classroom discipline.",
+            website: "https://www.indigolearn.com"
+        },
+        {
+            name: "K.C. College of Management Studies (Coaching)",
+            location: "Churchgate, Mumbai",
+            rating: "4.1/5 (for the college)",
+            total_reviews: "600+",
+            year_established: "N/A",
+            courses: "BMS/BFM/BMM Entrance Exam Prep. Fees: Approx. ₹15,000 - ₹25,000.",
+            features: "Pros: Run by a top-tier undergraduate college, excellent faculty. Cons: Primarily focused on undergraduate entrance exams for non-engineering fields.",
+            website: "https://www.kccms.edu.in"
+        },
+        {
+            name: "Innovative Coaching Centre",
+            location: "Ghatkopar, Mumbai",
+            rating: "4.7/5 (Google)",
+            total_reviews: "300+",
+            year_established: "N/A",
+            courses: "XI-XII Commerce, B.Com. Fees: Approx. ₹20,000 - ₹40,000.",
+            features: "Pros: Strong local reputation in Ghatkopar for commerce education, from junior college to degree level. Cons: Limited scope, no professional exam coaching.",
+            website: "N/A"
+        },
+        {
+            name: "Mittal Commerce Classes",
+            location: "Malad, Mumbai",
+            rating: "4.4/5 (Just Dial)",
+            total_reviews: "450+",
+            year_established: "N/A",
+            courses: "XI-XII Commerce, CA Foundation. Fees: Approx. ₹35,000 - ₹70,000.",
+            features: "Pros: Another strong local player for commerce in the western suburbs. Cons: Brand is not recognized pan-Mumbai.",
+            website: "N/A"
+        },
+        {
+            name: "Erudite",
+            location: "Dadar, Mumbai",
+            rating: "4.0/5 (Google)",
+            total_reviews: "300+",
+            year_established: 1998,
+            courses: "CAT, CET, Bank PO. Fees: Approx. ₹30,000 - ₹50,000.",
+            features: "Pros: Old player in the CAT coaching market. Cons: Has lost significant market share and visibility to competitors like IMS, TIME, and CL.",
+            website: "https://www.erudite.in"
+        },
+        {
+            name: "S-Tek IT Education",
+            location: "Andheri, Mumbai",
+            rating: "4.6/5 (Google)",
+            total_reviews: "250+",
+            year_established: "N/A",
+            courses: "C, C++, Java, Python, Web Development. Fees: Approx. ₹10,000 - ₹40,000 per course.",
+            features: "Pros: Good for learning foundational programming languages, practical approach. Cons: Not a high-end data science or AI training institute.",
+            website: "https://www.stek.in"
+        },
+        {
+            name: "Universal Tutorials",
+            location: "Ghatkopar, Mumbai",
+            rating: "4.2/5 (Google)",
+            total_reviews: "900+",
+            year_established: 1998,
+            courses: "IX-X, XI-XII Science, JEE, NEET. Fees: Approx. ₹80,000 - ₹1,80,000.",
+            features: "Pros: Long-standing reputation in the central suburbs, multiple branches. Cons: Reviews suggest quality can vary between branches.",
+            website: "https://www.universaltutorials.com"
+        },
+        {
+            name: "National Academy of Cinema and Television (NACT)",
+            location: "Dadar, Mumbai",
+            rating: "4.5/5 (Just Dial)",
+            total_reviews: "200+",
+            year_established: "N/A",
+            courses: "Acting, Direction, Editing, Photography. Fees: Varies significantly.",
+            features: "Pros: Affordable courses in media and entertainment compared to bigger schools. Cons: Smaller scale and infrastructure.",
+            website: "N/A"
+        },
+        {
+            name: "Bombay Film Institute",
+            location: "Andheri, Mumbai",
+            rating: "4.3/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "Acting, Filmmaking, Cinematography workshops. Fees: Approx. ₹30,000 - ₹1,50,000.",
+            features: "Pros: Practical, project-based learning for aspiring film professionals. Cons: Less known than Whistling Woods or Actor Prepares.",
+            website: "https://www.bombayfilminstitute.com"
+        },
+        {
+            name: "Institute of Clinical Research India (ICRI)",
+            location: "Vile Parle, Mumbai",
+            rating: "4.1/5 (Google)",
+            total_reviews: "500+",
+            year_established: 2004,
+            courses: "Clinical Research, Healthcare Management. Fees: These are full-fledged diploma/degree programs, fees are high (₹2,00,000+).",
+            features: "Pros: Niche career-oriented programs with high demand. Cons: More of a college than a coaching institute.",
+            website: "https://www.icriindia.com"
+        },
+        {
+            name: "ZAPCom",
+            location: "Vile Parle, Mumbai",
+            rating: "4.9/5 (Google)",
+            total_reviews: "150+",
+            year_established: "N/A",
+            courses: "VIII-X (ICSE), XI-XII Science. Fees: Approx. ₹70,000 - ₹1,50,000.",
+            features: "Pros: Extremely highly rated for ICSE board coaching, personal attention. Cons: Niche focus on school boards, not competitive exams.",
+            website: "N/A"
+        },
+        {
+            name: "Siddhi Professional Academy",
+            location: "Kandivali, Mumbai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "200+",
+            year_established: "N/A",
+            courses: "XI-XII Commerce, B.Com. Fees: Approx. ₹20,000 - ₹40,000.",
+            features: "Pros: Strong local presence for commerce degree college subjects. Cons: Limited to university curriculum.",
+            website: "N/A"
+        },
+        {
+            name: "Clear My Course",
+            location: "Thane, Mumbai",
+            rating: "4.9/5 (Google)",
+            total_reviews: "300+",
+            year_established: "N/A",
+            courses: "Engineering Degree Subjects (all branches). Fees: Approx. ₹8,000 - ₹20,000 per subject.",
+            features: "Pros: Excellent reviews for clearing difficult engineering subjects, crash courses available. Cons: Only for Mumbai University engineering students, not for entrance exams.",
+            website: "https://www.clearmycourse.com"
+        },
+        {
+            name: "Pioneer Academy",
+            location: "Thane, Mumbai",
+            rating: "4.4/5 (Google)",
+            total_reviews: "500+",
+            year_established: 2005,
+            courses: "MPSC, Banking, Police Bharti. Fees: Approx. ₹20,000 - ₹60,000.",
+            features: "Pros: Good for state-level government job exams, including police recruitment. Cons: Infrastructure is basic.",
+            website: "https://www.pioneeracademypune.com"
+        },
+        {
+            name: "Rahul's IAS",
+            location: "Andheri, Mumbai",
+            rating: "4.6/5 (Google)",
+            total_reviews: "450+",
+            year_established: 2001,
+            courses: "UPSC (Optional subjects like Public Admin, Geography). Fees: Approx. ₹40,000 - ₹60,000 for optional subjects.",
+            features: "Pros: Specializes in specific optional subjects which is crucial for UPSC mains. Cons: Not a comprehensive General Studies coaching center.",
+            website: "https://www.rahulsias.com"
+        },
+        {
+            name: "Elite Concepts",
+            location: "Bandra, Mumbai",
+            rating: "4.9/5 (Google)",
+            total_reviews: "100+",
+            year_established: "N/A",
+            courses: "IGCSE, IB, A-Levels, AP. Fees: Very high, often charged hourly (₹1500 - ₹4000 per hour).",
+            features: "Pros: Specializes in international board curriculum, highly experienced tutors. Cons: Caters to a very niche and affluent student segment, very expensive.",
+            website: "https://www.eliteconcepts.in"
+        },
+        {
+            name: "Academy of Pastry & Culinary Arts (APCA)",
+            location: "Andheri, Mumbai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "700+",
+            year_established: 2010,
+            courses: "Diploma in Culinary Arts, Pastry & Bakery. Fees: Approx. ₹4,00,000 - ₹12,00,000+ for professional courses.",
+            features: "Pros: World-class training, internationally renowned chefs, excellent infrastructure. Cons: Extremely expensive, for professional career training only.",
+            website: "https://www.apcaindia.com"
+        },
+        {
+            name: "Mayank's Tutorials",
+            location: "Mira Road, Mumbai",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: 2005,
+            courses: "VIII-X (SSC), XI-XII Science & Commerce, MHT-CET. Fees: Approx. ₹40,000 - ₹1,20,000.",
+            features: "Pros: Leading coaching institute in the Mira-Bhayandar region, strong local results. Cons: Less focus on national level exams like JEE Advanced.",
+            website: "https://www.mayankstutorials.com"
+        },
+        {
+            name: "Zion National Academy",
+            location: "Vasai, Mumbai",
+            rating: "4.7/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "IX-X (SSC), XI-XII Science, JEE, NEET. Fees: Approx. ₹60,000 - ₹1,50,000.",
+            features: "Pros: Top institute in the Vasai-Virar region, good student-teacher ratio. Cons: Limited brand recognition outside its local area.",
+            website: "N/A"
+        },
+        {
+            name: "Institute of Financial Market Courses (IFMC)",
+            location: "Andheri, Mumbai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "600+",
+            year_established: 2008,
+            courses: "Stock Market Courses (Technical Analysis, Fundamental Analysis), NISM/NCFM prep. Fees: Approx. ₹15,000 - ₹70,000.",
+            features: "Pros: Practical, job-oriented courses for capital markets, trading simulations. Cons: Niche field, success depends on market conditions.",
+            website: "https://www.ifmcinstitute.com"
+        },
+        {
+            name: "T.I.C.E. (Thane Institute of Commerce Education)",
+            location: "Thane, Mumbai",
+            rating: "4.9/5 (Google)",
+            total_reviews: "200+",
+            year_established: "N/A",
+            courses: "XI-XII Commerce, CA Foundation. Fees: Approx. ₹35,000 - ₹70,000.",
+            features: "Pros: Highly rated commerce class in Thane, known for personal attention. Cons: Primarily focused on board exams and foundational level.",
+            website: "N/A"
+        },
+        {
+            name: "Vision IAS",
+            location: "Andheri, Mumbai",
+            rating: "4.4/5 (Google)",
+            total_reviews: "800+",
+            year_established: 2009,
+            courses: "UPSC General Studies, CSAT, Test Series. Fees: Approx. ₹1,50,000 - ₹2,00,000 for foundation courses.",
+            features: "Pros: A top national brand for UPSC, excellent and updated study material, renowned All-India test series. Cons: Mumbai center is less prominent than its Delhi counterpart, high fees.",
+            website: "https://www.visionias.in"
+        },
+        {
+            name: "NEO-ICONS",
+            location: "Kharghar, Navi Mumbai",
+            rating: "4.9/5 (Google)",
+            total_reviews: "300+",
+            year_established: "N/A",
+            courses: "VIII-X, XI-XII Science, JEE, NEET. Fees: Approx. ₹80,000 - ₹1,80,000.",
+            features: "Pros: Excellent reviews in Kharghar, focus on building strong fundamentals, run by experienced professors. Cons: Limited to a specific node in Navi Mumbai.",
+            website: "https://www.neoicons.com"
+        },
+        {
+            name: "GTT (GURukul's The TutoRial)",
+            location: "Ulhasnagar, Mumbai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "600+",
+            year_established: "N/A",
+            courses: "School Section, XI-XII Science & Commerce. Fees: Approx. ₹30,000 - ₹90,000.",
+            features: "Pros: Leading coaching class in the Ulhasnagar area, strong local reputation. Cons: Traditional teaching methods, not for top-tier competitive exams.",
+            website: "N/A"
+        },
+        {
+            name: "Instituto Hispania",
+            location: "Khar, Mumbai",
+            rating: "4.6/5 (Google)",
+            total_reviews: "300+",
+            year_established: 1997,
+            courses: "Spanish Language Courses (Hispania A1-C2). Fees: Approx. ₹20,000 - ₹28,000 per level.",
+            features: "Pros: One of the oldest institutes for Spanish, follows international standards (DELE). Cons: Limited batch flexibility.",
+            website: "https://www.institutohispania.com"
+        },
+        {
+            name: "Indian Institute of Gems & Jewellery (IIGJ)",
+            location: "Andheri, Mumbai",
+            rating: "4.5/5 (Google)",
+            total_reviews: "500+",
+            year_established: 1985,
+            courses: "Jewellery Design, Manufacturing, Gemology. Fees: Approx. ₹1,00,000 - ₹5,00,000+ for diploma/degree courses.",
+            features: "Pros: Premier institute for the gems and jewellery industry, strong industry backing. Cons: Highly specialized vocational training.",
+            website: "https://www.iigj.org"
+        },
+        {
+            name: "ScoreGetter",
+            location: "Andheri, Mumbai",
+            rating: "4.7/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "GRE, GMAT, SAT, IELTS coaching. Fees: Approx. ₹20,000 - ₹50,000.",
+            features: "Pros: Offers unlimited one-on-one doubt clearing sessions, good student reviews. Cons: Smaller brand compared to Jamboree or Manya.",
+            website: "https://www.scoregetter.com"
+        },
+        {
+            name: "Rau's IAS Study Circle",
+            location: "Andheri, Mumbai",
+            rating: "4.3/5 (Google)",
+            total_reviews: "700+",
+            year_established: 1953,
+            courses: "UPSC General Studies (Foundation, Mains). Fees: Approx. ₹1,60,000 - ₹2,20,000.",
+            features: "Pros: One of the oldest and most respected IAS coaching institutes from Delhi. Cons: Relies on a mix of in-person and satellite lectures, high fees.",
+            website: "https://www.rauias.com"
+        },
+        {
+            name: "Triumphant's Academy for Competitive Exams (TACE)",
+            location: "Belapur, Navi Mumbai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "200+",
+            year_established: "N/A",
+            courses: "IBPS, SBI, RBI, SSC, MPSC. Fees: Approx. ₹15,000 - ₹40,000.",
+            features: "Pros: Strong focus on banking and government exams in Navi Mumbai, good results. Cons: Basic infrastructure.",
+            website: "N/A"
+        },
+        {
+            name: "Vedantu Learning Centre",
+            location: "Multiple (e.g., Vashi, Thane)",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 2011,
+            courses: "Foundation (6-10), JEE, NEET. Fees: Approx. ₹90,000 - ₹2,00,000 per year.",
+            features: "Pros: Hybrid model combining online learning with offline center support, technology-driven teaching. Cons: A new entrant in the physical coaching space, model is still being tested.",
+            website: "https://www.vedantu.com/offline"
+        },
+        {
+            name: "Furtados School of Music",
+            location: "Multiple (e.g., Bandra, Chembur, Powai)",
+            rating: "4.6/5 (Google)",
+            total_reviews: "800+",
+            year_established: 2011,
+            courses: "Piano, Guitar, Violin, Vocals etc. Fees: Approx. ₹10,000 - ₹25,000 per quarter.",
+            features: "Pros: Structured music curriculum, certified teachers, opportunities for Trinity College exams. Cons: Hobby/skill-based, not academic.",
+            website: "https://www.fsm.net.in"
+        },
+        {
+            name: "BAFEL (British Academy for English Language)",
+            location: "Andheri, Mumbai",
+            rating: "4.5/5 (Google)",
+            total_reviews: "500+",
+            year_established: 1992,
+            courses: "Spoken English, IELTS, OET, Business English. Fees: Approx. ₹10,000 - ₹30,000.",
+            features: "Pros: Specializes in English language training for various needs, certified trainers. Cons: Quality can vary by branch and trainer.",
+            website: "https://www.bafel.co.in"
+        },
+        {
+            name: "Deshpande's Tutorials",
+            location: "Vile Parle, Mumbai",
+            rating: "4.7/5 (Google)",
+            total_reviews: "150+",
+            year_established: "N/A",
+            courses: "Physics for XI-XII, JEE, NEET. Fees: Approx. ₹40,000 - ₹80,000 for subject-specific coaching.",
+            features: "Pros: Renowned local tutor for Physics, focuses on conceptual clarity. Cons: Only teaches one subject, limited seats.",
+            website: "N/A"
+        },
+        {
+            name: "Science Parivar",
+            location: "Vashi, Navi Mumbai",
+            rating: "4.9/5 (Google)",
+            total_reviews: "200+",
+            year_established: "N/A",
+            courses: "IX-X, XI-XII Science, NEET. Fees: Approx. ₹70,000 - ₹1,60,000.",
+            features: "Pros: Excellent local reputation, strong focus on Biology for NEET. Cons: Less known for engineering entrance exams.",
+            website: "https://www.scienceparivar.com"
+        },
+        {
+            name: "Motion Education",
+            location: "Panvel, Navi Mumbai",
+            rating: "4.4/5 (Google)",
+            total_reviews: "500+",
+            year_established: 2007,
+            courses: "JEE Main & Advanced, NEET. Fees: Approx. ₹1,20,000 - ₹2,50,000.",
+            features: "Pros: Another established coaching brand from Kota, strong academic system. Cons: Newer in the Mumbai/Panvel market, faces stiff competition.",
+            website: "https://motion.ac.in"
+        },
+        {
+            name: "Physics Wallah (PW) Vidyapeeth",
+            location: "Multiple (e.g., Andheri, Borivali, Thane)",
+            rating: "4.6/5 (Google)",
+            total_reviews: "5,000+",
+            year_established: 2016,
+            courses: "JEE, NEET, Foundation. Fees: Approx. ₹80,000 - ₹1,50,000 per year.",
+            features: "Pros: Very affordable compared to competitors, hybrid learning model, highly popular brand. Cons: Rapid expansion has led to some concerns about quality control and consistency.",
+            website: "https://www.pw.live/vidyapeeth-centres"
+        },
+        {
+            name: "RK's Tutorials",
+            location: "Kandivali, Mumbai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "School Section, XI-XII Commerce. Fees: Approx. ₹30,000 - ₹60,000.",
+            features: "Pros: Highly-rated and popular commerce class in the Kandivali area. Cons: Localized focus, not for professional exams.",
+            website: "N/A"
+        },
+        {
+            name: "M.H. Saboo Siddik College of Engineering (Coaching Wing)",
+            location: "Byculla, Mumbai",
+            rating: "4.0/5 (for the college)",
+            total_reviews: "800+",
+            year_established: "N/A",
+            courses: "MHT-CET, Diploma Engineering subjects. Fees: Approx. ₹20,000 - ₹50,000.",
+            features: "Pros: Coaching offered on-campus by a reputed engineering college, access to college faculty. Cons: Primarily for diploma and MHT-CET, not JEE Advanced.",
+            website: "https://www.mhssce.ac.in"
+        },
+        {
+            name: "Speakwell English Academy",
+            location: "Multiple (e.g., Dadar, Thane, Borivali)",
+            rating: "4.3/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 2006,
+            courses: "Spoken English, Personality Development, Call Center Training. Fees: Approx. ₹8,000 - ₹20,000.",
+            features: "Pros: Wide network of branches, affordable courses, job placement assistance in BPOs. Cons: Focus is on basic communication skills.",
+            website: "https://www.speakwell.co.in"
+        },
+        {
+            name: "Global Education",
+            location: "Malad, Mumbai",
+            rating: "4.7/5 (Google)",
+            total_reviews: "350+",
+            year_established: "N/A",
+            courses: "IX-X, XI-XII Commerce, CA Foundation. Fees: Approx. ₹40,000 - ₹80,000.",
+            features: "Pros: Strong local reputation in Malad for commerce education. Cons: Caters primarily to local student base for board exams.",
+            website: "N/A"
+        },
+        {
+            name: "Jetking Infotrain",
+            location: "Multiple (e.g., Andheri, Thane)",
+            rating: "4.4/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: 1947,
+            courses: "Hardware and Networking, Ethical Hacking, Cloud Computing. Fees: Approx. ₹50,000 - ₹1,50,000 for career courses.",
+            features: "Pros: Veteran institute for hardware/networking, practical hands-on labs. Cons: Area of specialization is less in demand compared to software development.",
+            website: "https://www.jetking.com"
+        },
+        {
+            name: "Global Jain Academy",
+            location: "Borivali, Mumbai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "300+",
+            year_established: "N/A",
+            courses: "XI-XII Commerce. Fees: Approx. ₹40,000 - ₹70,000.",
+            features: "Pros: Run by Dr. Mitesh Gala, very popular with the Jain community in Borivali, excellent reviews. Cons: Niche and localized.",
+            website: "N/A"
+        },
+        {
+            name: "DHI Academy",
+            location: "Nerul, Navi Mumbai",
+            rating: "4.9/5 (Google)",
+            total_reviews: "150+",
+            year_established: "N/A",
+            courses: "MPSC, UPSC, Banking. Fees: Approx. ₹40,000 - ₹1,20,000.",
+            features: "Pros: Highly rated civil services coaching in Navi Mumbai, small batches, mentorship. Cons: Less known compared to Dadar-based institutes.",
+            website: "N/A"
+        },
+        {
+            name: "Arfin's Institute for CA/CS",
+            location: "Byculla, Mumbai",
+            rating: "4.6/5 (Google)",
+            total_reviews: "800+",
+            year_established: "N/A",
+            courses: "CA, CS (All levels). Fees: Approx. ₹50,000 - ₹1,50,000.",
+            features: "Pros: Very popular in South Mumbai, run by CA Arfin Khan, known for a motivational teaching style. Cons: Individual-driven, so quality is highly dependent on the main faculty.",
+            website: "https://www.arfin.in"
+        },
+        {
+            name: "J's Academy",
+            location: "Matunga, Mumbai",
+            rating: "4.7/5 (Google)",
+            total_reviews: "250+",
+            year_established: "N/A",
+            courses: "XI-XII Science, NEET. Fees: Approx. ₹1,00,000 - ₹2,00,000.",
+            features: "Pros: Excellent reputation for Biology and NEET preparation in the Matunga-Dadar area. Cons: Strong focus on medical, less so on engineering.",
+            website: "N/A"
+        },
+        {
+            name: "Bombay Flying Club",
+            location: "Juhu, Mumbai",
+            rating: "4.3/5 (Google)",
+            total_reviews: "600+",
+            year_established: 1928,
+            courses: "Commercial Pilot License (CPL), Private Pilot License (PPL). Fees: Extremely high (Approx. ₹30,00,000 - ₹40,00,000+).",
+            features: "Pros: One of the oldest and most reputed flying schools in India. Cons: Very expensive, highly regulated, not a typical coaching class.",
+            website: "https://www.thebombayflyingclub.com"
+        },
+        {
+            name: "The Yoga Institute",
+            location: "Santacruz, Mumbai",
+            rating: "4.6/5 (Google)",
+            total_reviews: "2,000+",
+            year_established: 1918,
+            courses: "Yoga Teacher Training Courses, workshops, regular classes. Fees: Approx. ₹25,000+ for teacher training.",
+            features: "Pros: World's oldest organized yoga center, authentic and traditional teaching. Cons: Focus is on wellness and lifestyle, not competitive exams.",
+            website: "https://www.theyogainstitute.org"
+        },
+        {
+            name: "D'souza's Classes",
+            location: "Bandra, Mumbai",
+            rating: "4.5/5 (Just Dial)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "IX-X (SSC, ICSE), XI-XII Commerce. Fees: Approx. ₹40,000 - ₹80,000.",
+            features: "Pros: A legendary and long-standing institution in Bandra, strong reputation. Cons: Traditional teaching methods.",
+            website: "N/A"
+        },
+        {
+            name: "Eknath Patil Tutorials",
+            location: "Kalyan, Mumbai",
+            rating: "4.7/5 (Google)",
+            total_reviews: "600+",
+            year_established: "N/A",
+            courses: "School Section, XI-XII Science, CET. Fees: Approx. ₹50,000 - ₹1,30,000.",
+            features: "Pros: Another top player in the Kalyan region, strong local results. Cons: Primarily serves the local student population.",
+            website: "N/A"
+        },
+        {
+            name: "L.S.Raheja School of Architecture (Coaching)",
+            location: "Bandra, Mumbai",
+            rating: "4.4/5 (for the college)",
+            total_reviews: "700+",
+            year_established: "N/A",
+            courses: "NATA, JEE Paper 2. Fees: Approx. ₹25,000 - ₹40,000.",
+            features: "Pros: Coaching conducted by a premier architecture college, excellent guidance. Cons: Limited seats, may have a short duration.",
+            website: "https://www.lsraheja.org"
+        },
+        {
+            name: "Excel Academics",
+            location: "Chembur, Mumbai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "IX-X, XI-XII Science, JEE, NEET. Fees: Approx. ₹90,000 - ₹1,90,000.",
+            features: "Pros: Strong local institute in Chembur, good reviews for personal attention. Cons: Less brand recognition pan-Mumbai.",
+            website: "https://www.excelacademics.in"
+        },
+        {
+            name: "DnyanMudra Education",
+            location: "Badlapur, Mumbai",
+            rating: "4.9/5 (Google)",
+            total_reviews: "300+",
+            year_established: "N/A",
+            courses: "MPSC, Banking, Saral Seva. Fees: Approx. ₹15,000 - ₹50,000.",
+            features: "Pros: Top-rated institute for government jobs in the Badlapur-Ambernath region. Cons: Caters to a very specific local demographic.",
+            website: "N/A"
+        },
+        {
+            name: "Centre for Development of Advanced Computing (C-DAC)",
+            location: "Juhu, Mumbai",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,300+",
+            year_established: 1988,
+            courses: "PG Diploma in Advanced Computing (PG-DAC), AI, Big Data. Fees: Approx. ₹90,000 + GST.",
+            features: "Pros: Government-backed institute, highly rigorous and respected diploma for IT jobs. Cons: Requires a national-level entrance test (C-CAT).",
+            website: "https://www.cdac.in"
+        },
+        {
+            name: "IIKM (Indian Institute of Knowledge Management)",
+            location: "Thane, Mumbai",
+            rating: "4.6/5 (Google)",
+            total_reviews: "200+",
+            year_established: "N/A",
+            courses: "CFA, FRM. Fees: Approx. ₹30,000 - ₹60,000 per level.",
+            features: "Pros: Specializes in high-end finance certifications, good faculty. Cons: Niche area, requires a strong background in finance.",
+            website: "https://www.iikm.in"
+        },
+        {
+            name: "A.K. Vidyamandir Classes",
+            location: "Dahisar, Mumbai",
+            rating: "4.5/5 (Just Dial)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "School section, XI-XII Commerce & Science. Fees: Approx. ₹30,000 - ₹70,000.",
+            features: "Pros: Established and reputed class in the Dahisar area. Cons: Primarily for board exams.",
+            website: "https://www.akvidyamandir.com"
+        },
+        {
+            name: "Waman's Classes",
+            location: "Mulund, Mumbai",
+            rating: "4.7/5 (Google)",
+            total_reviews: "300+",
+            year_established: "N/A",
+            courses: "IX-X, XI-XII Science, MHT-CET. Fees: Approx. ₹60,000 - ₹1,40,000.",
+            features: "Pros: Strong local reputation in Mulund, experienced teachers. Cons: Focus is more on state-level exams.",
+            website: "N/A"
+        },
+        {
+            name: "The Chemeritus",
+            location: "Santacruz, Mumbai",
+            rating: "5.0/5 (Google)",
+            total_reviews: "100+",
+            year_established: "N/A",
+            courses: "Chemistry for JEE/NEET/Boards. Fees: Approx. ₹40,000 - ₹80,000.",
+            features: "Pros: Exceptionally rated single-subject coaching for Chemistry, highly specialized. Cons: Covers only one subject.",
+            website: "N/A"
+        },
+        {
+            name: "AUM-CAT",
+            location: "Mulund, Mumbai",
+            rating: "4.9/5 (Google)",
+            total_reviews: "150+",
+            year_established: "N/A",
+            courses: "CAT, CET, NMAT, SNAP. Fees: Approx. ₹25,000 - ₹50,000.",
+            features: "Pros: Run by an IIM alumnus, highly-rated for personalized MBA prep in the central suburbs. Cons: Very small scale, individual-driven.",
+            website: "N/A"
+        },
+        {
+            name: "Pathfinders Academy",
+            location: "Powai, Mumbai",
+            rating: "4.6/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "IX-X (ICSE, CBSE), XI-XII. Fees: Approx. ₹60,000 - ₹1,20,000.",
+            features: "Pros: Popular coaching class in the Powai Hiranandani area, caters to students from elite schools. Cons: High fees, focuses on school boards.",
+            website: "https://www.pathfindersacademy.in"
+        },
+        {
+            name: "Sankalp Education",
+            location: "Virar, Mumbai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "JEE, NEET, MHT-CET. Fees: Approx. ₹70,000 - ₹1,60,000.",
+            features: "Pros: One of the leading institutes in the Virar-Nalasopara belt, good local results. Cons: Limited reach and resources compared to national brands.",
+            website: "N/A"
+        },
+        {
+            name: "Aditya Tutorials",
+            location: "Bhandup, Mumbai",
+            rating: "4.7/5 (Google)",
+            total_reviews: "300+",
+            year_established: "N/A",
+            courses: "School Section, XI-XII Science. Fees: Approx. ₹40,000 - ₹90,000.",
+            features: "Pros: Reputed local tutorial in Bhandup with a long-standing presence. Cons: Focus on school and junior college curriculum.",
+            website: "N/A"
+        },
+        {
+            name: "Catenation",
+            location: "Vile Parle, Mumbai",
+            rating: "5.0/5 (Google)",
+            total_reviews: "80+",
+            year_established: "N/A",
+            courses: "Chemistry for JEE/NEET. Fees: Approx. ₹50,000 - ₹90,000.",
+            features: "Pros: Perfect rating suggests excellent teaching quality for Chemistry, run by an experienced professor. Cons: Single subject and single location.",
+            website: "N/A"
+        },
+        {
+            name: "Achievers Point",
+            location: "Andheri, Mumbai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "500+",
+            year_established: 2005,
+            courses: "GMAT, GRE, SAT, IELTS and study abroad counseling. Fees: Approx. ₹25,000 - ₹60,000.",
+            features: "Pros: Highly rated for personalized coaching and flexible timings. Cons: Smaller player in the competitive study abroad market.",
+            website: "https://www.achieverspoint.com"
+        },
+        {
+            name: "Pradhan's Professional Academy",
+            location: "Panvel, Navi Mumbai",
+            rating: "4.6/5 (Google)",
+            total_reviews: "200+",
+            year_established: "N/A",
+            courses: "XI-XII Commerce, CA/CS Foundation. Fees: Approx. ₹30,000 - ₹60,000.",
+            features: "Pros: Leading commerce class in the Panvel area. Cons: Local focus, limited to commerce stream.",
+            website: "N/A"
+        },
+        {
+            name: "Mumbai Educational Trust (MET)",
+            location: "Bandra, Mumbai",
+            rating: "4.2/5 (for the institute)",
+            total_reviews: "1,500+",
+            year_established: 1989,
+            courses: "Offers various professional diploma courses (e.g., in Mass Media, Management). Fees: ₹1,00,000+.",
+            features: "Pros: Reputed educational trust with excellent infrastructure. Cons: These are full-time/part-time diploma courses, not coaching classes.",
+            website: "https://www.met.edu"
+        },
+
+
+
+
+
+
+
+        // PART 2 DATA (Entries 151-300)
+        {
+            name: "Future Vision Academy",
+            location: "Ambernath, Mumbai",
+            rating: "4.9/5 (Google)",
+            total_reviews: "200+",
+            year_established: "N/A",
+            courses: "School Section, JEE, NEET. Fees: Approx. ₹60,000 - ₹1,40,000.",
+            features: "Pros: Top institute in Ambernath, excellent reviews for quality teaching. Cons: Caters to the far central suburbs.",
+            website: "N/A"
+        },
+        {
+            name: "Dalal-Desai's Tutorials",
+            location: "Borivali, Mumbai",
+            rating: "4.6/5 (Just Dial)",
+            total_reviews: "350+",
+            year_established: "N/A",
+            courses: "XI-XII Science. Fees: Approx. ₹70,000 - ₹1,20,000.",
+            features: "Pros: Veteran science tutorial in Borivali with a strong reputation. Cons: Primarily for HSC board preparation.",
+            website: "N/A"
+        },
+        {
+            name: "J. K. Classes",
+            location: "Ulhasnagar, Mumbai",
+            rating: "4.8/5 (Just Dial)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "XI-XII Commerce, CA Foundation. Fees: Approx. ₹25,000 - ₹50,000.",
+            features: "Pros: A very popular and old commerce class in Ulhasnagar. Cons: Local brand, basic infrastructure. (Note: Different from J.K. Shah).",
+            website: "N/A"
+        },
+        {
+            name: "Praveen's Classes",
+            location: "Vasai, Mumbai",
+            rating: "4.7/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "School Section, Commerce. Fees: Approx. ₹20,000 - ₹50,000.",
+            features: "Pros: Leading local commerce class in Vasai. Cons: Focus is on board exams.",
+            website: "N/A"
+        },
+        {
+            name: "Inlingua International School of Languages",
+            location: "Bandra, Mumbai",
+            rating: "4.4/5 (Google)",
+            total_reviews: "300+",
+            year_established: 1968,
+            courses: "English, French, Spanish, German. Fees: Approx. ₹18,000 - ₹25,000 per level.",
+            features: "Pros: International brand with a specific teaching methodology, conversational focus. Cons: Can be more expensive than local language institutes.",
+            website: "https://www.inlinguaindia.com"
+        },
+        {
+            name: "Atos",
+            location: "Andheri, Mumbai",
+            rating: "4.3/5 (Google)",
+            total_reviews: "800+",
+            year_established: 1997,
+            courses: "SAP Training (various modules), IT certifications. Fees: Approx. ₹50,000 - ₹3,00,000+ depending on the SAP module.",
+            features: "Pros: Official SAP education partner, strong corporate training reputation, good placement support. Cons: Very expensive, highly technical courses.",
+            website: "https://www.atos.net/en/india/sap-education"
+        },
+        {
+            name: "R. D. Classes",
+            location: "Ghatkopar, Mumbai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "250+",
+            year_established: "N/A",
+            courses: "XI-XII Commerce, B.Com, BMS. Fees: Approx. ₹25,000 - ₹50,000.",
+            features: "Pros: Highly-rated commerce class in Ghatkopar, strong focus on university curriculum. Cons: Limited to commerce stream and local area.",
+            website: "N/A"
+        },
+        {
+            name: "S-CUBE Tutorials",
+            location: "Dadar, Mumbai",
+            rating: "4.9/5 (Google)",
+            total_reviews: "150+",
+            year_established: "N/A",
+            courses: "UGC-NET/SET, GATE (Biotech/Life Sciences). Fees: Approx. ₹20,000 - ₹40,000.",
+            features: "Pros: Excellent rating, specializes in niche competitive exams for lectureship and research. Cons: Very specific subject focus.",
+            website: "https://www.scubetutorials.com"
+        },
+        {
+            name: "Ketkar's Classes",
+            location: "Vikhroli, Mumbai",
+            rating: "4.6/5 (Just Dial)",
+            total_reviews: "300+",
+            year_established: "N/A",
+            courses: "IX-X (SSC), XI-XII Science. Fees: Approx. ₹40,000 - ₹90,000.",
+            features: "Pros: Old and established science coaching class in the Vikhroli area. Cons: Primarily for board exams, traditional teaching.",
+            website: "N/A"
+        },
+        {
+            name: "The Marine World",
+            location: "Belapur, Navi Mumbai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "200+",
+            year_established: "N/A",
+            courses: "IMU-CET, GP Rating, Merchant Navy Sponsorship Test prep. Fees: Approx. ₹30,000 - ₹70,000.",
+            features: "Pros: Highly specialized coaching for merchant navy entrance exams, run by marine professionals. Cons: Very niche career path.",
+            website: "https://www.themarineworld.com"
+        },
+        {
+            name: "GIA (Gemological Institute of America)",
+            location: "Bandra, Mumbai",
+            rating: "4.6/5 (Google)",
+            total_reviews: "400+",
+            year_established: 1931,
+            courses: "Graduate Gemologist, Jewelry Design, Diamond Grading. Fees: Approx. ₹2,00,000 - ₹8,00,000+ for diploma programs.",
+            features: "Pros: The world's foremost authority in gemology, globally recognized certification. Cons: Extremely expensive, for professional training.",
+            website: "https://www.gia.edu/IN"
+        },
+        {
+            name: "Y-Axis Consultants",
+            location: "Andheri, Mumbai",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,800+",
+            year_established: 1999,
+            courses: "IELTS, PTE, GRE coaching and immigration/visa consultancy. Fees: Coaching approx. ₹10,000 - ₹25,000; consultancy fees are higher.",
+            features: "Pros: One of the largest immigration consultants, offers end-to-end services. Cons: Can be very process-driven, less personal than smaller firms.",
+            website: "https://www.yaxis.com"
+        },
+        {
+            name: "International College of Financial Planning (ICoFP)",
+            location: "Vile Parle, Mumbai",
+            rating: "4.4/5 (Google)",
+            total_reviews: "300+",
+            year_established: 2002,
+            courses: "Certified Financial Planner (CFP), NISM modules, MBA in Financial Planning. Fees: Approx. ₹40,000 - ₹60,000 for CFP coaching.",
+            features: "Pros: Specializes in financial planning education, strong industry connections. Cons: Niche certification-focused courses.",
+            website: "https://www.icofp.org"
+        },
+        {
+            name: "Thakur Institute of Aviation Technology",
+            location: "Kandivali, Mumbai",
+            rating: "4.5/5 (Google)",
+            total_reviews: "700+",
+            year_established: 2006,
+            courses: "Aircraft Maintenance Engineering (AME). Fees: This is a full diploma course costing several lakhs.",
+            features: "Pros: DGCA-approved AME college with good infrastructure and hangar facilities. Cons: More of a technical college than a coaching institute.",
+            website: "https://www.tiat.in"
+        },
+        {
+            name: "The Audio Guys (T.A.G.)",
+            location: "Andheri, Mumbai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "350+",
+            year_established: "N/A",
+            courses: "Sound Engineering, Music Production. Fees: Varies widely, approx. ₹1,00,000 - ₹4,00,000.",
+            features: "Pros: Hands-on practical training with industry-standard equipment, run by professionals. Cons: Highly vocational and creative field.",
+            website: "https://www.theaudioguys.co.in"
+        },
+        {
+            name: "Shah's Academy",
+            location: "Kurla, Mumbai",
+            rating: "4.7/5 (Just Dial)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "School Section (All boards), XI-XII Commerce & Science. Fees: Approx. ₹30,000 - ₹80,000.",
+            features: "Pros: Well-known and old institute in the Kurla area. Cons: Focus is on school curriculum.",
+            website: "N/A"
+        },
+        {
+            name: "Pristine InfoSolutions",
+            location: "Andheri, Mumbai",
+            rating: "4.6/5 (Google)",
+            total_reviews: "500+",
+            year_established: 2008,
+            courses: "Certified Ethical Hacking, Cyber Security. Fees: Approx. ₹25,000 - ₹60,000.",
+            features: "Pros: Specializes in the high-demand field of cyber security, practical training. Cons: Requires strong interest and aptitude in IT.",
+            website: "https://www.pristineinfo.com"
+        },
+        {
+            name: "Mehta's Academy",
+            location: "Bhayandar, Mumbai",
+            rating: "4.9/5 (Google)",
+            total_reviews: "250+",
+            year_established: "N/A",
+            courses: "XI-XII Commerce, CA Foundation. Fees: Approx. ₹30,000 - ₹60,000.",
+            features: "Pros: Top-rated commerce class in Bhayandar, known for quality teaching. Cons: Highly localized.",
+            website: "N/A"
+        },
+        {
+            name: "KPMG Learning Academy",
+            location: "Andheri, Mumbai",
+            rating: "4.5/5 (Corporate Rating)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "Six Sigma, PMP, Data Analytics, IFRS. Fees: Approx. ₹20,000 - ₹80,000 per certification.",
+            features: "Pros: Training provided by a 'Big 4' firm, high industry recognition. Cons: Very expensive, targeted at working professionals.",
+            website: "https://learning.kpmg.in"
+        },
+        {
+            name: "Catalyst Tutorials",
+            location: "Airoli, Navi Mumbai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "300+",
+            year_established: "N/A",
+            courses: "IX-X, XI-XII Science, JEE, NEET. Fees: Approx. ₹70,000 - ₹1,70,000.",
+            features: "Pros: Leading science class in the Airoli region, good reviews for personal attention. Cons: Faces competition from bigger brands in nearby Vashi.",
+            website: "N/A"
+        },
+        {
+            name: "Anopchand Tilokchand Shahani (ATS) Commercial Institute",
+            location: "Fort, Mumbai",
+            rating: "4.7/5 (Just Dial)",
+            total_reviews: "150+",
+            year_established: "N/A",
+            courses: "Shorthand, Typing, Stenography. Fees: Approx. ₹5,000 - ₹15,000.",
+            features: "Pros: A very old and legendary institute for secretarial and stenography skills. Cons: Teaches skills that have declining demand in the modern office.",
+            website: "N/A"
+        },
+        {
+            name: "Maniar's Classes",
+            location: "Sion, Mumbai",
+            rating: "4.5/5 (Just Dial)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "School Section, XI-XII Commerce. Fees: Approx. ₹35,000 - ₹70,000.",
+            features: "Pros: Established commerce class in the Sion-Matunga area with a loyal student base. Cons: Focus on Mumbai University curriculum.",
+            website: "N/A"
+        },
+        {
+            name: "The Bar School (TBS)",
+            location: "Bandra, Mumbai",
+            rating: "4.9/5 (Google)",
+            total_reviews: "200+",
+            year_established: "N/A",
+            courses: "Professional Bartending, Mixology. Fees: Approx. ₹50,000 - ₹1,00,000.",
+            features: "Pros: Highly-rated, practical training for the hospitality industry, good placement record. Cons: Vocational, non-academic.",
+            website: "https://www.thebarschool.net"
+        },
+        {
+            name: "Catalyse",
+            location: "Andheri, Mumbai",
+            rating: "5.0/5 (Google)",
+            total_reviews: "120+",
+            year_established: "N/A",
+            courses: "IGCSE, IB, A-Levels. Fees: High, charged hourly or per subject (e.g., ₹1500-₹4000/hr).",
+            features: "Pros: Perfect rating indicates exceptional, personalized tutoring for international boards. Cons: Very expensive and exclusive.",
+            website: "https://www.catalyse.in"
+        },
+        {
+            name: "Fujiwara Japanese Institute",
+            location: "Andheri, Mumbai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "250+",
+            year_established: "N/A",
+            courses: "Japanese Language (N5-N1 levels), JLPT Prep. Fees: Approx. ₹15,000 - ₹25,000 per level.",
+            features: "Pros: Specializes in Japanese language training, prepares for official certification exams. Cons: Niche language focus.",
+            website: "https://www.fujiwarainstitute.com"
+        },
+        {
+            name: "The Radio School",
+            location: "Bandra, Mumbai",
+            rating: "4.7/5 (Google)",
+            total_reviews: "150+",
+            year_established: "N/A",
+            courses: "Radio Jockey (RJ) Training, Voice Modulation. Fees: Approx. ₹40,000 - ₹80,000.",
+            features: "Pros: Run by industry professionals, practical training in a niche media field. Cons: Success is highly dependent on individual talent.",
+            website: "https://www.theradioschool.in"
+        },
+        {
+            name: "Gurukul Classes",
+            location: "Titwala, Mumbai",
+            rating: "4.6/5 (Google)",
+            total_reviews: "200+",
+            year_established: "N/A",
+            courses: "School Section, XI-XII Science & Commerce. Fees: Approx. ₹25,000 - ₹60,000.",
+            features: "Pros: The go-to coaching class for students in the Titwala area. Cons: Very localized, basic infrastructure.",
+            website: "N/A"
+        },
+        {
+            name: "Biotecnika Academy",
+            location: "Sanpada, Navi Mumbai",
+            rating: "4.5/5 (Google)",
+            total_reviews: "400+",
+            year_established: 2006,
+            courses: "CSIR-NET, GATE (Life Sciences/Biotech). Fees: Approx. ₹25,000 - ₹50,000.",
+            features: "Pros: National brand specializing in life sciences and biotech competitive exams. Cons: Caters to a very specific academic niche.",
+            website: "https://www.biotecnika.org"
+        },
+        {
+            name: "Han You Chinese Language Institute",
+            location: "Vile Parle, Mumbai",
+            rating: "4.9/5 (Google)",
+            total_reviews: "100+",
+            year_established: "N/A",
+            courses: "Mandarin Chinese (HSK Levels 1-6). Fees: Approx. ₹18,000 - ₹28,000 per level.",
+            features: "Pros: Highly-rated institute for Mandarin, prepares for official HSK proficiency tests. Cons: Niche language with a steep learning curve.",
+            website: "N/A"
+        },
+        {
+            name: "CA Sanket Shah Classes",
+            location: "Borivali, Mumbai",
+            rating: "4.9/5 (Google)",
+            total_reviews: "300+",
+            year_established: "N/A",
+            courses: "CA Final & Inter (Law, Audit). Fees: Approx. ₹15,000 - ₹25,000 per subject.",
+            features: "Pros: Renowned individual professor for specific CA subjects, especially Law. Cons: Limited to a few subjects.",
+            website: "N/A"
+        },
+        {
+            name: "Pro-active Classes",
+            location: "Nalasopara, Mumbai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "School Section, Science, Commerce. Fees: Approx. ₹30,000 - ₹90,000.",
+            features: "Pros: One of the top-rated and larger coaching centers in the Nalasopara region. Cons: Caters to the far western suburbs.",
+            website: "N/A"
+        },
+        {
+            name: "B-cubed",
+            location: "Matunga, Mumbai",
+            rating: "5.0/5 (Google)",
+            total_reviews: "90+",
+            year_established: "N/A",
+            courses: "Mathematics for XI-XII, JEE. Fees: Approx. ₹50,000 - ₹1,00,000.",
+            features: "Pros: Perfect rating indicates exceptional teaching quality for Mathematics. Cons: Single-subject, single-person-dependent institute.",
+            website: "N/A"
+        },
+        {
+            name: "Embibe",
+            location: "Online (HQ in Mumbai)",
+            rating: "4.2/5 (Google Play Store)",
+            total_reviews: "50,000+",
+            year_established: 2012,
+            courses: "AI-powered learning for JEE, NEET, Banking, School exams. Fees: Varies from free to premium paid plans.",
+            features: "Pros: Uses AI to provide personalized feedback and practice. Cons: Primarily a technology platform, lacks the discipline of a physical classroom.",
+            website: "https://www.embibe.com"
+        },
+        {
+            name: "Bombay Institute for Spoken English",
+            location: "Grant Road, Mumbai",
+            rating: "4.7/5 (Just Dial)",
+            total_reviews: "300+",
+            year_established: "N/A",
+            courses: "Spoken English, Grammar. Fees: Approx. ₹6,000 - ₹15,000.",
+            features: "Pros: A very old and trusted name for basic English language skills in South Mumbai. Cons: Traditional curriculum.",
+            website: "N/A"
+        },
+        {
+            name: "Aakash Institute (Chembur)",
+            location: "Chembur, Mumbai",
+            rating: "4.2/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: "N/A",
+            courses: "NEET, JEE, Foundation. Fees: Approx. ₹1,40,000 - ₹2,80,000 per year.",
+            features: "Pros: Strong branch serving the central suburbs. Cons: High student-to-teacher ratio.",
+            website: "https://www.aakash.ac.in"
+        },
+        {
+            name: "J.K. Shah Classes (Dadar)",
+            location: "Dadar, Mumbai",
+            rating: "4.3/5 (Google)",
+            total_reviews: "1,800+",
+            year_established: "N/A",
+            courses: "CA, CS, CMA. Fees: Approx. ₹50,000 - ₹1,50,000.",
+            features: "Pros: Major hub for commerce professional courses. Cons: Extremely crowded.",
+            website: "https://www.jkshahclasses.com"
+        },
+        {
+            name: "IMS Learning Center (Borivali)",
+            location: "Borivali, Mumbai",
+            rating: "4.7/5 (Google)",
+            total_reviews: "900+",
+            year_established: "N/A",
+            courses: "CAT, GMAT, GRE, CET. Fees: Approx. ₹40,000 - ₹80,000 per course.",
+            features: "Pros: Top-rated center for MBA prep in the western suburbs. Cons: Weekend batches can be overcrowded.",
+            website: "https://www.imsindia.com"
+        },
+        {
+            name: "Allen Career Institute (Panvel)",
+            location: "Panvel, Navi Mumbai",
+            rating: "4.4/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: "N/A",
+            courses: "JEE, NEET. Fees: Approx. ₹1,50,000 - ₹3,00,000 per year.",
+            features: "Pros: Caters to Navi Mumbai and beyond, follows the Kota system. Cons: High pressure environment.",
+            website: "https://www.allen.ac.in"
+        },
+        {
+            name: "FIITJEE (Nerul)",
+            location: "Nerul, Navi Mumbai",
+            rating: "4.0/5 (Google)",
+            total_reviews: "800+",
+            year_established: "N/A",
+            courses: "JEE (Main & Advanced). Fees: Approx. ₹1,60,000 - ₹3,50,000 for 2-year programs.",
+            features: "Pros: Strong presence in Navi Mumbai for JEE aspirants. Cons: Very rigorous schedule.",
+            website: "https://www.fiitjee.com"
+        },
+        {
+            name: "TIME (Thane)",
+            location: "Thane, Mumbai",
+            rating: "4.2/5 (Google)",
+            total_reviews: "1,100+",
+            year_established: "N/A",
+            courses: "CAT, Bank PO, SSC. Fees: Approx. ₹35,000 - ₹70,000 per course.",
+            features: "Pros: Major center for the Thane region. Cons: Standardized curriculum.",
+            website: "https://www.time4education.com"
+        },
+        {
+            name: "Career Launcher (Vashi)",
+            location: "Vashi, Navi Mumbai",
+            rating: "4.5/5 (Google)",
+            total_reviews: "700+",
+            year_established: "N/A",
+            courses: "CAT, CLAT, IPM. Fees: Approx. ₹30,000 - ₹90,000 per course.",
+            features: "Pros: Strong center for law and management prep in Navi Mumbai. Cons: Premium pricing.",
+            website: "https://www.careerlauncher.com"
+        },
+        {
+            name: "Vidyalankar Classes (Andheri)",
+            location: "Andheri, Mumbai",
+            rating: "4.1/5 (Google)",
+            total_reviews: "1,300+",
+            year_established: "N/A",
+            courses: "MHT-CET, JEE Main, Engineering Degree. Fees: Approx. ₹50,000 - ₹1,80,000.",
+            features: "Pros: Strong local brand with a major center in Andheri. Cons: Less focus on JEE Advanced.",
+            website: "https://www.vidyalankar.org"
+        },
+        {
+            name: "Rao IIT Academy (Thane)",
+            location: "Thane, Mumbai",
+            rating: "3.9/5 (Google)",
+            total_reviews: "900+",
+            year_established: "N/A",
+            courses: "JEE, NEET, MHT-CET. Fees: Approx. ₹1,20,000 - ₹2,50,000 per year.",
+            features: "Pros: Strong presence in Thane for engineering entrance. Cons: Mixed reviews on faculty consistency.",
+            website: "https://www.raoiit.com"
+        },
+        {
+            name: "Mahesh Tutorials (Vashi)",
+            location: "Vashi, Navi Mumbai",
+            rating: "3.8/5 (Google)",
+            total_reviews: "800+",
+            year_established: "N/A",
+            courses: "School section, JEE, NEET, CET. Fees: Varies widely.",
+            features: "Pros: Wide network in Navi Mumbai. Cons: Quality can be inconsistent.",
+            website: "https://www.maheshtutorials.com"
+        },
+        {
+            name: "Aakash Institute (Powai)",
+            location: "Powai, Mumbai",
+            rating: "4.3/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: "N/A",
+            courses: "NEET, JEE. Fees: Approx. ₹1,40,000 - ₹2,80,000 per year.",
+            features: "Pros: Caters to the affluent Powai area, good infrastructure. Cons: High fees.",
+            website: "https://www.aakash.ac.in"
+        },
+        {
+            name: "J.K. Shah Classes (Ghatkopar)",
+            location: "Ghatkopar, Mumbai",
+            rating: "4.4/5 (Google)",
+            total_reviews: "1,400+",
+            year_established: "N/A",
+            courses: "CA, CS, CMA. Fees: Approx. ₹50,000 - ₹1,50,000.",
+            features: "Pros: Strong center for Gujarati and Jain student communities. Cons: Overcrowded.",
+            website: "https://www.jkshahclasses.com"
+        },
+        {
+            name: "IMS Learning Center (Andheri)",
+            location: "Andheri, Mumbai",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: "N/A",
+            courses: "CAT, GMAT, GRE. Fees: Approx. ₹40,000 - ₹80,000 per course.",
+            features: "Pros: Major hub for MBA and study abroad aspirants. Cons: Batches fill up fast.",
+            website: "https://www.imsindia.com"
+        },
+        {
+            name: "Allen Career Institute (Goregaon)",
+            location: "Goregaon, Mumbai",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: "N/A",
+            courses: "JEE, NEET. Fees: Approx. ₹1,50,000 - ₹3,00,000 per year.",
+            features: "Pros: Strong center serving the western suburbs. Cons: High pressure.",
+            website: "https://www.allen.ac.in"
+        },
+        {
+            name: "Silica (Thane)",
+            location: "Thane, Mumbai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "NID, NIFT, NATA. Fees: Approx. ₹40,000 - ₹1,00,000 per course.",
+            features: "Pros: Top-rated design coaching center for the Thane region. Cons: Niche focus.",
+            website: "https://www.silica.co.in"
+        },
+        {
+            name: "Resonance (Vashi)",
+            location: "Vashi, Navi Mumbai",
+            rating: "4.1/5 (Google)",
+            total_reviews: "600+",
+            year_established: "N/A",
+            courses: "JEE (Main & Advanced), NEET. Fees: Approx. ₹1,30,000 - ₹2,60,000 per year.",
+            features: "Pros: Kota's system in Navi Mumbai. Cons: Rigid teaching structure.",
+            website: "https://www.resonance.ac.in"
+        },
+        {
+            name: "MAAC (Thane)",
+            location: "Thane, Mumbai",
+            rating: "4.6/5 (Google)",
+            total_reviews: "800+",
+            year_established: "N/A",
+            courses: "3D Animation, VFX, Game Design. Fees: Approx. ₹1,00,000 - ₹5,00,000.",
+            features: "Pros: Top-rated animation institute in Thane. Cons: Very high fees.",
+            website: "https://www.maacindia.com"
+        },
+        {
+            name: "Pace IIT & Medical (Thane)",
+            location: "Thane, Mumbai",
+            rating: "3.7/5 (Google)",
+            total_reviews: "1,100+",
+            year_established: "N/A",
+            courses: "JEE, NEET. Fees: Approx. ₹1,50,000 - ₹3,20,000.",
+            features: "Pros: Integrated programs with local schools. Cons: Mixed reviews on management.",
+            website: "https://www.iitianspace.com"
+        },
+        {
+            name: "Jamboree Education (Thane)",
+            location: "Thane, Mumbai",
+            rating: "4.7/5 (Google)",
+            total_reviews: "600+",
+            year_established: "N/A",
+            courses: "GMAT, GRE, SAT. Fees: Approx. ₹25,000 - ₹60,000 per course.",
+            features: "Pros: Highly-rated for study abroad test prep in Thane. Cons: Limited counseling focus.",
+            website: "https://www.jamboreeindia.com"
+        },
+        {
+            name: "Aakash Institute (Nerul)",
+            location: "Nerul, Navi Mumbai",
+            rating: "4.2/5 (Google)",
+            total_reviews: "900+",
+            year_established: "N/A",
+            courses: "NEET, JEE. Fees: Approx. ₹1,40,000 - ₹2,80,000 per year.",
+            features: "Pros: Caters to a major residential node in Navi Mumbai. Cons: High fees.",
+            website: "https://www.aakash.ac.in"
+        },
+        {
+            name: "J.K. Shah Classes (Vashi)",
+            location: "Vashi, Navi Mumbai",
+            rating: "4.3/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: "N/A",
+            courses: "CA, CS. Fees: Approx. ₹50,000 - ₹1,50,000.",
+            features: "Pros: Major center for CA coaching in Navi Mumbai. Cons: Hectic schedule.",
+            website: "https://www.jkshahclasses.com"
+        },
+        {
+            name: "TIME (Borivali)",
+            location: "Borivali, Mumbai",
+            rating: "4.1/5 (Google)",
+            total_reviews: "950+",
+            year_established: "N/A",
+            courses: "CAT, Bank PO. Fees: Approx. ₹35,000 - ₹70,000 per course.",
+            features: "Pros: Strong presence in the far western suburbs. Cons: Standardized approach.",
+            website: "https://www.time4education.com"
+        },
+        {
+            name: "Career Launcher (Dadar)",
+            location: "Dadar, Mumbai",
+            rating: "4.4/5 (Google)",
+            total_reviews: "850+",
+            year_established: "N/A",
+            courses: "CAT, CLAT, IPM. Fees: Approx. ₹30,000 - ₹90,000 per course.",
+            features: "Pros: Centrally located branch, good faculty. Cons: Premium pricing.",
+            website: "https://www.careerlauncher.com"
+        },
+        {
+            name: "The Prayas India (Thane)",
+            location: "Thane, Mumbai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "700+",
+            year_established: "N/A",
+            courses: "UPSC, MPSC, Bank PO. Fees: Approx. ₹70,000 - ₹1,80,000.",
+            features: "Pros: Highly-rated branch with small batches. Cons: Fees can be high.",
+            website: "https://www.theprayasindia.com"
+        },
+        {
+            name: "BRDS (Vashi)",
+            location: "Vashi, Navi Mumbai",
+            rating: "4.7/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "NID, NIFT, NATA. Fees: Approx. ₹50,000 - ₹1,20,000.",
+            features: "Pros: Top design coaching in Navi Mumbai. Cons: Intensive curriculum.",
+            website: "https://www.brdsindia.com"
+        },
+        {
+            name: "Vidyasagar Classes (Thane)",
+            location: "Thane, Mumbai",
+            rating: "3.9/5 (Google)",
+            total_reviews: "800+",
+            year_established: "N/A",
+            courses: "School section, CET. Fees: Approx. ₹35,000 - ₹1,00,000.",
+            features: "Pros: Popular for board exam preparation in Thane. Cons: Not specialized for national exams.",
+            website: "https://www.vidyasagar.com"
+        },
+        {
+            name: "Aakash Institute (Andheri)",
+            location: "Andheri, Mumbai",
+            rating: "4.1/5 (Google)",
+            total_reviews: "1,800+",
+            year_established: "N/A",
+            courses: "NEET, JEE. Fees: Approx. ₹1,40,000 - ₹2,80,000 per year.",
+            features: "Pros: Major hub for medical and engineering aspirants. Cons: Very large batches.",
+            website: "https://www.aakash.ac.in"
+        },
+        {
+            name: "IMS Learning Center (Churchgate)",
+            location: "Churchgate, Mumbai",
+            rating: "4.5/5 (Google)",
+            total_reviews: "600+",
+            year_established: "N/A",
+            courses: "CAT, GMAT, GRE. Fees: Approx. ₹40,000 - ₹80,000 per course.",
+            features: "Pros: Caters to students and professionals in South Mumbai. Cons: Premium pricing.",
+            website: "https://www.imsindia.com"
+        },
+        {
+            name: "J.K. Shah Classes (Mulund)",
+            location: "Mulund, Mumbai",
+            rating: "4.2/5 (Google)",
+            total_reviews: "900+",
+            year_established: "N/A",
+            courses: "CA, CS. Fees: Approx. ₹50,000 - ₹1,50,000.",
+            features: "Pros: Strong center in the central suburbs. Cons: Overcrowded.",
+            website: "https://www.jkshahclasses.com"
+        },
+        {
+            name: "Allen Career Institute (Vasai)",
+            location: "Vasai, Mumbai",
+            rating: "4.3/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: "N/A",
+            courses: "JEE, NEET. Fees: Approx. ₹1,50,000 - ₹3,00,000 per year.",
+            features: "Pros: Caters to the Vasai-Virar region. Cons: High pressure.",
+            website: "https://www.allen.ac.in"
+        },
+        {
+            name: "FIITJEE (Andheri East)",
+            location: "Andheri East, Mumbai",
+            rating: "3.9/5 (Google)",
+            total_reviews: "700+",
+            year_established: "N/A",
+            courses: "JEE (Main & Advanced). Fees: Approx. ₹1,60,000 - ₹3,50,000 for 2-year programs.",
+            features: "Pros: Another center in the Andheri hub. Cons: Very rigorous.",
+            website: "https://www.fiitjee.com"
+        },
+        {
+            name: "Rao IIT Academy (Kandivali)",
+            location: "Kandivali, Mumbai",
+            rating: "3.8/5 (Google)",
+            total_reviews: "800+",
+            year_established: "N/A",
+            courses: "JEE, NEET, MHT-CET. Fees: Approx. ₹1,20,000 - ₹2,50,000 per year.",
+            features: "Pros: Strong presence in the western suburbs. Cons: Mixed reviews on faculty.",
+            website: "https://www.raoiit.com"
+        },
+        {
+            name: "Pace IIT & Medical (Nerul)",
+            location: "Nerul, Navi Mumbai",
+            rating: "3.6/5 (Google)",
+            total_reviews: "900+",
+            year_established: "N/A",
+            courses: "JEE, NEET. Fees: Approx. ₹1,50,000 - ₹3,20,000.",
+            features: "Pros: Integrated programs with Navi Mumbai schools. Cons: Inconsistent reviews.",
+            website: "https://www.iitianspace.com"
+        },
+        {
+            name: "Silica (Dadar)",
+            location: "Dadar, Mumbai",
+            rating: "4.6/5 (Google)",
+            total_reviews: "600+",
+            year_established: "N/A",
+            courses: "NID, NIFT, NATA. Fees: Approx. ₹40,000 - ₹1,00,000 per course.",
+            features: "Pros: Centrally located design coaching center. Cons: Niche focus.",
+            website: "https://www.silica.co.in"
+        },
+        {
+            name: "TIME (Vile Parle)",
+            location: "Vile Parle, Mumbai",
+            rating: "4.2/5 (Google)",
+            total_reviews: "800+",
+            year_established: "N/A",
+            courses: "CAT, Bank PO. Fees: Approx. ₹35,000 - ₹70,000 per course.",
+            features: "Pros: Caters to the college hub of Vile Parle. Cons: Standardized approach.",
+            website: "https://www.time4education.com"
+        },
+        {
+            name: "Aakash Institute (Kandivali)",
+            location: "Kandivali, Mumbai",
+            rating: "4.1/5 (Google)",
+            total_reviews: "1,100+",
+            year_established: "N/A",
+            courses: "NEET, JEE. Fees: Approx. ₹1,40,000 - ₹2,80,000 per year.",
+            features: "Pros: Major center in the western suburbs. Cons: Large batches.",
+            website: "https://www.aakash.ac.in"
+        }
+
+
+    ];
+
+    const instituteList = document.getElementById('institute-list');
+
+    // Function to display institutes
+    function displayInstitutes(instituteArray) {
+        instituteList.innerHTML = ''; // Clear current list
+        instituteArray.forEach(institute => {
+            const card = `
+                <div class="institute-card">
+                    <h2>${institute.name}</h2>
+                    <p><strong>Location:</strong> ${institute.location}</p>
+                    <div class="details-grid">
+                        <p class="rating"><strong>Rating:</strong> ${institute.rating}</p>
+                        <p><strong>Reviews:</strong> ${institute.total_reviews}</p>
+                        <p class="established"><strong>Established:</strong> ${institute.year_established}</p>
+                    </div>
+                    <p><strong>Courses & Fees:</strong> ${institute.courses}</p>
+                    <p><strong>Features (Pros & Cons):</strong> ${institute.features}</p>
+                    <a href="${institute.website}" target="_blank" rel="noopener noreferrer">Visit Website</a>
+                </div>
+            `;
+            instituteList.innerHTML += card;
+        });
+    }
+
+    // Function to filter institutes based on search criteria
+    function filterInstitutes() {
+        const nameQuery = document.getElementById('name-search').value.toLowerCase();
+        const ratingQuery = document.getElementById('rating-search').value;
+
+        const filteredInstitutes = institutes.filter(institute => {
+            const nameMatch = institute.name.toLowerCase().includes(nameQuery);
+            // Extract the number part of the rating for a more flexible search
+            const ratingValue = institute.rating.split('/')[0].trim();
+            const ratingMatch = ratingValue.startsWith(ratingQuery);
+            
+            return nameMatch && ratingMatch;
+        });
+
+        displayInstitutes(filteredInstitutes);
+    }
+
+    // Initial display of all institutes
+    window.onload = () => {
+        displayInstitutes(institutes);
+    };
+
+</script>
+
+</body>
+</html>

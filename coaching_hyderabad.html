@@ -1,0 +1,1663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top coaching institutes in Hyderabad</title>
+    <style>
+        /* General Body Styling */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            background-color: #f0ffff; /* Light Azure/Turquoise background */
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        /* Header Box for Title and Search */
+        .header-container {
+            background-color: #40e0d0; /* Turquoise background */
+            padding: 30px 25px;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            border: 1px solid #38c7b8;
+        }
+
+        /* 3D Title Styling */
+        h1 {
+            color: white;
+            text-align: center;
+            font-size: 3em;
+            font-weight: 700;
+            margin: 0 0 25px 0;
+            /* 3D Effect using a darker turquoise shadow */
+            text-shadow: 3px 3px 0px #20c1b1, 6px 6px 10px rgba(0, 0, 0, 0.3);
+            letter-spacing: 1px;
+        }
+
+        /* Search Box Container */
+        .search-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        /* Search Input Fields */
+        .search-container input {
+            padding: 12px 18px;
+            font-size: 1em;
+            width: 320px;
+            max-width: 90%;
+            border: none;
+            border-radius: 50px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1) inset;
+        }
+
+        .search-container input:focus {
+            outline: none;
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.7), 0 2px 4px rgba(0,0,0,0.1) inset;
+        }
+
+        /* Main container for the institute list */
+        #institute-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 25px;
+        }
+
+        /* Individual Institute Card Styling */
+        .institute-card {
+            background-color: white;
+            border: 1px solid #e9ecef;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .institute-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+        }
+        
+        .institute-card h2 {
+            margin-top: 0;
+            font-size: 1.6em;
+            color: #20c1b1; /* Turquoise title */
+        }
+
+        .institute-card p {
+            margin: 8px 0;
+            line-height: 1.6;
+            font-size: 0.95em;
+        }
+
+        .institute-card strong {
+            color: #212529;
+            font-weight: 600;
+        }
+
+        .institute-card a {
+            color: #1ca89a;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: auto; /* Pushes the link to the bottom */
+            align-self: flex-start;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .institute-card a:hover {
+            background-color: #e6faf8;
+            color: #178f82;
+        }
+        
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5px 15px;
+            margin-bottom: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="header-container">
+        <h1>Top coaching institutes in Hyderabad</h1>
+        <div class="search-container">
+            <input type="text" id="name-search" onkeyup="filterInstitutes()" placeholder="Search by Institute Name...">
+            <input type="text" id="rating-search" onkeyup="filterInstitutes()" placeholder="Search by Rating (e.g., 4.8)...">
+        </div>
+    </div>
+
+    <main id="institute-list">
+        <!-- Institute cards will be dynamically inserted here by JavaScript -->
+    </main>
+
+<script>
+    // Data for all 300 coaching institutes
+    const institutes = [
+        // PART 1 DATA (Entries 1-150)
+        {
+            name: "ACE Engineering Academy",
+            location: "Dilsukhnagar, Hyderabad",
+            rating: "4.6/5 (Google)",
+            total_reviews: "15,000+",
+            year_established: 1995,
+            courses: "GATE, ESE (IES), PSUs, TS EAMCET. Fees: Approx. ₹70,000 - ₹1,30,000.",
+            features: "Pros: Undisputed market leader for GATE/ESE, comprehensive study material, top-ranking results. Cons: Extremely large batches, very hectic schedule.",
+            website: "https://www.aceenggacademy.com"
+        },
+        {
+            name: "Sri Chaitanya Junior College",
+            location: "Kukatpally, Hyderabad",
+            rating: "4.1/5 (Google)",
+            total_reviews: "8,000+",
+            year_established: 1986,
+            courses: "NEET, JEE (Main & Advanced), EAMCET (integrated with intermediate). Fees: Approx. ₹3,00,000 - ₹5,00,000+ for 2-year integrated programs.",
+            features: "Pros: Factory-like model for producing top ranks, vast infrastructure, highly competitive. Cons: Immense pressure, less focus on holistic development.",
+            website: "https://srichaitanya.net"
+        },
+        {
+            name: "Narayana Junior College",
+            location: "Madhapur, Hyderabad",
+            rating: "4.0/5 (Google)",
+            total_reviews: "7,500+",
+            year_established: 1979,
+            courses: "NEET, JEE, EAMCET (integrated). Fees: Approx. ₹3,00,000 - ₹5,00,000+ for 2-year integrated programs.",
+            features: "Pros: Major competitor to Sri Chaitanya, aggressive rank-focused approach, strong network. Cons: Extremely high pressure, rote learning is sometimes encouraged.",
+            website: "https://www.narayanagroup.com"
+        },
+        {
+            name: "R.C. Reddy IAS Study Circle",
+            location: "Ashok Nagar, Hyderabad",
+            rating: "4.5/5 (Google)",
+            total_reviews: "5,000+",
+            year_established: 1989,
+            courses: "UPSC (GS, Optionals), TSPSC. Fees: Approx. ₹1,00,000 - ₹1,80,000.",
+            features: "Pros: One of the oldest and most legendary institutes for Civil Services in South India. Cons: Traditional teaching methods, large batches.",
+            website: "https://www.rcreddyiasstudycircle.com"
+        },
+        {
+            name: "Analog IAS Academy",
+            location: "Ashok Nagar, Hyderabad",
+            rating: "4.7/5 (Google)",
+            total_reviews: "6,000+",
+            year_established: 2002,
+            courses: "UPSC, TSPSC. Fees: Approx. ₹1,20,000 - ₹2,00,000.",
+            features: "Pros: Top competitor to R.C. Reddy, excellent faculty, consistently produces good results. Cons: Ashok Nagar center is very crowded.",
+            website: "https://www.analogeducation.in"
+        },
+        {
+            name: "Naresh IT",
+            location: "Ameerpet, Hyderabad",
+            rating: "4.7/5 (Google)",
+            total_reviews: "25,000+",
+            year_established: 2004,
+            courses: "Java, Python, UI Development, Data Science, Software Testing. Fees: Approx. ₹10,000 - ₹30,000 per course.",
+            features: "Pros: A giant in Ameerpet for software training, huge infrastructure, strong placement focus. Cons: Extremely large batches, quality can vary by trainer.",
+            website: "https://nareshit.com"
+        },
+        {
+            name: "Aakash Institute",
+            location: "Kukatpally, Hyderabad",
+            rating: "4.4/5 (Google)",
+            total_reviews: "4,500+",
+            year_established: 1988,
+            courses: "NEET, JEE, Foundation. Fees: Approx. ₹1,80,000 - ₹3,50,000 for 2-year programs.",
+            features: "Pros: National leader for NEET, standardized curriculum, All India test series. Cons: Large batches, fast-paced teaching.",
+            website: "https://www.aakash.ac.in"
+        },
+        {
+            name: "FIITJEE",
+            location: "Saifabad, Hyderabad",
+            rating: "4.2/5 (Google)",
+            total_reviews: "3,000+",
+            year_established: 1992,
+            courses: "JEE (Main & Advanced), NTSE, Olympiads. Fees: Approx. ₹2,00,000 - ₹4,00,000 for 2-year programs.",
+            features: "Pros: Pioneer in JEE coaching, highly competitive environment, proven results. Cons: Extremely high fees, very high pressure.",
+            website: "https://www.fiitjee.com"
+        },
+        {
+            name: "Made Easy",
+            location: "Kothapet, Hyderabad",
+            rating: "4.6/5 (Google)",
+            total_reviews: "3,500+",
+            year_established: 2001,
+            courses: "ESE (IES), GATE, PSUs. Fees: Approx. ₹70,000 - ₹1,30,000.",
+            features: "Pros: National market leader with a strong Hyderabad center, comprehensive material. Cons: Faces very stiff competition from local leader ACE.",
+            website: "https://www.madeeasy.in"
+        },
+        {
+            name: "TIME (Triumphant Institute of Management Education)",
+            location: "Secunderabad, Hyderabad",
+            rating: "4.3/5 (Google)",
+            total_reviews: "4,000+",
+            year_established: 1992,
+            courses: "CAT, GMAT, GRE, Bank PO, SSC. Fees: Approx. ₹40,000 - ₹75,000 per course.",
+            features: "Pros: Pan-India brand with its headquarters in Hyderabad, comprehensive material. Cons: Standardized approach may not suit everyone.",
+            website: "https://www.time4education.com"
+        },
+        {
+            name: "Allen Career Institute",
+            location: "Kukatpally, Hyderabad",
+            rating: "4.5/5 (Google)",
+            total_reviews: "6,000+",
+            year_established: 1988,
+            courses: "JEE (Main & Advanced), NEET-UG. Fees: Approx. ₹1,50,000 - ₹3,00,000 per year.",
+            features: "Pros: Kota's top system in Hyderabad, disciplined environment, excellent national results. Cons: Highly commercialized, can be overwhelming.",
+            website: "https://www.allen.ac.in"
+        },
+        {
+            name: "Durga Soft (Durgasoft)",
+            location: "Ameerpet, Hyderabad",
+            rating: "4.6/5 (Google)",
+            total_reviews: "10,000+",
+            year_established: 2007,
+            courses: "Python, Java, Django, AWS, DevOps. Fees: Approx. ₹8,000 - ₹25,000 per course.",
+            features: "Pros: Another major player in Ameerpet, famous for Durga Sir's Python/Java videos, strong online presence. Cons: Very crowded classrooms.",
+            website: "https://durgasoft.com"
+        },
+        {
+            name: "IMS Learning Center",
+            location: "Himayatnagar, Hyderabad",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: 1977,
+            courses: "CAT, GMAT, GRE, CLAT, BBA. Fees: Approx. ₹45,000 - ₹85,000 per course.",
+            features: "Pros: Excellent mentors, strong focus on test-taking strategy, great mock analysis. Cons: Premium pricing.",
+            website: "https://www.imsindia.com"
+        },
+        {
+            name: "J.K. Shah Classes",
+            location: "Secunderabad, Hyderabad",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 1983,
+            courses: "CA (Foundation, Inter, Final), CS. Fees: Approx. ₹60,000 - ₹1,50,000 depending on level.",
+            features: "Pros: National leader in CA coaching with a strong Hyderabad presence. Cons: Very long and hectic schedules.",
+            website: "https://www.jkshahclasses.com"
+        },
+        {
+            name: "Hamstech Institute of Creative Education",
+            location: "Panjagutta, Hyderabad",
+            rating: "4.4/5 (Google)",
+            total_reviews: "3,000+",
+            year_established: 1992,
+            courses: "Fashion Design, Interior Design, Photography (Diplomas & Coaching). Fees: Coaching approx. ₹50,000; Diplomas are much higher.",
+            features: "Pros: Hyderabad's leading institute for fashion and interior design, strong industry links. Cons: Primarily a design college.",
+            website: "https://www.hamstech.com"
+        },
+        {
+            name: "Brain Tree",
+            location: "Himayatnagar, Hyderabad",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,800+",
+            year_established: 1991,
+            courses: "UPSC, TSPSC. Fees: Approx. ₹90,000 - ₹1,60,000.",
+            features: "Pros: Another old and respected institute for Civil Services, known for quality teaching. Cons: Smaller scale compared to R.C. Reddy/Analog.",
+            website: "https://www.braintreeindia.com"
+        },
+        {
+            name: "Q-Spiders / J-Spiders",
+            location: "Ameerpet, Hyderabad",
+            rating: "4.5/5 (Google)",
+            total_reviews: "12,000+",
+            year_established: 2000,
+            courses: "Software Testing (Q-Spiders), Java Development (J-Spiders). Fees: Approx. ₹25,000 - ₹45,000.",
+            features: "Pros: Excellent for IT job placement training, strong industry connections for freshers. Cons: Very specific skill-based training.",
+            website: "https://www.qspiders.com"
+        },
+        {
+            name: "The GATE Academy",
+            location: "Dilsukhnagar, Hyderabad",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: 2009,
+            courses: "GATE (all major branches). Fees: Approx. ₹50,000 - ₹80,000.",
+            features: "Pros: National player for GATE, good online resources. Cons: Faces extremely stiff competition from local leader ACE.",
+            website: "https://www.thegateacademy.com"
+        },
+        {
+            name: "Career Launcher",
+            location: "Himayatnagar, Hyderabad",
+            rating: "4.4/5 (Google)",
+            total_reviews: "1,100+",
+            year_established: 1995,
+            courses: "CLAT, CAT, IPM, Bank PO. Fees: Approx. ₹40,000 - ₹90,000 per course.",
+            features: "Pros: Strong for CLAT, good online platform. Cons: Faces tough competition from TIME/IMS for CAT.",
+            website: "https://www.careerlauncher.com"
+        },
+        {
+            name: "Resonance",
+            location: "Madhapur, Hyderabad",
+            rating: "4.2/5 (Google)",
+            total_reviews: "2,000+",
+            year_established: 2001,
+            courses: "JEE, NEET. Fees: Approx. ₹1,40,000 - ₹2,80,000 per year.",
+            features: "Pros: Strong academic system from Kota, detailed study modules. Cons: Faces huge competition from local giants.",
+            website: "https://www.resonance.ac.in"
+        },
+        {
+            name: "Shankar IAS Academy",
+            location: "Ashok Nagar, Hyderabad",
+            rating: "4.6/5 (Google)",
+            total_reviews: "4,000+",
+            year_established: 2004,
+            courses: "UPSC, TSPSC. Fees: Approx. ₹1,20,000 - ₹2,00,000.",
+            features: "Pros: Chennai's top brand with a strong Hyderabad center, excellent for Environment module. Cons: Very crowded.",
+            website: "https://www.shankariasacademy.com"
+        },
+        {
+            name: "Page Junior College",
+            location: "Banjara Hills, Hyderabad",
+            rating: "4.3/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: 1988,
+            courses: "Integrated coaching for NATA, CLAT, NID, IIM-IPM, Hotel Management. Fees: High (College + Coaching).",
+            features: "Pros: Specializes in integrated programs for non-engineering/medical fields. Cons: Niche focus.",
+            website: "https://www.pageacademy.com"
+        },
+        {
+            name: "Nano Junior College",
+            location: "Kukatpally, Hyderabad",
+            rating: "4.2/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 2007,
+            courses: "JEE (Main & Advanced), NEET (integrated). Fees: Approx. ₹2,50,000 - ₹4,00,000 for 2 years.",
+            features: "Pros: A strong local competitor to Sri Chaitanya/Narayana, focuses on smaller batches. Cons: Less national brand recognition.",
+            website: "https://www.nanoeducation.in"
+        },
+        {
+            name: "Sri Gayatri Academy",
+            location: "Narayanaguda, Hyderabad",
+            rating: "4.0/5 (Google)",
+            total_reviews: "2,000+",
+            year_established: "N/A",
+            courses: "EAMCET, JEE, NEET. Fees: Varies.",
+            features: "Pros: Another major local player in the intermediate + coaching space. Cons: Very traditional and high-pressure environment.",
+            website: "https://www.srigayatri.com"
+        },
+        {
+            name: "Brilliant Tutorials",
+            location: "Narayanaguda, Hyderabad",
+            rating: "3.9/5 (Google)",
+            total_reviews: "800+",
+            year_established: 1970,
+            courses: "JEE, NEET. Fees: Approx. ₹1,20,000 - ₹2,50,000.",
+            features: "Pros: A pioneer in correspondence courses for IIT-JEE. Cons: Has lost significant market share to newer players.",
+            website: "https://www.brilliant-tutorials.com"
+        },
+        {
+            name: "MAAC (Maya Academy of Advanced Cinematics)",
+            location: "Dilsukhnagar, Hyderabad",
+            rating: "4.5/5 (Google)",
+            total_reviews: "2,200+",
+            year_established: 2001,
+            courses: "3D Animation, VFX, Game Design. Fees: Approx. ₹1,50,000 - ₹5,00,000 for career courses.",
+            features: "Pros: Industry-recognized certification, hands-on training, Dilsukhnagar is a hub for animation. Cons: Very high fees.",
+            website: "https://www.maacindia.com"
+        },
+        {
+            name: "Arena Animation",
+            location: "Ameerpet, Hyderabad",
+            rating: "4.4/5 (Google)",
+            total_reviews: "2,000+",
+            year_established: 1996,
+            courses: "Animation, VFX, Web Design. Fees: Approx. ₹1,00,000 - ₹4,50,000 for career courses.",
+            features: "Pros: One of the oldest animation training institutes, good industry links. Cons: Franchise model can lead to variable quality.",
+            website: "https://www.arena-multimedia.com"
+        },
+        {
+            name: "Frankfinn Institute of Air Hostess Training",
+            location: "Panjagutta, Hyderabad",
+            rating: "4.6/5 (Google)",
+            total_reviews: "3,000+",
+            year_established: 1993,
+            courses: "Aviation, Hospitality and Travel Management. Fees: Approx. ₹1,50,000 - ₹2,50,000.",
+            features: "Pros: Market leader in cabin crew training, strong placement assistance. Cons: Very high fees, industry-specific.",
+            website: "https://www.frankfinn.com"
+        },
+        {
+            name: "Jamboree Education",
+            location: "Begumpet, Hyderabad",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,300+",
+            year_established: 1993,
+            courses: "GMAT, GRE, SAT, IELTS, TOEFL. Fees: Approx. ₹30,000 - ₹60,000 per course.",
+            features: "Pros: Excellent study material especially for GMAT/GRE, experienced faculty. Cons: Limited focus on admissions counseling.",
+            website: "https://www.jamboreeindia.com"
+        },
+        {
+            name: "Goethe-Zentrum Hyderabad",
+            location: "Banjara Hills, Hyderabad",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 2004,
+            courses: "German Language Courses (A1-C2). Fees: Approx. ₹22,000 - ₹30,000 per level.",
+            features: "Pros: Official German cultural partner, authentic teaching, internationally recognized certificates. Cons: High demand.",
+            website: "https://www.goethe-hyderabad.org"
+        },
+        {
+            name: "Alliance Française of Hyderabad",
+            location: "Banjara Hills, Hyderabad",
+            rating: "4.4/5 (Google)",
+            total_reviews: "1,100+",
+            year_established: 1980,
+            courses: "French Language Courses (A1-C2). Fees: Approx. ₹20,000 - ₹28,000 per level.",
+            features: "Pros: Official French cultural center, immersive learning environment. Cons: Batches fill up fast.",
+            website: "https://hyderabad.afindia.org"
+        },
+        {
+            name: "BRDS (Bhanwar Rathore Design Studio)",
+            location: "Himayatnagar, Hyderabad",
+            rating: "4.7/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: 2005,
+            courses: "NID, NIFT, UCEED, CEED, NATA. Fees: Approx. ₹50,000 - ₹1,20,000.",
+            features: "Pros: A leading national brand for design coaching with a strong Hyderabad presence. Cons: Intensive curriculum.",
+            website: "https://www.brdsindia.com"
+        },
+        {
+            name: "Pahal Design",
+            location: "Himayatnagar, Hyderabad",
+            rating: "4.8/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: 1999,
+            courses: "NID, NIFT, NATA. Fees: Approx. ₹50,000 - ₹1,20,000.",
+            features: "Pros: Strong competitor to BRDS, good creative workshops. Cons: Niche focus.",
+            website: "https://pahaldesign.com"
+        },
+        {
+            name: "Manya - The Princeton Review",
+            location: "Himayatnagar, Hyderabad",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: 2002,
+            courses: "GMAT, GRE, SAT, ACT, AP, IELTS. Fees: Approx. ₹35,000 - ₹1,20,000.",
+            features: "Pros: Internationally recognized curriculum, certified trainers. Cons: Premium pricing.",
+            website: "https://www.manyagroup.com"
+        },
+        {
+            name: "Sathya Technologies",
+            location: "Ameerpet, Hyderabad",
+            rating: "4.6/5 (Google)",
+            total_reviews: "8,000+",
+            year_established: 1999,
+            courses: "Oracle, Java, Data Warehousing, SAP. Fees: Approx. ₹20,000 - ₹50,000.",
+            features: "Pros: An old and reputed name for specific corporate IT training like Oracle. Cons: Niche IT focus compared to Naresh IT.",
+            website: "https://sathyatech.com"
+        },
+        {
+            name: "IBT Institute",
+            location: "Dilsukhnagar, Hyderabad",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,400+",
+            year_established: 2009,
+            courses: "Bank PO, SSC CGL. Fees: Approx. ₹10,000 - ₹20,000.",
+            features: "Pros: Strong presence for banking exams, lifetime membership. Cons: Large batches.",
+            website: "https://www.ibtindia.com"
+        },
+        {
+            name: "Ramakrishna Math",
+            location: "Domalguda, Hyderabad",
+            rating: "4.7/5 (for the institution)",
+            total_reviews: "4,000+",
+            year_established: 1974,
+            courses: "Spoken English, Japanese, German, French, Spanish. Fees: Extremely subsidized.",
+            features: "Pros: Unmatched quality in a serene, disciplined environment, very low fees. Cons: Extremely difficult to get admission, high demand.",
+            website: "https://www.rkmath.org"
+        },
+        {
+            name: "CSB IAS Academy",
+            location: "Ashok Nagar, Hyderabad",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,800+",
+            year_established: "N/A",
+            courses: "UPSC, TSPSC. Fees: Varies.",
+            features: "Pros: Another strong local competitor for Civil Services coaching. Cons: Faces huge competition from R.C. Reddy/Analog.",
+            website: "https://www.csbias.com"
+        },
+        {
+            name: "The Chopras (TC Global)",
+            location: "Begumpet, Hyderabad",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 1995,
+            courses: "GRE, GMAT, IELTS coaching & study abroad counseling. Fees: Coaching approx. ₹25,000 - ₹60,000.",
+            features: "Pros: Premier study abroad consultant, end-to-end services. Cons: Can be very expensive.",
+            website: "https://www.tcglobal.com"
+        },
+        {
+            name: "S.S. Academy",
+            location: "Narayanaguda, Hyderabad",
+            rating: "4.7/5 (Google)",
+            total_reviews: "800+",
+            year_established: "N/A",
+            courses: "CA, CS, CMA. Fees: Varies.",
+            features: "Pros: Strong local institute for professional commerce courses. Cons: Faces competition from J.K. Shah.",
+            website: "N/A"
+        },
+        {
+            name: "Digital Brolly",
+            location: "Madhapur, Hyderabad",
+            rating: "4.9/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: "N/A",
+            courses: "Digital Marketing. Fees: Approx. ₹25,000 - ₹50,000.",
+            features: "Pros: Top-rated local digital marketing institute in the IT hub, practical approach. Cons: Individual-driven.",
+            website: "https://digitalbrolly.com"
+        },
+        {
+            name: "Byju's Tuition Centre",
+            location: "Multiple (e.g., Kukatpally, Dilsukhnagar)",
+            rating: "4.3/5 (Google)",
+            total_reviews: "2,500+",
+            year_established: 2011,
+            courses: "School tuitions for grades 4-10. Fees: Approx. ₹40,000 - ₹80,000 per year.",
+            features: "Pros: Blends digital learning with in-person classes, strong brand name. Cons: Focus is on school curriculum.",
+            website: "https://byjus.com/btc/"
+        },
+        {
+            name: "Vedantu Learning Centre",
+            location: "Kukatpally, Hyderabad",
+            rating: "4.5/5 (Google)",
+            total_reviews: "2,000+",
+            year_established: 2011,
+            courses: "Foundation (6-10), JEE, NEET. Fees: Approx. ₹90,000 - ₹2,00,000 per year.",
+            features: "Pros: Hybrid model combining a popular online brand with offline support. Cons: New player in the physical coaching space.",
+            website: "https://www.vedantu.com/offline"
+        },
+        {
+            name: "IACE (Indian Academy of Competitive Exams)",
+            location: "Dilsukhnagar, Hyderabad",
+            rating: "4.5/5 (Google)",
+            total_reviews: "5,000+",
+            year_established: 2011,
+            courses: "Banking, SSC, Railways. Fees: Approx. ₹12,000 - ₹22,000.",
+            features: "Pros: Another major player for government job coaching with multiple branches. Cons: Very crowded.",
+            website: "https://www.iace.co.in"
+        },
+        {
+            name: "Sreedhar's CCE",
+            location: "Dilsukhnagar, Hyderabad",
+            rating: "4.6/5 (Google)",
+            total_reviews: "4,500+",
+            year_established: 1995,
+            courses: "Banking (IBPS, SBI), SSC. Fees: Approx. ₹10,000 - ₹20,000.",
+            features: "Pros: One of the oldest and most trusted local brands for Banking exams, excellent material. Cons: Traditional teaching methods, very crowded.",
+            website: "https://www.sreedharscce.com"
+        },
+        {
+            name: "La Excellence IAS",
+            location: "Ashok Nagar, Hyderabad",
+            rating: "4.8/5 (Google)",
+            total_reviews: "3,500+",
+            year_established: 2009,
+            courses: "UPSC, TSPSC. Fees: Approx. ₹1,20,000 - ₹2,00,000.",
+            features: "Pros: Top-rated institute known for its mentorship programs and answer writing practice. Cons: Premium pricing.",
+            website: "https://www.laex.in"
+        },
+        {
+            name: "Krishna Pradeep's 21st Century IAS",
+            location: "Ashok Nagar, Hyderabad",
+            rating: "4.7/5 (Google)",
+            total_reviews: "3,000+",
+            year_established: "N/A",
+            courses: "TSPSC (Group 1, 2), SI, Constable. Fees: Varies.",
+            features: "Pros: Highly popular institute specializing in Telangana state government jobs, run by a well-known faculty. Cons: Primarily focused on state exams.",
+            website: "https://kp21.in"
+        },
+        {
+            name: "Master's CA",
+            location: "Secunderabad, Hyderabad",
+            rating: "4.6/5 (Google)",
+            total_reviews: "900+",
+            year_established: "N/A",
+            courses: "CA, CS, CMA. Fees: Approx. ₹50,000 - ₹1,40,000.",
+            features: "Pros: A strong local brand for CA coaching, competing with national players. Cons: Less brand recognition outside Hyderabad.",
+            website: "https://www.mastersca.com"
+        },
+        {
+            name: "G.V.R. Academy",
+            location: "Kukatpally, Hyderabad",
+            rating: "4.8/5 (Google)",
+            total_reviews: "700+",
+            year_established: "N/A",
+            courses: "IX-X, Intermediate, EAMCET. Fees: Varies.",
+            features: "Pros: Highly-rated local tuition center in the KPHB area, known for Maths and Science. Cons: School/Intermediate level focus.",
+            website: "N/A"
+        },
+        {
+            name: "Logic School of Management",
+            location: "Panjagutta, Hyderabad",
+            rating: "4.7/5 (Google)",
+            total_reviews: "600+",
+            year_established: 2005,
+            courses: "CMA (USA), CPA (USA), CIA. Fees: Approx. ₹50,000 - ₹1,50,000 per course.",
+            features: "Pros: Specialized in international professional finance courses, official partner of IMA. Cons: Highly niche.",
+            website: "https://www.logicschool.in"
+        },
+        {
+            name: "Creative Mentors Animation & Gaming College",
+            location: "Panjagutta, Hyderabad",
+            rating: "4.7/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: 2009,
+            courses: "Animation, VFX, Game Development. Fees: High, diploma-based.",
+            features: "Pros: Strong focus on job-oriented training with a good placement record in Hyderabad's gaming/VFX industry. Cons: Expensive.",
+            website: "https://www.creativementors.in"
+        },
+        {
+            name: "Hyderabad School of French",
+            location: "Banjara Hills, Hyderabad",
+            rating: "4.8/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "French Language Courses, DELF/DALF prep. Fees: Approx. ₹18,000 - ₹25,000 per level.",
+            features: "Pros: Highly-rated local institute for French, good alternative to Alliance Française. Cons: Not an official cultural center.",
+            website: "https://www.h-s-f.com"
+        },
+        {
+            name: "Spark Academy",
+            location: "Narayanaguda, Hyderabad",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,300+",
+            year_established: 2012,
+            courses: "EAMCET, JEE, NEET. Fees: Varies.",
+            features: "Pros: Good local science academy with positive reviews for personalized attention. Cons: Smaller scale.",
+            website: "https://www.sparkacademy.in"
+        },
+        {
+            name: "Sai Ram & Gopal's IAS Academy",
+            location: "Ashok Nagar, Hyderabad",
+            rating: "4.5/5 (Google)",
+            total_reviews: "900+",
+            year_established: "N/A",
+            courses: "UPSC (GS, Optionals). Fees: Varies.",
+            features: "Pros: Run by experienced faculty, another strong player in the crowded Ashok Nagar market. Cons: Faces huge competition.",
+            website: "N/A"
+        },
+        {
+            name: "Kelly Technologies",
+            location: "Ameerpet, Hyderabad",
+            rating: "4.8/5 (Google)",
+            total_reviews: "3,500+",
+            year_established: "N/A",
+            courses: "DevOps, AWS, Data Science. Fees: Approx. ₹20,000 - ₹40,000.",
+            features: "Pros: Top-rated institute in Ameerpet for high-end IT skills, strong corporate training wing. Cons: Very intensive courses.",
+            website: "https://www.kellytechno.com"
+        },
+        {
+            name: "Roots Junior College",
+            location: "Kukatpally, Hyderabad",
+            rating: "4.3/5 (Google)",
+            total_reviews: "600+",
+            year_established: "N/A",
+            courses: "CPT/CA Foundation, CLAT, NATA (integrated with intermediate). Fees: High (College + Coaching).",
+            features: "Pros: Specializes in integrated programs for Commerce and non-engineering streams. Cons: Niche focus.",
+            website: "https://rootscollege.in"
+        },
+        {
+            name: "AskIITians",
+            location: "Online (Hyderabad presence)",
+            rating: "4.2/5 (Online)",
+            total_reviews: "8,000+",
+            year_established: 2006,
+            courses: "JEE, NEET. Fees: Online packages vary.",
+            features: "Pros: One of the early online platforms for JEE/NEET, run by IIT alumni. Cons: Lacks the discipline of physical classes.",
+            website: "https://www.askiitians.com"
+        },
+        {
+            name: "DAMS (Delhi Academy of Medical Sciences)",
+            location: "Koti, Hyderabad",
+            rating: "4.3/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: 1999,
+            courses: "NEET-PG, FMGE. Fees: Approx. ₹90,000 - ₹1,60,000.",
+            features: "Pros: Top national institute for medical PG entrance exams with a strong Hyderabad center. Cons: Very competitive.",
+            website: "https://www.damsdelhi.com"
+        },
+        {
+            name: "Vprospire",
+            location: "Dilsukhnagar, Hyderabad",
+            rating: "4.9/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: "N/A",
+            courses: "Spoken English, IELTS, PTE. Fees: Approx. ₹8,000 - ₹15,000.",
+            features: "Pros: Exceptionally rated institute for English proficiency and study abroad tests. Cons: Localized.",
+            website: "https://vprospire.com"
+        },
+        {
+            name: "Magnifico",
+            location: "Himayatnagar, Hyderabad",
+            rating: "4.7/5 (Google)",
+            total_reviews: "800+",
+            year_established: "N/A",
+            courses: "IELTS, PTE, GRE. Fees: Varies.",
+            features: "Pros: Good reviews for personalized coaching for study abroad exams. Cons: Smaller scale.",
+            website: "https://www.magnificolearning.com"
+        },
+        {
+            name: "Central Institute of Tool Design (CITD)",
+            location: "Balanagar, Hyderabad",
+            rating: "4.4/5 (for the institution)",
+            total_reviews: "1,500+",
+            year_established: 1968,
+            courses: "Diplomas in Tool Design, CAD/CAM, CNC. Fees: Varies, some are subsidized.",
+            features: "Pros: A premier national institute for tool engineering and design, excellent for skill development. Cons: Highly specialized vocational training.",
+            website: "https://www.citdindia.org"
+        },
+        {
+            name: "Abhyaas",
+            location: "Secunderabad, Hyderabad",
+            rating: "4.5/5 (Google)",
+            total_reviews: "700+",
+            year_established: 2005,
+            courses: "CLAT, IPM, CAT, GRE. Fees: Varies.",
+            features: "Pros: A strong local institute covering a wide range of aptitude-based exams. Cons: Faces competition from national brands.",
+            website: "https://www.abhyaas.in"
+        },
+        {
+            name: "C-DAC (Centre for Development of Advanced Computing)",
+            location: "Gachibowli, Hyderabad",
+            rating: "4.4/5 (Google)",
+            total_reviews: "1,800+",
+            year_established: 1988,
+            courses: "PG Diploma in Advanced Computing (PG-DAC), AI, Big Data. Fees: Approx. ₹90,000 + GST.",
+            features: "Pros: Government-backed institute, highly rigorous and respected diploma for IT jobs. Cons: Requires a national-level entrance test (C-CAT).",
+            website: "https://cdac.in/hyderabad"
+        },
+        {
+            name: "T.I.M.E. Kids",
+            location: "Banjara Hills, Hyderabad",
+            rating: "4.5/5 (Google)",
+            total_reviews: "400+",
+            year_established: 2000,
+            courses: "Pre-school education. Fees: Approx. ₹90,000 - ₹1,60,000 per year.",
+            features: "Pros: Pre-school wing of the reputed T.I.M.E. group, structured curriculum. Cons: More of a school.",
+            website: "https://www.timekidspreschools.in"
+        },
+        {
+            name: "London School of English",
+            location: "Begumpet, Hyderabad",
+            rating: "4.8/5 (Google)",
+            total_reviews: "600+",
+            year_established: "N/A",
+            courses: "Spoken English, Business English, IELTS. Fees: Varies.",
+            features: "Pros: Highly-rated for its structured approach to learning English. Cons: Niche focus.",
+            website: "https://www.londonschoolofenglish.in"
+        },
+        {
+            name: "Y-Axis Consultants",
+            location: "Banjara Hills, Hyderabad",
+            rating: "4.5/5 (Google)",
+            total_reviews: "5,000+",
+            year_established: 1999,
+            courses: "IELTS, PTE coaching and immigration/visa consultancy. Fees: Coaching approx. ₹10,000 - ₹25,000; consultancy fees are higher.",
+            features: "Pros: One of the largest immigration consultants in India. Cons: Can be very process-driven.",
+            website: "https://www.yaxis.com"
+        },
+        {
+            name: "FIITJEE World School",
+            location: "Shamshabad, Hyderabad",
+            rating: "4.1/5 (Google)",
+            total_reviews: "900+",
+            year_established: "N/A",
+            courses: "Integrated JEE coaching with school. Fees: Very high (School + Coaching).",
+            features: "Pros: Saves travel time, disciplined environment under a national brand. Cons: Very expensive, less flexibility.",
+            website: "https://www.fiitjeeworldschool.com"
+        },
+        {
+            name: "Gowtham Model Schools",
+            location: "Multiple, Hyderabad",
+            rating: "4.0/5 (Google)",
+            total_reviews: "3,000+",
+            year_established: 1984,
+            courses: "Integrated foundation courses with schooling. Fees: School fees.",
+            features: "Pros: A large chain of schools that focuses on competitive exam foundation from an early age. Cons: High academic pressure on school kids.",
+            website: "https://www.gowtham.org"
+        },
+        {
+            name: "MS Education Academy",
+            location: "Masab Tank, Hyderabad",
+            rating: "4.3/5 (Google)",
+            total_reviews: "2,500+",
+            year_established: 1991,
+            courses: "NEET, EAMCET (integrated with schooling, primarily for minority students). Fees: Varies.",
+            features: "Pros: A leading educational group focused on providing quality modern education with values. Cons: Caters to a specific community.",
+            website: "https://www.mseducationacademy.in"
+        },
+        {
+            name: "Vision40",
+            location: "Banjara Hills, Hyderabad",
+            rating: "4.4/5 (Google)",
+            total_reviews: "700+",
+            year_established: "N/A",
+            courses: "NEET, JEE (Residential). Fees: High.",
+            features: "Pros: Focuses on small, selective batches of 40 students for personalized attention. Cons: Admission is selective.",
+            website: "https://vision40.in"
+        },
+        {
+            name: "Sai-GNS",
+            location: "Dilsukhnagar, Hyderabad",
+            rating: "4.8/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: "N/A",
+            courses: "NEET (Long-term). Fees: Varies.",
+            features: "Pros: Highly-rated institute specializing in long-term/dropper batches for NEET. Cons: Niche focus.",
+            website: "N/A"
+        },
+        {
+            name: "Vignan Junior College",
+            location: "Kukatpally, Hyderabad",
+            rating: "4.2/5 (Google)",
+            total_reviews: "1,600+",
+            year_established: 1982,
+            courses: "JEE, NEET, EAMCET (integrated). Fees: Varies.",
+            features: "Pros: Another major player in the integrated junior college model from Andhra/Telangana. Cons: High pressure.",
+            website: "https://www.vignanjyothi.com"
+        },
+        {
+            name: "Bhashyam Educational Institutions",
+            location: "Madhapur, Hyderabad",
+            rating: "4.1/5 (Google)",
+            total_reviews: "2,200+",
+            year_established: 1993,
+            courses: "JEE/NEET Foundation with schooling. Fees: School fees.",
+            features: "Pros: A large school chain that integrates competitive exam prep into its curriculum. Cons: High pressure from an early age.",
+            website: "https://www.bhashyam.in"
+        },
+        {
+            name: "Sravan's Chemistry Classes",
+            location: "Narayanaguda, Hyderabad",
+            rating: "4.9/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "Chemistry for NEET/EAMCET. Fees: Approx. ₹30,000 - ₹50,000.",
+            features: "Pros: Top-rated individual faculty, specializing in Chemistry for medical entrance. Cons: Single subject focus.",
+            website: "N/A"
+        },
+        {
+            name: "Prasad's IAS",
+            location: "Ashok Nagar, Hyderabad",
+            rating: "4.7/5 (Google)",
+            total_reviews: "600+",
+            year_established: "N/A",
+            courses: "UPSC (Public Administration Optional). Fees: Approx. ₹40,000.",
+            features: "Pros: Highly-rated for Public Administration optional. Cons: Single subject focus.",
+            website: "N/A"
+        },
+        {
+            name: "Institute of Hotel Management (IHM) Hyderabad",
+            location: "Vidyanagar, Hyderabad",
+            rating: "4.2/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 1972,
+            courses: "NCHMCT-JEE coaching. Fees: Approx. ₹25,000 - ₹40,000.",
+            features: "Pros: Coaching by one of India's top hotel management colleges. Cons: Limited seats, short duration.",
+            website: "https://www.ihmhyd.org"
+        },
+        {
+            name: "Focus Academy",
+            location: "Chanda Nagar, Hyderabad",
+            rating: "4.7/5 (Google)",
+            total_reviews: "800+",
+            year_established: "N/A",
+            courses: "IX-XII, EAMCET. Fees: Varies.",
+            features: "Pros: Reputed local coaching center in the Chanda Nagar / Miyapur area. Cons: Local focus.",
+            website: "N/A"
+        },
+        {
+            name: "Satyam Classes",
+            location: "Alwal, Secunderabad",
+            rating: "4.8/5 (Google)",
+            total_reviews: "600+",
+            year_established: "N/A",
+            courses: "School Tuitions, EAMCET. Fees: Varies.",
+            features: "Pros: Top-rated local tuition center in the Alwal area. Cons: Focus on local student base.",
+            website: "N/A"
+        },
+        {
+            name: "The IELTS Academy",
+            location: "Madhapur, Hyderabad",
+            rating: "4.8/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: "N/A",
+            courses: "IELTS, PTE. Fees: Approx. ₹8,000 - ₹15,000.",
+            features: "Pros: Highly-rated, specialized, and affordable coaching for English proficiency tests in the IT hub. Cons: Niche focus.",
+            website: "https://www.theieltsacademy.com"
+        },
+
+
+        // PART 2 DATA (Entries 151-300)
+        {
+            name: "Sreedhar's CCE",
+            location: "Dilsukhnagar, Hyderabad",
+            rating: "4.6/5 (Google)",
+            total_reviews: "4,500+",
+            year_established: 1995,
+            courses: "Banking (IBPS, SBI), SSC. Fees: Approx. ₹10,000 - ₹20,000.",
+            features: "Pros: One of the oldest and most trusted local brands for Banking exams, excellent material. Cons: Traditional teaching methods, very crowded.",
+            website: "https://www.sreedharscce.com"
+        },
+        {
+            name: "La Excellence IAS",
+            location: "Ashok Nagar, Hyderabad",
+            rating: "4.8/5 (Google)",
+            total_reviews: "3,500+",
+            year_established: 2009,
+            courses: "UPSC, TSPSC. Fees: Approx. ₹1,20,000 - ₹2,00,000.",
+            features: "Pros: Top-rated institute known for its mentorship programs and answer writing practice. Cons: Premium pricing.",
+            website: "https://www.laex.in"
+        },
+        {
+            name: "Krishna Pradeep's 21st Century IAS",
+            location: "Ashok Nagar, Hyderabad",
+            rating: "4.7/5 (Google)",
+            total_reviews: "3,000+",
+            year_established: "N/A",
+            courses: "TSPSC (Group 1, 2), SI, Constable. Fees: Varies.",
+            features: "Pros: Highly popular institute specializing in Telangana state government jobs, run by a well-known faculty. Cons: Primarily focused on state exams.",
+            website: "https://kp21.in"
+        },
+        {
+            name: "Master's CA",
+            location: "Secunderabad, Hyderabad",
+            rating: "4.6/5 (Google)",
+            total_reviews: "900+",
+            year_established: "N/A",
+            courses: "CA, CS, CMA. Fees: Approx. ₹50,000 - ₹1,40,000.",
+            features: "Pros: A strong local brand for CA coaching, competing with national players. Cons: Less brand recognition outside Hyderabad.",
+            website: "https://www.mastersca.com"
+        },
+        {
+            name: "G.V.R. Academy",
+            location: "Kukatpally, Hyderabad",
+            rating: "4.8/5 (Google)",
+            total_reviews: "700+",
+            year_established: "N/A",
+            courses: "IX-X, Intermediate, EAMCET. Fees: Varies.",
+            features: "Pros: Highly-rated local tuition center in the KPHB area, known for Maths and Science. Cons: School/Intermediate level focus.",
+            website: "N/A"
+        },
+        {
+            name: "Logic School of Management",
+            location: "Panjagutta, Hyderabad",
+            rating: "4.7/5 (Google)",
+            total_reviews: "600+",
+            year_established: 2005,
+            courses: "CMA (USA), CPA (USA), CIA. Fees: Approx. ₹50,000 - ₹1,50,000 per course.",
+            features: "Pros: Specialized in international professional finance courses, official partner of IMA. Cons: Highly niche.",
+            website: "https://www.logicschool.in"
+        },
+        {
+            name: "Creative Mentors Animation & Gaming College",
+            location: "Panjagutta, Hyderabad",
+            rating: "4.7/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: 2009,
+            courses: "Animation, VFX, Game Development. Fees: High, diploma-based.",
+            features: "Pros: Strong focus on job-oriented training with a good placement record in Hyderabad's gaming/VFX industry. Cons: Expensive.",
+            website: "https://www.creativementors.in"
+        },
+        {
+            name: "Hyderabad School of French",
+            location: "Banjara Hills, Hyderabad",
+            rating: "4.8/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "French Language Courses, DELF/DALF prep. Fees: Approx. ₹18,000 - ₹25,000 per level.",
+            features: "Pros: Highly-rated local institute for French, good alternative to Alliance Française. Cons: Not an official cultural center.",
+            website: "https://www.h-s-f.com"
+        },
+        {
+            name: "Spark Academy",
+            location: "Narayanaguda, Hyderabad",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,300+",
+            year_established: 2012,
+            courses: "EAMCET, JEE, NEET. Fees: Varies.",
+            features: "Pros: Good local science academy with positive reviews for personalized attention. Cons: Smaller scale.",
+            website: "https://www.sparkacademy.in"
+        },
+        {
+            name: "Sai Ram & Gopal's IAS Academy",
+            location: "Ashok Nagar, Hyderabad",
+            rating: "4.5/5 (Google)",
+            total_reviews: "900+",
+            year_established: "N/A",
+            courses: "UPSC (GS, Optionals). Fees: Varies.",
+            features: "Pros: Run by experienced faculty, another strong player in the crowded Ashok Nagar market. Cons: Faces huge competition.",
+            website: "N/A"
+        },
+        {
+            name: "Kelly Technologies",
+            location: "Ameerpet, Hyderabad",
+            rating: "4.8/5 (Google)",
+            total_reviews: "3,500+",
+            year_established: "N/A",
+            courses: "DevOps, AWS, Data Science. Fees: Approx. ₹20,000 - ₹40,000.",
+            features: "Pros: Top-rated institute in Ameerpet for high-end IT skills, strong corporate training wing. Cons: Very intensive courses.",
+            website: "https://www.kellytechno.com"
+        },
+        {
+            name: "Roots Junior College",
+            location: "Kukatpally, Hyderabad",
+            rating: "4.3/5 (Google)",
+            total_reviews: "600+",
+            year_established: "N/A",
+            courses: "CPT/CA Foundation, CLAT, NATA (integrated with intermediate). Fees: High (College + Coaching).",
+            features: "Pros: Specializes in integrated programs for Commerce and non-engineering streams. Cons: Niche focus.",
+            website: "https://rootscollege.in"
+        },
+        {
+            name: "AskIITians",
+            location: "Online (Hyderabad presence)",
+            rating: "4.2/5 (Online)",
+            total_reviews: "8,000+",
+            year_established: 2006,
+            courses: "JEE, NEET. Fees: Online packages vary.",
+            features: "Pros: One of the early online platforms for JEE/NEET, run by IIT alumni. Cons: Lacks the discipline of physical classes.",
+            website: "https://www.askiitians.com"
+        },
+        {
+            name: "DAMS (Delhi Academy of Medical Sciences)",
+            location: "Koti, Hyderabad",
+            rating: "4.3/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: 1999,
+            courses: "NEET-PG, FMGE. Fees: Approx. ₹90,000 - ₹1,60,000.",
+            features: "Pros: Top national institute for medical PG entrance exams with a strong Hyderabad center. Cons: Very competitive.",
+            website: "https://www.damsdelhi.com"
+        },
+        {
+            name: "Vprospire",
+            location: "Dilsukhnagar, Hyderabad",
+            rating: "4.9/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: "N/A",
+            courses: "Spoken English, IELTS, PTE. Fees: Approx. ₹8,000 - ₹15,000.",
+            features: "Pros: Exceptionally rated institute for English proficiency and study abroad tests. Cons: Localized.",
+            website: "https://vprospire.com"
+        },
+        {
+            name: "Magnifico",
+            location: "Himayatnagar, Hyderabad",
+            rating: "4.7/5 (Google)",
+            total_reviews: "800+",
+            year_established: "N/A",
+            courses: "IELTS, PTE, GRE. Fees: Varies.",
+            features: "Pros: Good reviews for personalized coaching for study abroad exams. Cons: Smaller scale.",
+            website: "https://www.magnificolearning.com"
+        },
+        {
+            name: "C-DAC (Centre for Development of Advanced Computing)",
+            location: "Gachibowli, Hyderabad",
+            rating: "4.4/5 (Google)",
+            total_reviews: "1,800+",
+            year_established: 1988,
+            courses: "PG Diploma in Advanced Computing (PG-DAC), AI, Big Data. Fees: Approx. ₹90,000 + GST.",
+            features: "Pros: Government-backed institute, highly rigorous and respected diploma for IT jobs. Cons: Requires a national-level entrance test (C-CAT).",
+            website: "https://cdac.in/hyderabad"
+        },
+        {
+            name: "London School of English",
+            location: "Begumpet, Hyderabad",
+            rating: "4.8/5 (Google)",
+            total_reviews: "600+",
+            year_established: "N/A",
+            courses: "Spoken English, Business English, IELTS. Fees: Varies.",
+            features: "Pros: Highly-rated for its structured approach to learning English. Cons: Niche focus.",
+            website: "https://www.londonschoolofenglish.in"
+        },
+        {
+            name: "Y-Axis Consultants",
+            location: "Banjara Hills, Hyderabad",
+            rating: "4.5/5 (Google)",
+            total_reviews: "5,000+",
+            year_established: 1999,
+            courses: "IELTS, PTE coaching and immigration/visa consultancy. Fees: Coaching approx. ₹10,000 - ₹25,000; consultancy fees are higher.",
+            features: "Pros: One of the largest immigration consultants in India. Cons: Can be very process-driven.",
+            website: "https://www.yaxis.com"
+        },
+        {
+            name: "FIITJEE World School",
+            location: "Shamshabad, Hyderabad",
+            rating: "4.1/5 (Google)",
+            total_reviews: "900+",
+            year_established: "N/A",
+            courses: "Integrated JEE coaching with school. Fees: Very high (School + Coaching).",
+            features: "Pros: Saves travel time, disciplined environment under a national brand. Cons: Very expensive, less flexibility.",
+            website: "https://www.fiitjeeworldschool.com"
+        },
+        {
+            name: "Gowtham Model Schools",
+            location: "Multiple, Hyderabad",
+            rating: "4.0/5 (Google)",
+            total_reviews: "3,000+",
+            year_established: 1984,
+            courses: "Integrated foundation courses with schooling. Fees: School fees.",
+            features: "Pros: A large chain of schools that focuses on competitive exam foundation from an early age. Cons: High academic pressure on school kids.",
+            website: "https://www.gowtham.org"
+        },
+        {
+            name: "MS Education Academy",
+            location: "Masab Tank, Hyderabad",
+            rating: "4.3/5 (Google)",
+            total_reviews: "2,500+",
+            year_established: 1991,
+            courses: "NEET, EAMCET (integrated with schooling, primarily for minority students). Fees: Varies.",
+            features: "Pros: A leading educational group focused on providing quality modern education with values. Cons: Caters to a specific community.",
+            website: "https://www.mseducationacademy.in"
+        },
+        {
+            name: "Vision40",
+            location: "Banjara Hills, Hyderabad",
+            rating: "4.4/5 (Google)",
+            total_reviews: "700+",
+            year_established: "N/A",
+            courses: "NEET, JEE (Residential). Fees: High.",
+            features: "Pros: Focuses on small, selective batches of 40 students for personalized attention. Cons: Admission is selective.",
+            website: "https://vision40.in"
+        },
+        {
+            name: "Sai-GNS",
+            location: "Dilsukhnagar, Hyderabad",
+            rating: "4.8/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: "N/A",
+            courses: "NEET (Long-term). Fees: Varies.",
+            features: "Pros: Highly-rated institute specializing in long-term/dropper batches for NEET. Cons: Niche focus.",
+            website: "N/A"
+        },
+        {
+            name: "Vignan Junior College",
+            location: "Kukatpally, Hyderabad",
+            rating: "4.2/5 (Google)",
+            total_reviews: "1,600+",
+            year_established: 1982,
+            courses: "JEE, NEET, EAMCET (integrated). Fees: Varies.",
+            features: "Pros: Another major player in the integrated junior college model from Andhra/Telangana. Cons: High pressure.",
+            website: "https://www.vignanjyothi.com"
+        },
+        {
+            name: "Bhashyam Educational Institutions",
+            location: "Madhapur, Hyderabad",
+            rating: "4.1/5 (Google)",
+            total_reviews: "2,200+",
+            year_established: 1993,
+            courses: "JEE/NEET Foundation with schooling. Fees: School fees.",
+            features: "Pros: A large school chain that integrates competitive exam prep into its curriculum. Cons: High pressure from an early age.",
+            website: "https://www.bhashyam.in"
+        },
+        {
+            name: "Sravan's Chemistry Classes",
+            location: "Narayanaguda, Hyderabad",
+            rating: "4.9/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "Chemistry for NEET/EAMCET. Fees: Approx. ₹30,000 - ₹50,000.",
+            features: "Pros: Top-rated individual faculty, specializing in Chemistry for medical entrance. Cons: Single subject focus.",
+            website: "N/A"
+        },
+        {
+            name: "Prasad's IAS",
+            location: "Ashok Nagar, Hyderabad",
+            rating: "4.7/5 (Google)",
+            total_reviews: "600+",
+            year_established: "N/A",
+            courses: "UPSC (Public Administration Optional). Fees: Approx. ₹40,000.",
+            features: "Pros: Highly-rated for Public Administration optional. Cons: Single subject focus.",
+            website: "N/A"
+        },
+        {
+            name: "Focus Academy",
+            location: "Chanda Nagar, Hyderabad",
+            rating: "4.7/5 (Google)",
+            total_reviews: "800+",
+            year_established: "N/A",
+            courses: "IX-XII, EAMCET. Fees: Varies.",
+            features: "Pros: Reputed local coaching center in the Chanda Nagar / Miyapur area. Cons: Local focus.",
+            website: "N/A"
+        },
+        {
+            name: "Satyam Classes",
+            location: "Alwal, Secunderabad",
+            rating: "4.8/5 (Google)",
+            total_reviews: "600+",
+            year_established: "N/A",
+            courses: "School Tuitions, EAMCET. Fees: Varies.",
+            features: "Pros: Top-rated local tuition center in the Alwal area. Cons: Focus on local student base.",
+            website: "N/A"
+        },
+        {
+            name: "The IELTS Academy",
+            location: "Madhapur, Hyderabad",
+            rating: "4.8/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: "N/A",
+            courses: "IELTS, PTE. Fees: Approx. ₹8,000 - ₹15,000.",
+            features: "Pros: Highly-rated, specialized, and affordable coaching for English proficiency tests in the IT hub. Cons: Niche focus.",
+            website: "https://www.theieltsacademy.com"
+        },
+        {
+            name: "ExcelR Solutions",
+            location: "Madhapur, Hyderabad",
+            rating: "4.8/5 (Google)",
+            total_reviews: "4,000+",
+            year_established: 2014,
+            courses: "Data Science, Business Analytics, PMP. Fees: Approx. ₹45,000 - ₹85,000.",
+            features: "Pros: Located in the IT corridor, strong placement focus, global certification. Cons: Highly technical courses.",
+            website: "https://www.excelr.com"
+        },
+        {
+            name: "Texas Review",
+            location: "Panjagutta, Hyderabad",
+            rating: "4.7/5 (Google)",
+            total_reviews: "2,500+",
+            year_established: 2014,
+            courses: "GRE, GMAT, IELTS, TOEFL, SAT and study abroad counseling. Fees: Varies.",
+            features: "Pros: A major study abroad consultant with a strong presence in South India. Cons: Can be process-driven.",
+            website: "https://www.texasreview.in"
+        },
+        {
+            name: "Hyderabad Central University (HCU) Coaching",
+            location: "Ashok Nagar, Hyderabad",
+            rating: "4.5/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "HCU Entrance Exam for PG courses. Fees: Approx. ₹15,000 - ₹25,000.",
+            features: "Pros: Many local institutes specialize in coaching for the prestigious HCU entrance. Cons: Highly niche.",
+            website: "N/A"
+        },
+        {
+            name: "Global Tree",
+            location: "Begumpet, Hyderabad",
+            rating: "4.6/5 (Google)",
+            total_reviews: "3,000+",
+            year_established: 2006,
+            courses: "IELTS, GRE, GMAT, PTE coaching and study abroad/immigration services. Fees: Varies.",
+            features: "Pros: A large consultant providing both coaching and extensive visa services. Cons: Sales-focused approach.",
+            website: "https://www.globaltree.in"
+        },
+        {
+            name: "Mind Q Systems",
+            location: "Ameerpet, Hyderabad",
+            rating: "4.7/5 (Google)",
+            total_reviews: "2,000+",
+            year_established: 1999,
+            courses: "Software Testing, Selenium, LoadRunner. Fees: Approx. ₹12,000 - ₹25,000.",
+            features: "Pros: A veteran institute in Ameerpet specializing in software testing tools. Cons: Niche IT focus.",
+            website: "https://mindqsystems.com"
+        },
+        {
+            name: "Valmiki Foreign Education Services",
+            location: "Banjara Hills, Hyderabad",
+            rating: "4.9/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 2001,
+            courses: "Study abroad counseling (especially for MBBS abroad). Fees: Counseling based.",
+            features: "Pros: Top-rated consultant, very strong in guiding students for MBBS in countries like Philippines, Russia. Cons: Highly specialized.",
+            website: "https://www.valmikiedu.org"
+        },
+        {
+            name: "Wings Education",
+            location: "Secunderabad, Hyderabad",
+            rating: "4.8/5 (Google)",
+            total_reviews: "700+",
+            year_established: "N/A",
+            courses: "IELTS, PTE. Fees: Varies.",
+            features: "Pros: Highly-rated for personalized IELTS coaching in the Secunderabad area. Cons: Small scale.",
+            website: "N/A"
+        },
+        {
+            name: "Ignite IAS",
+            location: "Ashok Nagar, Hyderabad",
+            rating: "4.7/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: "N/A",
+            courses: "TSPSC, SI, Constable. Fees: Varies.",
+            features: "Pros: Good reviews for state police and Group exams coaching. Cons: Faces huge competition.",
+            website: "https://www.igniteias.com"
+        },
+        {
+            name: "T.I.M.E. School",
+            location: "Manikonda, Hyderabad",
+            rating: "4.2/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: 2008,
+            courses: "CBSE Schooling with integrated foundation. Fees: School fees.",
+            features: "Pros: School run by the T.I.M.E. group, strong academic focus from early on. Cons: High pressure.",
+            website: "https://www.timeschools.com"
+        },
+        {
+            name: "Aakash Institute (Secunderabad)",
+            location: "Secunderabad, Hyderabad",
+            rating: "4.3/5 (Google)",
+            total_reviews: "2,000+",
+            year_established: "N/A",
+            courses: "NEET, JEE. Fees: Approx. ₹1,80,000 - ₹3,50,000 for 2 years.",
+            features: "Pros: Major branch serving Secunderabad and surrounding areas. Cons: Large batches.",
+            website: "https://www.aakash.ac.in"
+        },
+        {
+            name: "FIITJEE (Madhapur)",
+            location: "Madhapur, Hyderabad",
+            rating: "4.1/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: "N/A",
+            courses: "JEE (Main & Advanced). Fees: High.",
+            features: "Pros: Caters to the Hi-tech city area, integrated programs. Cons: Very rigorous.",
+            website: "https://www.fiitjee.com"
+        },
+        {
+            name: "Allen Career Institute (Himayatnagar)",
+            location: "Himayatnagar, Hyderabad",
+            rating: "4.4/5 (Google)",
+            total_reviews: "2,500+",
+            year_established: "N/A",
+            courses: "JEE, NEET. Fees: Approx. ₹1,50,000 - ₹3,00,000 per year.",
+            features: "Pros: Centrally located branch of the national giant. Cons: Highly competitive.",
+            website: "https://www.allen.ac.in"
+        },
+        {
+            name: "RACE Bank SSC Coaching",
+            location: "Ameerpet, Hyderabad",
+            rating: "4.6/5 (Google)",
+            total_reviews: "5,000+",
+            year_established: 2012,
+            courses: "Banking, SSC, Railways. Fees: Approx. ₹15,000 - ₹25,000.",
+            features: "Pros: Chennai's market leader with a very strong presence in Hyderabad. Cons: Very crowded.",
+            website: "https://www.verandalearning.com/race"
+        },
+        {
+            name: "Saindhavi Spoken English",
+            location: "Ameerpet, Hyderabad",
+            rating: "4.9/5 (Google)",
+            total_reviews: "900+",
+            year_established: "N/A",
+            courses: "Spoken English. Fees: Approx. ₹5,000 - ₹10,000.",
+            features: "Pros: Top-rated institute in Ameerpet specifically for spoken English fluency. Cons: Niche focus.",
+            website: "N/A"
+        },
+        {
+            name: "Jamboree Education (Kukatpally)",
+            location: "Kukatpally, Hyderabad",
+            rating: "4.7/5 (Google)",
+            total_reviews: "800+",
+            year_established: "N/A",
+            courses: "GMAT, GRE, SAT. Fees: Approx. ₹30,000 - ₹60,000 per course.",
+            features: "Pros: Highly-rated branch in the KPHB area. Cons: Limited counseling.",
+            website: "https://www.jamboreeindia.com"
+        },
+        {
+            name: "National School of Banking (NSB)",
+            location: "Dilsukhnagar, Hyderabad",
+            rating: "4.4/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: 1978,
+            courses: "Bank PO, Clerk. Fees: Approx. ₹10,000 - ₹18,000.",
+            features: "Pros: An old and established brand specifically for banking exams. Cons: Faces stiff competition.",
+            website: "https://www.nsbindia.com"
+        },
+        {
+            name: "Career Point",
+            location: "Kukatpally, Hyderabad",
+            rating: "4.2/5 (Google)",
+            total_reviews: "900+",
+            year_established: 1993,
+            courses: "JEE, NEET. Fees: Approx. ₹1,20,000 - ₹1,60,000 per year.",
+            features: "Pros: One of the oldest Kota institutes with a Hyderabad center. Cons: Less aggressive than other Kota players.",
+            website: "https://careerpoint.ac.in"
+        },
+        {
+            name: "Gateforum",
+            location: "Dilsukhnagar, Hyderabad",
+            rating: "4.3/5 (Google)",
+            total_reviews: "1,100+",
+            year_established: 2004,
+            courses: "GATE. Fees: Approx. ₹30,000 - ₹60,000.",
+            features: "Pros: Specialist in GATE coaching. Cons: Faces extreme competition from ACE in its home city.",
+            website: "https://www.gateforum.com"
+        },
+        {
+            name: "T.I.M.E. (Dilsukhnagar)",
+            location: "Dilsukhnagar, Hyderabad",
+            rating: "4.2/5 (Google)",
+            total_reviews: "2,000+",
+            year_established: "N/A",
+            courses: "CAT, Bank PO, SSC. Fees: Varies.",
+            features: "Pros: Major branch in a huge student hub. Cons: Can be very crowded.",
+            website: "https://www.time4education.com"
+        },
+        {
+            name: "Sai Krishna Academy",
+            location: "Dilsukhnagar, Hyderabad",
+            rating: "4.8/5 (Google)",
+            total_reviews: "800+",
+            year_established: "N/A",
+            courses: "EAMCET, NEET. Fees: Varies.",
+            features: "Pros: Highly-rated local institute in Dilsukhnagar for state entrance exams. Cons: Localized focus.",
+            website: "N/A"
+        },
+        {
+            name: "DigiQuest",
+            location: "Madhapur, Hyderabad",
+            rating: "4.7/5 (Google)",
+            total_reviews: "900+",
+            year_established: "N/A",
+            courses: "Digital Marketing. Fees: Approx. ₹30,000 - ₹50,000.",
+            features: "Pros: Strong local digital marketing institute in the Hi-tech city area. Cons: Smaller scale.",
+            website: "https://www.digiquest.co.in"
+        },
+        {
+            name: "Tathagath",
+            location: "Secunderabad, Hyderabad",
+            rating: "4.6/5 (Google)",
+            total_reviews: "500+",
+            year_established: 2009,
+            courses: "CAT, GMAT, GRE. Fees: Varies.",
+            features: "Pros: Good local alternative for MBA prep, founded by experienced faculty. Cons: Smaller scale.",
+            website: "https://www.tathagatheducation.com"
+        },
+        {
+            name: "Institute of Chartered Accountants of India (ICAI)",
+            location: "Masab Tank, Hyderabad",
+            rating: "4.4/5 (for the institution)",
+            total_reviews: "1,500+",
+            year_established: 1949,
+            courses: "CA coaching. Fees: Subsidized by the official body.",
+            features: "Pros: Official coaching from the statutory body for CAs, authentic and affordable. Cons: Less aggressive than private coaching.",
+            website: "https://www.icai.org"
+        },
+        {
+            name: "Institute of Company Secretaries of India (ICSI)",
+            location: "Lower Tank Bund, Hyderabad",
+            rating: "4.3/5 (for the institution)",
+            total_reviews: "900+",
+            year_established: 1980,
+            courses: "CS coaching. Fees: Subsidized by the official body.",
+            features: "Pros: Official coaching from the statutory body for CS, low cost. Cons: Administrative processes can be slow.",
+            website: "https://www.icsi.edu"
+        },
+        {
+            name: "Sparkles IAS",
+            location: "Ashok Nagar, Hyderabad",
+            rating: "4.9/5 (Google)",
+            total_reviews: "700+",
+            year_established: "N/A",
+            courses: "UPSC (GS). Fees: Varies.",
+            features: "Pros: Top-rated for its personalized mentorship in small batches. Cons: Newer entrant.",
+            website: "N/A"
+        },
+        {
+            name: "Tandem",
+            location: "Himayatnagar, Hyderabad",
+            rating: "4.5/5 (Google)",
+            total_reviews: "600+",
+            year_established: "N/A",
+            courses: "EAMCET, NEET. Fees: Varies.",
+            features: "Pros: A Bengaluru-based legendary brand with a center in Hyderabad. Cons: Traditional teaching methods.",
+            website: "N/A"
+        },
+        {
+            name: "Ashok Commerce Classes",
+            location: "Nallakunta, Hyderabad",
+            rating: "4.7/5 (Google)",
+            total_reviews: "800+",
+            year_established: "N/A",
+            courses: "XI-XII, CPT/CA Foundation, B.Com. Fees: Varies.",
+            features: "Pros: A very old and legendary commerce class in the Vidyanagar-Nallakunta area. Cons: Local focus.",
+            website: "N/A"
+        },
+        {
+            name: "ExcelR Solutions",
+            location: "Madhapur, Hyderabad",
+            rating: "4.7/5 (Google)",
+            total_reviews: "3,000+",
+            year_established: 2014,
+            courses: "Data Science, Business Analytics, PMP. Fees: Approx. ₹45,000 - ₹85,000.",
+            features: "Pros: Strong placement focus, global certification, located in the IT hub. Cons: Highly technical courses.",
+            website: "https://www.excelr.com"
+        },
+        {
+            name: "Sri Medha",
+            location: "Kukatpally, Hyderabad",
+            rating: "4.3/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: "N/A",
+            courses: "CA, CS, CMA, Intermediate. Fees: Varies.",
+            features: "Pros: A major local brand for commerce and professional courses in the KPHB area. Cons: Faces stiff competition.",
+            website: "https://www.srimedha.com"
+        },
+        {
+            name: "Vignan's University (Coaching Center)",
+            location: "Kukatpally, Hyderabad",
+            rating: "4.2/5 (for the university)",
+            total_reviews: "2,000+",
+            year_established: 1997,
+            courses: "EAMCET, JEE. Fees: Varies.",
+            features: "Pros: Coaching run by a major educational group. Cons: Primarily aimed at filling their own university seats.",
+            website: "https://www.vignan.ac.in"
+        },
+        {
+            name: "Aakash Institute (Himayatnagar)",
+            location: "Himayatnagar, Hyderabad",
+            rating: "4.2/5 (Google)",
+            total_reviews: "2,200+",
+            year_established: "N/A",
+            courses: "NEET, JEE. Fees: Approx. ₹1,80,000 - ₹3,50,000 for 2 years.",
+            features: "Pros: Centrally located branch, good infrastructure. Cons: Large batches.",
+            website: "https://www.aakash.ac.in"
+        },
+        {
+            name: "Sadhana Academy",
+            location: "Dilsukhnagar, Hyderabad",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,100+",
+            year_established: "N/A",
+            courses: "SI, Constable, TSPSC Groups. Fees: Varies.",
+            features: "Pros: Highly-rated institute specializing in police recruitment exams. Cons: Niche focus.",
+            website: "N/A"
+        },
+        {
+            name: "The Art of Living",
+            location: "Multiple centers, Hyderabad",
+            rating: "4.6/5 (Google)",
+            total_reviews: "2,500+",
+            year_established: 1981,
+            courses: "Yoga, Meditation, Happiness Program. Fees: Varies.",
+            features: "Pros: Global organization focusing on mental wellness and stress relief. Cons: Not academic coaching.",
+            website: "https://www.artofliving.org"
+        },
+        {
+            name: "Telangana BC Study Circle",
+            location: "Saeedabad, Hyderabad",
+            rating: "4.4/5 (Google)",
+            total_reviews: "800+",
+            year_established: "N/A",
+            courses: "UPSC, TSPSC, Banking. Fees: Free or subsidized.",
+            features: "Pros: Government initiative to provide free coaching to students from backward classes. Cons: Admission is through a competitive test.",
+            website: "https://tsbcstudycircle.cgg.gov.in"
+        },
+        {
+            name: "GlobalArt",
+            location: "Multiple franchises, Hyderabad",
+            rating: "4.5/5 (Google)",
+            total_reviews: "900+",
+            year_established: 1999,
+            courses: "Art and craft classes for children. Fees: Monthly basis.",
+            features: "Pros: International chain for fostering creativity in children. Cons: Hobby-based.",
+            website: "https://www.globalart.in"
+        },
+        {
+            name: "Focus Edumatics",
+            location: "Online (Hyderabad office)",
+            rating: "4.7/5 (Online reviews)",
+            total_reviews: "3,000+",
+            year_established: 2010,
+            courses: "Online tutoring for US students. Fees: N/A (It's an employer).",
+            features: "Pros: A major EdTech company that hires and trains tutors, not a public coaching center. Cons: Not for student enrollment.",
+            website: "https://www.focusedumatics.com"
+        }
+    ];
+    ];
+
+    const instituteList = document.getElementById('institute-list');
+
+    // Function to display institutes
+    function displayInstitutes(instituteArray) {
+        instituteList.innerHTML = ''; // Clear current list
+        instituteArray.forEach(institute => {
+            const card = `
+                <div class="institute-card">
+                    <h2>${institute.name}</h2>
+                    <p><strong>Location:</strong> ${institute.location}</p>
+                    <div class="details-grid">
+                        <p class="rating"><strong>Rating:</strong> ${institute.rating}</p>
+                        <p><strong>Reviews:</strong> ${institute.total_reviews}</p>
+                        <p class="established"><strong>Established:</strong> ${institute.year_established}</p>
+                    </div>
+                    <p><strong>Courses & Fees:</strong> ${institute.courses}</p>
+                    <p><strong>Features:</strong> ${institute.features}</p>
+                    <a href="${institute.website}" target="_blank" rel="noopener noreferrer">Visit Website</a>
+                </div>
+            `;
+            instituteList.innerHTML += card;
+        });
+    }
+
+    // Function to filter institutes based on search criteria
+    function filterInstitutes() {
+        const nameQuery = document.getElementById('name-search').value.toLowerCase();
+        const ratingQuery = document.getElementById('rating-search').value;
+
+        const filteredInstitutes = institutes.filter(institute => {
+            const nameMatch = institute.name.toLowerCase().includes(nameQuery);
+            // Extract the number part of the rating for a more flexible search
+            const ratingValue = institute.rating.split('/')[0].trim();
+            const ratingMatch = ratingValue.startsWith(ratingQuery);
+            
+            return nameMatch && ratingMatch;
+        });
+
+        displayInstitutes(filteredInstitutes);
+    }
+
+    // Initial display of all institutes
+    window.onload = () => {
+        displayInstitutes(institutes);
+    };
+
+</script>
+
+</body>
+</html>

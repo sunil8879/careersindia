@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Skills: Cloze Test</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            /* Blue and white gridline background */
+            background-color: #f0f8ff; 
+            background-image: 
+                repeating-linear-gradient(to right, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 30px),
+                repeating-linear-gradient(to bottom, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 30px);
+            background-size: 30px 30px;
+        }
+
+        /* Header Styling */
+        header {
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        header h1 {
+            display: inline-block;
+            background-color: #0056b3;
+            color: white;
+            padding: 20px 40px;
+            border: 3px solid white;
+            border-radius: 15px;
+            /* 3D Box Effect */
+            box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.4), inset 2px 2px 5px rgba(255, 255, 255, 0.3);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-size: 2.2em;
+            margin: 0;
+        }
+
+        /* Main Container for Two-Column Layout */
+        .container {
+            display: flex;
+            max-width: 1400px;
+            margin: 20px auto;
+            background: #ffffff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.15);
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 80vh;
+        }
+
+        /* Left Navigation Column */
+        .nav-column {
+            flex: 1;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+            background-color: #f8f9fa;
+            height: 80vh;
+            overflow-y: auto;
+        }
+
+        .nav-column ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-column li a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: #0056b3;
+            border-radius: 5px;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 0.95em;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .nav-column li a:hover,
+        .nav-column li a.active {
+            background-color: #0056b3;
+            color: #fff;
+        }
+
+        /* Right Content Column */
+        .content-column {
+            flex: 3;
+            padding: 25px 35px;
+            height: 100%;
+            overflow-y: auto;
+        }
+
+        .content-section {
+            display: none;
+        }
+        
+        .content-section.active {
+            display: block;
+        }
+        
+        h2 {
+            font-size: 1.8em;
+            color: #0056b3;
+            border-bottom: 3px solid #0056b3;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        
+        h3 {
+            font-size: 1.4em;
+            color: #333;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        
+        .rule {
+            background-color: #e7f3fe;
+            border: 1px solid #b3d7f7;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 5px;
+        }
+
+        .example-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .example-list > li {
+            margin-bottom: 25px;
+            border-left: 4px solid #0056b3;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        
+        .explanation {
+            font-style: normal;
+            color: #333;
+            margin-top: 15px;
+            background-color: #fff;
+            padding: 15px;
+            border: 1px solid #eee;
+            border-radius: 4px;
+        }
+        
+        .cloze-passage {
+            line-height: 2;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        
+        .options-list {
+            list-style-type: none;
+            padding-left: 0;
+            margin-bottom: 15px;
+        }
+        
+        .correct-answer {
+            font-weight: bold;
+            color: green;
+        }
+        
+        .strategy-list li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>CLOZE TEST: STRATEGIES & PRACTICE</h1>
+    </header>
+
+    <div class="container">
+        <nav class="nav-column">
+            <ul>
+                <li><a href="#definition" class="nav-link active">Definition & Concept</a></li>
+                <li><a href="#strategies" class="nav-link">Tricks to Solve</a></li>
+                <li><a href="#examples" class="nav-link">100 Solved Examples</a></li>
+            </ul>
+        </nav>
+
+        <main class="content-column">
+            <section id="definition" class="content-section active">
+                <h2>Definition & Concept</h2>
+                <div class="rule">
+                    <strong>Concept:</strong> A Cloze Test is an exercise where a passage is provided with certain words removed (blanks). Students are given a set of options for each blank and must choose the most appropriate word to fill it.
+                </div>
+                <h3>Why is it important for competitive exams?</h3>
+                <p>The Cloze Test is a powerful tool used by examiners because it tests multiple English language skills simultaneously:</p>
+                <ul>
+                    <li><strong>Reading Comprehension:</strong> You must understand the overall meaning and tone of the passage.</li>
+                    <li><strong>Grammar:</strong> Your choice must be grammatically correct (e.g., right tense, preposition, subject-verb agreement).</li>
+                    <li><strong>Vocabulary:</strong> You must know the precise meaning of words and how they fit into the context.</li>
+                    <li><strong>Collocation:</strong> You need to recognize which words naturally go together.</li>
+                </ul>
+            </section>
+            
+            <section id="strategies" class="content-section">
+                <h2>Tricks and Strategies to Solve Cloze Tests</h2>
+                <div class="rule">
+                    A systematic approach is far more effective than just guessing. Follow these steps to improve your accuracy.
+                </div>
+                <h3>A Step-by-Step Guide</h3>
+                <ol class="strategy-list">
+                    <li><strong>1. Read the Entire Passage First:</strong> Before looking at the options, read the whole passage quickly. This helps you understand the main idea, the overall tone (positive, negative, narrative, analytical), and the tense (past, present, future).</li>
+                    <li><strong>2. Analyze the Blank:</strong> Look at the words immediately before and after the blank. This immediate context often provides strong grammatical or logical clues.</li>
+                    <li><strong>3. Apply Grammar Rules:</strong>
+                        <ul>
+                            <li>Check for **Subject-Verb Agreement**: Does the subject need a singular or plural verb?</li>
+                            <li>Identify the correct **Tense**: Is the passage in the past, present, or future?</li>
+                            <li>Find the right **Preposition**: Words like `of`, `for`, `in`, `on` are often tested.</li>
+                            <li>Look for **Conjunctions** that create a logical link (e.g., `but`, `although`, `therefore`).</li>
+                            <li>Check for **Articles** (`a`, `an`, `the`) and other determiners.</li>
+                        </ul>
+                    </li>
+                    <li><strong>4. Use Vocabulary and Collocation:</strong> If grammar doesn't provide a clear answer, the blank is likely testing vocabulary.
+                        <ul>
+                            <li>Think about the **meaning** of the options in the context.</li>
+                            <li>Look for **collocations** (words that naturally go together), e.g., "make a mistake," not "do a mistake."</li>
+                        </ul>
+                    </li>
+                    <li><strong>5. Use the Elimination Technique:</strong> Actively eliminate options that are clearly wrong. This increases your chances of selecting the correct answer, even if you are not 100% sure.</li>
+                    <li><strong>6. Re-read the Sentence:</strong> After you have chosen an answer, read the complete sentence with your chosen word to ensure it sounds logical and grammatically correct.</li>
+                </ol>
+            </section>
+            
+            <section id="examples" class="content-section">
+                <h2>100 Solved Examples (20 Passages)</h2>
+                <ol class="example-list">
+                    <!-- Passage 1 -->
+                    <li>
+                        <h3>Passage 1</h3>
+                        <p class="cloze-passage">Reading is a fundamental skill that __(1)__ a crucial role in a child's development. It not only expands their vocabulary but also improves their __(2)__ to think critically. Through books, children can explore new worlds and __(3)__ different cultures. A lifelong reading habit is one of the greatest gifts a parent can __(4)__ on their child. Therefore, it is essential to __(5)__ reading from a young age.</p>
+                        <ul class="options-list">
+                            <li><strong>1.</strong> (A) does (B) makes (C) gives (D) plays</li>
+                            <li><strong>2.</strong> (A) power (B) ability (C) talent (D) skill</li>
+                            <li><strong>3.</strong> (A) create (B) understand (C) invent (D) ignore</li>
+                            <li><strong>4.</strong> (A) force (B) put (C) bestow (D) take</li>
+                            <li><strong>5.</strong> (A) forbid (B) prevent (C) discourage (D) encourage</li>
+                        </ul>
+                        <div class="explanation">
+                            <strong>Answers & Explanations:</strong><br>
+                            1. <span class="correct-answer">(D) plays</span> - "Plays a role" is the correct and standard collocation.<br>
+                            2. <span class="correct-answer">(B) ability</span> - The phrase is 'ability to think'. 'Skill' is something you learn; 'ability' is the capacity to do it.<br>
+                            3. <span class="correct-answer">(B) understand</span> - The context of exploring new worlds through books logically leads to understanding different cultures.<br>
+                            4. <span class="correct-answer">(C) bestow</span> - 'Bestow' is a formal verb meaning to confer a gift, which fits the tone perfectly.<br>
+                            5. <span class="correct-answer">(D) encourage</span> - The word 'essential' points to a positive action, which is to 'encourage' reading.
+                        </div>
+                    </li>
+                    <!-- Passage 2 -->
+                    <li>
+                        <h3>Passage 2</h3>
+                        <p class="cloze-passage">Climate change is one of the most __(6)__ challenges facing humanity today. The burning of fossil fuels releases greenhouse gases, which trap heat in the atmosphere, __(7)__ to a phenomenon known as global warming. This has far-reaching __(8)__, including rising sea levels. While renewable energy is a promising __(9)__, its widespread adoption faces significant hurdles. It is __(10)__ on all of us to take action.</p>
+                        <ul class="options-list">
+                            <li><strong>6.</strong> (A) pressing (B) simple (C) gentle (D) pleasant</li>
+                            <li><strong>7.</strong> (A) resulting (B) causing (C) leading (D) making</li>
+                            <li><strong>8.</strong> (A) causes (B) reasons (C) sources (D) consequences</li>
+                            <li><strong>9.</strong> (A) alternative (B) problem (C) issue (D) question</li>
+                            <li><strong>10.</strong> (A) dependent (B) incumbent (C) reliant (D) optional</li>
+                        </ul>
+                        <div class="explanation">
+                            <strong>Answers & Explanations:</strong><br>
+                            6. <span class="correct-answer">(A) pressing</span> - A 'pressing challenge' is a common collocation for an urgent problem.<br>
+                            7. <span class="correct-answer">(C) leading</span> - The correct phrasal verb is 'leading to', which means resulting in.<br>
+                            8. <span class="correct-answer">(D) consequences</span> - The sentence is talking about the effects or results of global warming.<br>
+                            9. <span class="correct-answer">(A) alternative</span> - Renewable energy is presented as an alternative to fossil fuels.<br>
+                            10. <span class="correct-answer">(B) incumbent</span> - 'Incumbent on' is a formal phrase meaning 'necessary as a duty'.
+                        </div>
+                    </li>
+                    <!-- Passage 3 -->
+                    <li>
+                        <h3>Passage 3</h3>
+                        <p class="cloze-passage">Effective time management is a skill that __(11)__ individuals to make the most of their time. The first step is to __(12)__ your tasks based on urgency and importance. This involves creating a to-do list and __(13)__ deadlines for each item. By doing so, you can avoid stress. It also helps in maintaining a healthy work-life __(14)__. Ultimately, mastering this skill can lead to greater productivity and personal __(15)__.</p>
+                        <ul class="options-list">
+                            <li><strong>11.</strong> (A) forces (B) allows (C) prevents (D) stops</li>
+                            <li><strong>12.</strong> (A) destroy (B) ignore (C) prioritize (D) forget</li>
+                            <li><strong>13.</strong> (A) setting (B) removing (C) guessing (D) changing</li>
+                            <li><strong>14.</strong> (A) problem (B) issue (C) balance (D) conflict</li>
+                            <li><strong>15.</strong> (A) failure (B) satisfaction (C) regret (D) burden</li>
+                        </ul>
+                        <div class="explanation">
+                            <strong>Answers & Explanations:</strong><br>
+                            11. <span class="correct-answer">(B) allows</span> - Time management empowers or 'allows' people to use time well.<br>
+                            12. <span class="correct-answer">(C) prioritize</span> - The context of urgency and importance points directly to prioritizing tasks.<br>
+                            13. <span class="correct-answer">(A) setting</span> - The correct collocation is 'setting deadlines'.<br>
+                            14. <span class="correct-answer">(C) balance</span> - 'Work-life balance' is the standard, fixed phrase.<br>
+                            15. <span class="correct-answer">(B) satisfaction</span> - Productivity logically leads to a positive feeling like 'satisfaction'.
+                        </div>
+                    </li>
+                    <!-- Passage 4 -->
+                    <li>
+                        <h3>Passage 4</h3>
+                        <p class="cloze-passage">The ancient city of Rome __(16)__ a rich history that spans over two millennia. It was once the center of a vast empire that __(17)__ a profound influence on Western civilization. The Romans were renowned for their engineering __(18)__, building impressive structures. Many of these ancient __(19)__ can still be seen today. Visiting Rome is like taking a step __(20)__ in time.</p>
+                        <ul class="options-list">
+                            <li><strong>16.</strong> (A) boasts (B) hides (C) lacks (D) wants</li>
+                            <li><strong>17.</strong> (A) exerted (B) denied (C) refused (D) avoided</li>
+                            <li><strong>18.</strong> (A) failure (B) weakness (C) prowess (D) fear</li>
+                            <li><strong>19.</strong> (A) inventions (B) ideas (C) ruins (D) theories</li>
+                            <li><strong>20.</strong> (A) forward (B) sideways (C) around (D) back</li>
+                        </ul>
+                        <div class="explanation">
+                            <strong>Answers & Explanations:</strong><br>
+                            16. <span class="correct-answer">(A) boasts</span> - To 'boast' something means to have something impressive.<br>
+                            17. <span class="correct-answer">(A) exerted</span> - The correct collocation is to 'exert an influence'.<br>
+                            18. <span class="correct-answer">(C) prowess</span> - 'Prowess' means skill or expertise.<br>
+                            19. <span class="correct-answer">(C) ruins</span> - The context of ancient structures points to 'ruins'.<br>
+                            20. <span class="correct-answer">(D) back</span> - The phrase 'a step back in time' is a common idiom.
+                        </div>
+                    </li>
+                    <!-- Passage 5 -->
+                    <li>
+                        <h3>Passage 5</h3>
+                        <p class="cloze-passage">A healthy diet is __(21)__ for maintaining good physical and mental health. It should consist of a __(22)__ of nutrients, including carbohydrates and proteins. Eating too much processed food can __(23)__ to various health problems. It is also important to stay hydrated by drinking __(24)__ of water. A good diet, combined with regular exercise, is the __(25)__ to a long and healthy life.</p>
+                        <ul class="options-list">
+                            <li><strong>21.</strong> (A) unnecessary (B) optional (C) essential (D) harmful</li>
+                            <li><strong>22.</strong> (A) lack (B) variety (C) shortage (D) single</li>
+                            <li><strong>23.</strong> (A) prevent (B) solve (C) avoid (D) lead</li>
+                            <li><strong>24.</strong> (A) plenty (B) little (C) none (D) few</li>
+                            <li><strong>25.</strong> (A) problem (B) question (C) key (D) barrier</li>
+                        </ul>
+                        <div class="explanation">
+                            <strong>Answers & Explanations:</strong><br>
+                            21. <span class="correct-answer">(C) essential</span> - The context indicates that a healthy diet is necessary or 'essential'.<br>
+                            22. <span class="correct-answer">(B) variety</span> - A healthy diet includes a 'variety' of nutrients.<br>
+                            23. <span class="correct-answer">(D) lead</span> - The correct phrasal verb is 'lead to', meaning to result in.<br>
+                            24. <span class="correct-answer">(A) plenty</span> - 'Plenty of' means a large or sufficient amount.<br>
+                            25. <span class="correct-answer">(C) key</span> - 'The key to' is an idiom meaning the most important factor.
+                        </div>
+                    </li>
+                    <!-- Passage 6 -->
+                    <li>
+                        <h3>Passage 6</h3>
+                        <p class="cloze-passage">The internet has revolutionized the way we communicate and __(26)__ information. It connects billions of people worldwide, __(27)__ geographical barriers. However, this connectivity also __(28)__ risks, such as misinformation. It is crucial to use this powerful tool __(29)__ and to be __(30)__ of the information we consume.</p>
+                        <ul class="options-list">
+                            <li><strong>26.</strong> (A) ignore (B) delete (C) hide (D) access</li>
+                            <li><strong>27.</strong> (A) building (B) transcending (C) creating (D) respecting</li>
+                            <li><strong>28.</strong> (A) solves (B) eliminates (C) poses (D) reduces</li>
+                            <li><strong>29.</strong> (A) carelessly (B) rarely (C) responsibly (D) dangerously</li>
+                            <li><strong>30.</strong> (A) unaware (B) accepting (C) ignorant (D) critical</li>
+                        </ul>
+                        <div class="explanation">
+                            <strong>Answers & Explanations:</strong><br>
+                            26. <span class="correct-answer">(D) access</span> - The collocation 'access information' is the most appropriate.<br>
+                            27. <span class="correct-answer">(B) transcending</span> - The internet goes beyond or 'transcends' physical barriers.<br>
+                            28. <span class="correct-answer">(C) poses</span> - The collocation 'poses a risk' means to present a danger.<br>
+                            29. <span class="correct-answer">(C) responsibly</span> - The sentence calls for careful usage.<br>
+                            30. <span class="correct-answer">(D) critical</span> - Being 'critical' of information means evaluating it carefully, which is necessary to combat misinformation.
+                        </div>
+                    </li>
+                    <!-- Passage 7 -->
+                    <li>
+                        <h3>Passage 7</h3>
+                        <p class="cloze-passage">The human brain is an incredibly complex organ, __(31)__ for our thoughts, emotions, and actions. It contains billions of neurons that __(32)__ with each other through electrical signals. Despite decades of research, many __(33)__ of the brain still remain a mystery. Scientists are continuously working to __(34)__ its secrets. This knowledge is vital for __(35)__ neurological disorders.</p>
+                        <ul class="options-list">
+                            <li><strong>31.</strong> (A) irresponsible (B) responsible (C) optional (D) unrelated</li>
+                            <li><strong>32.</strong> (A) divide (B) fight (C) communicate (D) hide</li>
+                            <li><strong>33.</strong> (A) aspects (B) certainties (C) simplicities (D) solutions</li>
+                            <li><strong>34.</strong> (A) create (B) hide (C) complicate (D) unravel</li>
+                            <li><strong>35.</strong> (A) causing (B) ignoring (C) treating (D) worsening</li>
+                        </ul>
+                        <div class="explanation">
+                            <strong>Answers & Explanations:</strong><br>
+                            31. <span class="correct-answer">(B) responsible</span> - The brain is 'responsible for' our functions.<br>
+                            32. <span class="correct-answer">(C) communicate</span> - Neurons 'communicate' with each other.<br>
+                            33. <span class="correct-answer">(A) aspects</span> - 'Aspects' refers to the many different parts or functions of the brain.<br>
+                            34. <span class="correct-answer">(D) unravel</span> - To 'unravel secrets' is a common collocation for discovering hidden truths.<br>
+                            35. <span class="correct-answer">(C) treating</span> - The goal of the knowledge is to help 'treat' or cure disorders.
+                        </div>
+                    </li>
+                    <!-- Passage 8 -->
+                     <li>
+                        <h3>Passage 8</h3>
+                        <p class="cloze-passage">Democracy is a system of government where the supreme power is __(36)__ in the people. A key __(37)__ of democracy is the holding of free and fair elections. It __(38)__ fundamental rights such as freedom of speech and expression. However, for a democracy to function __(39)__, citizens must be well-informed and actively __(40)__ in the political process.</p>
+                        <ul class="options-list">
+                            <li><strong>36.</strong> (A) vested (B) hidden (C) lost (D) removed</li>
+                            <li><strong>37.</strong> (A) flaw (B) principle (C) problem (D) weakness</li>
+                            <li><strong>38.</strong> (A) denies (B) restricts (C) guarantees (D) questions</li>
+                            <li><strong>39.</strong> (A) poorly (B) slowly (C) effectively (D) rarely</li>
+                            <li><strong>40.</strong> (A) participate (B) avoid (C) ignore (D) withdraw</li>
+                        </ul>
+                        <div class="explanation">
+                            <strong>Answers & Explanations:</strong><br>
+                            36. <span class="correct-answer">(A) vested</span> - The phrase 'power is vested in' is a standard legal and political term.<br>
+                            37. <span class="correct-answer">(B) principle</span> - A 'key principle' means a fundamental belief or rule.<br>
+                            38. <span class="correct-answer">(C) guarantees</span> - Democracies are meant to 'guarantee' rights.<br>
+                            39. <span class="correct-answer">(C) effectively</span> - The sentence describes the conditions for a democracy to work well or 'effectively'.<br>
+                            40. <span class="correct-answer">(A) participate</span> - Citizens need to take part or 'participate' in the process.
+                        </div>
+                    </li>
+                     <!-- Passage 9 -->
+                    <li>
+                        <h3>Passage 9</h3>
+                        <p class="cloze-passage">The Industrial Revolution __(41)__ a major turning point in history. It marked a __(42)__ from agrarian societies to industrial and urban ones. New inventions, such as the steam engine, __(43)__ to mass production and the growth of factories. This period __(44)__ in profound social and economic changes. While it brought wealth and innovation, it also created new problems like overcrowding and poor working __(45)__.</p>
+                        <ul class="options-list">
+                            <li><strong>41.</strong> (A) prevented (B) represented (C) delayed (D) avoided</li>
+                            <li><strong>42.</strong> (A) return (B) jump (C) shift (D) decline</li>
+                            <li><strong>43.</strong> (A) led (B) stopped (C) hindered (D) failed</li>
+                            <li><strong>44.</strong> (A) failed (B) resulted (C) prevented (D) ended</li>
+                            <li><strong>45.</strong> (A) pleasures (B) conditions (C) opportunities (D) benefits</li>
+                        </ul>
+                        <div class="explanation">
+                            <strong>Answers & Explanations:</strong><br>
+                            41. <span class="correct-answer">(B) represented</span> - It 'represented' or symbolized a major turning point.<br>
+                            42. <span class="correct-answer">(C) shift</span> - A 'shift from...to...' correctly describes the transition between society types.<br>
+                            43. <span class="correct-answer">(A) led</span> - New inventions 'led to' or caused mass production.<br>
+                            44. <span class="correct-answer">(B) resulted</span> - The phrase is 'resulted in', meaning caused.<br>
+                            45. <span class="correct-answer">(B) conditions</span> - 'Working conditions' is the standard collocation for the environment in a workplace.
+                        </div>
+                    </li>
+                    <!-- Passage 10 -->
+                    <li>
+                        <h3>Passage 10</h3>
+                        <p class="cloze-passage">The human immune system __(46)__ the body against diseases. It can __(47)__ and destroy millions of different microbes. A healthy lifestyle is __(48)__ for the proper functioning of the immune system. A balanced diet and regular exercise help __(49)__ it. Stress, on the other hand, can __(50)__ its effectiveness.</p>
+                        <ul class="options-list">
+                            <li><strong>46.</strong> (A) harms (B) attacks (C) defends (D) weakens</li>
+                            <li><strong>47.</strong> (A) create (B) recognize (C) ignore (D) accept</li>
+                            <li><strong>48.</strong> (A) trivial (B) harmful (C) essential (D) insignificant</li>
+                            <li><strong>49.</strong> (A) weaken (B) damage (C) destroy (D) strengthen</li>
+                            <li><strong>50.</strong> (A) improve (B) boost (C) suppress (D) enhance</li>
+                        </ul>
+                        <div class="explanation">
+                            <strong>Answers & Explanations:</strong><br>
+                            46. <span class="correct-answer">(C) defends</span> - The primary role of the immune system is to 'defend' the body.<br>
+                            47. <span class="correct-answer">(B) recognize</span> - The immune system must first 'recognize' harmful microbes.<br>
+                            48. <span class="correct-answer">(C) essential</span> - 'Essential' means absolutely necessary.<br>
+                            49. <span class="correct-answer">(D) strengthen</span> - Diet and exercise make the immune system stronger.<br>
+                            50. <span class="correct-answer">(C) suppress</span> - Stress can weaken or 'suppress' the immune system's effectiveness.
+                        </div>
+                    </li>
+                    <!-- Passage 11 -->
+                    <li>
+                        <h3>Passage 11</h3>
+                        <p class="cloze-passage">Storytelling is an ancient art form used to __(51)__ and entertain audiences. __(52)__ narrative and vivid characters, a good story can __(53)__ a range of emotions in the listener. It is a powerful tool for teaching moral values and preserving cultural __(54)__. The __(55)__ of this art lies in its ability to connect people on a deep, emotional level.</p>
+                        <ul class="options-list">
+                            <li><strong>51.</strong> (A) bore (B) confuse (C) engage (D) distract</li>
+                            <li><strong>52.</strong> (A) Despite (B) Without (C) Through (D) Against</li>
+                            <li><strong>53.</strong> (A) evoke (B) erase (C) prevent (D) hide</li>
+                            <li><strong>54.</strong> (A) problems (B) heritage (C) conflicts (D) expenses</li>
+                            <li><strong>55.</strong> (A) failure (B) weakness (C) magic (D) issue</li>
+                        </ul>
+                        <div class="explanation">
+                            <strong>Answers & Explanations:</strong><br>
+                            51. <span class="correct-answer">(C) engage</span> - Storytelling aims to 'engage' or capture the audience's attention.<br>
+                            52. <span class="correct-answer">(C) Through</span> - The meaning is that stories use narrative and characters as a medium.<br>
+                            53. <span class="correct-answer">(A) evoke</span> - 'Evoke' means to bring a feeling or memory into the mind.<br>
+                            54. <span class="correct-answer">(B) heritage</span> - Stories are a key way to preserve cultural history or 'heritage'.<br>
+                            55. <span class="correct-answer">(C) magic</span> - 'Magic' is used here metaphorically to describe the powerful effect of storytelling.
+                        </div>
+                    </li>
+                    <!-- Passage 12 -->
+                    <li>
+                        <h3>Passage 12</h3>
+                        <p class="cloze-passage">Renewable energy sources, such as solar and wind power, offer a sustainable alternative to fossil fuels. __(56)__ fossil fuels, which are finite, renewables are naturally replenished. By __(57)__ the power of the sun and wind, we can generate electricity with minimal environmental __(58)__. The main challenge is to __(59)__ the intermittent nature of these sources. The __(60)__ to a clean energy future depends on innovation in energy storage technologies.</p>
+                        <ul class="options-list">
+                            <li><strong>56.</strong> (A) Like (B) Similar (C) Unlike (D) As</li>
+                            <li><strong>57.</strong> (A) creating (B) destroying (C) ignoring (D) harnessing</li>
+                            <li><strong>58.</strong> (A) benefit (B) impact (C) advantage (D) help</li>
+                            <li><strong>59.</strong> (A) accept (B) create (C) overcome (D) worsen</li>
+                            <li><strong>60.</strong> (A) transition (B) return (C) decline (D) barrier</li>
+                        </ul>
+                        <div class="explanation">
+                            <strong>Answers & Explanations:</strong><br>
+                            56. <span class="correct-answer">(C) Unlike</span> - The sentence sets up a contrast between finite fossil fuels and renewables.<br>
+                            57. <span class="correct-answer">(D) harnessing</span> - 'Harnessing power' is the correct collocation for using a natural resource.<br>
+                            58. <span class="correct-answer">(B) impact</span> - Environmental 'impact' is a neutral term for effect, which fits the context.<br>
+                            59. <span class="correct-answer">(C) overcome</span> - One must 'overcome' a challenge.<br>
+                            60. <span class="correct-answer">(A) transition</span> - 'Transition' correctly describes the shift from one system to another.
+                        </div>
+                    </li>
+                     <!-- Passage 13 -->
+                    <li>
+                        <h3>Passage 13</h3>
+                        <p class="cloze-passage">Getting enough quality sleep is __(61)__ for overall health. During sleep, the body works to repair muscles and __(62)__ memories. A lack of sleep can negatively __(63)__ cognitive functions like attention and decision-making. It can also weaken the immune system, making you more __(64)__ to illness. It is important to __(65)__ a regular sleep schedule.</p>
+                        <ul class="options-list">
+                            <li><strong>61.</strong> (A) trivial (B) unimportant (C) optional (D) vital</li>
+                            <li><strong>62.</strong> (A) erase (B) forget (C) consolidate (D) damage</li>
+                            <li><strong>63.</strong> (A) improve (B) enhance (C) affect (D) boost</li>
+                            <li><strong>64.</strong> (A) resistant (B) immune (C) susceptible (D) strong</li>
+                            <li><strong>65.</strong> (A) avoid (B) disrupt (C) maintain (D) ignore</li>
+                        </ul>
+                        <div class="explanation">
+                            <strong>Answers & Explanations:</strong><br>
+                            61. <span class="correct-answer">(D) vital</span> - 'Vital' means essential or of critical importance.<br>
+                            62. <span class="correct-answer">(C) consolidate</span> - Sleep helps to 'consolidate' memories, meaning to strengthen and organize them.<br>
+                            63. <span class="correct-answer">(C) affect</span> - 'Affect' is the verb meaning to influence or impact.<br>
+                            64. <span class="correct-answer">(C) susceptible</span> - A weakened immune system makes you more 'susceptible' or vulnerable to illness.<br>
+                            65. <span class="correct-answer">(C) maintain</span> - The collocation 'maintain a schedule' is correct.
+                        </div>
+                    </li>
+                    <!-- Passage 14 -->
+                    <li>
+                        <h3>Passage 14</h3>
+                        <p class="cloze-passage">The Great Wall of China is not a single, continuous wall but a __(66)__ of fortifications. It was built __(67)__ several centuries to protect Chinese states and empires against raids. While it was once __(68)__ that the Wall is visible from the moon, this is a popular myth. Today, it is a __(69)__ of China's enduring strength and a popular tourist __(70)__.</p>
+                        <ul class="options-list">
+                            <li><strong>66.</strong> (A) system (B) line (C) piece (D) part</li>
+                            <li><strong>67.</strong> (A) in (B) for (C) over (D) at</li>
+                            <li><strong>68.</strong> (A) denied (B) questioned (C) claimed (D) proved</li>
+                            <li><strong>69.</strong> (A) problem (B) weakness (C) failure (D) symbol</li>
+                            <li><strong>70.</strong> (A) problem (B) hazard (C) attraction (D) issue</li>
+                        </ul>
+                        <div class="explanation">
+                            <strong>Answers & Explanations:</strong><br>
+                            66. <span class="correct-answer">(A) system</span> - 'System' best describes a complex network of fortifications.<br>
+                            67. <span class="correct-answer">(C) over</span> - 'Over' is used to denote a period of time during which an action took place.<br>
+                            68. <span class="correct-answer">(C) claimed</span> - The context of a 'popular myth' indicates a belief or claim that is not true.<br>
+                            69. <span class="correct-answer">(D) symbol</span> - The Wall is a 'symbol' of strength.<br>
+                            70. <span class="correct-answer">(C) attraction</span> - A 'tourist attraction' is the correct collocation.
+                        </div>
+                    </li>
+                    <!-- Passage 15 -->
+                    <li>
+                        <h3>Passage 15</h3>
+                        <p class="cloze-passage">Effective leadership __(71)__ more than just giving orders. A true leader must __(72)__ and motivate their team. They need to communicate their vision __(73)__ and listen to feedback. Good leaders lead by __(74)__, setting high standards for themselves and others. This approach is __(75)__ for building a successful and cohesive team.</p>
+                        <ul class="options-list">
+                            <li><strong>71.</strong> (A) demands (B) requires (C) involves (D) wants</li>
+                            <li><strong>72.</strong> (A) discourage (B) criticize (C) control (D) inspire</li>
+                            <li><strong>73.</strong> (A) vaguely (B) rarely (C) clearly (D) dishonestly</li>
+                            <li><strong>74.</strong> (A) force (B) fear (C) example (D) criticism</li>
+                            <li><strong>75.</strong> (A) harmful (B) useless (C) irrelevant (D) crucial</li>
+                        </ul>
+                        <div class="explanation">
+                            <strong>Answers & Explanations:</strong><br>
+                            71. <span class="correct-answer">(C) involves</span> - 'Involves' means 'includes as a necessary part', which fits the context.<br>
+                            72. <span class="correct-answer">(D) inspire</span> - A key quality of a leader is to 'inspire' their team.<br>
+                            73. <span class="correct-answer">(C) clearly</span> - A vision must be communicated 'clearly' to be understood.<br>
+                            74. <span class="correct-answer">(C) example</span> - The idiom 'to lead by example' is the correct choice.<br>
+                            75. <span class="correct-answer">(D) crucial</span> - 'Crucial' means critically important.
+                        </div>
+                    </li>
+                    <!-- Passage 16 -->
+                    <li>
+                        <h3>Passage 16</h3>
+                        <p class="cloze-passage">The digital age has __(76)__ transformed how we live and work. Information that was once hard to find is now instantly __(77)__ at our fingertips. While this has brought immense benefits, it also presents a significant __(78)__: information overload. Learning how to __(79)__ reliable sources from misinformation has become a __(80)__ skill for everyone.</p>
+                        <ul class="options-list">
+                            <li><strong>76.</strong> (A) slightly (B) rarely (C) profoundly (D) hardly</li>
+                            <li><strong>77.</strong> (A) hidden (B) available (C) secret (D) lost</li>
+                            <li><strong>78.</strong> (A) advantage (B) solution (C) benefit (D) challenge</li>
+                            <li><strong>79.</strong> (A) combine (B) mix (C) distinguish (D) accept</li>
+                            <li><strong>80.</strong> (A) useless (B) minor (C) optional (D) vital</li>
+                        </ul>
+                        <div class="explanation">
+                            <strong>Answers & Explanations:</strong><br>
+                            76. <span class="correct-answer">(C) profoundly</span> - 'Profoundly' means deeply or intensely, accurately describing the impact of the digital age.<br>
+                            77. <span class="correct-answer">(B) available</span> - The internet makes information readily 'available'.<br>
+                            78. <span class="correct-answer">(D) challenge</span> - 'Information overload' is presented as a problem or 'challenge'.<br>
+                            79. <span class="correct-answer">(C) distinguish</span> - One must learn to 'distinguish' or differentiate between reliable and unreliable sources.<br>
+                            80. <span class="correct-answer">(D) vital</span> - 'Vital' means essential, highlighting the importance of this new skill.
+                        </div>
+                    </li>
+                    <!-- Passage 17 -->
+                    <li>
+                        <h3>Passage 17</h3>
+                        <p class="cloze-passage">The discovery of penicillin by Alexander Fleming in 1928 was a __(81)__ point in the history of medicine. He __(82)__ that a mold called Penicillium had contaminated one of his experiments and was preventing the growth of bacteria. This __(83)__ observation led to the development of antibiotics, which have since __(84)__ countless lives. Fleming's work __(85)__ the way for modern medicine.</p>
+                        <ul class="options-list">
+                            <li><strong>81.</strong> (A) minor (B) turning (C) final (D) low</li>
+                            <li><strong>82.</strong> (A) ignored (B) forgot (C) observed (D) hid</li>
+                            <li><strong>83.</strong> (A) careless (B) accidental (C) intentional (D) useless</li>
+                            <li><strong>84.</strong> (A) cost (B) endangered (C) saved (D) risked</li>
+                            <li><strong>85.</strong> (A) blocked (B) closed (C) paved (D) destroyed</li>
+                        </ul>
+                        <div class="explanation">
+                            <strong>Answers & Explanations:</strong><br>
+                            81. <span class="correct-answer">(B) turning</span> - A 'turning point' is a time when a significant change occurs.<br>
+                            82. <span class="correct-answer">(C) observed</span> - As a scientist, Fleming would have 'observed' the results of his experiment.<br>
+                            83. <span class="correct-answer">(B) accidental</span> - The discovery was famously made by chance, so it was 'accidental'.<br>
+                            84. <span class="correct-answer">(C) saved</span> - Antibiotics are known for having 'saved' many lives.<br>
+                            85. <span class="correct-answer">(C) paved</span> - The idiom 'paved the way' means to create the conditions for something to happen.
+                        </div>
+                    </li>
+                    <!-- Passage 18 -->
+                    <li>
+                        <h3>Passage 18</h3>
+                        <p class="cloze-passage">A free and independent press is __(86)__ to the health of a democracy. It __(87)__ the government accountable by reporting on its actions. This ensures __(88)__ and prevents corruption. An informed citizenry is better equipped to make sound decisions during elections. However, the press must also act __(89)__ and adhere to journalistic __(90)__.</p>
+                        <ul class="options-list">
+                            <li><strong>86.</strong> (A) irrelevant (B) detrimental (C) vital (D) optional</li>
+                            <li><strong>87.</strong> (A) makes (B) holds (C) allows (D) frees</li>
+                            <li><strong>88.</strong> (A) secrecy (B) confusion (C) transparency (D) chaos</li>
+                            <li><strong>89.</strong> (A) irresponsibly (B) dishonestly (C) responsibly (D) carelessly</li>
+                            <li><strong>90.</strong> (A) biases (B) rumors (C) opinions (D) ethics</li>
+                        </ul>
+                        <div class="explanation">
+                            <strong>Answers & Explanations:</strong><br>
+                            86. <span class="correct-answer">(C) vital</span> - 'Vital' means essential or critically important.<br>
+                            87. <span class="correct-answer">(B) holds</span> - The correct idiom is to 'hold someone accountable'.<br>
+                            88. <span class="correct-answer">(C) transparency</span> - Reporting on government actions leads to openness or 'transparency'.<br>
+                            89. <span class="correct-answer">(C) responsibly</span> - The word 'However' introduces a condition, which is that the press must act 'responsibly'.<br>
+                            90. <span class="correct-answer">(D) ethics</span> - 'Journalistic ethics' is the standard term for the moral principles of journalism.
+                        </div>
+                    </li>
+                    <!-- Passage 19 -->
+                    <li>
+                        <h3>Passage 19</h3>
+                        <p class="cloze-passage">Motivation is the psychological process that __(91)__ and directs goal-oriented behaviors. It can stem __(92)__ two main sources: intrinsic and extrinsic. Intrinsic motivation is the __(93)__ of an activity for its own sake, while extrinsic motivation is driven by external rewards like money or praise. Understanding what __(94)__ an individual is key to success in both education and management. For long-term commitment, fostering __(95)__ motivation is generally more effective.</p>
+                        <ul class="options-list">
+                            <li><strong>91.</strong> (A) prevents (B) initiates (C) concludes (D) stops</li>
+                            <li><strong>92.</strong> (A) at (B) for (C) with (D) from</li>
+                            <li><strong>93.</strong> (A) dislike (B) fear (C) pursuit (D) avoidance</li>
+                            <li><strong>94.</strong> (A) demotivates (B) drives (C) confuses (D) angers</li>
+                            <li><strong>95.</strong> (A) external (B) temporary (C) intrinsic (D) negative</li>
+                        </ul>
+                        <div class="explanation">
+                            <strong>Answers & Explanations:</strong><br>
+                            91. <span class="correct-answer">(B) initiates</span> - Motivation 'initiates' or begins behaviors.<br>
+                            92. <span class="correct-answer">(D) from</span> - 'Stem from' is the correct phrasal verb meaning 'to originate from'.<br>
+                            93. <span class="correct-answer">(C) pursuit</span> - Intrinsic motivation involves the 'pursuit' or undertaking of an activity for enjoyment.<br>
+                            94. <span class="correct-answer">(B) drives</span> - The word 'drives' is a synonym for motivates.<br>
+                            95. <span class="correct-answer">(C) intrinsic</span> - The context suggests that internal or 'intrinsic' motivation is better for long-term commitment.
+                        </div>
+                    </li>
+                    <!-- Passage 20 -->
+                    <li>
+                        <h3>Passage 20</h3>
+                        <p class="cloze-passage">Biodiversity, the __(96)__ of life on Earth, is essential for our planet's health. It __(97)__ us with clean air, water, and food. Human activities, however, are causing a __(98)__ decline in biodiversity, leading to an extinction crisis. Many species are __(99)__ with extinction due to habitat loss and pollution. It is our collective responsibility to __(100)__ and preserve the Earth's precious ecosystems.</p>
+                        <ul class="options-list">
+                            <li><strong>96.</strong> (A) similarity (B) lack (C) uniformity (D) variety</li>
+                            <li><strong>97.</strong> (A) denies (B) deprives (C) provides (D) takes</li>
+                            <li><strong>98.</strong> (A) slow (B) rapid (C) gradual (D) gentle</li>
+                            <li><strong>99.</strong> (A) blessed (B) gifted (C) rewarded (D) threatened</li>
+                            <li><strong>100.</strong> (A) destroy (B) pollute (C) ignore (D) protect</li>
+                        </ul>
+                        <div class="explanation">
+                            <strong>Answers & Explanations:</strong><br>
+                            96. <span class="correct-answer">(D) variety</span> - Biodiversity is defined as the 'variety' of life.<br>
+                            97. <span class="correct-answer">(C) provides</span> - The collocation is 'provides us with'.<br>
+                            98. <span class="correct-answer">(B) rapid</span> - The context of a 'crisis' suggests a fast or 'rapid' decline.<br>
+                            99. <span class="correct-answer">(D) threatened</span> - Species are 'threatened with' extinction.<br>
+                            100. <span class="correct-answer">(D) protect</span> - The sentence calls for a positive action to solve the problem, which is to 'protect'.
+                        </div>
+                    </li>
+                </ol>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-column a');
+            const contentSections = document.querySelectorAll('.content-section');
+            const contentColumn = document.querySelector('.content-column');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    navLinks.forEach(nav => nav.classList.remove('active'));
+                    this.classList.add('active');
+                    const targetId = this.getAttribute('href');
+                    contentSections.forEach(section => {
+                        if ('#' + section.id === targetId) {
+                            section.classList.add('active');
+                        } else {
+                            section.classList.remove('active');
+                        }
+                    });
+                    contentColumn.scrollTop = 0;
+                });
+            });
+            
+             const firstLink = document.querySelector('.nav-column a');
+             if(firstLink) {
+                firstLink.classList.add('active');
+                document.querySelector(firstLink.getAttribute('href')).classList.add('active');
+             }
+        });
+    </script>
+
+</body>
+</html>

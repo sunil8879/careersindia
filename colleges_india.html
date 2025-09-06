@@ -1,0 +1,894 @@
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Colleges in India - A Comprehensive Guide</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Orbitron:wght@900&display=swap');
+
+        :root {
+            --bg-dark: #000000;
+            --bg-mid: #1a1a1a;
+            --text-primary: #FFFFFF;
+            --text-secondary: #b3b3b3;
+            --accent-green: #39FF14; /* Parrot Green */
+            --light-green-shadow: #adff9e;
+            --dark-green-shadow: #008000; /* Dark Green */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* --- Main Split Page Layout --- */
+        .page-container {
+            display: flex;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* --- Left Control Panel --- */
+        .control-panel {
+            flex: 0 0 450px;
+            padding: 30px;
+            background-color: var(--bg-mid);
+            border-right: 2px solid var(--accent-green);
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            overflow-y: auto;
+        }
+
+        .title-box {
+            background: linear-gradient(145deg, #2e2e2e, #1a1a1a);
+            border: 2px solid var(--dark-green-shadow);
+            padding: 20px;
+            box-shadow: 
+                inset 0 0 20px rgba(0,0,0,0.8),
+                inset 2px 2px 5px var(--light-green-shadow),
+                inset -3px -3px 8px var(--dark-green-shadow),
+                0 0 25px rgba(57, 255, 20, 0.3),
+                8px 8px 20px rgba(0,0,0,0.7);
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .main-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5em;
+            font-weight: 900;
+            color: var(--white);
+            text-transform: uppercase;
+            text-shadow: 
+                3px 3px 0px var(--dark-green-shadow),
+                -1px -1px 1px var(--light-green-shadow),
+                0 0 20px var(--accent-green);
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-group label {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            color: var(--accent-green);
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .input-group select {
+            width: 100%;
+            padding: 12px;
+            font-size: 1.1em;
+            border-radius: 5px;
+            border: 2px solid var(--dark-green-shadow);
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            cursor: pointer;
+        }
+        
+        #analysis-btn {
+            padding: 15px;
+            font-size: 1.2em;
+            font-family: 'Orbitron', sans-serif;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(145deg, var(--light-green-shadow), var(--accent-green));
+            color: #000;
+            transition: all 0.2s ease;
+            margin-top: 15px;
+            border-top: 2px solid var(--accent-green);
+            padding-top: 30px;
+        }
+        #analysis-btn:hover {
+            box-shadow: 0 0 20px var(--accent-green);
+        }
+
+        /* --- Right Display Panel --- */
+        .display-panel {
+            flex: 1;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        
+        .tabs-container {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .tab {
+            padding: 15px 25px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1em;
+            font-weight: 700;
+            cursor: pointer;
+            border-radius: 12px;
+            color: var(--bg-dark);
+            transition: all 0.2s ease-out;
+            background: linear-gradient(145deg, #ffffff, #d9d9d9);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+            box-shadow: 
+                5px 5px 10px rgba(0,0,0,0.5),
+                -5px -5px 10px rgba(255,255,255,0.1),
+                inset 1px 1px 2px rgba(255, 255, 255, 0.8),
+                inset -1px -1px 2px rgba(0, 0, 0, 0.4);
+        }
+        
+        .tab:hover {
+            transform: translateY(-3px);
+            color: var(--bg-dark);
+            background: var(--accent-green);
+        }
+
+        .tab.active {
+            color: var(--bg-dark);
+            transform: scale(1.05);
+            background: var(--accent-green);
+            box-shadow: 
+                inset 5px 5px 10px rgba(0,0,0,0.3),
+                inset -5px -5px 10px rgba(255,255,255,0.5),
+                0 0 15px var(--accent-green);
+        }
+        
+        #content-area {
+            flex-grow: 1;
+            overflow-y: auto;
+            background-color: rgba(26, 26, 26, 0.5);
+            border-radius: 10px;
+            padding: 20px;
+        }
+        
+        .content-section { display: none; }
+        .content-section.active { display: block; }
+        
+        .college-card {
+            background-color: var(--bg-mid);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 5px solid var(--accent-green);
+        }
+        .college-card h3 { font-size: 1.6em; color: var(--accent-green); margin-bottom: 15px; }
+        .college-card p { margin: 8px 0; color: var(--text-secondary); line-height: 1.6; }
+        .college-card strong { color: var(--text-primary); }
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .detail-item {
+            background: var(--bg-dark);
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+
+        .comparison-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .hidden { display: none !important; }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: var(--bg-dark); }
+        ::-webkit-scrollbar-thumb { background-color: var(--accent-green); border-radius: 20px; border: 3px solid var(--bg-dark); }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .control-panel { flex: 0 0 350px; }
+            .comparison-container { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 992px) {
+            body { height: auto; }
+            .page-container { flex-direction: column; }
+            .control-panel { border-right: none; border-bottom: 2px solid var(--accent-green); }
+        }
+    </style>
+</head>
+<body>
+
+
+  <div class="page-container">
+        <!-- LEFT CONTROL PANEL -->
+        <aside class="control-panel">
+            <div class="title-box">
+                <h1 class="main-title">LIST OF TOP COLLEGES IN INDIA</h1>
+            </div>
+
+            <div class="input-group">
+                <label for="state-select">Explore Colleges by State</label>
+                <select id="state-select">
+                    <option value="" disabled selected>-- Choose a State / UT --</option>
+                    <!-- Options populated by JavaScript -->
+                </select>
+            </div>
+
+            <button id="analysis-btn">COMPARATIVE ANALYSIS</button>
+        </aside>
+
+        <!-- RIGHT DISPLAY PANEL -->
+        <main class="display-panel">
+            <div id="placeholder">
+                <h2>Welcome!</h2>
+                <p>Select a state from the dropdown to explore top colleges, or click 'Comparative Analysis' to compare two specific institutions.</p>
+            </div>
+
+            <!-- TABS FOR STATE EXPLORATION -->
+            <div id="state-tabs-container" class="tabs-container hidden">
+                <div class="tab" data-type="arts">Arts/Science/Commerce</div>
+                <div class="tab" data-type="eng">Engineering</div>
+                <div class="tab" data-type="law">Law</div>
+                <div class="tab" data-type="med">Medical</div>
+            </div>
+
+            <!-- TABS FOR COMPARATIVE ANALYSIS -->
+            <div id="comparator-tabs-container" class="tabs-container hidden">
+                <div class="tab" data-type="arts">Compare Arts/Science/Commerce</div>
+                <div class="tab" data-type="eng">Compare Engineering</div>
+                <div class="tab" data-type="law">Compare Law</div>
+                <div class="tab" data-type="med">Compare Medical</div>
+            </div>
+
+            <!-- SELECTION BOXES FOR COMPARATOR -->
+            <div id="comparator-selection" class="input-group hidden" style="flex-direction: row; gap: 20px; margin-bottom: 20px;">
+                <div style="flex: 1;">
+                    <label for="college-1">Choose College 1</label>
+                    <select id="college-1"></select>
+                </div>
+                <div style="flex: 1;">
+                    <label for="college-2">Choose College 2</label>
+                    <select id="college-2"></select>
+                </div>
+            </div>
+
+            <!-- CONTENT AREA (where results appear) -->
+            <div id="content-area">
+                <div id="college-display" class="content-section"></div>
+                <div id="comparison-display" class="content-section"></div>
+            </div>
+        </main>
+    </div>
+
+
+  <script>
+    // --- COMPREHENSIVE COLLEGE DATABASE ---
+    const collegeData = {
+        "ANDAMAN AND NICOBAR ISLANDS": {
+            arts: [
+                { name: "Jawaharlal Nehru Rajkeeya Mahavidyalaya (JNRM)", location: "Port Blair", affiliatedTo: "Andaman & Nicobar Islands University", nirf: "N/A", placement: "Low", result: "75-85%", fees: "Approx. ₹15k - ₹25k", courses: "B.A, B.Sc, B.Com, BBA, BCA." }
+            ],
+            eng: [
+                { name: "Dr. B. R. Ambedkar Institute of Technology", location: "Port Blair", affiliatedTo: "Pondicherry University", nirf: "N/A", placement: "60-70%", result: "80-90%", fees: "Approx. ₹2 - ₹3 Lakhs", courses: "B.Tech in Civil, CSE, ECE." }
+            ],
+            law: [
+                 { name: "Andaman Law College", location: "Port Blair", affiliatedTo: "Andaman & Nicobar Islands University", nirf: "N/A", placement: "Low", result: "70-80%", fees: "Approx. ₹1 - ₹1.5 Lakhs", courses: "B.A. LLB (5 Yrs)." }
+            ],
+            med: []
+        },
+        "ANDHRA PRADESH": {
+            arts: [
+                { name: "Andhra Loyola College", location: "Vijayawada", affiliatedTo: "Krishna University (Autonomous)", nirf: "51 (Colleges)", placement: "Good", result: "90-98%", fees: "Approx. ₹60k - ₹1 Lakh", courses: "B.A, B.Sc, B.Com." }
+            ],
+            eng: [
+                { name: "Andhra University College of Engineering", location: "Visakhapatnam", affiliatedTo: "Andhra University", nirf: "76 (Overall, as Univ.)", placement: "90-95%", result: "90-98%", fees: "Approx. ₹1 - ₹2 Lakhs", courses: "B.E./B.Tech in CSE, ECE, Mechanical, Civil, Marine Engg." }
+            ],
+            law: [
+                 { name: "Damodaram Sanjivayya National Law University (DSNLU)", location: "Visakhapatnam", affiliatedTo: "State University", nirf: "28 (Law)", placement: "Good", result: "95-100%", fees: "Approx. ₹10 - ₹12 Lakhs", courses: "B.A. LLB (Hons.) (5 Yrs)." }
+            ],
+            med: [
+                { name: "Andhra Medical College", location: "Visakhapatnam", affiliatedTo: "Dr. Y.S.R. University of Health Sciences", nirf: "N/A", placement: "100%", result: "95-100%", fees: "Approx. ₹1 - ₹1.5 Lakhs", courses: "MBBS (5.5 Yrs), MD/MS." }
+            ]
+        },
+        "ARUNACHAL PRADESH": {
+            arts: [
+                { name: "Jawaharlal Nehru College, Pasighat", location: "Pasighat", affiliatedTo: "Rajiv Gandhi University", nirf: "N/A", placement: "Low", result: "80-90%", fees: "Approx. ₹15k - ₹25k", courses: "B.A, B.Sc, B.Com." }
+            ],
+            eng: [
+                { name: "North-Eastern Regional Institute of Science and Technology (NERIST)", location: "Nirjuli", affiliatedTo: "Deemed University", nirf: "151-200 (Engg.)", placement: "80-85%", result: "85-95%", fees: "Approx. ₹1 - ₹1.5 Lakhs", courses: "Modular system: Certificate, Diploma, B.Tech." }
+            ],
+            law: [
+                { name: "Arunachal Law Academy", location: "Itanagar", affiliatedTo: "Rajiv Gandhi University", nirf: "N/A", placement: "Low", result: "75-85%", fees: "Approx. ₹1 - ₹1.5 Lakhs", courses: "LL.B (3 Yrs)." }
+            ],
+            med: []
+        },
+        "ASSAM": {
+            arts: [
+                { name: "Cotton College (now Cotton University)", location: "Guwahati", affiliatedTo: "State University", nirf: "N/A", placement: "Low", result: "95-100%", fees: "Approx. ₹20k - ₹30k", courses: "B.A. (Hons.), B.Sc. (Hons.), B.C.A." },
+                { name: "Gauhati Commerce College", location: "Guwahati", affiliatedTo: "Gauhati University", nirf: "N/A", placement: "90%+", result: "90-98%", fees: "Approx. ₹30k - ₹50k", courses: "B.Com, B.B.A." }
+            ],
+            eng: [
+                { name: "Jorhat Engineering College (JEC)", location: "Jorhat", affiliatedTo: "Assam Science and Technology University", nirf: "N/A", placement: "85-90%", result: "90-95%", fees: "Approx. ₹1.5 - ₹2.5 Lakhs", courses: "B.E. in Civil, CSE, Electrical, Instrumentation, Mechanical." }
+            ],
+            law: [
+                { name: "University Law College, Gauhati University", location: "Guwahati", affiliatedTo: "Gauhati University", nirf: "N/A", placement: "Moderate", result: "85-95%", fees: "Approx. ₹1 - ₹1.5 Lakhs", courses: "B.A. LLB (Hons.), LL.B." }
+            ],
+            med: [
+                { name: "Gauhati Medical College and Hospital (GMCH)", location: "Guwahati", affiliatedTo: "Srimanta Sankaradeva University of Health Sciences", nirf: "N/A", placement: "100%", result: "95-100%", fees: "Approx. ₹1.5 - ₹2.5 Lakhs", courses: "MBBS, MD/MS." }
+            ]
+        },
+        "BIHAR": {
+            arts: [
+                { name: "Patna Science College", location: "Patna", affiliatedTo: "Patna University", nirf: "N/A", placement: "Low", result: "85-95%", fees: "Approx. ₹15k - ₹25k", courses: "B.Sc. (Hons.) in core sciences, B.C.A." },
+                { name: "Patna College", location: "Patna", affiliatedTo: "Patna University", nirf: "N/A", placement: "Low", result: "80-90%", fees: "Approx. ₹15k - ₹25k", courses: "B.A. (Hons.), BBA, B.A. Mass Comm." }
+            ],
+            eng: [
+                { name: "Muzaffarpur Institute of Technology (MIT)", location: "Muzaffarpur", affiliatedTo: "Aryabhatta Knowledge University", nirf: "N/A", placement: "75-85%", result: "85-95%", fees: "Approx. ₹3.5 - ₹4.5 Lakhs", courses: "B.Tech in Civil, CSE, EE, ECE, IT, Mechanical, Leather Tech." }
+            ],
+            law: [
+                { name: "Patna Law College", location: "Patna", affiliatedTo: "Patna University", nirf: "N/A", placement: "Low", result: "80-90%", fees: "Approx. ₹10k - ₹20k", courses: "LL.B (3 Yrs)." }
+            ],
+            med: [
+                { name: "Patna Medical College and Hospital (PMCH)", location: "Patna", affiliatedTo: "Aryabhatta Knowledge University", nirf: "N/A", placement: "100%", result: "95-100%", fees: "Approx. ₹1 - ₹2 Lakhs", courses: "MBBS, MD/MS." }
+            ]
+        },         
+
+    "CHANDIGARH": {
+            arts: [
+                { name: "Post Graduate Government College, Sector 11 (PGGC-11)", location: "Chandigarh", affiliatedTo: "Panjab University", nirf: "60", placement: "Good", result: "85-95%", fees: "Approx. ₹50k - ₹70k", courses: "B.A, B.Sc, B.Com, B.C.A., B.B.A." },
+                { name: "Goswami Ganesh Dutta Sanatan Dharma College (GGDSD)", location: "Chandigarh", affiliatedTo: "Panjab University", nirf: "81", placement: "Very High (Commerce)", result: "90-98%", fees: "Approx. ₹1 - ₹1.5 Lakhs", courses: "B.Com (Hons.), BBA, BCA, B.A. (Hons.), B.Sc. (Hons.)." }
+            ],
+            eng: [
+                { name: "Punjab Engineering College (PEC)", location: "Chandigarh", affiliatedTo: "Deemed University", nirf: "92", placement: "90-95%", result: "90-98%", fees: "Approx. ₹8 - ₹9 Lakhs", courses: "B.Tech in Aerospace, Civil, CSE, ECE, EEE, Mechanical." }
+            ],
+            law: [],
+            med: [
+                 { name: "Government Medical College and Hospital (GMCH)", location: "Chandigarh", affiliatedTo: "Panjab University", nirf: "27", placement: "100%", result: "95-100%", fees: "Approx. ₹1.5 - ₹2 Lakhs", courses: "MBBS, MD/MS." }
+            ]
+        },
+        "CHHATTISGARH": {
+            arts: [
+                { name: "Government E. Raghvendra Rao PG Science College", location: "Bilaspur", affiliatedTo: "Atal Bihari Vajpayee Vishwavidyalaya (Autonomous)", nirf: "52", placement: "Moderate", result: "90-98%", fees: "Approx. ₹15k - ₹25k", courses: "B.Sc. in Physics, Chemistry, Maths, CS, Biotech, Botany, Zoology." }
+            ],
+            eng: [
+                { name: "Bhilai Institute of Technology (BIT), Durg", location: "Durg", affiliatedTo: "CSVTU (Autonomous)", nirf: "201-250", placement: "85-90%", result: "90-95%", fees: "Approx. ₹4 - ₹5 Lakhs", courses: "B.Tech in Civil, CSE, EE, ECE, IT, Mechanical." }
+            ],
+            law: [],
+            med: [
+                { name: "Pt. Jawaharlal Nehru Memorial Medical College", location: "Raipur", affiliatedTo: "Pt. Deendayal Upadhyay Memorial Health Sciences and Ayush University", nirf: "N/A", placement: "100%", result: "95-100%", fees: "Approx. ₹2.5 - ₹3.5 Lakhs", courses: "MBBS, MD/MS." }
+            ]
+        },
+        "DADRA AND NAGAR HAVELI AND DAMAN AND DIU": {
+            arts: [],
+            eng: [],
+            law: [],
+            med: [
+                 { name: "Namo Medical Education & Research Institute", location: "Silvassa", affiliatedTo: "Veer Narmad South Gujarat University", nirf: "N/A", placement: "100%", result: "90-98%", fees: "Approx. ₹4 - ₹5 Lakhs", courses: "MBBS (5.5 Yrs)." }
+            ]
+        },
+        "DELHI": {
+            arts: [
+                { name: "Shri Ram College of Commerce (SRCC)", location: "New Delhi", affiliatedTo: "University of Delhi", nirf: "11", placement: "95-100%", result: "98-100%", fees: "Approx. ₹1 - ₹1.5 Lakhs", courses: "B.Com (Hons.), B.A. (Hons.) Economics." },
+                { name: "St. Stephen's College", location: "New Delhi", affiliatedTo: "University of Delhi", nirf: "14", placement: "High", result: "98-100%", fees: "Approx. ₹1.2 - ₹1.5 Lakhs", courses: "B.A. (Hons.) in Economics, English, History; B.Sc. (Hons.) in Physics, Chemistry, Maths." },
+                { name: "Hindu College", location: "New Delhi", affiliatedTo: "University of Delhi", nirf: "2", placement: "Very High", result: "95-100%", fees: "Approx. ₹60k - ₹80k", courses: "B.A./B.Sc./B.Com (Hons.) in a comprehensive range of subjects." },
+                { name: "Lady Shri Ram College for Women (LSR)", location: "New Delhi", affiliatedTo: "University of Delhi", nirf: "9", placement: "Very High", result: "95-100%", fees: "Approx. ₹60k - ₹80k", courses: "B.A. (Hons.) in Journalism, Economics, Political Science, Psychology." }
+            ],
+            eng: [
+                { name: "Delhi Technological University (DTU)", location: "Rohini, New Delhi", affiliatedTo: "State University", nirf: "29", placement: "95%", result: "90-98%", fees: "Approx. ₹8 - ₹9 Lakhs", courses: "B.Tech in Software, Automotive, Eng. Physics; B.Des, BBA. M.Tech and MBA (DSM)." }
+            ],
+            law: [
+                 { name: "National Law University, Delhi (NLU Delhi)", location: "Dwarka, New Delhi", affiliatedTo: "State University", nirf: "2", placement: "100%", result: "95-100%", fees: "Approx. ₹15 - ₹18 Lakhs", courses: "B.A. LLB (Hons.) (5 Yrs)." }
+            ],
+            med: []
+        },
+        "GOA": {
+            arts: [
+                { name: "St. Xavier's College, Mapusa", location: "Mapusa", affiliatedTo: "Goa University (Autonomous)", nirf: "N/A", placement: "Good", result: "90-98%", fees: "Approx. ₹40k - ₹60k", courses: "B.A, B.Sc, B.Com, B.B.A., B.C.A." }
+            ],
+            eng: [
+                { name: "Goa College of Engineering (GEC)", location: "Farmagudi, Ponda", affiliatedTo: "Goa University", nirf: "N/A", placement: "85-90%", result: "90-95%", fees: "Approx. ₹1 - ₹1.5 Lakhs", courses: "B.E. in Civil, Computer, EEE, ECE, IT, Mechanical." }
+            ],
+            law: [
+                { name: "V. M. Salgaocar College of Law", location: "Panaji", affiliatedTo: "Goa University", nirf: "N/A", placement: "Good", result: "85-95%", fees: "Approx. ₹1 - ₹1.5 Lakhs", courses: "B.A. LLB (5 Yrs), LL.B (3 Yrs)." }
+            ],
+            med: [
+                { name: "Goa Medical College and Hospital", location: "Bambolim", affiliatedTo: "Goa University", nirf: "N/A", placement: "100%", result: "95-100%", fees: "Approx. ₹4 - ₹5 Lakhs", courses: "MBBS (5.5 Yrs), MD/MS." }
+            ]
+        },   
+
+
+  "GUJARAT": {
+            arts: [
+                { name: "St. Xavier's College, Ahmedabad", location: "Ahmedabad", affiliatedTo: "Gujarat University (Autonomous)", nirf: "5", placement: "Moderate", result: "95-100%", fees: "Approx. ₹40k - ₹60k", courses: "B.A, B.Sc, B.Com." },
+                { name: "H. L. College of Commerce (HLCC)", location: "Ahmedabad", affiliatedTo: "Gujarat University", nirf: "N/A", placement: "90%+", result: "90-98%", fees: "Approx. ₹15k - ₹25k", courses: "B.Com (Hons.), B.B.A." }
+            ],
+            eng: [
+                { name: "Dhirubhai Ambani Institute of ICT (DA-IICT)", location: "Gandhinagar", affiliatedTo: "Private University", nirf: "101-150", placement: "100%", result: "98-100%", fees: "Approx. ₹8 - ₹9 Lakhs", courses: "B.Tech (ICT), B.Tech (Maths & Computing)." }
+            ],
+            law: [
+                 { name: "Institute of Law, Nirma University", location: "Ahmedabad", affiliatedTo: "Nirma University", nirf: "27", placement: "95%+", result: "95-100%", fees: "Approx. ₹12 - ₹15 Lakhs", courses: "B.A./B.Com LLB (Hons.) (5 Yrs)." }
+            ],
+            med: [
+                { name: "B. J. Medical College", location: "Ahmedabad", affiliatedTo: "Gujarat University", nirf: "50", placement: "100%", result: "95-100%", fees: "Approx. ₹1 - ₹1.5 Lakhs", courses: "MBBS, MD/MS." }
+            ]
+        },
+        "HARYANA": {
+            arts: [],
+            eng: [
+                { name: "J.C. Bose University of Science and Technology, YMCA", location: "Faridabad", affiliatedTo: "State University", nirf: "101-150", placement: "90-95%", result: "90-98%", fees: "Approx. ₹4 - ₹5 Lakhs", courses: "B.Tech in CE, IT, ECE, Mechanical, EE, Civil." }
+            ],
+            law: [
+                { name: "Jindal Global Law School (JGLS)", location: "Sonipat", affiliatedTo: "O. P. Jindal Global University", nirf: "1 (as JGU)", placement: "95-100%", result: "95-100%", fees: "Approx. ₹30 - ₹35 Lakhs", courses: "B.A./B.B.A. LLB (Hons.) (5 Yrs), LL.B (3 Yrs)." }
+            ],
+            med: [
+                { name: "Maharishi Markandeshwar College of Medical Sciences", location: "Mullana, Ambala", affiliatedTo: "Deemed University", nirf: "34", placement: "100%", result: "90-98%", fees: "Approx. ₹70 Lakhs - ₹1 Cr+", courses: "MBBS, MD/MS." }
+            ]
+        },  
+
+
+   "HIMACHAL PRADESH": {
+            arts: [
+                { name: "St. Bede's College", location: "Shimla", affiliatedTo: "Himachal Pradesh University (Autonomous)", nirf: "101-150", placement: "Moderate", result: "95-100%", fees: "Approx. ₹1.5 - ₹2.5 Lakhs", courses: "B.A. (Hons.), B.Sc., B.Com (Hons.), B.B.A., B.C.A." }
+            ],
+            eng: [],
+            law: [],
+            med: [
+                { name: "Indira Gandhi Medical College (IGMC)", location: "Shimla", affiliatedTo: "Atal Medical and Research University", nirf: "47", placement: "100%", result: "95-100%", fees: "Approx. ₹3 - ₹4 Lakhs", courses: "MBBS, MD/MS, DM/M.Ch." }
+            ]
+        },
+        "JHARKHAND": {
+            arts: [
+                { name: "St. Xavier's College, Ranchi", location: "Ranchi", affiliatedTo: "Ranchi University (Autonomous)", nirf: "N/A", placement: "Good", result: "90-98%", fees: "Approx. ₹1.5 - ₹2.5 Lakhs", courses: "B.A. (Hons.), B.Sc. (Hons.), B.Com (Hons.), BBA, BCA." }
+            ],
+            eng: [
+                { name: "Birsa Institute of Technology (BIT), Sindri", location: "Sindri, Dhanbad", affiliatedTo: "Jharkhand University of Technology", nirf: "201-250", placement: "85-90%", result: "90-95%", fees: "Approx. ₹3 - ₹4 Lakhs", courses: "B.Tech in Civil, CSE, EE, ECE, IT, Mechanical, Metallurgy, Mining." }
+            ],
+            law: [
+                 { name: "Chotanagpur Law College", location: "Ranchi", affiliatedTo: "Ranchi University", nirf: "N/A", placement: "Low", result: "80-90%", fees: "Approx. ₹50k - ₹80k", courses: "B.A. LLB (Hons.), LL.B." }
+            ],
+            med: [
+                { name: "Rajendra Institute of Medical Sciences (RIMS)", location: "Ranchi", affiliatedTo: "Ranchi University", nirf: "N/A", placement: "100%", result: "95-100%", fees: "Approx. ₹1 - ₹2 Lakhs", courses: "MBBS, BDS, MD/MS." }
+            ]
+        },
+        "KARNATAKA": {
+            arts: [
+                { name: "St. Joseph's College of Commerce", location: "Bengaluru", affiliatedTo: "Bengaluru City University (Autonomous)", nirf: "56", placement: "95%+", result: "95-100%", fees: "Approx. ₹3 - ₹5 Lakhs", courses: "B.Com (Professional), B.B.A." },
+                { name: "Mount Carmel College", location: "Bengaluru", affiliatedTo: "Bengaluru City University (Autonomous)", nirf: "23", placement: "Good", result: "90-98%", fees: "Approx. ₹2 - ₹4 Lakhs", courses: "B.A. (Psychology, Journalism), B.Sc. (Fashion/Interior Design), B.Com, B.B.A." }
+            ],
+            eng: [
+                { name: "R. V. College of Engineering (RVCE)", location: "Bengaluru", affiliatedTo: "VTU (Autonomous)", nirf: "96", placement: "95-100%", result: "95-100%", fees: "Approx. ₹4 Lakhs (Govt) to ₹40 Lakhs+ (Mgmt)", courses: "B.E. in Aerospace, CSE, ECE, Info Science, Mechanical." },
+                { name: "Ramaiah Institute of Technology (MSRIT)", location: "Bengaluru", affiliatedTo: "VTU (Autonomous)", nirf: "78", placement: "95%+", result: "90-98%", fees: "Approx. ₹4 Lakhs (Govt) to ₹35 Lakhs+ (Mgmt)", courses: "B.E. in Civil, CSE, ECE, EEE, Info Science, Mechanical." }
+            ],
+            law: [],
+            med: [
+                { name: "Bangalore Medical College and Research Institute (BMCRI)", location: "Bengaluru", affiliatedTo: "RGUHS", nirf: "13", placement: "100%", result: "95-100%", fees: "Approx. ₹3 - ₹4 Lakhs", courses: "MBBS, MD/MS." },
+                { name: "Kasturba Medical College (KMC), Manipal", location: "Manipal", affiliatedTo: "MAHE", nirf: "9", placement: "100%", result: "95-100%", fees: "Approx. ₹70 - ₹80 Lakhs", courses: "MBBS, MD/MS." }
+            ]
+        },
+        "KERALA": {
+            arts: [
+                { name: "St. Teresa's College", location: "Ernakulam, Kochi", affiliatedTo: "MG University (Autonomous)", nirf: "41", placement: "Good", result: "95-100%", fees: "Approx. ₹15k - ₹30k", courses: "B.A. (Economics, English), B.Sc. (Physics, Chemistry), B.Voc (Software Dev)." },
+                { name: "Rajagiri College of Social Sciences", location: "Kochi", affiliatedTo: "MG University (Autonomous)", nirf: "30", placement: "95%+", result: "95-100%", fees: "Approx. ₹1.5 - ₹2.5 Lakhs", courses: "B.S.W., B.Com, B.Sc. Psychology." }
+            ],
+            eng: [
+                { name: "College of Engineering, Trivandrum (CET)", location: "Thiruvananthapuram", affiliatedTo: "KTU", nirf: "112", placement: "95-100%", result: "95-100%", fees: "Approx. ₹40k - ₹60k", courses: "B.Tech in Civil, CSE, EEE, ECE, Mechanical; B.Arch." }
+            ],
+            law: [
+                { name: "The National University of Advanced Legal Studies (NUALS)", location: "Kochi", affiliatedTo: "State University", nirf: "N/A", placement: "90%+", result: "95-100%", fees: "Approx. ₹10 - ₹12 Lakhs", courses: "B.A. LLB (Hons.) (5 Yrs)." }
+            ],
+            med: [
+                { name: "Government Medical College, Thiruvananthapuram", location: "Thiruvananthapuram", affiliatedTo: "KUHS", nirf: "44", placement: "100%", result: "95-100%", fees: "Approx. ₹1.5 - ₹2.5 Lakhs", courses: "MBBS, BDS, B.Pharm, MD/MS." }
+            ]
+        },   
+
+  "LADAKH": {
+            arts: [
+                { name: "Eliezer Joldan Memorial College", location: "Leh", affiliatedTo: "University of Ladakh", nirf: "N/A", placement: "Low", result: "70-80%", fees: "Approx. ₹20k - ₹30k", courses: "B.A, B.Sc, B.Com." }
+            ],
+            eng: [], law: [], med: []
+        },
+        "LAKSHADWEEP": {
+            arts: [
+                { name: "Government Jawaharlal Nehru College", location: "Kavaratti", affiliatedTo: "University of Calicut, Kerala", nirf: "N/A", placement: "Low", result: "70-80%", fees: "Approx. ₹10k - ₹15k", courses: "B.A. English, B.Sc. Aquaculture, M.A. English." }
+            ],
+            eng: [], law: [], med: []
+        },
+        "MADHYA PRADESH": {
+            arts: [
+                { name: "Holkar Science College", location: "Indore", affiliatedTo: "DAVV (Autonomous)", nirf: "N/A", placement: "Good", result: "90-98%", fees: "Approx. ₹30k - ₹50k", courses: "B.Sc. (Hons.) in Physics, Chemistry, Maths, CS, Biotech, Forensic Sc." }
+            ],
+            eng: [
+                { name: "Shri Govindram Seksaria Institute of Technology and Science (SGSITS)", location: "Indore", affiliatedTo: "RGPV (Autonomous)", nirf: "151-200", placement: "90-95%", result: "90-98%", fees: "Approx. ₹4 - ₹5 Lakhs", courses: "B.Tech/B.E. in Civil, CSE, EE, ECE, IT, Mechanical." }
+            ],
+            law: [],
+            med: [
+                { name: "Mahatma Gandhi Memorial Medical College (MGM)", location: "Indore", affiliatedTo: "MPMSU", nirf: "N/A", placement: "100%", result: "95-100%", fees: "Approx. ₹5 - ₹6 Lakhs", courses: "MBBS, MD/MS." }
+            ]
+        },
+        "MANIPUR": {
+            arts: [
+                { name: "D.M. College of Science", location: "Imphal", affiliatedTo: "Dhanamanjuri University", nirf: "N/A", placement: "Low", result: "85-95%", fees: "Approx. ₹20k - ₹30k", courses: "B.Sc. (Hons.) in Anthropology, Botany, Chemistry, CS, Electronics, etc." }
+            ],
+            eng: [], law: [],
+            med: [
+                { name: "Regional Institute of Medical Sciences (RIMS)", location: "Imphal", affiliatedTo: "Manipur University", nirf: "46", placement: "100%", result: "95-100%", fees: "Approx. ₹50k - ₹70k", courses: "MBBS, BDS, B.Sc. Nursing." }
+            ]
+        },
+        "MEGHALAYA": {
+            arts: [
+                { name: "St. Anthony's College", location: "Shillong", affiliatedTo: "NEHU (Autonomous)", nirf: "101-150", placement: "Good", result: "90-98%", fees: "Approx. ₹1 - ₹1.5 Lakhs", courses: "B.A, B.Sc, B.Com, B.B.A., B.M.S." }
+            ],
+            eng: [], law: [],
+            med: [
+                { name: "North-Eastern Indira Gandhi Regional Institute of Health and Medical Sciences (NEIGRIHMS)", location: "Shillong", affiliatedTo: "Autonomous INI", nirf: "N/A", placement: "100%", result: "95-100%", fees: "Approx. ₹50k - ₹70k", courses: "MBBS, B.Sc. Nursing, MD/MS." }
+            ]
+        },
+        "MIZORAM": {
+            arts: [
+                { name: "Pachhunga University College", location: "Aizawl", affiliatedTo: "Mizoram University", nirf: "45", placement: "Moderate", result: "90-98%", fees: "Approx. ₹30k - ₹50k", courses: "B.A, B.Sc, B.Com (Hons.) in a wide range of subjects." }
+            ],
+            eng: [], law: [],
+            med: [
+                { name: "Zoram Medical College (ZMC)", location: "Falkawn, Aizawl", affiliatedTo: "Mizoram University", nirf: "N/A", placement: "100%", result: "95-100%", fees: "Approx. ₹5 - ₹6 Lakhs", courses: "MBBS (5.5 Yrs)." }
+            ]
+        },
+        "NAGALAND": {
+            arts: [
+                { name: "Kohima Science College", location: "Jotsoma, Kohima", affiliatedTo: "Nagaland University (Autonomous)", nirf: "N/A", placement: "Moderate", result: "85-95%", fees: "Approx. ₹40k - ₹60k", courses: "B.Sc. (Hons.) in Anthropology, Botany, Chemistry, CS, Geology, Maths, Physics." }
+            ],
+            eng: [], law: [], med: []
+        },
+        "ODISHA": {
+            arts: [
+                { name: "Ravenshaw University", location: "Cuttack", affiliatedTo: "State University", nirf: "91 (Univ.)", placement: "Moderate", result: "85-95%", fees: "Approx. ₹15k - ₹30k", courses: "B.A, B.Sc, B.Com (Hons.)." }
+            ],
+            eng: [
+                { name: "Veer Surendra Sai University of Technology (VSSUT)", location: "Burla", affiliatedTo: "State University", nirf: "101-150", placement: "85-90%", result: "90-95%", fees: "Approx. ₹3 - ₹4 Lakhs", courses: "B.Tech in Civil, CSE, EE, ECE, IT, Mechanical." }
+            ],
+            law: [],
+            med: [
+                { name: "SCB Medical College", location: "Cuttack", affiliatedTo: "Utkal University", nirf: "44", placement: "100%", result: "95-100%", fees: "Approx. ₹2 - ₹3 Lakhs", courses: "MBBS, BDS, MD/MS." }
+            ]
+        },
+        "PUNJAB": {
+            arts: [
+                { name: "Government Mohindra College", location: "Patiala", affiliatedTo: "Punjabi University (Autonomous)", nirf: "N/A", placement: "Low", result: "85-95%", fees: "Approx. ₹40k - ₹60k", courses: "B.A. (Hons.), B.Sc., B.Com (Hons.)." }
+            ],
+            eng: [
+                { name: "Guru Nanak Dev Engineering College (GNDEC)", location: "Ludhiana", affiliatedTo: "IKGPTU (Autonomous)", nirf: "N/A", placement: "85-90%", result: "85-95%", fees: "Approx. ₹4 - ₹5 Lakhs", courses: "B.Tech in Civil, CSE, EE, ECE, IT, Mechanical, Production." }
+            ],
+            law: [
+                { name: "Army Institute of Law (AIL)", location: "Mohali", affiliatedTo: "Punjabi University", nirf: "23", placement: "90%+", result: "95-100%", fees: "Approx. ₹10 - ₹12 Lakhs", courses: "B.A. LLB (5 Yrs)." }
+            ],
+            med: [
+                { name: "Christian Medical College, Ludhiana (CMC Ludhiana)", location: "Ludhiana", affiliatedTo: "BFUHS", nirf: "42", placement: "100%", result: "95-100%", fees: "Approx. ₹30 - ₹40 Lakhs", courses: "MBBS, BDS, B.Sc. Nursing." }
+            ]
+        },
+        "RAJASTHAN": {
+            arts: [
+                { name: "St. Xavier's College, Jaipur", location: "Jaipur", affiliatedTo: "University of Rajasthan (Autonomous)", nirf: "N/A", placement: "Good", result: "90-98%", fees: "Approx. ₹1.5 - ₹2.5 Lakhs", courses: "B.A, B.Sc, B.Com, B.B.A., B.C.A." }
+            ],
+            eng: [
+                { name: "MBM University", location: "Jodhpur", affiliatedTo: "State University", nirf: "N/A", placement: "85-90%", result: "90-95%", fees: "Approx. ₹3 - ₹4 Lakhs", courses: "B.E. in CSE, IT, ECE, EE, Mechanical, Civil, Mining." }
+            ],
+            law: [],
+            med: [
+                { name: "Sawai Man Singh (SMS) Medical College", location: "Jaipur", affiliatedTo: "RUHS", nirf: "46", placement: "100%", result: "95-100%", fees: "Approx. ₹3 - ₹4 Lakhs", courses: "MBBS, MD/MS, DM/M.Ch." }
+            ]
+        },
+        "SIKKIM": {
+            arts: [
+                { name: "Sikkim Government College, Gangtok", location: "Gangtok", affiliatedTo: "Sikkim University", nirf: "N/A", placement: "Low", result: "75-85%", fees: "Approx. ₹15k - ₹25k", courses: "B.A. (Hons.), B.Sc. (Hons.), B.Com (Hons.)." }
+            ],
+            eng: [
+                 { name: "Sikkim Manipal Institute of Technology (SMIT)", location: "Majitar, Rangpo", affiliatedTo: "Sikkim Manipal University", nirf: "101-150", placement: "90-95%", result: "90-98%", fees: "Approx. ₹12 - ₹15 Lakhs", courses: "B.Tech in CSE, IT, ECE, EE, Mechanical, Civil." }
+            ],
+            law: [],
+            med: [
+                { name: "Sikkim Manipal Institute of Medical Sciences (SMIMS)", location: "Gangtok", affiliatedTo: "Sikkim Manipal University", nirf: "N/A", placement: "100%", result: "95-100%", fees: "Approx. ₹70 - ₹80 Lakhs", courses: "MBBS, MD/MS, B.Sc. Nursing." }
+            ]
+        },
+        "TAMIL NADU": {
+            arts: [
+                { name: "Loyola College", location: "Chennai", affiliatedTo: "University of Madras (Autonomous)", nirf: "7", placement: "Very High (Commerce)", result: "95-100%", fees: "Approx. ₹60k - ₹4 Lakhs", courses: "B.A. (Economics), B.Sc. (VisCom), B.Com (Hons.), BBA." },
+                { name: "Presidency College", location: "Chennai", affiliatedTo: "State University", nirf: "3", placement: "Low (Academia focus)", result: "95-100%", fees: "Approx. ₹10k - ₹15k", courses: "B.A. (Hons.), B.Sc. (Hons.)." }
+            ],
+            eng: [
+                { name: "College of Engineering, Guindy (CEG)", location: "Chennai", affiliatedTo: "Anna University", nirf: "14 (as Univ.)", placement: "98-100%", result: "95-100%", fees: "Approx. ₹1 - ₹2 Lakhs", courses: "B.E. in Civil, CSE, ECE, EEE, Mechanical, Mining." },
+                { name: "PSG College of Technology", location: "Coimbatore", affiliatedTo: "Anna University (Autonomous)", nirf: "63", placement: "95%+", result: "90-98%", fees: "Approx. ₹3 - ₹5 Lakhs", courses: "B.E./B.Tech in CSE, ECE, EEE, IT, Mechanical, Biotech." }
+            ],
+            law: [
+                { name: "The Tamil Nadu Dr. Ambedkar Law University", location: "Chennai", affiliatedTo: "State University", nirf: "30", placement: "Good", result: "85-95%", fees: "Approx. ₹3 - ₹4 Lakhs", courses: "B.A./B.Com/B.C.A. LLB (Hons.) (5 Yrs)." }
+            ],
+            med: [
+                { name: "Christian Medical College (CMC), Vellore", location: "Vellore", affiliatedTo: "The Tamil Nadu Dr. M.G.R. Medical University", nirf: "3", placement: "100%", result: "98-100%", fees: "Approx. ₹1.5 - ₹2.5 Lakhs", courses: "MBBS, B.Sc. Nursing, MD/MS." },
+                { name: "Madras Medical College (MMC)", location: "Chennai", affiliatedTo: "The Tamil Nadu Dr. M.G.R. Medical University", nirf: "11", placement: "100%", result: "95-100%", fees: "Approx. ₹80k - ₹1 Lakh", courses: "MBBS, MD/MS." }
+            ]
+        },
+        "TELANGANA": {
+            arts: [
+                 { name: "St. Francis College for Women", location: "Hyderabad", affiliatedTo: "Osmania University (Autonomous)", nirf: "N/A", placement: "Good", result: "90-98%", fees: "Approx. ₹1.5 - ₹3 Lakhs", courses: "B.A. (Mass Comm, Psychology), B.Sc., B.Com (Hons.), BMS." }
+            ],
+            eng: [
+                { name: "University College of Engineering, Osmania University", location: "Hyderabad", affiliatedTo: "Osmania University", nirf: "88", placement: "90-95%", result: "90-98%", fees: "Approx. ₹80k - ₹1.5 Lakhs", courses: "B.E. in Biomedical, Civil, CSE, EEE, ECE, Mechanical." }
+            ],
+            law: [],
+            med: [
+                { name: "Osmania Medical College", location: "Hyderabad", affiliatedTo: "KNRUHS", nirf: "N/A", placement: "100%", result: "95-100%", fees: "Approx. ₹1 - ₹2 Lakhs", courses: "MBBS, MD/MS." }
+            ]
+        },
+        "TRIPURA": {
+            arts: [
+                { name: "Maharaja Bir Bikram (MBB) College", location: "Agartala", affiliatedTo: "MBB University", nirf: "N/A", placement: "Low", result: "75-85%", fees: "Approx. ₹10k - ₹20k", courses: "B.A. (Hons.), B.Sc. (Hons.), B.Com (Hons.)." }
+            ],
+            eng: [
+                { name: "Tripura Institute of Technology (TIT)", location: "Agartala", affiliatedTo: "Tripura University", nirf: "N/A", placement: "70-80%", result: "80-90%", fees: "Approx. ₹2 - ₹3 Lakhs", courses: "B.Tech in Civil, CSE, EE, ECE, Mechanical." }
+            ],
+            law: [],
+            med: []
+        },
+        "UTTARAKHAND": {
+            arts: [
+                { name: "D.A.V. (PG) College, Dehradun", location: "Dehradun", affiliatedTo: "HNB Garhwal University", nirf: "N/A", placement: "Low", result: "75-85%", fees: "Approx. ₹30k - ₹50k", courses: "B.A, B.Sc, B.Com." }
+            ],
+            eng: [
+                { name: "College of Technology, G. B. Pant University", location: "Pantnagar", affiliatedTo: "GBPUAT", nirf: "79 (as Univ.)", placement: "85-90%", result: "90-98%", fees: "Approx. ₹3 - ₹4 Lakhs", courses: "B.Tech in Agri, Civil, CSE, EE, ECE, IT, Mechanical." }
+            ],
+            law: [
+                { name: "Law College Dehradun, Uttaranchal University", location: "Dehradun", affiliatedTo: "Uttaranchal University", nirf: "19", placement: "85-95%", result: "90-98%", fees: "Approx. ₹10 - ₹12 Lakhs", courses: "B.A./BBA LLB (Hons.) (5 Yrs)." }
+            ],
+            med: [
+                { name: "Himalayan Institute of Medical Sciences", location: "Dehradun", affiliatedTo: "Swami Rama Himalayan University", nirf: "49", placement: "100%", result: "90-98%", fees: "Approx. ₹80 Lakhs - ₹1 Cr+", courses: "MBBS, MD/MS." }
+            ]
+        },
+        "WEST BENGAL": {
+            arts: [
+                { name: "St. Xavier's College, Kolkata", location: "Kolkata", affiliatedTo: "University of Calcutta (Autonomous)", nirf: "5", placement: "Very High (Commerce)", result: "95-100%", fees: "Approx. ₹1.5 Lakhs - ₹4 Lakhs", courses: "B.A, B.Sc, B.Com, BMS (Hons.)." },
+                { name: "Ramakrishna Mission Vidyamandira, Belur Math", location: "Howrah", affiliatedTo: "University of Calcutta (Autonomous)", nirf: "15", placement: "Moderate", result: "98-100%", fees: "Approx. ₹40k - ₹60k", courses: "B.A. (Hons.), B.Sc. (Hons.)." }
+            ],
+            eng: [
+                { name: "Faculty of Engineering & Technology, Jadavpur University", location: "Kolkata", affiliatedTo: "Jadavpur University", nirf: "10 (as Univ.)", placement: "95-98%", result: "90-98%", fees: "Approx. ₹50k - ₹70k", courses: "B.E. in CSE, ECE, Mechanical, EE, Civil, Chemical, IT." }
+            ],
+            law: [],
+            med: [
+                { name: "Medical College, Kolkata", location: "Kolkata", affiliatedTo: "WBUHS", nirf: "45", placement: "100%", result: "95-100%", fees: "Approx. ₹60k - ₹80k", courses: "MBBS, MD/MS." }
+            ]
+        }
+    };
+
+    // --- SCRIPT LOGIC ---
+    const stateSelect = document.getElementById('state-select');
+    const analysisBtn = document.getElementById('analysis-btn');
+    const stateTabsContainer = document.getElementById('state-tabs-container');
+    const comparatorTabsContainer = document.getElementById('comparator-tabs-container');
+    const comparatorSelection = document.getElementById('comparator-selection');
+    const universityDisplay = document.getElementById('university-display');
+    const comparisonDisplay = document.getElementById('comparison-display');
+    const placeholder = document.getElementById('placeholder');
+    const university1Select = document.getElementById('college-1');
+    const university2Select = document.getElementById('college-2');
+
+    function initialize() {
+        const states = Object.keys(universityData).sort();
+        const populateDropdown = (selectElement) => {
+            selectElement.innerHTML = '<option value="" disabled selected>-- Select --</option>';
+            states.forEach(state => {
+                const option = document.createElement('option');
+                option.value = state;
+                option.textContent = state;
+                selectElement.appendChild(option);
+            });
+        };
+        populateDropdown(stateSelect);
+
+        stateSelect.addEventListener('change', handleStateSelection);
+        analysisBtn.addEventListener('click', handleAnalysisClick);
+        stateTabsContainer.addEventListener('click', handleStateTabClick);
+        comparatorTabsContainer.addEventListener('click', handleComparatorTabClick);
+        [university1Select, university2Select].forEach(select => select.addEventListener('change', handleUniversitySelection));
+    }
+
+    function handleStateSelection() {
+        hideAllDynamicElements();
+        stateTabsContainer.classList.remove('hidden');
+        universityDisplay.classList.add('active');
+        const firstTab = stateTabsContainer.querySelector('.tab');
+        if (firstTab) {
+            firstTab.click();
+        }
+    }
+
+    function handleAnalysisClick() {
+        hideAllDynamicElements();
+        comparatorTabsContainer.classList.remove('hidden');
+        comparisonDisplay.innerHTML = '<p style="text-align:center; color: var(--text-secondary);">Select a college type above, then choose two institutions to compare.</p>';
+        comparisonDisplay.classList.add('active');
+        const firstTab = comparatorTabsContainer.querySelector('.tab');
+        if (firstTab) {
+            firstTab.click();
+        }
+    }
+
+    function handleStateTabClick(event) {
+        const target = event.target.closest('.tab');
+        if (target) {
+            const state = stateSelect.value;
+            const type = target.dataset.type;
+            stateTabsContainer.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            target.classList.add('active');
+            renderUniversityList(state, type);
+        }
+    }
+
+    function handleComparatorTabClick(event) {
+        const target = event.target.closest('.tab');
+        if (target) {
+            const type = target.dataset.type;
+            comparatorTabsContainer.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            target.classList.add('active');
+            populateUniversityDropdowns(type);
+            comparatorSelection.classList.remove('hidden');
+            comparisonDisplay.classList.add('active');
+            comparisonDisplay.innerHTML = '<p style="text-align:center; color: var(--text-secondary);">Now, choose two colleges from the dropdowns above.</p>';
+        }
+    }
+
+    function handleUniversitySelection() {
+        const uni1Id = university1Select.value;
+        const uni2Id = university2Select.value;
+        if (uni1Id && uni2Id) {
+            if (uni1Id === uni2Id) {
+                alert("Please select two different colleges.");
+                return;
+            }
+            renderUniversityComparison(uni1Id, uni2Id);
+        }
+    }
+
+    function hideAllDynamicElements() {
+        placeholder.style.display = 'none';
+        stateTabsContainer.classList.add('hidden');
+        comparatorTabsContainer.classList.add('hidden');
+        comparatorSelection.classList.add('hidden');
+        universityDisplay.classList.remove('active');
+        comparisonDisplay.classList.remove('active');
+    }
+    
+    function generateCoursesHTML(courses) {
+        if (!courses || courses.length === 0) return '<p>No flagship course data available.</p>';
+        return courses.map(course => `
+            <div class="course-details">
+                <h4>${course.name}</h4>
+                <div class="course-grid">
+                    <div class="course-grid-item"><strong>Entrance:</strong> ${course.entranceExam || 'N/A'}</div>
+                    <div class="course-grid-item"><strong>Fees:</strong> ${course.feesINR || 'N/A'}</div>
+                    <div class="course-grid-item"><strong>Placement:</strong> ${course.placementRate || 'N/A'}</div>
+                    <div class="course-grid-item"><strong>Avg. Salary:</strong> ${course.avgSalaryLPA || 'N/A'}</div>
+                    <div class="course-grid-item"><strong>Results:</strong> ${course.resultsPercent || 'N/A'}</div>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    function renderUniversityList(state, type) {
+        const universities = universityData[state]?.[type] || [];
+        if (universities.length === 0) {
+            universityDisplay.innerHTML = `<p style="text-align:center; color: var(--text-secondary);">No colleges listed for this category in ${state}.</p>`;
+            return;
+        }
+        universityDisplay.innerHTML = universities.map(uni => `
+            <div class="college-card">
+                <h3>${uni.name}</h3>
+                <div class="uni-meta">
+                    <span class="meta-item"><strong>Location:</strong> ${uni.location}</span>
+                    <span class="meta-item"><strong>Affiliated To:</strong> ${uni.affiliatedTo}</span>
+                    <span class="meta-item"><strong>NIRF Ranking:</strong> ${uni.nirf}</span>
+                </div>
+                ${generateCoursesHTML([{name: 'Key Program', feesINR: uni.fees, placementRate: uni.placement, resultsPercent: uni.result, avgSalaryLPA: 'N/A'}])}
+                <div class="full-course-list">
+                    <strong>Courses Offered:</strong> ${uni.courses}
+                </div>
+            </div>
+        `).join('');
+    }
+
+    function populateUniversityDropdowns(type) {
+        const allUnis = [];
+        Object.keys(universityData).forEach(state => {
+            if (universityData[state][type]) {
+                universityData[state][type].forEach(uni => {
+                    allUnis.push({ id: `${state}|${uni.name}`, name: `${uni.name} (${state})` });
+                });
+            }
+        });
+
+        allUnis.sort((a, b) => a.name.localeCompare(b.name));
+
+        const populate = (selectElement) => {
+            selectElement.innerHTML = '<option value="" disabled selected>-- Choose College --</option>';
+            allUnis.forEach(uni => {
+                const option = document.createElement('option');
+                option.value = uni.id;
+                option.textContent = uni.name;
+                selectElement.appendChild(option);
+            });
+        };
+        populate(university1Select);
+        populate(university2Select);
+    }
+    
+    function getUniversityById(id) {
+        if (!id) return null;
+        const [state, name] = id.split('|');
+        for (const type in universityData[state]) {
+            const uni = universityData[state][type].find(u => u.name === name);
+            if (uni) return uni;
+        }
+        return null;
+    }
+
+    function renderUniversityComparison(uni1Id, uni2Id) {
+        const uni1 = getUniversityById(uni1Id);
+        const uni2 = getUniversityById(uni2Id);
+        if (!uni1 || !uni2) return;
+
+        comparisonDisplay.innerHTML = `
+            <div class="comparison-container">
+                <div class="college-card">
+                    <h3>${uni1.name}</h3>
+                     <div class="uni-meta">
+                        <span class="meta-item"><strong>Location:</strong> ${uni1.location}</span>
+                        <span class="meta-item"><strong>NIRF:</strong> ${uni1.nirf}</span>
+                    </div>
+                    <p><strong>Affiliated To:</strong> ${uni1.affiliatedTo}</p>
+                    <div class="full-course-list">${uni1.courses}</div>
+                    ${generateCoursesHTML([{name: 'Key Program Metrics', feesINR: uni1.fees, placementRate: uni1.placement, resultsPercent: uni1.result, avgSalaryLPA: 'N/A'}])}
+                </div>
+                <div class="college-card">
+                    <h3>${uni2.name}</h3>
+                    <div class="uni-meta">
+                        <span class="meta-item"><strong>Location:</strong> ${uni2.location}</span>
+                        <span class="meta-item"><strong>NIRF:</strong> ${uni2.nirf}</span>
+                    </div>
+                    <p><strong>Affiliated To:</strong> ${uni2.affiliatedTo}</p>
+                    <div class="full-course-list">${uni2.courses}</div>
+                    ${generateCoursesHTML([{name: 'Key Program Metrics', feesINR: uni2.fees, placementRate: uni2.placement, resultsPercent: uni2.result, avgSalaryLPA: 'N/A'}])}
+                </div>
+            </div>
+        `;
+    }
+
+    initialize();
+</script>
+</body>
+</html>

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentence Building Blocks: Clauses</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            /* Blue and white gridline background */
+            background-color: #f0f8ff; 
+            background-image: 
+                repeating-linear-gradient(to right, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 30px),
+                repeating-linear-gradient(to bottom, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 30px);
+            background-size: 30px 30px;
+        }
+
+        /* Header Styling */
+        header {
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        header h1 {
+            display: inline-block;
+            background-color: #0056b3;
+            color: white;
+            padding: 20px 40px;
+            border: 3px solid white;
+            border-radius: 15px;
+            /* 3D Box Effect */
+            box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.4), inset 2px 2px 5px rgba(255, 255, 255, 0.3);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-size: 2.2em;
+            margin: 0;
+        }
+
+        /* Main Container for Two-Column Layout */
+        .container {
+            display: flex;
+            max-width: 1300px;
+            margin: 20px auto;
+            background: #ffffff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.15);
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        /* Left Navigation Column */
+        .nav-column {
+            flex: 1;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+            background-color: #f8f9fa;
+        }
+
+        .nav-column ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            position: sticky;
+            top: 20px; /* Makes the nav stick on scroll */
+        }
+
+        .nav-column li a {
+            display: block;
+            padding: 12px 15px;
+            text-decoration: none;
+            color: #0056b3;
+            border-radius: 5px;
+            margin-bottom: 8px;
+            font-weight: bold;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .nav-column li a:hover,
+        .nav-column li a.active {
+            background-color: #0056b3;
+            color: #fff;
+        }
+
+        /* Right Content Column */
+        .content-column {
+            flex: 3;
+            padding: 25px 35px;
+            height: 80vh; /* Set a height to enable scrolling */
+            overflow-y: auto; /* Enable vertical scrollbar */
+        }
+
+        .content-section {
+            display: none;
+        }
+        
+        .content-section.active {
+            display: block;
+        }
+        
+        h2 {
+            font-size: 1.8em;
+            color: #0056b3;
+            border-bottom: 3px solid #0056b3;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        
+        h3 {
+            font-size: 1.4em;
+            color: #333;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        
+        .example-list {
+            list-style-type: decimal;
+            padding-left: 20px;
+        }
+
+        .example-list li {
+            margin-bottom: 15px;
+        }
+        
+        .note {
+            font-style: italic;
+            color: #555;
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-left: 4px solid #0056b3;
+            margin-top: 10px;
+        }
+        
+        .clause {
+            background-color: #d4e7f5; /* Light blue */
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #0056b3;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>SENTENCE BUILDING BLOCKS: CLAUSES</h1>
+    </header>
+
+    <div class="container">
+        <nav class="nav-column">
+            <ul>
+                <li><a href="#definition" class="nav-link active">What is a Clause?</a></li>
+                <li><a href="#independent-clause" class="nav-link">Independent Clause</a></li>
+                <li><a href="#dependent-clause" class="nav-link">Dependent Clause</a></li>
+                <li><a href="#noun-clause" class="nav-link">Noun Clause</a></li>
+                <li><a href="#adjective-clause" class="nav-link">Adjective Clause</a></li>
+                <li><a href="#adverb-clause" class="nav-link">Adverb Clause</a></li>
+                <li><a href="#identification-guide" class="nav-link">Quick Identification Guide</a></li>
+            </ul>
+        </nav>
+
+        <main class="content-column">
+            <section id="definition" class="content-section active">
+                <h2>What is a Clause?</h2>
+                <p>A clause is a group of related words that **contains both a subject and a verb**. This is the key feature that distinguishes a clause from a phrase.</p>
+                <ul>
+                    <li><strong>Clause:</strong> <span class="clause">she was tired</span> (Contains subject 'she' and verb 'was')</li>
+                    <li><strong>Phrase:</strong> <span class="clause">after the long journey</span> (No subject or verb)</li>
+                </ul>
+                <h3>10 Examples of Clauses:</h3>
+                <ol class="example-list">
+                    <li><span class="clause">the sun shines</span></li>
+                    <li><span class="clause">because he was late</span></li>
+                    <li><span class="clause">the train arrived</span></li>
+                    <li><span class="clause">who helped me</span></li>
+                    <li><span class="clause">we played the game</span></li>
+                    <li><span class="clause">while I was sleeping</span></li>
+                    <li><span class="clause">the answer is correct</span></li>
+                    <li><span class="clause">which I bought yesterday</span></li>
+                    <li><span class="clause">the students are studying</span></li>
+                    <li><span class="clause">if you work hard</span></li>
+                </ol>
+            </section>
+            
+            <section id="independent-clause" class="content-section">
+                <h2>Independent Clause (IC)</h2>
+                <p>An independent clause (or main clause) expresses a complete thought and can stand alone as a complete sentence.</p>
+                <div class="note"><strong>Wh- Question to ask:</strong> An independent clause doesn't answer a Wh- question about another part of the sentence; instead, it **forms the main statement** that other clauses modify.</div>
+                <h3>10 Examples:</h3>
+                <ol class="example-list">
+                    <li><span class="clause">The dog barked at the mailman.</span></li>
+                    <li><span class="clause">She is an excellent student.</span></li>
+                    <li><span class="clause">He will arrive at 8 PM.</span></li>
+                    <li><span class="clause">The company launched a new product last year.</span></li>
+                    <li><span class="clause">We are going to the beach this weekend.</span></li>
+                    <li><span class="clause">The sun sets in the west.</span></li>
+                    <li><span class="clause">I enjoy listening to classical music.</span></li>
+                    <li><span class="clause">The library is open until 9 PM.</span></li>
+                    <li><span class="clause">He fixed the broken car.</span></li>
+                    <li><span class="clause">Our team won the championship.</span></li>
+                </ol>
+            </section>
+
+            <section id="dependent-clause" class="content-section">
+                <h2>Dependent (Subordinate) Clause</h2>
+                <p>A dependent clause contains a subject and a verb but **does not express a complete thought**. It cannot stand alone as a sentence and must be attached to an independent clause. It always begins with a subordinating word (like `because`, `if`, `who`, `which`).</p>
+                <div class="note"><strong>Wh- Question to ask:</strong> The question depends on the function of the clause (whether it's acting as a noun, adjective, or adverb), as shown in the next sections.</div>
+                <h3>10 Examples:</h3>
+                <ol class="example-list">
+                    <li><span class="clause">because he was tired</span></li>
+                    <li><span class="clause">when the rain stopped</span></li>
+                    <li><span class="clause">who lives next door</span></li>
+                    <li><span class="clause">although it was expensive</span></li>
+                    <li><span class="clause">which I bought yesterday</span></li>
+                    <li><span class="clause">if you study hard</span></li>
+                    <li><span class="clause">while I was sleeping</span></li>
+                    <li><span class="clause">that he had made a mistake</span></li>
+                    <li><span class="clause">since I last saw you</span></li>
+                    <li><span class="clause">where the treasure was hidden</span></li>
+                </ol>
+            </section>
+            
+            <section id="noun-clause" class="content-section">
+                <h2>Noun Clause</h2>
+                <p>A dependent clause that functions as a noun in a sentence. It can be a subject, direct object, or object of a preposition.</p>
+                <div class="note"><strong>Wh- Question to ask:</strong> What?</div>
+                <h3>10 Examples:</h3>
+                <ol class="example-list">
+                    <li>I know <span class="clause">what you did last summer</span>. (Acts as a direct object. I know what?)</li>
+                    <li><span class="clause">Whoever wins the race</span> will receive a prize. (Acts as the subject. Who will receive a prize?)</li>
+                    <li>The problem is <span class="clause">that we are out of time</span>. (Acts as a subject complement. The problem is what?)</li>
+                    <li>She is not responsible for <span class="clause">what he did</span>. (Acts as an object of a preposition. Responsible for what?)</li>
+                    <li><span class="clause">Why he left so early</span> remains a mystery. (Acts as the subject. What remains a mystery?)</li>
+                    <li>He finally told us <span class="clause">where he had hidden the keys</span>. (Acts as a direct object. He told us what?)</li>
+                    <li>I wonder <span class="clause">if she will come to the party</span>. (Acts as a direct object. I wonder what?)</li>
+                    <li>Pay careful attention to <span class="clause">what the teacher says</span>. (Acts as an object of a preposition. Attention to what?)</li>
+                    <li><span class="clause">That the Earth is round</span> is a well-known fact. (Acts as the subject. What is a well-known fact?)</li>
+                    <li>His excuse was <span class="clause">that he had forgotten about the meeting</span>. (Acts as a subject complement. His excuse was what?)</li>
+                </ol>
+            </section>
+            
+            <section id="adjective-clause" class="content-section">
+                <h2>Adjective Clause (or Relative Clause)</h2>
+                <p>A dependent clause that functions as an adjective, modifying a noun or pronoun. It usually begins with a relative pronoun (`who`, `whom`, `whose`, `which`, `that`).</p>
+                <div class="note"><strong>Wh- Question to ask:</strong> Which one? or What kind?</div>
+                <h3>10 Examples:</h3>
+                <ol class="example-list">
+                    <li>The man <span class="clause">who lives next door</span> is a doctor. (Modifies 'man'. Which man?)</li>
+                    <li>This is the book <span class="clause">that I was telling you about</span>. (Modifies 'book'. Which book?)</li>
+                    <li>She is the artist <span class="clause">whose paintings are famous</span>. (Modifies 'artist'. Which artist?)</li>
+                    <li>The car, <span class="clause">which is red</span>, belongs to my brother. (Modifies 'car'. Which car?)</li>
+                    <li>I visited the town <span class="clause">where I was born</span>. (Modifies 'town'. Which town?)</li>
+                    <li>He is the person <span class="clause">whom I admire the most</span>. (Modifies 'person'. Which person?)</li>
+                    <li>I remember the day <span class="clause">when we first met</span>. (Modifies 'day'. Which day?)</li>
+                    <li>This is the reason <span class="clause">why I was late</span>. (Modifies 'reason'. What kind of reason?)</li>
+                    <li>Any student <span class="clause">who finishes the test early</span> may leave. (Modifies 'student'. Which student?)</li>
+                    <li>The company <span class="clause">that he works for</span> is very large. (Modifies 'company'. Which company?)</li>
+                </ol>
+            </section>
+            
+            <section id="adverb-clause" class="content-section">
+                <h2>Adverb Clause</h2>
+                <p>A dependent clause that functions as an adverb, modifying a verb, an adjective, or another adverb. It begins with a subordinating conjunction.</p>
+                <div class="note"><strong>Wh- Question to ask:</strong> When?, Where?, Why?, How?, or Under what condition?</div>
+                <h3>10 Examples:</h3>
+                <ol class="example-list">
+                    <li>He could not attend the meeting <span class="clause">because he was sick</span>. (Modifies 'could not attend'. Why?)</li>
+                    <li><span class="clause">Although it was raining</span>, they went for a walk. (Modifies 'went'. Under what condition?)</li>
+                    <li>She listened to music <span class="clause">while she was studying</span>. (Modifies 'listened'. When?)</li>
+                    <li>He will pass the exam <span class="clause">if he works hard</span>. (Modifies 'will pass'. Under what condition?)</li>
+                    <li>I will wait here <span class="clause">until you get back</span>. (Modifies 'will wait'. When?)</li>
+                    <li>She is taller <span class="clause">than her brother is</span>. (Modifies adjective 'taller'. How is she taller?)</li>
+                    <li>He lives <span class="clause">where the two rivers meet</span>. (Modifies 'lives'. Where?)</li>
+                    <li><span class="clause">Since you are here</span>, you can help me with this project. (Modifies 'can help'. Why?)</li>
+                    <li>He acted <span class="clause">as if he owned the place</span>. (Modifies 'acted'. How?)</li>
+                    <li><span class="clause">After the storm passed</span>, the sun came out. (Modifies 'came out'. When?)</li>
+                </ol>
+            </section>
+
+            <section id="identification-guide" class="content-section">
+                <h2>Quick Identification Guide</h2>
+                <p>Use this table for rapid revision to identify clause types.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Clause Type</th>
+                            <th>Function</th>
+                            <th>Key Starting Words</th>
+                            <th>"Wh-" Question to Ask</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Independent Clause</strong></td>
+                            <td>Forms a complete sentence</td>
+                            <td>(None)</td>
+                            <td>Forms the main statement.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Noun Clause</strong></td>
+                            <td>Acts as a Noun</td>
+                            <td>that, what, who, why, whether, if</td>
+                            <td><strong>What?</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Adjective Clause</strong></td>
+                            <td>Acts as an Adjective</td>
+                            <td>who, whom, whose, which, that</td>
+                            <td><strong>Which one?</strong> or <strong>What kind?</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Adverb Clause</strong></td>
+                            <td>Acts as an Adverb</td>
+                            <td>because, if, when, while, although, since</td>
+                            <td><strong>When? Where? Why? How? Under what condition?</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const contentSections = document.querySelectorAll('.content-section');
+            const contentColumn = document.querySelector('.content-column');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+
+                    navLinks.forEach(nav => nav.classList.remove('active'));
+                    contentSections.forEach(section => section.classList.remove('active'));
+
+                    this.classList.add('active');
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        targetSection.classList.add('active');
+                        contentColumn.scrollTop = 0; // Scroll to top of content area on click
+                    }
+                });
+            });
+            // Auto-activate the first link on page load
+            document.querySelector('.nav-link').classList.add('active');
+            document.querySelector('.content-section').classList.add('active');
+        });
+    </script>
+
+</body>
+</html>

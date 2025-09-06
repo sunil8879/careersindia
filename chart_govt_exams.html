@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Government Exam Success Rate Dashboard</title>
+    
+    <!-- Google Fonts for a clean, professional look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Basic Resets and Body Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #f8f9fa; /* A very light, clean gray */
+            color: #212529;
+            line-height: 1.6;
+        }
+
+        /* Main container to center content and provide spacing */
+        .container {
+            max-width: 1400px;
+            margin: 25px auto;
+            padding: 25px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+        }
+
+        /* Header section for the title and subtitle */
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #0056b3; /* A strong, trustworthy blue */
+            letter-spacing: -1px;
+        }
+
+        .header p {
+            font-size: 1.15rem;
+            font-weight: 300;
+            color: #495057;
+            margin-top: 8px;
+        }
+
+        /* --- Responsive iFrame Container --- */
+        /* This container maintains the correct aspect ratio for the dashboard */
+        .iframe-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            /* Aspect Ratio: (height / width) * 100% */
+            /* Original iframe was 450h / 600w = 0.75 */
+            /* So, padding-top is 75% */
+            padding-top: 75%; 
+        }
+
+        .iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 1px solid #ced4da; /* A light border around the iframe */
+            border-radius: 5px;
+        }
+
+        /* Footer section for credits or notes */
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+
+        /* Media query for smaller screens to adjust font sizes and padding */
+        @media (max-width: 768px) {
+            .container {
+                margin: 15px;
+                padding: 20px;
+            }
+            .header h1 {
+                font-size: 2rem;
+            }
+            .header p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="header">
+            <!-- You can easily customize this title and subtitle -->
+            <h1>Government Exam Success Rate Analyzer</h1>
+            <p>Comparing Applicant Volume with Selection Percentages Across Major Exams</p>
+        </header>
+
+        <main>
+            <!-- Responsive container for your Looker Studio report -->
+            <div class="iframe-container">
+                <iframe 
+                    src="https://lookerstudio.google.com/embed/reporting/e9ba5ebd-5cf8-4764-816b-87ec86d1dab1/page/x6kUF" 
+                    allowfullscreen 
+                    sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
+                </iframe>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>Data visualization powered by Looker Studio. &copy; 2024 Your Name / Organization.</p>
+        </footer>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schools in Chandigarh</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Montserrat:wght@700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 20px;
+        }
+
+        #chandigarh-container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .chandigarh-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .chandigarh-header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3em;
+            color: #1a237e;
+            font-weight: 700;
+        }
+
+        .chandigarh-school-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .chandigarh-school-card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .chandigarh-school-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .chandigarh-school-card h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.25em;
+            color: #283593;
+            margin: 0 0 10px 0;
+        }
+        
+        .chandigarh-school-card .location {
+            font-size: 0.9em;
+            color: #78909c;
+            margin-bottom: 15px;
+        }
+        
+        .chandigarh-school-card .board-type {
+            font-size: 0.85em;
+            background-color: #e8eaf6;
+            color: #3f51b5;
+            padding: 5px 10px;
+            border-radius: 15px;
+            display: inline-block;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .chandigarh-school-card .website-link a {
+            color: #3949ab;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9em;
+        }
+
+        .chandigarh-school-card .website-link a:hover {
+            text-decoration: underline;
+        }
+        
+        .chandigarh-school-card .website-link .website-na {
+            color: #9fa8da;
+            font-style: italic;
+            font-size: 0.9em;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="chandigarh-container">
+        <div class="chandigarh-header">
+            <h1>Chandigarh & Mohali's Top Schools</h1>
+        </div>
+        <div class="chandigarh-school-grid">
+            
+            <div class="chandigarh-school-card">
+                <div>
+                    <h2>Strawberry Fields High School</h2>
+                    <p class="location">Chandigarh</p>
+                    <span class="board-type">CISCE (ICSE/ISC)</span>
+                </div>
+                <div class="website-link">
+                    <a href="https://www.strawberryfieldshighschool.com" target="_blank">Visit Website</a>
+                </div>
+            </div>
+
+            <div class="chandigarh-school-card">
+                <div>
+                    <h2>Bhavan Vidyalaya, Chandigarh</h2>
+                    <p class="location">Chandigarh</p>
+                    <span class="board-type">CBSE</span>
+                </div>
+                <div class="website-link">
+                    <a href="https://www.bhavanchandigarh.com" target="_blank">Visit Website</a>
+                </div>
+            </div>
+
+            <div class="chandigarh-school-card">
+                <div>
+                    <h2>Vivek High School, Chandigarh</h2>
+                    <p class="location">Chandigarh</p>
+                    <span class="board-type">CBSE</span>
+                </div>
+                <div class="website-link">
+                    <a href="https://www.vivekhighschool.in" target="_blank">Visit Website</a>
+                </div>
+            </div>
+
+            <div class="chandigarh-school-card">
+                <div>
+                    <h2>Carmel Convent School</h2>
+                    <p class="location">Chandigarh</p>
+                    <span class="board-type">CBSE</span>
+                </div>
+                <div class="website-link">
+                    <a href="https://www.carmelconvent.org" target="_blank">Visit Website</a>
+                </div>
+            </div>
+            
+            <div class="chandigarh-school-card">
+                <div>
+                    <h2>St. John's High School</h2>
+                    <p class="location">Chandigarh</p>
+                    <span class="board-type">CBSE</span>
+                </div>
+                <div class="website-link">
+                    <a href="https://www.stjohnschandigarh.com" target="_blank">Visit Website</a>
+                </div>
+            </div>
+            
+            <div class="chandigarh-school-card">
+                <div>
+                    <h2>Yadavindra Public School, Mohali</h2>
+                    <p class="location">Mohali</p>
+                    <span class="board-type">CISCE (ICSE/ISC)</span>
+                </div>
+                <div class="website-link">
+                    <a href="https://www.ypsmohali.in" target="_blank">Visit Website</a>
+                </div>
+            </div>
+            
+            <div class="chandigarh-school-card">
+                <div>
+                    <h2>Delhi Public School, Chandigarh</h2>
+                    <p class="location">Chandigarh</p>
+                    <span class="board-type">CBSE</span>
+                </div>
+                <div class="website-link">
+                    <a href="https://www.dpschd.com" target="_blank">Visit Website</a>
+                </div>
+            </div>
+
+            <div class="chandigarh-school-card">
+                <div>
+                    <h2>The Lawrence School, Sanawar</h2>
+                    <p class="location">Sanawar (Boarding)</p>
+                    <span class="board-type">CBSE</span>
+                </div>
+                <div class="website-link">
+                    <a href="https://www.sanawar.edu.in" target="_blank">Visit Website</a>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>

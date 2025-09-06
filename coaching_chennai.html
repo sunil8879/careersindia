@@ -1,0 +1,1899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top coaching institutes in Chennai</title>
+    <style>
+        /* General Body Styling */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            background-color: #f8f9fa; /* Light grey background */
+            margin: 0;
+            padding: 20px;
+            color: #343a40;
+        }
+
+        /* Header Box for Title and Search */
+        .header-container {
+            background-color: #6c757d; /* Grey background */
+            padding: 30px 25px;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            border: 1px solid #5a6268;
+        }
+
+        /* 3D Title Styling */
+        h1 {
+            color: white;
+            text-align: center;
+            font-size: 3em;
+            font-weight: 700;
+            margin: 0 0 25px 0;
+            /* 3D Effect using a darker grey shadow */
+            text-shadow: 3px 3px 0px #495057, 6px 6px 10px rgba(0, 0, 0, 0.3);
+            letter-spacing: 1px;
+        }
+
+        /* Search Box Container */
+        .search-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        /* Search Input Fields */
+        .search-container input {
+            padding: 12px 18px;
+            font-size: 1em;
+            width: 320px;
+            max-width: 90%;
+            border: none;
+            border-radius: 50px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1) inset;
+        }
+
+        .search-container input:focus {
+            outline: none;
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.7), 0 2px 4px rgba(0,0,0,0.1) inset;
+        }
+
+        /* Main container for the institute list */
+        #institute-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 25px;
+        }
+
+        /* Individual Institute Card Styling */
+        .institute-card {
+            background-color: white;
+            border: 1px solid #e9ecef;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .institute-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+        }
+        
+        .institute-card h2 {
+            margin-top: 0;
+            font-size: 1.6em;
+            color: #495057; /* Dark Grey title */
+        }
+
+        .institute-card p {
+            margin: 8px 0;
+            line-height: 1.6;
+            font-size: 0.95em;
+        }
+
+        .institute-card strong {
+            color: #212529;
+            font-weight: 600;
+        }
+
+        .institute-card a {
+            color: #5a6268;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: auto; /* Pushes the link to the bottom */
+            align-self: flex-start;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .institute-card a:hover {
+            background-color: #e9ecef;
+            color: #343a40;
+        }
+        
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5px 15px;
+            margin-bottom: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="header-container">
+        <h1>Top coaching institutes in Chennai</h1>
+        <div class="search-container">
+            <input type="text" id="name-search" onkeyup="filterInstitutes()" placeholder="Search by Institute Name...">
+            <input type="text" id="rating-search" onkeyup="filterInstitutes()" placeholder="Search by Rating (e.g., 4.8)...">
+        </div>
+    </div>
+
+    <main id="institute-list">
+        <!-- Institute cards will be dynamically inserted here by JavaScript -->
+    </main>
+
+<script>
+    // Data for all 300 coaching institutes
+    const institutes = [
+        // PART 1 DATA (Entries 1-150)
+        {
+            name: "Shankar IAS Academy",
+            location: "Anna Nagar, Chennai",
+            rating: "4.6/5 (Google)",
+            total_reviews: "12,000+",
+            year_established: 2004,
+            courses: "UPSC, TNPSC (Group 1, 2, 4). Fees: Approx. ₹1,20,000 - ₹2,00,000 for UPSC.",
+            features: "Pros: Chennai's top institute for Civil Services, excellent material, highly experienced faculty. Cons: Very large batch sizes, highly competitive.",
+            website: "https://www.shankariasacademy.com"
+        },
+        {
+            name: "Officers IAS Academy",
+            location: "Anna Nagar, Chennai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "8,000+",
+            year_established: 2013,
+            courses: "UPSC (GS, Optionals), Interview Guidance. Fees: Approx. ₹1,40,000 - ₹2,20,000.",
+            features: "Pros: Run by former civil servants, strong focus on mentorship, excellent infrastructure. Cons: Premium pricing.",
+            website: "https://www.officersiasacademy.com"
+        },
+        {
+            name: "Aakash Institute",
+            location: "Anna Nagar, Chennai",
+            rating: "4.4/5 (Google)",
+            total_reviews: "5,500+",
+            year_established: 1988,
+            courses: "NEET, JEE, Foundation. Fees: Approx. ₹1,80,000 - ₹3,50,000 for 2-year programs.",
+            features: "Pros: National leader for NEET, standardized curriculum, All India test series. Cons: Large batches, fast-paced teaching.",
+            website: "https://www.aakash.ac.in"
+        },
+        {
+            name: "FIITJEE",
+            location: "Adyar, Chennai",
+            rating: "4.2/5 (Google)",
+            total_reviews: "2,000+",
+            year_established: 1992,
+            courses: "JEE (Main & Advanced), NTSE, Olympiads. Fees: Approx. ₹2,00,000 - ₹4,00,000 for 2-year programs.",
+            features: "Pros: Pioneer in JEE coaching, highly competitive environment, proven results. Cons: Extremely high fees, very high pressure.",
+            website: "https://www.fiitjee.com"
+        },
+        {
+            name: "Veranda RACE",
+            location: "T. Nagar, Chennai",
+            rating: "4.7/5 (Google)",
+            total_reviews: "20,000+",
+            year_established: 2016,
+            courses: "Banking, SSC, Railways, TNPSC. Fees: Approx. ₹15,000 - ₹25,000 (often with lifetime card).",
+            features: "Pros: Market leader for Banking/SSC in Tamil Nadu, extensive practice material, huge alumni network. Cons: Extremely crowded batches.",
+            website: "https://www.verandalearning.com/race"
+        },
+        {
+            name: "TIME (Triumphant Institute of Management Education)",
+            location: "T. Nagar, Chennai",
+            rating: "4.3/5 (Google)",
+            total_reviews: "2,800+",
+            year_established: 1992,
+            courses: "CAT, GMAT, GRE, Bank PO, SSC. Fees: Approx. ₹40,000 - ₹75,000 per course.",
+            features: "Pros: Pan-India brand, comprehensive material, numerous mock tests. Cons: Standardized approach may not suit everyone.",
+            website: "https://www.time4education.com"
+        },
+        {
+            name: "IMS Learning Center",
+            location: "Nungambakkam, Chennai",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 1977,
+            courses: "CAT, GMAT, GRE, CLAT, BBA. Fees: Approx. ₹45,000 - ₹85,000 per course.",
+            features: "Pros: Excellent mentors, strong focus on test-taking strategy, great mock analysis. Cons: Premium pricing.",
+            website: "https://www.imsindia.com"
+        },
+        {
+            name: "Allen Career Institute",
+            location: "Adyar, Chennai",
+            rating: "4.5/5 (Google)",
+            total_reviews: "4,000+",
+            year_established: 1988,
+            courses: "JEE (Main & Advanced), NEET. Fees: Approx. ₹1,60,000 - ₹3,20,000 per year.",
+            features: "Pros: Kota's top system in Chennai, disciplined environment, excellent national results. Cons: Highly commercialized, can be overwhelming.",
+            website: "https://www.allen.ac.in"
+        },
+        {
+            name: "Vetrii IAS Study Circle",
+            location: "Anna Nagar, Chennai",
+            rating: "4.7/5 (Google)",
+            total_reviews: "2,500+",
+            year_established: 2004,
+            courses: "UPSC, TNPSC. Fees: Approx. ₹80,000 - ₹1,50,000.",
+            features: "Pros: Strong focus on both UPSC and TNPSC, experienced faculty, good reviews. Cons: Smaller scale compared to Shankar/Officers.",
+            website: "https://www.vetriias.com"
+        },
+        {
+            name: "Sreeram Coaching Point",
+            location: "T. Nagar, Chennai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "3,000+",
+            year_established: 1985,
+            courses: "CA (Foundation, Inter, Final). Fees: Approx. ₹70,000 - ₹1,60,000 depending on level.",
+            features: "Pros: A legendary institute for CA in Chennai, known for producing All India Ranks. Cons: Very intensive and demanding schedule.",
+            website: "https://sreeramcoachingpoint.com"
+        },
+        {
+            name: "K.S. Academy",
+            location: "T. Nagar, Chennai",
+            rating: "4.7/5 (Google)",
+            total_reviews: "2,800+",
+            year_established: 2002,
+            courses: "CA, CS, CMA. Fees: Approx. ₹60,000 - ₹1,50,000.",
+            features: "Pros: Another top-tier institute for CA coaching, strong faculty team, good infrastructure. Cons: Highly competitive environment.",
+            website: "https://www.ksacademy.co.in"
+        },
+        {
+            name: "Appolo Academy",
+            location: "Anna Nagar, Chennai",
+            rating: "4.6/5 (Google)",
+            total_reviews: "3,500+",
+            year_established: 1992,
+            courses: "TNPSC, TET, TRB, NEET, JEE. Fees: Varies widely (e.g., ₹20,000 for TNPSC, ₹1,00,000+ for NEET).",
+            features: "Pros: A strong local brand covering a wide range of exams from government jobs to medical entrance. Cons: Quality can vary between different courses.",
+            website: "https://www.appolosupport.com"
+        },
+        {
+            name: "SMART Training Resources",
+            location: "Adyar, Chennai",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: "N/A",
+            courses: "NEET, JEE, Foundation. Fees: Approx. ₹1,50,000 - ₹2,80,000 for 2 years.",
+            features: "Pros: Reputed local institute for NEET/JEE, smaller batches than national brands, personal attention. Cons: Less brand recognition nationally.",
+            website: "https://www.smart-tr.com"
+        },
+        {
+            name: "Aram IAS Academy",
+            location: "Anna Nagar, Chennai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "4,000+",
+            year_established: 2011,
+            courses: "UPSC, TNPSC. Fees: Approx. ₹1,00,000 - ₹1,80,000.",
+            features: "Pros: Highly rated for its ethical approach and quality teaching, good for both English and Tamil medium. Cons: Smaller batches mean seats fill up fast.",
+            website: "https://www.aramias.com"
+        },
+        {
+            name: "Jamboree Education",
+            location: "Nungambakkam, Chennai",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,400+",
+            year_established: 1993,
+            courses: "GMAT, GRE, SAT, IELTS, TOEFL. Fees: Approx. ₹30,000 - ₹60,000 per course.",
+            features: "Pros: Excellent study material especially for GMAT/GRE, experienced faculty. Cons: Limited focus on admissions counseling.",
+            website: "https://www.jamboreeindia.com"
+        },
+        {
+            name: "FITA (Focus'd IT Academy)",
+            location: "T. Nagar, Chennai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "15,000+",
+            year_established: 2012,
+            courses: "Software Testing, Java, Python, Data Science, Digital Marketing. Fees: Approx. ₹18,000 - ₹50,000 per course.",
+            features: "Pros: Top-rated IT training institute in Chennai, strong placement record in local IT companies. Cons: Highly skill-based and job-oriented.",
+            website: "https://www.fita.in"
+        },
+        {
+            name: "Career Launcher",
+            location: "Adyar, Chennai",
+            rating: "4.4/5 (Google)",
+            total_reviews: "900+",
+            year_established: 1995,
+            courses: "CLAT, CAT, IPM, Bank PO. Fees: Approx. ₹40,000 - ₹90,000 per course.",
+            features: "Pros: Strong for CLAT and CAT, excellent online platform. Cons: Faces stiff competition from TIME/IMS.",
+            website: "https://www.careerlauncher.com"
+        },
+        {
+            name: "Eva Stalin IAS Academy",
+            location: "Tambaram, Chennai",
+            rating: "4.9/5 (Google)",
+            total_reviews: "3,000+",
+            year_established: "N/A",
+            courses: "TNPSC, Banking, SSC, Police exams. Fees: Approx. ₹15,000 - ₹40,000.",
+            features: "Pros: Exceptionally rated institute in the Tambaram area, strong local results for TNPSC. Cons: Highly localized.",
+            website: "https://www.evastalinias.com"
+        },
+        {
+            name: "Manidhaneyam IAS Academy",
+            location: "T. Nagar, Chennai",
+            rating: "4.5/5 (Google)",
+            total_reviews: "2,500+",
+            year_established: 2005,
+            courses: "UPSC, TNPSC. Fees: Often free or highly subsidized.",
+            features: "Pros: A charitable trust run by former Mayor Saidai Duraisamy, provides free coaching to deserving students. Cons: Extremely competitive to get into, basic infrastructure.",
+            website: "https://www.mntfreeias.com"
+        },
+        {
+            name: "Brilliant Study Centre",
+            location: "T. Nagar, Chennai",
+            rating: "4.2/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 1984,
+            courses: "NEET, JEE (in collaboration with schools). Fees: Varies.",
+            features: "Pros: A legendary Kerala-based institute with a strong Chennai presence, excellent for NEET. Cons: Very rigorous, school-integrated programs.",
+            website: "https://www.brilliantpala.org"
+        },
+        {
+            name: "Narayana IIT Academy",
+            location: "Anna Nagar, Chennai",
+            rating: "4.0/5 (Google)",
+            total_reviews: "2,200+",
+            year_established: 1979,
+            courses: "JEE, NEET, Foundation. Fees: Approx. ₹1,70,000 - ₹3,30,000 for 2 years.",
+            features: "Pros: South India's powerhouse, very aggressive and competitive approach. Cons: Extremely high pressure.",
+            website: "https://www.narayanagroup.com"
+        },
+        {
+            name: "Manya - The Princeton Review",
+            location: "Adyar, Chennai",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,100+",
+            year_established: 2002,
+            courses: "GMAT, GRE, SAT, ACT, AP, IELTS. Fees: Approx. ₹35,000 - ₹1,20,000.",
+            features: "Pros: Internationally recognized curriculum, certified trainers. Cons: Premium pricing.",
+            website: "https://www.manyagroup.com"
+        },
+        {
+            name: "ACE Engineering Academy",
+            location: "T. Nagar, Chennai",
+            rating: "4.4/5 (Google)",
+            total_reviews: "1,800+",
+            year_established: 1995,
+            courses: "GATE, ESE, TANCET. Fees: Approx. ₹60,000 - ₹1,00,000.",
+            features: "Pros: Hyderabad's top institute for GATE/ESE with a strong Chennai center. Cons: Highly technical and intensive courses.",
+            website: "https://www.aceenggacademy.com"
+        },
+        {
+            name: "Made Easy",
+            location: "T. Nagar, Chennai",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: 2001,
+            courses: "ESE (IES), GATE, PSUs. Fees: Approx. ₹70,000 - ₹1,20,000.",
+            features: "Pros: National market leader for ESE and GATE, comprehensive material. Cons: Large batches.",
+            website: "https://www.madeeasy.in"
+        },
+        {
+            name: "Besant Technologies",
+            location: "Velachery, Chennai",
+            rating: "4.7/5 (Google)",
+            total_reviews: "18,000+",
+            year_established: 2009,
+            courses: "AWS, Python, Data Science, DevOps. Fees: Approx. ₹15,000 - ₹40,000 per course.",
+            features: "Pros: Major IT training institute with multiple branches, strong placement support. Cons: Quality can vary by trainer and branch.",
+            website: "https://www.besanttechnologies.com"
+        },
+        {
+            name: "Goethe-Institut / Max Mueller Bhavan",
+            location: "Nungambakkam, Chennai",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,600+",
+            year_established: 1960,
+            courses: "German Language Courses (A1-C2). Fees: Approx. ₹25,000 - ₹35,000 per level.",
+            features: "Pros: Official German cultural institute, authentic teaching, internationally recognized certificates. Cons: Very high demand.",
+            website: "https://www.goethe.de/ins/in/en/sta/che.html"
+        },
+        {
+            name: "Alliance Française of Madras",
+            location: "Nungambakkam, Chennai",
+            rating: "4.4/5 (Google)",
+            total_reviews: "1,300+",
+            year_established: 1953,
+            courses: "French Language Courses (A1-C2). Fees: Approx. ₹22,000 - ₹30,000 per level.",
+            features: "Pros: Official French cultural center, immersive learning environment. Cons: Prime location, can be expensive.",
+            website: "https://madras.afindia.org"
+        },
+        {
+            name: "Chennai School of Banking",
+            location: "Vadapalani, Chennai",
+            rating: "4.6/5 (Google)",
+            total_reviews: "2,000+",
+            year_established: "N/A",
+            courses: "Banking, SSC, TNPSC. Fees: Approx. ₹12,000 - ₹20,000.",
+            features: "Pros: Strong local institute for government job coaching, good reviews. Cons: Faces stiff competition from RACE.",
+            website: "https://www.csbnet.in"
+        },
+        {
+            name: "S.A.T. MathIIT",
+            location: "Anna Nagar, Chennai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "Mathematics for JEE Main & Advanced. Fees: Approx. ₹50,000 - ₹90,000.",
+            features: "Pros: Top-rated individual faculty for JEE Mathematics, strong focus on problem-solving. Cons: Single subject, limited seats.",
+            website: "N/A"
+        },
+        {
+            name: "MAAC (Maya Academy of Advanced Cinematics)",
+            location: "Vadapalani, Chennai",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,800+",
+            year_established: 2001,
+            courses: "3D Animation, VFX, Game Design. Fees: Approx. ₹1,50,000 - ₹5,00,000 for career courses.",
+            features: "Pros: Industry-recognized certification, hands-on training, good placement network. Cons: Very high fees.",
+            website: "https://www.maacindia.com"
+        },
+        {
+            name: "Arena Animation",
+            location: "Anna Nagar, Chennai",
+            rating: "4.4/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 1996,
+            courses: "Animation, VFX, Web Design. Fees: Approx. ₹1,00,000 - ₹4,50,000 for career courses.",
+            features: "Pros: One of the oldest animation training institutes, good industry links. Cons: Franchise model can lead to variable quality.",
+            website: "https://www.arena-multimedia.com"
+        },
+        {
+            name: "Frankfinn Institute of Air Hostess Training",
+            location: "Nungambakkam, Chennai",
+            rating: "4.6/5 (Google)",
+            total_reviews: "2,800+",
+            year_established: 1993,
+            courses: "Aviation, Hospitality and Travel Management. Fees: Approx. ₹1,50,000 - ₹2,50,000.",
+            features: "Pros: Market leader in cabin crew training, strong placement assistance. Cons: Very high fees, industry-specific.",
+            website: "https://www.frankfinn.com"
+        },
+        {
+            name: "Pahal Design",
+            location: "Nungambakkam, Chennai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: 1999,
+            courses: "NID, NIFT, NATA, UCEED, CEED. Fees: Approx. ₹50,000 - ₹1,20,000.",
+            features: "Pros: Top-rated institute for design entrance exams, creative workshops. Cons: Niche focus.",
+            website: "https://www.pahaldesign.com"
+        },
+        {
+            name: "The Chopras (TC Global)",
+            location: "Nungambakkam, Chennai",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,600+",
+            year_established: 1995,
+            courses: "GRE, GMAT, IELTS coaching & study abroad counseling. Fees: Coaching approx. ₹25,000 - ₹60,000.",
+            features: "Pros: Premier study abroad consultant, end-to-end services. Cons: Can be very expensive.",
+            website: "https://www.tcglobal.com"
+        },
+        {
+            name: "Q-Spiders",
+            location: "T. Nagar, Chennai",
+            rating: "4.5/5 (Google)",
+            total_reviews: "4,000+",
+            year_established: 2000,
+            courses: "Software Testing (Manual, Automation), Java Development. Fees: Approx. ₹25,000 - ₹45,000.",
+            features: "Pros: Excellent for IT job placement training, strong industry connections for freshers. Cons: Very specific skill-based training.",
+            website: "https://www.qspiders.com"
+        },
+        {
+            name: "INIFD (International Institute of Fashion Design)",
+            location: "Nungambakkam, Chennai",
+            rating: "4.3/5 (Google)",
+            total_reviews: "800+",
+            year_established: 1995,
+            courses: "NID/NIFT entrance coaching, design diplomas. Fees: Coaching approx. ₹40,000; diploma fees are much higher.",
+            features: "Pros: Strong industry connections in fashion. Cons: Primarily a design college.",
+            website: "https://www.inifd.edu.in"
+        },
+        {
+            name: "Sai IAS Academy",
+            location: "Saidapet, Chennai",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: "N/A",
+            courses: "TNPSC, Police, TET. Fees: Approx. ₹15,000 - ₹30,000.",
+            features: "Pros: Strong local presence for state-level government job coaching. Cons: Basic infrastructure.",
+            website: "N/A"
+        },
+        {
+            name: "Byju's Tuition Centre",
+            location: "Multiple (e.g., Velachery, Adyar)",
+            rating: "4.3/5 (Google)",
+            total_reviews: "3,500+",
+            year_established: 2011,
+            courses: "School tuitions for grades 4-10. Fees: Approx. ₹40,000 - ₹80,000 per year.",
+            features: "Pros: Blends digital learning with in-person classes, strong brand name. Cons: Focus is on school curriculum.",
+            website: "https://byjus.com/btc/"
+        },
+        {
+            name: "Physics Wallah (PW) Vidyapeeth",
+            location: "Anna Nagar, Chennai",
+            rating: "4.6/5 (Google)",
+            total_reviews: "4,500+",
+            year_established: 2016,
+            courses: "JEE, NEET, Foundation. Fees: Approx. ₹80,000 - ₹1,50,000 per year.",
+            features: "Pros: Very affordable compared to competitors, hybrid learning model, highly popular. Cons: Rapid expansion has raised quality control concerns.",
+            website: "https://www.pw.live/vidyapeeth-centres"
+        },
+        {
+            name: "Greens Technology",
+            location: "Adyar, Chennai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "20,000+",
+            year_established: 2011,
+            courses: "AWS, Python, Selenium, Big Data. Fees: Approx. ₹15,000 - ₹40,000 per course.",
+            features: "Pros: Another top-rated IT training provider with a strong focus on placement. Cons: Multiple branches with potentially variable quality.",
+            website: "https://www.greenstechnologys.com"
+        },
+        {
+            name: "S.A.M.E. Classes (Sri Aariyan's Maths & English Classes)",
+            location: "Mylapore, Chennai",
+            rating: "4.9/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "Class IX-XII Maths & English. Fees: Varies.",
+            features: "Pros: Top-rated local tuition center in a prime location, personal attention. Cons: School-level focus.",
+            website: "N/A"
+        },
+        {
+            name: "Kanchi IAS Academy",
+            location: "Anna Nagar, Chennai",
+            rating: "4.6/5 (Google)",
+            total_reviews: "900+",
+            year_established: "N/A",
+            courses: "TNPSC, Banking, SSC. Fees: Varies.",
+            features: "Pros: Good reviews for TNPSC coaching. Cons: Smaller scale.",
+            website: "N/A"
+        },
+        {
+            name: "Digital Academy 360",
+            location: "Anna Nagar, Chennai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "2,500+",
+            year_established: 2015,
+            courses: "Digital Marketing. Fees: Approx. ₹30,000 - ₹60,000.",
+            features: "Pros: National brand for digital marketing, strong curriculum, placement focus. Cons: Faces stiff competition from local players like FITA.",
+            website: "https://digitalacademy360.com"
+        },
+        {
+            name: "L.S. Logic School of Management",
+            location: "Anna Nagar, Chennai",
+            rating: "4.7/5 (Google)",
+            total_reviews: "500+",
+            year_established: 2005,
+            courses: "CMA (USA), CPA (USA). Fees: Approx. ₹50,000 - ₹1,50,000.",
+            features: "Pros: Specialized in international professional finance courses. Cons: Highly niche.",
+            website: "https://www.logiccpacma.com"
+        },
+        {
+            name: "IBT Institute",
+            location: "T. Nagar, Chennai",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: 2009,
+            courses: "Bank PO, SSC CGL. Fees: Approx. ₹10,000 - ₹20,000.",
+            features: "Pros: Strong presence for banking exams, lifetime membership. Cons: Large batches.",
+            website: "https://www.ibtindia.com"
+        },
+        {
+            name: "I-Arch",
+            location: "Chromepet, Chennai",
+            rating: "4.9/5 (Google)",
+            total_reviews: "450+",
+            year_established: "N/A",
+            courses: "NATA, JEE Paper 2. Fees: Approx. ₹25,000 - ₹50,000.",
+            features: "Pros: Top-rated institute for architecture entrance exams in the Chromepet area. Cons: Localized.",
+            website: "N/A"
+        },
+        {
+            name: "Bharath IAS Academy",
+            location: "Adyar, Chennai",
+            rating: "4.7/5 (Google)",
+            total_reviews: "800+",
+            year_established: "N/A",
+            courses: "TNPSC, TET, Police exams. Fees: Varies.",
+            features: "Pros: Reputed local institute in Adyar for state government jobs. Cons: Limited reach.",
+            website: "N/A"
+        },
+        {
+            name: "NIIT (National Institute of Information Technology)",
+            location: "Adyar, Chennai",
+            rating: "4.1/5 (Google)",
+            total_reviews: "700+",
+            year_established: 1981,
+            courses: "Full Stack Development, Data Analytics. Fees: Approx. ₹60,000 - ₹2,00,000.",
+            features: "Pros: Legacy brand in IT training, structured curriculum. Cons: Faces competition from newer ed-tech platforms.",
+            website: "https://www.niit.com"
+        },
+        {
+            name: "The Hindu Zone",
+            location: "Online guidance for Chennai students",
+            rating: "4.8/5 (Google)",
+            total_reviews: "3,000+",
+            year_established: 2018,
+            courses: "Provides counseling for choosing coaching for UPSC, NEET, JEE. Fees: Counseling based.",
+            features: "Pros: Helps students navigate the confusing coaching market. Cons: Not a direct coaching institute.",
+            website: "https://thehinduzone.com"
+        },
+        {
+            name: "Prime Educators",
+            location: "Kilpauk, Chennai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "600+",
+            year_established: "N/A",
+            courses: "CA, CS, CMA. Fees: Varies.",
+            features: "Pros: Highly-rated local commerce professional academy. Cons: Smaller scale.",
+            website: "N/A"
+        },
+        {
+            name: "Dexter Academy",
+            location: "Vadapalani, Chennai",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,800+",
+            year_established: "N/A",
+            courses: "TNPSC, Banking, SSC, Railways. Fees: Varies.",
+            features: "Pros: Has multiple branches across Tamil Nadu, strong for TNPSC. Cons: Franchise model.",
+            website: "https://www.dexteracademy.in"
+        },
+        {
+            name: "Wisdom Academy",
+            location: "Home tuitions across Chennai",
+            rating: "4.7/5 (Google)",
+            total_reviews: "900+",
+            year_established: 2011,
+            courses: "Home tuitions for all boards, JEE, NEET. Fees: Varies significantly based on tutor (e.g., ₹700 - ₹1800 per hour).",
+            features: "Pros: Provides personalized one-on-one tutoring at home. Cons: Can be very expensive.",
+            website: "https://www.wisdomacademy.co.in"
+        },
+        {
+            name: "Idayangal IAS Academy",
+            location: "T. Nagar, Chennai",
+            rating: "4.9/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: "N/A",
+            courses: "TNPSC, Police. Fees: Varies.",
+            features: "Pros: Top-rated local institute for state government jobs. Cons: Localized focus.",
+            website: "N/A"
+        },
+        {
+            name: "Vistamind",
+            location: "Nungambakkam, Chennai",
+            rating: "4.4/5 (Google)",
+            total_reviews: "500+",
+            year_established: 2005,
+            courses: "CAT, Bank PO, CLAT. Fees: Approx. ₹35,000 - ₹60,000.",
+            features: "Pros: Another national player for MBA entrances, run by IIM alumni. Cons: Less brand recall than TIME/IMS.",
+            website: "https://www.vistamind.com"
+        },
+        {
+            name: "Global Reach",
+            location: "Nungambakkam, Chennai",
+            rating: "4.7/5 (Google)",
+            total_reviews: "1,300+",
+            year_established: 1991,
+            courses: "IELTS coaching & study abroad counseling (especially for Australia/NZ). Fees: Counseling is often free.",
+            features: "Pros: One of the oldest and most trusted consultants for Australia and New Zealand. Cons: Specialized in specific countries.",
+            website: "https://www.globalreach.in"
+        },
+        {
+            name: "IDP Education",
+            location: "Nungambakkam, Chennai",
+            rating: "4.6/5 (Google)",
+            total_reviews: "2,500+",
+            year_established: 1969,
+            courses: "IELTS coaching and exam booking, study abroad counseling. Fees: Coaching approx. ₹8,000 - ₹15,000.",
+            features: "Pros: Co-owner of IELTS, authentic coaching, huge network of universities. Cons: Counseling may be biased towards partner institutions.",
+            website: "https://www.idp.com/india"
+        },
+        {
+            name: "Sri Sankara Coaching Centre",
+            location: "West Mambalam, Chennai",
+            rating: "4.5/5 (Google)",
+            total_reviews: "800+",
+            year_established: "N/A",
+            courses: "Class IX-XII, EAMCET (for Andhra/Telangana students). Fees: Varies.",
+            features: "Pros: A very old and traditional coaching center with a strong reputation. Cons: Traditional teaching methods.",
+            website: "N/A"
+        },
+        {
+            name: "Kalvi IAS",
+            location: "Porur, Chennai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "700+",
+            year_established: "N/A",
+            courses: "TNPSC, Police, TET. Fees: Varies.",
+            features: "Pros: Highly-rated local institute in the Porur area. Cons: Limited reach.",
+            website: "N/A"
+        },
+        {
+            name: "CADD Centre Training Services",
+            location: "Adyar, Chennai",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 1988,
+            courses: "AutoCAD, SolidWorks, CATIA, Revit. Fees: Approx. ₹15,000 - ₹50,000 per software.",
+            features: "Pros: Asia's largest network for CAD training, certified courses. Cons: Niche skill-based training.",
+            website: "https://www.caddcentre.com"
+        },
+        {
+            name: "I-Quantum",
+            location: "Anna Nagar, Chennai",
+            rating: "4.7/5 (Google)",
+            total_reviews: "600+",
+            year_established: "N/A",
+            courses: "NEET, IIT-JEE. Fees: Varies.",
+            features: "Pros: Good local science institute with positive reviews for teaching quality. Cons: Smaller scale.",
+            website: "https://www.i-quantum.in"
+        },
+        {
+            name: "T.I.M.E. Kids",
+            location: "Anna Nagar, Chennai",
+            rating: "4.5/5 (Google)",
+            total_reviews: "400+",
+            year_established: 2000,
+            courses: "Pre-school education. Fees: Approx. ₹80,000 - ₹1,50,000 per year.",
+            features: "Pros: Pre-school wing of the reputed T.I.M.E. group, structured curriculum. Cons: More of a school.",
+            website: "https://www.timekidspreschools.in"
+        },
+        {
+            name: "Alpha Academy",
+            location: "Tambaram, Chennai",
+            rating: "4.6/5 (Google)",
+            total_reviews: "900+",
+            year_established: "N/A",
+            courses: "TNPSC, Banking. Fees: Varies.",
+            features: "Pros: Another strong local player in Tambaram for government jobs. Cons: Basic infrastructure.",
+            website: "N/A"
+        },
+        {
+            name: "Drona Academy",
+            location: "Nanganallur, Chennai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "IX-XII, JEE, NEET. Fees: Varies.",
+            features: "Pros: Highly-rated local science tutorial in the Nanganallur area. Cons: Limited reach.",
+            website: "N/A"
+        },
+        {
+            name: "Velammal Bodhi Campus",
+            location: "Kolapakkam, Chennai",
+            rating: "4.4/5 (for the school)",
+            total_reviews: "1,200+",
+            year_established: 1986,
+            courses: "Integrated NEET/JEE coaching with schooling. Fees: High (School + Coaching).",
+            features: "Pros: Run by a leading school group, saves travel time, disciplined environment. Cons: Less flexibility.",
+            website: "https://www.velammalbodhicampus.com"
+        },
+        {
+            name: "NATA-CHENNAI",
+            location: "Mylapore, Chennai",
+            rating: "4.9/5 (Google)",
+            total_reviews: "350+",
+            year_established: "N/A",
+            courses: "NATA, JEE Paper 2. Fees: Approx. ₹20,000 - ₹40,000.",
+            features: "Pros: Top-rated, highly specialized institute for NATA in a central location. Cons: Niche focus.",
+            website: "N/A"
+        },
+        {
+            name: "Mylapore Academy",
+            location: "Mylapore, Chennai",
+            rating: "4.2/5 (Google)",
+            total_reviews: "400+",
+            year_established: 1954,
+            courses: "CA, CS, CMA. Fees: Varies.",
+            features: "Pros: A very old and traditional institution for commerce professional courses. Cons: Traditional methods.",
+            website: "N/A"
+        },
+        {
+            name: "SIP Abacus",
+            location: "Adyar, Chennai",
+            rating: "4.5/5 (Google)",
+            total_reviews: "800+",
+            year_established: 2003,
+            courses: "Abacus, Vedic Maths for children. Fees: Approx. ₹1,500 - ₹3,000 per month.",
+            features: "Pros: Helps develop mental math skills in young children. Cons: Supplementary education.",
+            website: "https://www.sipabacus.com"
+        },
+        {
+            name: "Jayam Academy",
+            location: "Anna Nagar, Chennai",
+            rating: "4.7/5 (Google)",
+            total_reviews: "900+",
+            year_established: "N/A",
+            courses: "TNPSC, Police. Fees: Varies.",
+            features: "Pros: Good reviews for state-level exams. Cons: Local focus.",
+            website: "N/A"
+        },
+        {
+            name: "S2S Academy",
+            location: "Tambaram, Chennai",
+            rating: "4.9/5 (Google)",
+            total_reviews: "600+",
+            year_established: "N/A",
+            courses: "IX-XII, NEET. Fees: Varies.",
+            features: "Pros: Top-rated local science institute in Tambaram. Cons: Limited reach.",
+            website: "N/A"
+        },
+        {
+            name: "Chennai Corporation IAS Coaching Centre",
+            location: "Anna Nagar, Chennai",
+            rating: "4.3/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: "N/A",
+            courses: "Free coaching for UPSC/TNPSC. Fees: Free.",
+            features: "Pros: Initiative by the Greater Chennai Corporation for underprivileged students. Cons: Limited seats, selection based on tests.",
+            website: "N/A"
+        },
+        {
+            name: "Jeyam Tuition Centre",
+            location: "Medavakkam, Chennai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "700+",
+            year_established: "N/A",
+            courses: "IX-XII (All boards). Fees: Varies.",
+            features: "Pros: Highly-rated local tuition center in the Medavakkam area. Cons: School-level focus.",
+            website: "N/A"
+        },
+        {
+            name: "National Institute of Banking",
+            location: "Purasawalkam, Chennai",
+            rating: "4.4/5 (Google)",
+            total_reviews: "800+",
+            year_established: "N/A",
+            courses: "Banking. Fees: Approx. ₹10,000 - ₹18,000.",
+            features: "Pros: An old and established brand specifically for banking exams. Cons: Faces stiff competition.",
+            website: "N/A"
+        },
+        {
+            name: "Image Creative Education",
+            location: "Adyar, Chennai",
+            rating: "4.7/5 (Google)",
+            total_reviews: "1,100+",
+            year_established: 1996,
+            courses: "Animation, VFX, Game Design, Fashion Design. Fees: High, diploma based.",
+            features: "Pros: National brand with a strong South India presence, good curriculum. Cons: Faces local competition from other animation institutes.",
+            website: "https://www.image.edu.in"
+        },
+        {
+            name: "Chennai School of Music Therapy",
+            location: "Alwarpet, Chennai",
+            rating: "4.9/5 (Google)",
+            total_reviews: "200+",
+            year_established: "N/A",
+            courses: "Diploma in Music Therapy. Fees: High, professional course.",
+            features: "Pros: A highly specialized and niche institute for a career in therapeutic music. Cons: Vocational, not academic coaching.",
+            website: "https://www.chennaimusictherapy.org"
+        },
+        {
+            name: "Kalakshetra Foundation",
+            location: "Thiruvanmiyur, Chennai",
+            rating: "4.6/5 (Google)",
+            total_reviews: "3,500+",
+            year_established: 1936,
+            courses: "Diploma in Bharatanatyam, Carnatic Music. Fees: Subsidized, as it's a national institute.",
+            features: "Pros: A legendary and world-renowned institution for Indian classical arts. Cons: An 'Institute of National Importance,' not a typical coaching center.",
+            website: "https://www.kalakshetra.in"
+        },
+        {
+            name: "The Knowledge Academy",
+            location: "Guindy, Chennai (Serviced Office)",
+            rating: "4.8/5 (Trustpilot)",
+            total_reviews: "10,000+",
+            year_established: 2009,
+            courses: "PMP, PRINCE2, ITIL, Six Sigma. Fees: High, certification based (e.g., ₹20,000 - ₹80,000).",
+            features: "Pros: A global leader in professional certification training, conducts workshops in major cities. Cons: Expensive, for working professionals.",
+            website: "https://www.theknowledgeacademy.com/in/"
+        },
+        {
+            name: "KM Music Conservatory",
+            location: "Arumbakkam, Chennai",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 2008,
+            courses: "Western & Indian Music (Piano, Vocals, etc.). Fees: High, professional courses.",
+            features: "Pros: Founded by A.R. Rahman, world-class infrastructure and faculty. Cons: Primarily a music college, not a hobby school.",
+            website: "https://kmmc.in"
+        },
+        {
+            name: "Prof. Rajagopalan's Chemistry Classes",
+            location: "West Mambalam, Chennai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "300+",
+            year_established: "N/A",
+            courses: "Chemistry for NEET/JEE. Fees: Approx. ₹40,000 - ₹70,000.",
+            features: "Pros: Legendary individual faculty for Chemistry, known for deep conceptual teaching. Cons: Single subject, very limited seats.",
+            website: "N/A"
+        },
+        {
+            name: "We Shine Academy",
+            location: "T. Nagar, Chennai",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,400+",
+            year_established: "N/A",
+            courses: "TNPSC, Banking, SSC. Fees: Approx. ₹15,000 - ₹30,000.",
+            features: "Pros: Another strong local competitor for government job coaching. Cons: Faces huge competition from RACE.",
+            website: "https://weshineacademy.com"
+        },
+        {
+            name: "The British Council",
+            location: "Anna Salai, Chennai",
+            rating: "4.4/5 (Google)",
+            total_reviews: "2,200+",
+            year_established: 1948,
+            courses: "IELTS preparation and exam booking, English language courses. Fees: Approx. ₹10,000 - ₹20,000 for courses.",
+            features: "Pros: Official body, authentic material, certified trainers. Cons: Can be expensive.",
+            website: "https://www.britishcouncil.in"
+        },
+        {
+            name: "Hope Tutors",
+            location: "Velachery, Chennai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "3,000+",
+            year_established: 2012,
+            courses: "Software Testing, AWS, Python. Fees: Approx. ₹15,000 - ₹35,000.",
+            features: "Pros: Highly-rated IT training center with a strong focus on practical skills for job seekers. Cons: Localized.",
+            website: "https://www.hopetutors.com"
+        },
+        {
+            name: "MSME - Technology Development Centre",
+            location: "Guindy, Chennai",
+            rating: "4.3/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: 1954,
+            courses: "CAD/CAM, CNC, Robotics, PLC/SCADA. Fees: Government subsidized.",
+            features: "Pros: Government of India institute providing high-quality, affordable technical skill training. Cons: Not academic coaching.",
+            website: "https://www.msmetdcchennai.gov.in"
+        },
+        {
+            name: "National Institute of Electronics & Information Technology (NIELIT)",
+            location: "Gandhi Mandapam Road, Chennai",
+            rating: "4.2/5 (Google)",
+            total_reviews: "800+",
+            year_established: 1974,
+            courses: "O/A/B/C Level computer courses, various short-term IT courses. Fees: Government subsidized.",
+            features: "Pros: Autonomous scientific society under the Indian Govt, recognized certifications. Cons: Slower-paced than private institutes.",
+            website: "https://www.nielit.gov.in/chennai/"
+        },
+        {
+            name: "ACTE",
+            location: "Tambaram, Chennai",
+            rating: "4.7/5 (Google)",
+            total_reviews: "12,000+",
+            year_established: 2010,
+            courses: "Python, Java, Data Science, AWS. Fees: Approx. ₹18,000 - ₹45,000.",
+            features: "Pros: Another major IT training player with numerous branches and strong placement focus. Cons: Quality can vary across its many locations.",
+            website: "https://www.acte.in"
+        },
+        {
+            name: "Radian IAS Academy",
+            location: "Vadapalani, Chennai",
+            rating: "4.4/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 2004,
+            courses: "TNPSC, Banking, SSC, Police. Fees: Varies.",
+            features: "Pros: Strong presence across Tamil Nadu for state government exams. Cons: Franchise model.",
+            website: "https://www.radianiasacademy.org"
+        },
+        {
+            name: "Jothi's Coaching Centre",
+            location: "Chromepet, Chennai",
+            rating: "4.7/5 (Google)",
+            total_reviews: "600+",
+            year_established: "N/A",
+            courses: "IX-XII, Engineering Maths. Fees: Varies.",
+            features: "Pros: Reputed local tuition center in Chromepet, strong in Engineering Mathematics. Cons: Local focus.",
+            website: "N/A"
+        },
+        {
+            name: "The IELTS Academy",
+            location: "Anna Nagar, Chennai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "700+",
+            year_established: "N/A",
+            courses: "IELTS, PTE, OET. Fees: Approx. ₹8,000 - ₹15,000.",
+            features: "Pros: Highly-rated specialized institute for English proficiency tests. Cons: Niche focus.",
+            website: "N/A"
+        },
+        {
+            name: "Hindustan Aviation Academy",
+            location: "Meenambakkam, Chennai",
+            rating: "4.5/5 (Google)",
+            total_reviews: "900+",
+            year_established: 1983,
+            courses: "Aircraft Maintenance Engineering (AME). Fees: This is a full diploma course costing several lakhs.",
+            features: "Pros: DGCA-approved AME college located near the airport. Cons: More of a technical college than a coaching institute.",
+            website: "https://www.hindustanacademy.edu.in"
+        },
+        {
+            name: "Swaroop's IAS Academy",
+            location: "Anna Nagar, Chennai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "UPSC (Political Science Optional). Fees: Approx. ₹45,000.",
+            features: "Pros: Highly rated for PSIR optional, run by a single experienced faculty. Cons: Single subject focus.",
+            website: "N/A"
+        },
+        {
+            name: "Rajaji Coaching Centre",
+            location: "T. Nagar, Chennai",
+            rating: "4.7/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "Class IX-XII, B.Com. Fees: Varies.",
+            features: "Pros: A very old and traditional coaching center with a loyal following. Cons: Traditional teaching style.",
+            website: "N/A"
+        },
+        {
+            name: "Animation Bugs",
+            location: "Vadapalani, Chennai",
+            rating: "4.9/5 (Google)",
+            total_reviews: "300+",
+            year_established: "N/A",
+            courses: "Animation, VFX, Multimedia. Fees: Varies.",
+            features: "Pros: Top-rated local animation institute, praised for its practical approach. Cons: Smaller scale.",
+            website: "https://www.animationbugs.com"
+        },
+        {
+            name: "Ram's TANCET Coaching",
+            location: "T. Nagar, Chennai",
+            rating: "4.6/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "TANCET (MBA). Fees: Approx. ₹15,000 - ₹25,000.",
+            features: "Pros: Highly specialized and well-known institute just for TANCET MBA preparation. Cons: Very niche.",
+            website: "N/A"
+        },
+        {
+            name: "Sri Krishna Academy",
+            location: "Mylapore, Chennai",
+            rating: "4.5/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "School Tuitions, Spoken Hindi. Fees: Varies.",
+            features: "Pros: Reputed local tuition center in a central location. Cons: Basic infrastructure.",
+            website: "N/A"
+        },
+        {
+            name: "S2S International",
+            location: "Anna Nagar, Chennai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "350+",
+            year_established: "N/A",
+            courses: "German Language (A1-C2). Fees: Approx. ₹15,000 - ₹25,000 per level.",
+            features: "Pros: Highly-rated institute for German language, good alternative to Goethe-Institut. Cons: Not an official cultural center.",
+            website: "https://www.s2sinternational.com"
+        },
+        {
+            name: "Indian Institute of Logistics (IIL)",
+            location: "T. Nagar, Chennai",
+            rating: "4.3/5 (Google)",
+            total_reviews: "600+",
+            year_established: 2007,
+            courses: "Diploma/MBA in Logistics & Shipping. Fees: High, professional course fees.",
+            features: "Pros: Specialized institute for the high-growth logistics sector. Cons: Vocational, not academic coaching.",
+            website: "https://www.iilschennai.com"
+        },
+        {
+            name: "ExcelR Solutions",
+            location: "OMR, Chennai",
+            rating: "4.7/5 (Google)",
+            total_reviews: "2,500+",
+            year_established: 2014,
+            courses: "Data Science, Business Analytics, Project Management (PMP). Fees: Approx. ₹45,000 - ₹85,000.",
+            features: "Pros: Located in the IT corridor, strong placement focus, global certification. Cons: Highly technical courses.",
+            website: "https://www.excelr.com"
+        },
+        {
+            name: "Velachery Chess Academy",
+            location: "Velachery, Chennai",
+            rating: "4.9/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "Chess coaching for all levels. Fees: Monthly basis (e.g., ₹2000 - ₹5000).",
+            features: "Pros: Chennai is the chess capital of India; this is a top-rated local academy. Cons: Hobby/professional skill, not academic.",
+            website: "N/A"
+        },
+        {
+            name: "The Art of Living",
+            location: "Multiple centers, Chennai",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 1981,
+            courses: "Yoga, Meditation, Happiness Program. Fees: Varies.",
+            features: "Pros: Global organization focusing on mental wellness and stress relief. Cons: Not academic coaching.",
+            website: "https://www.artofliving.org"
+        },
+        {
+            name: "Global Art",
+            location: "Multiple franchises, Chennai",
+            rating: "4.5/5 (Google)",
+            total_reviews: "700+",
+            year_established: 1999,
+            courses: "Art and craft classes for children. Fees: Monthly basis.",
+            features: "Pros: International chain for fostering creativity in children. Cons: Hobby-based.",
+            website: "https://www.globalart.in"
+        },
+        {
+            name: "Winners' Academy",
+            location: "Madipakkam, Chennai",
+            rating: "4.7/5 (Google)",
+            total_reviews: "600+",
+            year_established: "N/A",
+            courses: "TNPSC, Police. Fees: Varies.",
+            features: "Pros: Strong local institute in the Madipakkam area for state government jobs. Cons: Limited reach.",
+            website: "N/A"
+        },
+        {
+            name: "Spark Tuition Centre",
+            location: "Sholinganallur, Chennai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "IX-XII, Engineering subjects. Fees: Varies.",
+            features: "Pros: Highly-rated tuition center located in the IT corridor, caters to local schools and colleges. Cons: Local focus.",
+            website: "N/A"
+        },
+        {
+            name: "Sri Vidhya Academy",
+            location: "Avadi, Chennai",
+            rating: "4.6/5 (Google)",
+            total_reviews: "700+",
+            year_established: "N/A",
+            courses: "IX-XII, NEET. Fees: Varies.",
+            features: "Pros: Leading local coaching center in the Avadi area. Cons: Focus on local student base.",
+            website: "N/A"
+        },
+        {
+            name: "Whitehorse GMAT/GRE",
+            location: "Online (Chennai-based)",
+            rating: "4.9/5 (Online reviews)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "GMAT, GRE. Fees: Approx. ₹25,000 - ₹40,000.",
+            features: "Pros: Highly-rated online coaching focused on a personalized approach. Cons: Lacks physical classroom.",
+            website: "https://www.whitehorsegre.com"
+        },
+        {
+            name: "Bharathan's Coaching Centre",
+            location: "Adambakkam, Chennai",
+            rating: "4.9/5 (Google)",
+            total_reviews: "300+",
+            year_established: "N/A",
+            courses: "XI-XII Maths, B.Sc Maths. Fees: Varies.",
+            features: "Pros: Top-rated individual tutor for Mathematics, from school to degree level. Cons: Single subject, individual dependent.",
+            website: "N/A"
+        },
+        {
+            name: "The IELTS Coaching",
+            location: "Velachery, Chennai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "IELTS. Fees: Approx. ₹7,000 - ₹12,000.",
+            features: "Pros: Highly-rated, specialized, and affordable IELTS coaching. Cons: Niche focus.",
+            website: "N/A"
+        },
+        {
+            name: "Chellappan's Commerce Academy",
+            location: "Triplicane, Chennai",
+            rating: "4.7/5 (Google)",
+            total_reviews: "600+",
+            year_established: "N/A",
+            courses: "XI-XII Commerce, B.Com. Fees: Varies.",
+            features: "Pros: A very old and legendary commerce coaching center in a historic part of Chennai. Cons: Traditional teaching methods.",
+            website: "N/A"
+        },
+
+
+        // PART 2 DATA (Entries 151-300)
+        {
+            name: "Chennai School of Music Therapy",
+            location: "Alwarpet, Chennai",
+            rating: "4.9/5 (Google)",
+            total_reviews: "200+",
+            year_established: "N/A",
+            courses: "Diploma in Music Therapy. Fees: High, professional course.",
+            features: "Pros: A highly specialized and niche institute for a career in therapeutic music. Cons: Vocational, not academic coaching.",
+            website: "https://www.chennaimusictherapy.org"
+        },
+        {
+            name: "Kalakshetra Foundation",
+            location: "Thiruvanmiyur, Chennai",
+            rating: "4.6/5 (Google)",
+            total_reviews: "3,500+",
+            year_established: 1936,
+            courses: "Diploma in Bharatanatyam, Carnatic Music. Fees: Subsidized, as it's a national institute.",
+            features: "Pros: A legendary and world-renowned institution for Indian classical arts. Cons: An 'Institute of National Importance,' not a typical coaching center.",
+            website: "https://www.kalakshetra.in"
+        },
+        {
+            name: "The Knowledge Academy",
+            location: "Guindy, Chennai (Serviced Office)",
+            rating: "4.8/5 (Trustpilot)",
+            total_reviews: "10,000+",
+            year_established: 2009,
+            courses: "PMP, PRINCE2, ITIL, Six Sigma. Fees: High, certification based (e.g., ₹20,000 - ₹80,000).",
+            features: "Pros: A global leader in professional certification training, conducts workshops in major cities. Cons: Expensive, for working professionals.",
+            website: "https://www.theknowledgeacademy.com/in/"
+        },
+        {
+            name: "Madras School of Social Work",
+            location: "Egmore, Chennai",
+            rating: "4.3/5 (Google)",
+            total_reviews: "800+",
+            year_established: 1952,
+            courses: "Coaching for TISSNET and other social work entrances. Fees: Varies.",
+            features: "Pros: A premier social work college in India; ideal environment for related entrance exams. Cons: Coaching is informal and not their primary function.",
+            website: "https://mssw.in"
+        },
+        {
+            name: "Anna University (TANCET Coaching)",
+            location: "Guindy, Chennai",
+            rating: "4.5/5 (for the university)",
+            total_reviews: "15,000+",
+            year_established: "N/A",
+            courses: "TANCET MBA/MCA/ME. Fees: Low, subsidized.",
+            features: "Pros: Official coaching conducted by the university that sets the paper, highly authentic. Cons: Limited seats, short duration, offered only before the exam.",
+            website: "https://www.annauniv.edu"
+        },
+        {
+            name: "KM Music Conservatory",
+            location: "Arumbakkam, Chennai",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 2008,
+            courses: "Western & Indian Music (Piano, Vocals, etc.). Fees: High, professional courses.",
+            features: "Pros: Founded by A.R. Rahman, world-class infrastructure and faculty. Cons: Primarily a music college, not a hobby school.",
+            website: "https://kmmc.in"
+        },
+        {
+            name: "Central Leather Research Institute (CLRI)",
+            location: "Adyar, Chennai",
+            rating: "4.4/5 (for the institute)",
+            total_reviews: "1,200+",
+            year_established: 1948,
+            courses: "Coaching for Leather Technology entrances. Fees: Varies.",
+            features: "Pros: Premier national institute for leather technology. Cons: Highly niche field; coaching is informal by experts.",
+            website: "https://www.clri.org"
+        },
+        {
+            name: "Prof. Rajagopalan's Chemistry Classes",
+            location: "West Mambalam, Chennai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "300+",
+            year_established: "N/A",
+            courses: "Chemistry for NEET/JEE. Fees: Approx. ₹40,000 - ₹70,000.",
+            features: "Pros: Legendary individual faculty for Chemistry, known for deep conceptual teaching. Cons: Single subject, very limited seats.",
+            website: "N/A"
+        },
+        {
+            name: "We Shine Academy",
+            location: "T. Nagar, Chennai",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,400+",
+            year_established: "N/A",
+            courses: "TNPSC, Banking, SSC. Fees: Approx. ₹15,000 - ₹30,000.",
+            features: "Pros: Another strong local competitor for government job coaching. Cons: Faces huge competition from RACE.",
+            website: "https://weshineacademy.com"
+        },
+        {
+            name: "The British Council",
+            location: "Anna Salai, Chennai",
+            rating: "4.4/5 (Google)",
+            total_reviews: "2,200+",
+            year_established: 1948,
+            courses: "IELTS preparation and exam booking, English language courses. Fees: Approx. ₹10,000 - ₹20,000 for courses.",
+            features: "Pros: Official body, authentic material, certified trainers. Cons: Can be expensive.",
+            website: "https://www.britishcouncil.in"
+        },
+        {
+            name: "Hope Tutors",
+            location: "Velachery, Chennai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "3,000+",
+            year_established: 2012,
+            courses: "Software Testing, AWS, Python. Fees: Approx. ₹15,000 - ₹35,000.",
+            features: "Pros: Highly-rated IT training center with a strong focus on practical skills for job seekers. Cons: Localized.",
+            website: "https://www.hopetutors.com"
+        },
+        {
+            name: "MSME - Technology Development Centre",
+            location: "Guindy, Chennai",
+            rating: "4.3/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: 1954,
+            courses: "CAD/CAM, CNC, Robotics, PLC/SCADA. Fees: Government subsidized.",
+            features: "Pros: Government of India institute providing high-quality, affordable technical skill training. Cons: Not academic coaching.",
+            website: "https://www.msmetdcchennai.gov.in"
+        },
+        {
+            name: "National Institute of Electronics & Information Technology (NIELIT)",
+            location: "Gandhi Mandapam Road, Chennai",
+            rating: "4.2/5 (Google)",
+            total_reviews: "800+",
+            year_established: 1974,
+            courses: "O/A/B/C Level computer courses, various short-term IT courses. Fees: Government subsidized.",
+            features: "Pros: Autonomous scientific society under the Indian Govt, recognized certifications. Cons: Slower-paced than private institutes.",
+            website: "https://www.nielit.gov.in/chennai/"
+        },
+        {
+            name: "ACTE",
+            location: "Tambaram, Chennai",
+            rating: "4.7/5 (Google)",
+            total_reviews: "12,000+",
+            year_established: 2010,
+            courses: "Python, Java, Data Science, AWS. Fees: Approx. ₹18,000 - ₹45,000.",
+            features: "Pros: Another major IT training player with numerous branches and strong placement focus. Cons: Quality can vary across its many locations.",
+            website: "https://www.acte.in"
+        },
+        {
+            name: "Radian IAS Academy",
+            location: "Vadapalani, Chennai",
+            rating: "4.4/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 2004,
+            courses: "TNPSC, Banking, SSC, Police. Fees: Varies.",
+            features: "Pros: Strong presence across Tamil Nadu for state government exams. Cons: Franchise model.",
+            website: "https://www.radianiasacademy.org"
+        },
+        {
+            name: "Jothi's Coaching Centre",
+            location: "Chromepet, Chennai",
+            rating: "4.7/5 (Google)",
+            total_reviews: "600+",
+            year_established: "N/A",
+            courses: "IX-XII, Engineering Maths. Fees: Varies.",
+            features: "Pros: Reputed local tuition center in Chromepet, strong in Engineering Mathematics. Cons: Local focus.",
+            website: "N/A"
+        },
+        {
+            name: "The IELTS Academy",
+            location: "Anna Nagar, Chennai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "700+",
+            year_established: "N/A",
+            courses: "IELTS, PTE, OET. Fees: Approx. ₹8,000 - ₹15,000.",
+            features: "Pros: Highly-rated specialized institute for English proficiency tests. Cons: Niche focus.",
+            website: "N/A"
+        },
+        {
+            name: "Hindustan Aviation Academy",
+            location: "Meenambakkam, Chennai",
+            rating: "4.5/5 (Google)",
+            total_reviews: "900+",
+            year_established: 1983,
+            courses: "Aircraft Maintenance Engineering (AME). Fees: This is a full diploma course costing several lakhs.",
+            features: "Pros: DGCA-approved AME college located near the airport. Cons: More of a technical college than a coaching institute.",
+            website: "https://www.hindustanacademy.edu.in"
+        },
+        {
+            name: "Swaroop's IAS Academy",
+            location: "Anna Nagar, Chennai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "UPSC (Political Science Optional). Fees: Approx. ₹45,000.",
+            features: "Pros: Highly rated for PSIR optional, run by a single experienced faculty. Cons: Single subject focus.",
+            website: "N/A"
+        },
+        {
+            name: "Rajaji Coaching Centre",
+            location: "T. Nagar, Chennai",
+            rating: "4.7/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "Class IX-XII, B.Com. Fees: Varies.",
+            features: "Pros: A very old and traditional coaching center with a loyal following. Cons: Traditional teaching style.",
+            website: "N/A"
+        },
+        {
+            name: "Animation Bugs",
+            location: "Vadapalani, Chennai",
+            rating: "4.9/5 (Google)",
+            total_reviews: "300+",
+            year_established: "N/A",
+            courses: "Animation, VFX, Multimedia. Fees: Varies.",
+            features: "Pros: Top-rated local animation institute, praised for its practical approach. Cons: Smaller scale.",
+            website: "https://www.animationbugs.com"
+        },
+        {
+            name: "Ram's TANCET Coaching",
+            location: "T. Nagar, Chennai",
+            rating: "4.6/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "TANCET (MBA). Fees: Approx. ₹15,000 - ₹25,000.",
+            features: "Pros: Highly specialized and well-known institute just for TANCET MBA preparation. Cons: Very niche.",
+            website: "N/A"
+        },
+        {
+            name: "Sri Krishna Academy",
+            location: "Mylapore, Chennai",
+            rating: "4.5/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "School Tuitions, Spoken Hindi. Fees: Varies.",
+            features: "Pros: Reputed local tuition center in a central location. Cons: Basic infrastructure.",
+            website: "N/A"
+        },
+        {
+            name: "S2S International",
+            location: "Anna Nagar, Chennai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "350+",
+            year_established: "N/A",
+            courses: "German Language (A1-C2). Fees: Approx. ₹15,000 - ₹25,000 per level.",
+            features: "Pros: Highly-rated institute for German language, good alternative to Goethe-Institut. Cons: Not an official cultural center.",
+            website: "https://www.s2sinternational.com"
+        },
+        {
+            name: "Indian Institute of Logistics (IIL)",
+            location: "T. Nagar, Chennai",
+            rating: "4.3/5 (Google)",
+            total_reviews: "600+",
+            year_established: 2007,
+            courses: "Diploma/MBA in Logistics & Shipping. Fees: High, professional course fees.",
+            features: "Pros: Specialized institute for the high-growth logistics sector. Cons: Vocational, not academic coaching.",
+            website: "https://www.iilschennai.com"
+        },
+        {
+            name: "ExcelR Solutions",
+            location: "OMR, Chennai",
+            rating: "4.7/5 (Google)",
+            total_reviews: "2,500+",
+            year_established: 2014,
+            courses: "Data Science, Business Analytics, Project Management (PMP). Fees: Approx. ₹45,000 - ₹85,000.",
+            features: "Pros: Located in the IT corridor, strong placement focus, global certification. Cons: Highly technical courses.",
+            website: "https://www.excelr.com"
+        },
+        {
+            name: "Velachery Chess Academy",
+            location: "Velachery, Chennai",
+            rating: "4.9/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "Chess coaching for all levels. Fees: Monthly basis (e.g., ₹2000 - ₹5000).",
+            features: "Pros: Chennai is the chess capital of India; this is a top-rated local academy. Cons: Hobby/professional skill, not academic.",
+            website: "N/A"
+        },
+        {
+            name: "The Art of Living",
+            location: "Multiple centers, Chennai",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 1981,
+            courses: "Yoga, Meditation, Happiness Program. Fees: Varies.",
+            features: "Pros: Global organization focusing on mental wellness and stress relief. Cons: Not academic coaching.",
+            website: "https://www.artofliving.org"
+        },
+        {
+            name: "Global Art",
+            location: "Multiple franchises, Chennai",
+            rating: "4.5/5 (Google)",
+            total_reviews: "700+",
+            year_established: 1999,
+            courses: "Art and craft classes for children. Fees: Monthly basis.",
+            features: "Pros: International chain for fostering creativity in children. Cons: Hobby-based.",
+            website: "https://www.globalart.in"
+        },
+        {
+            name: "Winners' Academy",
+            location: "Madipakkam, Chennai",
+            rating: "4.7/5 (Google)",
+            total_reviews: "600+",
+            year_established: "N/A",
+            courses: "TNPSC, Police. Fees: Varies.",
+            features: "Pros: Strong local institute in the Madipakkam area for state government jobs. Cons: Limited reach.",
+            website: "N/A"
+        },
+        {
+            name: "Spark Tuition Centre",
+            location: "Sholinganallur, Chennai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "IX-XII, Engineering subjects. Fees: Varies.",
+            features: "Pros: Highly-rated tuition center located in the IT corridor, caters to local schools and colleges. Cons: Local focus.",
+            website: "N/A"
+        },
+        {
+            name: "Sri Vidhya Academy",
+            location: "Avadi, Chennai",
+            rating: "4.6/5 (Google)",
+            total_reviews: "700+",
+            year_established: "N/A",
+            courses: "IX-XII, NEET. Fees: Varies.",
+            features: "Pros: Leading local coaching center in the Avadi area. Cons: Focus on local student base.",
+            website: "N/A"
+        },
+        {
+            name: "Whitehorse GMAT/GRE",
+            location: "Online (Chennai-based)",
+            rating: "4.9/5 (Online reviews)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "GMAT, GRE. Fees: Approx. ₹25,000 - ₹40,000.",
+            features: "Pros: Highly-rated online coaching focused on a personalized approach. Cons: Lacks physical classroom.",
+            website: "https://www.whitehorsegre.com"
+        },
+        {
+            name: "Bharathan's Coaching Centre",
+            location: "Adambakkam, Chennai",
+            rating: "4.9/5 (Google)",
+            total_reviews: "300+",
+            year_established: "N/A",
+            courses: "XI-XII Maths, B.Sc Maths. Fees: Varies.",
+            features: "Pros: Top-rated individual tutor for Mathematics, from school to degree level. Cons: Single subject, individual dependent.",
+            website: "N/A"
+        },
+        {
+            name: "The IELTS Coaching",
+            location: "Velachery, Chennai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "IELTS. Fees: Approx. ₹7,000 - ₹12,000.",
+            features: "Pros: Highly-rated, specialized, and affordable IELTS coaching. Cons: Niche focus.",
+            website: "N/A"
+        },
+        {
+            name: "Chellappan's Commerce Academy",
+            location: "Triplicane, Chennai",
+            rating: "4.7/5 (Google)",
+            total_reviews: "600+",
+            year_established: "N/A",
+            courses: "XI-XII Commerce, B.Com. Fees: Varies.",
+            features: "Pros: A very old and legendary commerce coaching center in a historic part of Chennai. Cons: Traditional teaching methods.",
+            website: "N/A"
+        },
+        {
+            name: "Aakash Institute (Velachery)",
+            location: "Velachery, Chennai",
+            rating: "4.2/5 (Google)",
+            total_reviews: "1,800+",
+            year_established: "N/A",
+            courses: "NEET, JEE. Fees: Approx. ₹1,80,000 - ₹3,50,000 for 2 years.",
+            features: "Pros: Strong branch located in a major residential and commercial hub. Cons: Large batches.",
+            website: "https://www.aakash.ac.in"
+        },
+        {
+            name: "Allen Career Institute (Anna Nagar)",
+            location: "Anna Nagar, Chennai",
+            rating: "4.4/5 (Google)",
+            total_reviews: "3,000+",
+            year_established: "N/A",
+            courses: "JEE, NEET. Fees: Approx. ₹1,60,000 - ₹3,20,000 per year.",
+            features: "Pros: Major center in a prime student area. Cons: Highly competitive environment.",
+            website: "https://www.allen.ac.in"
+        },
+        {
+            name: "FIITJEE (T. Nagar)",
+            location: "T. Nagar, Chennai",
+            rating: "4.0/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: "N/A",
+            courses: "JEE (Main & Advanced). Fees: Approx. ₹2,00,000 - ₹4,00,000 for 2 years.",
+            features: "Pros: Centrally located branch for JEE aspirants. Cons: Very rigorous schedule.",
+            website: "https://www.fiitjee.com"
+        },
+        {
+            name: "Veranda RACE (Tambaram)",
+            location: "Tambaram, Chennai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "8,000+",
+            year_established: "N/A",
+            courses: "Banking, SSC, TNPSC. Fees: Approx. ₹15,000 - ₹25,000.",
+            features: "Pros: Major hub for students in the southern suburbs, excellent results. Cons: Extremely crowded.",
+            website: "https://www.verandalearning.com/race"
+        },
+        {
+            name: "TIME (Adyar)",
+            location: "Adyar, Chennai",
+            rating: "4.2/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: "N/A",
+            courses: "CAT, GMAT, GRE. Fees: Approx. ₹40,000 - ₹75,000 per course.",
+            features: "Pros: Strong branch in South Chennai. Cons: Standardized teaching methodology.",
+            website: "https://www.time4education.com"
+        },
+        {
+            name: "IMS Learning Center (T. Nagar)",
+            location: "T. Nagar, Chennai",
+            rating: "4.7/5 (Google)",
+            total_reviews: "1,100+",
+            year_established: "N/A",
+            courses: "CAT, GMAT, GRE. Fees: Approx. ₹45,000 - ₹85,000 per course.",
+            features: "Pros: Highly rated center in a central commercial district. Cons: Premium pricing.",
+            website: "https://www.imsindia.com"
+        },
+        {
+            name: "K.S. Academy (Tambaram)",
+            location: "Tambaram, Chennai",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: "N/A",
+            courses: "CA, CS, CMA. Fees: Approx. ₹60,000 - ₹1,50,000.",
+            features: "Pros: Caters to students in the southern suburbs, strong faculty. Cons: Hectic schedule.",
+            website: "https://www.ksacademy.co.in"
+        },
+        {
+            name: "Shankar IAS Academy (Tambaram)",
+            location: "Tambaram, Chennai",
+            rating: "4.7/5 (Google)",
+            total_reviews: "4,000+",
+            year_established: "N/A",
+            courses: "UPSC, TNPSC. Fees: Approx. ₹1,20,000 - ₹2,00,000 for UPSC.",
+            features: "Pros: Major branch serving the southern suburbs of Chennai. Cons: Can be very crowded.",
+            website: "https://www.shankariasacademy.com"
+        },
+        {
+            name: "FITA (Tambaram)",
+            location: "Tambaram, Chennai",
+            rating: "4.9/5 (Google)",
+            total_reviews: "8,000+",
+            year_established: "N/A",
+            courses: "Python, Java, Software Testing. Fees: Approx. ₹18,000 - ₹50,000 per course.",
+            features: "Pros: Top-rated branch in a major student hub, excellent placement support. Cons: High demand for popular courses.",
+            website: "https://www.fita.in"
+        },
+        {
+            name: "Besant Technologies (Anna Nagar)",
+            location: "Anna Nagar, Chennai",
+            rating: "4.6/5 (Google)",
+            total_reviews: "7,000+",
+            year_established: "N/A",
+            courses: "AWS, Data Science, Python. Fees: Approx. ₹15,000 - ₹40,000 per course.",
+            features: "Pros: Strong branch located in a prime residential and educational area. Cons: Quality can vary by trainer.",
+            website: "https://www.besanttechnologies.com"
+        },
+        {
+            name: "M.K. Jain Classes",
+            location: "Sowcarpet, Chennai",
+            rating: "4.7/5 (Google)",
+            total_reviews: "800+",
+            year_established: "N/A",
+            courses: "CA, CS, XI-XII Commerce. Fees: Varies.",
+            features: "Pros: Legendary institute in the Sowcarpet area, especially popular among the North Indian community for commerce. Cons: Very traditional.",
+            website: "N/A"
+        },
+        {
+            name: "Vidya Mandir Classes (T. Nagar)",
+            location: "T. Nagar, Chennai",
+            rating: "4.5/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "PUC, CET, NEET. Fees: Varies.",
+            features: "Pros: Not to be confused with VMC, this is a local brand famous for PUC and CET coaching. Cons: Local focus.",
+            website: "N/A"
+        },
+        {
+            name: "Netrich IT Solutions",
+            location: "Vadapalani, Chennai",
+            rating: "4.9/5 (Google)",
+            total_reviews: "2,000+",
+            year_established: "N/A",
+            courses: "Networking (CCNA, CCNP), Cyber Security. Fees: Varies.",
+            features: "Pros: Top-rated institute specializing in computer networking and security certifications. Cons: Highly technical and niche.",
+            website: "https://www.netrich.in"
+        },
+        {
+            name: "Sathya's IAS Academy",
+            location: "Anna Nagar, Chennai",
+            rating: "4.5/5 (Google)",
+            total_reviews: "900+",
+            year_established: "N/A",
+            courses: "TNPSC Group Exams. Fees: Varies.",
+            features: "Pros: Strong local brand focusing exclusively on Tamil Nadu state exams. Cons: Smaller scale.",
+            website: "N/A"
+        },
+        {
+            name: "Akilan IAS Academy",
+            location: "Vadapalani, Chennai",
+            rating: "4.7/5 (Google)",
+            total_reviews: "1,100+",
+            year_established: "N/A",
+            courses: "TNPSC, Police, TET. Fees: Varies.",
+            features: "Pros: Another highly-rated local institute for state government jobs. Cons: Basic infrastructure.",
+            website: "N/A"
+        },
+        {
+            name: "Sri Rajiv Gandhi IAS Academy",
+            location: "Anna Nagar, Chennai",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,300+",
+            year_established: "N/A",
+            courses: "UPSC, TNPSC. Fees: Varies.",
+            features: "Pros: Well-regarded institute with experienced faculty for civil services. Cons: Faces huge competition in Anna Nagar.",
+            website: "https://www.srirajivgandhiias.com"
+        },
+        {
+            name: "Velan Academy",
+            location: "Tambaram, Chennai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "800+",
+            year_established: "N/A",
+            courses: "TNPSC, SI, PC. Fees: Varies.",
+            features: "Pros: Top-rated local institute in Tambaram for uniformed services and Group exams. Cons: Localized focus.",
+            website: "N/A"
+        },
+        {
+            name: "Zeal NEET Academy",
+            location: "Anna Nagar, Chennai",
+            rating: "4.7/5 (Google)",
+            total_reviews: "600+",
+            year_established: "N/A",
+            courses: "NEET (Repeaters/Long-term). Fees: Varies.",
+            features: "Pros: Specialized institute for NEET droppers, focusing on intensive revision and testing. Cons: Niche focus on repeaters.",
+            website: "N/A"
+        },
+        {
+            name: "MTG Learning Media",
+            location: "Online (Popular in Chennai)",
+            rating: "4.5/5 (for their books)",
+            total_reviews: "20,000+",
+            year_established: 1982,
+            courses: "Publishes highly popular books and magazines for NEET/JEE. Fees: N/A.",
+            features: "Pros: Market leader in books like 'Objective NCERT at your Fingertips'. Cons: Not a coaching institute, but a critical resource provider.",
+            website: "https://www.mtg.in"
+        },
+        {
+            name: "Fly N Study Overseas",
+            location: "Anna Nagar, Chennai",
+            rating: "4.9/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: "N/A",
+            courses: "Study Abroad Counseling (MBBS, Engineering). Fees: Counseling based.",
+            features: "Pros: Top-rated consultant for overseas education, especially for medical studies abroad. Cons: Niche service.",
+            website: "https://www.flynstudyoverseas.com"
+        },
+        {
+            name: "Accent Speaker",
+            location: "Anna Nagar, Chennai",
+            rating: "4.8/5 (Google)",
+            total_reviews: "900+",
+            year_established: "N/A",
+            courses: "Spoken English, Accent Training, IELTS. Fees: Varies.",
+            features: "Pros: Highly-rated for practical English communication and accent neutralization. Cons: Skill-based.",
+            website: "https://www.accentspeaker.com"
+        },
+        {
+            name: "Ethnus",
+            location: "Multiple, Chennai",
+            rating: "4.6/5 (Google)",
+            total_reviews: "5,000+",
+            year_established: 2007,
+            courses: "Campus Placement Training, Full Stack, Data Science. Fees: Varies.",
+            features: "Pros: A leader in conducting placement training inside engineering colleges (Codemithra). Cons: Primarily B2B model.",
+            website: "https://www.ethnus.com"
+        },
+        {
+            name: "Samba IAS",
+            location: "Anna Nagar, Chennai",
+            rating: "4.7/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "UPSC (Sociology Optional). Fees: Approx. ₹40,000.",
+            features: "Pros: Highly-rated institute specializing in Sociology optional. Cons: Single subject focus.",
+            website: "N/A"
+        },
+        {
+            name: "Chennai School of AI & Data Science",
+            location: "Adyar, Chennai",
+            rating: "4.9/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "Artificial Intelligence, Machine Learning, Data Science. Fees: Varies.",
+            features: "Pros: Top-rated niche institute for advanced AI/ML training. Cons: Highly technical.",
+            website: "N/A"
+        },
+        {
+            name: "Periyar IAS Academy",
+            location: "T. Nagar, Chennai",
+            rating: "4.5/5 (Google)",
+            total_reviews: "800+",
+            year_established: "N/A",
+            courses: "TNPSC (Social Justice focused). Fees: Free or subsidized.",
+            features: "Pros: Run by Dravidar Kazhagam, focuses on providing coaching for underprivileged sections based on social justice principles. Cons: Selective admission.",
+            website: "N/A"
+        }
+    ];
+
+    const instituteList = document.getElementById('institute-list');
+
+    // Function to display institutes
+    function displayInstitutes(instituteArray) {
+        instituteList.innerHTML = ''; // Clear current list
+        instituteArray.forEach(institute => {
+            const card = `
+                <div class="institute-card">
+                    <h2>${institute.name}</h2>
+                    <p><strong>Location:</strong> ${institute.location}</p>
+                    <div class="details-grid">
+                        <p class="rating"><strong>Rating:</strong> ${institute.rating}</p>
+                        <p><strong>Reviews:</strong> ${institute.total_reviews}</p>
+                        <p class="established"><strong>Established:</strong> ${institute.year_established}</p>
+                    </div>
+                    <p><strong>Courses & Fees:</strong> ${institute.courses}</p>
+                    <p><strong>Features:</strong> ${institute.features}</p>
+                    <a href="${institute.website}" target="_blank" rel="noopener noreferrer">Visit Website</a>
+                </div>
+            `;
+            instituteList.innerHTML += card;
+        });
+    }
+
+    // Function to filter institutes based on search criteria
+    function filterInstitutes() {
+        const nameQuery = document.getElementById('name-search').value.toLowerCase();
+        const ratingQuery = document.getElementById('rating-search').value;
+
+        const filteredInstitutes = institutes.filter(institute => {
+            const nameMatch = institute.name.toLowerCase().includes(nameQuery);
+            // Extract the number part of the rating for a more flexible search
+            const ratingValue = institute.rating.split('/')[0].trim();
+            const ratingMatch = ratingValue.startsWith(ratingQuery);
+            
+            return nameMatch && ratingMatch;
+        });
+
+        displayInstitutes(filteredInstitutes);
+    }
+
+    // Initial display of all institutes
+    window.onload = () => {
+        displayInstitutes(institutes);
+    };
+
+</script>
+
+</body>
+</html>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

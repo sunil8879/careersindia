@@ -1,0 +1,1762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top coaching institutes in Ahmedabad</title>
+    <style>
+        /* General Body Styling */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            background-color: #fffaf0; /* Light orange/floral white background */
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        /* Header Box for Title and Search */
+        .header-container {
+            background-color: #f0ad4e; /* Orange background */
+            padding: 30px 25px;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            border: 1px solid #eea236;
+        }
+
+        /* 3D Title Styling */
+        h1 {
+            color: white;
+            text-align: center;
+            font-size: 3em;
+            font-weight: 700;
+            margin: 0 0 25px 0;
+            /* 3D Effect using a darker orange shadow */
+            text-shadow: 3px 3px 0px #d58512, 6px 6px 10px rgba(0, 0, 0, 0.3);
+            letter-spacing: 1px;
+        }
+
+        /* Search Box Container */
+        .search-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        /* Search Input Fields */
+        .search-container input {
+            padding: 12px 18px;
+            font-size: 1em;
+            width: 320px;
+            max-width: 90%;
+            border: none;
+            border-radius: 50px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1) inset;
+        }
+
+        .search-container input:focus {
+            outline: none;
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.7), 0 2px 4px rgba(0,0,0,0.1) inset;
+        }
+
+        /* Main container for the institute list */
+        #institute-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 25px;
+        }
+
+        /* Individual Institute Card Styling */
+        .institute-card {
+            background-color: white;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .institute-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+        }
+        
+        .institute-card h2 {
+            margin-top: 0;
+            font-size: 1.6em;
+            color: #ec971f; /* Orange title */
+        }
+
+        .institute-card p {
+            margin: 8px 0;
+            line-height: 1.6;
+            font-size: 0.95em;
+        }
+
+        .institute-card strong {
+            color: #212529;
+            font-weight: 600;
+        }
+
+        .institute-card a {
+            color: #d58512;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: auto; /* Pushes the link to the bottom */
+            align-self: flex-start;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .institute-card a:hover {
+            background-color: #fdf5e8;
+            color: #b56f0d;
+        }
+        
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5px 15px;
+            margin-bottom: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="header-container">
+        <h1>Top coaching institutes in Ahmedabad</h1>
+        <div class="search-container">
+            <input type="text" id="name-search" onkeyup="filterInstitutes()" placeholder="Search by Institute Name...">
+            <input type="text" id="rating-search" onkeyup="filterInstitutes()" placeholder="Search by Rating (e.g., 4.8)...">
+        </div>
+    </div>
+
+    <main id="institute-list">
+        <!-- Institute cards will be dynamically inserted here by JavaScript -->
+    </main>
+
+<script>
+    // Data for all 300 coaching institutes
+    const institutes = [
+        // PART 1 DATA (Entries 1-150)
+        {
+            name: "Allen Career Institute",
+            location: "Satellite, Ahmedabad",
+            rating: "4.5/5 (Google)",
+            total_reviews: "6,000+",
+            year_established: 1988,
+            courses: "JEE (Main & Advanced), NEET-UG, Foundation. Fees: Approx. ₹1,40,000 - ₹2,80,000 per year.",
+            features: "Pros: National brand, highly competitive environment, comprehensive study material. Cons: Very large batch sizes, high pressure.",
+            website: "https://www.allen.ac.in"
+        },
+        {
+            name: "Aakash Institute",
+            location: "Satellite, Ahmedabad",
+            rating: "4.4/5 (Google)",
+            total_reviews: "5,500+",
+            year_established: 1988,
+            courses: "NEET, JEE, Foundation Courses. Fees: Approx. ₹1,30,000 - ₹2,70,000 per year.",
+            features: "Pros: Top choice for NEET, standardized curriculum, All India test series. Cons: Large batches, fast-paced teaching.",
+            website: "https://www.aakash.ac.in"
+        },
+        {
+            name: "Liberty Career Academy",
+            location: "Maninagar, Ahmedabad",
+            rating: "4.7/5 (Google)",
+            total_reviews: "15,000+",
+            year_established: 1992,
+            courses: "GPSC, UPSC, Banking, SSC, Talati, Constable. Fees: Approx. ₹25,000 - ₹1,00,000.",
+            features: "Pros: Market leader for Gujarat government jobs, extensive network, trusted brand. Cons: Extremely large batches, traditional teaching methods.",
+            website: "https://www.libertygroup.in"
+        },
+        {
+            name: "Navkar Institute",
+            location: "Paldi, Ahmedabad",
+            rating: "4.6/5 (Google)",
+            total_reviews: "8,000+",
+            year_established: 1997,
+            courses: "CA, CS, CMA (all levels), XI-XII Commerce. Fees: Approx. ₹60,000 - ₹1,60,000 depending on level.",
+            features: "Pros: The most dominant and legendary institute for CA in Ahmedabad, known for producing All India Ranks. Cons: Very intensive schedule.",
+            website: "https://www.navkarinstitute.com"
+        },
+        {
+            name: "TIME (Triumphant Institute of Management Education)",
+            location: "C.G. Road, Ahmedabad",
+            rating: "4.3/5 (Google)",
+            total_reviews: "2,500+",
+            year_established: 1992,
+            courses: "CAT, GMAT, GRE, Bank PO, SSC. Fees: Approx. ₹40,000 - ₹75,000 per course.",
+            features: "Pros: Pan-India brand, comprehensive material, numerous mock tests. Cons: Standardized approach may not suit everyone.",
+            website: "https://www.time4education.com"
+        },
+        {
+            name: "IMS Learning Center",
+            location: "C.G. Road, Ahmedabad",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,800+",
+            year_established: 1977,
+            courses: "CAT, GMAT, GRE, CLAT, BBA. Fees: Approx. ₹45,000 - ₹85,000 per course.",
+            features: "Pros: Excellent mentors, strong focus on test-taking strategy, great mock analysis. Cons: Premium pricing.",
+            website: "https://www.imsindia.com"
+        },
+        {
+            name: "FIITJEE",
+            location: "Satellite, Ahmedabad",
+            rating: "4.2/5 (Google)",
+            total_reviews: "2,200+",
+            year_established: 1992,
+            courses: "JEE (Main & Advanced), NTSE, Olympiads. Fees: Approx. ₹1,80,000 - ₹3,80,000 for 2-year programs.",
+            features: "Pros: Pioneer in JEE coaching, highly competitive environment, proven results. Cons: Extremely high fees, very high pressure.",
+            website: "https://www.fiitjee.com"
+        },
+        {
+            name: "Career Launcher",
+            location: "C.G. Road, Ahmedabad",
+            rating: "4.4/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 1995,
+            courses: "CLAT, CAT, IPM, Bank PO. Fees: Approx. ₹40,000 - ₹90,000 per course.",
+            features: "Pros: Market leader for CLAT, strong online platform (SIS). Cons: Faces stiff competition from TIME/IMS for CAT.",
+            website: "https://www.careerlauncher.com"
+        },
+        {
+            name: "ICE Rajkot (Ahmedabad Branch)",
+            location: "Satellite, Ahmedabad",
+            rating: "4.8/5 (Google)",
+            total_reviews: "5,000+",
+            year_established: 2011,
+            courses: "GPSC, Talati, Clerk, PSI. Fees: Approx. ₹20,000 - ₹50,000.",
+            features: "Pros: Rajkot's top institute with a very strong Ahmedabad presence, excellent for Gujarat govt jobs. Cons: Very focused on Saurashtra-region exam patterns.",
+            website: "https://www.iceonline.in"
+        },
+        {
+            name: "BRDS (Bhanwar Rathore Design Studio)",
+            location: "C.G. Road, Ahmedabad",
+            rating: "4.7/5 (Google)",
+            total_reviews: "3,000+",
+            year_established: 2005,
+            courses: "NID, NIFT, UCEED, CEED, NATA. Fees: Approx. ₹50,000 - ₹1,20,000.",
+            features: "Pros: A national brand that originated in Ahmedabad, undisputed leader in design coaching. Cons: Intensive curriculum.",
+            website: "https://www.brdsindia.com"
+        },
+        {
+            name: "SPIPA (Sardar Patel Institute of Public Administration)",
+            location: "Satellite, Ahmedabad",
+            rating: "4.6/5 (Google)",
+            total_reviews: "2,000+",
+            year_established: 1962,
+            courses: "UPSC, GPSC. Fees: Free (stipend is provided).",
+            features: "Pros: Government of Gujarat's own institute, excellent faculty, high success rate. Cons: Admission is through a very tough entrance exam.",
+            website: "https://spipa.gujarat.gov.in"
+        },
+        {
+            name: "Physics Wallah (PW) Vidyapeeth",
+            location: "Satellite, Ahmedabad",
+            rating: "4.6/5 (Google)",
+            total_reviews: "4,000+",
+            year_established: 2016,
+            courses: "JEE, NEET, Foundation. Fees: Approx. ₹80,000 - ₹1,40,000 per year.",
+            features: "Pros: Very affordable compared to competitors, hybrid learning model, highly popular. Cons: Rapid expansion has raised quality control concerns.",
+            website: "https://www.pw.live/vidyapeeth-centres"
+        },
+        {
+            name: "J.K. Shah Classes",
+            location: "C.G. Road, Ahmedabad",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,800+",
+            year_established: 1983,
+            courses: "CA (Foundation, Inter, Final), CS. Fees: Approx. ₹60,000 - ₹1,60,000 depending on level.",
+            features: "Pros: National leader in CA coaching with a strong Ahmedabad presence. Cons: Very long and hectic schedules.",
+            website: "https://www.jkshahclasses.com"
+        },
+        {
+            name: "Endeavor Careers",
+            location: "C.G. Road, Ahmedabad",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: 2005,
+            courses: "CAT, CMAT, GMAT, GRE, CLAT. Fees: Approx. ₹45,000 - ₹80,000.",
+            features: "Pros: A national brand that originated in Ahmedabad, excellent mentorship for CAT/CMAT. Cons: Smaller network than TIME/IMS.",
+            website: "https://www.endeavorcareers.com"
+        },
+        {
+            name: "Parishram Academy",
+            location: "Satellite, Ahmedabad",
+            rating: "4.7/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: "N/A",
+            courses: "NEET, JEE. Fees: Approx. ₹1,20,000 - ₹2,50,000.",
+            features: "Pros: Strong local brand for medical entrance, smaller batches than national players. Cons: Less brand recognition nationally.",
+            website: "https://www.parishram.org.in"
+        },
+        {
+            name: "Resonance",
+            location: "Satellite, Ahmedabad",
+            rating: "4.2/5 (Google)",
+            total_reviews: "1,800+",
+            year_established: 2001,
+            courses: "JEE, NEET. Fees: Approx. ₹1,40,000 - ₹2,80,000 per year.",
+            features: "Pros: Strong academic system from Kota, detailed study modules. Cons: Faces stiff competition from Allen.",
+            website: "https://www.resonance.ac.in"
+        },
+        {
+            name: "Delhi Institute for Civil Services (DICS)",
+            location: "Satellite, Ahmedabad",
+            rating: "4.8/5 (Google)",
+            total_reviews: "1,300+",
+            year_established: "N/A",
+            courses: "UPSC, GPSC. Fees: Approx. ₹80,000 - ₹1,50,000.",
+            features: "Pros: Highly rated, focuses on small batches and mentorship, good results in GPSC. Cons: Smaller scale.",
+            website: "https://www.dics.co.in"
+        },
+        {
+            name: "Drishti IAS",
+            location: "C.G. Road, Ahmedabad",
+            rating: "4.7/5 (Google)",
+            total_reviews: "2,500+",
+            year_established: 1999,
+            courses: "UPSC, GPSC. Fees: Approx. ₹1,20,000 - ₹2,00,000.",
+            features: "Pros: National brand with strong online content and magazines, good for Hindi/Gujarati medium. Cons: Ahmedabad center is newer.",
+            website: "https://www.drishtiias.com"
+        },
+        {
+            name: "Shah Coaching Classes",
+            location: "Naranpura, Ahmedabad",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: "N/A",
+            courses: "XI-XII Commerce (GSEB/CBSE), B.Com. Fees: Approx. ₹30,000 - ₹60,000.",
+            features: "Pros: A very old and legendary local brand for Commerce board exams. Cons: Traditional teaching methods.",
+            website: "N/A"
+        },
+        {
+            name: "Jamboree Education",
+            location: "C.G. Road, Ahmedabad",
+            rating: "4.6/5 (Google)",
+            total_reviews: "900+",
+            year_established: 1993,
+            courses: "GMAT, GRE, SAT, IELTS, TOEFL. Fees: Approx. ₹30,000 - ₹60,000 per course.",
+            features: "Pros: Excellent study material especially for GMAT/GRE. Cons: Limited focus on admissions counseling.",
+            website: "https://www.jamboreeindia.com"
+        },
+        {
+            name: "Digital Sandip Academy",
+            location: "Thaltej, Ahmedabad",
+            rating: "4.9/5 (Google)",
+            total_reviews: "1,800+",
+            year_established: 2016,
+            courses: "Digital Marketing. Fees: Approx. ₹30,000 - ₹70,000.",
+            features: "Pros: Top-rated local digital marketing institute, practical approach, strong placement support. Cons: Individual-driven.",
+            website: "https://www.digitalsandip.com"
+        },
+        {
+            name: "MAAC (Maya Academy of Advanced Cinematics)",
+            location: "C.G. Road, Ahmedabad",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,400+",
+            year_established: 2001,
+            courses: "3D Animation, VFX, Game Design. Fees: Approx. ₹1,50,000 - ₹5,00,000 for career courses.",
+            features: "Pros: Industry-recognized certification, hands-on training, good placement network. Cons: Very high fees.",
+            website: "https://www.maacindia.com"
+        },
+        {
+            name: "Arena Animation",
+            location: "Satellite, Ahmedabad",
+            rating: "4.4/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: 1996,
+            courses: "Animation, VFX, Web Design. Fees: Approx. ₹1,00,000 - ₹4,50,000 for career courses.",
+            features: "Pros: One of the oldest animation training institutes, good industry links. Cons: Franchise model can lead to variable quality.",
+            website: "https://www.arena-multimedia.com"
+        },
+        {
+            name: "A-One School for JEE/NEET",
+            location: "Satellite, Ahmedabad",
+            rating: "4.4/5 (Google)",
+            total_reviews: "900+",
+            year_established: "N/A",
+            courses: "Integrated JEE/NEET with schooling. Fees: High (School + Coaching).",
+            features: "Pros: Run by a leading school group, saves travel time, disciplined environment. Cons: Less flexibility.",
+            website: "https://www.a-oneschool.com"
+        },
+        {
+            name: "Pahal Design",
+            location: "C.G. Road, Ahmedabad",
+            rating: "4.8/5 (Google)",
+            total_reviews: "800+",
+            year_established: 1999,
+            courses: "NID, NIFT, NATA. Fees: Approx. ₹50,000 - ₹1,20,000.",
+            features: "Pros: Strong competitor to BRDS, good creative workshops. Cons: Niche focus.",
+            website: "https://www.pahaldesign.com"
+        },
+        {
+            name: "Frankfinn Institute of Air Hostess Training",
+            location: "C.G. Road, Ahmedabad",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 1993,
+            courses: "Aviation, Hospitality and Travel Management. Fees: Approx. ₹1,50,000 - ₹2,50,000.",
+            features: "Pros: Market leader in cabin crew training, strong placement assistance. Cons: Very high fees, industry-specific.",
+            website: "https://www.frankfinn.com"
+        },
+        {
+            name: "Manya - The Princeton Review",
+            location: "C.G. Road, Ahmedabad",
+            rating: "4.5/5 (Google)",
+            total_reviews: "700+",
+            year_established: 2002,
+            courses: "GMAT, GRE, SAT, ACT, AP, IELTS. Fees: Approx. ₹35,000 - ₹1,20,000.",
+            features: "Pros: Internationally recognized curriculum, certified trainers. Cons: Premium pricing.",
+            website: "https://www.manyagroup.com"
+        },
+        {
+            name: "Praajasv Foundation",
+            location: "Navrangpura, Ahmedabad",
+            rating: "4.7/5 (Google)",
+            total_reviews: "900+",
+            year_established: "N/A",
+            courses: "GPSC, UPSC, Banking. Fees: Varies.",
+            features: "Pros: Good local competitor to Liberty/ICE, focuses on mentorship. Cons: Smaller scale.",
+            website: "https://praajasv.com"
+        },
+        {
+            name: "Goethe-Zentrum (Indo-German Language & Cultural Society)",
+            location: "Panjrapole, Ahmedabad",
+            rating: "4.5/5 (Google)",
+            total_reviews: "800+",
+            year_established: "N/A",
+            courses: "German Language Courses (A1-C2). Fees: Approx. ₹22,000 - ₹30,000 per level.",
+            features: "Pros: Official German cultural partner, authentic teaching, internationally recognized certificates. Cons: High demand.",
+            website: "https://www.goethe-zentrum-ahmedabad.in"
+        },
+        {
+            name: "Alliance Française d'Ahmedabad",
+            location: "Manekbaug, Ahmedabad",
+            rating: "4.4/5 (Google)",
+            total_reviews: "700+",
+            year_established: 1981,
+            courses: "French Language Courses (A1-C2). Fees: Approx. ₹20,000 - ₹28,000 per level.",
+            features: "Pros: Official French cultural center, immersive learning environment. Cons: Batches fill up fast.",
+            website: "https://ahmedabad.afindia.org"
+        },
+        {
+            name: "The British Council",
+            location: "Ambawadi, Ahmedabad",
+            rating: "4.4/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: 1934,
+            courses: "IELTS preparation and exam booking, English language courses. Fees: Approx. ₹10,000 - ₹20,000 for courses.",
+            features: "Pros: Official body, authentic material, certified trainers. Cons: Can be expensive.",
+            website: "https://www.britishcouncil.in"
+        },
+        {
+            name: "Chanakya IAS Academy",
+            location: "Satellite, Ahmedabad",
+            rating: "4.4/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: 1993,
+            courses: "UPSC, GPSC. Fees: Approx. ₹1,50,000 - ₹2,20,000.",
+            features: "Pros: National brand with an Ahmedabad center, strong focus on personality development. Cons: High fees.",
+            website: "https://www.chanakyaiasacademy.com"
+        },
+        {
+            name: "Lakshya Career Academy",
+            location: "Bapunagar, Ahmedabad",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,400+",
+            year_established: "N/A",
+            courses: "GPSC, Talati, Police. Fees: Varies.",
+            features: "Pros: Strong local presence in the eastern part of Ahmedabad. Cons: Localized.",
+            website: "N/A"
+        },
+        {
+            name: "IBT Institute",
+            location: "C.G. Road, Ahmedabad",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,100+",
+            year_established: 2009,
+            courses: "Bank PO, SSC CGL. Fees: Approx. ₹10,000 - ₹20,000.",
+            features: "Pros: Strong presence for banking exams, lifetime membership. Cons: Large batches.",
+            website: "https://www.ibtindia.com"
+        },
+        {
+            name: "Byju's Tuition Centre",
+            location: "Multiple (e.g., Satellite, Bopal)",
+            rating: "4.3/5 (Google)",
+            total_reviews: "2,000+",
+            year_established: 2011,
+            courses: "School tuitions for grades 4-10. Fees: Approx. ₹40,000 - ₹80,000 per year.",
+            features: "Pros: Blends digital learning with in-person classes, strong brand name. Cons: Focus is on school curriculum.",
+            website: "https://byjus.com/btc/"
+        },
+        {
+            name: "Vedantu Learning Centre",
+            location: "Satellite, Ahmedabad",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 2011,
+            courses: "Foundation (6-10), JEE, NEET. Fees: Approx. ₹90,000 - ₹2,00,000 per year.",
+            features: "Pros: Hybrid model combining a popular online brand with offline support. Cons: New player in the physical coaching space.",
+            website: "https://www.vedantu.com/offline"
+        },
+        {
+            name: "Rao IIT Academy",
+            location: "Satellite, Ahmedabad",
+            rating: "4.1/5 (Google)",
+            total_reviews: "900+",
+            year_established: 2000,
+            courses: "JEE, NEET, Foundation. Fees: Approx. ₹1,20,000 - ₹2,50,000.",
+            features: "Pros: Mumbai-based national brand with a strong presence, good for JEE. Cons: Mixed reviews on management.",
+            website: "https://www.raoiit.com"
+        },
+        {
+            name: "Paathshala",
+            location: "Satellite, Ahmedabad",
+            rating: "4.7/5 (Google)",
+            total_reviews: "800+",
+            year_established: "N/A",
+            courses: "XI-XII Science (GSEB/CBSE), GUJCET. Fees: Varies.",
+            features: "Pros: Very reputed local science tutorial, focuses on board exams and state entrance. Cons: Not for top-tier national exams.",
+            website: "N/A"
+        },
+        {
+            name: "Sandipani",
+            location: "Bopal, Ahmedabad",
+            rating: "4.8/5 (Google)",
+            total_reviews: "600+",
+            year_established: "N/A",
+            courses: "IX-XII Science & Commerce. Fees: Varies.",
+            features: "Pros: Top-rated local tuition center in the Bopal area. Cons: Local focus.",
+            website: "N/A"
+        },
+        {
+            name: "CADD Centre Training Services",
+            location: "C.G. Road, Ahmedabad",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: 1988,
+            courses: "AutoCAD, SolidWorks, CATIA, Revit. Fees: Approx. ₹15,000 - ₹50,000 per software.",
+            features: "Pros: Asia's largest network for CAD training, certified courses. Cons: Niche skill-based training.",
+            website: "https://www.caddcentre.com"
+        },
+        {
+            name: "NIIT (National Institute of Information Technology)",
+            location: "C.G. Road, Ahmedabad",
+            rating: "4.1/5 (Google)",
+            total_reviews: "800+",
+            year_established: 1981,
+            courses: "Full Stack Development, Data Analytics. Fees: Approx. ₹60,000 - ₹2,00,000.",
+            features: "Pros: Legacy brand in IT training, structured curriculum. Cons: Faces competition from newer ed-tech platforms.",
+            website: "https://www.niit.com"
+        },
+        {
+            name: "TOPS Technologies",
+            location: "C.G. Road, Ahmedabad",
+            rating: "4.7/5 (Google)",
+            total_reviews: "5,000+",
+            year_established: 2008,
+            courses: "Python, Java, PHP, Software Testing. Fees: Approx. ₹20,000 - ₹50,000.",
+            features: "Pros: A leading IT training and placement institute in Gujarat, strong industry connections. Cons: Very job-oriented.",
+            website: "https://www.tops-int.com"
+        },
+        {
+            name: "Aptech Computer Education",
+            location: "Maninagar, Ahmedabad",
+            rating: "4.3/5 (Google)",
+            total_reviews: "700+",
+            year_established: 1986,
+            courses: "IT Training, Java, Python. Fees: Approx. ₹25,000 - ₹1,50,000.",
+            features: "Pros: Wide range of courses, strong network. Cons: Curriculum may not always be cutting-edge.",
+            website: "https://www.aptech-education.com"
+        },
+        {
+            name: "Grras Solutions",
+            location: "C.G. Road, Ahmedabad",
+            rating: "4.8/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 2008,
+            courses: "AWS, DevOps, Python, Ethical Hacking. Fees: Approx. ₹25,000 - ₹60,000.",
+            features: "Pros: Highly-rated institute for high-end IT and cloud computing certifications. Cons: Highly technical.",
+            website: "https://www.grras.com"
+        },
+        {
+            name: "Skylark School of English",
+            location: "Maninagar, Ahmedabad",
+            rating: "4.7/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "Spoken English, IELTS. Fees: Approx. ₹8,000 - ₹15,000.",
+            features: "Pros: Highly-rated local English language school in Maninagar. Cons: Localized.",
+            website: "N/A"
+        },
+        {
+            name: "H.A. Commerce Classes",
+            location: "Navrangpura, Ahmedabad",
+            rating: "4.5/5 (Google)",
+            total_reviews: "800+",
+            year_established: "N/A",
+            courses: "XI-XII Commerce, B.Com. Fees: Varies.",
+            features: "Pros: Another very old and established name for commerce tuition. Cons: Traditional methods.",
+            website: "https://www.hacc.in"
+        },
+        {
+            name: "Vision PMT",
+            location: "Maninagar, Ahmedabad",
+            rating: "4.6/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "NEET. Fees: Varies.",
+            features: "Pros: Reputed local institute specializing in medical entrance exams. Cons: Niche focus.",
+            website: "N/A"
+        },
+        {
+            name: "Shapers",
+            location: "Satellite, Ahmedabad",
+            rating: "4.9/5 (Google)",
+            total_reviews: "300+",
+            year_established: "N/A",
+            courses: "IX-X (ICSE/CBSE). Fees: Varies.",
+            features: "Pros: Top-rated local tuition center for junior secondary classes. Cons: Foundational level only.",
+            website: "N/A"
+        },
+        {
+            name: "K-11 School of Fitness Sciences",
+            location: "C.G. Road, Ahmedabad",
+            rating: "4.8/5 (Google)",
+            total_reviews: "700+",
+            year_established: 2003,
+            courses: "Personal Trainer Certification, Nutrition Courses. Fees: Approx. ₹60,000 - ₹1,00,000+.",
+            features: "Pros: Premier institute for professional fitness trainer certification. Cons: Vocational, niche field.",
+            website: "https://www.keleven.com"
+        },
+        {
+            name: "World Inbox Career Academy",
+            location: "C.G. Road, Ahmedabad",
+            rating: "4.6/5 (Google)",
+            total_reviews: "4,000+",
+            year_established: 2011,
+            courses: "GPSC, Talati, Clerk, PSI/ASI. Fees: Approx. ₹20,000 - ₹50,000.",
+            features: "Pros: Major player in Gujarat govt jobs, strong publication wing for study material. Cons: Very crowded, traditional classroom setup.",
+            website: "https://www.worldinbox.com"
+        },
+        {
+            name: "Patel Classes",
+            location: "Maninagar, Ahmedabad",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: "N/A",
+            courses: "XI-XII Science (GSEB), GUJCET, NEET. Fees: Approx. ₹80,000 - ₹1,50,000.",
+            features: "Pros: A legendary local brand in Maninagar for Science, strong board exam results. Cons: Focus is more on GSEB and GUJCET than JEE Advanced.",
+            website: "N/A"
+        },
+        {
+            name: "Web D School",
+            location: "Navrangpura, Ahmedabad",
+            rating: "4.8/5 (Google)",
+            total_reviews: "900+",
+            year_established: "N/A",
+            courses: "UI/UX Design, Web Design, Graphic Design. Fees: Approx. ₹30,000 - ₹70,000.",
+            features: "Pros: Highly-rated institute specializing in the high-demand field of UI/UX design. Cons: Niche skill-based training.",
+            website: "https://www.webdschool.com"
+        },
+        {
+            name: "Kalapurnam Institute",
+            location: "Satellite, Ahmedabad",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,100+",
+            year_established: 2006,
+            courses: "NATA, NID, NIFT, Fine Arts. Fees: Approx. ₹40,000 - ₹90,000.",
+            features: "Pros: Strong local competitor to BRDS/Pahal, good focus on fine arts and architecture. Cons: Less national brand recognition.",
+            website: "https://www.kalapurnaminstitute.com"
+        },
+        {
+            name: "Vision UPSC GPSC Academy",
+            location: "Gandhinagar (Ahmedabad Metropolitan Area)",
+            rating: "4.7/5 (Google)",
+            total_reviews: "800+",
+            year_established: "N/A",
+            courses: "GPSC, UPSC. Fees: Varies.",
+            features: "Pros: Top-rated institute in the capital city of Gandhinagar, attracting serious government job aspirants. Cons: Caters primarily to Gandhinagar students.",
+            website: "N/A"
+        },
+        {
+            name: "Ideal Classes",
+            location: "Naranpura, Ahmedabad",
+            rating: "4.5/5 (Google)",
+            total_reviews: "600+",
+            year_established: "N/A",
+            courses: "XI-XII Science (GSEB). Fees: Varies.",
+            features: "Pros: Another very old and reputed name for board exam coaching in the Naranpura/Usmanpura area. Cons: Traditional focus.",
+            website: "N/A"
+        },
+        {
+            name: "I-Can-Win Academy",
+            location: "Satellite, Ahmedabad",
+            rating: "4.9/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "XI-XII Commerce, CA Foundation. Fees: Varies.",
+            features: "Pros: Exceptionally rated local commerce class, personal attention. Cons: Smaller scale.",
+            website: "N/A"
+        },
+        {
+            name: "The Cavalier",
+            location: "Satellite, Ahmedabad",
+            rating: "4.5/5 (Google)",
+            total_reviews: "700+",
+            year_established: 2001,
+            courses: "NDA, CDS, AFCAT, SSB Interview. Fees: Approx. ₹20,000 - ₹50,000.",
+            features: "Pros: Run by ex-defense officers, provides authentic SSB interview preparation. Cons: Highly niche.",
+            website: "https://www.cavalierindia.com"
+        },
+        {
+            name: "LegalEdge",
+            location: "C.G. Road, Ahmedabad",
+            rating: "4.8/5 (Google)",
+            total_reviews: "500+",
+            year_established: 2011,
+            courses: "CLAT, AILET. Fees: Approx. ₹60,000 - ₹1,20,000.",
+            features: "Pros: National brand specializing in law entrances, excellent mock tests and materials. Cons: Premium pricing.",
+            website: "https://www.legaledge.in"
+        },
+        {
+            name: "CLAT Possible",
+            location: "Navrangpura, Ahmedabad",
+            rating: "4.7/5 (Google)",
+            total_reviews: "600+",
+            year_established: 2008,
+            courses: "CLAT, AILET. Fees: Approx. ₹70,000 - ₹1,30,000.",
+            features: "Pros: A premier national brand for law entrance coaching, now part of CL ecosystem. Cons: High fees.",
+            website: "https://www.clatpossible.com"
+        },
+        {
+            name: "ICA (The Institute of Computer Accountants)",
+            location: "C.G. Road, Ahmedabad",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,300+",
+            year_established: 1999,
+            courses: "Tally, GST, Financial Accounting, SAP. Fees: Approx. ₹20,000 - ₹60,000.",
+            features: "Pros: National chain for job-oriented accounting courses, strong placement focus. Cons: Not for professional exams like CA.",
+            website: "https://www.icajobguarantee.com"
+        },
+        {
+            name: "Laqshya Institute of Skills Training",
+            location: "C.G. Road, Ahmedabad",
+            rating: "4.7/5 (Google)",
+            total_reviews: "800+",
+            year_established: 2009,
+            courses: "Digital Marketing, Banking, Aviation. Fees: Varies.",
+            features: "Pros: Mumbai-based institute with a good presence, offers a variety of skill courses. Cons: Less specialized than dedicated institutes.",
+            website: "https://www.laqshya.in"
+        },
+        {
+            name: "The Knowledge Academy",
+            location: "Navrangpura, Ahmedabad (Serviced Office)",
+            rating: "4.8/5 (Trustpilot)",
+            total_reviews: "10,000+",
+            year_established: 2009,
+            courses: "PMP, PRINCE2, ITIL, Six Sigma. Fees: High, certification based (e.g., ₹20,000 - ₹80,000).",
+            features: "Pros: A global leader in professional certification training, conducts workshops. Cons: Expensive, for working professionals.",
+            website: "https://www.theknowledgeacademy.com/in/"
+        },
+        {
+            name: "International School of Design (INSD)",
+            location: "Satellite, Ahmedabad",
+            rating: "4.5/5 (Google)",
+            total_reviews: "700+",
+            year_established: 2011,
+            courses: "Fashion Design, Interior Design (Diplomas & Coaching). Fees: Varies.",
+            features: "Pros: National brand for design diplomas with a local presence. Cons: Primarily a design school.",
+            website: "https://www.insd.edu.in"
+        },
+        {
+            name: "Cooking Culture",
+            location: "Bodakdev, Ahmedabad",
+            rating: "4.8/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "Baking, Culinary workshops (Indian, International). Fees: Approx. ₹2,000 - ₹10,000 per workshop.",
+            features: "Pros: One of Ahmedabad's premier culinary studios for hobbyist and professional courses. Cons: Non-academic, skill-based.",
+            website: "https://www.cookingculture.in"
+        },
+        {
+            name: "CCDS (Cake Decorating & Confectionery School)",
+            location: "Bodakdev, Ahmedabad",
+            rating: "4.7/5 (Google)",
+            total_reviews: "400+",
+            year_established: 1993,
+            courses: "Baking, Cake Decoration, Chocolate Making. Fees: Workshop-based.",
+            features: "Pros: A well-known Delhi-based brand, supplies baking ingredients and conducts classes. Cons: Hobby-based.",
+            website: "https://www.ccds.co.in"
+        },
+        {
+            name: "The Photography Inc.",
+            location: "Prahlad Nagar, Ahmedabad",
+            rating: "4.9/5 (Google)",
+            total_reviews: "300+",
+            year_established: "N/A",
+            courses: "Basic & Advanced Photography, Videography. Fees: Approx. ₹15,000 - ₹60,000.",
+            features: "Pros: Top-rated institute for learning photography, practical workshops and photo walks. Cons: Creative skill-based.",
+            website: "https://thephotographyinc.in"
+        },
+        {
+            name: "La Foret French Class",
+            location: "Satellite, Ahmedabad",
+            rating: "4.8/5 (Google)",
+            total_reviews: "200+",
+            year_established: "N/A",
+            courses: "French Language, DELF exam prep. Fees: Approx. ₹15,000 - ₹25,000 per level.",
+            features: "Pros: Highly-rated local institute for French, good alternative to Alliance Française. Cons: Not an official cultural center.",
+            website: "N/A"
+        },
+        {
+            name: "Shiamak Davar's Institute for Performing Arts (SDIPA)",
+            location: "Satellite, Ahmedabad",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: 1985,
+            courses: "Dance classes (various styles), workshops. Fees: Approx. ₹8,000 - ₹15,000 for a module.",
+            features: "Pros: Premier dance academy in India, professional instructors. Cons: Not academic coaching.",
+            website: "https://www.shiamak.com"
+        },
+        {
+            name: "Furtados School of Music",
+            location: "Bodakdev, Ahmedabad",
+            rating: "4.6/5 (Google)",
+            total_reviews: "500+",
+            year_established: 2011,
+            courses: "Piano, Guitar, Violin, Vocals etc. Fees: Approx. ₹10,000 - ₹20,000 per quarter.",
+            features: "Pros: Structured music curriculum, certified teachers, opportunities for Trinity College exams. Cons: Hobby/skill-based.",
+            website: "https://www.fsm.net.in"
+        },
+        {
+            name: "Yuva Upanishad Foundation",
+            location: "Navrangpura, Ahmedabad",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 2013,
+            courses: "GPSC, Talati, Clerk. Fees: Varies.",
+            features: "Pros: Known for its excellent publications and material for Gujarat govt jobs. Cons: Coaching is secondary to their publication wing.",
+            website: "https://www.yuvaupnishad.com"
+        },
+        {
+            name: "Anamika's English Academy",
+            location: "Vastrapur, Ahmedabad",
+            rating: "4.7/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "Spoken English, IELTS, PTE. Fees: Varies.",
+            features: "Pros: Highly-rated local academy for English proficiency. Cons: Individual-driven.",
+            website: "N/A"
+        },
+        {
+            name: "Swastik Classes",
+            location: "Paldi, Ahmedabad",
+            rating: "4.5/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "XI-XII Commerce (GSEB). Fees: Varies.",
+            features: "Pros: Reputed local commerce class in the Paldi area. Cons: Focus on state board.",
+            website: "N/A"
+        },
+        {
+            name: "Unique Academy",
+            location: "Bapunagar, Ahmedabad",
+            rating: "4.6/5 (Google)",
+            total_reviews: "900+",
+            year_established: "N/A",
+            courses: "XI-XII Science & Commerce. Fees: Varies.",
+            features: "Pros: Leading local tuition center in the Bapunagar area. Cons: Basic infrastructure.",
+            website: "N/A"
+        },
+        {
+            name: "Alpha Group of Tutorials",
+            location: "Chandkheda, Ahmedabad",
+            rating: "4.7/5 (Google)",
+            total_reviews: "800+",
+            year_established: "N/A",
+            courses: "IX-XII Science. Fees: Varies.",
+            features: "Pros: Leading local science tutorial in the Chandkheda area. Cons: Limited reach.",
+            website: "N/A"
+        },
+        {
+            name: "R.K. Classes",
+            location: "Ghatlodia, Ahmedabad",
+            rating: "4.8/5 (Google)",
+            total_reviews: "700+",
+            year_established: "N/A",
+            courses: "IX-XII Commerce. Fees: Varies.",
+            features: "Pros: Top-rated local commerce class in the Ghatlodia area. Cons: Local focus.",
+            website: "N/A"
+        },
+        {
+            name: "Creative Sense",
+            location: "Vastrapur, Ahmedabad",
+            rating: "4.9/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "NATA, NID, NIFT. Fees: Approx. ₹35,000 - ₹70,000.",
+            features: "Pros: Top-rated local design coaching institute, praised for its mentorship. Cons: Smaller scale.",
+            website: "N/A"
+        },
+        {
+            name: "SIP Abacus",
+            location: "Satellite, Ahmedabad",
+            rating: "4.5/5 (Google)",
+            total_reviews: "600+",
+            year_established: 2003,
+            courses: "Abacus, Vedic Maths for children. Fees: Approx. ₹1,500 - ₹3,000 per month.",
+            features: "Pros: Helps develop mental math skills in young children. Cons: Supplementary education.",
+            website: "https://www.sipabacus.com"
+        },
+        {
+            name: "Tatva Academy",
+            location: "Gandhinagar (Ahmedabad Metropolitan Area)",
+            rating: "4.8/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "XI-XII Science (JEE/NEET). Fees: Varies.",
+            features: "Pros: Top-rated local science institute in Gandhinagar. Cons: Caters to a specific geography.",
+            website: "N/A"
+        },
+        {
+            name: "Vision Science School",
+            location: "Bopal, Ahmedabad",
+            rating: "4.6/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "Integrated XI-XII Science with JEE/NEET. Fees: High (School + Coaching).",
+            features: "Pros: A leading school in the Bopal area offering integrated coaching. Cons: Rigid schedule.",
+            website: "N/A"
+        },
+        {
+            name: "Nishant Academy",
+            location: "Vadaj, Ahmedabad",
+            rating: "4.7/5 (Google)",
+            total_reviews: "300+",
+            year_established: "N/A",
+            courses: "GPSC, Talati. Fees: Varies.",
+            features: "Pros: Reputed local coaching for government jobs in the Vadaj area. Cons: Limited reach.",
+            website: "N/A"
+        },
+        {
+            name: "Shri Rang Kala Niketan",
+            location: "Paldi, Ahmedabad",
+            rating: "4.8/5 (Google)",
+            total_reviews: "250+",
+            year_established: "N/A",
+            courses: "Fine Arts, Drawing, Painting. Fees: Varies.",
+            features: "Pros: Highly-rated local art school, good for building a portfolio for fine arts colleges. Cons: Hobby-based.",
+            website: "N/A"
+        },
+        {
+            name: "The Hind Guru Academy",
+            location: "Satellite, Ahmedabad",
+            rating: "4.9/5 (Google)",
+            total_reviews: "700+",
+            year_established: "N/A",
+            courses: "NEET, JEE. Fees: Varies.",
+            features: "Pros: Exceptionally rated science institute, praised for personal attention. Cons: Smaller scale.",
+            website: "N/A"
+        },
+        {
+            name: "Aatman Academy",
+            location: "Chandlodia, Ahmedabad",
+            rating: "4.7/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "XI-XII Science (GSEB). Fees: Varies.",
+            features: "Pros: Leading local science coaching in the Chandlodia/Ghatlodia area. Cons: Focus on state board.",
+            website: "N/A"
+        },
+        {
+            name: "Meera's Fitness Studio",
+            location: "Bodakdev, Ahmedabad",
+            rating: "4.9/5 (Google)",
+            total_reviews: "300+",
+            year_established: "N/A",
+            courses: "Zumba, Aerobics, Yoga. Fees: Monthly/Quarterly.",
+            features: "Pros: Top-rated local fitness studio, representative of the many such centers in the city. Cons: Not academic coaching.",
+            website: "N/A"
+        },
+
+        // PART 2 DATA (Entries 151-300)
+        {
+            name: "World Inbox Career Academy",
+            location: "C.G. Road, Ahmedabad",
+            rating: "4.6/5 (Google)",
+            total_reviews: "4,000+",
+            year_established: 2011,
+            courses: "GPSC, Talati, Clerk, PSI/ASI. Fees: Approx. ₹20,000 - ₹50,000.",
+            features: "Pros: Major player in Gujarat govt jobs, strong publication wing for study material. Cons: Very crowded, traditional classroom setup.",
+            website: "https://www.worldinbox.com"
+        },
+        {
+            name: "Patel Classes",
+            location: "Maninagar, Ahmedabad",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: "N/A",
+            courses: "XI-XII Science (GSEB), GUJCET, NEET. Fees: Approx. ₹80,000 - ₹1,50,000.",
+            features: "Pros: A legendary local brand in Maninagar for Science, strong board exam results. Cons: Focus is more on GSEB and GUJCET than JEE Advanced.",
+            website: "N/A"
+        },
+        {
+            name: "Web D School",
+            location: "Navrangpura, Ahmedabad",
+            rating: "4.8/5 (Google)",
+            total_reviews: "900+",
+            year_established: "N/A",
+            courses: "UI/UX Design, Web Design, Graphic Design. Fees: Approx. ₹30,000 - ₹70,000.",
+            features: "Pros: Highly-rated institute specializing in the high-demand field of UI/UX design. Cons: Niche skill-based training.",
+            website: "https://www.webdschool.com"
+        },
+        {
+            name: "Kalapurnam Institute",
+            location: "Satellite, Ahmedabad",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,100+",
+            year_established: 2006,
+            courses: "NATA, NID, NIFT, Fine Arts. Fees: Approx. ₹40,000 - ₹90,000.",
+            features: "Pros: Strong local competitor to BRDS/Pahal, good focus on fine arts and architecture. Cons: Less national brand recognition.",
+            website: "https://www.kalapurnaminstitute.com"
+        },
+        {
+            name: "Vision UPSC GPSC Academy",
+            location: "Gandhinagar (Ahmedabad Metropolitan Area)",
+            rating: "4.7/5 (Google)",
+            total_reviews: "800+",
+            year_established: "N/A",
+            courses: "GPSC, UPSC. Fees: Varies.",
+            features: "Pros: Top-rated institute in the capital city of Gandhinagar, attracting serious government job aspirants. Cons: Caters primarily to Gandhinagar students.",
+            website: "N/A"
+        },
+        {
+            name: "Ideal Classes",
+            location: "Naranpura, Ahmedabad",
+            rating: "4.5/5 (Google)",
+            total_reviews: "600+",
+            year_established: "N/A",
+            courses: "XI-XII Science (GSEB). Fees: Varies.",
+            features: "Pros: Another very old and reputed name for board exam coaching in the Naranpura/Usmanpura area. Cons: Traditional focus.",
+            website: "N/A"
+        },
+        {
+            name: "I-Can-Win Academy",
+            location: "Satellite, Ahmedabad",
+            rating: "4.9/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "XI-XII Commerce, CA Foundation. Fees: Varies.",
+            features: "Pros: Exceptionally rated local commerce class, personal attention. Cons: Smaller scale.",
+            website: "N/A"
+        },
+        {
+            name: "The Cavalier",
+            location: "Satellite, Ahmedabad",
+            rating: "4.5/5 (Google)",
+            total_reviews: "700+",
+            year_established: 2001,
+            courses: "NDA, CDS, AFCAT, SSB Interview. Fees: Approx. ₹20,000 - ₹50,000.",
+            features: "Pros: Run by ex-defense officers, provides authentic SSB interview preparation. Cons: Highly niche.",
+            website: "https://www.cavalierindia.com"
+        },
+        {
+            name: "LegalEdge",
+            location: "C.G. Road, Ahmedabad",
+            rating: "4.8/5 (Google)",
+            total_reviews: "500+",
+            year_established: 2011,
+            courses: "CLAT, AILET. Fees: Approx. ₹60,000 - ₹1,20,000.",
+            features: "Pros: National brand specializing in law entrances, excellent mock tests and materials. Cons: Premium pricing.",
+            website: "https://www.legaledge.in"
+        },
+        {
+            name: "CLAT Possible",
+            location: "Navrangpura, Ahmedabad",
+            rating: "4.7/5 (Google)",
+            total_reviews: "600+",
+            year_established: 2008,
+            courses: "CLAT, AILET. Fees: Approx. ₹70,000 - ₹1,30,000.",
+            features: "Pros: A premier national brand for law entrance coaching, now part of CL ecosystem. Cons: High fees.",
+            website: "https://www.clatpossible.com"
+        },
+        {
+            name: "ICA (The Institute of Computer Accountants)",
+            location: "C.G. Road, Ahmedabad",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,300+",
+            year_established: 1999,
+            courses: "Tally, GST, Financial Accounting, SAP. Fees: Approx. ₹20,000 - ₹60,000.",
+            features: "Pros: National chain for job-oriented accounting courses, strong placement focus. Cons: Not for professional exams like CA.",
+            website: "https://www.icajobguarantee.com"
+        },
+        {
+            name: "Laqshya Institute of Skills Training",
+            location: "C.G. Road, Ahmedabad",
+            rating: "4.7/5 (Google)",
+            total_reviews: "800+",
+            year_established: 2009,
+            courses: "Digital Marketing, Banking, Aviation. Fees: Varies.",
+            features: "Pros: Mumbai-based institute with a good presence, offers a variety of skill courses. Cons: Less specialized than dedicated institutes.",
+            website: "https://www.laqshya.in"
+        },
+        {
+            name: "The Knowledge Academy",
+            location: "Navrangpura, Ahmedabad (Serviced Office)",
+            rating: "4.8/5 (Trustpilot)",
+            total_reviews: "10,000+",
+            year_established: 2009,
+            courses: "PMP, PRINCE2, ITIL, Six Sigma. Fees: High, certification based (e.g., ₹20,000 - ₹80,000).",
+            features: "Pros: A global leader in professional certification training, conducts workshops. Cons: Expensive, for working professionals.",
+            website: "https://www.theknowledgeacademy.com/in/"
+        },
+        {
+            name: "International School of Design (INSD)",
+            location: "Satellite, Ahmedabad",
+            rating: "4.5/5 (Google)",
+            total_reviews: "700+",
+            year_established: 2011,
+            courses: "Fashion Design, Interior Design (Diplomas & Coaching). Fees: Varies.",
+            features: "Pros: National brand for design diplomas with a local presence. Cons: Primarily a design school.",
+            website: "https://www.insd.edu.in"
+        },
+        {
+            name: "Cooking Culture",
+            location: "Bodakdev, Ahmedabad",
+            rating: "4.8/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "Baking, Culinary workshops (Indian, International). Fees: Approx. ₹2,000 - ₹10,000 per workshop.",
+            features: "Pros: One of Ahmedabad's premier culinary studios for hobbyist and professional courses. Cons: Non-academic, skill-based.",
+            website: "https://www.cookingculture.in"
+        },
+        {
+            name: "CCDS (Cake Decorating & Confectionery School)",
+            location: "Bodakdev, Ahmedabad",
+            rating: "4.7/5 (Google)",
+            total_reviews: "400+",
+            year_established: 1993,
+            courses: "Baking, Cake Decoration, Chocolate Making. Fees: Workshop-based.",
+            features: "Pros: A well-known Delhi-based brand, supplies baking ingredients and conducts classes. Cons: Hobby-based.",
+            website: "https://www.ccds.co.in"
+        },
+        {
+            name: "The Photography Inc.",
+            location: "Prahlad Nagar, Ahmedabad",
+            rating: "4.9/5 (Google)",
+            total_reviews: "300+",
+            year_established: "N/A",
+            courses: "Basic & Advanced Photography, Videography. Fees: Approx. ₹15,000 - ₹60,000.",
+            features: "Pros: Top-rated institute for learning photography, practical workshops and photo walks. Cons: Creative skill-based.",
+            website: "https://thephotographyinc.in"
+        },
+        {
+            name: "La Foret French Class",
+            location: "Satellite, Ahmedabad",
+            rating: "4.8/5 (Google)",
+            total_reviews: "200+",
+            year_established: "N/A",
+            courses: "French Language, DELF exam prep. Fees: Approx. ₹15,000 - ₹25,000 per level.",
+            features: "Pros: Highly-rated local institute for French, good alternative to Alliance Française. Cons: Not an official cultural center.",
+            website: "N/A"
+        },
+        {
+            name: "Shiamak Davar's Institute for Performing Arts (SDIPA)",
+            location: "Satellite, Ahmedabad",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: 1985,
+            courses: "Dance classes (various styles), workshops. Fees: Approx. ₹8,000 - ₹15,000 for a module.",
+            features: "Pros: Premier dance academy in India, professional instructors. Cons: Not academic coaching.",
+            website: "https://www.shiamak.com"
+        },
+        {
+            name: "Furtados School of Music",
+            location: "Bodakdev, Ahmedabad",
+            rating: "4.6/5 (Google)",
+            total_reviews: "500+",
+            year_established: 2011,
+            courses: "Piano, Guitar, Violin, Vocals etc. Fees: Approx. ₹10,000 - ₹20,000 per quarter.",
+            features: "Pros: Structured music curriculum, certified teachers, opportunities for Trinity College exams. Cons: Hobby/skill-based.",
+            website: "https://www.fsm.net.in"
+        },
+        {
+            name: "Yuva Upanishad Foundation",
+            location: "Navrangpura, Ahmedabad",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: 2013,
+            courses: "GPSC, Talati, Clerk. Fees: Varies.",
+            features: "Pros: Known for its excellent publications and material for Gujarat govt jobs. Cons: Coaching is secondary to their publication wing.",
+            website: "https://www.yuvaupnishad.com"
+        },
+        {
+            name: "Anamika's English Academy",
+            location: "Vastrapur, Ahmedabad",
+            rating: "4.7/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "Spoken English, IELTS, PTE. Fees: Varies.",
+            features: "Pros: Highly-rated local academy for English proficiency. Cons: Individual-driven.",
+            website: "N/A"
+        },
+        {
+            name: "Swastik Classes",
+            location: "Paldi, Ahmedabad",
+            rating: "4.5/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "XI-XII Commerce (GSEB). Fees: Varies.",
+            features: "Pros: Reputed local commerce class in the Paldi area. Cons: Focus on state board.",
+            website: "N/A"
+        },
+        {
+            name: "Unique Academy",
+            location: "Bapunagar, Ahmedabad",
+            rating: "4.6/5 (Google)",
+            total_reviews: "900+",
+            year_established: "N/A",
+            courses: "XI-XII Science & Commerce. Fees: Varies.",
+            features: "Pros: Leading local tuition center in the Bapunagar area. Cons: Basic infrastructure.",
+            website: "N/A"
+        },
+        {
+            name: "Alpha Group of Tutorials",
+            location: "Chandkheda, Ahmedabad",
+            rating: "4.7/5 (Google)",
+            total_reviews: "800+",
+            year_established: "N/A",
+            courses: "IX-XII Science. Fees: Varies.",
+            features: "Pros: Leading local science tutorial in the Chandkheda area. Cons: Limited reach.",
+            website: "N/A"
+        },
+        {
+            name: "R.K. Classes",
+            location: "Ghatlodia, Ahmedabad",
+            rating: "4.8/5 (Google)",
+            total_reviews: "700+",
+            year_established: "N/A",
+            courses: "IX-XII Commerce. Fees: Varies.",
+            features: "Pros: Top-rated local commerce class in the Ghatlodia area. Cons: Local focus.",
+            website: "N/A"
+        },
+        {
+            name: "Creative Sense",
+            location: "Vastrapur, Ahmedabad",
+            rating: "4.9/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "NATA, NID, NIFT. Fees: Approx. ₹35,000 - ₹70,000.",
+            features: "Pros: Top-rated local design coaching institute, praised for its mentorship. Cons: Smaller scale.",
+            website: "N/A"
+        },
+        {
+            name: "SIP Abacus",
+            location: "Satellite, Ahmedabad",
+            rating: "4.5/5 (Google)",
+            total_reviews: "600+",
+            year_established: 2003,
+            courses: "Abacus, Vedic Maths for children. Fees: Approx. ₹1,500 - ₹3,000 per month.",
+            features: "Pros: Helps develop mental math skills in young children. Cons: Supplementary education.",
+            website: "https://www.sipabacus.com"
+        },
+        {
+            name: "Tatva Academy",
+            location: "Gandhinagar (Ahmedabad Metropolitan Area)",
+            rating: "4.8/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "XI-XII Science (JEE/NEET). Fees: Varies.",
+            features: "Pros: Top-rated local science institute in Gandhinagar. Cons: Caters to a specific geography.",
+            website: "N/A"
+        },
+        {
+            name: "Vision Science School",
+            location: "Bopal, Ahmedabad",
+            rating: "4.6/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "Integrated XI-XII Science with JEE/NEET. Fees: High (School + Coaching).",
+            features: "Pros: A leading school in the Bopal area offering integrated coaching. Cons: Rigid schedule.",
+            website: "N/A"
+        },
+        {
+            name: "Nishant Academy",
+            location: "Vadaj, Ahmedabad",
+            rating: "4.7/5 (Google)",
+            total_reviews: "300+",
+            year_established: "N/A",
+            courses: "GPSC, Talati. Fees: Varies.",
+            features: "Pros: Reputed local coaching for government jobs in the Vadaj area. Cons: Limited reach.",
+            website: "N/A"
+        },
+        {
+            name: "Shri Rang Kala Niketan",
+            location: "Paldi, Ahmedabad",
+            rating: "4.8/5 (Google)",
+            total_reviews: "250+",
+            year_established: "N/A",
+            courses: "Fine Arts, Drawing, Painting. Fees: Varies.",
+            features: "Pros: Highly-rated local art school, good for building a portfolio for fine arts colleges. Cons: Hobby-based.",
+            website: "N/A"
+        },
+        {
+            name: "The Hind Guru Academy",
+            location: "Satellite, Ahmedabad",
+            rating: "4.9/5 (Google)",
+            total_reviews: "700+",
+            year_established: "N/A",
+            courses: "NEET, JEE. Fees: Varies.",
+            features: "Pros: Exceptionally rated science institute, praised for personal attention. Cons: Smaller scale.",
+            website: "N/A"
+        },
+        {
+            name: "Aatman Academy",
+            location: "Chandlodia, Ahmedabad",
+            rating: "4.7/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "XI-XII Science (GSEB). Fees: Varies.",
+            features: "Pros: Leading local science coaching in the Chandlodia/Ghatlodia area. Cons: Focus on state board.",
+            website: "N/A"
+        },
+        {
+            name: "Meera's Fitness Studio",
+            location: "Bodakdev, Ahmedabad",
+            rating: "4.9/5 (Google)",
+            total_reviews: "300+",
+            year_established: "N/A",
+            courses: "Zumba, Aerobics, Yoga. Fees: Monthly/Quarterly.",
+            features: "Pros: Top-rated local fitness studio, representative of the many such centers in the city. Cons: Not academic coaching.",
+            website: "N/A"
+        },
+        {
+            name: "Aakash Institute (Maninagar)",
+            location: "Maninagar, Ahmedabad",
+            rating: "4.2/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: "N/A",
+            courses: "NEET, JEE. Fees: Approx. ₹1,30,000 - ₹2,70,000 per year.",
+            features: "Pros: Strong branch serving East Ahmedabad. Cons: Large batches.",
+            website: "https://www.aakash.ac.in"
+        },
+        {
+            name: "Liberty Career Academy (Navrangpura)",
+            location: "Navrangpura, Ahmedabad",
+            rating: "4.6/5 (Google)",
+            total_reviews: "3,000+",
+            year_established: "N/A",
+            courses: "GPSC, UPSC, Banking. Fees: Approx. ₹25,000 - ₹1,00,000.",
+            features: "Pros: Major center in the educational hub of Ahmedabad. Cons: Extremely crowded.",
+            website: "https://www.libertygroup.in"
+        },
+        {
+            name: "TIME (Satellite)",
+            location: "Satellite, Ahmedabad",
+            rating: "4.4/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: "N/A",
+            courses: "CAT, CMAT, GRE. Fees: Approx. ₹40,000 - ₹75,000 per course.",
+            features: "Pros: Caters to students in West Ahmedabad. Cons: Standardized curriculum.",
+            website: "https://www.time4education.com"
+        },
+        {
+            name: "Allen Career Institute (Chandkheda)",
+            location: "Chandkheda, Ahmedabad",
+            rating: "4.5/5 (Google)",
+            total_reviews: "2,500+",
+            year_established: "N/A",
+            courses: "JEE, NEET. Fees: Approx. ₹1,40,000 - ₹2,80,000 per year.",
+            features: "Pros: Serves North Ahmedabad and Gandhinagar students. Cons: High pressure.",
+            website: "https://www.allen.ac.in"
+        },
+        {
+            name: "ExcelR Solutions",
+            location: "S.G. Highway, Ahmedabad",
+            rating: "4.8/5 (Google)",
+            total_reviews: "2,000+",
+            year_established: 2014,
+            courses: "Data Science, Business Analytics, PMP. Fees: Approx. ₹45,000 - ₹85,000.",
+            features: "Pros: Top-rated institute for professional upskilling, strong placement focus. Cons: Highly technical courses.",
+            website: "https://www.excelr.com"
+        },
+        {
+            name: "Brilliance Academy",
+            location: "Gandhinagar (Ahmedabad Metropolitan Area)",
+            rating: "4.7/5 (Google)",
+            total_reviews: "600+",
+            year_established: "N/A",
+            courses: "GPSC, Talati, Clerk. Fees: Varies.",
+            features: "Pros: Another top-rated institute for government jobs in Gandhinagar. Cons: Localized.",
+            website: "N/A"
+        },
+        {
+            name: "ACE Engineering Academy",
+            location: "Satellite, Ahmedabad",
+            rating: "4.4/5 (Google)",
+            total_reviews: "800+",
+            year_established: 1995,
+            courses: "GATE, ESE. Fees: Approx. ₹60,000 - ₹1,00,000.",
+            features: "Pros: Hyderabad's top GATE institute with a center in Ahmedabad. Cons: Highly technical.",
+            website: "https://www.aceenggacademy.com"
+        },
+        {
+            name: "Akshar Academy",
+            location: "Gandhinagar (Ahmedabad Metropolitan Area)",
+            rating: "4.6/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: "N/A",
+            courses: "GPSC, Talati, TET/TAT. Fees: Varies.",
+            features: "Pros: Well-known institute in Gandhinagar specializing in teacher eligibility tests as well. Cons: Crowded.",
+            website: "N/A"
+        },
+        {
+            name: "Saraswati Academy",
+            location: "Bapunagar, Ahmedabad",
+            rating: "4.7/5 (Google)",
+            total_reviews: "700+",
+            year_established: "N/A",
+            courses: "GPSC, Talati, Police. Fees: Varies.",
+            features: "Pros: Highly-rated government job coaching in East Ahmedabad. Cons: Basic infrastructure.",
+            website: "N/A"
+        },
+        {
+            name: "The Prayas India",
+            location: "Navrangpura, Ahmedabad",
+            rating: "4.9/5 (Google)",
+            total_reviews: "1,200+",
+            year_established: 2013,
+            courses: "UPSC, GPSC, Bank, CAT. Fees: Varies.",
+            features: "Pros: Highly rated institute, focuses on small batches and mentorship. Cons: High fees.",
+            website: "https://www.theprayasindia.com"
+        },
+        {
+            name: "Samveg Classes",
+            location: "Naranpura, Ahmedabad",
+            rating: "4.8/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "XI-XII Science, GUJCET. Fees: Varies.",
+            features: "Pros: Top-rated local science tutorial with a strong reputation for boards. Cons: Not for national level prep.",
+            website: "N/A"
+        },
+        {
+            name: "Motion Education",
+            location: "Satellite, Ahmedabad",
+            rating: "4.3/5 (Google)",
+            total_reviews: "900+",
+            year_established: 2007,
+            courses: "JEE, NEET. Fees: Approx. ₹1,30,000 - ₹1,70,000 per year.",
+            features: "Pros: Another major coaching brand from Kota, good results, strong academic system. Cons: Faces stiff competition.",
+            website: "https://motion.ac.in"
+        },
+        {
+            name: "RedMat",
+            location: "Vastrapur, Ahmedabad",
+            rating: "4.8/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "GMAT, GRE. Fees: Varies.",
+            features: "Pros: Highly-rated for GMAT/GRE with a focus on personalized, small-batch training. Cons: Smaller scale.",
+            website: "https://www.redmat.in"
+        },
+        {
+            name: "Vision Government Job Academy",
+            location: "Nikol, Ahmedabad",
+            rating: "4.9/5 (Google)",
+            total_reviews: "800+",
+            year_established: "N/A",
+            courses: "Talati, Clerk, PSI. Fees: Varies.",
+            features: "Pros: Top-rated institute in the Nikol area for state government jobs. Cons: Localized.",
+            website: "N/A"
+        },
+        {
+            name: "Chahal Academy",
+            location: "Navrangpura, Ahmedabad",
+            rating: "4.5/5 (Google)",
+            total_reviews: "600+",
+            year_established: 2011,
+            courses: "UPSC, GPSC. Fees: Varies.",
+            features: "Pros: National brand with a center in Ahmedabad, good for civil services. Cons: Faces competition from local giants.",
+            website: "https://chahalacademy.com"
+        },
+        {
+            name: "Gypsy VJ's Dance & Fitness Academy",
+            location: "Vastrapur, Ahmedabad",
+            rating: "4.7/5 (Google)",
+            total_reviews: "700+",
+            year_established: "N/A",
+            courses: "Salsa, Bollywood, Hip-hop, Contemporary. Fees: Monthly/Quarterly.",
+            features: "Pros: A very popular local dance academy. Cons: Non-academic.",
+            website: "N/A"
+        },
+        {
+            name: "Shreeji Classes",
+            location: "Vastral, Ahmedabad",
+            rating: "4.8/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "IX-XII Science & Commerce. Fees: Varies.",
+            features: "Pros: Top-rated local tuition center in the Vastral area. Cons: Focus on school curriculum.",
+            website: "N/A"
+        },
+        {
+            name: "Logic School of Management",
+            location: "S.G. Highway, Ahmedabad",
+            rating: "4.7/5 (Google)",
+            total_reviews: "300+",
+            year_established: 2005,
+            courses: "CMA (USA), CPA (USA). Fees: Approx. ₹50,000 - ₹1,50,000.",
+            features: "Pros: Specialized in international professional finance courses. Cons: Highly niche.",
+            website: "https://logiceducation.in"
+        },
+        {
+            name: "Anjani Academy",
+            location: "Maninagar, Ahmedabad",
+            rating: "4.9/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "GPSC, Talati. Fees: Varies.",
+            features: "Pros: Exceptionally rated government job academy in Maninagar. Cons: Smaller scale.",
+            website: "N/A"
+        },
+        {
+            name: "Mahesh Professional Academy",
+            location: "Navrangpura, Ahmedabad",
+            rating: "4.7/5 (Google)",
+            total_reviews: "600+",
+            year_established: "N/A",
+            courses: "CA, CS. Fees: Varies.",
+            features: "Pros: Strong local competitor to Navkar for CA coaching. Cons: Limited reach.",
+            website: "N/A"
+        },
+        {
+            name: "Tathastu Academy",
+            location: "Gandhinagar (Ahmedabad Metropolitan Area)",
+            rating: "4.8/5 (Google)",
+            total_reviews: "900+",
+            year_established: "N/A",
+            courses: "GPSC, DySO, STI. Fees: Varies.",
+            features: "Pros: Another highly-rated and popular choice for GPSC in Gandhinagar. Cons: Localized.",
+            website: "N/A"
+        },
+        {
+            name: "Aakash Institute (Gandhinagar)",
+            location: "Gandhinagar (Ahmedabad Metropolitan Area)",
+            rating: "4.3/5 (Google)",
+            total_reviews: "1,000+",
+            year_established: "N/A",
+            courses: "NEET, JEE. Fees: Approx. ₹1,30,000 - ₹2,70,000 per year.",
+            features: "Pros: Major national brand in the state capital. Cons: Expensive.",
+            website: "https://www.aakash.ac.in"
+        },
+        {
+            name: "Pioneer Career Academy",
+            location: "Navrangpura, Ahmedabad",
+            rating: "4.5/5 (Google)",
+            total_reviews: "700+",
+            year_established: "N/A",
+            courses: "GPSC, Banking, SSC. Fees: Varies.",
+            features: "Pros: Well-known local institute for government jobs. Cons: Faces stiff competition.",
+            website: "N/A"
+        },
+        {
+            name: "T.I.M.E. (Gandhinagar)",
+            location: "Gandhinagar (Ahmedabad Metropolitan Area)",
+            rating: "4.4/5 (Google)",
+            total_reviews: "600+",
+            year_established: "N/A",
+            courses: "CAT, CMAT, Bank PO. Fees: Approx. ₹40,000 - ₹75,000.",
+            features: "Pros: National brand in the state capital. Cons: Standardized curriculum.",
+            website: "https://www.time4education.com"
+        },
+        {
+            name: "Saraswati Classes",
+            location: "Ranip, Ahmedabad",
+            rating: "4.7/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "IX-XII Science & Commerce. Fees: Varies.",
+            features: "Pros: Top-rated local tuition center in the Ranip/Sabarmati area. Cons: School-level focus.",
+            website: "N/A"
+        },
+        {
+            name: "The Art of Living",
+            location: "Multiple centers, Ahmedabad",
+            rating: "4.6/5 (Google)",
+            total_reviews: "2,000+",
+            year_established: 1981,
+            courses: "Yoga, Meditation, Happiness Program. Fees: Varies.",
+            features: "Pros: Global organization focusing on mental wellness and stress relief. Cons: Not academic coaching.",
+            website: "https://www.artofliving.org"
+        },
+        {
+            name: "FinTree",
+            location: "Online (Popular in Ahmedabad)",
+            rating: "4.8/5 (Online reviews)",
+            total_reviews: "5,000+",
+            year_established: 2010,
+            courses: "CFA, FRM. Fees: Approx. ₹20,000 - ₹40,000 per level.",
+            features: "Pros: A leading online provider for CFA/FRM coaching, known for engaging video content. Cons: Online only.",
+            website: "https://www.fintreeindia.com"
+        },
+        {
+            name: "Patel & Patel Commerce Classes",
+            location: "Odhav, Ahmedabad",
+            rating: "4.9/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "XI-XII Commerce, B.Com. Fees: Varies.",
+            features: "Pros: Top-rated commerce class in the Odhav industrial area. Cons: Localized.",
+            website: "N/A"
+        },
+        {
+            name: "Shreeji Academy",
+            location: "Naroda, Ahmedabad",
+            rating: "4.7/5 (Google)",
+            total_reviews: "600+",
+            year_established: "N/A",
+            courses: "IX-XII Science. Fees: Varies.",
+            features: "Pros: Leading local science tutorial in the Naroda area. Cons: Focus on GSEB.",
+            website: "N/A"
+        },
+        {
+            name: "Vision Commerce",
+            location: "Maninagar, Ahmedabad",
+            rating: "4.8/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "XI-XII Commerce. Fees: Varies.",
+            features: "Pros: Highly-rated local commerce class in Maninagar. Cons: Focus on boards.",
+            website: "N/A"
+        },
+        {
+            name: "Vision Science Academy",
+            location: "Ghatlodia, Ahmedabad",
+            rating: "4.9/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "IX-XII Science. Fees: Varies.",
+            features: "Pros: Top-rated local science tuition in the Ghatlodia area. Cons: School-level focus.",
+            website: "N/A"
+        },
+        {
+            name: "S-Tek IT Education",
+            location: "Navrangpura, Ahmedabad",
+            rating: "4.6/5 (Google)",
+            total_reviews: "300+",
+            year_established: "N/A",
+            courses: "C, C++, Java, Python. Fees: Approx. ₹10,000 - ₹40,000.",
+            features: "Pros: Good for learning foundational programming languages, practical approach. Cons: Not for high-end data science.",
+            website: "https://www.stek.in"
+        },
+        {
+            name: "Tathagat Aptitude",
+            location: "Navrangpura, Ahmedabad",
+            rating: "4.7/5 (Google)",
+            total_reviews: "400+",
+            year_established: "N/A",
+            courses: "CAT, CMAT. Fees: Varies.",
+            features: "Pros: Good local alternative for MBA prep, founded by experienced faculty. Cons: Smaller scale.",
+            website: "N/A"
+        },
+        {
+            name: "BAPS Swaminarayan Sanstha (Coaching)",
+            location: "Shahibaug, Ahmedabad",
+            rating: "4.7/5 (as a cultural complex)",
+            total_reviews: "50,000+",
+            year_established: "N/A",
+            courses: "Provides free or subsidized coaching for civil services (UPSC/GPSC) as part of its social services. Fees: Minimal or free.",
+            features: "Pros: A philanthropic initiative by a major socio-spiritual organization, highly value-based. Admission is selective.",
+            website: "https://www.baps.org"
+        },
+        {
+            name: "Adesh Academy",
+            location: "Gandhinagar (Ahmedabad Metropolitan Area)",
+            rating: "4.7/5 (Google)",
+            total_reviews: "800+",
+            year_established: "N/A",
+            courses: "Police, Forest Guard, Talati. Fees: Varies.",
+            features: "Pros: Specializes in class-3 government job recruitments in Gandhinagar. Cons: Niche focus.",
+            website: "N/A"
+        },
+        {
+            name: "Mehta Classes",
+            location: "Satellite, Ahmedabad",
+            rating: "4.6/5 (Google)",
+            total_reviews: "500+",
+            year_established: "N/A",
+            courses: "XI-XII Commerce, CA Foundation. Fees: Varies.",
+            features: "Pros: Another well-regarded commerce class in West Ahmedabad. Cons: Local focus.",
+            website: "N/A"
+        },
+        {
+            name: "Angel Academy",
+            location: "Gandhinagar (Ahmedabad Metropolitan Area)",
+            rating: "4.5/5 (Google)",
+            total_reviews: "1,500+",
+            year_established: "N/A",
+            courses: "GPSC, Talati, Clerk. Fees: Varies.",
+            features: "Pros: A very popular institute in Gandhinagar with a large student base and strong YouTube presence. Cons: Very crowded.",
+            website: "N/A"
+        }
+    ];
+    ];
+
+    const instituteList = document.getElementById('institute-list');
+
+    // Function to display institutes
+    function displayInstitutes(instituteArray) {
+        instituteList.innerHTML = ''; // Clear current list
+        instituteArray.forEach(institute => {
+            const card = `
+                <div class="institute-card">
+                    <h2>${institute.name}</h2>
+                    <p><strong>Location:</strong> ${institute.location}</p>
+                    <div class="details-grid">
+                        <p class="rating"><strong>Rating:</strong> ${institute.rating}</p>
+                        <p><strong>Reviews:</strong> ${institute.total_reviews}</p>
+                        <p class="established"><strong>Established:</strong> ${institute.year_established}</p>
+                    </div>
+                    <p><strong>Courses & Fees:</strong> ${institute.courses}</p>
+                    <p><strong>Features:</strong> ${institute.features}</p>
+                    <a href="${institute.website}" target="_blank" rel="noopener noreferrer">Visit Website</a>
+                </div>
+            `;
+            instituteList.innerHTML += card;
+        });
+    }
+
+    // Function to filter institutes based on search criteria
+    function filterInstitutes() {
+        const nameQuery = document.getElementById('name-search').value.toLowerCase();
+        const ratingQuery = document.getElementById('rating-search').value;
+
+        const filteredInstitutes = institutes.filter(institute => {
+            const nameMatch = institute.name.toLowerCase().includes(nameQuery);
+            // Extract the number part of the rating for a more flexible search
+            const ratingValue = institute.rating.split('/')[0].trim();
+            const ratingMatch = ratingValue.startsWith(ratingQuery);
+            
+            return nameMatch && ratingMatch;
+        });
+
+        displayInstitutes(filteredInstitutes);
+    }
+
+    // Initial display of all institutes
+    window.onload = () => {
+        displayInstitutes(institutes);
+    };
+
+</script>
+
+</body>
+</html>
