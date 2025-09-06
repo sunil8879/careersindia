@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCHOLARSHIPS IN INDIA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+    /* --- CSS STYLES --- */
+    :root {
+        --turquoise: #40E0D0;
+        --turquoise-dark: #31a89b;
+        --white: #ffffff;
+        --light-gray: #f7f9fa;
+        --border-color: #e1e8ed;
+        --dark-text: #2c3e50;
+        --shadow-color: rgba(44, 62, 80, 0.1);
+        --shadow-color-darker: rgba(0, 0, 0, 0.15); /* For the new 3D text */
+    }
+
+    /* --- Pro-Tip Banner Styles (Unchanged) --- */
+    .pro-tip-banner {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: var(--turquoise);
+        backdrop-filter: blur(5px);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        padding: 12px 20px;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--dark-text);
+        font-size: 0.9em;
+        animation: fadeInDown 0.8s ease-out;
+    }
+
+    .pro-tip-banner svg {
+        flex-shrink: 0;
+        margin-right: 15px;
+        color: var(--dark-text);
+    }
+
+    .banner-text {
+        text-align: left;
+    }
+
+    .banner-text strong {
+        font-weight: 600;
+        color: var(--dark-text);
+    }
+
+    .banner-text .keywords {
+        color: #333;
+        font-style: italic;
+    }
+
+    @keyframes fadeInDown {
+        from { opacity: 0; transform: translateY(-20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: var(--white);
+        color: var(--dark-text);
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .main-container {
+        display: flex;
+        height: calc(100vh - 58px);
+        width: 100%;
+        padding-top: 58px;
+        box-sizing: border-box;
+    }
+
+    /* --- Left Sidebar --- */
+    .sidebar {
+        flex: 0 0 320px;
+        background: transparent;
+        border-right: 1px solid var(--border-color);
+        padding: 25px;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+    }
+
+    .title-container::after, .title-container h1::after { 
+        display: none; 
+    }
+
+    /* MODIFIED: Title container now has a turquoise background */
+    .title-container {
+        position: relative;
+        padding: 25px;
+        margin-bottom: 40px;
+        background: black; /* CHANGED to turquoise */
+        border-radius: 20px;
+        text-align: center;
+        border: none; /* Removed border */
+        box-shadow: 0 8px 25px rgba(64, 224, 208, 0.4); /* Shadow tinted with turquoise */
+    }
+
+    /* MODIFIED: Title text is now 3D White */
+    .title-container h1 {
+        margin: 0;
+        font-family: 'Orbitron', sans-serif;
+        font-size: 1.80em;
+        line-height: 1.1;
+        font-weight: 900;
+        color: var(--white); /* CHANGED to white */
+
+        /* A new 3D effect for white text on a turquoise background */
+        text-shadow:
+            1px 1px 0px var(--shadow-color-darker),
+            2px 2px 0px var(--shadow-color-darker),
+            3px 3px 0px var(--shadow-color-darker),
+            4px 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .selector-container label {
+        display: block;
+        font-size: 1.1em;
+        margin-bottom: 10px;
+        color: var(--dark-text);
+        font-weight: 600;
+    }
+
+    /* MODIFIED: Dropdown is now turquoise */
+    #state-selector {
+        width: 100%;
+        padding: 12px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 1em;
+       background-color: black; /* CHANGED to turquoise */
+        color: var(--white); /* CHANGED text to white */
+        border: 1px solid var(--turquoise-dark); /* Darker turquoise border */
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+    }
+    #state-selector:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(64, 224, 208, 0.4);
+    }
+    #state-selector optgroup {
+        font-weight: bold;
+        background-color: var(--light-gray); /* Light bg for readability */
+        color: #555;
+    }
+    #state-selector option {
+        padding: 10px;
+        background-color: var(--white); /* White bg for readability */
+        color: var(--dark-text); /* Dark text for readability */
+    }
+
+    /* --- Right Content Pane --- */
+    .content-pane {
+        flex: 1;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .welcome-message {
+        text-align: center;
+        color: #777;
+    }
+    
+    .welcome-message h2 {
+        font-size: 2.5em;
+        color: var(--dark-text);
+        text-shadow: none;
+    }
+
+    #content-frame {
+        width: 100%;
+        height: 100%;
+        border: none;
+        display: none;
+    }
+</style>
+</head>
+<body>
+
+<!-- === Pro-Tip Banner Starts === -->
+<div class="pro-tip-banner">
+    <!-- SVG Icon -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+        <path d="M11 7h2v2h-2zm0 4h2v6h-2z"/>
+    </svg>
+    <!-- Banner Text -->
+    <div class="banner-text">
+        <strong>Navigational Guidance:</strong> When browsing external government sites from the links provided, SCHOLARSHIP INFORMATION is often located under portals or sections labeled with terms such as: 
+        <span class="keywords">students, education, scholarships, admissions, services, academic, loans, schemes, financial aid, benefits, department, or fellowship.</span>
+    </div>
+</div>
+<!-- === Pro-Tip Banner Ends === -->
+
+    <div class="main-container">
+        <div class="sidebar">
+            <div class="title-container">
+                <h1>SCHOLARSHIPS IN INDIA</h1>
+            </div>
+            <div class="selector-container">
+                <label for="state-selector">Select the State/UT</label>
+                <select id="state-selector">
+                    <option selected disabled>-- Choose an option --</option>
+                    <optgroup label="West India">
+                        <option value="goa.html">Goa</option>
+                        <option value="rajasthan.html">Rajasthan</option>
+                        <option value="maharashtra.html">Maharashtra</option>
+                        <option value="gujarat.html">Gujarat</option>
+                    </optgroup>
+                    <optgroup label="East India">
+                         <option value="wrstBengal.html">West Bengal</option>
+                    </optgroup>
+                    <optgroup label="North India">
+                        <option value="punjab.html">Punjab</option>
+                        <option value="himachal.html">Himachal Pradesh</option>
+                        <option value="haryana.html">Haryana</option>
+                        <option value="kashmir.html">Jammu and Kashmir</option>
+                    </optgroup>
+                    <optgroup label="North-East India">
+                        <option value="meghalaya.html">Meghalaya</option>
+                        <option value="mizoram.html">Mizoram</option>
+                        <option value="manipur.html">Manipur</option>
+                        <option value="nagaland.html">Nagaland</option>
+                        <option value="assam.html">Assam</option>
+                        <option value="sikkim.html">Sikkim</option>
+                        <option value="tripura.html">Tripura</option>
+                        <option value="arunachal.html">Arunachal Pradesh</option>
+                    </optgroup>
+                    <optgroup label="Central India">
+                        <option value="madhyaPradesh.html">Madhya Pradesh</option>
+                        <option value="odisha.html">Odisha</option>
+                        <option value="bihar.html">Bihar</option>
+                        <option value="uttarPradesh.html">Uttar Pradesh</option>
+                        <option value="chhattisgarh.html">Chhattisgarh</option>
+                        <option value="jharkhand.html">Jharkhand</option>
+                        <option value="uttarakhand.html">Uttarakhand</option>
+                    </optgroup>
+                    <optgroup label="South India">
+                        <option value="karnataka.html">Karnataka</option>
+                        <option value="kerala.html">Kerala</option>
+                        <option value="tamilNadu.html">Tamil Nadu</option>
+                        <option value="telangana.html">Telangana</option>
+                        <option value="andhra.html">Andhra Pradesh</option>
+                    </optgroup>
+                    <optgroup label="Union Territories">
+                        <option value="delhi1.html">Delhi</option>
+                        <option value="laddakh.html">Ladakh</option>
+                        <option value="Chandigarh1.html">Chandigarh</option>
+                        <option value="andaman.html">Andaman and Nicobar</option>
+                        <option value="lakshadweep.html">Lakshadweep</option>
+                        <option value="puducherry1.html">Puducherry</option>
+                        <option value="daman1.html">Daman & Diu and D&NH</option>
+                    </optgroup>
+                </select>
+            </div>
+        </div>
+
+        <div class="content-pane">
+            <div id="welcome-message" class="welcome-message">
+                <h2>Welcome!</h2>
+                <p>Select a state from the left to view available scholarships.</p>
+            </div>
+            <iframe id="content-frame" name="content-frame"></iframe>
+        </div>
+    </div>
+
+    <script>
+        // --- JAVASCRIPT LOGIC ---
+        document.addEventListener('DOMContentLoaded', function () {
+            const stateSelector = document.getElementById('state-selector');
+            const contentFrame = document.getElementById('content-frame');
+            const welcomeMessage = document.getElementById('welcome-message');
+
+            stateSelector.addEventListener('change', function() {
+                const selectedPage = this.value;
+                if (selectedPage) {
+                    welcomeMessage.style.display = 'none'; // Hide welcome message
+                    contentFrame.style.display = 'block'; // Show iframe
+                    contentFrame.src = selectedPage;
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

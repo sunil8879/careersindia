@@ -1,0 +1,593 @@
+
+
+const singapore = [
+  {
+    "Scholarship Name": "Singapore International Graduate Award (SINGA)",
+    "Host Country and University": "Singapore, at Nanyang Technological University (NTU), National University of Singapore (NUS), Singapore University of Technology and Design (SUTD), or Singapore Management University (SMU).",
+    "Website": "https://www.a-star.edu.sg/Scholarships/for-graduate-studies/singapore-international-graduate-award-singa",
+    "Level of Study": "Doctoral (PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must demonstrate a passion for research and have excellent academic results. A Bachelor's degree with at least a second-class upper honours or equivalent is typically required.",
+      "Standardized Test Scores": "GRE is strongly recommended as it can significantly enhance an application. English proficiency (IELTS/TOEFL) is required if English is not the applicant's first language.",
+      "Field of Study": "Biomedical Sciences, Computing and Information Sciences, Engineering and Technology, and Physical Sciences."
+    },
+    "Application Deadline": "There are two application cycles. For the August intake, the deadline is typically December 1 of the preceding year. For the January intake, the deadline is June 1 of the preceding year.",
+    "Value/Inclusions": "A fully-funded scholarship for up to 4 years. It covers full tuition fees, a monthly stipend of S$2,200 (which increases to S$2,700 after passing the Qualifying Examination), a one-time airfare grant of up to S$1,500, and a one-time settling-in allowance of S$1,000.",
+    "Application Process": "Apply online through the SINGA application portal. No separate application to the universities is needed initially. You must indicate your choice of research supervisors.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A statement of purpose is part of the online application.",
+      "Letters of Recommendation (LORs)": "Two academic reference reports are required. Referees submit these online.",
+      "Academic Transcripts": "Required from all undergraduate and/or Master's studies.",
+      "Proof of English proficiency (TOEFL/IELTS scores)": "Required if applicable.",
+      "CV or Resume": "Recommended to upload.",
+      "Passport copy": "Required."
+    },
+    "How old the scholarship is": "The SINGA program was established in 2006.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "NTU (1991), NUS (1905), SUTD (2009), SMU (2000)."
+  },
+  {
+    "Scholarship Name": "Dr Goh Keng Swee (GKS) Scholarship",
+    "Host Country and University": "Singapore, at National University of Singapore (NUS), Nanyang Technological University (NTU), Singapore Management University (SMU), or Singapore University of Technology and Design (SUTD).",
+    "Website": "https://www.abs.org.sg/dr-goh-keng-swee-scholarship",
+    "Level of Study": "Undergraduate",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must have excellent academic results from high school (e.g., top 5% of cohort) and demonstrate strong leadership qualities.",
+      "Standardized Test Scores": "Must meet the admission and English language requirements of the chosen university (SAT/ACT may be required).",
+      "Field of Study": "All disciplines except Medicine, Dentistry, and Architecture."
+    },
+    "Application Deadline": "The application period is typically from November to mid-March.",
+    "Value/Inclusions": "A full scholarship covering tuition fees, a maintenance allowance of S$6,500 per year, hostel allowance based on institution rates, a one-time settling-in allowance of S$200, and return airfare to your home country upon graduation. This is a bonded scholarship, meaning you must work for a company in Singapore for 3 years after graduation.",
+    "Application Process": "Apply online through the GKS Scholarship portal. You must also separately apply for admission to the partner universities. Shortlisted candidates will undergo interviews.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A personal essay is required.",
+      "Letters of Recommendation (LORs)": "May be required.",
+      "Academic Transcripts": "Required.",
+      "Proof of English proficiency (TOEFL/IELTS scores)": "Required for university admission.",
+      "CV or Resume": "Detailing extracurricular activities and leadership roles.",
+      "Passport copy": "Required."
+    },
+    "How old the scholarship is": "The scholarship was established in 1995.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "NUS (1905), NTU (1991), SMU (2000), SUTD (2009)."
+  },
+  {
+    "Scholarship Name": "ASEAN Undergraduate Scholarship (AUS)",
+    "Host Country and University": "Singapore, at National University of Singapore (NUS) or Nanyang Technological University (NTU).",
+    "Website": "https://www.nus.edu.sg/oam/scholarships/freshmen-singapore-permanent-residents/asean-undergraduate-scholarship-(aus)",
+    "Level of Study": "Undergraduate",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Requires outstanding academic merit as demonstrated in high school.",
+      "Standardized Test Scores": "Must meet the university's admission requirements.",
+      "Field of Study": "All undergraduate programmes.",
+      "Other": "Although primarily for ASEAN nations, this is sometimes extended to students from India. This is a tuition grant scheme that comes with a bond obligation."
+    },
+    "Application Deadline": "No separate application. You are automatically considered when you apply for admission and the MOE Tuition Grant. The admission deadline is typically in March.",
+    "Value/Inclusions": "The scholarship covers the subsidized tuition fees (after the MOE Tuition Grant). It does not cover living expenses. A 3-year bond to work in Singapore is required.",
+    "Application Process": "Apply for admission to NUS or NTU and apply for the MOE Tuition Grant. All eligible international students are considered.",
+    "Required Documents": {
+      "All documents required for university admission.": true
+    },
+    "How old the scholarship is": "This has been a long-standing scholarship to attract talent from Asia.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "NUS (1905), NTU (1991)."
+  },
+  {
+    "Scholarship Name": "President's Graduate Fellowship (NUS)",
+    "Host Country and University": "Singapore, National University of Singapore (NUS).",
+    "Website": "https://www.nus.edu.sg/graduatestudies/scholarships-financial-aid-and-fees/scholarships-fellowships/presidents-graduate-fellowship-pgf/",
+    "Level of Study": "Doctoral (PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must have a first-class honours degree or equivalent and be admitted as a PhD candidate at NUS.",
+      "Standardized Test Scores": "Must meet the university's English requirements. GRE may be required for some programs.",
+      "Field of Study": "All PhD programs."
+    },
+    "Application Deadline": "No separate application. You are nominated by your department upon admission to the PhD program.",
+    "Value/Inclusions": "A monthly stipend (S$3,000 to S$3,500), full tuition fee subsidy, a S$750 one-time travel allowance, and a S$500 one-time computer allowance.",
+    "Application Process": "Apply for admission to a PhD program at NUS. Your department will nominate you for the fellowship if you are a top candidate.",
+    "Required Documents": {
+      "All documents for PhD admission (SOP, LORs, transcripts, etc.).": true
+    },
+    "How old the scholarship is": "This is NUS's premier, long-standing fellowship for PhD candidates.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1905"
+  },
+  {
+    "Scholarship Name": "Nanyang President's Graduate Scholarship (NTU)",
+    "Host Country and University": "Singapore, Nanyang Technological University (NTU).",
+    "Website": "https://www.ntu.edu.sg/admissions/graduate/scholarships/nanyang-presidents-graduate-scholarship",
+    "Level of Study": "Doctoral (PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must have a Bachelor's degree with First Class Honours or equivalent.",
+      "Standardized Test Scores": "Must meet the university's English proficiency requirements. GRE is required for some programs.",
+      "Field of Study": "All PhD programs."
+    },
+    "Application Deadline": "The application deadline is typically November 30 for the August intake of the following year.",
+    "Value/Inclusions": "Full tuition fee coverage, a monthly stipend of S$3,000, a conference allowance of S$4,000 per year, a one-time IT allowance of S$1,500, an annual grant for journal subscriptions, and a one-time thesis preparation allowance.",
+    "Application Process": "Apply for admission to an NTU PhD program and indicate your interest in the scholarship within the application form.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A research proposal is required.",
+      "Letters of Recommendation (LORs)": "Two academic references are needed.",
+      "Academic Transcripts": "Required.",
+      "CV or Resume": "Required.",
+      "Passport copy": "Required."
+    },
+    "How old the scholarship is": "This is NTU's most prestigious and well-established PhD scholarship.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1991"
+  },
+  {
+    "Scholarship Name": "Singapore Management University (SMU) Postgraduate Research Scholarships",
+    "Host Country and University": "Singapore, Singapore Management University.",
+    "Website": "https://graduatestudies.smu.edu.sg/phd/financial-assistance",
+    "Level of Study": "Doctoral (PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must be admitted to an SMU PhD program. Requires a good Master's or Bachelor's degree.",
+      "Standardized Test Scores": "A good GMAT or GRE score is required for PhD in Business. English proficiency is required.",
+      "Field of Study": "PhD programs in Business, Economics, Psychology, Law, and Information Systems."
+    },
+    "Application Deadline": "No separate application. You are automatically considered when you apply for a PhD program, typically by the end of January.",
+    "Value/Inclusions": "Full tuition fee waiver and a monthly living stipend (ranging from S$2,200 to S$3,300).",
+    "Application Process": "Apply for admission to an SMU PhD program. All admitted students are automatically considered.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "Required.",
+      "Letters of Recommendation (LORs)": "Three are required.",
+      "Academic Transcripts": "Required.",
+      "CV or Resume": "Required.",
+      "GMAT/GRE scores": "Required for many programs."
+    },
+    "How old the scholarship is": "This has been the standard funding model for PhD students since the programs were established.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "2000"
+  },
+  {
+    "Scholarship Name": "INSEAD-Syngenta MBA Scholarship for Emerging Country Leaders",
+    "Host Country and University": "Singapore (or France), INSEAD Business School.",
+    "Website": "https://www.insead.edu/master-programmes/mba/financing/scholarships",
+    "Level of Study": "Postgraduate (MBA)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must be admitted to the INSEAD MBA program.",
+      "Standardized Test Scores": "A competitive GMAT/GRE score is required for admission.",
+      "Field of Study": "Master of Business Administration.",
+      "Other": "For candidates from developing countries (including India) who have a commitment to working in their home country and a background in the agricultural sector."
+    },
+    "Application Deadline": "Varies by admission round. Typically there are deadlines in February and April.",
+    "Value/Inclusions": "A scholarship of €25,000.",
+    "Application Process": "After submitting your MBA application, you can access the scholarship application portal and apply with specific scholarship essays.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "Specific scholarship essays are required.",
+      "All documents for the INSEAD MBA application.": true
+    },
+    "How old the scholarship is": "This is one of many established scholarships at INSEAD.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1957 (in France), 2000 (Singapore Campus)"
+  },
+  {
+    "Scholarship Name": "Lee Kong Chian Graduate Scholarships (NUS)",
+    "Host Country and University": "Singapore, National University of Singapore (NUS).",
+    "Website": "https://www.nus.edu.sg/graduatestudies/scholarships-financial-aid-and-fees/scholarships-fellowships/lee-kong-chian-graduate-scholarship-lkcgs/",
+    "Level of Study": "Doctoral (PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Excellent academic record, admitted to an NUS PhD program.",
+      "Standardized Test Scores": "As required for the program.",
+      "Field of Study": "All PhD programs.",
+      "Other": "For students who demonstrate leadership and a commitment to service."
+    },
+    "Application Deadline": "No separate application. You are nominated by your department.",
+    "Value/Inclusions": "A monthly stipend of S$3,300, full tuition fees, and various allowances for books, travel, and settling in.",
+    "Application Process": "Apply for PhD admission. Your department will nominate you if you are a top candidate.",
+    "Required Documents": {
+      "All documents for PhD admission.": true
+    },
+    "How old the scholarship is": "This is a well-established and highly prestigious scholarship at NUS.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1905"
+  },
+  {
+    "Scholarship Name": "A*STAR Computing and Information Science (ACIS) Scholarship",
+    "Host Country and University": "Singapore, at NUS, NTU, SUTD, or SMU.",
+    "Website": "https://www.a-star.edu.sg/Scholarships/for-graduate-studies/a-star-computing-and-information-science-scholarship-acis",
+    "Level of Study": "Doctoral (PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "A Bachelor's degree with a strong academic record.",
+      "Standardized Test Scores": "As required by the university.",
+      "Field of Study": "Computing and Information Science fields, including AI, Cybersecurity, Data Analytics, and Robotics."
+    },
+    "Application Deadline": "The deadline is typically August 1 for the following year's January intake.",
+    "Value/Inclusions": "A fully-funded scholarship covering tuition, a monthly stipend, and allowances. Includes a one-year research attachment at an A*STAR Research Institute.",
+    "Application Process": "Apply online through the A*STAR portal.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A research proposal is required.",
+      "Letters of Recommendation (LORs)": "Required.",
+      "Academic Transcripts": "Required.",
+      "Passport copy": "Required."
+    },
+    "How old the scholarship is": "This is a newer scholarship reflecting Singapore's focus on digital technology.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "Not applicable (multiple universities)"
+  },
+  {
+    "Scholarship Name": "Science & Technology Undergraduate Scholarship (NUS)",
+    "Host Country and University": "Singapore, National University of Singapore (NUS).",
+    "Website": "https://www.nus.edu.sg/oam/scholarships/freshmen-international-students/science-technology-undergraduate-scholarship",
+    "Level of Study": "Undergraduate",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Excellent high school results.",
+      "Standardized Test Scores": "As required for admission.",
+      "Field of Study": "Computing, Engineering, and Science (excluding Pharmacy).",
+      "Other": "For citizens of Asian countries (excluding Singapore)."
+    },
+    "Application Deadline": "No separate application. You are considered with your admission application.",
+    "Value/Inclusions": "Covers the subsidized tuition fees (after MOE Tuition Grant), a S$6,000 annual living allowance, a S$200 one-time settling-in allowance, and an annual accommodation allowance. Carries a 3-year bond.",
+    "Application Process": "Apply for admission to an eligible program at NUS. All eligible candidates are automatically considered.",
+    "Required Documents": {
+      "All documents required for university admission.": true
+    },
+    "How old the scholarship is": "This is a long-standing scholarship for STEM students.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1905"
+  },
+  {
+    "Scholarship Name": "James Dyson Award",
+    "Host Country and University": "Global, including a national competition in India. Top prize is international.",
+    "Website": "https://www.jamesdysonaward.org/en-IN/",
+    "Level of Study": "Undergraduate and Recent Graduates",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must be enrolled or have recently graduated (within 4 years) from a university-level course in engineering or design.",
+      "Standardized Test Scores": "N/A.",
+      "Field of Study": "Product Design, Industrial Design, and Engineering.",
+      "Other": "This is a design competition. You must have designed a product that solves a problem."
+    },
+    "Application Deadline": "The deadline to enter is typically in mid-July.",
+    "Value/Inclusions": "The national winner receives £5,000. The international winner receives £30,000.",
+    "Application Process": "Submit your project details, images, and a video to the James Dyson Award website.",
+    "Required Documents": {
+      "A detailed project description and rationale.": true
+    },
+    "How old the scholarship is": "The award was launched in 2005.",
+    "Age limit": "No specific age limit, but must be a current or recent student.",
+    "Establishment date of the University": "Not applicable (competition)"
+  },
+  {
+    "Scholarship Name": "NTU India Connect Research Internship",
+    "Host Country and University": "Singapore, Nanyang Technological University (NTU).",
+    "Website": "https://global.ntu.edu.sg/GMP/ic/Pages/default.aspx",
+    "Level of Study": "Undergraduate (Research Internship)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must be enrolled in an Indian university and have a strong academic record.",
+      "Standardized Test Scores": "English proficiency is required.",
+      "Field of Study": "Various research areas available at NTU.",
+      "Other": "Specifically for students from Indian universities to undertake a short-term research project."
+    },
+    "Application Deadline": "The application window is typically in the fall for the following summer.",
+    "Value/Inclusions": "A monthly stipend to cover living costs for the duration of the internship (2-6 months).",
+    "Application Process": "Apply online through the NTU Global portal.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A statement of research interest is required.",
+      "Letters of Recommendation (LORs)": "Required.",
+      "Academic Transcripts": "Required."
+    },
+    "How old the scholarship is": "This program has been running for several years.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1991"
+  },
+  {
+    "Scholarship Name": "SIM Global Education Scholarship",
+    "Host Country and University": "Singapore, Singapore Institute of Management (SIM).",
+    "Website": "https://www.sim.edu.sg/degrees-diplomas/admissions-financing/scholarships",
+    "Level of Study": "Diploma and Undergraduate",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Outstanding academic results in high school or diploma studies.",
+      "Standardized Test Scores": "English proficiency as required for the course.",
+      "Field of Study": "All diploma and undergraduate degree programs offered at SIM.",
+      "Other": "Open to new international students. Must demonstrate strong leadership and co-curricular records."
+    },
+    "Application Deadline": "There are typically two application cycles, with deadlines in March and September.",
+    "Value/Inclusions": "Covers tuition fees, course fees, and examination fees.",
+    "Application Process": "A separate online application is required after you have applied for a course at SIM.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A personal essay is required.",
+      "Letters of Recommendation (LORs)": "One reference is required.",
+      "Academic Transcripts": "Required.",
+      "CV or Resume": "Detailing co-curricular achievements."
+    },
+    "How old the scholarship is": "SIM has offered these scholarships for many years.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1964"
+  },
+  {
+    "Scholarship Name": "James Cook University (JCU) Singapore - Vice Chancellor's International Scholarship",
+    "Host Country and University": "Singapore, James Cook University Singapore.",
+    "Website": "https://www.jcu.edu.sg/admissions-and-study-information/fees-and-financing/scholarships/vice-chancellors-international-scholarship",
+    "Level of Study": "Undergraduate and Postgraduate",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Based on academic merit. A high level of achievement is required.",
+      "Standardized Test Scores": "English proficiency is required.",
+      "Field of Study": "All coursework programs offered at the Singapore campus.",
+      "Other": "Open to all international students."
+    },
+    "Application Deadline": "Varies by intake. Check the website for specific dates.",
+    "Value/Inclusions": "A partial tuition fee reduction, up to 25% for the duration of the course.",
+    "Application Process": "A separate scholarship application is required, which includes a personal statement.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A personal statement is required.",
+      "Academic Transcripts": "Required for the course application.",
+      "CV or Resume": "Recommended."
+    },
+    "How old the scholarship is": "This has been a key scholarship at the Singapore campus for several years.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1970 (in Australia), 2003 (Singapore Campus)"
+  },
+  {
+    "Scholarship Name": "SP Jain School of Global Management - Postgraduate Merit Scholarships",
+    "Host Country and University": "Singapore, SP Jain School of Global Management.",
+    "Website": "https://www.spjain.sg/programs/postgraduate/ggm/fees-and-finances",
+    "Level of Study": "Postgraduate (Master's)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Strong undergraduate academic performance and a good GMAT/GRE/SPJAT score.",
+      "Standardized Test Scores": "GMAT/GRE/SPJAT and English proficiency tests are required.",
+      "Field of Study": "Master's programs such as the Global MBA.",
+      "Other": "Open to all nationalities. Based on a holistic review of the application, including work experience and interview performance."
+    },
+    "Application Deadline": "No separate application. You are automatically considered with your program application.",
+    "Value/Inclusions": "Partial tuition fee waivers of varying amounts.",
+    "Application Process": "Apply for admission to a postgraduate program. The admissions committee will assess you for scholarship eligibility.",
+    "Required Documents": {
+      "All documents for program admission (essays, LORs, transcripts, etc.).": true
+    },
+    "How old the scholarship is": "These have been available since the postgraduate programs began.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "2004"
+  },
+  {
+    "Scholarship Name": "Curtin Singapore - Merit Scholarship",
+    "Host Country and University": "Singapore, Curtin University Singapore.",
+    "Website": "https://www.curtin.edu.sg/study/scholarships/",
+    "Level of Study": "Diploma, Undergraduate, and Postgraduate",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Based on academic merit from previous studies.",
+      "Standardized Test Scores": "Must meet English language requirements.",
+      "Field of Study": "All programs at the Singapore campus.",
+      "Other": "Open to new international students."
+    },
+    "Application Deadline": "No separate application required. You are automatically assessed.",
+    "Value/Inclusions": "A 25% reduction in the first-year tuition fee.",
+    "Application Process": "Apply for admission to Curtin Singapore. Eligible students will be automatically awarded the scholarship.",
+    "Required Documents": {
+      "All documents submitted for course application.": true
+    },
+    "How old the scholarship is": "This has been a long-standing offer at the Singapore campus.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1966 (in Australia), 2008 (Singapore Campus)"
+  },
+  {
+    "Scholarship Name": "Management Development Institute of Singapore (MDIS) - Merit Scholarships",
+    "Host Country and University": "Singapore, MDIS.",
+    "Website": "https://www.mdis.edu.sg/admissions/scholarships-and-grants",
+    "Level of Study": "Undergraduate and Postgraduate",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Excellent academic results.",
+      "Standardized Test Scores": "English proficiency as required.",
+      "Field of Study": "Various programs.",
+      "Other": "Open to all nationalities. A strong record of co-curricular activities is also considered."
+    },
+    "Application Deadline": "Varies. Check the website for the current application cycle.",
+    "Value/Inclusions": "Partial tuition fee grants, with values such as S$4,000 for Master's and S$3,200 for Bachelor's.",
+    "Application Process": "A separate application form is required, to be submitted along with your course application.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A personal statement is often required.",
+      "Academic Transcripts": "Required.",
+      "CV or Resume": "Detailing achievements."
+    },
+    "How old the scholarship is": "MDIS has offered scholarships for many years.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1956"
+  },
+  {
+    "Scholarship Name": "NTU Research Scholarship",
+    "Host Country and University": "Singapore, Nanyang Technological University (NTU).",
+    "Website": "https://www.ntu.edu.sg/admissions/graduate/scholarships#Research-based",
+    "Level of Study": "Postgraduate (Master's by Research and PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Requires a Bachelor's degree with at least Second Class Honours (Upper Division) or equivalent.",
+      "Standardized Test Scores": "Must meet the English language requirements of the specific graduate school. GRE may be required for certain programs.",
+      "Field of Study": "All research-based graduate programs at NTU."
+    },
+    "Application Deadline": "No separate application. You are automatically considered when you apply for a research-based postgraduate program. Deadlines are typically in November and January.",
+    "Value/Inclusions": "A monthly stipend (S$2,200, which increases to S$2,700 after passing the Qualifying Exam) and a tuition fee subsidy. This is the primary funding mechanism for most international research students at NTU.",
+    "Application Process": "Apply for admission to an eligible Master's by Research or PhD program at NTU. All eligible admitted students are considered.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A research proposal or statement of interest is required.",
+      "Letters of Recommendation (LORs)": "Two academic references are required.",
+      "Academic Transcripts": "Required.",
+      "CV or Resume": "Required.",
+      "Proof of English proficiency (TOEFL/IELTS scores)": "Required if applicable."
+    },
+    "How old the scholarship is": "This is the foundational and long-standing funding model for research students at NTU.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1991"
+  },
+  {
+    "Scholarship Name": "NUS Research Scholarship",
+    "Host Country and University": "Singapore, National University of Singapore (NUS).",
+    "Website": "https://www.nus.edu.sg/graduatestudies/scholarships-financial-aid-and-fees/scholarships-fellowships/nus-research-scholarship-rs/",
+    "Level of Study": "Postgraduate (Master's by Research and PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Requires a Bachelor's degree with at least Second Class Honours (Upper Division) or equivalent.",
+      "Standardized Test Scores": "English proficiency (IELTS/TOEFL) is required. GRE is required for many faculties, including Engineering and Computer Science.",
+      "Field of Study": "All research-based graduate programs at NUS."
+    },
+    "Application Deadline": "No separate application. You are automatically considered when you apply for a research-based program.",
+    "Value/Inclusions": "A monthly stipend (S$2,200, which increases to S$2,700 after passing the Qualifying Exam) and a full tuition fee subsidy.",
+    "Application Process": "Apply for admission to an eligible Master's by Research or PhD program at NUS. All admitted research students are typically offered this scholarship.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "A research proposal is required.",
+      "Letters of Recommendation (LORs)": "Two references are required.",
+      "Academic Transcripts": "Required.",
+      "CV or Resume": "Required.",
+      "GRE/GMAT scores": "Required for many programs."
+    },
+    "How old the scholarship is": "This is the standard, long-standing funding model for research students at NUS.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1905"
+  },
+  {
+    "Scholarship Name": "SUTD PhD President's Graduate Fellowship",
+    "Host Country and University": "Singapore, Singapore University of Technology and Design (SUTD).",
+    "Website": "https://www.sutd.edu.sg/Admissions/Graduate/PhD-Programmes/Financial-Aid",
+    "Level of Study": "Doctoral (PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "An outstanding Bachelor's or Master's degree in a relevant discipline with a strong academic record.",
+      "Standardized Test Scores": "A good GRE score is required. English proficiency (IELTS/TOEFL) is also necessary.",
+      "Field of Study": "PhD programs in Engineering (all pillars) and Architecture and Sustainable Design."
+    },
+    "Application Deadline": "No separate application. Considered upon application to the PhD program. The application deadline is typically in mid-March.",
+    "Value/Inclusions": "A very attractive monthly stipend of S$3,600, full tuition fee coverage, and conference funding support.",
+    "Application Process": "Apply for admission to an SUTD PhD program. Top candidates are automatically considered for this prestigious fellowship.",
+    "Required Documents": {
+      "Statement of Purpose (SOP)": "Required.",
+      "Letters of Recommendation (LORs)": "Three are required.",
+      "Academic Transcripts": "Required.",
+      "CV or Resume": "Required.",
+      "GRE scores": "Required."
+    },
+    "How old the scholarship is": "This has been SUTD's flagship PhD fellowship since its early years.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "2009"
+  },
+
+  {
+    "Scholarship Name": "SUSS PhD Scholarship",
+    "Host Country and University": "Singapore, Singapore University of Social Sciences (SUSS).",
+    "Website": "https://www.suss.edu.sg/scholarships-and-financial-aid/scholarships-and-sponsorships/suss-phd-scholarship",
+    "Level of Study": "Doctoral (PhD)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must have at least a 2nd Upper Class Honours Degree or equivalent from a reputable university. Must be seeking admission to a full-time PhD programme at SUSS.",
+      "Standardized Test Scores": "English proficiency (IELTS/TOEFL) is required if the medium of instruction in previous studies was not English.",
+      "Field of Study": "PhD in Gerontology, PhD in Engineering, and other PhD programmes offered by the Office of Graduate Studies.",
+      "Other": "Open to all nationalities. Must not be receiving any other sponsorship or scholarship."
+    },
+    "Application Deadline": "No separate application. Eligible applicants are nominated by the admissions committee. Interviews for shortlisted candidates are held by end of May for the July intake and end of November for the January intake.",
+    "Value/Inclusions": "Covers full tuition and miscellaneous fees. Provides a monthly stipend of S$2,200 for international students (increases to S$2,700 after passing the Qualifying Examination). The scholarship is tenable for up to 4 years.",
+    "Application Process": "Apply for admission to a PhD programme at SUSS. Your application will be evaluated for the scholarship during the admission interviews. Nominated applicants will be invited for a separate scholarship interview.",
+    "Required Documents": {
+      "All documents required for PhD admission.": true,
+      "Research Proposal": "Required as part of the PhD application.",
+      "Academic Transcripts": "Required.",
+      "Letters of Recommendation (LORs)": "Required for PhD admission."
+    },
+    "How old the scholarship is": "This is an established scholarship to attract high-quality research candidates to SUSS's doctoral programmes.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "2017"
+  },
+  {
+    "Scholarship Name": "SIA Youth Scholarship",
+    "Host Country and University": "Singapore, at selected Junior Colleges.",
+    "Website": "https://www.moe.gov.sg/financial-matters/awards-scholarships/sia-youth-scholarship",
+    "Level of Study": "Pre-University (Junior College - equivalent to classes 11 and 12)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must have completed Class 10 in the application year with an excellent academic record (minimum 85% or Grade A in English as the first language).",
+      "Standardized Test Scores": "Not applicable.",
+      "Field of Study": "GCE 'A'-Level curriculum.",
+      "Other": "Must be a citizen of India. Age between 17 to 19 years at the time of application."
+    },
+    "Application Deadline": "The application period is typically in June/July.",
+    "Value/Inclusions": "A full scholarship covering tuition fees and examination fees. Includes an annual allowance, hostel accommodation, a settling-in allowance, medical benefits, and accident insurance coverage. Also covers return airfare.",
+    "Application Process": "Apply online through the Ministry of Education, Singapore's website. Shortlisted candidates will be invited to take a selection test and attend an interview.",
+    "Required Documents": {
+      "Academic Transcripts": "Class 9 final and Class 10 pre-board/final mark sheets.",
+      "Passport or Birth Certificate": "Required for identity and age proof.",
+      "Passport-sized photograph": "Required."
+    },
+    "How old the scholarship is": "This is a long-standing scholarship offered by the Singapore Ministry of Education.",
+    "Age limit": "Must be between 17 and 19 years old.",
+    "Establishment date of the University": "Not applicable (multiple Junior Colleges)."
+  },
+  {
+    "Scholarship Name": "GIIS Global Citizen Scholarship",
+    "Host Country and University": "Singapore, Global Indian International School (GIIS).",
+    "Website": "https://singapore.globalindianschool.org/admissions/scholarships/global-citizen-scholarship",
+    "Level of Study": "High School (Classes 11 and 12)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Requires excellent academic results in Class 9 and Class 10 pre-board examinations (typically above 80-85%).",
+      "Standardized Test Scores": "Not applicable, but there is a written scholarship test.",
+      "Field of Study": "CBSE or IB Diploma Programme.",
+      "Other": "Must be an Indian citizen. Strong co-curricular achievements are also considered."
+    },
+    "Application Deadline": "Application deadlines are typically in January/February/March for different test dates.",
+    "Value/Inclusions": "A fully-funded scholarship worth approximately S$90,000 per student. It covers tuition fees, boarding and lodging at the hostel, and travel expenses for two years.",
+    "Application Process": "Apply online through the GIIS website. The selection process involves a written test (General Ability, Maths, English) followed by two rounds of interviews for shortlisted candidates.",
+    "Required Documents": {
+      "Academic Transcripts": "Mark sheets of Class 9 and Class 10 pre-board/half-yearly examinations.",
+      "Certificates of extra-curricular achievements": "Required.",
+      "Valid ID Proof": "Passport or Aadhaar Card."
+    },
+    "How old the scholarship is": "The scholarship was instituted in 2008.",
+    "Age limit": "Must be a Class 10 student.",
+    "Establishment date of the University": "2002 (Singapore Campus)"
+  },
+  {
+    "Scholarship Name": "INSEAD Louis Vuitton Scholarship for Indian Citizens",
+    "Host Country and University": "Singapore (or France), INSEAD Business School.",
+    "Website": "https://www.insead.edu/master-programmes/mba/financing/scholarships/spot-merit",
+    "Level of Study": "Postgraduate (MBA)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Must be admitted to the INSEAD MBA programme.",
+      "Standardized Test Scores": "A competitive GMAT/GRE score is required for admission.",
+      "Field of Study": "Master of Business Administration.",
+      "Other": "Must be a citizen of India and have completed a significant part of your education and professional experience in India. Preference is given to candidates with experience in the retail sector."
+    },
+    "Application Deadline": "Varies by admission round. Typically there are deadlines in April/May and June/July.",
+    "Value/Inclusions": "A scholarship of €25,000.",
+    "Application Process": "After receiving an admission offer, apply through the INSEAD scholarship portal. This requires submitting specific essays detailing your career aspirations and financial situation.",
+    "Required Documents": {
+      "Scholarship Essays": "Required, focusing on career goals and financial need.",
+      "All documents for the INSEAD MBA application": "Considered during evaluation."
+    },
+    "How old the scholarship is": "This is one of INSEAD's established merit-based scholarships.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1957 (in France), 2000 (Singapore Campus)"
+  },
+  {
+    "Scholarship Name": "ESSEC Business School Excellence Scholarship",
+    "Host Country and University": "Singapore, ESSEC Business School (Asia-Pacific Campus).",
+    "Website": "https://www.essec.edu/en/program/master-in-finance/financing-your-program/",
+    "Level of Study": "Postgraduate (Master's)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Demonstrated outstanding academic performance in previous studies.",
+      "Standardized Test Scores": "A strong GMAT or GRE score is required for admission and is a key factor for the scholarship.",
+      "Field of Study": "Master in Finance, Master in Management, and other Master's programs.",
+      "Other": "Open to all international students. Awarded based on the overall quality of the application profile."
+    },
+    "Application Deadline": "No separate application. Candidates are automatically considered upon admission to the program.",
+    "Value/Inclusions": "A partial tuition fee waiver, which can cover up to 50% of the total tuition fees.",
+    "Application Process": "Apply for admission to an eligible Master's program at ESSEC's Singapore campus. Scholarship decisions are made at the same time as the admission offer.",
+    "Required Documents": {
+      "All documents for Master's program admission.": true
+    },
+    "How old the scholarship is": "This is a long-standing scholarship to attract top-tier international students.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1907 (in France), 2005 (Singapore Campus)"
+  },
+  {
+    "Scholarship Name": "ESSEC Business School Diversity Scholarship",
+    "Host Country and University": "Singapore, ESSEC Business School (Asia-Pacific Campus).",
+    "Website": "https://www.essec.edu/en/program/master-in-finance/financing-your-program/",
+    "Level of Study": "Postgraduate (Master's)",
+    "Eligibility Criteria": {
+      "Academic Requirements": "Strong academic record.",
+      "Standardized Test Scores": "As required for program admission.",
+      "Field of Study": "Master in Finance, Master in Management, and other Master's programs.",
+      "Other": "Open to international students from diverse backgrounds (citizenship, prior education, or personal experience) who can enrich the cohort. Both merit and financial need are considered."
+    },
+    "Application Deadline": "No separate application. Candidates are automatically considered upon admission.",
+    "Value/Inclusions": "A partial tuition fee waiver, which can cover up to 50% of the total tuition fees.",
+    "Application Process": "Apply for admission to an eligible Master's program at ESSEC's Singapore campus. Your profile's contribution to the class diversity will be evaluated for the scholarship.",
+    "Required Documents": {
+      "All documents for Master's program admission.": true
+    },
+    "How old the scholarship is": "This scholarship reflects ESSEC's commitment to creating a diverse learning environment.",
+    "Age limit": "No specific age limit.",
+    "Establishment date of the University": "1907 (in France), 2005 (Singapore Campus)"
+  }
+]

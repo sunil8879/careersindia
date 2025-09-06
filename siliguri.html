@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schools in Siliguri</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #e3f2fd; /* Light Blue */
+            margin: 0;
+            padding: 20px;
+        }
+
+        #siliguri-container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .siliguri-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .siliguri-header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3em;
+            color: #0d47a1; /* Dark Blue */
+            font-weight: 700;
+        }
+
+        .siliguri-school-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .siliguri-school-card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .siliguri-school-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .siliguri-school-card h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.25em;
+            color: #1565c0;
+            margin: 0 0 10px 0;
+        }
+        
+        .siliguri-school-card .location {
+            font-size: 0.9em;
+            color: #64b5f6;
+            margin-bottom: 15px;
+        }
+        
+        .siliguri-school-card .board-type {
+            font-size: 0.85em;
+            background-color: #e3f2fd;
+            color: #1e88e5;
+            padding: 5px 10px;
+            border-radius: 15px;
+            display: inline-block;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .siliguri-school-card .website-link a {
+            color: #0d47a1;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9em;
+        }
+
+        .siliguri-school-card .website-link a:hover {
+            text-decoration: underline;
+        }
+        
+        .siliguri-school-card .website-link .website-na {
+            color: #90caf9;
+            font-style: italic;
+            font-size: 0.9em;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="siliguri-container">
+        <div class="siliguri-header">
+            <h1>Siliguri's Top Schools</h1>
+        </div>
+        <div class="siliguri-school-grid">
+            
+            <div class="siliguri-school-card">
+                <div>
+                    <h2>Delhi Public School, Siliguri</h2>
+                    <p class="location">Siliguri</p>
+                    <span class="board-type">CBSE</span>
+                </div>
+                <div class="website-link">
+                    <a href="https://www.dpssiliguri.com" target="_blank">Visit Website</a>
+                </div>
+            </div>
+
+            <div class="siliguri-school-card">
+                <div>
+                    <h2>St. Michael's School, Siliguri</h2>
+                    <p class="location">Siliguri</p>
+                    <span class="board-type">CISCE (ICSE/ISC)</span>
+                </div>
+                <div class="website-link">
+                    <a href="https://www.stmichaelsslg.com" target="_blank">Visit Website</a>
+                </div>
+            </div>
+
+            <div class="siliguri-school-card">
+                <div>
+                    <h2>Don Bosco School, Siliguri</h2>
+                    <p class="location">Siliguri</p>
+                    <span class="board-type">CISCE (ICSE/ISC)</span>
+                </div>
+                <div class="website-link">
+                    <a href="https://www.dbssiliguri.org" target="_blank">Visit Website</a>
+                </div>
+            </div>
+
+            <div class="siliguri-school-card">
+                <div>
+                    <h2>Army Public School, Bengdubi</h2>
+                    <p class="location">Bengdubi (near Siliguri)</p>
+                    <span class="board-type">CBSE</span>
+                </div>
+                <div class="website-link">
+                    <a href="https://www.apsbengdubi.org" target="_blank">Visit Website</a>
+                </div>
+            </div>
+            
+            <div class="siliguri-school-card">
+                <div>
+                    <h2>Sacred Heart School, Siliguri</h2>
+                    <p class="location">Siliguri</p>
+                    <span class="board-type">CISCE (ICSE/ISC)</span>
+                </div>
+                <div class="website-link">
+                    <span class="website-na">N/A</span>
+                </div>
+            </div>
+            
+            <div class="siliguri-school-card">
+                <div>
+                    <h2>G. D. Goenka Public School, Siliguri</h2>
+                    <p class="location">Siliguri</p>
+                    <span class="board-type">CBSE</span>
+                </div>
+                <div class="website-link">
+                    <a href="https://www.gdgoenkasiliguri.com" target="_blank">Visit Website</a>
+                </div>
+            </div>
+            
+            <div class="siliguri-school-card">
+                <div>
+                    <h2>St. Joseph's High School, Matigara</h2>
+                    <p class="location">Siliguri</p>
+                    <span class="board-type">CISCE (ICSE/ISC)</span>
+                </div>
+                <div class="website-link">
+                    <span class="website-na">N/A</span>
+                </div>
+            </div>
+
+            <div class="siliguri-school-card">
+                <div>
+                    <h2>Kendriya Vidyalaya, Sevoke Road</h2>
+                    <p class="location">Siliguri</p>
+                    <span class="board-type">CBSE</span>
+                </div>
+                <div class="website-link">
+                    <a href="https://sevokeroadsiliguri.kvs.ac.in" target="_blank">Visit Website</a>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>

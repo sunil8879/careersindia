@@ -1,0 +1,49 @@
+{
+  "country_wise_data": [
+    {
+      "country": "Singapore",
+      "data": [
+        {
+          "year": 2015,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2016,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2017,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2018,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2019,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2020,
+          "no_of_students": "Data Not Available"
+        },
+        {
+          "year": 2021,
+          "no_of_students": 1500
+        },
+        {
+          "year": 2022,
+          "no_of_students": 17000
+        },
+        {
+          "year": 2023,
+          "no_of_students": 12500
+        },
+        {
+          "year": 2024,
+          "no_of_students": 2000
+        }
+      ]
+    }
+  ]
+}

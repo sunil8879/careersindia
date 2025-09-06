@@ -1,0 +1,167 @@
+{
+  "description": "Singaporean Towns by Indian Resident Population, broken down by the 5 main planning regions.",
+  "source": "Singapore Department of Statistics (SingStat), Census of Population 2020",
+  "data": [
+    {
+      "rank": 1,
+      "country": "Singapore",
+      "region": "West Region",
+      "region_indian_population": 69310,
+      "percentage_of_total_region_population": 7.50,
+      "cities": [
+        {
+          "city": "Jurong West",
+          "indian_population": 25890,
+          "percentage_of_city_population": 9.92
+        },
+        {
+          "city": "Bukit Batok",
+          "indian_population": 15010,
+          "percentage_of_city_population": 9.54
+        },
+        {
+          "city": "Choa Chu Kang",
+          "indian_population": 14550,
+          "percentage_of_city_population": 7.76
+        },
+        {
+          "city": "Bukit Panjang",
+          "indian_population": 8980,
+          "percentage_of_city_population": 6.44
+        },
+        {
+          "city": "Clementi",
+          "indian_population": 4880,
+          "percentage_of_city_population": 5.29
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "country": "Singapore",
+      "region": "North-East Region",
+      "region_indian_population": 67340,
+      "percentage_of_total_region_population": 7.02,
+      "cities": [
+        {
+          "city": "Sengkang",
+          "indian_population": 22150,
+          "percentage_of_city_population": 8.44
+        },
+        {
+          "city": "Punggol",
+          "indian_population": 15990,
+          "percentage_of_city_population": 9.25
+        },
+        {
+          "city": "Hougang",
+          "indian_population": 12870,
+          "percentage_of_city_population": 5.75
+        },
+        {
+          "city": "Ang Mo Kio",
+          "indian_population": 10550,
+          "percentage_of_city_population": 6.51
+        },
+        {
+          "city": "Serangoon",
+          "indian_population": 5780,
+          "percentage_of_city_population": 4.80
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "country": "Singapore",
+      "region": "East Region",
+      "region_indian_population": 54680,
+      "percentage_of_total_region_population": 8.08,
+      "cities": [
+        {
+          "city": "Tampines",
+          "indian_population": 25610,
+          "percentage_of_city_population": 9.54
+        },
+        {
+          "city": "Bedok",
+          "indian_population": 22450,
+          "percentage_of_city_population": 7.97
+        },
+        {
+          "city": "Pasir Ris",
+          "indian_population": 6620,
+          "percentage_of_city_population": 4.70
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "country": "Singapore",
+      "region": "North Region",
+      "region_indian_population": 51730,
+      "percentage_of_total_region_population": 9.16,
+      "cities": [
+        {
+          "city": "Woodlands",
+          "indian_population": 26980,
+          "percentage_of_city_population": 10.36
+        },
+        {
+          "city": "Yishun",
+          "indian_population": 19870,
+          "percentage_of_city_population": 8.78
+        },
+        {
+          "city": "Sembawang",
+          "indian_population": 4880,
+          "percentage_of_city_population": 4.81
+        }
+      ]
+    },
+    {
+      "rank": 5,
+      "country": "Singapore",
+      "region": "Central Region",
+      "region_indian_population": 26900,
+      "percentage_of_total_region_population": 2.91,
+      "cities": [
+        {
+          "city": "Bukit Merah",
+          "indian_population": 8450,
+          "percentage_of_city_population": 5.57
+        },
+        {
+          "city": "Kallang",
+          "indian_population": 6980,
+          "percentage_of_city_population": 6.71
+        },
+        {
+          "city": "Queenstown",
+          "indian_population": 4880,
+          "percentage_of_city_population": 4.96
+        },
+        {
+          "city": "Toa Payoh",
+          "indian_population": 4510,
+          "percentage_of_city_population": 3.70
+        },
+        {
+          "city": "Rochor",
+          "indian_population": 2100,
+          "percentage_of_city_population": 15.67,
+          "comment": "This is the planning area that contains 'Little India', hence the very high percentage."
+        },
+        {
+          "city": "Bukit Timah",
+          "indian_population": 1850,
+          "percentage_of_city_population": 2.42
+        },
+        {
+          "city": "Geylang",
+          "indian_population": 1540,
+          "percentage_of_city_population": 1.40
+        }
+      ]
+    }
+  ]
+}

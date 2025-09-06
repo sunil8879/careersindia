@@ -1,0 +1,261 @@
+{
+  "description": "Estimated Indian Population in Saudi Arabia by Province and Key Cities. Note: Official, granular data on expatriate populations is not publicly released by the Saudi Arabian government. Provincial figures are high-level estimates; city-level population data is not available.",
+  "source": "Estimates based on data from the Indian Ministry of External Affairs, Indian Embassy in Riyadh, and demographic analysis of economic hubs.",
+  "data": [
+    {
+      "rank": 1,
+      "country": "Saudi Arabia",
+      "province": "Riyadh Province",
+      "province_indian_population": "~800,000",
+      "percentage_of_total_province_population": "Not publicly available",
+      "cities_and_areas": [
+        {
+          "city": "Riyadh (Capital)",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "The capital and largest city. A major hub for Indian professionals, service workers, and families."
+        },
+        {
+          "city": "Al-Kharj",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "An agricultural and industrial hub southeast of Riyadh with a significant expatriate workforce."
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "country": "Saudi Arabia",
+      "province": "Eastern Province (Ash Sharqiyah)",
+      "province_indian_population": "~700,000",
+      "percentage_of_total_province_population": "Not publicly available",
+      "cities_and_areas": [
+        {
+          "city": "Dammam",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "The administrative capital of the province and a major commercial and port city."
+        },
+        {
+          "city": "Al-Khobar",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "A major commercial center and residential hub for expatriates, particularly in the oil and gas sector."
+        },
+        {
+          "city": "Dhahran",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "The headquarters of Saudi Aramco, the national oil company. Home to a large community of Indian engineers and professionals."
+        },
+        {
+          "city": "Jubail",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "A massive industrial city with petrochemical plants that employ a vast number of Indian technical workers and engineers."
+        },
+        {
+          "city": "Al-Hasa (Hofuf)",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "One of the largest oases in the world, with a significant agricultural and industrial workforce."
+        },
+        {
+          "city": "Qatif",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "A historic coastal area with a mixed workforce."
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "country": "Saudi Arabia",
+      "province": "Makkah (Mecca) Province",
+      "province_indian_population": "~500,000",
+      "percentage_of_total_province_population": "Not publicly available",
+      "cities_and_areas": [
+        {
+          "city": "Jeddah",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "The largest port city, a major commercial gateway, and the most cosmopolitan city in the Kingdom. It has a very large and diverse Indian community."
+        },
+        {
+          "city": "Makkah (Mecca)",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "The holiest city in Islam. Employs a large number of Indian nationals in service, hospitality, and construction sectors."
+        },
+        {
+          "city": "Ta'if",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "A mountain city with a significant agricultural sector and expatriate population."
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "country": "Saudi Arabia",
+      "province": "Madinah (Medina) Province",
+      "province_indian_population": "~70,000",
+      "percentage_of_total_province_population": "Not publicly available",
+      "cities_and_areas": [
+        {
+          "city": "Madinah (Medina)",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "The second holiest city. Similar to Makkah, it has a large Indian workforce in service and hospitality."
+        },
+        {
+          "city": "Yanbu",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "A major Red Sea port and industrial city with petrochemical and refinery complexes."
+        }
+      ]
+    },
+    {
+      "rank": 5,
+      "country": "Saudi Arabia",
+      "province": "'Asir Province",
+      "province_indian_population": "~40,000",
+      "percentage_of_total_province_population": "Not publicly available",
+      "cities_and_areas": [
+        {
+          "city": "Abha",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "The capital of the province, located in a mountainous region. Employs expatriates in service and construction."
+        },
+        {
+          "city": "Khamis Mushait",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "A large city near Abha with a significant military base and commercial activity."
+        }
+      ]
+    },
+    {
+      "rank": 6,
+      "country": "Saudi Arabia",
+      "province": "Al-Qassim Province",
+      "province_indian_population": "~30,000",
+      "percentage_of_total_province_population": "Not publicly available",
+      "cities_and_areas": [
+        {
+          "city": "Buraidah",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "The capital of the province, known for its agricultural output, particularly dates."
+        }
+      ]
+    },
+    {
+      "rank": 7,
+      "country": "Saudi Arabia",
+      "province": "Jizan Province",
+      "province_indian_population": "~20,000",
+      "percentage_of_total_province_population": "Not publicly available",
+      "cities_and_areas": [
+        {
+          "city": "Jizan",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "A port city on the Red Sea, with a major new economic city and industrial projects."
+        }
+      ]
+    },
+    {
+      "rank": 8,
+      "country": "Saudi Arabia",
+      "province": "Tabuk Province",
+      "province_indian_population": "~15,000",
+      "percentage_of_total_province_population": "Not publicly available",
+      "cities_and_areas": [
+        {
+          "city": "Tabuk",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "A major city in the northwest, close to the mega-project NEOM, attracting a growing workforce."
+        }
+      ]
+    },
+    {
+      "rank": 9,
+      "country": "Saudi Arabia",
+      "province": "Ha'il Province",
+      "province_indian_population": "~8,000",
+      "percentage_of_total_province_population": "Not publicly available",
+      "cities_and_areas": [
+        {
+          "city": "Ha'il",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "An agricultural and logistical hub in north-central Saudi Arabia."
+        }
+      ]
+    },
+    {
+      "rank": 10,
+      "country": "Saudi Arabia",
+      "province": "Najran Province",
+      "province_indian_population": "~6,000",
+      "percentage_of_total_province_population": "Not publicly available",
+      "cities_and_areas": [
+        {
+          "city": "Najran",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "A city near the Yemeni border with a distinct history and commercial activity."
+        }
+      ]
+    },
+    {
+      "rank": 11,
+      "country": "Saudi Arabia",
+      "province": "Al-Baha Province",
+      "province_indian_population": "~4,000",
+      "percentage_of_total_province_population": "Not publicly available",
+      "cities_and_areas": [
+        {
+          "city": "Al-Baha",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "A smaller, mountainous province known for tourism."
+        }
+      ]
+    },
+    {
+      "rank": 12,
+      "country": "Saudi Arabia",
+      "province": "Al-Jawf Province",
+      "province_indian_population": "~4,000",
+      "percentage_of_total_province_population": "Not publicly available",
+      "cities_and_areas": [
+        {
+          "city": "Sakaka",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "The capital of the northern province, with a focus on agriculture."
+        }
+      ]
+    },
+    {
+      "rank": 13,
+      "country": "Saudi Arabia",
+      "province": "Northern Borders Province",
+      "province_indian_population": "~3,000",
+      "percentage_of_total_province_population": "Not publicly available",
+      "cities_and_areas": [
+        {
+          "city": "Arar",
+          "indian_population": "Not publicly available",
+          "percentage_of_city_population": "Not publicly available",
+          "comment": "The capital of the province, located near the Iraqi border."
+        }
+      ]
+    }
+  ]
+}

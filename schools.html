@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOP SCHOOLS IN INDIA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@700&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* "COSMIC GATEWAY" THEME */
+        :root {
+            --bg-color: #0d1117;
+            --primary-glow: #00f2fe;
+            --secondary-glow: #ff00c1;
+            --text-color: #c9d1d9;
+            --border-color: rgba(255, 255, 255, 0.15);
+            --card-bg: rgba(22, 27, 34, 0.7);
+        }
+        body {
+            font-family: 'Poppins', sans-serif; margin: 0; padding: 50px 20px; color: var(--text-color);
+            background: linear-gradient(-45deg, #0d1117, #1a2233, #0d1117, #231a33);
+            background-size: 400% 400%; animation: gradientBG 20s ease infinite; line-height: 1.6;
+        }
+        @keyframes gradientBG { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        .container { max-width: 1400px; margin: 0 auto; }
+        .main-header { text-align: center; margin-bottom: 40px; }
+        .main-header h1 { font-family: 'Exo 2', sans-serif; font-size: clamp(2.5rem, 5vw, 4rem); color: #fff; text-shadow: 0 0 10px var(--primary-glow), 0 0 20px var(--secondary-glow); margin: 0; }
+        .search-container { max-width: 700px; margin: 0 auto 50px; display: flex; gap: 10px; }
+        #search-type { flex-shrink: 0; padding: 15px; font-size: 1rem; font-family: 'Poppins', sans-serif; color: #fff; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 50px; }
+        #school-search { flex-grow: 1; width: 100%; padding: 15px 20px; font-size: 1.1rem; font-family: 'Poppins', sans-serif; color: #fff; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 50px; box-sizing: border-box; transition: all 0.3s ease; }
+        #school-search:focus { outline: none; border-color: var(--primary-glow); box-shadow: 0 0 15px rgba(0, 242, 254, 0.5); }
+        .city-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; margin-bottom: 60px; }
+        .city-column { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        .city-card { display: block; text-decoration: none; color: #fff; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 15px; overflow: hidden; position: relative; aspect-ratio: 4 / 5; transition: all 0.4s ease-out; box-shadow: 0 10px 30px rgba(0,0,0,0.4); }
+        .city-card:hover { transform: translateY(-10px) scale(1.03); border-color: var(--primary-glow); box-shadow: 0 20px 40px rgba(0, 242, 254, 0.2); }
+        .city-card .city-image { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease-out; }
+        .city-card:hover .city-image { transform: scale(1.1); }
+        .city-card .city-name { position: absolute; bottom: 0; left: 0; width: 100%; padding: 40px 20px 20px; font-family: 'Exo 2', sans-serif; font-size: 1.8rem; font-weight: 700; text-align: center; background: linear-gradient(to top, rgba(13, 17, 23, 1) 40%, transparent); text-shadow: 0 2px 5px #000; }
+        .tier-section { text-align: center; margin-top: 60px; border-top: 1px solid var(--border-color); padding-top: 40px; }
+        .tier-buttons { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .tier-dropdown { position: relative; display: inline-block; }
+        .tier-button { padding: 15px 40px; font-family: 'Exo 2', sans-serif; font-size: 1.2rem; font-weight: 700; color: var(--text-color); background: transparent; border: 2px solid var(--border-color); border-radius: 50px; cursor: pointer; transition: all 0.3s ease; }
+        .tier-button:hover { background-color: var(--primary-glow); border-color: var(--primary-glow); color: var(--bg-color); transform: scale(1.05); }
+        .city-list-dropdown { display: none; position: absolute; background-color: #161b22; min-width: 250px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5); z-index: 1; border-radius: 10px; max-height: 400px; overflow-y: auto; border: 1px solid var(--border-color); }
+        .tier-dropdown:hover .city-list-dropdown { display: block; }
+        .collapsible-content { max-height: 0; overflow: hidden; transition: max-height 0.5s ease-out; background: rgba(13, 17, 23, 0.5); border-radius: 15px; margin-top: 20px; padding: 0 30px; }
+        .collapsible-content.active { max-height: 1000px; padding: 30px; }
+        .city-list { list-style-type: none; padding: 10px 0; margin: 0; text-align: left; }
+        .city-list li a { color: var(--text-color); padding: 12px 16px; text-decoration: none; display: block; transition: all 0.2s ease; }
+        .city-list li a:hover { background-color: var(--primary-glow); color: var(--bg-color); }
+        #error-message { display: none; text-align: center; font-size: 1.5rem; color: var(--secondary-glow); margin-top: 30px; }
+        @media (max-width: 992px) { .city-grid, .city-column { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 768px) { .city-grid { grid-template-columns: 1fr; } .city-column { grid-template-columns: 1fr 1fr; } .city-list { column-count: 2; } .main-header h1 { font-size: 2.5rem; } }
+        @media (max-width: 500px) { .city-column { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="main-header">
+            <h1>TOP SCHOOLS IN INDIA</h1>
+        </header>
+
+        <div class="search-container">
+            <select id="search-type">
+                <option value="city">Search by City</option>
+                <option value="board">Search by Board</option>
+            </select>
+            <input type="text" id="school-search" placeholder="Search by City...">
+        </div>
+
+        <div class="city-grid">
+            <div class="city-column">
+                <a href="mumbai.html" class="city-card" data-city="Mumbai" data-board="cisce igcse ibdp cbse state board">
+                    <img src="https://images.pexels.com/photos/1592261/pexels-photo-1592261.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Gateway of India, Mumbai" class="city-image">
+                    <span class="city-name">Mumbai</span>
+                </a>
+                <a href="delhi.html" class="city-card" data-city="Delhi" data-board="cbse cisce igcse ibdp">
+                    <img src="https://images.pexels.com/photos/2324433/pexels-photo-2324433.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="India Gate, Delhi" class="city-image">
+                    <span class="city-name">Delhi</span>
+                </a>
+                <a href="chennai.html" class="city-card" data-city="Chennai" data-board="cisce cbse ibdp state board igcse">
+                    <img src="https://images.pexels.com/photos/15598154/pexels-photo-15598154/free-photo-of-chennai-central-railway-station.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Chennai Central Railway Station" class="city-image">
+                    <span class="city-name">Chennai</span>
+                </a>
+                <a href="kolkata.html" class="city-card" data-city="Kolkata" data-board="cisce ibdp wbbse cbse igcse">
+                    <img src="https://images.pexels.com/photos/10785125/pexels-photo-10785125.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Howrah Bridge, Kolkata" class="city-image">
+                    <span class="city-name">Kolkata</span>
+                </a>
+            </div>
+            <div class="city-column">
+                <a href="ahmedabad.html" class="city-card" data-city="Ahmedabad" data-board="igcse ib cbse state board cisce">
+                    <img src="https://images.pexels.com/photos/10078233/pexels-photo-10078233.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Sabarmati Riverfront, Ahmedabad" class="city-image">
+                    <span class="city-name">Ahmedabad</span>
+                </a>
+                <a href="hyderabad.html" class="city-card" data-city="Hyderabad" data-board="cisce igcse ibdp cbse state board">
+                    <img src="https://images.pexels.com/photos/15944372/pexels-photo-15944372/free-photo-of-charminar-in-hyderabad.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Charminar, Hyderabad" class="city-image">
+                    <span class="city-name">Hyderabad</span>
+                </a>
+                <a href="bengaluru.html" class="city-card" data-city="Bengaluru" data-board="cisce igcse ibdp cbse state board">
+                    <img src="https://images.pexels.com/photos/11096739/pexels-photo-11096739.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Vidhana Soudha, Bengaluru" class="city-image">
+                    <span class="city-name">Bengaluru</span>
+                </a>
+                <a href="pune.html" class="city-card" data-city="Pune" data-board="cisce ibdp state board igcse cbse">
+                    <img src="https://images.pexels.com/photos/16036585/pexels-photo-16036585/free-photo-of-shaniwar-wada-in-pune.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Shaniwar Wada, Pune" class="city-image">
+                    <span class="city-name">Pune</span>
+                </a>
+            </div>
+        </div>
+
+        <div id="error-message">Not listed</div>
+
+        <section class="tier-section">
+            <div class="tier-buttons">
+                <div class="tier-dropdown">
+                    <button class="tier-button">Explore Tier 2 Cities</button>
+                    <div class="city-list-dropdown">
+                        <ul class="city-list">
+                            <!-- All Tier 2 City Links -->
+                            <li><a href="tier2_schools.html#Agra">Agra</a></li>
+                            <li><a href="tier2_schools.html#Ajmer">Ajmer</a></li>
+                            <li><a href="tier2_schools.html#Allahabad">Allahabad</a></li>
+                            <li><a href="tier2_schools.html#Amravati">Amravati</a></li>
+                            <li><a href="tier2_schools.html#Amritsar">Amritsar</a></li>
+                            <li><a href="tier2_schools.html#Asansol">Asansol</a></li>
+                            <li><a href="tier2_schools.html#Aurangabad">Aurangabad</a></li>
+                            <li><a href="tier2_schools.html#Bareilly">Bareilly</a></li>
+                            <li><a href="tier2_schools.html#Belagavi">Belagavi</a></li>
+                            <li><a href="tier2_schools.html#Bhavnagar">Bhavnagar</a></li>
+                            <li><a href="tier2_schools.html#Bhopal">Bhopal</a></li>
+                            <li><a href="tier2_schools.html#Bhubaneswar">Bhubaneswar</a></li>
+                            <li><a href="tier2_schools.html#Bikaner">Bikaner</a></li>
+                            <li><a href="tier2_schools.html#Chandigarh">Chandigarh</a></li>
+                            <li><a href="tier2_schools.html#Coimbatore">Coimbatore</a></li>
+                            <li><a href="tier2_schools.html#Cuttack">Cuttack</a></li>
+                            <li><a href="tier2_schools.html#Dehradun">Dehradun</a></li>
+                            <li><a href="tier2_schools.html#Dhanbad">Dhanbad</a></li>
+                            <li><a href="tier2_schools.html#Durg-Bhilai">Durg-Bhilai</a></li>
+                            <li><a href="tier2_schools.html#Faridabad">Faridabad</a></li>
+                            <li><a href="tier2_schools.html#Ghaziabad">Ghaziabad</a></li>
+                            <li><a href="tier2_schools.html#Gorakhpur">Gorakhpur</a></li>
+                            <li><a href="tier2_schools.html#Guntur">Guntur</a></li>
+                            <li><a href="tier2_schools.html#Gurgaon">Gurgaon</a></li>
+                            <li><a href="tier2_schools.html#Guwahati">Guwahati</a></li>
+                            <li><a href="tier2_schools.html#Gwalior">Gwalior</a></li>
+                            <li><a href="tier2_schools.html#Hubli-Dharwad">Hubli-Dharwad</a></li>
+                            <li><a href="tier2_schools.html#Indore">Indore</a></li>
+                            <li><a href="tier2_schools.html#Jabalpur">Jabalpur</a></li>
+                            <li><a href="tier2_schools.html#Jaipur">Jaipur</a></li>
+                            <li><a href="tier2_schools.html#Jalandhar">Jalandhar</a></li>
+                            <li><a href="tier2_schools.html#Jammu">Jammu</a></li>
+                            <li><a href="tier2_schools.html#Jamnagar">Jamnagar</a></li>
+                            <li><a href="tier2_schools.html#Jamshedpur">Jamshedpur</a></li>
+                            <li><a href="tier2_schools.html#Jhansi">Jhansi</a></li>
+                            <li><a href="tier2_schools.html#Jodhpur">Jodhpur</a></li>
+                            <li><a href="tier2_schools.html#Kanpur">Kanpur</a></li>
+                            <li><a href="tier2_schools.html#Kochi">Kochi</a></li>
+                            <li><a href="tier2_schools.html#Kolhapur">Kolhapur</a></li>
+                            <li><a href="tier2_schools.html#Kota">Kota</a></li>
+                            <li><a href="tier2_schools.html#Kozhikode">Kozhikode</a></li>
+                            <li><a href="tier2_schools.html#Lucknow">Lucknow</a></li>
+                            <li><a href="tier2_schools.html#Ludhiana">Ludhiana</a></li>
+                            <li><a href="tier2_schools.html#Madurai">Madurai</a></li>
+                            <li><a href="tier2_schools.html#Mangaluru">Mangaluru</a></li>
+                            <li><a href="tier2_schools.html#Meerut">Meerut</a></li>
+                            <li><a href="tier2_schools.html#Moradabad">Moradabad</a></li>
+                            <li><a href="tier2_schools.html#Mysuru">Mysuru</a></li>
+                            <li><a href="tier2_schools.html#Nagpur">Nagpur</a></li>
+                            <li><a href="tier2_schools.html#Nashik">Nashik</a></li>
+                            <li><a href="tier2_schools.html#Nellore">Nellore</a></li>
+                            <li><a href="tier2_schools.html#Noida">Noida</a></li>
+                            <li><a href="tier2_schools.html#Patna">Patna</a></li>
+                            <li><a href="tier2_schools.html#Puducherry">Puducherry</a></li>
+                            <li><a href="tier2_schools.html#Raipur">Raipur</a></li>
+                            <li><a href="tier2_schools.html#Rajkot">Rajkot</a></li>
+                            <li><a href="tier2_schools.html#Ranchi">Ranchi</a></li>
+                            <li><a href="tier2_schools.html#Salem">Salem</a></li>
+                            <li><a href="tier2_schools.html#Siliguri">Siliguri</a></li>
+                            <li><a href="tier2_schools.html#Srinagar">Srinagar</a></li>
+                            <li><a href="tier2_schools.html#Surat">Surat</a></li>
+                            <li><a href="tier2_schools.html#Thiruvananthapuram">Thiruvananthapuram</a></li>
+                            <li><a href="tier2_schools.html#Thrissur">Thrissur</a></li>
+                            <li><a href="tier2_schools.html#Tiruchirappalli">Tiruchirappalli</a></li>
+                            <li><a href="tier2_schools.html#Tiruppur">Tiruppur</a></li>
+                            <li><a href="tier2_schools.html#Vadodara">Vadodara</a></li>
+                            <li><a href="tier2_schools.html#Varanasi">Varanasi</a></li>
+                            <li><a href="tier2_schools.html#Vijayawada">Vijayawada</a></li>
+                            <li><a href="tier2_schools.html#Visakhapatnam">Visakhapatnam</a></li>
+                            <li><a href="tier2_schools.html#Warangal">Warangal</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <button class="tier-button" data-target="tier3-content">Explore Tier 3 Cities</button>
+            </div>
+
+            <div id="tier3-content" class="collapsible-content">
+                <p>Placeholder for the Top 200 Tier 3 Cities. This section can be populated with a dropdown or a multi-column list similar to Tier 2 when the data and pages are ready.</p>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // --- Search Functionality ---
+        const searchType = document.getElementById('search-type');
+        const searchInput = document.getElementById('school-search');
+        const cityCards = document.querySelectorAll('.city-card');
+        const errorMessage = document.getElementById('error-message');
+
+        searchType.addEventListener('change', function() {
+            searchInput.placeholder = this.value === 'city' ? 'Search by City...' : 'Search by Board (e.g., CBSE, ICSE)...';
+            searchInput.value = ''; // Clear input on type change
+            searchInput.dispatchEvent(new Event('input')); // Trigger a search reset to show all cards
+        });
+
+        searchInput.addEventListener('input', function() {
+            const filter = this.value.toLowerCase();
+            const type = searchType.value;
+            let visibleCount = 0;
+
+            cityCards.forEach(card => {
+                // Correctly get the data attribute for the selected search type
+                const searchData = card.dataset[type].toLowerCase(); 
+                
+                if (searchData.includes(filter)) {
+                    card.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            errorMessage.style.display = (visibleCount === 0 && filter) ? 'block' : 'none';
+        });
+
+        // --- Collapsible Tier 3 Section ---
+        const tier3Button = document.querySelector('.tier-button[data-target="tier3-content"]');
+        tier3Button.addEventListener('click', function() {
+            const targetId = this.dataset.target;
+            const content = document.getElementById(targetId);
+            content.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
