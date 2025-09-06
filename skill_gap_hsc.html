@@ -1,0 +1,1804 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Gap Analyser for HSC Graduates</title>
+
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔬</text></svg>">
+
+<style>
+    :root {
+        --primary-color: #0056b3;
+        --secondary-color: #007bff;
+        --success-color: #28a745;
+        --warning-color: #ffc107;
+        --text-dark: #343a49;
+        --text-light: #6c757d;
+        --bg-light: #f8f9fa;
+        --bg-white: #ffffff;
+        --border-color: #dee2e6;
+        --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+        --modern-blue: #3b82f6;
+        --turquoise: #14b8a6;
+    }
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: var(--bg-light);
+        color: var(--text-dark);
+        line-height: 1.6;
+        margin: 0;
+        padding: 20px;
+    }
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    .analyser-box {
+        background-color: var(--bg-white);
+        border-radius: 12px;
+        box-shadow: var(--shadow-md);
+        padding: 30px 40px;
+        margin-bottom: 30px;
+    }
+    h1, h2 {
+        color: var(--primary-color);
+        text-align: center;
+    }
+    h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+    }
+    .intro-text {
+        color: var(--text-light);
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    label {
+        font-weight: 600;
+        display: block;
+        margin-bottom: 10px;
+        font-size: 1.1rem;
+    }
+    select {
+        width: 100%;
+        padding: 15px;
+        font-size: 1.1em;
+        border-radius: 8px;
+        border: 2px solid var(--border-color);
+        transition: border-color 0.3s, box-shadow 0.3s;
+        cursor: pointer;
+    }
+    select:focus {
+        outline: none;
+        border-color: var(--secondary-color);
+        box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+    }
+
+    /* Questions Styling */
+    #questions-container {
+        margin-top: 30px;
+        border-top: 1px solid var(--border-color);
+        padding-top: 20px;
+    }
+    .question-block {
+        margin-bottom: 35px;
+    }
+    .question-block p {
+        font-weight: 500;
+        margin-bottom: 15px;
+        color: var(--text-dark);
+    }
+    .slider-container {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+    .slider-container span {
+        font-size: 0.9em;
+        color: var(--text-light);
+        width: 50px;
+    }
+    .slider-container span:last-of-type {
+        text-align: right;
+    }
+    input[type="range"] {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 100%;
+        height: 8px;
+        background: #e9ecef;
+        border-radius: 5px;
+        outline: none;
+        opacity: 0.9;
+        transition: opacity .2s;
+    }
+    input[type="range"]:hover {
+        opacity: 1;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 24px;
+        height: 24px;
+        background: var(--secondary-color);
+        cursor: pointer;
+        border-radius: 50%;
+        border: 3px solid white;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    input[type="range"]::-moz-range-thumb {
+        width: 24px;
+        height: 24px;
+        background: var(--secondary-color);
+        cursor: pointer;
+        border-radius: 50%;
+        border: 3px solid white;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    .slider-container output {
+        font-weight: 600;
+        color: var(--primary-color);
+        background-color: #e9f3ff;
+        padding: 5px 12px;
+        border-radius: 6px;
+        min-width: 20px;
+        text-align: center;
+    }
+
+    /* Button Styling */
+    .btn {
+        display: block;
+        width: 100%;
+        padding: 15px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        border-radius: 8px;
+        border: none;
+        background-color: var(--secondary-color);
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        margin-top: 20px;
+    }
+    .btn:hover {
+        background-color: var(--primary-color);
+    }
+
+    /* Results Styling */
+    #results-container {
+        margin-top: 20px;
+        padding: 25px;
+        border-radius: 8px;
+        background-color: var(--bg-light);
+        border: 1px solid var(--border-color);
+    }
+    #results-container h3 {
+        margin-top: 0;
+        color: var(--primary-color);
+        text-align: center;
+        margin-bottom: 25px;
+    }
+    #results-container h4 {
+        margin-top: 25px;
+        margin-bottom: 10px;
+    }
+    .progress-bar-container {
+        width: 100%;
+        background-color: #e9ecef;
+        border-radius: 8px;
+        height: 28px;
+        overflow: hidden;
+    }
+    .progress-bar-fill {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 600;
+        font-size: 0.9em;
+        border-radius: 8px 0 0 8px;
+        transition: width 0.8s ease-in-out;
+    }
+    .progress-bar-fill.blue { background-color: var(--modern-blue); }
+    .progress-bar-fill.turquoise { background-color: var(--turquoise); }
+    
+    .skills-summary {
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid var(--border-color);
+    }
+    .skills-summary ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    .skills-summary li {
+        margin-bottom: 8px;
+    }
+
+    .conclusion {
+        margin-top: 25px;
+        font-weight: 500;
+        background-color: #e9f3ff;
+        padding: 20px;
+        border-radius: 8px;
+        border-left: 5px solid var(--modern-blue);
+        line-height: 1.7;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="analyser-box">
+        <h1><i class="fas fa-microscope"></i> Skill Gap Analyser (After HSC)</h1>
+        <p class="intro-text">Select a degree to discover your skill alignment and identify areas for growth.</p>
+
+        <div>
+            <label for="course-select">Choose a Degree Path:</label>
+            <select id="course-select" onchange="displayQuestions()">
+                <option value="">-- Please select a course --</option>
+                <!-- Options will be populated by JavaScript -->
+            </select>
+        </div>
+
+        <!-- This container will be filled with questions by JavaScript -->
+        <div id="questions-container" style="display: none;"></div>
+
+        <!-- This container will show the final analysis -->
+        <div id="results-container" style="display: none;"></div>
+
+    </div>
+</div>
+
+
+<script>
+    // --- CORE FUNCTIONS ---
+
+    /**
+     * Populates the course dropdown menu when the page loads.
+     */
+    function populateDropdown() {
+        const selectElement = document.getElementById('course-select');
+        
+        // Sort courses alphabetically by name before populating
+        const sortedCourses = Object.entries(courseData).sort(([,a],[,b]) => a.name.localeCompare(b.name));
+
+        for (const [key, course] of sortedCourses) {
+            const option = document.createElement('option');
+            option.value = key;
+            option.textContent = course.name;
+            selectElement.appendChild(option);
+        }
+    }
+
+    /**
+     * Displays the questions for the selected course as sliders.
+     */
+    function displayQuestions() {
+        const courseSelect = document.getElementById('course-select');
+        const questionsContainer = document.getElementById('questions-container');
+        const resultsContainer = document.getElementById('results-container');
+        const selectedCourseId = courseSelect.value;
+
+        // Hide results and clear previous questions
+        questionsContainer.innerHTML = '';
+        resultsContainer.style.display = 'none';
+        resultsContainer.innerHTML = '';
+
+        if (!selectedCourseId) {
+            questionsContainer.style.display = 'none';
+            return;
+        }
+
+        const courseInfo = courseData[selectedCourseId];
+        if (!courseInfo || !courseInfo.questions) {
+            console.error("No data found for course: " + selectedCourseId);
+            questionsContainer.innerHTML = '<p>Sorry, data for this course is not available.</p>';
+            questionsContainer.style.display = 'block';
+            return;
+        }
+
+        let questionsHTML = '<h2>Assess Your Skills</h2>';
+        courseInfo.questions.forEach((q, index) => {
+            questionsHTML += `
+                <div class="question-block" data-skill-name="${q.skill}">
+                    <p>${index + 1}. ${q.q}</p>
+                    <div class="slider-container">
+                        <span>Weak</span>
+                        <input type="range" min="1" max="5" value="3" class="skill-slider" name="q${index}" oninput="this.nextElementSibling.value = this.value">
+                        <output>3</output>
+                        <span>Expert</span>
+                    </div>
+                </div>
+            `;
+        });
+
+        questionsHTML += '<button class="btn" onclick="calculateScore()">Analyse My Skill Gap</button>';
+        questionsContainer.innerHTML = questionsHTML;
+        questionsContainer.style.display = 'block';
+    }
+
+    /**
+     * Calculates the score, skill gap, and other metrics based on slider answers.
+     */
+    function calculateScore() {
+        const courseSelect = document.getElementById('course-select');
+        const selectedCourseId = courseSelect.value;
+        const courseInfo = courseData[selectedCourseId];
+        
+        let totalUserScore = 0;
+        let skillGapIndex = 0;
+        const skillDetails = [];
+        
+        const sliders = document.querySelectorAll('.skill-slider');
+        const requiredLevel = courseInfo.requiredLevel || 4; // Default to 4 if not specified
+
+        sliders.forEach((slider) => {
+            const userLevel = parseInt(slider.value);
+            const skillName = slider.closest('.question-block').dataset.skillName;
+            const gap = requiredLevel - userLevel;
+
+            totalUserScore += userLevel;
+            if (gap > 0) {
+                skillGapIndex += gap;
+            }
+            
+            skillDetails.push({ name: skillName, level: userLevel, gap: Math.max(0, gap) });
+        });
+        
+        const maxPossibleScore = sliders.length * 5;
+        const scorePercentage = (totalUserScore / maxPossibleScore) * 100;
+
+        displayResults(selectedCourseId, scorePercentage, skillGapIndex, skillDetails);
+    }
+
+    /**
+     * Displays the new, detailed results based on the calculated scores.
+     */
+    function displayResults(courseId, scorePercentage, skillGapIndex, skillDetails) {
+        const resultsContainer = document.getElementById('results-container');
+        const courseName = courseData[courseId].name;
+        const requiredLevel = courseData[courseId].requiredLevel || 4;
+
+        // 1. Determine Readiness Level
+        let readinessLevel;
+        if (scorePercentage <= 30) readinessLevel = 'Beginner';
+        else if (scorePercentage <= 60) readinessLevel = 'Intermediate';
+        else readinessLevel = 'Advanced';
+
+        // 2. Generate HTML for Progress Bars
+        const maxSkillGap = skillDetails.length * (requiredLevel - 1);
+        const gapBarPercentage = maxSkillGap > 0 ? (skillGapIndex / maxSkillGap) * 100 : 0;
+
+        let resultsHTML = `<h3>Your Skill Analysis for ${courseName}</h3>`;
+
+        resultsHTML += `
+            <h4>Skill Readiness Score: <span class="readiness-level-text">${readinessLevel}</span></h4>
+            <div class="progress-bar-container">
+                <div class="progress-bar-fill blue" style="width: 0%;">${Math.round(scorePercentage)}%</div>
+            </div>
+            <h4>Skill Gap Index: <span class="gap-index-value">${skillGapIndex}</span></h4>
+            <p style="font-size:0.8em; color: var(--text-light); margin-top: -5px;">(The total levels needed to reach proficiency)</p>
+            <div class="progress-bar-container">
+                 <div class="progress-bar-fill turquoise" style="width: 0%;">${skillGapIndex}</div>
+            </div>
+        `;
+
+        // 3. Identify Strongest and Weakest Skills
+        const strongSkills = skillDetails.filter(s => s.gap === 0).map(s => s.name);
+        const weakSkills = skillDetails.filter(s => s.gap > 0).sort((a, b) => b.gap - a.gap);
+
+        // 4. Generate Course Suggestions
+        const suggestedCourses = getCourseSuggestions(weakSkills, courseId);
+
+        // 5. Generate Final Conclusion Text
+        const estimatedTime = Math.ceil(skillGapIndex * 3); // Simple estimation: 3 months per gap level for a degree
+        
+        let conclusionText = `<p>You’re <strong>${Math.round(scorePercentage)}%</strong> ready for a <strong>${courseName}</strong> degree path.</p>`;
+        
+        if (strongSkills.length > 0) {
+            conclusionText += `<p>Your strongest skill is <strong>${strongSkills[0]}</strong> (already at required level ✅).</p>`;
+        } else {
+            conclusionText += `<p>You have a great opportunity to build a solid foundation across all required skills.</p>`;
+        }
+        
+        if (weakSkills.length > 0) {
+            const biggestGaps = weakSkills.slice(0, 3).map(s => s.name).join(', ');
+            conclusionText += `<p>Biggest gaps to focus on: <strong>${biggestGaps}</strong>.</p>`;
+        }
+        
+        conclusionText += `<p>With focused learning, you can close your skill gap in <strong>~${estimatedTime} ${estimatedTime === 1 ? 'month' : 'months'}</strong>.</p>`;
+        
+        if(suggestedCourses.length > 0) {
+            const courseLinks = suggestedCourses.map(course => `[${course.name}]`).join(', ');
+            conclusionText += `<p>Suggested Foundational Courses: ${courseLinks}.</p>`;
+        }
+
+        conclusionText += `<p>Keep going 🚀 — your Skill Readiness Level = <strong>${readinessLevel}</strong>!</p>`;
+
+        resultsHTML += `<div class="conclusion">${conclusionText}</div>`;
+
+        resultsContainer.innerHTML = resultsHTML;
+        resultsContainer.style.display = 'block';
+        
+        // Animate bars after rendering
+        setTimeout(() => {
+            const blueBar = resultsContainer.querySelector('.progress-bar-fill.blue');
+            const turquoiseBar = resultsContainer.querySelector('.progress-bar-fill.turquoise');
+            if(blueBar) blueBar.style.width = `${scorePercentage}%`;
+            if(turquoiseBar) turquoiseBar.style.width = `${gapBarPercentage}%`;
+        }, 100);
+
+        resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    /**
+     * Helper function to suggest courses based on skill gaps.
+     */
+    function getCourseSuggestions(weakSkills, currentCourseId) {
+        const skillToCourseMap = {
+            'Logical Thinking': 'hsc-bsc-in-computer-science',
+            'Programming Aptitude': 'hsc-bachelor-of-computer-applications-bca',
+            'Mathematical Aptitude': 'hsc-bsc-in-mathematics',
+            'Analytical Skills': 'hsc-bsc-in-statistics',
+            'Business Acumen': 'hsc-bachelor-of-business-administration-bba',
+            'Financial Literacy': 'hsc-bachelor-of-commerce-bcom',
+            'Creative Writing': 'hsc-ba-in-english',
+            'Visual Design': 'hsc-bachelor-of-design-bdes'
+        };
+        
+        let suggestions = new Set();
+
+        // Add suggestions for the top 2 weaknesses
+        weakSkills.slice(0, 2).forEach(skill => {
+            if (skillToCourseMap[skill.name] && skillToCourseMap[skill.name] !== currentCourseId) {
+                suggestions.add(skillToCourseMap[skill.name]);
+            }
+        });
+        
+        return Array.from(suggestions).map(id => ({ id: id, name: courseData[id]?.name || '' }));
+    }
+
+    // Run the populateDropdown function once the window has loaded
+    window.onload = populateDropdown;
+
+    // --- COMPLETE COURSE DATA OBJECT FOR HSC ---
+    const courseData = {
+        "hsc-bachelor-of-medicine-bachelor-of-surgery-mbbs": {
+            name: "Bachelor of Medicine, Bachelor of Surgery (MBBS)",
+            questions: [
+                { q: "Rate your grasp of complex biological and chemical concepts.", skill: "Scientific Foundation" },
+                { q: "How strong is your ability to empathize with and care for others in distress?", skill: "Empathy & Compassion" },
+                { q: "Assess your ability to remain calm and make logical decisions under high pressure.", skill: "Resilience Under Pressure" },
+                { q: "How meticulous and detail-oriented are you in your work and studies?", skill: "Attention to Detail" },
+                { q: "Rate your ability to communicate complex information clearly and patiently.", skill: "Clear Communication" }
+            ],
+            requiredLevel: 5
+        },
+        "hsc-bachelor-of-dental-surgery-bds": {
+            name: "Bachelor of Dental Surgery (BDS)",
+            questions: [
+                { q: "How strong are your fine motor skills and hand-eye coordination for precision work?", skill: "Manual Dexterity" },
+                { q: "Rate your understanding of human anatomy, especially of the head and neck.", skill: "Anatomical Knowledge" },
+                { q: "Can you maintain focus and concentration for long, detailed procedures?", skill: "Concentration" },
+                { q: "How good are you at communicating with and reassuring anxious patients?", skill: "Patient Communication" },
+                { q: "Assess your aesthetic sense for creating visually pleasing results.", skill: "Aesthetic Sense" }
+            ],
+            requiredLevel: 5
+        },
+        "hsc-bachelor-of-ayurvedic-medicine-surgery-bams": {
+            name: "Bachelor of Ayurvedic Medicine and Surgery (BAMS)",
+            questions: [
+                { q: "How deep is your interest in traditional and holistic healing principles?", skill: "Holistic Health Interest" },
+                { q: "Rate your ability to memorize and understand classical texts and herbal properties.", skill: "Memorization & Study" },
+                { q: "How strong is your empathy and your ability to listen to patients' lifestyle details?", skill: "Empathetic Listening" },
+                { q: "Assess your aptitude for integrating ancient wisdom with modern scientific understanding.", skill: "Integrative Thinking" },
+                { q: "How disciplined are you in following complex diagnostic and treatment protocols?", skill: "Discipline" }
+            ],
+            requiredLevel: 5
+        },
+        "hsc-bachelor-of-homeopathic-medicine-surgery-bhms": {
+            name: "Bachelor of Homeopathic Medicine and Surgery (BHMS)",
+            questions: [
+                { q: "How keen is your ability to observe subtle symptoms and individual patient characteristics?", skill: "Keen Observation" },
+                { q: "Rate your patience for conducting long, detailed patient interviews.", skill: "Patience & Interviewing" },
+                { q: "How strong is your interest in the philosophy of vital force and holistic treatment?", skill: "Philosophical Interest" },
+                { q: "Assess your analytical skills for case analysis and selecting the correct remedy.", skill: "Analytical Skills" },
+                { q: "How empathetic are you towards understanding a patient's complete mental and physical state?", skill: "Holistic Empathy" }
+            ],
+            requiredLevel: 5
+        },
+        "hsc-bachelor-of-unani-medicine-surgery-bums": {
+            name: "Bachelor of Unani Medicine and Surgery (BUMS)",
+            questions: [
+                { q: "How interested are you in the Greco-Arabic system of medicine and its philosophy?", skill: "Historical Medical Interest" },
+                { q: "Rate your ability to understand concepts like Mizaj (temperament) for diagnosis.", skill: "Conceptual Understanding" },
+                { q: "Assess your skills in identifying and understanding the properties of natural herbs and minerals.", skill: "Pharmacognosy" },
+                { q: "How strong is your diagnostic ability based on holistic patient assessment?", skill: "Holistic Diagnosis" },
+                { q: "How disciplined are you in following traditional principles of treatment?", skill: "Discipline" }
+            ],
+            requiredLevel: 5
+        },
+        "hsc-bachelor-of-veterinary-science-animal-husbandry-bvsc-ah": {
+            name: "Bachelor of Veterinary Science & Animal Husbandry (BVSc & AH)",
+            questions: [
+                { q: "How strong is your compassion for animals and your desire to ensure their welfare?", skill: "Animal Compassion" },
+                { q: "Can you remain calm and effective when dealing with sick, injured, or distressed animals?", skill: "Calmness Under Pressure" },
+                { q: "Rate your aptitude for biology and animal anatomy/physiology.", skill: "Scientific Foundation" },
+                { q: "How good are your observational and diagnostic skills for non-verbal patients?", skill: "Keen Observation" },
+                { q: "Are you physically and emotionally resilient for the demands of veterinary practice?", skill: "Resilience" }
+            ],
+            requiredLevel: 5
+        },
+        "hsc-bachelor-of-physiotherapy-bpt": {
+            name: "Bachelor of Physiotherapy (BPT)",
+            questions: [
+                { q: "How strong is your understanding of human anatomy, kinesiology, and biomechanics?", skill: "Anatomical Knowledge" },
+                { q: "Are you a good motivator, able to encourage patients through difficult rehabilitation?", skill: "Motivational Skills" },
+                { q: "How good are your hands-on skills for therapeutic exercises and manual therapy?", skill: "Hands-on Technique" },
+                { q: "Rate your problem-solving skills for creating customized treatment plans.", skill: "Problem-Solving" },
+                { q: "How patient and empathetic are you when working with individuals in pain or with disabilities?", skill: "Patience & Empathy" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-bachelor-of-occupational-therapy-bot": {
+            name: "Bachelor of Occupational Therapy (BOT)",
+            questions: [
+                { q: "Are you creative in finding practical solutions to help people perform daily activities?", skill: "Creative Problem-Solving" },
+                { q: "How empathetic are you in understanding the challenges faced by people with disabilities?", skill: "Empathy" },
+                { q: "Rate your ability to analyze tasks and break them down into manageable steps.", skill: "Task Analysis" },
+                { q: "How good are you at communicating with and encouraging a diverse range of clients?", skill: "Communication Skills" },
+                { q: "Do you have a strong interest in psychology and human development?", skill: "Psychological Insight" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-bachelor-of-pharmacy-bpharm": {
+            name: "Bachelor of Pharmacy (B.Pharm)",
+            questions: [
+                { q: "How strong is your aptitude for chemistry, especially organic and medicinal chemistry?", skill: "Chemistry Aptitude" },
+                { q: "How extremely accurate and meticulous are you, as errors in this field are critical?", skill: "Extreme Accuracy" },
+                { q: "Rate your ability to memorize and understand drug names, mechanisms, and interactions.", skill: "Memorization & Recall" },
+                { q: "Are you disciplined in following strict laboratory and manufacturing protocols?", skill: "Procedural Discipline" },
+                { q: "How good are your analytical skills for quality control and drug analysis?", skill: "Analytical Skills" }
+            ],
+            requiredLevel: 5
+        },
+        "hsc-bsc-in-nursing": {
+            name: "B.Sc. in Nursing",
+            questions: [
+                { q: "How high is your level of empathy and your desire to provide compassionate care?", skill: "Empathy & Compassion" },
+                { q: "Can you handle physically demanding work, long shifts, and stressful medical situations?", skill: "Physical & Emotional Resilience" },
+                { q: "How meticulous are you in observing patients, administering medication, and keeping records?", skill: "Attention to Detail" },
+                { q: "Rate your ability to communicate clearly with patients, families, and doctors.", skill: "Clear Communication" },
+                { q: "How strong is your grasp of biology and human physiology?", skill: "Scientific Foundation" }
+            ],
+            requiredLevel: 5
+        },
+        "hsc-bachelor-of-science-bsc-in-agriculture": {
+            name: "Bachelor of Science (B.Sc.) in Agriculture",
+            questions: [
+                { q: "How interested are you in the science of crop production, soil health, and plant breeding?", skill: "Agricultural Science" },
+                { q: "Do you enjoy a mix of practical fieldwork and laboratory analysis?", skill: "Field & Lab Interest" },
+                { q: "How good are your problem-solving skills for issues like pest control and irrigation?", skill: "Practical Problem-Solving" },
+                { q: "Rate your understanding of basic biology, chemistry, and environmental science.", skill: "Scientific Foundation" },
+                { q: "Are you passionate about sustainable farming and global food security?", skill: "Sustainability Mindset" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-bsc-in-biochemistry": {
+            name: "B.Sc. in Biochemistry",
+            questions: [
+                { q: "Are you fascinated by the chemical processes within living organisms at a molecular level?", skill: "Molecular Interest" },
+                { q: "How strong are your skills in chemistry and biology?", skill: "Strong Science Foundation" },
+                { q: "Do you enjoy precise and methodical laboratory work and experiments?", skill: "Laboratory Skills" },
+                { q: "Rate your ability to understand complex pathways and molecular structures.", skill: "Abstract Conceptualization" },
+                { q: "How analytical are you in interpreting experimental data?", skill: "Data Analysis" }
+            ],
+            requiredLevel: 5
+        },
+        "hsc-bsc-in-biology": {
+            name: "B.Sc. in Biology",
+            questions: [
+                { q: "How deep is your curiosity about the natural world, from ecosystems to cellular life?", skill: "Scientific Curiosity" },
+                { q: "Are you skilled in observation and systematic classification?", skill: "Observational Skills" },
+                { q: "Do you enjoy conducting experiments in both laboratory and field settings?", skill: "Experimental Skills" },
+                { q: "Rate your ability to understand and connect concepts across different biological fields.", skill: "Integrative Thinking" },
+                { q: "How strong is your ethical approach to research and experimentation?", skill: "Ethical Integrity" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-bsc-in-biotechnology": {
+            name: "B.Sc. in Biotechnology",
+            questions: [
+                { q: "Are you excited about using biological systems to create new technologies and products?", skill: "Applied Biology Interest" },
+                { q: "How strong is your foundation in molecular biology, genetics, and chemistry?", skill: "Strong Science Foundation" },
+                { q: "Do you enjoy precision work in a sterile laboratory environment (e.g., handling cell cultures)?", skill: "Precision Lab Skills" },
+                { q: "How good are you at analytical thinking and interpreting complex biological data?", skill: "Analytical Thinking" },
+                { q: "Are you patient and persistent, as biotech research often involves long experiments?", skill: "Patience & Persistence" }
+            ],
+            requiredLevel: 5
+        },
+        "hsc-bsc-in-botany": {
+            name: "B.Sc. in Botany",
+            questions: [
+                { q: "How passionate are you about the study of plants, from their physiology to their role in ecosystems?", skill: "Passion for Botany" },
+                { q: "Are you a keen observer, able to identify different plant species and their characteristics?", skill: "Observational & Identification Skills" },
+                { q: "Do you enjoy fieldwork, collecting specimens, and working in herbaria or labs?", skill: "Field & Lab Interest" },
+                { q: "Rate your understanding of plant anatomy, genetics, and ecology.", skill: "Scientific Knowledge" },
+                { q: "How patient are you with the slow, methodical process of plant research?", skill: "Patience" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-bsc-in-chemistry": {
+            name: "B.Sc. in Chemistry",
+            questions: [
+                { q: "Are you fascinated by the composition, structure, and properties of matter?", skill: "Chemical Curiosity" },
+                { q: "How strong is your aptitude for logical reasoning and solving complex problems?", skill: "Logical Problem-Solving" },
+                { q: "Do you enjoy conducting precise experiments and quantitative analysis in a laboratory?", skill: "Laboratory Precision" },
+                { q: "Rate your ability to understand abstract concepts and visualize molecular interactions.", skill: "Abstract Thinking" },
+                { q: "How high is your commitment to laboratory safety procedures?", skill: "Safety Consciousness" }
+            ],
+            requiredLevel: 5
+        },
+        "hsc-bsc-in-computer-science": {
+            name: "B.Sc. in Computer Science",
+            questions: [
+                { q: "How strong are your logical and algorithmic problem-solving skills?", skill: "Logical Thinking" },
+                { q: "Do you genuinely enjoy writing code and developing software?", skill: "Programming Aptitude" },
+                { q: "Rate your aptitude for abstract mathematical concepts (e.g., discrete mathematics).", skill: "Mathematical Aptitude" },
+                { q: "Are you persistent in debugging and finding solutions to complex technical errors?", skill: "Debugging Persistence" },
+                { q: "Do you have a strong desire to learn about data structures, algorithms, and systems?", skill: "Theoretical Interest" }
+            ],
+            requiredLevel: 5
+        },
+        "hsc-bsc-in-data-science": {
+            name: "B.Sc. in Data Science",
+            questions: [
+                { q: "Are you fascinated by the idea of finding hidden patterns and insights in large datasets?", skill: "Data Curiosity" },
+                { q: "How strong are your skills in statistics and mathematics?", skill: "Statistical & Mathematical Skills" },
+                { q: "Do you have an interest in programming, particularly with languages like Python or R?", skill: "Programming Interest" },
+                { q: "Rate your ability to think critically and solve complex, unstructured problems.", skill: "Critical Thinking" },
+                { q: "How good are you at communicating your findings visually (e.g., through charts and graphs)?", skill: "Data Visualization" }
+            ],
+            requiredLevel: 5
+        },
+        "hsc-bsc-in-dietetics-nutrition": {
+            name: "B.Sc. in Dietetics and Nutrition",
+            questions: [
+                { q: "How passionate are you about the role of food and nutrition in health and wellness?", skill: "Passion for Nutrition" },
+                { q: "How strong is your understanding of biology and chemistry?", skill: "Scientific Foundation" },
+                { q: "Are you a good communicator, able to explain complex nutritional science in simple terms?", skill: "Communication Skills" },
+                { q: "How empathetic are you in understanding and counseling people about their dietary habits?", skill: "Empathy & Counseling" },
+                { q: "Are you analytical in creating personalized diet plans based on individual needs?", skill: "Analytical Planning" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-bsc-in-electronics": {
+            name: "B.Sc. in Electronics",
+            questions: [
+                { q: "Are you fascinated by electronic circuits, components, and devices?", skill: "Electronics Interest" },
+                { q: "How strong are your skills in mathematical and logical problem-solving?", skill: "Logical & Mathematical Skills" },
+                { q: "Do you enjoy hands-on work, like building and testing circuits on a breadboard?", skill: "Hands-on Aptitude" },
+                { q: "Rate your ability to troubleshoot and debug electronic systems systematically.", skill: "Systematic Troubleshooting" },
+                { q: "How well do you understand the physics behind semiconductors and electromagnetism?", skill: "Physics Foundation" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-bsc-in-environmental-science": {
+            name: "B.Sc. in Environmental Science",
+            questions: [
+                { q: "Are you passionate about understanding and solving environmental issues like pollution and climate change?", skill: "Environmental Passion" },
+                { q: "Do you have a strong aptitude for integrating knowledge from biology, chemistry, and geology?", skill: "Interdisciplinary Thinking" },
+                { q: "Do you enjoy a combination of outdoor fieldwork and indoor laboratory analysis?", skill: "Field & Lab Aptitude" },
+                { q: "How strong are your data analysis and report writing skills?", skill: "Data Analysis & Reporting" },
+                { q: "Are you a critical thinker, able to analyze complex environmental systems?", skill: "Systems Thinking" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-bsc-in-food-technology": {
+            name: "B.Sc. in Food Technology",
+            questions: [
+                { q: "Are you interested in the science of food processing, preservation, and safety?", skill: "Food Science Interest" },
+                { q: "How strong is your foundation in chemistry and microbiology?", skill: "Scientific Foundation" },
+                { q: "Do you enjoy working in a laboratory or a food processing plant environment?", skill: "Lab/Plant Aptitude" },
+                { q: "How meticulous are you regarding quality control and hygiene standards?", skill: "Quality & Hygiene Focus" },
+                { q: "Are you analytical in your approach to developing new food products or improving processes?", skill: "Analytical Skills" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-bsc-in-forensic-science": {
+            name: "B.Sc. in Forensic Science",
+            questions: [
+                { q: "Do you have a strong analytical mind and an interest in scientific crime-solving?", skill: "Analytical & Investigative Mindset" },
+                { q: "How extremely detail-oriented and methodical are you in your work?", skill: "Extreme Attention to Detail" },
+                { q: "How strong is your foundation in biology, chemistry, and physics?", skill: "Strong Science Foundation" },
+                { q: "Can you remain objective and impartial while analyzing evidence?", skill: "Objectivity" },
+                { q: "How high is your ethical standard, especially regarding the integrity of evidence?", skill: "Ethical Integrity" }
+            ],
+            requiredLevel: 5
+        },
+        "hsc-bsc-in-geology": {
+            name: "B.Sc. in Geology",
+            questions: [
+                { q: "Are you fascinated by the Earth, its history, rocks, and processes?", skill: "Geological Interest" },
+                { q: "Do you enjoy outdoor fieldwork, mapping, and collecting samples?", skill: "Fieldwork Aptitude" },
+                { q: "How strong are your 3D visualization and spatial reasoning skills?", skill: "Spatial Reasoning" },
+                { q: "Rate your ability to analyze geological data and interpret maps.", skill: "Data Interpretation" },
+                { q: "Are you a patient observer, comfortable with processes that occur over geological time?", skill: "Patience & Long-term Thinking" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-bsc-in-horticulture": {
+            name: "B.Sc. in Horticulture",
+            questions: [
+                { q: "Do you have a passion for the science and art of cultivating fruits, vegetables, and ornamental plants?", skill: "Horticultural Passion" },
+                { q: "Are you interested in techniques like plant breeding, soil management, and pest control?", skill: "Technical Knowledge" },
+                { q: "Do you enjoy hands-on work in gardens, nurseries, or greenhouses?", skill: "Hands-on Aptitude" },
+                { q: "How good are your observational skills for monitoring plant health?", skill: "Observational Skills" },
+                { q: "Are you interested in the business and management side of horticulture?", skill: "Business Acumen" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-bsc-in-information-technology-it": {
+            name: "B.Sc. in Information Technology (IT)",
+            questions: [
+                { q: "Are you interested in the application of technology to solve business problems?", skill: "Applied Technology Interest" },
+                { q: "How good are you at logical thinking and problem-solving?", skill: "Logical Thinking" },
+                { q: "Do you have an aptitude for learning programming languages and database management?", skill: "Programming & Database Aptitude" },
+                { q: "How skilled are you in understanding computer networks and systems administration?", skill: "Networking & Systems" },
+                { q: "Do you enjoy keeping up with the latest technological trends?", skill: "Continuous Learning" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-bsc-in-mathematics": {
+            name: "B.Sc. in Mathematics",
+            questions: [
+                { q: "Do you have a deep appreciation for the logic, and structure of mathematics?", skill: "Mathematical Passion" },
+                { q: "How strong is your ability for abstract thinking and rigorous, logical proofs?", skill: "Abstract & Logical Reasoning" },
+                { q: "Do you enjoy solving complex and challenging mathematical problems?", skill: "Problem-Solving" },
+                { q: "How patient and persistent are you when tackling a difficult problem?", skill: "Patience & Persistence" },
+                { q: "Rate your skills in areas like algebra, calculus, and analysis.", skill: "Core Math Skills" }
+            ],
+            requiredLevel: 5
+        },
+        "hsc-bsc-in-medical-laboratory-technology-mlt": {
+            name: "B.Sc. in Medical Laboratory Technology (MLT)",
+            questions: [
+                { q: "Are you interested in performing laboratory tests to help diagnose and treat diseases?", skill: "Diagnostic Interest" },
+                { q: "How precise and methodical are you in following lab procedures?", skill: "Procedural Precision" },
+                { q: "How comfortable are you working with microscopes, analyzers, and biological samples?", skill: "Technical & Lab Skills" },
+                { q: "Rate your attention to detail in recording and reporting results accurately.", skill: "Attention to Detail" },
+                { q: "Do you have a strong sense of responsibility and ethical conduct regarding patient data?", skill: "Responsibility & Ethics" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-bsc-in-microbiology": {
+            name: "B.Sc. in Microbiology",
+            questions: [
+                { q: "Are you fascinated by the unseen world of microorganisms like bacteria and viruses?", skill: "Microbial World Interest" },
+                { q: "How strong are your skills in sterile laboratory techniques?", skill: "Aseptic Technique" },
+                { q: "Do you enjoy conducting experiments, culturing microbes, and using microscopes?", skill: "Laboratory Aptitude" },
+                { q: "Rate your understanding of genetics, immunology, and biochemistry.", skill: "Scientific Foundation" },
+                { q: "How meticulous are you in your observations and data recording?", skill: "Meticulous Observation" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-bsc-in-nautical-science": {
+            name: "B.Sc. in Nautical Science",
+            questions: [
+                { q: "Are you fascinated by ship navigation, operations, and the maritime industry?", skill: "Maritime Interest" },
+                { q: "Can you remain calm and make decisive leadership decisions under pressure?", skill: "Leadership & Decisiveness" },
+                { q: "Are you physically and mentally prepared for long periods at sea?", skill: "Resilience & Adaptability" },
+                { q: "How strong are your skills in mathematics, physics, and geography?", skill: "Technical Aptitude" },
+                { q: "How high is your commitment to safety and following strict international regulations?", skill: "Safety & Discipline" }
+            ],
+            requiredLevel: 5
+        },
+        "hsc-bsc-in-optometry": {
+            name: "B.Sc. in Optometry",
+            questions: [
+                { q: "Are you interested in the science of vision and eye care?", skill: "Vision Science Interest" },
+                { q: "How good are you at interacting with patients, listening to their issues, and explaining procedures?", skill: "Patient Communication" },
+                { q: "How precise and detail-oriented are you in conducting eye examinations and taking measurements?", skill: "Precision & Detail" },
+                { q: "Do you have the technical aptitude to operate modern ophthalmic instruments?", skill: "Technical Aptitude" },
+                { q: "Are you a good problem-solver for diagnosing vision problems and prescribing corrections?", skill: "Diagnostic Skills" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-bsc-in-perfusion-technology": {
+            name: "B.Sc. in Perfusion Technology",
+            questions: [
+                { q: "Are you interested in operating heart-lung machines during cardiac surgery?", skill: "Surgical Tech Interest" },
+                { q: "Can you maintain extreme focus and calmness in a high-stakes operating room environment?", skill: "Calmness Under Pressure" },
+                { q: "How meticulous and responsible are you, knowing your work is life-critical?", skill: "Extreme Responsibility" },
+                { q: "Rate your understanding of human physiology, especially the cardiovascular system.", skill: "Physiological Knowledge" },
+                { q: "How quick are you at responding to emergencies and making critical adjustments?", skill: "Quick Response" }
+            ],
+            requiredLevel: 5
+        },
+        "hsc-bsc-in-physics": {
+            name: "B.Sc. in Physics",
+            questions: [
+                { q: "Are you deeply curious about the fundamental laws that govern the universe?", skill: "Fundamental Curiosity" },
+                { q: "How strong is your aptitude for advanced mathematics, especially calculus and differential equations?", skill: "Advanced Mathematical Aptitude" },
+                { q: "Do you enjoy solving complex problems through logical and analytical reasoning?", skill: "Analytical Problem-Solving" },
+                { q: "Rate your ability to understand abstract theoretical concepts.", skill: "Abstract Thinking" },
+                { q: "Do you have an interest in designing experiments and analyzing data to test theories?", skill: "Experimental Design" }
+            ],
+            requiredLevel: 5
+        },
+        "hsc-bsc-in-radiography-imaging-technology": {
+            name: "B.Sc. in Radiography and Imaging Technology",
+            questions: [
+                { q: "Are you fascinated by medical imaging technologies like X-ray, CT, and MRI?", skill: "Medical Tech Interest" },
+                { q: "How precise are you in positioning patients to get clear, diagnostic images?", skill: "Positional Precision" },
+                { q: "How high is your commitment to radiation safety for patients and yourself?", skill: "Safety Consciousness" },
+                { q: "Do you have the technical aptitude to operate complex medical equipment?", skill: "Technical Aptitude" },
+                { q: "How good are you at communicating with and reassuring patients who may be in pain or anxious?", skill: "Patient Care & Communication" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-bsc-in-statistics": {
+            name: "B.Sc. in Statistics",
+            questions: [
+                { q: "Do you enjoy working with data to find trends, make predictions, and draw conclusions?", skill: "Data Analysis Passion" },
+                { q: "How strong are your skills in mathematics, particularly in probability and calculus?", skill: "Mathematical Foundation" },
+                { q: "Are you a logical and detail-oriented thinker?", skill: "Logical & Detailed Thinking" },
+                { q: "Do you have an interest in learning statistical software and programming (like R or Python)?", skill: "Software Aptitude" },
+                { q: "How good are you at applying mathematical models to real-world problems?", skill: "Applied Modeling" }
+            ],
+            requiredLevel: 5
+        },
+        "hsc-bsc-in-zoology": {
+            name: "B.Sc. in Zoology",
+            questions: [
+                { q: "How passionate are you about the study of animals, their behavior, and their ecosystems?", skill: "Passion for Zoology" },
+                { q: "Are you a keen observer, able to notice details in animal behavior and anatomy?", skill: "Keen Observation" },
+                { q: "Do you enjoy fieldwork and studying animals in their natural habitats?", skill: "Fieldwork Interest" },
+                { q: "Rate your understanding of evolution, genetics, and animal physiology.", skill: "Scientific Knowledge" },
+                { q: "How patient and methodical are you in your research and data collection?", skill: "Patience & Methodical Work" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-bachelor-of-technology-btech-bachelor-of-engineering-be-in-aeronautical-engineering": {
+            name: "B.Tech./B.E. in Aeronautical Engineering",
+            questions: [
+                { q: "Are you deeply fascinated by the design, and mechanics of aircraft and spacecraft?", skill: "Aerospace Fascination" },
+                { q: "How strong are your skills in advanced physics and mathematics (calculus, fluid dynamics)?", skill: "Advanced Physics & Math" },
+                { q: "Do you enjoy using computer simulations and CAD software for design and analysis?", skill: "Computational Skills" },
+                { q: "Rate your ability to solve complex, multi-faceted engineering problems.", skill: "Complex Problem-Solving" },
+                { q: "How precise and detail-oriented are you in your technical work?", skill: "Precision & Detail" }
+            ],
+            requiredLevel: 5
+        },
+        "hsc-btech-be-in-agricultural-engineering": {
+            name: "B.Tech./B.E. in Agricultural Engineering",
+            questions: [
+                { q: "Are you interested in applying engineering principles to solve problems in agriculture?", skill: "Engineering Application" },
+                { q: "Do you have a good understanding of both mechanical systems and biological sciences?", skill: "Interdisciplinary Knowledge" },
+                { q: "How skilled are you at designing systems for irrigation, drainage, and farm machinery?", skill: "System Design" },
+                { q: "Do you enjoy hands-on work and practical, real-world problem-solving?", skill: "Practical Problem-Solving" },
+                { q: "Are you interested in developing sustainable and efficient farming technologies?", skill: "Sustainability Focus" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-btech-be-in-artificial-intelligence-machine-learning": {
+            name: "B.Tech./B.E. in Artificial Intelligence and Machine Learning",
+            questions: [
+                { q: "Are you fascinated by creating intelligent systems that can learn from data?", skill: "AI/ML Interest" },
+                { q: "How strong is your aptitude for advanced mathematics (linear algebra, probability, calculus)?", skill: "Advanced Mathematics" },
+                { q: "Do you have strong programming skills, especially in languages like Python?", skill: "Strong Programming Skills" },
+                { q: "Rate your ability to think algorithmically and work with complex data structures.", skill: "Algorithmic Thinking" },
+                { q: "Are you a creative problem-solver, able to apply AI models to novel challenges?", skill: "Creative Problem-Solving" }
+            ],
+            requiredLevel: 5
+        },
+        "hsc-btech-be-in-automobile-engineering": {
+            name: "B.Tech./B.E. in Automobile Engineering",
+            questions: [
+                { q: "Are you passionate about the design, manufacturing, and operation of vehicles?", skill: "Automotive Passion" },
+                { q: "How strong is your understanding of mechanics, thermodynamics, and materials science?", skill: "Core Engineering Principles" },
+                { q: "Do you enjoy using CAD software and other tools for vehicle design and analysis?", skill: "Design & Analysis Tools" },
+                { q: "How good are you at diagnosing and solving complex mechanical and electronic system issues?", skill: "Diagnostic Skills" },
+                { q: "Are you interested in emerging automotive technologies like EVs and autonomous driving?", skill: "Future Tech Interest" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-btech-be-in-biomedical-engineering": {
+            name: "B.Tech./B.E. in Biomedical Engineering",
+            questions: [
+                { q: "Are you passionate about applying engineering principles to solve problems in medicine and biology?", skill: "Passion for Bio-Engineering" },
+                { q: "How strong is your ability to work with concepts from both engineering and life sciences?", skill: "Interdisciplinary Thinking" },
+                { q: "Are you interested in designing medical devices, diagnostic equipment, or artificial organs?", skill: "Medical Device Design" },
+                { q: "How meticulous and detail-oriented are you, considering the safety-critical nature of the field?", skill: "Meticulousness" },
+                { q: "Do you enjoy research and innovation in healthcare technology?", skill: "Innovation Mindset" }
+            ],
+            requiredLevel: 5
+        },
+        "hsc-btech-be-in-biotechnology-engineering": {
+            name: "B.Tech./B.E. in Biotechnology Engineering",
+            questions: [
+                { q: "Are you interested in engineering biological systems for industrial, medical, or environmental applications?", skill: "Applied Biotechnology" },
+                { q: "How strong is your foundation in molecular biology, genetics, and chemical engineering principles?", skill: "Scientific & Engineering Foundation" },
+                { q: "Do you enjoy process design, bioreactor operation, and downstream processing?", skill: "Process Engineering" },
+                { q: "Rate your skills in precise laboratory work and data analysis.", skill: "Lab & Data Skills" },
+                { q: "Are you a creative problem-solver, able to innovate new biotech solutions?", skill: "Innovative Problem-Solving" }
+            ],
+            requiredLevel: 5
+        },
+        "hsc-btech-be-in-ceramic-engineering": {
+            name: "B.Tech./B.E. in Ceramic Engineering",
+            questions: [
+                { q: "Are you fascinated by the science and engineering of non-metallic, inorganic materials?", skill: "Material Science Interest" },
+                { q: "How strong is your understanding of chemistry, physics, and material properties?", skill: "Scientific Foundation" },
+                { q: "Do you enjoy process engineering, from raw material processing to high-temperature firing?", skill: "Process Engineering" },
+                { q: "How analytical are you in characterizing materials and controlling their properties?", skill: "Analytical Skills" },
+                { q: "Are you interested in applications ranging from electronics to aerospace and biomedical implants?", skill: "Application Interest" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-btech-be-in-chemical-engineering": {
+            name: "B.Tech./B.E. in Chemical Engineering",
+            questions: [
+                { q: "Are you skilled in applying chemistry, physics, and math to design large-scale chemical processes?", skill: "Applied Science Aptitude" },
+                { q: "Do you enjoy solving complex problems related to fluid dynamics, heat transfer, and reaction kinetics?", skill: "Complex Problem-Solving" },
+                { q: "How strong is your ability to think in terms of systems and process optimization?", skill: "Systems Thinking" },
+                { q: "Are you interested in designing and operating equipment like reactors and distillation columns?", skill: "Process Design" },
+                { q: "How high is your commitment to safety and environmental sustainability in industrial processes?", skill: "Safety & Sustainability" }
+            ],
+            requiredLevel: 5
+        },
+        "hsc-btech-be-in-civil-engineering": {
+            name: "B.Tech./B.E. in Civil Engineering",
+            questions: [
+                { q: "Are you passionate about designing and building infrastructure like bridges, buildings, and dams?", skill: "Infrastructure Passion" },
+                { q: "How strong are your skills in physics (especially mechanics) and mathematics?", skill: "Mathematical & Physics Skills" },
+                { q: "Do you have good spatial reasoning and the ability to interpret technical drawings?", skill: "Spatial Reasoning" },
+                { q: "Are you a good project manager, able to plan, budget, and oversee construction projects?", skill: "Project Management" },
+                { q: "Do you enjoy solving practical, real-world problems on a large scale?", skill: "Practical Problem-Solving" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-btech-be-in-computer-engineering": {
+            name: "B.Tech./B.E. in Computer Engineering",
+            questions: [
+                { q: "Are you interested in both the hardware (electronics) and software aspects of computers?", skill: "Hardware-Software Interest" },
+                { q: "How strong are your skills in digital logic design and computer architecture?", skill: "Digital Logic & Architecture" },
+                { q: "Do you enjoy programming, especially for systems-level tasks and microcontrollers?", skill: "Systems Programming" },
+                { q: "Rate your ability to integrate hardware and software to create a functional system.", skill: "System Integration" },
+                { q: "Are you a logical thinker, adept at troubleshooting problems at all levels of a computer system?", skill: "Logical Troubleshooting" }
+            ],
+            requiredLevel: 5
+        },
+        "hsc-btech-be-in-computer-science-engineering-cse": {
+            name: "B.Tech./B.E. in Computer Science and Engineering (CSE)",
+            questions: [
+                { q: "How would you rate your logical and algorithmic problem-solving skills?", skill: "Logical Thinking" },
+                { q: "Do you enjoy writing code and building software applications and systems?", skill: "Programming Aptitude" },
+                { q: "How strong are your mathematical skills, especially in discrete math and algebra?", skill: "Mathematical Aptitude" },
+                { q: "Are you persistent in finding and fixing errors (bugs) in complex systems?", skill: "Debugging Persistence" },
+                { q: "How interested are you in learning about new technologies and software architectures?", skill: "Continuous Learning" }
+            ],
+            requiredLevel: 5
+        },
+        "hsc-btech-be-in-cyber-security": {
+            name: "B.Tech./B.E. in Cyber Security",
+            questions: [
+                { q: "Are you fascinated by the challenge of defending computer systems against attacks?", skill: "Defensive Mindset" },
+                { q: "Do you have an analytical mind for identifying vulnerabilities and assessing risks?", skill: "Analytical Skills" },
+                { q: "How strong is your understanding of computer networks, operating systems, and cryptography?", skill: "Technical Foundation" },
+                { q: "Are you a persistent problem-solver with a strong ethical code?", skill: "Ethical Persistence" },
+                { q: "Do you enjoy staying updated on the latest security threats and technologies?", skill: "Continuous Learning" }
+            ],
+            requiredLevel: 5
+        },
+        "hsc-btech-be-in-electrical-electronics-engineering-eee": {
+            name: "B.Tech./B.E. in Electrical and Electronics Engineering (EEE)",
+            questions: [
+                { q: "Are you interested in both large-scale power systems and small-scale electronic circuits?", skill: "Broad Technical Interest" },
+                { q: "How strong is your aptitude for circuit analysis, electromagnetism, and control systems?", skill: "Core EEE Concepts" },
+                { q: "Do you enjoy a mix of theoretical analysis and hands-on laboratory work?", skill: "Theory & Practice Blend" },
+                { q: "Rate your mathematical skills for solving complex engineering problems.", skill: "Mathematical Aptitude" },
+                { q: "How good are your skills in logical troubleshooting for both electrical and electronic systems?", skill: "Logical Troubleshooting" }
+            ],
+            requiredLevel: 5
+        },
+        "hsc-btech-be-in-electrical-engineering": {
+            name: "B.Tech./B.E. in Electrical Engineering",
+            questions: [
+                { q: "Are you fascinated by the generation, transmission, and distribution of electrical power?", skill: "Power Systems Interest" },
+                { q: "How strong are your skills in mathematics and physics, especially electromagnetism?", skill: "Math & Physics Foundation" },
+                { q: "Do you enjoy designing and analyzing electrical circuits and machinery?", skill: "Circuit & Machine Design" },
+                { q: "Rate your ability to solve complex problems in control systems and power electronics.", skill: "Complex Problem-Solving" },
+                { q: "How high is your commitment to safety when working with high-voltage systems?", skill: "Safety Commitment" }
+            ],
+            requiredLevel: 5
+        },
+        "hsc-btech-be-in-electronics-communication-engineering-ece": {
+            name: "B.Tech./B.E. in Electronics and Communication Engineering (ECE)",
+            questions: [
+                { q: "Are you interested in how electronic devices and communication systems (like mobile networks) work?", skill: "ECE Interest" },
+                { q: "How strong are your skills in analog and digital electronics, and signal processing?", skill: "Core ECE Concepts" },
+                { q: "Do you enjoy designing and testing circuits for a variety of applications?", skill: "Circuit Design & Testing" },
+                { q: "Rate your aptitude for mathematics, especially for analyzing signals and systems.", skill: "Mathematical Aptitude" },
+                { q: "Are you a meticulous troubleshooter for complex electronic hardware?", skill: "Meticulous Troubleshooting" }
+            ],
+            requiredLevel: 5
+        },
+        "hsc-btech-be-in-electronics-engineering": {
+            name: "B.Tech./B.E. in Electronics Engineering",
+            questions: [
+                { q: "Are you fascinated by the design and application of electronic circuits and integrated circuits (ICs)?", skill: "Circuit Design Interest" },
+                { q: "How strong is your understanding of semiconductor devices and analog/digital systems?", skill: "Core Electronics Knowledge" },
+                { q: "Do you enjoy hands-on work in labs, designing, building, and testing electronic projects?", skill: "Hands-on Aptitude" },
+                { q: "Rate your logical problem-solving skills for debugging complex circuits.", skill: "Logical Debugging" },
+                { q: "How good are your mathematical skills for circuit analysis and design?", skill: "Mathematical Skills" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-btech-be-in-environmental-engineering": {
+            name: "B.Tech./B.E. in Environmental Engineering",
+            questions: [
+                { q: "Are you passionate about using engineering principles to solve environmental challenges?", skill: "Environmental Passion" },
+                { q: "Do you have a strong foundation in chemistry, biology, and fluid mechanics?", skill: "Scientific Foundation" },
+                { q: "Are you interested in designing systems for pollution control, waste management, and water treatment?", skill: "System Design" },
+                { q: "How skilled are you at data analysis and environmental modeling?", skill: "Data Analysis & Modeling" },
+                { q: "Do you enjoy both fieldwork and design-based office work?", skill: "Field & Office Balance" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-btech-be-in-food-technology": {
+            name: "B.Tech./B.E. in Food Technology",
+            questions: [
+                { q: "Are you interested in applying engineering to food processing and preservation?", skill: "Food Engineering Interest" },
+                { q: "How strong is your understanding of chemistry, microbiology, and process engineering?", skill: "Interdisciplinary Knowledge" },
+                { q: "Do you enjoy designing equipment and processes for large-scale food manufacturing?", skill: "Process Design" },
+                { q: "How high are your standards for food safety, quality assurance, and hygiene?", skill: "Quality & Safety Focus" },
+                { q: "Are you skilled in problem-solving related to food product development and production?", skill: "Problem-Solving" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-btech-be-in-genetic-engineering": {
+            name: "B.Tech./B.E. in Genetic Engineering",
+            questions: [
+                { q: "Are you fascinated by the potential to modify the genetic material of living organisms?", skill: "Genetic Modification Interest" },
+                { q: "How deep is your understanding of molecular biology, genetics, and biochemistry?", skill: "Deep Scientific Foundation" },
+                { q: "Do you have the patience and precision for meticulous laboratory work?", skill: "Laboratory Precision" },
+                { q: "Rate your analytical skills for interpreting genetic data and experimental results.", skill: "Analytical Skills" },
+                { q: "How strong are your ethical considerations regarding genetic technologies?", skill: "Ethical Awareness" }
+            ],
+            requiredLevel: 5
+        },
+        "hsc-btech-be-in-industrial-engineering": {
+            name: "B.Tech./B.E. in Industrial Engineering",
+            questions: [
+                { q: "Do you enjoy optimizing complex processes and systems to improve efficiency and quality?", skill: "Optimization Mindset" },
+                { q: "How strong are your skills in statistics, operations research, and data analysis?", skill: "Analytical & Quantitative Skills" },
+                { q: "Are you a systems thinker, able to see the big picture of a manufacturing or service process?", skill: "Systems Thinking" },
+                { q: "How good are your project management and problem-solving skills?", skill: "Project Management" },
+                { q: "Are you interested in concepts like supply chain management, quality control, and ergonomics?", skill: "Industrial Concepts" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-btech-be-in-information-science": {
+            name: "B.Tech./B.E. in Information Science",
+            questions: [
+                { q: "Are you interested in the design and management of information systems within an organization?", skill: "Information Systems Interest" },
+                { q: "How strong are your skills in programming, database management, and networking?", skill: "Core Technical Skills" },
+                { q: "Do you enjoy analyzing an organization's needs and designing software solutions to meet them?", skill: "Solution Design" },
+                { q: "Rate your ability to work with data, from storage and retrieval to analysis.", skill: "Data Management" },
+                { q: "How good are you at understanding both the technical and business aspects of IT?", skill: "Business-Technology Alignment" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-btech-be-in-information-technology-it": {
+            name: "B.Tech./B.E. in Information Technology (IT)",
+            questions: [
+                { q: "Are you focused on the application of computing technology to meet user and business needs?", skill: "Applied IT Focus" },
+                { q: "How proficient are you in areas like software development, networking, and cybersecurity?", skill: "Broad IT Skills" },
+                { q: "Do you enjoy developing and maintaining robust and secure IT infrastructure?", skill: "Infrastructure Management" },
+                { q: "How skilled are you at troubleshooting complex technical problems for end-users and systems?", skill: "Advanced Troubleshooting" },
+                { q: "Are you a good communicator, able to bridge the gap between technical teams and business users?", skill: "Communication" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-btech-be-in-instrumentation-engineering": {
+            name: "B.Tech./B.E. in Instrumentation Engineering",
+            questions: [
+                { q: "Are you fascinated by designing and building instruments to measure and control physical quantities?", skill: "Instrumentation Interest" },
+                { q: "How strong is your understanding of electronics, sensors, and control systems theory?", skill: "Core Technical Knowledge" },
+                { q: "Do you enjoy integrating sensors, controllers, and actuators to automate processes?", skill: "System Integration" },
+                { q: "How precise and analytical are you in calibrating instruments and analyzing data?", skill: "Precision & Analysis" },
+                { q: "Are you skilled at troubleshooting complex automated control loops?", skill: "Systematic Troubleshooting" }
+            ],
+            requiredLevel: 5
+        },
+        "hsc-btech-be-in-marine-engineering": {
+            name: "B.Tech./B.E. in Marine Engineering",
+            questions: [
+                { q: "Are you interested in the engineering systems that power and operate ships and offshore structures?", skill: "Marine Systems Interest" },
+                { q: "Are you physically and mentally prepared for a challenging career at sea?", skill: "Resilience & Adaptability" },
+                { q: "How strong is your knowledge of thermodynamics, engines, and auxiliary machinery?", skill: "Mechanical & Thermal Knowledge" },
+                { q: "Do you have a hands-on aptitude for operating and maintaining large, complex machinery?", skill: "Hands-on Aptitude" },
+                { q: "How high is your commitment to safety and following strict maritime operational procedures?", skill: "Safety Discipline" }
+            ],
+            requiredLevel: 5
+        },
+        "hsc-btech-be-in-materials-science-engineering": {
+            name: "B.Tech./B.E. in Materials Science and Engineering",
+            questions: [
+                { q: "Are you fascinated by the relationship between a material's structure and its properties?", skill: "Materials Science Interest" },
+                { q: "How strong is your foundation in chemistry, physics, and thermodynamics?", skill: "Strong Scientific Foundation" },
+                { q: "Do you enjoy investigating why materials fail and how to improve them?", skill: "Investigative & Analytical Skills" },
+                { q: "Are you interested in developing new materials with advanced properties?", skill: "Innovation in Materials" },
+                { q: "Do you enjoy laboratory work, including using characterization equipment like microscopes?", skill: "Laboratory Skills" }
+            ],
+            requiredLevel: 5
+        },
+        "hsc-btech-be-in-mechanical-engineering": {
+            name: "B.Tech./B.E. in Mechanical Engineering",
+            questions: [
+                { q: "Do you have a strong aptitude for designing, analyzing, and manufacturing mechanical systems?", skill: "Mechanical Design & Analysis" },
+                { q: "How strong are your skills in physics (mechanics, thermodynamics) and mathematics?", skill: "Strong Physics & Math" },
+                { q: "Do you enjoy using CAD/CAM software for design and manufacturing?", skill: "CAD/CAM Proficiency" },
+                { q: "Are you a good problem-solver, able to tackle a wide range of engineering challenges?", skill: "Versatile Problem-Solving" },
+                { q: "Do you have a hands-on interest in how machines are built and how they work?", skill: "Hands-on Interest" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-btech-be-in-mechatronics-engineering": {
+            name: "B.Tech./B.E. in Mechatronics Engineering",
+            questions: [
+                { q: "Are you excited by the integration of mechanical, electrical, and computer engineering?", skill: "Interdisciplinary Passion" },
+                { q: "Do you enjoy designing and building smart systems, robots, and automated machinery?", skill: "Robotics & Automation" },
+                { q: "How strong are your skills in programming, electronics, and mechanical design?", skill: "Integrated Skill Set" },
+                { q: "Are you a systems-level thinker, able to make different technologies work together seamlessly?", skill: "Systems Integration" },
+                { q: "How good are you at troubleshooting complex problems that could be hardware or software related?", skill: "Versatile Troubleshooting" }
+            ],
+            requiredLevel: 5
+        },
+        "hsc-btech-be-in-metallurgical-engineering": {
+            name: "B.Tech./B.E. in Metallurgical Engineering",
+            questions: [
+                { q: "Are you fascinated by the science of metals, from their extraction to their final application?", skill: "Metallurgy Interest" },
+                { q: "How strong is your understanding of physical and chemical metallurgy?", skill: "Scientific Foundation" },
+                { q: "Do you enjoy studying the microstructure of metals to understand their behavior?", skill: "Analytical Skills" },
+                { q: "Are you interested in processes like casting, forging, and heat treatment to control metal properties?", skill: "Process Knowledge" },
+                { q: "Do you enjoy laboratory work and material characterization?", skill: "Laboratory Aptitude" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-btech-be-in-mining-engineering": {
+            name: "B.Tech./B.E. in Mining Engineering",
+            questions: [
+                { q: "Are you interested in the engineering and logistical challenges of mineral extraction?", skill: "Mining Interest" },
+                { q: "How strong is your aptitude for geology, rock mechanics, and explosives engineering?", skill: "Technical Foundation" },
+                { q: "Are you comfortable with the idea of working in remote and physically demanding environments?", skill: "Adaptability" },
+                { q: "How skilled are you in planning and designing safe and efficient mining operations?", skill: "Operational Planning" },
+                { q: "How high is your commitment to environmental responsibility and worker safety?", skill: "Safety & Environmental Focus" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-btech-be-in-nanotechnology": {
+            name: "B.Tech./B.E. in Nanotechnology",
+            questions: [
+                { q: "Are you fascinated by engineering materials and devices at the atomic and molecular scale?", skill: "Nanoscale Interest" },
+                { q: "How strong is your foundation in quantum physics, chemistry, and materials science?", skill: "Advanced Scientific Foundation" },
+                { q: "Do you enjoy highly precise and meticulous work in a cleanroom or advanced laboratory setting?", skill: "Precision Lab Work" },
+                { q: "Are you an abstract thinker, able to conceptualize phenomena at the nanoscale?", skill: "Abstract Thinking" },
+                { q: "Are you driven by research and innovation in a cutting-edge field?", skill: "Innovation Mindset" }
+            ],
+            requiredLevel: 5
+        },
+        "hsc-btech-be-in-nuclear-engineering": {
+            name: "B.Tech./B.E. in Nuclear Engineering",
+            questions: [
+                { q: "Are you interested in the physics of nuclear reactions and their application for power generation?", skill: "Nuclear Physics Interest" },
+                { q: "How extremely high is your commitment to safety, security, and operational protocols?", skill: "Extreme Safety Commitment" },
+                { q: "How strong are your skills in advanced mathematics and thermal-hydraulics?", skill: "Advanced Technical Skills" },
+                { q: "Are you a systematic thinker, able to analyze complex and safety-critical systems?", skill: "Systematic Thinking" },
+                { q: "Can you remain calm and responsible in a highly regulated and high-pressure environment?", skill: "Responsibility" }
+            ],
+            requiredLevel: 5
+        },
+        "hsc-btech-be-in-petroleum-engineering": {
+            name: "B.Tech./B.E. in Petroleum Engineering",
+            questions: [
+                { q: "Are you interested in the engineering challenges of finding and producing oil and gas?", skill: "Petroleum Industry Interest" },
+                { q: "How strong is your aptitude for geology, fluid mechanics, and thermodynamics?", skill: "Geoscience & Engineering Skills" },
+                { q: "Do you enjoy analyzing reservoir data and using simulations to optimize production?", skill: "Data Analysis & Simulation" },
+                { q: "Are you prepared for potential work in remote or offshore locations?", skill: "Adaptability" },
+                { q: "How skilled are you in solving complex technical problems related to drilling and production?", skill: "Technical Problem-Solving" }
+            ],
+            requiredLevel: 5
+        },
+        "hsc-btech-be-in-plastic-engineering": {
+            name: "B.Tech./B.E. in Plastic Engineering",
+            questions: [
+                { q: "Are you fascinated by polymer science and the engineering of plastic products?", skill: "Polymer Science Interest" },
+                { q: "How strong is your understanding of polymer chemistry and material properties?", skill: "Scientific Foundation" },
+                { q: "Do you enjoy designing molds and optimizing processing techniques like injection molding?", skill: "Process & Mold Design" },
+                { q: "How good are you at troubleshooting issues in plastics manufacturing?", skill: "Troubleshooting Skills" },
+                { q: "Are you interested in material testing and quality control for polymers?", skill: "Material Testing" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-btech-be-in-polymer-engineering": {
+            name: "B.Tech./B.E. in Polymer Engineering",
+            questions: [
+                { q: "Are you deeply interested in the chemistry and physics of polymers?", skill: "Polymer Science Interest" },
+                { q: "How strong are your skills in organic chemistry and material characterization?", skill: "Strong Chemistry Foundation" },
+                { q: "Do you enjoy research and development of new polymer materials?", skill: "R&D Focus" },
+                { q: "Rate your understanding of polymer processing and synthesis.", skill: "Process & Synthesis Knowledge" },
+                { q: "Are you analytical in relating polymer structure to its macroscopic properties?", skill: "Analytical Skills" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-btech-be-in-production-engineering": {
+            name: "B.Tech./B.E. in Production Engineering",
+            questions: [
+                { q: "Are you interested in the science and management of manufacturing processes?", skill: "Manufacturing Interest" },
+                { q: "How skilled are you in areas like machining, casting, welding, and process planning?", skill: "Process Knowledge" },
+                { q: "Do you enjoy optimizing production systems for efficiency, cost, and quality?", skill: "Optimization Skills" },
+                { q: "How strong are your skills in industrial management and quality control?", skill: "Management & QC Skills" },
+                { q: "Are you a systematic thinker, able to design and improve entire production lines?", skill: "Systematic Thinking" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-btech-be-in-robotics-engineering": {
+            name: "B.Tech./B.E. in Robotics Engineering",
+            questions: [
+                { q: "Are you passionate about designing, building, and programming intelligent machines?", skill: "Robotics Passion" },
+                { q: "How strong is your integrated knowledge of mechanics, electronics, and computer science?", skill: "Interdisciplinary Knowledge" },
+                { q: "Do you enjoy developing algorithms for robot control, perception, and navigation?", skill: "Algorithmic Thinking" },
+                { q: "Are you a creative problem-solver, able to design robotic solutions for real-world tasks?", skill: "Creative Problem-Solving" },
+                { q: "How skilled are you in both hands-on building and theoretical modeling?", skill: "Theory & Practice Blend" }
+            ],
+            requiredLevel: 5
+        },
+        "hsc-btech-be-in-software-engineering": {
+            name: "B.Tech./B.E. in Software Engineering",
+            questions: [
+                { q: "Are you interested in the systematic process of designing, developing, and maintaining large software systems?", skill: "Systematic Process Interest" },
+                { q: "How strong are your programming and algorithmic problem-solving skills?", skill: "Programming & Algorithms" },
+                { q: "Do you enjoy software design, architecture, and following best practices?", skill: "Software Architecture" },
+                { q: "Are you skilled in software testing, quality assurance, and project management?", skill: "Quality & Management" },
+                { q: "Are you a collaborative team player, able to work effectively on large codebases?", skill: "Team Collaboration" }
+            ],
+            requiredLevel: 5
+        },
+        "hsc-bachelor-of-architecture-barch": {
+            name: "Bachelor of Architecture (B.Arch.)",
+            questions: [
+                { q: "Do you have a strong passion for designing buildings and shaping the built environment?", skill: "Design Passion" },
+                { q: "How strong are your creativity and your 3D spatial visualization skills?", skill: "Creativity & Spatial Skills" },
+                { q: "Are you skilled in both artistic sketching and technical drawing/CAD?", skill: "Drawing & CAD Skills" },
+                { q: "Do you have an interest in the history, theory, and technical aspects of construction?", skill: "Technical & Theoretical Interest" },
+                { q: "Are you a persistent problem-solver, able to work on long and complex design projects?", skill: "Persistence & Problem-Solving" }
+            ],
+            requiredLevel: 5
+        },
+        "hsc-bachelor-of-fine-arts-bfa": {
+            name: "Bachelor of Fine Arts (BFA)",
+            questions: [
+                { q: "Are you deeply driven to create and express yourself through a visual art form (painting, sculpture, etc.)?", skill: "Creative Drive" },
+                { q: "How developed are your technical skills and craftsmanship in your chosen medium?", skill: "Technical Skill" },
+                { q: "Are you a disciplined and self-motivated individual, able to work independently on creative projects?", skill: "Self-Discipline" },
+                { q: "How good are you at thinking conceptually about your work and its meaning?", skill: "Conceptual Thinking" },
+                { q: "Are you open to receiving and giving constructive criticism to grow as an artist?", skill: "Critique & Growth" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-bachelor-of-design-bdes": {
+            name: "Bachelor of Design (B.Des)",
+            questions: [
+                { q: "Are you passionate about solving problems through creative and user-centered design?", skill: "Problem-Solving Passion" },
+                { q: "How strong are your skills in visual communication, including sketching and digital tools?", skill: "Visual Communication" },
+                { q: "Do you have empathy for users and an interest in researching their needs and behaviors?", skill: "User Empathy" },
+                { q: "Are you a creative thinker, able to generate and prototype innovative ideas?", skill: "Creative Thinking" },
+                { q: "How good are you at collaborating in a team and presenting your design concepts?", skill: "Collaboration & Presentation" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-bachelor-of-fashion-technology-bftech": {
+            name: "Bachelor of Fashion Technology (B.F.Tech)",
+            questions: [
+                { q: "Are you interested in the technical and managerial side of the fashion industry?", skill: "Fashion Tech Interest" },
+                { q: "How strong is your understanding of garment manufacturing processes and machinery?", skill: "Manufacturing Knowledge" },
+                { q: "Do you have an analytical mind for quality control, production planning, and supply chain?", skill: "Analytical Skills" },
+                { q: "How good are you with software used in the fashion industry (e.g., CAD for pattern making)?", skill: "Software Proficiency" },
+                { q: "Are you a good problem-solver, focused on efficiency and technical excellence?", skill: "Technical Problem-Solving" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-bachelor-of-interior-design-bides": {
+            name: "Bachelor of Interior Design (B.I.Des)",
+            questions: [
+                { q: "Are you passionate about creating functional and aesthetically pleasing interior spaces?", skill: "Interior Design Passion" },
+                { q: "How strong are your spatial awareness and visualization skills?", skill: "Spatial Awareness" },
+                { q: "Do you have a good eye for color, materials, lighting, and furniture?", skill: "Aesthetic Sense" },
+                { q: "Are you skilled in technical drawing and using design software (like AutoCAD, SketchUp)?", skill: "Technical & Software Skills" },
+                { q: "How good are you at understanding client needs and managing a project from concept to completion?", skill: "Client & Project Management" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-bachelor-of-performing-arts-bpa": {
+            name: "Bachelor of Performing Arts (BPA)",
+            questions: [
+                { q: "Do you have a deep passion for a performing art like music, dance, or theatre?", skill: "Performance Passion" },
+                { q: "How disciplined are you in practicing and honing your technical skills?", skill: "Discipline & Practice" },
+                { q: "Are you a creative and expressive performer, able to connect with an audience?", skill: "Expressiveness" },
+                { q: "How well do you collaborate with other artists in an ensemble or production?", skill: "Collaboration" },
+                { q: "Are you resilient and able to handle auditions, criticism, and the demands of performance?", skill: "Resilience" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-bachelor-of-film-television-production-bftp": {
+            name: "Bachelor of Film and Television Production (BFTP)",
+            questions: [
+                { q: "Are you passionate about the entire process of creating films and TV shows?", skill: "Production Passion" },
+                { q: "Do you have a good understanding of storytelling, both visually and narratively?", skill: "Storytelling" },
+                { q: "Are you interested in the technical crafts, such as cinematography, editing, and sound design?", skill: "Technical Crafts" },
+                { q: "How strong are your organizational and project management skills for coordinating a production?", skill: "Project Management" },
+                { q: "Are you a collaborative team player, able to work with a diverse crew?", skill: "Team Collaboration" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-bachelor-of-multimedia-bmm": {
+            name: "Bachelor of Multimedia (BMM)",
+            questions: [
+                { q: "Are you interested in creating content that combines text, graphics, audio, and video?", skill: "Multimedia Interest" },
+                { q: "How creative are you in visual design and storytelling across different media?", skill: "Creative Design" },
+                { q: "Are you proficient with digital tools for graphic design, video editing, and web design?", skill: "Software Proficiency" },
+                { q: "How good are you at project planning and managing digital media projects?", skill: "Project Management" },
+                { q: "Do you enjoy keeping up with the latest trends in digital media and technology?", skill: "Adaptability" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-bachelor-of-visual-arts-bva": {
+            name: "Bachelor of Visual Arts (BVA)",
+            questions: [
+                { q: "Are you passionate about communicating ideas and emotions through visual means?", skill: "Visual Communication Passion" },
+                { q: "How strong are your technical skills in a specific art form like painting, photography, or digital art?", skill: "Technical Skills" },
+                { q: "Do you have a good understanding of art history, theory, and critical analysis?", skill: "Art Theory & History" },
+                { q: "Are you a disciplined creator, able to develop a body of work around a concept?", skill: "Creative Discipline" },
+                { q: "How good are you at articulating the ideas and concepts behind your artwork?", skill: "Conceptual Articulation" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-bachelor-of-arts-ba-in-economics": {
+            name: "Bachelor of Arts (BA) in Economics",
+            questions: [
+                { q: "Are you interested in how societies, governments, and businesses allocate resources?", skill: "Economic Interest" },
+                { q: "How strong are your analytical and quantitative reasoning skills?", skill: "Analytical Skills" },
+                { q: "Do you enjoy working with data and applying mathematical models to understand behavior?", skill: "Quantitative Aptitude" },
+                { q: "Are you a critical thinker, able to analyze complex economic policies and issues?", skill: "Critical Thinking" },
+                { q: "How good are you at constructing logical arguments, both verbally and in writing?", skill: "Logical Argumentation" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-ba-in-english": {
+            name: "BA in English",
+            questions: [
+                { q: "Do you have a deep passion for literature, language, and storytelling?", skill: "Literary Passion" },
+                { q: "How strong are your critical reading and analytical skills for interpreting complex texts?", skill: "Critical Analysis" },
+                { q: "Are you a skilled writer, able to express complex ideas clearly and persuasively?", skill: "Creative Writing" },
+                { q: "Do you enjoy research and constructing well-supported arguments about literature?", skill: "Research & Argumentation" },
+                { q: "How good are you at understanding texts within their historical and cultural contexts?", skill: "Contextual Understanding" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-ba-in-history": {
+            name: "BA in History",
+            questions: [
+                { q: "Are you passionate about understanding past events and their impact on the present?", skill: "Historical Curiosity" },
+                { q: "How strong is your ability to analyze historical texts, sources, and evidence?", skill: "Critical Analysis" },
+                { q: "Do you enjoy conducting in-depth research using archives, libraries, and digital sources?", skill: "Research Skills" },
+                { q: "Rate your skill in constructing a clear, evidence-based historical narrative in writing.", skill: "Argumentative Writing" },
+                { q: "Are you a critical thinker, able to evaluate different historical interpretations?", skill: "Interpretive Skills" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-ba-in-journalism-mass-communication": {
+            name: "BA in Journalism and Mass Communication",
+            questions: [
+                { q: "Are you curious about current events and driven to report on them accurately and ethically?", skill: "Journalistic Curiosity" },
+                { q: "How strong are your writing and storytelling skills across different media (print, digital, broadcast)?", skill: "Versatile Writing" },
+                { q: "Are you a good communicator and interviewer, able to connect with and question people?", skill: "Interviewing Skills" },
+                { q: "Can you work quickly and accurately under tight deadlines?", skill: "Deadline Orientation" },
+                { q: "How high are your ethical standards regarding truth, fairness, and objectivity?", skill: "Ethical Integrity" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-ba-in-political-science": {
+            name: "BA in Political Science",
+            questions: [
+                { q: "Are you fascinated by government, politics, and power dynamics?", skill: "Political Interest" },
+                { q: "How strong are your skills in critical thinking and analyzing complex political systems?", skill: "Critical Analysis" },
+                { q: "Do you enjoy reading, research, and understanding political theories and ideologies?", skill: "Theoretical Understanding" },
+                { q: "Are you skilled at forming and defending logical arguments, both in writing and debate?", skill: "Argumentation & Debate" },
+                { q: "How good are you at interpreting data and evidence related to political events?", skill: "Data Interpretation" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-ba-in-psychology": {
+            name: "BA in Psychology",
+            questions: [
+                { q: "Are you deeply curious about the human mind, behavior, and emotions?", skill: "Psychological Curiosity" },
+                { q: "How strong are your skills in critical thinking and scientific reasoning?", skill: "Critical Thinking" },
+                { q: "Do you have an aptitude for understanding research methods and statistical analysis?", skill: "Research & Statistical Aptitude" },
+                { q: "Are you an empathetic listener and a good observer of human behavior?", skill: "Empathy & Observation" },
+                { q: "How good are your writing skills for explaining complex psychological concepts?", skill: "Scientific Writing" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-ba-in-sociology": {
+            name: "BA in Sociology",
+            questions: [
+                { q: "Are you interested in how society, social structures, and cultural norms shape human behavior?", skill: "Sociological Interest" },
+                { q: "How strong are your skills in critical thinking and analyzing social patterns?", skill: "Critical Analysis" },
+                { q: "Do you enjoy research, both qualitative (interviews) and quantitative (surveys)?", skill: "Research Methods" },
+                { q: "Are you open-minded and able to understand diverse perspectives and social issues?", skill: "Open-Mindedness" },
+                { q: "How good are you at developing and communicating arguments about social phenomena?", skill: "Argumentation" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-bachelor-of-journalism-mass-communication-bjmc": {
+            name: "Bachelor of Journalism and Mass Communication (BJMC)",
+            questions: [
+                { q: "Are you passionate about communication in all its forms, from news to advertising and PR?", skill: "Communication Passion" },
+                { q: "How strong and adaptable are your writing skills for different audiences and media?", skill: "Adaptable Writing" },
+                { q: "Are you a creative thinker, able to generate compelling content ideas?", skill: "Creative Thinking" },
+                { q: "How good are your interpersonal skills for interviewing, networking, and teamwork?", skill: "Interpersonal Skills" },
+                { q: "Are you tech-savvy and comfortable with digital media production tools?", skill: "Digital Media Skills" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-bachelor-of-social-work-bsw": {
+            name: "Bachelor of Social Work (BSW)",
+            questions: [
+                { q: "Do you have a strong desire to help individuals, families, and communities overcome challenges?", skill: "Desire to Help" },
+                { q: "How high is your level of empathy, patience, and emotional resilience?", skill: "Empathy & Resilience" },
+                { q: "Are you a strong communicator and an active listener?", skill: "Active Listening" },
+                { q: "How good are your problem-solving skills for advocating for clients and connecting them with resources?", skill: "Advocacy & Problem-Solving" },
+                { q: "Do you have a strong commitment to social justice and professional ethics?", skill: "Commitment to Social Justice" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-bachelor-of-rural-studies-brs": {
+            name: "Bachelor of Rural Studies (BRS)",
+            questions: [
+                { q: "Are you passionate about understanding and contributing to the development of rural communities?", skill: "Rural Development Interest" },
+                { q: "How good are your skills in community engagement and participatory research?", skill: "Community Engagement" },
+                { q: "Do you have an interdisciplinary mindset, able to connect sociology, economics, and agriculture?", skill: "Interdisciplinary Thinking" },
+                { q: "Are you a practical problem-solver, focused on sustainable solutions for rural issues?", skill: "Practical Problem-Solving" },
+                { q: "How strong are your communication skills for working with diverse rural populations?", skill: "Communication" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-bachelor-of-library-information-science-blibsc": {
+            name: "Bachelor of Library and Information Science (B.Lib.Sc)",
+            questions: [
+                { q: "Do you have a love for information and a desire to help people access it?", skill: "Information Service Passion" },
+                { q: "How highly organized and methodical are you, especially in classifying and cataloging?", skill: "Organizational Skills" },
+                { q: "Are you tech-savvy and interested in managing digital resources and databases?", skill: "Digital Literacy" },
+                { q: "How good are your customer service and research assistance skills?", skill: "Research & Service Skills" },
+                { q: "Are you a patient and detail-oriented person?", skill: "Patience & Detail" }
+            ],
+            requiredLevel: 3
+        },
+        "hsc-bachelor-of-public-relations-bpr": {
+            name: "Bachelor of Public Relations (BPR)",
+            questions: [
+                { q: "Are you skilled at strategic communication and managing public perception?", skill: "Strategic Communication" },
+                { q: "How excellent are your writing and storytelling skills for crafting compelling narratives?", skill: "Writing & Storytelling" },
+                { q: "Are you a good networker, able to build relationships with media and stakeholders?", skill: "Networking Skills" },
+                { q: "Can you think on your feet and manage communication during a crisis?", skill: "Crisis Management" },
+                { q: "Are you creative in developing PR campaigns that generate positive attention?", skill: "Creative Campaigning" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-bachelor-of-business-administration-bba": {
+            name: "Bachelor of Business Administration (BBA)",
+            questions: [
+                { q: "Are you interested in the various functions of a business, like marketing, finance, and HR?", skill: "Business Acumen" },
+                { q: "How strong are your leadership, teamwork, and communication skills?", skill: "Leadership & Communication" },
+                { q: "Are you an analytical thinker, able to use data to make business decisions?", skill: "Analytical Skills" },
+                { q: "How good are your problem-solving and strategic planning abilities?", skill: "Problem-Solving" },
+                { q: "Are you organized and able to manage projects and deadlines effectively?", skill: "Organizational Skills" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-bachelor-of-commerce-bcom": {
+            name: "Bachelor of Commerce (B.Com)",
+            questions: [
+                { q: "Do you have a strong aptitude for subjects like accounting, finance, and economics?", skill: "Commerce Aptitude" },
+                { q: "How accurate and detail-oriented are you when working with numbers and financial data?", skill: "Numerical Accuracy" },
+                { q: "Are you an analytical thinker, able to understand financial statements and market trends?", skill: "Analytical Thinking" },
+                { q: "How high are your ethical standards regarding business and financial practices?", skill: "Ethical Integrity" },
+                { q: "Are you interested in the laws and regulations that govern business and taxation?", skill: "Regulatory Interest" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-bachelor-of-hotel-management-bhm": {
+            name: "Bachelor of Hotel Management (BHM)",
+            questions: [
+                { q: "Are you passionate about the hospitality industry and providing exceptional guest experiences?", skill: "Hospitality Passion" },
+                { q: "How strong are your interpersonal, communication, and customer service skills?", skill: "Interpersonal Skills" },
+                { q: "Can you work well under pressure and solve problems in a fast-paced environment?", skill: "Grace Under Pressure" },
+                { q: "Are you a good team leader, able to manage and motivate staff?", skill: "Team Leadership" },
+                { q: "How good are your organizational skills for managing hotel operations?", skill: "Organizational Skills" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-bachelor-of-aviation-science-bas": {
+            name: "Bachelor of Aviation Science (B.A.S)",
+            questions: [
+                { q: "Are you fascinated by the science and business of aviation?", skill: "Aviation Interest" },
+                { q: "How strong is your aptitude for technical subjects like aerodynamics, meteorology, and navigation?", skill: "Technical Aptitude" },
+                { q: "Can you remain calm and make precise decisions in high-pressure situations?", skill: "Decision Making" },
+                { q: "How high is your commitment to safety and following strict operational procedures?", skill: "Safety Commitment" },
+                { q: "Are you interested in both the flying and the management aspects of the industry?", skill: "Management Interest" }
+            ],
+            requiredLevel: 5
+        },
+        "hsc-bachelor-of-business-economics-bbe": {
+            name: "Bachelor of Business Economics (BBE)",
+            questions: [
+                { q: "Are you interested in applying economic analysis to business decision-making?", skill: "Applied Economics" },
+                { q: "How strong are your quantitative and analytical skills?", skill: "Quantitative Analysis" },
+                { q: "Do you enjoy working with data, statistical analysis, and forecasting?", skill: "Data & Statistical Skills" },
+                { q: "Are you a critical thinker, able to analyze market structures and business strategies?", skill: "Critical Thinking" },
+                { q: "How good are your skills in communicating complex economic ideas to a business audience?", skill: "Communication" }
+            ],
+            requiredLevel: 5
+        },
+        "hsc-bachelor-of-event-management-bem": {
+            name: "Bachelor of Event Management (BEM)",
+            questions: [
+                { q: "Do you enjoy the challenge of planning and executing events, from concept to completion?", skill: "Event Planning Passion" },
+                { q: "How highly organized and detail-oriented are you?", skill: "Organizational Skills" },
+                { q: "Can you work well under pressure and solve problems creatively when things go wrong?", skill: "Problem-Solving Under Pressure" },
+                { q: "How strong are your budgeting, negotiation, and communication skills?", skill: "Business & Communication Skills" },
+                { q: "Are you a good team leader, able to coordinate vendors, staff, and clients?", skill: "Team Coordination" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-bachelor-of-hospitality-tourism-management-bhtm": {
+            name: "Bachelor of Hospitality and Tourism Management (BHTM)",
+            questions: [
+                { q: "Are you passionate about creating memorable experiences for travelers and guests?", skill: "Hospitality & Tourism Passion" },
+                { q: "How strong are your customer service and cross-cultural communication skills?", skill: "Customer Service & Communication" },
+                { q: "Do you have a good business sense for marketing, operations, and financial management?", skill: "Business Acumen" },
+                { q: "Are you an organized problem-solver, able to handle the logistics of travel and hospitality?", skill: "Organizational & Problem-Solving" },
+                { q: "How interested are you in global destinations and travel trends?", skill: "Global Awareness" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-bachelor-of-information-management-bim": {
+            name: "Bachelor of Information Management (BIM)",
+            questions: [
+                { q: "Are you interested in how information technology can be managed to achieve business goals?", skill: "Business-IT Alignment" },
+                { q: "How strong are your skills in both business management and IT concepts?", skill: "Interdisciplinary Skills" },
+                { q: "Do you enjoy designing and managing databases and information systems?", skill: "Systems & Database Management" },
+                { q: "Are you an analytical thinker, able to solve problems at the intersection of tech and business?", skill: "Analytical Problem-Solving" },
+                { q: "How good are your project management skills for overseeing IT projects?", skill: "Project Management" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-bachelor-of-sports-management-bsm": {
+            name: "Bachelor of Sports Management (BSM)",
+            questions: [
+                { q: "Are you passionate about the business and organizational side of the sports industry?", skill: "Sports Business Passion" },
+                { q: "How good are your skills in marketing, sponsorship, and event management?", skill: "Marketing & Event Skills" },
+                { q: "Are you a strong communicator and leader, able to manage teams and facilities?", skill: "Leadership & Communication" },
+                { q: "Do you have a good understanding of finance and law as they apply to sports?", skill: "Financial & Legal Acumen" },
+                { q: "Are you a good networker, able to build relationships within the sports community?", skill: "Networking" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-bachelor-of-travel-tourism-management-bttm": {
+            name: "Bachelor of Travel and Tourism Management (BTTM)",
+            questions: [
+                { q: "Do you have a passion for travel and the tourism industry?", skill: "Travel Passion" },
+                { q: "How strong are your geography skills and your knowledge of world destinations?", skill: "Destination Knowledge" },
+                { q: "Are you skilled in customer service, sales, and planning itineraries?", skill: "Customer Service & Planning" },
+                { q: "How good are your organizational and logistical skills for managing travel arrangements?", skill: "Organizational Skills" },
+                { q: "Do you have good business skills for managing a travel agency or tour operation?", skill: "Business Acumen" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-integrated-mba": {
+            name: "Integrated MBA",
+            questions: [
+                { q: "Do you have a strong and early interest in a career in business leadership and management?", skill: "Early Leadership Ambition" },
+                { q: "How strong are your analytical, quantitative, and problem-solving skills?", skill: "Analytical & Quantitative Skills" },
+                { q: "Are you a strategic thinker, able to see the big picture and plan for the long term?", skill: "Strategic Thinking" },
+                { q: "How effective are your communication, presentation, and teamwork skills?", skill: "Communication & Teamwork" },
+                { q: "Are you a driven and ambitious individual, committed to a fast-tracked management career?", skill: "Ambition & Drive" }
+            ],
+            requiredLevel: 5
+        },
+        "hsc-bachelor-of-law-llb": {
+            name: "Bachelor of Law (LLB)",
+            questions: [
+                { q: "Do you have a strong interest in law, justice, and the legal system?", skill: "Legal Interest" },
+                { q: "How strong are your skills in logical reasoning and critical analysis?", skill: "Logical & Critical Reasoning" },
+                { q: "Are you a skilled reader, able to comprehend and interpret dense, complex texts?", skill: "Advanced Reading Comprehension" },
+                { q: "How effective are you at constructing clear, persuasive arguments, both in writing and speaking?", skill: "Argumentation & Persuasion" },
+                { q: "Do you have a strong work ethic and the discipline for extensive research and study?", skill: "Discipline & Research" }
+            ],
+            requiredLevel: 5
+        },
+        "hsc-integrated-ba-llb": {
+            name: "Integrated B.A. LLB (5-year)",
+            questions: [
+                { q: "Are you interested in the intersection of law with subjects like history, sociology, and political science?", skill: "Interdisciplinary Interest" },
+                { q: "How strong are your skills in logical reasoning and analyzing social issues?", skill: "Analytical Skills" },
+                { q: "Are you a skilled writer and debater, able to form compelling arguments?", skill: "Argumentation & Writing" },
+                { q: "Do you enjoy extensive reading and research?", skill: "Research Aptitude" },
+                { q: "Do you have a strong commitment to justice and ethics?", skill: "Ethical Commitment" }
+            ],
+            requiredLevel: 5
+        },
+        "hsc-integrated-bsc-llb": {
+            name: "Integrated B.Sc. LLB (5-year)",
+            questions: [
+                { q: "Are you interested in how law applies to science and technology (e.g., intellectual property, environmental law)?", skill: "Sci-Tech Law Interest" },
+                { q: "How strong is your aptitude for both scientific principles and logical legal reasoning?", skill: "Dual Aptitude" },
+                { q: "Are you a precise and analytical thinker, comfortable with both technical data and legal texts?", skill: "Analytical Precision" },
+                { q: "Do you enjoy in-depth research that may span both scientific and legal domains?", skill: "Interdisciplinary Research" },
+                { q: "How high are your ethical standards in both scientific and legal contexts?", skill: "Ethical Standards" }
+            ],
+            requiredLevel: 5
+        },
+        "hsc-integrated-bcom-llb": {
+            name: "Integrated B.Com LLB (5-year)",
+            questions: [
+                { q: "Are you interested in the legal framework of business, finance, and commerce?", skill: "Corporate Law Interest" },
+                { q: "How strong are your skills in both quantitative analysis (commerce) and logical reasoning (law)?", skill: "Dual Aptitude" },
+                { q: "Are you a detail-oriented person, able to analyze financial documents and legal contracts?", skill: "Attention to Detail" },
+                { q: "Do you have an interest in areas like corporate law, taxation law, and contract law?", skill: "Specialized Interest" },
+                { q: "How good are you at constructing arguments based on financial and legal evidence?", skill: "Argumentation" }
+            ],
+            requiredLevel: 5
+        },
+        "hsc-bachelor-of-legislative-law-bls": {
+            name: "Bachelor of Legislative Law (BLS) LLB (5-year integrated)",
+            questions: [
+                { q: "Are you deeply interested in the processes of law-making, legal systems, and social sciences?", skill: "Legal Systems Interest" },
+                { q: "How strong are your skills in critical analysis, research, and logical reasoning?", skill: "Critical & Logical Skills" },
+                { q: "Are you an effective communicator, skilled in writing and public speaking?", skill: "Communication Skills" },
+                { q: "Do you enjoy studying a broad range of subjects to build a strong foundation for law?", skill: "Broad Foundational Interest" },
+                { q: "Do you have a strong commitment to ethical legal practice and social justice?", skill: "Ethical Commitment" }
+            ],
+            requiredLevel: 5
+        },
+        "hsc-bachelor-of-education-bed": {
+            name: "Bachelor of Education (B.Ed)",
+            questions: [
+                { q: "Are you passionate about teaching and shaping the minds of future generations?", skill: "Passion for Teaching" },
+                { q: "How good are you at explaining complex subjects in a simple and engaging manner?", skill: "Clear Communication" },
+                { q: "Are you patient, empathetic, and able to manage a classroom effectively?", skill: "Patience & Classroom Management" },
+                { q: "Do you enjoy developing creative lesson plans and assessment methods?", skill: "Creativity in Teaching" },
+                { q: "Are you a good communicator, able to connect with students, parents, and colleagues?", skill: "Interpersonal Skills" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-diploma-in-elementary-education-deled": {
+            name: "Diploma in Elementary Education (D.El.Ed)",
+            questions: [
+                { q: "Do you genuinely enjoy working with and teaching young children (elementary school age)?", skill: "Passion for Young Children" },
+                { q: "How patient, creative, and energetic are you?", skill: "Patience & Creativity" },
+                { q: "Are you skilled at making learning fun and engaging through activities and play?", skill: "Activity-Based Teaching" },
+                { q: "How good are you at understanding the developmental needs of young learners?", skill: "Child Development Knowledge" },
+                { q: "Are you a nurturing and encouraging person?", skill: "Nurturing Demeanor" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-bachelor-of-physical-education-bped": {
+            name: "Bachelor of Physical Education (B.P.Ed)",
+            questions: [
+                { q: "Are you passionate about sports, fitness, and promoting physical wellness?", skill: "Passion for Fitness" },
+                { q: "Are you a natural leader and motivator, especially in a sports or activity setting?", skill: "Leadership & Motivation" },
+                { q: "How strong is your knowledge of various sports, exercise science, and human anatomy?", skill: "Technical Knowledge" },
+                { q: "Are you skilled at planning and conducting safe, inclusive, and effective training sessions?", skill: "Planning & Instruction" },
+                { q: "Are you energetic and able to inspire students of all fitness levels?", skill: "Inspirational Ability" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-integrated-bed-med": {
+            name: "Integrated B.Ed + M.Ed",
+            questions: [
+                { q: "Do you have a deep and early commitment to a long-term career in education, possibly in leadership or research?", skill: "Long-term Education Career" },
+                { q: "Are you interested in both the practice of teaching and the theory/research behind it?", skill: "Theory & Practice Interest" },
+                { q: "How strong are your skills in academic research, writing, and critical analysis?", skill: "Research & Analytical Skills" },
+                { q: "Are you a disciplined and dedicated student, able to handle an intensive, integrated program?", skill: "Discipline & Dedication" },
+                { q: "Do you aspire to be an educational leader, curriculum developer, or policy analyst?", skill: "Leadership Aspiration" }
+            ],
+            requiredLevel: 5
+        },
+        "hsc-integrated-ba-bed": {
+            name: "Integrated BA + B.Ed",
+            questions: [
+                { q: "Are you passionate about teaching Arts/Humanities subjects at the school level?", skill: "Teaching Passion (Arts)" },
+                { q: "Do you have a strong aptitude for both your chosen Arts subject and educational principles?", skill: "Dual Aptitude" },
+                { q: "How good are you at connecting your subject matter knowledge to effective teaching strategies?", skill: "Pedagogical Skills" },
+                { q: "Are you a patient and effective communicator, able to engage students in your subject?", skill: "Engaging Communication" },
+                { q: "Are you organized and able to manage the demands of a dual-degree program?", skill: "Organizational Skills" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-integrated-bsc-bed": {
+            name: "Integrated B.Sc + B.Ed",
+            questions: [
+                { q: "Are you passionate about teaching Science/Math subjects at the school level?", skill: "Teaching Passion (Science)" },
+                { q: "Do you have a strong aptitude for both your chosen Science subject and educational principles?", skill: "Dual Aptitude" },
+                { q: "How good are you at making complex scientific concepts easy for students to understand?", skill: "Simplifying Complexity" },
+                { q: "Do you enjoy demonstrating concepts through experiments and activities?", skill: "Hands-on Teaching" },
+                { q: "Are you organized and able to manage the demands of a dual-degree program?", skill: "Organizational Skills" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-integrated-btech-mtech": {
+            name: "Integrated B.Tech + M.Tech",
+            questions: [
+                { q: "Do you have a deep interest in engineering and a desire for advanced specialization or research?", skill: "Advanced Engineering Interest" },
+                { q: "How strong are your analytical and problem-solving skills for complex technical challenges?", skill: "Advanced Problem-Solving" },
+                { q: "Are you highly proficient in mathematics and the core principles of your engineering branch?", skill: "Strong Technical Foundation" },
+                { q: "Are you a dedicated and focused individual, capable of handling a rigorous, long-term academic program?", skill: "Dedication & Focus" },
+                { q: "Do you enjoy in-depth research and project work?", skill: "Research Aptitude" }
+            ],
+            requiredLevel: 5
+        },
+        "hsc-integrated-msc": {
+            name: "Integrated M.Sc",
+            questions: [
+                { q: "Do you have a profound passion for a specific field of science and an ambition for a research career?", skill: "Passion for Scientific Research" },
+                { q: "How strong is your aptitude for theoretical concepts and advanced study in your chosen subject?", skill: "Theoretical Aptitude" },
+                { q: "Do you enjoy intensive laboratory or research work?", skill: "Research & Lab Skills" },
+                { q: "Are you an analytical and critical thinker, able to contribute to scientific knowledge?", skill: "Analytical & Critical Thinking" },
+                { q: "Are you self-motivated and disciplined enough for a demanding, research-oriented program?", skill: "Self-Motivation" }
+            ],
+            requiredLevel: 5
+        },
+        "hsc-bachelor-of-computer-applications-bca": {
+            name: "Bachelor of Computer Applications (BCA)",
+            questions: [
+                { q: "Are you interested in developing software applications and working with computer systems?", skill: "Application Development Interest" },
+                { q: "How strong are your logical thinking and problem-solving skills?", skill: "Logical Thinking" },
+                { q: "Do you have an aptitude for learning programming languages?", skill: "Programming Aptitude" },
+                { q: "Are you interested in subjects like database management, networking, and software engineering?", skill: "Core IT Concepts" },
+                { q: "Do you enjoy the practical, hands-on application of computer science?", skill: "Practical Application" }
+            ],
+            requiredLevel: 4
+        },
+        "hsc-bachelor-of-vocational-studies-bvoc": {
+            name: "Bachelor of Vocational Studies (B.Voc)",
+            questions: [
+                { q: "Are you more interested in gaining practical, job-oriented skills than purely theoretical knowledge?", skill: "Practical Skills Focus" },
+                { q: "Do you enjoy hands-on learning, internships, and apprenticeships?", skill: "Hands-on Learning" },
+                { q: "Are you clear about the specific vocational field you want to enter (e.g., IT, healthcare, tourism)?", skill: "Career Clarity" },
+                { q: "How adaptable are you to learning the specific technologies and processes of an industry?", skill: "Adaptability" },
+                { q: "Are you a dedicated learner, motivated to become a skilled professional in your chosen trade?", skill: "Professional Motivation" }
+            ],
+            requiredLevel: 4
+        }
+    };
+</script>
+
+</body>
+</html>

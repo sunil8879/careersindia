@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reasoning - Syllogism (Venn Diagram Method)</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f0f2f5;
+            color: black;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* The 3D Box Container */
+        .container-3d {
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: white;
+            padding: 25px 40px;
+            border-radius: 12px;
+            border: 1px solid #ddd;
+            box-shadow: 
+                6px 6px 16px rgba(0, 0, 0, 0.15),
+                -6px -6px 16px rgba(255, 255, 255, 0.7);
+        }
+
+        /* Headers */
+        h1 {
+            color: #40E0D0; /* Turquoise */
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        h3 {
+            color: black;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            border-left: 4px solid #40E0D0;
+            padding-left: 10px;
+        }
+        
+        /* Content Block Styling */
+        .content-block {
+            margin-bottom: 25px;
+        }
+
+        .content-block p {
+            margin: 10px 0;
+        }
+
+        .content-block strong {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .content-block .notes {
+            background-color: #f8f9fa;
+            border-left: 3px solid #40E0D0;
+            padding: 10px 15px;
+            margin-top: 15px;
+            border-radius: 4px;
+        }
+        
+        .notes strong {
+            color: #40E0D0;
+        }
+        
+        .statement-format {
+            font-style: italic;
+        }
+
+        /* Horizontal Rule for Separation */
+        hr {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #40E0D0, rgba(0, 0, 0, 0));
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container-3d">
+        <h1>Syllogism (Venn Diagram Method)</h1>
+
+        <!-- Core Concept -->
+        <div class="content-block">
+            <h3>Core Concept: The Four Types of Statements</h3>
+            <p><strong>Question</strong></p>
+            <p>What are the basic types of statements in syllogism and how are they represented with Venn diagrams?</p>
+            <p><strong>Answer</strong></p>
+            <p>There are four types of statements, each with a specific Venn diagram representation.</p>
+            <p><strong>Explanation</strong></p>
+            <ol>
+                <li><strong>All A are B (Universal Affirmative):</strong> Represented by a smaller circle 'A' drawn completely inside a larger circle 'B'.</li>
+                <li><strong>Some A are B (Particular Affirmative):</strong> Represented by two overlapping circles, 'A' and 'B'. The overlapping region shows the "some" relationship.</li>
+                <li><strong>No A is B (Universal Negative):</strong> Represented by two completely separate circles, 'A' and 'B', that do not touch.</li>
+                <li><strong>Some A are not B (Particular Negative):</strong> Represented by two overlapping circles, 'A' and 'B', with a focus on the part of circle 'A' that does *not* overlap with 'B'.</li>
+            </ol>
+            
+            <div class="notes">
+                <p><strong>Important Notes:</strong> The speaker emphasizes, "Drawing the correct diagram is 99% of the work. If your diagram is right, your conclusions will be right. The biggest rule is: never assume anything that isn't explicitly stated. If it says 'Some A are B', you can't assume 'All A are B' or 'Some A are not B'. Only draw what the statement tells you."</p>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Question 1 -->
+        <div class="content-block">
+            <h3>Question 1: "All" and "Some" Relationship</h3>
+            <p><strong>Question</strong></p>
+            <p class="statement-format"><strong>Statements:</strong><br>
+            1. All mangoes are apples.<br>
+            2. All apples are grapes.<br>
+            <strong>Conclusions:</strong><br>
+            1. Some grapes are mangoes.<br>
+            2. Some grapes are apples.</p>
+            <p><strong>Answer</strong></p>
+            <p>Both Conclusion 1 and Conclusion 2 follow.</p>
+            <p><strong>Explanation</strong></p>
+            <p>The Venn diagram is a set of three nested circles: 'Mangoes' inside 'Apples', and 'Apples' inside 'Grapes'.</p>
+            <ul>
+                <li><strong>For Conclusion 1:</strong> Since the entire 'Mangoes' circle is inside the 'Grapes' circle, it is true that a part of 'Grapes' (the part that is also 'Mangoes') are mangoes. So, "Some grapes are mangoes" is correct.</li>
+                <li><strong>For Conclusion 2:</strong> Similarly, since the entire 'Apples' circle is inside the 'Grapes' circle, it is true that a part of 'Grapes' (the part that is also 'Apples') are apples. So, "Some grapes are apples" is correct.</li>
+            </ul>
+            <div class="notes">
+                <p><strong>Important Notes:</strong> The speaker clarifies a key rule: "If a statement says 'All A are B', the conclusion 'Some B are A' will always be true. This is called a direct conversion. When you go from outside to inside in a nested diagram, the relationship is always 'Some'."</p>
+            </div>
+        </div>
+        
+        <hr>
+
+        <!-- Question 2 -->
+        <div class="content-block">
+            <h3>Question 2: "Some" and "No" Relationship</h3>
+            <p><strong>Question</strong></p>
+            <p class="statement-format"><strong>Statements:</strong><br>
+            1. Some papers are pens.<br>
+            2. No pen is a pencil.<br>
+            <strong>Conclusions:</strong><br>
+            1. Some papers are not pencils.<br>
+            2. No paper is a pencil.</p>
+            <p><strong>Answer</strong></p>
+            <p>Only Conclusion 1 follows.</p>
+            <p><strong>Explanation</strong></p>
+            <p>The diagram shows the 'Papers' and 'Pens' circles overlapping. The 'Pencil' circle is completely separate from the 'Pens' circle.</p>
+            <ul>
+                <li><strong>For Conclusion 1:</strong> The part of 'Papers' that is also 'Pens' can definitely never be 'Pencils' (because no pen is a pencil). Therefore, we know for certain that at least *some* part of 'Papers' is not 'Pencils'. This conclusion is valid.</li>
+                <li><strong>For Conclusion 2:</strong> We don't have enough information to say that *no* paper is a pencil. The 'Pencil' circle is separate from 'Pens', but it could potentially overlap with the part of 'Papers' that is not 'Pens'. Since we cannot be 100% sure, this conclusion does not follow.</li>
+            </ul>
+        </div>
+
+        <hr>
+        
+        <!-- Question 3 -->
+        <div class="content-block">
+            <h3>Question 3: Multiple "Some" Statements</h3>
+            <p><strong>Question</strong></p>
+            <p class="statement-format"><strong>Statements:</strong><br>
+            1. Some dogs are cats.<br>
+            2. Some cats are rats.<br>
+            <strong>Conclusions:</strong><br>
+            1. Some dogs are rats.<br>
+            2. No dog is a rat.</p>
+            <p><strong>Answer</strong></p>
+            <p>Either Conclusion 1 or 2 follows.</p>
+            <p><strong>Explanation</strong></p>
+            <p>The diagram shows 'Dogs' overlapping with 'Cats', and 'Cats' overlapping with 'Rats'. However, there is no direct, defined relationship between 'Dogs' and 'Rats'. The 'Dogs' and 'Rats' circles might overlap, or they might be completely separate.</p>
+            <ul>
+                <li><strong>For Conclusion 1:</strong> "Some dogs are rats." This is a *possibility*, but not a certainty.</li>
+                <li><strong>For Conclusion 2:</strong> "No dog is a rat." This is also a *possibility*, but not a certainty.</li>
+            </ul>
+            <p>Since there is no definite conclusion between 'Dogs' and 'Rats', but one of these two conditions must be true (they either overlap or they don't), and both conclusions together cover these possibilities, this is a classic "Either/Or" case.</p>
+             <div class="notes">
+                <p><strong>Important Notes:</strong> The speaker explains the "Either/Or" rule in syllogism: "This special case applies when three conditions are met: 1) Both conclusions are individually uncertain or false. 2) Both conclusions have the same elements ('dog' and 'rat'). 3) One conclusion is positive ('Some') and the other is negative ('No'). When you see this pattern, the answer is 'Either/Or'."</p>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grammar Rules: Subject-Verb Agreement</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            /* Blue and white gridline background */
+            background-color: #f0f8ff; 
+            background-image: 
+                repeating-linear-gradient(to right, #d4e7f5 0px, #d4e-7f5 1px, transparent 1px, transparent 30px),
+                repeating-linear-gradient(to bottom, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 30px);
+            background-size: 30px 30px;
+        }
+
+        /* Header Styling */
+        header {
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        header h1 {
+            display: inline-block;
+            background-color: #0056b3;
+            color: white;
+            padding: 20px 40px;
+            border: 3px solid white;
+            border-radius: 15px;
+            /* 3D Box Effect */
+            box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.4), inset 2px 2px 5px rgba(255, 255, 255, 0.3);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-size: 2.2em;
+            margin: 0;
+        }
+
+        /* Main Container for Two-Column Layout */
+        .container {
+            display: flex;
+            max-width: 1400px;
+            margin: 20px auto;
+            background: #ffffff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.15);
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        /* Left Navigation Column */
+        .nav-column {
+            flex: 1;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+            background-color: #f8f9fa;
+            height: 80vh;
+            overflow-y: auto;
+        }
+
+        .nav-column ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-column li a {
+            display: block;
+            padding: 8px 15px;
+            text-decoration: none;
+            color: #0056b3;
+            border-radius: 5px;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 0.9em;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .nav-column li a:hover,
+        .nav-column li a.active {
+            background-color: #0056b3;
+            color: #fff;
+        }
+
+        /* Right Content Column */
+        .content-column {
+            flex: 3;
+            padding: 25px 35px;
+            height: 80vh; /* Set a height to enable scrolling */
+            overflow-y: auto; /* Enable vertical scrollbar */
+        }
+
+        .content-section {
+            display: none;
+        }
+        
+        .content-section.active {
+            display: block;
+        }
+        
+        h2 {
+            font-size: 1.8em;
+            color: #0056b3;
+            border-bottom: 3px solid #0056b3;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        
+        h3 {
+            font-size: 1.4em;
+            color: #333;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        
+        .rule {
+            background-color: #e7f3fe;
+            border: 1px solid #b3d7f7;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 5px;
+        }
+
+        .example-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .example-list li {
+            margin-bottom: 20px;
+            border-left: 4px solid #0056b3;
+            padding-left: 15px;
+        }
+        
+        .explanation {
+            font-style: italic;
+            color: #555;
+            margin-top: 5px;
+        }
+        
+        .subject {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+        
+        .verb {
+            font-weight: bold;
+            color: #0056b3;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>GRAMMAR RULES: SUBJECT-VERB AGREEMENT</h1>
+    </header>
+
+    <div class="container">
+        <nav class="nav-column">
+            <ul>
+                <li><a href="#definition" class="nav-link active">What is SVA?</a></li>
+                <li><a href="#rule1" class="nav-link">Rule 1: Basic Principle</a></li>
+                <li><a href="#rule2" class="nav-link">Rule 2: Subjects with 'and'</a></li>
+                <li><a href="#rule3" class="nav-link">Rule 3: 'And' with Single Idea</a></li>
+                <li><a href="#rule4" class="nav-link">Rule 4: Subjects with 'or'/'nor'</a></li>
+                <li><a href="#rule5" class="nav-link">Rule 5: Interrupting Phrases</a></li>
+                <li><a href="#rule6" class="nav-link">Rule 6: Indefinite Pronouns (Singular)</a></li>
+                <li><a href="#rule7" class="nav-link">Rule 7: Indefinite Pronouns (Plural)</a></li>
+                <li><a href="#rule8" class="nav-link">Rule 8: Indefinite Pronouns (Variable)</a></li>
+                <li><a href="#rule9" class="nav-link">Rule 9: 'Each' and 'Every'</a></li>
+                <li><a href="#rule10" class="nav-link">Rule 10: Inverted Sentences ('Here'/'There')</a></li>
+                <li><a href="#rule11" class="nav-link">Rule 11: Questions</a></li>
+                <li><a href="#rule12" class="nav-link">Rule 12: Collective Nouns (Unit)</a></li>
+                <li><a href="#rule13" class="nav-link">Rule 13: Collective Nouns (Individuals)</a></li>
+                <li><a href="#rule14" class="nav-link">Rule 14: Singular Nouns ending in -s</a></li>
+                <li><a href="#rule15" class="nav-link">Rule 15: Plural Nouns (Paired Items)</a></li>
+                <li><a href="#rule16" class="nav-link">Rule 16: 'A Pair of'</a></li>
+                <li><a href="#rule17" class="nav-link">Rule 17: 'A Number of' vs 'The Number of'</a></li>
+                <li><a href="#rule18" class="nav-link">Rule 18: 'Many a'</a></li>
+                <li><a href="#rule19" class="nav-link">Rule 19: Units of Measurement</a></li>
+                <li><a href="#rule20" class="nav-link">Rule 20: Fractions & Percentages</a></li>
+                <li><a href="#rule21" class="nav-link">Rule 21: 'One of the...'</a></li>
+                <li><a href="#rule22" class="nav-link">Rule 22: 'The only one of the...'</a></li>
+                <li><a href="#rule23" class="nav-link">Rule 23: Relative Pronouns</a></li>
+                <li><a href="#rule24" class="nav-link">Rule 24: Titles of Works</a></li>
+                <li><a href="#rule25" class="nav-link">Rule 25: Gerund/Infinitive Phrases</a></li>
+                <li><a href="#rule26" class="nav-link">Rule 26: Noun Clauses</a></li>
+            </ul>
+        </nav>
+
+        <main class="content-column">
+            <!-- Dynamically generated sections will go here -->
+            <section id="definition" class="content-section active">
+                <h2>What is Subject-Verb Agreement (SVA)?</h2>
+                <p>Subject-Verb Agreement is a fundamental rule of grammar which states that the subject of a sentence must agree with its verb in number.</p>
+                <div class="rule">
+                    <strong>The Core Principle:</strong>
+                    <ul>
+                        <li>A **singular subject** takes a **singular verb**. (e.g., A verb with an '-s' ending in the present tense)</li>
+                        <li>A **plural subject** takes a **plural verb**. (e.g., The base form of the verb in the present tense)</li>
+                    </ul>
+                </div>
+                <h3>Examples of the Core Principle:</h3>
+                <ul class="example-list">
+                    <li>The <span class="subject">dog</span> <span class="verb">barks</span>.
+                        <div class="explanation"><strong>Explanation:</strong> 'dog' is a singular subject, so it takes the singular verb 'barks'.</div>
+                    </li>
+                    <li>The <span class="subject">dogs</span> <span class="verb">bark</span>.
+                        <div class="explanation"><strong>Explanation:</strong> 'dogs' is a plural subject, so it takes the plural verb 'bark'.</div>
+                    </li>
+                </ul>
+            </section>
+            
+            <script>
+                // This script will generate the content for all 26 rules.
+                const rulesData = [
+                    { id: 'rule1', title: 'Rule 1: Basic Principle', rule: 'A singular subject requires a singular verb; a plural subject requires a plural verb.', examples: [
+                        { sentence: 'The <span class="subject">student</span> <span class="verb">studies</span> for the exam.', explanation: 'The subject \'student\' is singular (one), so the verb \'studies\' is singular.' },
+                        { sentence: 'The <span class="subject">students</span> <span class="verb">study</span> for the exam.', explanation: 'The subject \'students\' is plural (more than one), so the verb \'study\' is plural.' },
+                        { sentence: 'A <span class="subject">car</span> <span class="verb">needs</span> fuel to run.', explanation: 'The subject \'car\' is singular, requiring the singular verb \'needs\'.' },
+                        { sentence: 'Many <span class="subject">cars</span> <span class="verb">need</span> regular maintenance.', explanation: 'The subject \'cars\' is plural, requiring the plural verb \'need\'.' },
+                        { sentence: 'My <span class="subject">friend</span> <span class="verb">is</span> coming over.', explanation: '\'friend\' is a singular subject, so the singular verb \'is\' is used.' },
+                        { sentence: 'My <span class="subject">friends</span> <span class="verb">are</span> coming over.', explanation: '\'friends\' is a plural subject, so the plural verb \'are\' is used.' },
+                        { sentence: 'This <span class="subject">book</span> <span class="verb">belongs</span> to the library.', explanation: '\'book\' is singular, so the verb \'belongs\' must also be singular.' },
+                        { sentence: 'These <span class="subject">books</span> <span class="verb">belong</span> to the library.', explanation: '\'books\' is plural, so the verb \'belong\' must also be plural.' },
+                        { sentence: 'That <span class="subject">child</span> <span class="verb">plays</span> in the park.', explanation: '\'child\' is a singular subject, requiring the singular verb \'plays\'.' },
+                        { sentence: 'Those <span class="subject">children</span> <span class="verb">play</span> in the park.', explanation: '\'children\' is a plural subject, requiring the plural verb \'play\'.' }
+                    ]},
+                    { id: 'rule2', title: 'Rule 2: Subjects Joined by \'and\'', rule: 'Two or more singular subjects joined by the conjunction **\'and\'** typically take a plural verb.', examples: [
+                        { sentence: 'The <span class="subject">cat and the dog</span> <span class="verb">are</span> playing in the garden.', explanation: '\'The cat\' and \'the dog\' are two separate subjects, making the total subject plural. Thus, the plural verb \'are\' is used.' },
+                        { sentence: '<span class="subject">John and Mary</span> <span class="verb">have</span> gone to the market.', explanation: '\'John\' and \'Mary\' are two individual subjects. Together they form a plural subject, requiring the plural verb \'have\'.' },
+                        { sentence: '<span class="subject">My brother and I</span> <span class="verb">are</span> best friends.', explanation: 'Two subjects (\'My brother\' and \'I\') are joined by \'and\', so a plural verb \'are\' is needed.' },
+                        { sentence: '<span class="subject">Hard work and dedication</span> <span class="verb">are</span> the keys to success.', explanation: 'Two distinct qualities are listed, forming a plural subject that agrees with the plural verb \'are\'.' },
+                        { sentence: '<span class="subject">The pen and the paper</span> <span class="verb">were</span> on the desk.', explanation: 'Since there are two items, \'pen\' and \'paper\', the subject is plural and takes the past plural verb \'were\'.' },
+                        { sentence: '<span class="subject">A laptop and a printer</span> <span class="verb">have been</span> purchased.', explanation: 'The compound subject refers to two items, so it requires the plural verb form \'have been\'.' },
+                        { sentence: '<span class="subject">The captain and the coach</span> <span class="verb">praise</span> the team.', explanation: 'Two people are performing the action, so the subject is plural and agrees with the plural verb \'praise\'.' },
+                        { sentence: 'Both the <span class="subject">teacher and the students</span> <span class="verb">enjoy</span> the lesson.', explanation: 'The subjects \'teacher\' and \'students\' are joined by \'and\', making a plural subject that needs the plural verb \'enjoy\'.' },
+                        { sentence: '<span class="subject">Oil and water</span> <span class="verb">do</span> not mix.', explanation: 'Two distinct substances are mentioned, so the plural verb \'do\' is correct.' },
+                        { sentence: 'The <span class="subject">producer and the director</span> of the film <span class="verb">are</span> here.', explanation: 'This refers to two different people, so the subject is plural.' }
+                    ]},
+                     { id: 'rule3', title: "Rule 3: 'And' with a Single Idea", rule: "If two subjects joined by 'and' refer to a single person, a single item, or a single idea, a singular verb is used.", examples: [
+                        { sentence: '<span class="subject">Bread and butter</span> <span class="verb">is</span> his favorite breakfast.', explanation: '\'Bread and butter\' is treated as a single dish or idea, so it takes the singular verb \'is\'.' },
+                        { sentence: 'The <span class="subject">law and order situation</span> in the city <span class="verb">is</span> under control.', explanation: '\'Law and order\' is considered a single concept, requiring the singular verb \'is\'.' },
+                        { sentence: '<span class="subject">My friend and colleague, Mr. Smith,</span> <span class="verb">has</span> arrived.', explanation: 'This refers to one person who is both a friend and a colleague, so the verb is singular.' },
+                        { sentence: '<span class="subject">The sum and substance</span> of the matter <span class="verb">is</span> that you must leave.', explanation: '\'Sum and substance\' is an idiom meaning the gist, which is a single idea.' },
+                        { sentence: '<span class="subject">Spaghetti and meatballs</span> <span class="verb">is</span> a popular dish.', explanation: 'The two items form a single, well-known dish.' },
+                        { sentence: 'The <span class="subject">wear and tear</span> on the car <span class="verb">was</span> significant.', explanation: '\'Wear and tear\' is a single concept of damage over time.' },
+                        { sentence: '<span class="subject">The poet and philosopher</span> <span class="verb">has</span> passed away.', explanation: 'The use of a single \'the\' indicates that one person was both a poet and a philosopher.' },
+                        { sentence: '<span class="subject">Fish and chips</span> <span class="verb">costs</span> ten dollars.', explanation: 'This is treated as a single meal.' },
+                        { sentence: '<span class="subject">Trial and error</span> <span class="verb">is</span> a method of learning.', explanation: '\'Trial and error\' represents a single method.' },
+                        { sentence: 'The <span class="subject">long and short</span> of it <span class="verb">is</span> that we need more time.', explanation: 'This idiom refers to a single summary or conclusion.' }
+                    ]},
+                    { id: 'rule4', title: "Rule 4: Subjects Joined by 'or'/'nor'", rule: "When subjects are joined by **'or', 'nor', 'either...or', 'neither...nor'**, the verb agrees with the subject that is **closer** to it (The Proximity Rule).", examples: [
+                        { sentence: 'Either the <span class="subject">students</span> or the <span class="subject">teacher</span> <span class="verb">is</span> mistaken.', explanation: 'The subject closer to the verb is \'teacher\' (singular), so the verb is singular (\'is\').' },
+                        { sentence: 'Either the <span class="subject">teacher</span> or the <span class="subject">students</span> <span class="verb">are</span> mistaken.', explanation: 'The subject closer to the verb is \'students\' (plural), so the verb is plural (\'are\').' },
+                        { sentence: 'Neither the <span class="subject">manager</span> nor his <span class="subject">employees</span> <span class="verb">were</span> present.', explanation: 'The verb agrees with the nearer subject \'employees\' (plural), so the plural verb \'were\' is used.' },
+                        { sentence: 'Neither the <span class="subject">employees</span> nor the <span class="subject">manager</span> <span class="verb">was</span> present.', explanation: 'The verb agrees with the nearer subject \'manager\' (singular), so the singular verb \'was\' is used.' },
+                        { sentence: 'A book or a <span class="subject">pen</span> <span class="verb">is</span> on the table.', explanation: '\'pen\' is the closer subject and is singular, so the verb is \'is\'.' },
+                        { sentence: 'A pen or some <span class="subject">books</span> <span class="verb">are</span> on the table.', explanation: '\'books\' is the closer subject and is plural, so the verb is \'are\'.' },
+                        { sentence: 'Neither <span class="subject">she</span> nor <span class="subject">I</span> <span class="verb">am</span> going to the party.', explanation: 'The verb agrees with the closest subject \'I\', which takes the verb \'am\'.' },
+                        { sentence: 'Either my <span class="subject">father</span> or my <span class="subject">brothers</span> <span class="verb">are</span> going to sell the car.', explanation: 'The plural subject \'brothers\' is closer to the verb, so the plural verb \'are\' is used.' },
+                        { sentence: 'Neither <span class="subject">coffee</span> nor <span class="subject">tea</span> <span class="verb">is</span> available.', explanation: 'Both subjects are singular, and the closer subject \'tea\' is singular, so the verb is singular.' },
+                        { sentence: 'Either the <span class="subject">plates</span> or the serving <span class="subject">bowl</span> <span class="verb">goes</span> on that shelf.', explanation: 'The singular subject \'bowl\' is closer, so the singular verb \'goes\' is used.' }
+                    ]},
+                    // All other 22 rules will be generated here by the script
+                ];
+
+                const extraRules = [
+                    { id: 'rule5', title: 'Rule 5: Interrupting Phrases', rule: 'Phrases that come between the subject and the verb (e.g., `along with`, `as well as`, `in addition to`, `together with`, or prepositional phrases) do not affect the verb. The verb agrees with the main subject.', examples: [
+                        { sentence: 'The <span class="subject">politician</span>, along with the newsmen, <span class="verb">is</span> expected shortly.', explanation: 'The main subject is \'politician\' (singular). The phrase \'along with the newsmen\' does not change the subject\'s number. Thus, the verb is singular (\'is\').' },
+                        { sentence: 'The <span class="subject">captain</span>, as well as his players, <span class="verb">was</span> happy with the victory.', explanation: 'The subject is \'captain\' (singular). The intervening phrase \'as well as his players\' is ignored, so the verb is singular (\'was\').' },
+                        { sentence: 'The <span class="subject">book</span>, including all the chapters in the first section, <span class="verb">is</span> very interesting.', explanation: 'The singular subject \'book\' determines the verb. The phrase in the middle is ignored for agreement, so the verb is \'is\'.' },
+                        { sentence: 'The <span class="subject">students</span>, together with their teacher, <span class="verb">are</span> going on a trip.', explanation: 'The main subject is \'students\' (plural). The phrase \'together with their teacher\' does not count, so the verb is plural (\'are\').' },
+                        { sentence: 'The <span class="subject">quality</span> of these apples <span class="verb">is</span> not good.', explanation: 'The subject is \'quality\' (singular), not \'apples\'. Therefore, the verb is singular (\'is\').' },
+                        { sentence: 'One of my <span class="subject">friends</span> <span class="verb">has</span> gone to France.', explanation: 'The subject is \'One\' (singular), not \'friends\'. So, the verb is singular (\'has\').' },
+                        { sentence: 'The <span class="subject">manager</span>, in addition to his team, <span class="verb">works</span> hard.', explanation: 'The singular subject \'manager\' dictates the verb, so the singular verb \'works\' is used.' },
+                        { sentence: 'The <span class="subject">color</span> of the walls <span class="verb">needs</span> to be changed.', explanation: 'The subject is \'color\' (singular), not \'walls\'. The verb must be singular (\'needs\').' },
+                        { sentence: 'The <span class="subject">mayor</span>, accompanied by his wife, <span class="verb">is</span> attending the event.', explanation: '\'mayor\' is the singular subject, so the singular verb \'is\' is correct.' },
+                        { sentence: 'All of the <span class="subject">books</span>, even the one on the top shelf, <span class="verb">are</span> dusty.', explanation: 'The subject \'All\' refers to the plural \'books\', so the plural verb \'are\' is used. The intervening phrase is ignored.' }
+                    ]},
+                    { id: 'rule6', title: 'Rule 6: Indefinite Pronouns (Singular)', rule: 'Indefinite pronouns like `each`, `everyone`, `everybody`, `anyone`, `anybody`, `no one`, `nobody`, `someone`, `somebody`, `either`, and `neither` are always singular and take a singular verb.', examples: [
+                        { sentence: '<span class="subject">Everyone</span> in the class <span class="verb">is</span> required to take the test.', explanation: '\'Everyone\' is a singular indefinite pronoun and always takes a singular verb (\'is\').' },
+                        { sentence: '<span class="subject">Each</span> of the students <span class="verb">has</span> a different project.', explanation: '\'Each\' is singular, so the verb must be singular (\'has\').' },
+                        { sentence: '<span class="subject">Nobody</span> <span class="verb">knows</span> the answer to that question.', explanation: '\'Nobody\' is singular and requires the singular verb \'knows\'.' },
+                        { sentence: '<span class="subject">Neither</span> of the options <span class="verb">seems</span> appropriate.', explanation: '\'Neither\' is a singular pronoun, so it agrees with the singular verb \'seems\'.' },
+                        { sentence: '<span class="subject">Somebody</span> <span class="verb">has</span> left their umbrella behind.', explanation: '\'Somebody\' is singular, so it takes the singular verb \'has\'.' },
+                        { sentence: '<span class="subject">Anybody</span> who wants to participate <span class="verb">is</span> welcome.', explanation: '\'Anybody\' is singular and requires the singular verb \'is\'.' },
+                        { sentence: '<span class="subject">No one</span> <span class="verb">was</span> injured in the accident.', explanation: '\'No one\' is always singular, so the verb is \'was\'.' },
+                        { sentence: '<span class="subject">Either</span> of the two answers <span class="verb">is</span> correct.', explanation: '\'Either\' is singular, so the verb is \'is\'.' },
+                        { sentence: '<span class="subject">Everybody</span> <span class="verb">wants</span> to be successful.', explanation: '\'Everybody\' is singular, so the verb is \'wants\'.' },
+                        { sentence: '<span class="subject">Someone</span> <span class="verb">is</span> knocking at the door.', explanation: '\'Someone\' is a singular pronoun, requiring the singular verb \'is\'.' }
+                    ]},
+                    { id: 'rule7', title: 'Rule 7: Indefinite Pronouns (Plural)', rule: 'Indefinite pronouns like `both`, `few`, `many`, and `several` are always plural and take a plural verb.', examples: [
+                        { sentence: '<span class="subject">Both</span> of the candidates <span class="verb">are</span> well-qualified.', explanation: '\'Both\' is a plural pronoun and requires the plural verb \'are\'.' },
+                        { sentence: '<span class="subject">Many</span> of the guests <span class="verb">have</span> already arrived.', explanation: '\'Many\' is always plural, so it takes the plural verb \'have\'.' },
+                        { sentence: '<span class="subject">Several</span> of the books <span class="verb">were</span> missing from the shelf.', explanation: '\'Several\' is a plural pronoun, so the plural verb \'were\' is used.' },
+                        { sentence: '<span class="subject">Few</span> <span class="verb">understand</span> the complexity of the situation.', explanation: '\'Few\' is always plural, requiring the plural verb \'understand\'.' },
+                        { sentence: '<span class="subject">Both</span> <span class="verb">were</span> found guilty.', explanation: '\'Both\' refers to two and is therefore plural.' },
+                        { sentence: '<span class="subject">Many</span> <span class="verb">are</span> called, but <span class="subject">few</span> <span class="verb">are</span> chosen.', explanation: 'Both \'many\' and \'few\' are plural pronouns and take the plural verb \'are\'.' },
+                        { sentence: '<span class="subject">Several</span> of the team members <span class="verb">protest</span> the decision.', explanation: '\'Several\' is plural, so it agrees with the plural verb \'protest\'.' },
+                        { sentence: '<span class="subject">Few</span> of the apples <span class="verb">are</span> still fresh.', explanation: '\'Few\' is plural, so the verb is \'are\'.' },
+                        { sentence: '<span class="subject">Both</span> of the answers <span class="verb">seem</span> correct.', explanation: '\'Both\' is a plural pronoun, so it requires the plural verb \'seem\'.' },
+                        { sentence: '<span class="subject">Many</span> <span class="verb">have</span> tried, but only a few have succeeded.', explanation: '\'Many\' is plural and takes the plural verb \'have\'.' }
+                    ]},
+                    { id: 'rule8', title: 'Rule 8: Indefinite Pronouns (Variable)', rule: 'Pronouns like `some`, `all`, `any`, `most`, `none` (SANAM) can be singular or plural. The verb depends on the noun in the prepositional phrase that follows.', examples: [
+                        { sentence: '<span class="subject">Some</span> of the <strong>cake</strong> <span class="verb">is</span> gone.', explanation: 'Here, \'some\' refers to \'cake\' (a singular, uncountable noun), so the verb is singular (\'is\').' },
+                        { sentence: '<span class="subject">Some</span> of the <strong>cookies</strong> <span class="verb">are</span> gone.', explanation: 'Here, \'some\' refers to \'cookies\' (a plural noun), so the verb is plural (\'are\').' },
+                        { sentence: '<span class="subject">All</span> of the <strong>information</strong> <span class="verb">was</span> correct.', explanation: '\'All\' refers to the singular noun \'information\', so the verb is singular (\'was\').' },
+                        { sentence: '<span class="subject">All</span> of the <strong>students</strong> <span class="verb">were</span> present.', explanation: '\'All\' refers to the plural noun \'students\', so the verb is plural (\'were\').' },
+                        { sentence: '<span class="subject">Most</span> of the <strong>work</strong> <span class="verb">has</span> been done.', explanation: '\'Most\' refers to the singular noun \'work\', so the singular verb \'has\' is used.' },
+                        { sentence: '<span class="subject">Most</span> of the <strong>employees</strong> <span class="verb">have</span> received their bonus.', explanation: '\'Most\' refers to the plural noun \'employees\', so the plural verb \'have\' is used.' },
+                        { sentence: '<span class="subject">None</span> of the <strong>advice</strong> <span class="verb">was</span> helpful.', explanation: '\'None\' refers to the singular noun \'advice\', so the verb is singular.' },
+                        { sentence: '<span class="subject">None</span> of the <strong>cars</strong> <span class="verb">are</span> available.', explanation: '\'None\' refers to the plural noun \'cars\', so the plural verb \'are\' is used.' },
+                        { sentence: '<span class="subject">Is</span> <span class="subject">any</span> of the <strong>pie</strong> left?', explanation: '\'Any\' refers to the singular noun \'pie\', so the singular verb \'is\' is used.' },
+                        { sentence: '<span class="subject">Are</span> <span class="subject">any</span> of the <strong>tickets</strong> left?', explanation: '\'Any\' refers to the plural noun \'tickets\', so the plural verb \'are\' is used.' }
+                    ]},
+                     { id: 'rule9', title: "Rule 9: 'Each' and 'Every'", rule: "When `each` or `every` precedes a subject (even a compound subject joined by 'and'), the verb is always singular.", examples: [
+                        { sentence: '<span class="subject">Each</span> student <span class="verb">has</span> to submit the assignment.', explanation: '\'Each\' considers the students individually, so the subject is treated as singular, requiring the verb \'has\'.' },
+                        { sentence: '<span class="subject">Every</span> boy and girl <span class="verb">was</span> given a prize.', explanation: 'Even though \'boy and girl\' seems plural, the word \'Every\' makes the subject singular. Thus, the singular verb \'was\' is used.' },
+                        { sentence: '<span class="subject">Each</span> of the applicants <span class="verb">needs</span> to fill out a form.', explanation: 'The subject is \'Each\' (singular), not \'applicants\'. Therefore, the singular verb \'needs\' is correct.' },
+                        { sentence: '<span class="subject">Every</span> man, woman, and child <span class="verb">was</span> rescued.', explanation: '\'Every\' treats the group as a collection of individuals, making the subject singular and requiring the verb \'was\'.' },
+                        { sentence: '<span class="subject">Each</span> book and magazine <span class="verb">is</span> catalogued.', explanation: 'Because of the word \'Each\', the compound subject is treated as singular, so the verb is \'is\'.' },
+                        { sentence: '<span class="subject">Every</span> car and truck on the road <span class="verb">was</span> checked.', explanation: '\'Every\' makes the subject singular, so the singular verb \'was\' is required.' },
+                        { sentence: '<span class="subject">Each</span> of the team members <span class="verb">is</span> responsible for their own equipment.', explanation: 'The subject is \'Each\', which is singular and takes the singular verb \'is\'.' },
+                        { sentence: '<span class="subject">Every</span> table and chair <span class="verb">needs</span> to be cleaned.', explanation: 'The word \'Every\' makes the subject singular, so the verb is \'needs\'.' },
+                        { sentence: '<span class="subject">Each</span> of my brothers <span class="verb">owns</span> a bicycle.', explanation: 'The subject is the singular pronoun \'Each\', not the plural \'brothers\', so the verb is \'owns\'.' },
+                        { sentence: '<span class="subject">Every</span> one of the players <span class="verb">wants</span> to win.', explanation: '\'Every one\' is a singular construction and requires the singular verb \'wants\'.' }
+                    ]},
+                    // ... (and so on for all 26 rules)
+                ];
+
+                // Script to generate the content
+                const mainContent = document.querySelector('.content-column');
+                const navList = document.querySelector('.nav-column ul');
+                const fullRulesData = rulesData.concat(extraRules); // Placeholder for all rules
+
+                const allRules = [
+                    // Rule 10
+                    { id: 'rule10', title: "Rule 10: Inverted Sentences ('Here'/'There')", rule: "In sentences beginning with `Here` or `There`, the true subject follows the verb. The verb must agree with that subject.", examples: [
+                        { sentence: 'There <span class="verb">is</span> a <span class="subject">problem</span> with the computer.', explanation: 'The subject is \'problem\' (singular), which comes after the verb. The verb must be singular (\'is\').' },
+                        { sentence: 'There <span class="verb">are</span> many <span class="subject">problems</span> with the computer.', explanation: 'The subject is \'problems\' (plural). The verb must be plural (\'are\').' },
+                        { sentence: 'Here <span class="verb">is</span> the <span class="subject">book</span> you requested.', explanation: 'The singular subject \'book\' follows the verb, so the verb is singular (\'is\').' },
+                        { sentence: 'Here <span class="verb">are</span> the <span class="subject">books</span> you requested.', explanation: 'The plural subject \'books\' follows the verb, so the verb is plural (\'are\').' },
+                        { sentence: 'There <span class="verb">goes</span> the <span class="subject">last train</span>.', explanation: 'The subject \'last train\' is singular, so it takes the singular verb \'goes\'.' },
+                        { sentence: 'There <span class="verb">go</span> the <span class="subject">winners</span> of the race.', explanation: 'The subject \'winners\' is plural, so it takes the plural verb \'go\'.' },
+                        { sentence: 'Here <span class="verb">comes</span> the <span class="subject">bride</span>.', explanation: 'The singular subject \'bride\' agrees with the singular verb \'comes\'.' },
+                        { sentence: 'There <span class="verb">were</span> several <span class="subject">reasons</span> for his decision.', explanation: 'The plural subject \'reasons\' requires the plural verb \'were\'.' },
+                        { sentence: 'There <span class="verb">seems</span> to be a <span class="subject">misunderstanding</span>.', explanation: 'The subject \'misunderstanding\' is singular, agreeing with the singular verb \'seems\'.' },
+                        { sentence: 'Here <span class="verb">live</span> the <span class="subject">ghosts</span> of the past.', explanation: 'The plural subject \'ghosts\' requires the plural verb \'live\'.' }
+                    ]},
+                     // Rule 11
+                    { id: 'rule11', title: "Rule 11: Questions", rule: "In questions, the subject also often follows the verb or helping verb. The verb must still agree with the subject.", examples: [
+                        { sentence: 'Where <span class="verb">is</span> my <span class="subject">phone</span>?', explanation: 'In this question, the subject \'phone\' is singular, so the singular verb \'is\' is used.' },
+                        { sentence: 'Where <span class="verb">are</span> my <span class="subject">keys</span>?', explanation: 'In this question, the subject \'keys\' is plural, so the plural verb \'are\' is used.' },
+                        { sentence: '<span class="verb">Does</span> your <span class="subject">brother</span> know the answer?', explanation: 'The subject is \'brother\' (singular), which agrees with the singular helping verb \'Does\'.' },
+                        { sentence: '<span class="verb">Do</span> your <span class="subject">parents</span> know you are here?', explanation: 'The subject is \'parents\' (plural), which agrees with the plural helping verb \'Do\'.' },
+                        { sentence: 'What <span class="verb">is</span> the <span class="subject">reason</span> for this delay?', explanation: 'The singular subject \'reason\' requires the singular verb \'is\'.' },
+                        { sentence: 'What <span class="verb">are</span> the <span class="subject">reasons</span> for this decision?', explanation: 'The plural subject \'reasons\' requires the plural verb \'are\'.' },
+                        { sentence: 'Which <span class="subject">book</span> <span class="verb">belongs</span> to you?', explanation: 'The singular subject \'book\' agrees with the singular verb \'belongs\'.' },
+                        { sentence: 'Which <span class="subject">books</span> <span class="verb">belong</span> to you?', explanation: 'The plural subject \'books\' agrees with the plural verb \'belong\'.' },
+                        { sentence: '<span class="verb">Has</span> the <span class="subject">manager</span> arrived?', explanation: 'The subject \'manager\' is singular, requiring the singular helping verb \'Has\'.' },
+                        { sentence: '<span class="verb">Have</span> the <span class="subject">guests</span> arrived?', explanation: 'The subject \'guests\' is plural, requiring the plural helping verb \'Have\'.' }
+                    ]},
+                    // Rule 12
+                    { id: 'rule12', title: "Rule 12: Collective Nouns (as a Unit)", rule: "Collective nouns (`team`, `family`, `committee`, `jury`) take a singular verb when the group acts as a single, cohesive unit.", examples: [
+                        { sentence: 'The <span class="subject">team</span> <span class="verb">is</span> playing well today.', explanation: 'The team is acting as a single, cohesive unit. Therefore, the singular verb \'is\' is used.' },
+                        { sentence: 'The <span class="subject">jury</span> <span class="verb">has</span> reached its verdict.', explanation: 'The jury is acting as one body to deliver a single verdict. The verb is singular (\'has\').' },
+                        { sentence: 'My <span class="subject">family</span> <span class="verb">is</span> very important to me.', explanation: '\'Family\' is considered a single unit in this context, so it takes the singular verb \'is\'.' },
+                        { sentence: 'The <span class="subject">committee</span> <span class="verb">meets</span> every Friday.', explanation: 'The committee acts as a single unit to meet, so the singular verb \'meets\' is correct.' },
+                        { sentence: 'The <span class="subject">audience</span> <span class="verb">was</span> captivated by the performance.', explanation: 'The audience is reacting as a single group, so the singular verb \'was\' is used.' },
+                        { sentence: 'The <span class="subject">band</span> <span class="verb">plays</span> a mix of rock and pop music.', explanation: 'The band performs as one unit, so the singular verb \'plays\' is correct.' },
+                        { sentence: 'The <span class="subject">government</span> <span class="verb">has</span> passed a new law.', explanation: 'The government is acting as a single entity.' },
+                        { sentence: 'The <span class="subject">class</span> <span class="verb">is</span> ready for the test.', explanation: 'The class as a whole unit is ready.' },
+                        { sentence: 'A <span class="subject">flock</span> of sheep <span class="verb">is</span> grazing in the field.', explanation: 'The subject is \'flock\' (one group), which is singular.' },
+                        { sentence: 'The <span class="subject">company</span> <span class="verb">is</span> launching a new product.', explanation: 'The company is acting as a single entity.' }
+                    ]},
+                     // Rule 13
+                    { id: 'rule13', title: "Rule 13: Collective Nouns (as Individuals)", rule: "Collective nouns take a plural verb when the members of the group act as individuals, with different actions or opinions.", examples: [
+                        { sentence: 'The <span class="subject">team</span> <span class="verb">are</span> arguing among themselves.', explanation: 'The members of the team are acting as individuals (arguing with each other), so the plural verb \'are\' is used.' },
+                        { sentence: 'The <span class="subject">jury</span> <span class="verb">are</span> divided in their opinions.', explanation: 'The members of the jury have individual, different opinions. Thus, the plural verb \'are\' is used.' },
+                        { sentence: 'My <span class="subject">family</span> <span class="verb">have</span> all arrived for the holidays.', explanation: 'The individual members of the family are arriving, so the plural verb \'have\' is used.' },
+                        { sentence: 'The <span class="subject">committee</span> <span class="verb">are</span> discussing the different proposals.', explanation: 'The individual members are discussing, implying multiple actions/opinions, so the plural verb \'are\' is used.' },
+                        { sentence: 'The <span class="subject">audience</span> <span class="verb">were</span> clapping and cheering.', explanation: 'The individual people in the audience are performing actions.' },
+                        { sentence: 'The <span class="subject">band</span> <span class="verb">are</span> tuning their instruments.', explanation: 'Each member of the band is tuning their own instrument individually.' },
+                        { sentence: 'The <span class="subject">staff</span> <span class="verb">are</span> in disagreement about the new policy.', explanation: 'The staff members have individual, conflicting opinions.' },
+                        { sentence: 'The <span class="subject">couple</span> <span class="verb">are</span> taking separate cars to the event.', explanation: 'The two people in the couple are acting individually.' },
+                        { sentence: 'The <span class="subject">class</span> <span class="verb">are</span> working on their individual projects.', explanation: 'Each student is working on a separate project.' },
+                        { sentence: 'The <span class="subject">government</span> <span class="verb">are</span> debating the new budget.', explanation: 'The individual members of the government are debating.' }
+                    ]},
+                    // Rule 14
+                    { id: 'rule14', title: "Rule 14: Singular Nouns Ending in -s", rule: "Some nouns that end in '-s' are actually singular and require a singular verb (e.g., `news`, `mathematics`, `physics`, `measles`).", examples: [
+                        { sentence: 'The <span class="subject">news</span> <span class="verb">is</span> on at 9 PM.', explanation: '\'News\' is an uncountable, singular noun, so it takes the singular verb \'is\'.' },
+                        { sentence: '<span class="subject">Mathematics</span> <span class="verb">is</span> his favorite subject.', explanation: '\'Mathematics\' is a single field of study, so it is a singular subject requiring the verb \'is\'.' },
+                        { sentence: '<span class="subject">Physics</span> <span class="verb">was</span> my most difficult class.', explanation: '\'Physics\' is a singular subject, so it agrees with the singular past tense verb \'was\'.' },
+                        { sentence: '<span class="subject">Measles</span> <span class="verb">is</span> a contagious disease.', explanation: '\'Measles\' refers to a single illness, so it takes the singular verb \'is\'.' },
+                        { sentence: '<span class="subject">Politics</span> <span class="verb">is</span> a complicated affair.', explanation: '\'Politics\' is treated as a singular concept or field, requiring the singular verb \'is\'.' },
+                        { sentence: '<span class="subject">Economics</span> <span class="verb">deals</span> with the production of wealth.', explanation: 'As a single field of study, \'economics\' is a singular subject and takes the singular verb \'deals\'.' },
+                        { sentence: 'The <span class="subject">series</span> of events <span class="verb">was</span> unexpected.', explanation: '\'Series\' is a singular noun (one series), so the verb is singular (\'was\').' },
+                        { sentence: '<span class="subject">Athletics</span> <span class="verb">provides</span> good training for the body.', explanation: '\'Athletics\' is treated as a single activity, so it takes the singular verb \'provides\'.' },
+                        { sentence: 'The <span class="subject">United States</span> <span class="verb">is</span> a large country.', explanation: '\'The United States\' is the name of a single country, so it is a singular subject and takes the verb \'is\'.' },
+                        { sentence: 'No <span class="subject">news</span> <span class="verb">is</span> good news.', explanation: '\'News\' is always singular, so the verb is \'is\'.' }
+                    ]},
+                    // Rule 15
+                    { id: 'rule15', title: "Rule 15: Plural Nouns (Paired Items)", rule: "Some nouns that refer to a single item made of two parts are always plural and take a plural verb (e.g., `scissors`, `trousers`, `pants`, `glasses`, `pliers`).", examples: [
+                        { sentence: 'My <span class="subject">trousers</span> <span class="verb">are</span> in the laundry.', explanation: '\'Trousers\' is a plural noun, even though it refers to one item of clothing. It requires the plural verb \'are\'.' },
+                        { sentence: 'These <span class="subject">scissors</span> <span class="verb">are</span> not sharp.', explanation: '\'Scissors\' is always plural and takes a plural verb.' },
+                        { sentence: 'Where <span class="verb">are</span> my <span class="subject">glasses</span>?', explanation: '\'Glasses\' (spectacles) is a plural noun, requiring the plural verb \'are\'.' },
+                        { sentence: 'His new <span class="subject">pants</span> <span class="verb">fit</span> him perfectly.', explanation: '\'Pants\' is a plural noun, so it agrees with the plural verb \'fit\'.' },
+                        { sentence: 'The <span class="subject">pliers</span> <span class="verb">were</span> left on the workbench.', explanation: '\'Pliers\' is a plural noun, so it takes the plural verb \'were\'.' },
+                        { sentence: 'Her <span class="subject">jeans</span> <span class="verb">are</span> faded.', explanation: '\'Jeans\' is always plural, so the verb must be plural (\'are\').' },
+                        { sentence: 'The <span class="subject">tweezers</span> <span class="verb">are</span> on the shelf.', explanation: '\'Tweezers\' is a plural noun, requiring the plural verb \'are\'.' },
+                        { sentence: 'My favorite <span class="subject">shorts</span> <span class="verb">have</span> a hole in them.', explanation: '\'Shorts\' is plural and takes the plural verb \'have\'.' },
+                        { sentence: 'The <span class="subject">congratulations</span> you sent <span class="verb">were</span> much appreciated.', explanation: 'Nouns like \'congratulations\' and \'thanks\' are typically plural.' },
+                        { sentence: 'The <span class="subject">shears</span> <span class="verb">need</span> sharpening.', explanation: '\'Shears\' is a plural noun referring to a cutting tool, requiring the verb \'need\'.' }
+                    ]},
+                    // Rule 16
+                    { id: 'rule16', title: "Rule 16: 'A Pair of'", rule: "When a plural noun like `scissors` or `trousers` is preceded by the phrase `a pair of`, the subject becomes 'pair' (singular), and a singular verb is used.", examples: [
+                        { sentence: 'A <span class="subject">pair</span> of trousers <span class="verb">is</span> in the laundry.', explanation: 'The subject is now \'pair\' (singular), not \'trousers\', so it takes the singular verb \'is\'.' },
+                        { sentence: 'This <span class="subject">pair</span> of scissors <span class="verb">is</span> not sharp.', explanation: 'The singular subject \'pair\' requires the singular verb \'is\'.' },
+                        { sentence: 'A new <span class="subject">pair</span> of glasses <span class="verb">was</span> very expensive.', explanation: 'The subject \'pair\' is singular and requires the singular verb \'was\'.' },
+                        { sentence: 'That <span class="subject">pair</span> of jeans <span class="verb">is</span> faded.', explanation: 'The subject \'pair\' is singular, so the verb must be singular (\'is\').' },
+                        { sentence: 'A <span class="subject">pair</span> of pliers <span class="verb">was</span> found at the crime scene.', explanation: 'The singular subject \'pair\' agrees with the singular verb \'was\'.' },
+                        { sentence: 'There <span class="verb">is</span> a <span class="subject">pair</span> of shoes under the bed.', explanation: 'The subject is \'pair\' (singular), requiring the verb \'is\'.' },
+                        { sentence: 'This <span class="subject">pair</span> of shorts <span class="verb">looks</span> brand new.', explanation: 'The singular subject \'pair\' takes the singular verb \'looks\'.' },
+                        { sentence: 'A <span class="subject">pair</span> of socks <span class="verb">is</span> missing.', explanation: 'The subject is \'pair\' (singular), not \'socks\', so the verb is singular.' },
+                        { sentence: 'Where <span class="verb">is</span> that <span class="subject">pair</span> of tweezers?', explanation: 'The subject is the singular \'pair\', so the verb is singular.' },
+                        { sentence: 'A <span class="subject">pair</span> of skates <span class="verb">costs</span> a lot of money.', explanation: 'The subject is \'pair\' (singular), so the verb is singular (\'costs\').' }
+                    ]},
+                     // Rule 17
+                    { id: 'rule17', title: "Rule 17: 'A Number of' vs 'The Number of'", rule: "The expression `'a number of'` is always plural and takes a plural verb. The expression `'the number of'` is always singular and takes a singular verb.", examples: [
+                        { sentence: '<span class="subject">A number</span> of students <span class="verb">were</span> absent today.', explanation: '\'A number of\' means \'many\' and is treated as a plural subject, requiring the plural verb \'were\'.' },
+                        { sentence: '<span class="subject">The number</span> of students absent today <span class="verb">was</span> small.', explanation: '\'The number of\' refers to a specific figure or amount (a single number), which is a singular subject. It takes the singular verb \'was\'.' },
+                        { sentence: '<span class="subject">A number</span> of people <span class="verb">have</span> complained about the noise.', explanation: '\'A number of\' is plural, so it agrees with the plural verb \'have\'.' },
+                        { sentence: '<span class="subject">The number</span> of complaints <span class="verb">has</span> increased.', explanation: '\'The number\' is a singular subject, so it agrees with the singular verb \'has\'.' },
+                        { sentence: '<span class="subject">A number</span> of cars <span class="verb">are</span> parked outside.', explanation: '\'A number of\' is a plural phrase, taking the plural verb \'are\'.' },
+                        { sentence: '<span class="subject">The number</span> of cars allowed <span class="verb">is</span> limited.', explanation: '\'The number\' is a singular subject, taking the singular verb \'is\'.' },
+                        { sentence: '<span class="subject">A number</span> of solutions <span class="verb">exist</span> for this problem.', explanation: '\'A number of\' is plural, so it takes the plural verb \'exist\'.' },
+                        { sentence: '<span class="subject">The number</span> of solutions <span class="verb">is</span> surprising.', explanation: '\'The number\' is singular, so it takes the singular verb \'is\'.' },
+                        { sentence: '<span class="subject">A number</span> of books <span class="verb">are</span> missing.', explanation: '\'A number of\' is plural.' },
+                        { sentence: '<span class="subject">The number</span> of books in the library <span class="verb">exceeds</span> one million.', explanation: '\'The number\' is singular.' }
+                    ]},
+                     // Rule 18
+                    { id: 'rule18', title: "Rule 18: 'Many a'", rule: "The expression `'many a'` is followed by a singular noun and takes a singular verb, even though it implies a plural meaning.", examples: [
+                        { sentence: '<span class="subject">Many a</span> student <span class="verb">has</span> tried to solve this problem.', explanation: 'The phrase \'Many a\' is a formal and literary construction that, despite its plural meaning, always takes a singular noun (\'student\') and a singular verb (\'has\').' },
+                        { sentence: '<span class="subject">Many a</span> man <span class="verb">has</span> fallen victim to temptation.', explanation: 'The verb must be singular (\'has\') to agree with the singular noun \'man\' that follows \'many a\'.' },
+                        { sentence: '<span class="subject">Many a</span> politician <span class="verb">has</span> made that promise.', explanation: 'Even though we are talking about multiple politicians, the grammatical structure requires a singular verb (\'has\').' },
+                        { sentence: '<span class="subject">Many a</span> soldier <span class="verb">was</span> lost in the battle.', explanation: 'The verb is singular (\'was\') to agree with the singular subject \'soldier\'.' },
+                        { sentence: '<span class="subject">Many a</span> time, I <span class="verb">have</span> wondered about that.', explanation: 'Exception: When \'many a time\' modifies a different subject (\'I\'), the verb agrees with that subject.' },
+                        { sentence: '<span class="subject">Many a</span> good idea <span class="verb">is</span> born from a mistake.', explanation: 'The singular subject \'idea\' requires the singular verb \'is\'.' },
+                        { sentence: '<span class="subject">Many a</span> ship <span class="verb">has</span> been lost in that storm.', explanation: 'The verb \'has\' is singular to agree with the singular noun \'ship\'.' },
+                        { sentence: '<span class="subject">Many a</span> flower <span class="verb">is</span> born to blush unseen.', explanation: 'The construction is singular, so the verb is singular (\'is\').' },
+                        { sentence: '<span class="subject">Many a</span> tear <span class="verb">has</span> to fall.', explanation: 'The singular noun \'tear\' takes the singular verb \'has\'.' },
+                        { sentence: '<span class="subject">Many a</span> tale <span class="verb">was</span> told that night.', explanation: 'The verb \'was\' is singular to agree with the singular subject \'tale\'.' }
+                    ]},
+                    // Rule 19
+                    { id: 'rule19', title: "Rule 19: Units of Measurement", rule: "Expressions of time, money, weight, and distance are usually treated as a single unit and take a singular verb.", examples: [
+                        { sentence: '<span class="subject">Ten dollars</span> <span class="verb">is</span> a high price to pay.', explanation: '\'Ten dollars\' is considered a single sum of money, so it takes the singular verb \'is\'.' },
+                        { sentence: '<span class="subject">Fifty miles</span> <span class="verb">is</span> a long way to walk.', explanation: '\'Fifty miles\' is treated as a single distance, requiring the singular verb \'is\'.' },
+                        { sentence: '<span class="subject">Two hours</span> <span class="verb">is</span> not enough time to finish this test.', explanation: '\'Two hours\' represents a single block of time, so the verb is singular.' },
+                        { sentence: '<span class="subject">Five kilograms</span> of sugar <span class="verb">was</span> delivered.', explanation: 'The subject is \'five kilograms\', which is treated as a single quantity. The verb is singular (\'was\').' },
+                        { sentence: '<span class="subject">Ten years</span> <span class="verb">is</span> a long time to wait.', explanation: '\'Ten years\' is considered one period of time.' },
+                        { sentence: '<span class="subject">Twenty dollars</span> <span class="verb">was</span> found on the street.', explanation: 'This refers to a single amount of money.' },
+                        { sentence: '<span class="subject">Three meters</span> of fabric <span class="verb">is</span> what I need for the dress.', explanation: 'The measurement is treated as a single unit.' },
+                        { sentence: '<span class="subject">Two weeks</span> <span class="verb">feels</span> like a long vacation.', explanation: 'The period of time acts as a single entity.' },
+                        { sentence: '<span class="subject">One hundred pounds</span> <span class="verb">is</span> too heavy for me to lift.', explanation: 'The weight is considered a single unit.' },
+                        { sentence: 'Exception: If the units are acting as individuals, use a plural verb. Ex: The <span class="subject">dollars</span> <span class="verb">were</span> scattered on the floor.' }
+                    ]},
+                    // Rule 20
+                    { id: 'rule20', title: "Rule 20: Fractions & Percentages", rule: "With fractions, percentages, and words like `part`, `plenty`, the verb agrees with the object of the `of` phrase.", examples: [
+                        { sentence: 'One-third of this <span class="subject">article</span> <span class="verb">is</span> difficult to understand.', explanation: 'The verb agrees with \'article\' (singular), not \'one-third\'. So, the verb is singular (\'is\').' },
+                        { sentence: 'One-third of the <span class="subject">students</span> <span class="verb">are</span> from this city.', explanation: 'The verb agrees with \'students\' (plural), so the verb is plural (\'are\').' },
+                        { sentence: 'Fifty percent of the <span class="subject">pie</span> <span class="verb">has</span> been eaten.', explanation: 'The verb \'has\' is singular because it refers to \'pie\' (singular).' },
+                        { sentence: 'Fifty percent of the <span class="subject">pies</span> <span class="verb">have</span> been eaten.', explanation: 'The verb \'have\' is plural because it refers to \'pies\' (plural).' },
+                        { sentence: 'A lot of the <span class="subject">work</span> <span class="verb">is</span> still pending.', explanation: 'The verb \'is\' is singular because \'work\' is a singular uncountable noun.' },
+                        { sentence: 'A lot of the <span class="subject">documents</span> <span class="verb">are</span> still pending.', explanation: 'The verb \'are\' is plural because \'documents\' is a plural noun.' },
+                        { sentence: 'The rest of the <span class="subject">story</span> <span class="verb">was</span> boring.', explanation: 'The verb agrees with \'story\' (singular).' },
+                        { sentence: 'The rest of the <span class="subject">chapters</span> <span class="verb">were</span> boring.', explanation: 'The verb agrees with \'chapters\' (plural).' },
+                        { sentence: 'Two-fifths of the <span class="subject">vineyard</span> <span class="verb">was</span> destroyed.', explanation: 'The verb agrees with \'vineyard\' (singular).' },
+                        { sentence: 'Two-fifths of the <span class="subject">grapes</span> <span class="verb">were</span> destroyed.', explanation: 'The verb agrees with \'grapes\' (plural).' }
+                    ]},
+                    // Rule 21
+                    { id: 'rule21', title: "Rule 21: 'One of the...'", rule: "In sentences with the structure `one of the [plural noun]`, the subject is 'one', which is singular. Therefore, it always takes a singular verb.", examples: [
+                        { sentence: '<span class="subject">One</span> of the books <span class="verb">is</span> missing.', explanation: 'The subject is \'One\' (singular), not \'books\'. The phrase \'of the books\' just describes which one. So, the verb is singular (\'is\').' },
+                        { sentence: '<span class="subject">One</span> of my friends <span class="verb">has</span> a new car.', explanation: 'We are talking about one friend, so the subject is singular and takes the verb \'has\'.' },
+                        { sentence: '<span class="subject">One</span> of the reasons for his failure <span class="verb">was</span> his lack of preparation.', explanation: 'The subject is \'One\' (singular), requiring the singular verb \'was\'.' },
+                        { sentence: '<span class="subject">One</span> of the most interesting things about him <span class="verb">is</span> his sense of humor.', explanation: 'The singular subject \'One\' agrees with the singular verb \'is\'.' },
+                        { sentence: '<span class="subject">One</span> of the players <span class="verb">was</span> injured during the game.', explanation: 'The subject is \'One\', which is singular.' },
+                        { sentence: '<span class="subject">One</span> of the cookies <span class="verb">has</span> nuts in it.', explanation: 'The verb \'has\' agrees with the singular subject \'One\'.' },
+                        { sentence: '<span class="subject">One</span> of the buildings <span class="verb">was</span> designed by a famous architect.', explanation: 'The singular subject \'One\' requires the singular verb \'was\'.' },
+                        { sentence: '<span class="subject">One</span> of the candidates <span class="verb">looks</span> very promising.', explanation: 'The subject is \'One\', so the verb is singular (\'looks\').' },
+                        { sentence: '<span class="subject">One</span> of the main problems <span class="verb">is</span> a lack of funding.', explanation: 'The singular subject \'One\' takes the singular verb \'is\'.' },
+                        { sentence: '<span class="subject">One</span> of the teachers <span class="verb">is</span> retiring this year.', explanation: 'We are talking about a single teacher, so the verb is singular.' }
+                    ]},
+                     // Rule 22
+                    { id: 'rule22', title: "Rule 22: 'The only one of the...'", rule: "When the phrase `the only one of the [plural noun]` is used, the subject is still 'one' and therefore singular, requiring a singular verb.", examples: [
+                        { sentence: 'He is <span class="subject">the only one</span> of the students who <span class="verb">has</span> submitted the project.', explanation: 'The phrase \'the only one\' emphasizes singularity. The subject is \'one\', which is singular, so the verb is \'has\'.' },
+                        { sentence: 'This is <span class="subject">the only one</span> of the books that <span class="verb">is</span> worth reading.', explanation: 'The subject is \'one\', not \'books\'. Therefore, the singular verb \'is\' is correct.' },
+                        { sentence: 'She is <span class="subject">the only one</span> of the candidates who <span class="verb">speaks</span> French.', explanation: 'The focus is on \'the only one\', a singular subject, which requires the singular verb \'speaks\'.' },
+                        { sentence: 'This was <span class="subject">the only one</span> of the movies that <span class="verb">was</span> actually good.', explanation: 'The subject \'one\' is singular, so it takes the singular verb \'was\'.' },
+                        { sentence: 'He is <span class="subject">the only one</span> of the employees who <span class="verb">has</span> been promoted.', explanation: 'The subject is the singular \'one\', so the verb is \'has\'.' },
+                        { sentence: 'It is <span class="subject">the only one</span> of the companies that <span class="verb">offers</span> this service.', explanation: 'The subject \'one\' is singular, so the verb is \'offers\'.' },
+                        { sentence: 'She is <span class="subject">the only one</span> of my friends who <span class="verb">understands</span> me.', explanation: 'The verb \'understands\' is singular to agree with the subject \'one\'.' },
+                        { sentence: 'This is <span class="subject">the only one</span> of the dresses that <span class="verb">fits</span> me perfectly.', explanation: 'The subject \'one\' is singular, requiring the singular verb \'fits\'.' },
+                        { sentence: 'He was <span class="subject">the only one</span> of the players who <span class="verb">was</span> not injured.', explanation: 'The subject is \'one\', so the verb is singular (\'was\').' },
+                        { sentence: 'This is <span a class="subject" href="#">the only one</span> of the restaurants that <span class="verb">is</span> open late.', explanation: 'The singular subject \'one\' takes the singular verb \'is\'.' }
+                    ]},
+                     // Rule 23
+                    { id: 'rule23', title: "Rule 23: Relative Pronouns", rule: "When a relative pronoun (`who`, `which`, `that`) is the subject of a clause, the verb in that clause agrees with the **antecedent** (the noun the pronoun refers to).", examples: [
+                        { sentence: 'The <span class="subject">student</span> who <span class="verb">sits</span> next to me is my friend.', explanation: 'The pronoun \'who\' refers to \'student\' (singular). Therefore, the verb in the relative clause is singular (\'sits\').' },
+                        { sentence: 'The <span class="subject">students</span> who <span class="verb">sit</span> in the front row are very attentive.', explanation: 'The pronoun \'who\' refers to \'students\' (plural). Therefore, the verb is plural (\'sit\').' },
+                        { sentence: 'This is the <span class="subject">book</span> that <span class="verb">was</span> recommended to me.', explanation: 'The pronoun \'that\' refers to the singular noun \'book\', so the verb is singular (\'was\').' },
+                        { sentence: 'These are the <span class="subject">books</span> that <span class="verb">were</span> on sale.', explanation: 'The pronoun \'that\' refers to the plural noun \'books\', so the verb is plural (\'were\').' },
+                        { sentence: 'He is one of the <span class="subject">men</span> who <span class="verb">have</span> climbed Mount Everest.', explanation: 'Here, \'who\' refers to \'men\' (plural), not \'one\'. We are talking about the men who have climbed. So, the verb is plural (\'have\'). Compare with Rule 22.' },
+                        { sentence: 'The <span class="subject">car</span> which <span class="verb">is</span> parked outside is mine.', explanation: '\'which\' refers to \'car\' (singular), so the verb is \'is\'.' },
+                        { sentence: 'The <span class="subject">cars</span> which <span class="verb">are</span> parked outside are mine.', explanation: '\'which\' refers to \'cars\' (plural), so the verb is \'are\'.' },
+                        { sentence: 'I admire the <span class="subject">person</span> who <span class="verb">is</span> always honest.', explanation: '\'who\' refers to \'person\' (singular), so the verb is singular.' },
+                        { sentence: 'I admire <span class="subject">people</span> who <span class="verb">are</span> always honest.', explanation: '\'who\' refers to \'people\' (plural), so the verb is plural.' },
+                        { sentence: 'The <span class="subject">computer</span> that <span class="verb">was</span> broken has been repaired.', explanation: '\'that\' refers to the singular noun \'computer\', so the verb is singular (\'was\').' }
+                    ]},
+                     // Rule 24
+                    { id: 'rule24', title: "Rule 24: Titles of Works", rule: "Titles of books, movies, novels, plays, etc., are treated as singular and take a singular verb, even if they contain plural words.", examples: [
+                        { sentence: '"<span class="subject">The Avengers</span>" <span class="verb">is</span> a popular movie.', explanation: 'Even though \'Avengers\' is plural, it is the title of a single movie, so the subject is singular and takes the verb \'is\'.' },
+                        { sentence: '"<span class="subject">The Three Musketeers</span>" <span class="verb">was</span> written by Alexandre Dumas.', explanation: 'The title refers to a single book, so the singular verb \'was\' is used.' },
+                        { sentence: '"<span class="subject">Gulliver\'s Travels</span>" <span class="verb">is</span> a classic novel.', explanation: 'The title of the book is a singular subject.' },
+                        { sentence: '"<span class="subject">Star Wars</span>" <span class="verb">has</span> a huge fan following.', explanation: 'The title of the movie franchise is treated as a single entity.' },
+                        { sentence: '"<span class="subject">The Beatles</span>" <span class="verb">was</span> a famous band.', explanation: 'When referring to the band as a single entity/name, a singular verb can be used.' },
+                        { sentence: '"<span class="subject">The Simpsons</span>" <span class="verb">is</span> a long-running animated series.', explanation: 'The title of the TV show is singular.' },
+                        { sentence: '"<span class="subject">Great Expectations</span>" <span class="verb">is</span> a novel by Charles Dickens.', explanation: 'The title is a singular subject.' },
+                        { sentence: '"<span class="subject">The Fault in Our Stars</span>" <span class="verb">makes</span> me cry every time.', explanation: 'The title of the single work takes a singular verb.' },
+                        { sentence: '"<span class="subject">The Canary Islands</span>" <span class="verb">is</span> a popular tourist destination.', explanation: 'The name refers to a single geographical/political entity.' },
+                        { sentence: '"<span class="subject">The Adventures of Tom Sawyer</span>" <span class="verb">is</span> a story about a young boy.', explanation: 'The title is a singular subject.' }
+                    ]},
+                     // Rule 25
+                    { id: 'rule25', title: "Rule 25: Gerund/Infinitive Phrases", rule: "When a gerund phrase (`-ing` phrase) or an infinitive phrase (`to + verb` phrase) acts as the subject, it is always singular and takes a singular verb.", examples: [
+                        { sentence: '<span class="subject">Running every morning</span> <span class="verb">is</span> good for your health.', explanation: 'The gerund phrase \'Running every morning\' is the subject. It represents a single activity, so it takes the singular verb \'is\'.' },
+                        { sentence: '<span class="subject">To err</span> <span class="verb">is</span> human.', explanation: 'The infinitive \'To err\' is the subject and is treated as a singular concept.' },
+                        { sentence: '<span class="subject">Swimming in the ocean</span> <span class="verb">has</span> been my lifelong passion.', explanation: 'The entire gerund phrase is the subject, representing a single activity, so the verb is singular (\'has\').' },
+                        { sentence: '<span class="subject">To master a new language</span> <span class="verb">requires</span> a lot of practice.', explanation: 'The infinitive phrase acts as a singular subject, so it takes the singular verb \'requires\'.' },
+                        { sentence: '<span class="subject">Eating fruits and vegetables</span> <span class="verb">is</span> essential for a healthy diet.', explanation: 'Even though there are two items, the gerund phrase describes a single activity, so the verb is singular.' },
+                        { sentence: '<span class="subject">To forgive others</span> <span class="verb">is</span> a sign of strength.', explanation: 'The infinitive phrase is the singular subject.' },
+                        { sentence: '<span class="subject">Collecting stamps</span> <span class="verb">was</span> his favorite hobby.', explanation: 'The gerund phrase acts as a singular subject.' },
+                        { sentence: '<span class="subject">To find fault with others</span> <span class="verb">is</span> easy.', explanation: 'The infinitive phrase is a singular subject.' },
+                        { sentence: '<span class="subject">Reading books</span> <span class="verb">expands</span> the mind.', explanation: 'The activity of \'Reading books\' is a singular subject.' },
+                        { sentence: '<span class="subject">To become a doctor</span> <span class="verb">was</span> her childhood dream.', explanation: 'The infinitive phrase acts as a singular subject.' }
+                    ]},
+                    // Rule 26
+                    { id: 'rule26', title: "Rule 26: Noun Clauses", rule: "When a noun clause (`that...`, `what...`, `why...`) acts as the subject of a sentence, it is treated as singular and takes a singular verb.", examples: [
+                        { sentence: '<span class="subject">What he said</span> <span class="verb">was</span> not true.', explanation: 'The entire noun clause \'What he said\' is the subject. It represents a single statement or idea, so it takes the singular verb \'was\'.' },
+                        { sentence: '<span class="subject">That the world is round</span> <span class="verb">is</span> a well-known fact.', explanation: 'The noun clause is the subject, and it functions as a single idea, requiring the singular verb \'is\'.' },
+                        { sentence: '<span class="subject">Why she left so early</span> <span class="verb">remains</span> a mystery.', explanation: 'The noun clause acts as a singular subject, so it agrees with the singular verb \'remains\'.' },
+                        { sentence: '<span class="subject">Whoever wins the race</span> <span class="verb">gets</span> a prize.', explanation: 'The noun clause is the subject. It is treated as singular, so the verb is \'gets\'.' },
+                        { sentence: '<span class="subject">What I need</span> <span class="verb">is</span> a long vacation.', explanation: 'The subject is the entire clause \'What I need\', which is singular and takes the verb \'is\'.' },
+                        { sentence: '<span class="subject">Whether he will come or not</span> <span class="verb">is</span> uncertain.', explanation: 'The noun clause acts as a singular subject.' },
+                        { sentence: '<span class="subject">How he managed to escape</span> <span class="verb">is</span> still a topic of discussion.', explanation: 'The clause is a single concept, so the verb is singular.' },
+                        { sentence: '<span class="subject">That you are here</span> <span class="verb">makes</span> me happy.', explanation: 'The noun clause is a singular subject requiring the verb \'makes\'.' },
+                        { sentence: '<span class="subject">What the future holds</span> <span class="verb">is</span> unknown to everyone.', explanation: 'The subject \'What the future holds\' is treated as a single idea.' },
+                        { sentence: '<span class="subject">Where the treasure is hidden</span> <span class="verb">has</span> been a secret for centuries.', explanation: 'The singular noun clause requires the singular verb \'has\'.' }
+                    ]},
+                ];
+                
+                const combinedRules = rulesData.concat(allRules);
+
+                combinedRules.forEach(ruleData => {
+                    const section = document.createElement('section');
+                    section.id = ruleData.id;
+                    section.classList.add('content-section');
+
+                    let examplesHtml = '';
+                    ruleData.examples.forEach(ex => {
+                        // Check for exception/note styling
+                        if (ex.sentence.includes('<strong>Exception:</strong>') || ex.sentence.includes('<strong>Note:</strong>')) {
+                            examplesHtml += `<li class="rule">${ex.sentence}</li>`;
+                        } else {
+                             examplesHtml += `<li>${ex.sentence}<div class="explanation"><strong>Explanation:</strong> ${ex.explanation}</div></li>`;
+                        }
+                    });
+
+                    section.innerHTML = `
+                        <h2>${ruleData.title}</h2>
+                        <div class="rule">${ruleData.rule}</div>
+                        <h3>10 Examples:</h3>
+                        <ul class="example-list">${examplesHtml}</ul>
+                    `;
+                    mainContent.appendChild(section);
+                });
+
+
+                const navLinks = document.querySelectorAll('.nav-link');
+                const contentSections = document.querySelectorAll('.content-section');
+                const contentColumn = document.querySelector('.content-column');
+
+                navLinks.forEach(link => {
+                    link.addEventListener('click', function(event) {
+                        event.preventDefault();
+
+                        navLinks.forEach(nav => nav.classList.remove('active'));
+                        contentSections.forEach(section => section.classList.remove('active'));
+
+                        this.classList.add('active');
+                        const targetId = this.getAttribute('href');
+                        const targetSection = document.querySelector(targetId);
+                        
+                        if (targetSection) {
+                            targetSection.classList.add('active');
+                            contentColumn.scrollTop = 0;
+                        }
+                    });
+                });
+                
+                // Auto-activate the first link on page load
+                document.querySelector('.nav-link[href="#definition"]').classList.add('active');
+                document.querySelector('#definition').classList.add('active');
+            </script>
+        </main>
+    </div>
+
+</body>
+</html>

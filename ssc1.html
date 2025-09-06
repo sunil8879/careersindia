@@ -1,0 +1,516 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses After SSC (10th) - Careers India</title>
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
+
+<style>
+    :root {
+        --primary-color: #0056b3;
+        --secondary-color: #007bff;
+        --accent-color: #ff6f61;
+        --text-dark: #343a49;
+        --text-light: #6c757d;
+        --bg-light: #f8f9fa;
+        --bg-white: #ffffff;
+        --border-color: #dee2e6;
+        --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+        --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: var(--bg-light);
+        color: var(--text-dark);
+        line-height: 1.6;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    /* --- Filter Controls Styling --- */
+    .filter-container {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 30px;
+        background-color: var(--bg-white);
+        border-radius: 12px;
+        box-shadow: var(--shadow-md);
+        text-align: center;
+    }
+    .filter-container h1 {
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        margin-bottom: 5px;
+    }
+    .filter-container p {
+        color: var(--text-light);
+        margin-bottom: 20px;
+    }
+    #course-search {
+        width: 100%;
+        padding: 15px;
+        font-size: 1.1em;
+        border-radius: 8px;
+        border: 2px solid var(--border-color);
+        margin-top: 20px;
+        margin-bottom: 20px;
+        transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    #course-search:focus {
+        outline: none;
+        border-color: var(--secondary-color);
+        box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+    }
+    #category-filters {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+    #category-filters .filter-btn {
+        padding: 10px 20px;
+        border: 1px solid var(--secondary-color);
+        background-color: var(--bg-white);
+        color: var(--secondary-color);
+        border-radius: 50px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+    #category-filters .filter-btn:hover {
+        background-color: var(--secondary-color);
+        color: var(--bg-white);
+    }
+    #category-filters .filter-btn.active {
+        background-color: var(--primary-color);
+        color: var(--bg-white);
+        border-color: var(--primary-color);
+    }
+    #no-results {
+        display: none;
+        text-align: center;
+        padding: 40px;
+        font-size: 1.2em;
+        color: var(--text-light);
+    }
+
+    /* --- Course List Styling --- */
+    .course-list-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 20px;
+        margin-top: 40px;
+    }
+    .course-item {
+        background: var(--bg-white);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        padding: 20px;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .course-item:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-md);
+    }
+    .course-item h3 {
+        margin: 0;
+        font-size: 1.1rem;
+    }
+    .course-item a {
+        text-decoration: none;
+        color: var(--primary-color);
+        font-weight: 600;
+    }
+    .course-item a:hover {
+        text-decoration: underline;
+    }
+
+    /* --- Back to Top Button --- */
+    #back-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: none;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: var(--accent-color);
+        color: white;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        box-shadow: var(--shadow-md);
+        z-index: 1000;
+    }
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- FILTER CONTROLS -->
+    <div class="filter-container">
+        <h1>Courses After SSC (10th)</h1>
+        <p>Use the search bar to find a specific course or select a category to browse.</p>
+
+        <input type="text" id="course-search" onkeyup="filterCourses()" placeholder="e.g., Search for 'Computer', 'Fashion', 'Health'...">
+
+        <div id="category-filters">
+            <button class="filter-btn active" onclick="filterByCategory('all')">All Courses</button>
+            <button class="filter-btn" onclick="filterByCategory('engineering')">Engineering</button>
+            <button class="filter-btn" onclick="filterByCategory('medical')">Medical & Health</button>
+            <button class="filter-btn" onclick="filterByCategory('commerce')">Commerce & Finance</button>
+            <button class="filter-btn" onclick="filterByCategory('it')">IT & Computer</button>
+            <button class="filter-btn" onclick="filterByCategory('arts')">Arts & Design</button>
+            <button class="filter-btn" onclick="filterByCategory('hospitality')">Hospitality</button>
+            <button class="filter-btn" onclick="filterByCategory('vocational')">Technical/Vocational</button>
+            <button class="filter-btn" onclick="filterByCategory('education')">Education</button>
+        </div>
+    </div>
+    
+    <div id="no-results">
+        <p>😔<br>No courses match your search criteria.</p>
+    </div>
+
+    <!-- COURSE LIST -->
+    <div class="course-list-container" id="course-list">
+        <!-- Engineering Courses -->
+        <div class="course-item" data-category="engineering"><h3><a href="ssc.html#ssc-diploma-in-aeronautical-engineering" target="_blank">Diploma in Aeronautical Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="ssc.html#ssc-diploma-in-agricultural-engineering" target="_blank">Diploma in Agricultural Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="ssc.html#ssc-diploma-in-automobile-engineering" target="_blank">Diploma in Automobile Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="ssc.html#ssc-diploma-in-biomedical-engineering" target="_blank">Diploma in Biomedical Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="ssc.html#ssc-diploma-in-ceramic-technology" target="_blank">Diploma in Ceramic Technology</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="ssc.html#ssc-diploma-in-chemical-engineering" target="_blank">Diploma in Chemical Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="ssc.html#ssc-diploma-in-civil-engineering" target="_blank">Diploma in Civil Engineering</a></h3></div>
+        <div class="course-item" data-category="it"><h3><a href="ssc.html#ssc-diploma-in-computer-science-engineering" target="_blank">Diploma in Computer Science & Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="ssc.html#ssc-diploma-in-electrical-engineering" target="_blank">Diploma in Electrical Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="ssc.html#ssc-diploma-in-electronics-communication-engineering" target="_blank">Diploma in Electronics & Communication Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="ssc.html#ssc-diploma-in-environmental-engineering" target="_blank">Diploma in Environmental Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="ssc.html#ssc-diploma-in-industrial-automation" target="_blank">Diploma in Industrial Automation</a></h3></div>
+        <div class="course-item" data-category="arts"><h3><a href="ssc.html#ssc-diploma-in-industrial-design" target="_blank">Diploma in Industrial Design</a></h3></div>
+        <div class="course-item" data-category="it"><h3><a href="ssc.html#ssc-diploma-in-information-technology-it" target="_blank">Diploma in Information Technology (IT)</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="ssc.html#ssc-diploma-in-instrumentation-engineering" target="_blank">Diploma in Instrumentation Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="ssc.html#ssc-diploma-in-manufacturing-engineering" target="_blank">Diploma in Manufacturing Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="ssc.html#ssc-diploma-in-marine-engineering" target="_blank">Diploma in Marine Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="ssc.html#ssc-diploma-in-mechanical-engineering" target="_blank">Diploma in Mechanical Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="ssc.html#ssc-diploma-in-mechatronics-engineering" target="_blank">Diploma in Mechatronics Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="ssc.html#ssc-diploma-in-metallurgical-engineering" target="_blank">Diploma in Metallurgical Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="ssc.html#ssc-diploma-in-mining-engineering" target="_blank">Diploma in Mining Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="ssc.html#ssc-diploma-in-nanotechnology" target="_blank">Diploma in Nanotechnology</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="ssc.html#ssc-diploma-in-petrochemical-engineering" target="_blank">Diploma in Petrochemical Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="ssc.html#ssc-diploma-in-petroleum-engineering" target="_blank">Diploma in Petroleum Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="ssc.html#ssc-diploma-in-plastic-technology" target="_blank">Diploma in Plastic Technology</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="ssc.html#ssc-diploma-in-power-electronics" target="_blank">Diploma in Power Electronics</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="ssc.html#ssc-diploma-in-power-plant-engineering-operations" target="_blank">Diploma in Power Plant Engineering (Operations)</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="ssc.html#ssc-diploma-in-production-engineering" target="_blank">Diploma in Production Engineering</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="ssc.html#ssc-diploma-in-railway-signalling-telecommunication" target="_blank">Diploma in Railway Signalling and Telecommunication</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="ssc.html#ssc-diploma-in-robotics-engineering" target="_blank">Diploma in Robotics Engineering</a></h3></div>
+        <div class="course-item" data-category="vocational"><h3><a href="ssc.html#ssc-diploma-in-textile-technology" target="_blank">Diploma in Textile Technology</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="ssc.html#ssc-diploma-in-tool-engineering" target="_blank">Diploma in Tool Engineering</a></h3></div>
+        <div class="course-item" data-category="it"><h3><a href="ssc.html#ssc-diploma-in-vlsi-design" target="_blank">Diploma in VLSI Design</a></h3></div>
+        
+        <!-- Medical & Health Courses -->
+        <div class="course-item" data-category="medical"><h3><a href="ssc.html#ssc-diploma-in-agriculture" target="_blank">Diploma in Agriculture</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="ssc.html#ssc-diploma-in-animal-husbandry" target="_blank">Diploma in Animal Husbandry</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="ssc.html#ssc-diploma-in-aquaculture-fish-farming" target="_blank">Diploma in Aquaculture (Fish Farming)</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="ssc.html#ssc-diploma-in-ayurveda-nursing" target="_blank">Diploma in Ayurveda Nursing</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="ssc.html#ssc-diploma-in-dairy-product-manufacturing" target="_blank">Diploma in Dairy Product Manufacturing</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="ssc.html#ssc-diploma-in-dental-hygiene" target="_blank">Diploma in Dental Hygiene</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="ssc.html#ssc-diploma-in-dental-mechanics" target="_blank">Diploma in Dental Mechanics</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="ssc.html#ssc-diploma-in-dialysis-technology" target="_blank">Diploma in Dialysis Technology</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="ssc.html#ssc-diploma-in-electrocardiogram-ecg-technology" target="_blank">Diploma in Electrocardiogram (ECG) Technology</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="ssc.html#ssc-diploma-in-fish-processing-technology" target="_blank">Diploma in Fish Processing Technology</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="ssc.html#ssc-diploma-in-floriculture" target="_blank">Diploma in Floriculture</a></h3></div>
+        <div class="course-item" data-category="hospitality"><h3><a href="ssc.html#ssc-diploma-in-food-production" target="_blank">Diploma in Food Production</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="ssc.html#ssc-diploma-in-food-science" target="_blank">Diploma in Food Science</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="ssc.html#ssc-diploma-in-fruit-vegetable-processing" target="_blank">Diploma in Fruit and Vegetable Processing</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="ssc.html#ssc-diploma-in-grain-processing-technology" target="_blank">Diploma in Grain Processing Technology</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="ssc.html#ssc-diploma-in-horticulture" target="_blank">Diploma in Horticulture</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="ssc.html#ssc-diploma-in-medical-laboratory-technology-mlt" target="_blank">Diploma in Medical Laboratory Technology (MLT)</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="ssc.html#ssc-diploma-in-meat-processing-technology" target="_blank">Diploma in Meat Processing Technology</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="ssc.html#ssc-diploma-in-nursing" target="_blank">Diploma in Nursing</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="ssc.html#ssc-diploma-in-occupational-health-safety" target="_blank">Diploma in Occupational Health and Safety</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="ssc.html#ssc-diploma-in-ophthalmic-technology" target="_blank">Diploma in Ophthalmic Technology</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="ssc.html#ssc-diploma-in-pharmacy" target="_blank">Diploma in Pharmacy</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="ssc.html#ssc-diploma-in-poultry-farming" target="_blank">Diploma in Poultry Farming</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="ssc.html#ssc-diploma-in-radiology-technology" target="_blank">Diploma in Radiology Technology</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="ssc.html#ssc-diploma-in-rural-healthcare" target="_blank">Diploma in Rural Healthcare</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="ssc.html#ssc-diploma-in-sanitary-inspector" target="_blank">Diploma in Sanitary Inspector</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="ssc.html#ssc-diploma-in-seed-technology" target="_blank">Diploma in Seed Technology</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="ssc.html#ssc-diploma-in-sericulture-silk-farming" target="_blank">Diploma in Sericulture (Silk Farming)</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="ssc.html#ssc-diploma-in-x-ray-technology" target="_blank">Diploma in X-Ray Technology</a></h3></div>
+
+        <!-- Commerce & Finance Courses -->
+        <div class="course-item" data-category="commerce"><h3><a href="ssc.html#ssc-diploma-in-advertising-brand-management" target="_blank">Diploma in Advertising and Brand Management</a></h3></div>
+        <div class="course-item" data-category="commerce"><h3><a href="ssc.html#ssc-diploma-in-banking-finance" target="_blank">Diploma in Banking and Finance</a></h3></div>
+        <div class="course-item" data-category="commerce"><h3><a href="ssc.html#ssc-diploma-in-business-administration" target="_blank">Diploma in Business Administration</a></h3></div>
+        <div class="course-item" data-category="commerce"><h3><a href="ssc.html#ssc-diploma-in-business-management" target="_blank">Diploma in Business Management</a></h3></div>
+        <div class="course-item" data-category="commerce"><h3><a href="ssc.html#ssc-diploma-in-carbon-accounting" target="_blank">Diploma in Carbon Accounting</a></h3></div>
+        <div class="course-item" data-category="commerce"><h3><a href="ssc.html#ssc-diploma-in-corporate-communication" target="_blank">Diploma in Corporate Communication</a></h3></div>
+        <div class="course-item" data-category="commerce"><h3><a href="ssc.html#ssc-diploma-in-customs-clearance-freight-forwarding" target="_blank">Diploma in Customs Clearance and Freight Forwarding</a></h3></div>
+        <div class="course-item" data-category="it"><h3><a href="ssc.html#ssc-diploma-in-digital-marketing" target="_blank">Diploma in Digital Marketing</a></h3></div>
+        <div class="course-item" data-category="commerce"><h3><a href="ssc.html#ssc-diploma-in-e-accounting-taxation" target="_blank">Diploma in E-Accounting Taxation</a></h3></div>
+        <div class="course-item" data-category="commerce"><h3><a href="ssc.html#ssc-diploma-in-export-import-management" target="_blank">Diploma in Export-Import Management</a></h3></div>
+        <div class="course-item" data-category="commerce"><h3><a href="ssc.html#ssc-diploma-in-financial-accounting" target="_blank">Diploma in Financial Accounting</a></h3></div>
+        <div class="course-item" data-category="commerce"><h3><a href="ssc.html#ssc-diploma-in-foreign-exchange-management" target="_blank">Diploma in Foreign Exchange Management</a></h3></div>
+        <div class="course-item" data-category="commerce"><h3><a href="ssc.html#ssc-diploma-in-human-resource-management" target="_blank">Diploma in Human Resource Management</a></h3></div>
+        <div class="course-item" data-category="commerce"><h3><a href="ssc.html#ssc-diploma-in-insurance-management" target="_blank">Diploma in Insurance Management</a></h3></div>
+        <div class="course-item" data-category="commerce"><h3><a href="ssc.html#ssc-diploma-in-international-trade" target="_blank">Diploma in International Trade</a></h3></div>
+        <div class="course-item" data-category="commerce"><h3><a href="ssc.html#ssc-diploma-in-investment-management" target="_blank">Diploma in Investment Management</a></h3></div>
+        <div class="course-item" data-category="commerce"><h3><a href="ssc.html#ssc-diploma-in-logistics-management" target="_blank">Diploma in Logistics Management</a></h3></div>
+        <div class="course-item" data-category="commerce"><h3><a href="ssc.html#ssc-diploma-in-marketing-management" target="_blank">Diploma in Marketing Management</a></h3></div>
+        <div class="course-item" data-category="commerce"><h3><a href="ssc.html#ssc-diploma-in-public-relations" target="_blank">Diploma in Public Relations</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="ssc.html#ssc-diploma-in-quantity-surveying" target="_blank">Diploma in Quantity Surveying</a></h3></div>
+        <div class="course-item" data-category="commerce"><h3><a href="ssc.html#ssc-diploma-in-retail-management" target="_blank">Diploma in Retail Management</a></h3></div>
+        <div class="course-item" data-category="commerce"><h3><a href="ssc.html#ssc-diploma-in-risk-insurance" target="_blank">Diploma in Risk and Insurance</a></h3></div>
+        <div class="course-item" data-category="commerce"><h3><a href="ssc.html#ssc-diploma-in-sales-management" target="_blank">Diploma in Sales Management</a></h3></div>
+        <div class="course-item" data-category="commerce"><h3><a href="ssc.html#ssc-diploma-in-sports-management" target="_blank">Diploma in Sports Management</a></h3></div>
+        <div class="course-item" data-category="commerce"><h3><a href="ssc.html#ssc-diploma-in-stock-market-operations" target="_blank">Diploma in Stock Market Operations</a></h3></div>
+        <div class="course-item" data-category="commerce"><h3><a href="ssc.html#ssc-diploma-in-supply-chain-analytics" target="_blank">Diploma in Supply Chain Analytics</a></h3></div>
+        <div class="course-item" data-category="commerce"><h3><a href="ssc.html#ssc-diploma-in-taxation" target="_blank">Diploma in Taxation</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="ssc.html#ssc-diploma-in-urban-planning-assistantship" target="_blank">Diploma in Urban Planning Assistantship</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="ssc.html#ssc-diploma-in-value-engineering" target="_blank">Diploma in Value Engineering</a></h3></div>
+        <div class="course-item" data-category="commerce"><h3><a href="ssc.html#ssc-diploma-in-warehouse-management" target="_blank">Diploma in Warehouse Management</a></h3></div>
+        
+        <!-- Hospitality Courses -->
+        <div class="course-item" data-category="hospitality"><h3><a href="ssc.html#ssc-diploma-in-adventure-tourism" target="_blank">Diploma in Adventure Tourism</a></h3></div>
+        <div class="course-item" data-category="hospitality"><h3><a href="ssc.html#ssc-diploma-in-airline-cabin-crew-ground-staff" target="_blank">Diploma in Airline Cabin Crew and Ground Staff</a></h3></div>
+        <div class="course-item" data-category="hospitality"><h3><a href="ssc.html#ssc-diploma-in-airport-management" target="_blank">Diploma in Airport Management</a></h3></div>
+        <div class="course-item" data-category="hospitality"><h3><a href="ssc.html#ssc-diploma-in-bakery-confectionery" target="_blank">Diploma in Bakery and Confectionery</a></h3></div>
+        <div class="course-item" data-category="hospitality"><h3><a href="ssc.html#ssc-diploma-in-barista-coffee-making" target="_blank">Diploma in Barista and Coffee Making</a></h3></div>
+        <div class="course-item" data-category="hospitality"><h3><a href="ssc.html#ssc-diploma-in-bartending" target="_blank">Diploma in Bartending</a></h3></div>
+        <div class="course-item" data-category="hospitality"><h3><a href="ssc.html#ssc-diploma-in-brewing-distillery-technology" target="_blank">Diploma in Brewing and Distillery Technology</a></h3></div>
+        <div class="course-item" data-category="hospitality"><h3><a href="ssc.html#ssc-diploma-in-culinary-arts-chef-training" target="_blank">Diploma in Culinary Arts (Chef Training)</a></h3></div>
+        <div class="course-item" data-category="hospitality"><h3><a href="ssc.html#ssc-diploma-in-eco-tourism" target="_blank">Diploma in Eco-Tourism</a></h3></div>
+        <div class="course-item" data-category="hospitality"><h3><a href="ssc.html#ssc-diploma-in-food-beverage-service" target="_blank">Diploma in Food and Beverage Service</a></h3></div>
+        <div class="course-item" data-category="hospitality"><h3><a href="ssc.html#ssc-diploma-in-front-office-operations" target="_blank">Diploma in Front Office Operations</a></h3></div>
+        <div class="course-item" data-category="hospitality"><h3><a href="ssc.html#ssc-diploma-in-heritage-tourism" target="_blank">Diploma in Heritage Tourism</a></h3></div>
+        <div class="course-item" data-category="hospitality"><h3><a href="ssc.html#ssc-diploma-in-hotel-management" target="_blank">Diploma in Hotel Management</a></h3></div>
+        <div class="course-item" data-category="hospitality"><h3><a href="ssc.html#ssc-diploma-in-housekeeping-management" target="_blank">Diploma in Housekeeping Management</a></h3></div>
+        <div class="course-item" data-category="hospitality"><h3><a href="ssc.html#ssc-diploma-in-patisserie" target="_blank">Diploma in Patisserie</a></h3></div>
+        <div class="course-item" data-category="hospitality"><h3><a href="ssc.html#ssc-diploma-in-tourism-hospitality-management-advanced" target="_blank">Diploma in Tourism and Hospitality Management (Advanced)</a></h3></div>
+        <div class="course-item" data-category="hospitality"><h3><a href="ssc.html#ssc-diploma-in-travel-agency-management" target="_blank">Diploma in Travel Agency Management</a></h3></div>
+        
+        <!-- Arts & Design Courses -->
+        <div class="course-item" data-category="arts"><h3><a href="ssc.html#ssc-diploma-in-acting" target="_blank">Diploma in Acting</a></h3></div>
+        <div class="course-item" data-category="arts"><h3><a href="ssc.html#ssc-diploma-in-animation-multimedia" target="_blank">Diploma in Animation & Multimedia</a></h3></div>
+        <div class="course-item" data-category="arts"><h3><a href="ssc.html#ssc-diploma-in-architecture" target="_blank">Diploma in Architecture</a></h3></div>
+        <div class="course-item" data-category="arts"><h3><a href="ssc.html#ssc-diploma-in-cinematography" target="_blank">Diploma in Cinematography</a></h3></div>
+        <div class="course-item" data-category="arts"><h3><a href="ssc.html#ssc-diploma-in-commercial-art" target="_blank">Diploma in Commercial Art</a></h3></div>
+        <div class="course-item" data-category="arts"><h3><a href="ssc.html#ssc-diploma-in-content-writing-management" target="_blank">Diploma in Content Writing and Management</a></h3></div>
+        <div class="course-item" data-category="it"><h3><a href="ssc.html#ssc-diploma-in-dtp" target="_blank">Diploma in Desktop Publishing (DTP)</a></h3></div>
+        <div class="course-item" data-category="arts"><h3><a href="ssc.html#ssc-diploma-in-digital-film-making" target="_blank">Diploma in Digital Film Making</a></h3></div>
+        <div class="course-item" data-category="it"><h3><a href="ssc.html#ssc-diploma-in-drone-technology" target="_blank">Diploma in Drone Technology</a></h3></div>
+        <div class="course-item" data-category="arts"><h3><a href="ssc.html#ssc-diploma-in-fashion-design" target="_blank">Diploma in Fashion Design</a></h3></div>
+        <div class="course-item" data-category="arts"><h3><a href="ssc.html#ssc-diploma-in-film-direction" target="_blank">Diploma in Film Direction</a></h3></div>
+        <div class="course-item" data-category="arts"><h3><a href="ssc.html#ssc-diploma-in-film-editing" target="_blank">Diploma in Film Editing</a></h3></div>
+        <div class="course-item" data-category="arts"><h3><a href="ssc.html#ssc-diploma-in-fine-arts" target="_blank">Diploma in Fine Arts</a></h3></div>
+        <div class="course-item" data-category="arts"><h3><a href="ssc.html#ssc-diploma-in-furniture-design" target="_blank">Diploma in Furniture Design</a></h3></div>
+        <div class="course-item" data-category="arts"><h3><a href="ssc.html#ssc-diploma-in-gemology" target="_blank">Diploma in Gemology</a></h3></div>
+        <div class="course-item" data-category="arts"><h3><a href="ssc.html#ssc-diploma-in-graphic-design" target="_blank">Diploma in Graphic Design</a></h3></div>
+        <div class="course-item" data-category="arts"><h3><a href="ssc.html#ssc-diploma-in-interior-design" target="_blank">Diploma in Interior Design</a></h3></div>
+        <div class="course-item" data-category="arts"><h3><a href="ssc.html#ssc-diploma-in-jewellery-design" target="_blank">Diploma in Jewellery Design</a></h3></div>
+        <div class="course-item" data-category="arts"><h3><a href="ssc.html#ssc-diploma-in-jewellery-manufacturing" target="_blank">Diploma in Jewellery Manufacturing</a></h3></div>
+        <div class="course-item" data-category="arts"><h3><a href="ssc.html#ssc-diploma-in-journalism" target="_blank">Diploma in Journalism</a></h3></div>
+        <div class="course-item" data-category="arts"><h3><a href="ssc.html#ssc-diploma-in-landscaping-garden-design" target="_blank">Diploma in Landscaping and Garden Design</a></h3></div>
+        <div class="course-item" data-category="arts"><h3><a href="ssc.html#ssc-diploma-in-music-production" target="_blank">Diploma in Music Production</a></h3></div>
+        <div class="course-item" data-category="vocational"><h3><a href="ssc.html#ssc-diploma-in-painting-polishing" target="_blank">Diploma in Painting and Polishing</a></h3></div>
+        <div class="course-item" data-category="arts"><h3><a href="ssc.html#ssc-diploma-in-photography" target="_blank">Diploma in Photography</a></h3></div>
+        <div class="course-item" data-category="arts"><h3><a href="ssc.html#ssc-diploma-in-pottery-ceramics" target="_blank">Diploma in Pottery and Ceramics</a></h3></div>
+        <div class="course-item" data-category="vocational"><h3><a href="ssc.html#ssc-diploma-in-printing-technology-digital-printing" target="_blank">Diploma in Printing Technology (Digital Printing)</a></h3></div>
+        <div class="course-item" data-category="arts"><h3><a href="ssc.html#ssc-diploma-in-screenwriting" target="_blank">Diploma in Screenwriting</a></h3></div>
+        <div class="course-item" data-category="arts"><h3><a href="ssc.html#ssc-diploma-in-sound-design" target="_blank">Diploma in Sound Design</a></h3></div>
+        <div class="course-item" data-category="arts"><h3><a href="ssc.html#ssc-diploma-in-theatre-arts" target="_blank">Diploma in Theatre Arts</a></h3></div>
+        <div class="course-item" data-category="it"><h3><a href="ssc.html#ssc-diploma-in-ui-ux-design" target="_blank">Diploma in UI/UX Design</a></h3></div>
+        <div class="course-item" data-category="arts"><h3><a href="ssc.html#ssc-diploma-in-video-editing" target="_blank">Diploma in Video Editing</a></h3></div>
+        <div class="course-item" data-category="vocational"><h3><a href="ssc.html#ssc-diploma-in-watch-clock-repairing" target="_blank">Diploma in Watch and Clock Repairing</a></h3></div>
+        
+        <!-- IT & Computer Courses -->
+        <div class="course-item" data-category="it"><h3><a href="ssc.html#ssc-certificate-in-ar-vr" target="_blank">Certificate in Augmented Reality (AR) & Virtual Reality (VR)</a></h3></div>
+        <div class="course-item" data-category="it"><h3><a href="ssc.html#ssc-certificate-in-basic-computer-applications" target="_blank">Certificate in Basic Computer Applications</a></h3></div>
+        <div class="course-item" data-category="it"><h3><a href="ssc.html#ssc-certificate-in-cctv-installation-maintenance" target="_blank">Certificate in CCTV Installation and Maintenance</a></h3></div>
+        <div class="course-item" data-category="it"><h3><a href="ssc.html#ssc-certificate-in-computer-hardware-networking" target="_blank">Certificate in Computer Hardware and Networking</a></h3></div>
+        <div class="course-item" data-category="it"><h3><a href="ssc.html#ssc-certificate-in-copa" target="_blank">Certificate in Computer Operator & Programming Assistant (COPA)</a></h3></div>
+        <div class="course-item" data-category="it"><h3><a href="ssc.html#ssc-certificate-in-cyber-security" target="_blank">Certificate in Cyber Security</a></h3></div>
+        <div class="course-item" data-category="it"><h3><a href="ssc.html#ssc-certificate-in-data-entry-operations" target="_blank">Certificate in Data Entry Operations</a></h3></div>
+        <div class="course-item" data-category="it"><h3><a href="ssc.html#ssc-certificate-in-digital-forensics" target="_blank">Certificate in Digital Forensics</a></h3></div>
+        <div class="course-item" data-category="it"><h3><a href="ssc.html#ssc-certificate-in-ethical-hacking" target="_blank">Certificate in Ethical Hacking</a></h3></div>
+        <div class="course-item" data-category="it"><h3><a href="ssc.html#ssc-certificate-in-embedded-systems" target="_blank">Certificate in Embedded Systems</a></h3></div>
+        <div class="course-item" data-category="it"><h3><a href="ssc.html#ssc-certificate-in-internet-of-things-iot" target="_blank">Certificate in Internet of Things (IoT)</a></h3></div>
+        <div class="course-item" data-category="it"><h3><a href="ssc.html#ssc-certificate-in-mobile-repairing-servicing" target="_blank">Certificate in Mobile Repairing and Servicing</a></h3></div>
+        <div class="course-item" data-category="it"><h3><a href="ssc.html#ssc-certificate-in-network-security" target="_blank">Certificate in Network Security</a></h3></div>
+        <div class="course-item" data-category="it"><h3><a href="ssc.html#ssc-certificate-in-office-automation" target="_blank">Certificate in Office Automation</a></h3></div>
+        <div class="course-item" data-category="it"><h3><a href="ssc.html#ssc-certificate-in-ofc-technology" target="_blank">Certificate in Optical Fibre Cable (OFC) Technology</a></h3></div>
+        <div class="course-item" data-category="it"><h3><a href="ssc.html#ssc-certificate-in-printer-scanner-repair" target="_blank">Certificate in Printer and Scanner Repair</a></h3></div>
+        <div class="course-item" data-category="it"><h3><a href="ssc.html#ssc-certificate-in-programming-languages" target="_blank">Certificate in Programming Languages (C++, Java, Python, etc.)</a></h3></div>
+        <div class="course-item" data-category="it"><h3><a href="ssc.html#ssc-certificate-in-quantum-computing" target="_blank">Certificate in Quantum Computing</a></h3></div>
+        <div class="course-item" data-category="it"><h3><a href="ssc.html#ssc-certificate-in-seo" target="_blank">Certificate in Search Engine Optimization (SEO)</a></h3></div>
+        <div class="course-item" data-category="it"><h3><a href="ssc.html#ssc-certificate-in-social-media-marketing" target="_blank">Certificate in Social Media Marketing</a></h3></div>
+        <div class="course-item" data-category="it"><h3><a href="ssc.html#ssc-certificate-in-web-development" target="_blank">Certificate in Web Development</a></h3></div>
+        
+        <!-- Technical/Vocational Courses -->
+        <div class="course-item" data-category="vocational"><h3><a href="ssc.html#ssc-diploma-in-apiculture-beekeeping" target="_blank">Diploma in Apiculture (Beekeeping)</a></h3></div>
+        <div class="course-item" data-category="vocational"><h3><a href="ssc.html#ssc-diploma-in-boiler-operation-maintenance" target="_blank">Diploma in Boiler Operation and Maintenance</a></h3></div>
+        <div class="course-item" data-category="arts"><h3><a href="ssc.html#ssc-diploma-in-boutique-management" target="_blank">Diploma in Boutique Management</a></h3></div>
+        <div class="course-item" data-category="vocational"><h3><a href="ssc.html#ssc-diploma-in-carpentry-woodwork" target="_blank">Diploma in Carpentry and Woodwork</a></h3></div>
+        <div class="course-item" data-category="vocational"><h3><a href="ssc.html#ssc-diploma-in-cnc-machine-operator" target="_blank">Diploma in CNC Machine Operator</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="ssc.html#ssc-diploma-in-construction-management" target="_blank">Diploma in Construction Management</a></h3></div>
+        <div class="course-item" data-category="vocational"><h3><a href="ssc.html#ssc-diploma-in-corrosion-technology" target="_blank">Diploma in Corrosion Technology</a></h3></div>
+        <div class="course-item" data-category="vocational"><h3><a href="ssc.html#ssc-diploma-in-draughtsman-civil" target="_blank">Diploma in Draughtsman (Civil)</a></h3></div>
+        <div class="course-item" data-category="vocational"><h3><a href="ssc.html#ssc-diploma-in-draughtsman-electrical" target="_blank">Diploma in Draughtsman (Electrical)</a></h3></div>
+        <div class="course-item" data-category="vocational"><h3><a href="ssc.html#ssc-diploma-in-draughtsman-mechanical" target="_blank">Diploma in Draughtsman (Mechanical)</a></h3></div>
+        <div class="course-item" data-category="vocational"><h3><a href="ssc.html#ssc-diploma-in-dressmaking-sewing-technology" target="_blank">Diploma in Dressmaking/Sewing Technology</a></h3></div>
+        <div class="course-item" data-category="vocational"><h3><a href="ssc.html#ssc-diploma-in-electrician" target="_blank">Diploma in Electrician</a></h3></div>
+        <div class="course-item" data-category="vocational"><h3><a href="ssc.html#ssc-diploma-in-fabrication-technology" target="_blank">Diploma in Fabrication Technology</a></h3></div>
+        <div class="course-item" data-category="vocational"><h3><a href="ssc.html#ssc-diploma-in-fitter" target="_blank">Diploma in Fitter</a></h3></div>
+        <div class="course-item" data-category="vocational"><h3><a href="ssc.html#ssc-diploma-in-foundryman" target="_blank">Diploma in Foundryman</a></h3></div>
+        <div class="course-item" data-category="vocational"><h3><a href="ssc.html#ssc-diploma-in-green-building-technology" target="_blank">Diploma in Green Building Technology</a></h3></div>
+        <div class="course-item" data-category="vocational"><h3><a href="ssc.html#ssc-diploma-in-grinder-machining" target="_blank">Diploma in Grinder (Machining)</a></h3></div>
+        <div class="course-item" data-category="vocational"><h3><a href="ssc.html#ssc-diploma-in-hair-skin-care-beautician" target="_blank">Diploma in Hair & Skin Care (Beautician)</a></h3></div>
+        <div class="course-item" data-category="vocational"><h3><a href="ssc.html#ssc-diploma-in-heat-treatment-technology" target="_blank">Diploma in Heat Treatment Technology</a></h3></div>
+        <div class="course-item" data-category="vocational"><h3><a href="ssc.html#ssc-diploma-in-heavy-vehicle-mechanic" target="_blank">Diploma in Heavy Vehicle Mechanic</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="ssc.html#ssc-diploma-in-hydro-power-plant-technology" target="_blank">Diploma in Hydro Power Plant Technology</a></h3></div>
+        <div class="course-item" data-category="vocational"><h3><a href="ssc.html#ssc-diploma-in-industrial-safety" target="_blank">Diploma in Industrial Safety</a></h3></div>
+        <div class="course-item" data-category="vocational"><h3><a href="ssc.html#ssc-diploma-in-lathe-machine-operator" target="_blank">Diploma in Lathe Machine Operator</a></h3></div>
+        <div class="course-item" data-category="vocational"><h3><a href="ssc.html#ssc-diploma-in-leather-goods-manufacturing" target="_blank">Diploma in Leather Goods Manufacturing</a></h3></div>
+        <div class="course-item" data-category="vocational"><h3><a href="ssc.html#ssc-diploma-in-library-information-science" target="_blank">Diploma in Library and Information Science</a></h3></div>
+        <div class="course-item" data-category="vocational"><h3><a href="ssc.html#ssc-diploma-in-machine-tool-technology" target="_blank">Diploma in Machine Tool Technology</a></h3></div>
+        <div class="course-item" data-category="vocational"><h3><a href="ssc.html#ssc-diploma-in-machinist" target="_blank">Diploma in Machinist</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="ssc.html#ssc-diploma-in-maintenance-engineering" target="_blank">Diploma in Maintenance Engineering</a></h3></div>
+        <div class="course-item" data-category="vocational"><h3><a href="ssc.html#ssc-diploma-in-masonry-construction" target="_blank">Diploma in Masonry and Construction</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="ssc.html#ssc-diploma-in-metro-rail-technology" target="_blank">Diploma in Metro Rail Technology</a></h3></div>
+        <div class="course-item" data-category="vocational"><h3><a href="ssc.html#ssc-diploma-in-motor-mechanic-two-four-wheeler" target="_blank">Diploma in Motor Mechanic (Two-Wheeler/Four-Wheeler)</a></h3></div>
+        <div class="course-item" data-category="arts"><h3><a href="ssc.html#ssc-diploma-in-museum-archival-studies" target="_blank">Diploma in Museum and Archival Studies</a></h3></div>
+        <div class="course-item" data-category="vocational"><h3><a href="ssc.html#ssc-diploma-in-ndt" target="_blank">Diploma in Non-Destructive Testing (NDT)</a></h3></div>
+        <div class="course-item" data-category="vocational"><h3><a href="ssc.html#ssc-diploma-in-packaging-technology" target="_blank">Diploma in Packaging Technology</a></h3></div>
+        <div class="course-item" data-category="vocational"><h3><a href="ssc.html#ssc-diploma-in-pattern-making-foundry" target="_blank">Diploma in Pattern Making (Foundry)</a></h3></div>
+        <div class="course-item" data-category="medical"><h3><a href="ssc.html#ssc-diploma-in-pest-management-agricultural" target="_blank">Diploma in Pest Management (Agricultural)</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="ssc.html#ssc-diploma-in-pipeline-engineering" target="_blank">Diploma in Pipeline Engineering</a></h3></div>
+        <div class="course-item" data-category="vocational"><h3><a href="ssc.html#ssc-diploma-in-plumbing-sanitary-engineering" target="_blank">Diploma in Plumbing and Sanitary Engineering</a></h3></div>
+        <div class="course-item" data-category="commerce"><h3><a href="ssc.html#ssc-diploma-in-port-management" target="_blank">Diploma in Port Management</a></h3></div>
+        <div class="course-item" data-category="arts"><h3><a href="ssc.html#ssc-diploma-in-product-design" target="_blank">Diploma in Product Design</a></h3></div>
+        <div class="course-item" data-category="vocational"><h3><a href="ssc.html#ssc-diploma-in-pump-operator-mechanic" target="_blank">Diploma in Pump Operator Mechanic</a></h3></div>
+        <div class="course-item" data-category="vocational"><h3><a href="ssc.html#ssc-diploma-in-quality-control-assurance" target="_blank">Diploma in Quality Control and Assurance</a></h3></div>
+        <div class="course-item" data-category="vocational"><h3><a href="ssc.html#ssc-diploma-in-refrigerator-ac-mechanic" target="_blank">Diploma in Refrigerator and AC Mechanic</a></h3></div>
+        <div class="course-item" data-category="vocational"><h3><a href="ssc.html#ssc-diploma-in-renewable-resource-management" target="_blank">Diploma in Renewable Resource Management</a></h3></div>
+        <div class="course-item" data-category="vocational"><h3><a href="ssc.html#ssc-diploma-in-road-construction" target="_blank">Diploma in Road Construction</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="ssc.html#ssc-diploma-in-rolling-stock-maintenance" target="_blank">Diploma in Rolling Stock Maintenance</a></h3></div>
+        <div class="course-item" data-category="vocational"><h3><a href="ssc.html#ssc-diploma-in-sheet-metal-worker" target="_blank">Diploma in Sheet Metal Worker</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="ssc.html#ssc-diploma-in-ship-building-technology" target="_blank">Diploma in Ship Building Technology</a></h3></div>
+        <div class="course-item" data-category="it"><h3><a href="ssc.html#ssc-diploma-in-smart-home-automation" target="_blank">Diploma in Smart Home Automation</a></h3></div>
+        <div class="course-item" data-category="vocational"><h3><a href="ssc.html#ssc-diploma-in-surveyor" target="_blank">Diploma in Surveyor</a></h3></div>
+        <div class="course-item" data-category="vocational"><h3><a href="ssc.html#ssc-diploma-in-tailoring" target="_blank">Diploma in Tailoring</a></h3></div>
+        <div class="course-item" data-category="engineering"><h3><a href="ssc.html#ssc-diploma-in-thermal-power-plant-technology" target="_blank">Diploma in Thermal Power Plant Technology</a></h3></div>
+        <div class="course-item" data-category="vocational"><h3><a href="ssc.html#ssc-diploma-in-tractor-mechanic" target="_blank">Diploma in Tractor Mechanic</a></h3></div>
+        <div class="course-item" data-category="arts"><h3><a href="ssc.html#ssc-diploma-in-translation-interpretation" target="_blank">Diploma in Translation and Interpretation</a></h3></div>
+        <div class="course-item" data-category="vocational"><h3><a href="ssc.html#ssc-diploma-in-turner" target="_blank">Diploma in Turner</a></h3></div>
+        <div class="course-item" data-category="vocational"><h3><a href="ssc.html#ssc-diploma-in-vocational-training-skill-development" target="_blank">Diploma in Vocational Training and Skill Development</a></h3></div>
+        <div class="course-item" data-category="vocational"><h3><a href="ssc.html#ssc-diploma-in-wastewater-treatment" target="_blank">Diploma in Wastewater Treatment</a></h3></div>
+        <div class="course-item" data-category="vocational"><h3><a href="ssc.html#ssc-diploma-in-water-quality-management" target="_blank">Diploma in Water Quality Management</a></h3></div>
+        <div class="course-item" data-category="vocational"><h3><a href="ssc.html#ssc-diploma-in-welder-various-types" target="_blank">Diploma in Welder (Various types)</a></h3></div>
+        <div class="course-item" data-category="vocational"><h3><a href="ssc.html#ssc-diploma-in-welding-technology" target="_blank">Diploma in Welding Technology</a></h3></div>
+        <div class="course-item" data-category="vocational"><h3><a href="ssc.html#ssc-diploma-in-wireman-lineman" target="_blank">Diploma in Wireman and Lineman</a></h3></div>
+        
+        <!-- Education Courses -->
+        <div class="course-item" data-category="education"><h3><a href="ssc.html#ssc-diploma-in-child-care-education" target="_blank">Diploma in Child Care and Education</a></h3></div>
+        <div class="course-item" data-category="education"><h3><a href="ssc.html#ssc-diploma-in-geriatric-care" target="_blank">Diploma in Geriatric Care</a></h3></div>
+        <div class="course-item" data-category="education"><h3><a href="ssc.html#ssc-diploma-in-special-education-needs" target="_blank">Diploma in Special Education Needs</a></h3></div>
+        <div class="course-item" data-category="education"><h3><a href="ssc.html#ssc-diploma-in-spoken-english-communication-skills" target="_blank">Diploma in Spoken English and Communication Skills</a></h3></div>
+        <div class="course-item" data-category="education"><h3><a href="ssc.html#ssc-diploma-in-ecce" target="_blank">Diploma in Early Childhood Care and Education (ECCE)</a></h3></div>
+        <div class="course-item" data-category="education"><h3><a href="ssc.html#ssc-diploma-in-education-general" target="_blank">Diploma in Education (General)</a></h3></div>
+        <div class="course-item" data-category="education"><h3><a href="ssc.html#ssc-diploma-in-montessori-education" target="_blank">Diploma in Montessori Education</a></h3></div>
+        <div class="course-item" data-category="education"><h3><a href="ssc.html#ssc-diploma-in-physical-education" target="_blank">Diploma in Physical Education</a></h3></div>
+        <div class="course-item" data-category="education"><h3><a href="ssc.html#ssc-diploma-in-remedial-education" target="_blank">Diploma in Remedial Education</a></h3></div>
+        <div class="course-item" data-category="education"><h3><a href="ssc.html#ssc-certificate-in-sports-coaching-specific-sport" target="_blank">Certificate in Sports Coaching (Specific Sport)</a></h3></div>
+        <div class="course-item" data-category="education"><h3><a href="ssc.html#ssc-certificate-in-yoga-instructor" target="_blank">Certificate in Yoga Instructor</a></h3></div>
+        <div class="course-item" data-category="education"><h3><a href="ssc.html#ssc-certificate-in-yoga-naturopathy" target="_blank">Certificate in Yoga and Naturopathy</a></h3></div>
+
+    </div>
+</div>
+
+<button id="back-to-top" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+
+<script>
+    // --- LIVE SEARCH FILTER FUNCTION ---
+    function filterCourses() {
+        const input = document.getElementById('course-search');
+        const filter = input.value.toUpperCase();
+        const courseList = document.getElementById('course-list');
+        const courseItems = courseList.getElementsByClassName('course-item');
+        const noResults = document.getElementById('no-results');
+        let visibleCount = 0;
+
+        for (let i = 0; i < courseItems.length; i++) {
+            const a = courseItems[i].getElementsByTagName("a")[0];
+            const txtValue = a.textContent || a.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                courseItems[i].style.display = "";
+                visibleCount++;
+            } else {
+                courseItems[i].style.display = "none";
+            }
+        }
+        noResults.style.display = visibleCount === 0 ? "block" : "none";
+    }
+
+    // --- CATEGORY FILTER FUNCTION ---
+    function filterByCategory(category) {
+        const courseItems = document.querySelectorAll('.course-item');
+        const buttons = document.querySelectorAll('#category-filters .filter-btn');
+        const noResults = document.getElementById('no-results');
+        let visibleCount = 0;
+
+        buttons.forEach(button => {
+            if (button.getAttribute('onclick') === `filterByCategory('${category}')`) {
+                button.classList.add('active');
+            } else {
+                button.classList.remove('active');
+            }
+        });
+
+        courseItems.forEach(item => {
+            if (category === 'all' || item.dataset.category === category) {
+                item.style.display = "";
+                visibleCount++;
+            } else {
+                item.style.display = "none";
+            }
+        });
+        
+        noResults.style.display = visibleCount === 0 ? "block" : "none";
+        document.getElementById('course-search').value = ""; // Clear search bar
+    }
+
+    // --- BACK TO TOP BUTTON SCRIPT ---
+    const topButton = document.getElementById("back-to-top");
+    window.onscroll = function() {
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            topButton.style.display = "block";
+        } else {
+            topButton.style.display = "none";
+        }
+    };
+    topButton.onclick = function() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    };
+</script>
+
+</body>
+</html>

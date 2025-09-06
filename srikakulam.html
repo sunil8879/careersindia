@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schools in Srikakulam</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #FF416C;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #FF4B2B, #FF416C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+        
+        .header {
+            padding: 25px;
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 3.2em;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .header p {
+            font-size: 1.3em;
+            font-weight: 400;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .school-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .school-card::before {
+            content: '🏫';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 80px;
+            opacity: 0.08;
+            transform: rotate(-15deg);
+        }
+
+        .school-card h3 {
+            margin: 0 0 15px 0;
+            color: #d35400;
+            font-size: 1.4em;
+            font-weight: 600;
+        }
+
+        .school-card p {
+            margin: 3px 0;
+            color: #555;
+            font-size: 1em;
+            line-height: 1.6;
+        }
+
+        .school-card a {
+            color: #e67e22;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .school-card a:hover {
+            text-decoration: underline;
+        }
+
+        .not-available {
+            color: #95a5a6;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h1>Schools in Srikakulam</h1>
+            <p>Andhra Pradesh</p>
+        </div>
+
+        <div class="grid">
+            <div class="school-card"><h3>Kendriya Vidyalaya</h3><p><strong>Board:</strong> CBSE</p><p><strong>Location:</strong> Srikakulam</p><p><strong>Website:</strong> <a href="https://srikakulam.kvs.ac.in" target="_blank">srikakulam.kvs.ac.in</a></p></div>
+            <div class="school-card"><h3>Jawahar Navodaya Vidyalaya</h3><p><strong>Board:</strong> CBSE</p><p><strong>Location:</strong> Srikakulam</p><p><strong>Website:</strong> <a href="http://navodaya.gov.in" target="_blank">navodaya.gov.in</a></p></div>
+            <div class="school-card"><h3>Sri Chaitanya Techno School</h3><p><strong>Board:</strong> State Board</p><p><strong>Location:</strong> Srikakulam</p><p><strong>Website:</strong> <a href="http://srichaitanyaschool.net" target="_blank">srichaitanyaschool.net</a></p></div>
+            <div class="school-card"><h3>Narayana e-Techno School</h3><p><strong>Board:</strong> State Board</p><p><strong>Location:</strong> Srikakulam</p><p><strong>Website:</strong> <a href="http://narayanaschools.in" target="_blank">narayanaschools.in</a></p></div>
+            <div class="school-card"><h3>Gowtham Model School</h3><p><strong>Board:</strong> State Board</p><p><strong>Location:</strong> Srikakulam</p><p><strong>Website:</strong> <span class="not-available">Not Available</span></p></div>
+            <div class="school-card"><h3>Akshara Concept School</h3><p><strong>Board:</strong> State Board</p><p><strong>Location:</strong> Srikakulam</p><p><strong>Website:</strong> <span class="not-available">Not Available</span></p></div>
+            <div class="school-card"><h3>Maharshi Vidya Mandir</h3><p><strong>Board:</strong> CBSE</p><p><strong>Location:</strong> Srikakulam</p><p><strong>Website:</strong> <span class="not-available">Not Available</span></p></div>
+            <div class="school-card"><h3>St. Ann's English Medium School</h3><p><strong>Board:</strong> ICSE</p><p><strong>Location:</strong> Srikakulam</p><p><strong>Website:</strong> <span class="not-available">Not Available</span></p></div>
+            <div class="school-card"><h3>Bethany School</h3><p><strong>Board:</strong> ICSE</p><p><strong>Location:</strong> Srikakulam</p><p><strong>Website:</strong> <span class="not-available">Not Available</span></p></div>
+            <div class="school-card"><h3>Sri Gayatri Vidya Niketan</h3><p><strong>Board:</strong> State Board</p><p><strong>Location:</strong> Srikakulam</p><p><strong>Website:</strong> <span class="not-available">Not Available</span></p></div>
+            <div class="school-card"><h3>Vikas Vidya Niketan</h3><p><strong>Board:</strong> State Board</p><p><strong>Location:</strong> Srikakulam</p><p><strong>Website:</strong> <span class="not-available">Not Available</span></p></div>
+            <div class="school-card"><h3>Aditya Public School</h3><p><strong>Board:</strong> State Board</p><p><strong>Location:</strong> Srikakulam</p><p><strong>Website:</strong> <span class="not-available">Not Available</span></p></div>
+            <div class="school-card"><h3>Viswabharati English Medium School</h3><p><strong>Board:</strong> State Board</p><p><strong>Location:</strong> Srikakulam</p><p><strong>Website:</strong> <span class="not-available">Not Available</span></p></div>
+            <div class="school-card"><h3>Montessori English Medium School</h3><p><strong>Board:</strong> State Board</p><p><strong>Location:</strong> Srikakulam</p><p><strong>Website:</strong> <span class="not-available">Not Available</span></p></div>
+            <div class="school-card"><h3>Zilla Parishad High School</h3><p><strong>Board:</strong> State Board</p><p><strong>Location:</strong> Srikakulam</p><p><strong>Website:</strong> <span class="not-available">Not Available</span></p></div>
+            <div class="school-card"><h3>Municipal High School</h3><p><strong>Board:</strong> State Board</p><p><strong>Location:</strong> Srikakulam</p><p><strong>Website:</strong> <span class="not-available">Not Available</span></p></div>
+            <div class="school-card"><h3>Saraswathi Vidya Mandir</h3><p><strong>Board:</strong> State Board</p><p><strong>Location:</strong> Srikakulam</p><p><strong>Website:</strong> <span class="not-available">Not Available</span></p></div>
+            <div class="school-card"><h3>Sri Satya Sai Vidya Vihar</h3><p><strong>Board:</strong> CBSE</p><p><strong>Location:</strong> Srikakulam</p><p><strong>Website:</strong> <span class="not-available">Not Available</span></p></div>
+            <div class="school-card"><h3>Ushodaya Public School</h3><p><strong>Board:</strong> State Board</p><p><strong>Location:</strong> Srikakulam</p><p><strong>Website:</strong> <span class="not-available">Not Available</span></p></div>
+            <div class="school-card"><h3>Ravindra Bharathi School</h3><p><strong>Board:</strong> State Board</p><p><strong>Location:</strong> Srikakulam</p><p><strong>Website:</strong> <span class="not-available">Not Available</span></p></div>
+            <div class="school-card"><h3>Little Angels School</h3><p><strong>Board:</strong> State Board</p><p><strong>Location:</strong> Srikakulam</p><p><strong>Website:</strong> <span class="not-available">Not Available</span></p></div>
+            <div class="school-card"><h3>Pragati Vidya Niketan</h3><p><strong>Board:</strong> State Board</p><p><strong>Location:</strong> Srikakulam</p><p><strong>Website:</strong> <span class="not-available">Not Available</span></p></div>
+            <div class="school-card"><h3>Geetham School</h3><p><strong>Board:</strong> CBSE</p><p><strong>Location:</strong> Srikakulam</p><p><strong>Website:</strong> <span class="not-available">Not Available</span></p></div>
+            <div class="school-card"><h3>Apollo Public School</h3><p><strong>Board:</strong> State Board</p><p><strong>Location:</strong> Srikakulam</p><p><strong>Website:</strong> <span class="not-available">Not Available</span></p></div>
+            <div class="school-card"><h3>Sri Vidya Vihar English Medium School</h3><p><strong>Board:</strong> State Board</p><p><strong>Location:</strong> Srikakulam</p><p><strong>Website:</strong> <span class="not-available">Not Available</span></p></div>
+        </div>
+    </div>
+
+</body>
+</html>

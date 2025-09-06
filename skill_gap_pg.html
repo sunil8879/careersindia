@@ -1,0 +1,1691 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Gap Analyser for Doctoral Programs</title>
+
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔬</text></svg>">
+
+<style>
+    :root {
+        --primary-color: #0056b3;
+        --secondary-color: #007bff;
+        --success-color: #28a745;
+        --warning-color: #ffc107;
+        --text-dark: #343a49;
+        --text-light: #6c757d;
+        --bg-light: #f8f9fa;
+        --bg-white: #ffffff;
+        --border-color: #dee2e6;
+        --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+        --modern-blue: #3b82f6;
+        --turquoise: #14b8a6;
+    }
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: var(--bg-light);
+        color: var(--text-dark);
+        line-height: 1.6;
+        margin: 0;
+        padding: 20px;
+    }
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    .analyser-box {
+        background-color: var(--bg-white);
+        border-radius: 12px;
+        box-shadow: var(--shadow-md);
+        padding: 30px 40px;
+        margin-bottom: 30px;
+    }
+    h1, h2 {
+        color: var(--primary-color);
+        text-align: center;
+    }
+    h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+    }
+    .intro-text {
+        color: var(--text-light);
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    label {
+        font-weight: 600;
+        display: block;
+        margin-bottom: 10px;
+        font-size: 1.1rem;
+    }
+    select {
+        width: 100%;
+        padding: 15px;
+        font-size: 1.1em;
+        border-radius: 8px;
+        border: 2px solid var(--border-color);
+        transition: border-color 0.3s, box-shadow 0.3s;
+        cursor: pointer;
+    }
+    select:focus {
+        outline: none;
+        border-color: var(--secondary-color);
+        box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+    }
+
+    /* Questions Styling */
+    #questions-container {
+        margin-top: 30px;
+        border-top: 1px solid var(--border-color);
+        padding-top: 20px;
+    }
+    .question-block {
+        margin-bottom: 35px;
+    }
+    .question-block p {
+        font-weight: 500;
+        margin-bottom: 15px;
+        color: var(--text-dark);
+    }
+    .slider-container {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+    .slider-container span {
+        font-size: 0.9em;
+        color: var(--text-light);
+        width: 50px;
+    }
+    .slider-container span:last-of-type {
+        text-align: right;
+    }
+    input[type="range"] {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 100%;
+        height: 8px;
+        background: #e9ecef;
+        border-radius: 5px;
+        outline: none;
+        opacity: 0.9;
+        transition: opacity .2s;
+    }
+    input[type="range"]:hover {
+        opacity: 1;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 24px;
+        height: 24px;
+        background: var(--secondary-color);
+        cursor: pointer;
+        border-radius: 50%;
+        border: 3px solid white;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    input[type="range"]::-moz-range-thumb {
+        width: 24px;
+        height: 24px;
+        background: var(--secondary-color);
+        cursor: pointer;
+        border-radius: 50%;
+        border: 3px solid white;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    .slider-container output {
+        font-weight: 600;
+        color: var(--primary-color);
+        background-color: #e9f3ff;
+        padding: 5px 12px;
+        border-radius: 6px;
+        min-width: 20px;
+        text-align: center;
+    }
+
+    /* Button Styling */
+    .btn {
+        display: block;
+        width: 100%;
+        padding: 15px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        border-radius: 8px;
+        border: none;
+        background-color: var(--secondary-color);
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        margin-top: 20px;
+    }
+    .btn:hover {
+        background-color: var(--primary-color);
+    }
+
+    /* Results Styling */
+    #results-container {
+        margin-top: 20px;
+        padding: 25px;
+        border-radius: 8px;
+        background-color: var(--bg-light);
+        border: 1px solid var(--border-color);
+    }
+    #results-container h3 {
+        margin-top: 0;
+        color: var(--primary-color);
+        text-align: center;
+        margin-bottom: 25px;
+    }
+    #results-container h4 {
+        margin-top: 25px;
+        margin-bottom: 10px;
+    }
+    .progress-bar-container {
+        width: 100%;
+        background-color: #e9ecef;
+        border-radius: 8px;
+        height: 28px;
+        overflow: hidden;
+    }
+    .progress-bar-fill {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 600;
+        font-size: 0.9em;
+        border-radius: 8px 0 0 8px;
+        transition: width 0.8s ease-in-out;
+    }
+    .progress-bar-fill.blue { background-color: var(--modern-blue); }
+    .progress-bar-fill.turquoise { background-color: var(--turquoise); }
+    
+    .conclusion {
+        margin-top: 25px;
+        font-weight: 500;
+        background-color: #e9f3ff;
+        padding: 20px;
+        border-radius: 8px;
+        border-left: 5px solid var(--modern-blue);
+        line-height: 1.7;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="analyser-box">
+        <h1><i class="fas fa-flask-vial"></i> Doctoral & Fellowship Skill Analyser</h1>
+        <p class="intro-text">Select a Ph.D., medical specialization, or fellowship to assess your readiness for advanced research and practice.</p>
+
+        <div>
+            <label for="course-select">Choose a Doctoral or Post-Doc Path:</label>
+            <select id="course-select" onchange="displayQuestions()">
+                <option value="">-- Please select a program --</option>
+                <!-- Options will be populated by JavaScript -->
+            </select>
+        </div>
+
+        <!-- This container will be filled with questions by JavaScript -->
+        <div id="questions-container" style="display: none;"></div>
+
+        <!-- This container will show the final analysis -->
+        <div id="results-container" style="display: none;"></div>
+
+    </div>
+</div>
+
+
+<script>
+    // --- CORE FUNCTIONS ---
+
+    /**
+     * Populates the course dropdown menu when the page loads.
+     */
+    function populateDropdown() {
+        const selectElement = document.getElementById('course-select');
+        
+        // Sort courses alphabetically by name before populating
+        const sortedCourses = Object.entries(courseData).sort(([,a],[,b]) => a.name.localeCompare(b.name));
+
+        for (const [key, course] of sortedCourses) {
+            const option = document.createElement('option');
+            option.value = key;
+            option.textContent = course.name;
+            selectElement.appendChild(option);
+        }
+    }
+
+    /**
+     * Displays the questions for the selected course as sliders.
+     */
+    function displayQuestions() {
+        const courseSelect = document.getElementById('course-select');
+        const questionsContainer = document.getElementById('questions-container');
+        const resultsContainer = document.getElementById('results-container');
+        const selectedCourseId = courseSelect.value;
+
+        // Hide results and clear previous questions
+        questionsContainer.innerHTML = '';
+        resultsContainer.style.display = 'none';
+        resultsContainer.innerHTML = '';
+
+        if (!selectedCourseId) {
+            questionsContainer.style.display = 'none';
+            return;
+        }
+
+        const courseInfo = courseData[selectedCourseId];
+        if (!courseInfo || !courseInfo.questions) {
+            console.error("No data found for course: " + selectedCourseId);
+            questionsContainer.innerHTML = '<p>Sorry, data for this course is not available.</p>';
+            questionsContainer.style.display = 'block';
+            return;
+        }
+
+        let questionsHTML = '<h2>Assess Your Advanced Skills</h2>';
+        courseInfo.questions.forEach((q, index) => {
+            questionsHTML += `
+                <div class="question-block" data-skill-name="${q.skill}">
+                    <p>${index + 1}. ${q.q}</p>
+                    <div class="slider-container">
+                        <span>Nascent</span>
+                        <input type="range" min="1" max="5" value="3" class="skill-slider" name="q${index}" oninput="this.nextElementSibling.value = this.value">
+                        <output>3</output>
+                        <span>Expert</span>
+                    </div>
+                </div>
+            `;
+        });
+
+        questionsHTML += '<button class="btn" onclick="calculateScore()">Analyse My Skill Readiness</button>';
+        questionsContainer.innerHTML = questionsHTML;
+        questionsContainer.style.display = 'block';
+    }
+
+    /**
+     * Calculates the score, skill gap, and other metrics based on slider answers.
+     */
+    function calculateScore() {
+        const courseSelect = document.getElementById('course-select');
+        const selectedCourseId = courseSelect.value;
+        const courseInfo = courseData[selectedCourseId];
+        
+        let totalUserScore = 0;
+        let skillGapIndex = 0;
+        const skillDetails = [];
+        
+        const sliders = document.querySelectorAll('.skill-slider');
+        const requiredLevel = courseInfo.requiredLevel || 5; // Default to 5 for advanced degrees
+
+        sliders.forEach((slider) => {
+            const userLevel = parseInt(slider.value);
+            const skillName = slider.closest('.question-block').dataset.skillName;
+            const gap = requiredLevel - userLevel;
+
+            totalUserScore += userLevel;
+            if (gap > 0) {
+                skillGapIndex += gap;
+            }
+            
+            skillDetails.push({ name: skillName, level: userLevel, gap: Math.max(0, gap) });
+        });
+        
+        const maxPossibleScore = sliders.length * 5;
+        const scorePercentage = (totalUserScore / maxPossibleScore) * 100;
+
+        displayResults(selectedCourseId, scorePercentage, skillGapIndex, skillDetails);
+    }
+
+    /**
+     * Displays the results based on the calculated scores.
+     */
+    /**
+     * Displays the results based on the calculated scores, including progress bars and the text summary.
+     */
+    function displayResults(courseId, scorePercentage, skillGapIndex, skillDetails) {
+        const resultsContainer = document.getElementById('results-container');
+        const courseName = courseData[courseId].name;
+        const requiredLevel = courseData[courseId].requiredLevel || 5;
+
+        // --- Calculations for Bars and Text ---
+        const roundedScore = Math.round(scorePercentage);
+
+        let readinessLevel;
+        let generalStatement;
+
+        if (roundedScore <= 30) {
+            readinessLevel = 'Beginner';
+            generalStatement = 'You have a great opportunity to build a solid foundation across all required skills.';
+        } else if (roundedScore <= 60) {
+            readinessLevel = 'Intermediate';
+            generalStatement = 'You have a solid foundation and can become an expert with focused effort in key areas.';
+        } else {
+            readinessLevel = 'Advanced';
+            generalStatement = 'You are well-prepared and demonstrate a strong alignment with the requirements for this course.';
+        }
+
+        const maxSkillGap = skillDetails.length * (requiredLevel - 1);
+        const gapBarPercentage = maxSkillGap > 0 ? (skillGapIndex / maxSkillGap) * 100 : 0;
+
+        const weakSkills = skillDetails.filter(s => s.gap > 0).sort((a, b) => b.gap - a.gap);
+        
+        // --- Build the HTML String ---
+        let resultsHTML = `<h3>Your Skill Analysis for ${courseName}</h3>`;
+
+        // Add the progress bars back
+        resultsHTML += `
+            <h4>Skill Readiness Score: <span class="readiness-level-text">${readinessLevel}</span></h4>
+            <div class="progress-bar-container">
+                <div class="progress-bar-fill blue" style="width: 0%;">${roundedScore}%</div>
+            </div>
+            <h4>Skill Gap Index: <span class="gap-index-value">${skillGapIndex}</span></h4>
+            <p style="font-size:0.8em; color: var(--text-light); margin-top: -5px;">(The total levels needed to reach proficiency)</p>
+            <div class="progress-bar-container">
+                 <div class="progress-bar-fill turquoise" style="width: 0%;">${skillGapIndex}</div>
+            </div>
+        `;
+        
+        // Prepare the text summary content
+        let gapsText = '';
+        if (weakSkills.length > 0) {
+            const biggestGaps = weakSkills.slice(0, 3).map(s => s.name).join(', ');
+            gapsText = `<p>Biggest gaps: ${biggestGaps}.</p>`;
+        } else {
+            gapsText = '<p>You have no significant skill gaps! Your skills are exceptionally well-aligned.</p>';
+        }
+
+        let timeToCloseGapText = '';
+        if (skillGapIndex > 0) {
+            const months = Math.max(1, Math.ceil(skillGapIndex * 3));
+            timeToCloseGapText = `<p>With focused learning, you can close your skill gap in ~${months} ${months === 1 ? 'month' : 'months'}.</p>`;
+        }
+
+        let suggestedCoursesText = '';
+        if (weakSkills.length > 0) {
+            suggestedCoursesText = '<p>Suggested Courses: [Focus on certificate courses, workshops, or online modules in your gap areas].</p>';
+        }
+
+        // Add the text summary box
+        resultsHTML += `
+            <div class="conclusion" style="text-align: center; font-size: 1.1rem; line-height: 1.8;">
+                <p>You’re ${roundedScore}% ready for a career related to ${courseName}.</p>
+                <p>${generalStatement}</p>
+                ${gapsText}
+                ${timeToCloseGapText}
+                ${suggestedCoursesText}
+                <p>Keep going 🚀 — your Skill Readiness Level = ${readinessLevel}!</p>
+            </div>
+        `;
+
+        resultsContainer.innerHTML = resultsHTML;
+        resultsContainer.style.display = 'block';
+        
+        // Animate bars after rendering
+        setTimeout(() => {
+            const blueBar = resultsContainer.querySelector('.progress-bar-fill.blue');
+            const turquoiseBar = resultsContainer.querySelector('.progress-bar-fill.turquoise');
+            if(blueBar) blueBar.style.width = `${scorePercentage}%`;
+            if(turquoiseBar) turquoiseBar.style.width = `${gapBarPercentage}%`;
+        }, 100);
+
+        resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // Run the populateDropdown function once the window has loaded
+    window.onload = populateDropdown;
+
+    // --- COMPLETE COURSE DATA OBJECT FOR POST-POSTGRADUATION ---
+    const courseData = {
+        // --- Ph.D. (Arts & Humanities) ---
+        "pg-phd-literature": {
+            name: "Ph.D. in Literature",
+            questions: [
+                { q: "How deep is your engagement with literary theory and your ability to formulate a unique theoretical framework?", skill: "Theoretical Depth" },
+                { q: "Rate your proficiency in conducting original archival research and working with primary literary sources.", skill: "Archival Research" },
+                { q: "How skilled are you at constructing a book-length, original argument that contributes to literary scholarship?", skill: "Original Argumentation" },
+                { q: "Assess your ability to perform nuanced close readings that reveal complex layers of meaning in a text.", skill: "Critical Analysis" },
+                { q: "How strong is your command of the literary and critical history (historiography) of your chosen field?", skill: "Historiography" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-history": {
+            name: "Ph.D. in History",
+            questions: [
+                { q: "How deep is your knowledge of the historiography and major theoretical debates within your chosen historical field?", skill: "Historiographical Mastery" },
+                { q: "Rate your ability to conduct extensive, original research using primary sources from archives.", skill: "Archival Research" },
+                { q: "How skilled are you at crafting a compelling, thesis-driven historical narrative of significant length?", skill: "Historical Argumentation" },
+                { q: "Assess your ability to critically analyze sources for bias, context, and subtext.", skill: "Source Criticism" },
+                { q: "How strong is your aptitude for engaging with interdisciplinary methods (e.g., from anthropology, sociology) in your research?", skill: "Interdisciplinary Approach" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-philosophy": {
+            name: "Ph.D. in Philosophy",
+            questions: [
+                { q: "How skilled are you in constructing highly rigorous, logically sound arguments to defend a philosophical position?", skill: "Rigorous Argumentation" },
+                { q: "Rate your ability to make an original contribution to a long-standing philosophical debate.", skill: "Original Contribution" },
+                { q: "How deep is your mastery of the primary texts and history of your specialized area of philosophy?", skill: "Textual Mastery" },
+                { q: "Assess your proficiency in formal logic and your ability to apply it in philosophical analysis.", skill: "Formal Logic" },
+                { q: "How strong is your ability to anticipate and convincingly refute potential objections to your arguments?", skill: "Dialectical Skill" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-sociology": {
+            name: "Ph.D. in Sociology",
+            questions: [
+                { q: "How deep is your mastery of classical and contemporary sociological theory?", skill: "Theoretical Mastery" },
+                { q: "Rate your proficiency in advanced quantitative and/or qualitative research methodologies to study social phenomena.", skill: "Advanced Research Methods" },
+                { q: "How skilled are you at formulating a research question that makes a significant, original contribution to the field?", skill: "Original Research Framing" },
+                { q: "Assess your ability to analyze complex social data and derive meaningful theoretical insights.", skill: "Data Analysis & Theory" },
+                { q: "How strong is your ability to write scholarly articles and a dissertation that engage with major sociological debates?", skill: "Scholarly Writing" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-economics": {
+            name: "Ph.D. in Economics",
+            questions: [
+                { q: "How strong is your mastery of advanced microeconomic, macroeconomic, and econometric theory?", skill: "Advanced Economic Theory" },
+                { q: "Rate your ability to develop original economic models to explain real-world phenomena.", skill: "Economic Modeling" },
+                { q: "How proficient are you in using advanced econometric techniques and software (Stata, R) for empirical research?", skill: "Advanced Econometrics" },
+                { q: "Assess your ability to identify a novel research question and contribute to the economic literature.", skill: "Original Research" },
+                { q: "How high is your mathematical aptitude for rigorous theoretical work?", skill: "Mathematical Aptitude" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-political-science": {
+            name: "Ph.D. in Political Science",
+            questions: [
+                { q: "How deep is your knowledge of political theory and the major debates in your subfield (e.g., Comparative, IR)?", skill: "Theoretical Depth" },
+                { q: "Rate your proficiency in designing and executing an original research project using appropriate methodologies.", skill: "Research Design" },
+                { q: "How skilled are you in advanced quantitative or qualitative data analysis to test political hypotheses?", skill: "Advanced Data Analysis" },
+                { q: "Assess your ability to formulate an argument that makes a significant contribution to political science literature.", skill: "Original Contribution" },
+                { q: "How strong is your ability to engage critically with and build upon existing scholarly work?", skill: "Literature Engagement" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-psychology": {
+            name: "Ph.D. in Psychology",
+            questions: [
+                { q: "How deep is your theoretical knowledge in your specific area of psychological research (e.g., cognitive, social)?", skill: "Specialized Theory" },
+                { q: "Rate your proficiency in advanced research design and statistical analysis (e.g., multivariate stats, SEM).", skill: "Advanced Research Methods" },
+                { q: "How skilled are you at developing a novel and testable research hypothesis?", skill: "Hypothesis Generation" },
+                { q: "Assess your ability to write research manuscripts suitable for publication in peer-reviewed journals.", skill: "Scientific Writing" },
+                { q: "How strong is your understanding of the ethical principles governing psychological research?", skill: "Research Ethics" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-anthropology": {
+            name: "Ph.D. in Anthropology",
+            questions: [
+                { q: "How skilled are you at formulating an original research project grounded in anthropological theory?", skill: "Research Framing" },
+                { q: "Rate your ability to conduct long-term, independent ethnographic fieldwork.", skill: "Independent Fieldwork" },
+                { q: "How deep is your theoretical mastery for analyzing and interpreting ethnographic data?", skill: "Theoretical Analysis" },
+                { q: "Assess your ability to write a dissertation that makes a significant contribution to anthropological knowledge.", skill: "Scholarly Contribution" },
+                { q: "How high is your cross-cultural adaptability and ethical sensitivity in research?", skill: "Ethical Field Practice" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-journalism": {
+            name: "Ph.D. in Journalism",
+            questions: [
+                { q: "How deep is your understanding of journalism theory, media ethics, and the history of the press?", skill: "Journalism Theory" },
+                { q: "Rate your proficiency in research methods (qualitative or quantitative) for studying media practices and effects.", skill: "Media Research Methods" },
+                { q: "How skilled are you at formulating research that addresses significant questions about the role of journalism in society?", skill: "Critical Inquiry" },
+                { q: "Assess your ability to produce scholarly writing that contributes to the academic field of journalism studies.", skill: "Academic Writing" },
+                { q: "How strong is your ability to analyze the intersection of journalism, technology, and democracy?", skill: "Socio-Technical Analysis" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-mass-communication": {
+            name: "Ph.D. in Mass Communication",
+            questions: [
+                { q: "How strong is your mastery of communication theories and their application to mass media?", skill: "Communication Theory" },
+                { q: "Rate your expertise in advanced research methods to analyze media content, audiences, and institutions.", skill: "Advanced Research Methods" },
+                { q: "How skilled are you at designing and conducting original research that advances the field?", skill: "Original Research Design" },
+                { q: "Assess your ability to write high-quality, publishable academic research.", skill: "Scholarly Publishing" },
+                { q: "How critical is your analysis of the social, cultural, and political impact of media?", skill: "Critical Media Analysis" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-library-science": {
+            name: "Ph.D. in Library Science",
+            questions: [
+                { q: "How deep is your theoretical understanding of information organization, retrieval, and user behavior?", skill: "Information Science Theory" },
+                { q: "Rate your proficiency in research methodologies for studying information systems and services.", skill: "Research Methodology" },
+                { q: "How skilled are you at identifying a novel research problem in library and information science?", skill: "Problem Identification" },
+                { q: "Assess your ability to conduct independent, dissertation-level research that contributes new knowledge.", skill: "Independent Research" },
+                { q: "How strong is your understanding of the future trends and challenges in the information professions?", skill: "Future-Oriented Thinking" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-education": {
+            name: "Ph.D. in Education",
+            questions: [
+                { q: "How deep is your knowledge of educational theories, policy, and research in your specialization?", skill: "Educational Theory & Policy" },
+                { q: "Rate your expertise in quantitative, qualitative, or mixed-methods research in education.", skill: "Advanced Research Methods" },
+                { q: "How skilled are you at designing and conducting a large-scale, original research study?", skill: "Research Design" },
+                { q: "Assess your ability to contribute new insights and solutions to persistent educational problems.", skill: "Original Contribution" },
+                { q: "How strong is your scholarly writing for academic publications and your dissertation?", skill: "Scholarly Writing" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-linguistics": {
+            name: "Ph.D. in Linguistics",
+            questions: [
+                { q: "How deep is your theoretical mastery in your linguistic subfield (e.g., syntax, phonology, sociolinguistics)?", skill: "Theoretical Mastery" },
+                { q: "Rate your ability to design and conduct original linguistic research, whether experimental, computational, or field-based.", skill: "Research Design" },
+                { q: "How skilled are you at analyzing complex linguistic data to test theoretical claims?", skill: "Linguistic Data Analysis" },
+                { q: "Assess your ability to make a significant, original contribution to linguistic theory or description.", skill: "Original Contribution" },
+                { q: "How strong are your academic writing skills for presenting complex linguistic arguments?", skill: "Academic Writing" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-theatre-arts": {
+            name: "Ph.D. in Theatre Arts",
+            questions: [
+                { q: "How deep is your knowledge of theatre history, dramatic theory, and performance studies?", skill: "Historiography & Theory" },
+                { q: "Rate your ability to conduct original archival or ethnographic research on performance.", skill: "Performance Research" },
+                { q: "How skilled are you at writing a dissertation that makes a significant theoretical or historical contribution to the field?", skill: "Scholarly Contribution" },
+                { q: "Assess your ability to critically analyze performance and dramatic texts from multiple theoretical perspectives.", skill: "Critical Performance Analysis" },
+                { q: "How strong is your engagement with interdisciplinary approaches to theatre and performance?", skill: "Interdisciplinary Synthesis" }
+            ],
+            requiredLevel: 5
+        },
+        // --- Ph.D. (Science) ---
+        "pg-phd-physics": {
+            name: "Ph.D. in Physics",
+            questions: [
+                { q: "How deep is your conceptual and mathematical mastery of advanced physics (e.g., QFT, GR, Condensed Matter)?", skill: "Advanced Theoretical Physics" },
+                { q: "Rate your ability to formulate an original, solvable research problem at the forefront of physics.", skill: "Original Problem Formulation" },
+                { q: "How skilled are you in advanced experimental techniques or computational physics simulations?", skill: "Advanced Lab/Computational Skills" },
+                { q: "Assess your perseverance and creativity in overcoming complex research challenges.", skill: "Research Resilience" },
+                { q: "How strong is your ability to communicate your research findings through publications and presentations?", skill: "Scientific Communication" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-chemistry": {
+            name: "Ph.D. in Chemistry",
+            questions: [
+                { q: "How deep is your expertise in your specialized area of chemistry (organic, inorganic, physical, etc.)?", skill: "Specialized Chemical Knowledge" },
+                { q: "Rate your ability to design and execute novel, multi-step experimental plans or complex theoretical calculations.", skill: "Novel Experimental Design" },
+                { q: "How proficient are you with a wide range of advanced instrumentation and data interpretation?", skill: "Advanced Instrumentation" },
+                { q: "Assess your capacity to generate original research that is worthy of publication in high-impact journals.", skill: "High-Impact Research" },
+                { q: "How strong is your independence in troubleshooting and advancing your research project?", skill: "Independent Research" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-mathematics": {
+            name: "Ph.D. in Mathematics",
+            questions: [
+                { q: "How deep is your knowledge in your chosen field of mathematics (e.g., algebra, analysis, topology)?", skill: "Specialized Mathematical Depth" },
+                { q: "Rate your ability to formulate and prove original theorems.", skill: "Original Proof Generation" },
+                { q: "How strong is your creativity and intuition for solving previously unsolved mathematical problems?", skill: "Mathematical Creativity" },
+                { q: "Assess your ability to read, understand, and synthesize cutting-edge mathematical research literature.", skill: "Literature Synthesis" },
+                { q: "How high is your level of persistence and abstract reasoning for tackling long-term, difficult problems?", skill: "Abstract Persistence" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-biology": {
+            name: "Ph.D. in Biology",
+            questions: [
+                { q: "How strong is your ability to formulate a significant and testable hypothesis in your biological sub-field?", skill: "Hypothesis Formulation" },
+                { q: "Rate your mastery of advanced molecular, cellular, or ecological laboratory/field techniques.", skill: "Advanced Technical Mastery" },
+                { q: "How proficient are you in designing rigorous experiments with appropriate controls and statistical analysis?", skill: "Rigorous Experimental Design" },
+                { q: "Assess your ability to critically interpret complex biological data and synthesize new knowledge.", skill: "Data Interpretation & Synthesis" },
+                { q: "How skilled are you at writing grant proposals and research articles for peer review?", skill: "Grant & Scientific Writing" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-biotechnology": {
+            name: "Ph.D. in Biotechnology",
+            questions: [
+                { q: "How strong is your ability to devise innovative biotechnological solutions to scientific or industrial problems?", skill: "Innovative Solution Design" },
+                { q: "Rate your expertise in a specific area, such as genetic engineering, bioprocess technology, or bioinformatics.", skill: "Technical Specialization" },
+                { q: "How skilled are you in designing and optimizing complex biological experiments and processes?", skill: "Process Optimization" },
+                { q: "Assess your ability to generate and analyze large datasets relevant to your research.", skill: "Large Dataset Analysis" },
+                { q: "How familiar are you with intellectual property, tech transfer, and the commercialization of research?", skill: "Commercialization Acumen" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-computer-science-science": {
+            name: "Ph.D. in Computer Science (Science Stream)",
+            questions: [
+                { q: "How strong is your ability to devise new algorithms or theoretical frameworks in computer science?", skill: "Algorithmic Innovation" },
+                { q: "Rate your expertise in the mathematical foundations of your research area (e.g., discrete math, probability, logic).", skill: "Mathematical Foundations" },
+                { q: "How skilled are you at conducting rigorous theoretical analysis and proving properties of computational systems?", skill: "Theoretical Analysis" },
+                { q: "Assess your ability to identify and solve a fundamental, open research problem in the field.", skill: "Fundamental Problem Solving" },
+                { q: "How proficient are you at communicating complex theoretical concepts in academic papers?", skill: "Academic Communication" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-environmental-science": {
+            name: "Ph.D. in Environmental Science",
+            questions: [
+                { q: "How skilled are you at designing interdisciplinary research to address complex environmental problems?", skill: "Interdisciplinary Research Design" },
+                { q: "Rate your proficiency in advanced environmental modeling, GIS, and/or laboratory analytical techniques.", skill: "Advanced Analytical Techniques" },
+                { q: "How strong is your ability to analyze and synthesize large, heterogeneous environmental datasets?", skill: "Complex Data Synthesis" },
+                { q: "Assess your capacity to generate original research that can inform environmental policy and management.", skill: "Policy-Relevant Research" },
+                { q: "How effective are you at communicating scientific findings to diverse audiences, including policymakers and the public?", skill: "Science Communication" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-forensic-science": {
+            name: "Ph.D. in Forensic Science",
+            questions: [
+                { q: "How skilled are you at developing and validating novel forensic analytical methods?", skill: "Method Development & Validation" },
+                { q: "Rate your expertise in a highly specialized area of forensics (e.g., DNA, toxicology, digital forensics).", skill: "Deep Specialization" },
+                { q: "How strong is your ability to design research that withstands intense legal and scientific scrutiny?", skill: "Rigorous Research Design" },
+                { q: "Assess your ability to interpret complex forensic data and articulate its significance and limitations.", skill: "Data Interpretation" },
+                { q: "How high is your unwavering commitment to scientific objectivity and ethical principles in a legal context?", skill: "Scientific & Ethical Integrity" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-geology": {
+            name: "Ph.D. in Geology",
+            questions: [
+                { q: "How strong is your ability to formulate a significant research question about Earth processes or history?", skill: "Geological Problem Formulation" },
+                { q: "Rate your mastery of advanced field techniques and/or sophisticated geochemical/geophysical analytical methods.", skill: "Advanced Analytical Skills" },
+                { q: "How skilled are you at integrating diverse geological datasets to develop and test a comprehensive model?", skill: "Data Integration & Modeling" },
+                { q: "Assess your ability to conduct independent, dissertation-level research in often remote or challenging locations.", skill: "Independent Field Research" },
+                { q: "How original is your thinking in contributing to a major debate within the geological sciences?", skill: "Original Contribution" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-statistics": {
+            name: "Ph.D. in Statistics",
+            questions: [
+                { q: "How deep is your mastery of mathematical statistics, probability theory, and stochastic processes?", skill: "Advanced Statistical Theory" },
+                { q: "Rate your ability to develop new statistical methodologies or adapt existing ones for novel problems.", skill: "Methodological Innovation" },
+                { q: "How proficient are you in proving the theoretical properties of statistical estimators and tests?", skill: "Theoretical Proofs" },
+                { q: "Assess your skill in applying advanced statistical models to complex, real-world data and interpreting the results.", skill: "Complex Applied Modeling" },
+                { q: "How strong are your computational skills for implementing new methods and handling large datasets?", skill: "Advanced Computational Statistics" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-astronomy": {
+            name: "Ph.D. in Astronomy",
+            questions: [
+                { q: "How strong is your ability to develop an original research project using observational, theoretical, or instrumental approaches?", skill: "Original Research Design" },
+                { q: "Rate your expertise in analyzing large astronomical datasets from ground or space-based telescopes.", skill: "Astronomical Data Analysis" },
+                { q: "How proficient are you with programming and computational modeling for astrophysical problems?", skill: "Computational Astrophysics" },
+                { q: "Assess your ability to contribute new knowledge to our understanding of the universe.", skill: "Fundamental Contribution" },
+                { q: "How skilled are you at writing scientific papers and telescope proposals?", skill: "Proposal & Paper Writing" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-biomedical-science": {
+            name: "Ph.D. in Biomedical Science",
+            questions: [
+                { q: "How skilled are you at formulating a medically-relevant hypothesis and designing rigorous experiments to test it?", skill: "Hypothesis-Driven Research" },
+                { q: "Rate your mastery of a suite of advanced molecular, cellular, or physiological research techniques.", skill: "Advanced Technical Mastery" },
+                { q: "How strong is your ability to critically analyze and synthesize findings from the biomedical literature?", skill: "Critical Literature Analysis" },
+                { q: "Assess your ability to generate, analyze, and interpret complex biological data with clinical implications.", skill: "Translational Data Analysis" },
+                { q: "How high is your commitment to the ethical conduct of animal and/or human subject research?", skill: "Biomedical Ethics" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-nanoscience": {
+            name: "Ph.D. in Nanoscience",
+            questions: [
+                { q: "How strong is your interdisciplinary ability to design and synthesize novel nanomaterials with specific properties?", skill: "Nanomaterial Design" },
+                { q: "Rate your expertise with advanced nano-fabrication and characterization techniques (e.g., AFM/STM, electron microscopy).", skill: "Advanced Nano-Characterization" },
+                { q: "How skilled are you at investigating and understanding phenomena that occur at the nanoscale?", skill: "Nanoscale Investigation" },
+                { q: "Assess your creativity in proposing and developing new applications for nanotechnology.", skill: "Innovative Application" },
+                { q: "How deep is your understanding of the quantum mechanics and surface science that govern the nanoscale?", skill: "Fundamental Nanoscience" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-neuroscience": {
+            name: "Ph.D. in Neuroscience",
+            questions: [
+                { q: "How skilled are you at formulating a significant, original research question about the nervous system?", skill: "Original Research Question" },
+                { q: "Rate your mastery of advanced neuroscientific techniques (e.g., electrophysiology, optogenetics, advanced imaging).", skill: "Advanced Neuro-techniques" },
+                { q: "How strong is your ability to integrate knowledge across multiple levels of analysis, from molecules to cognition?", skill: "Integrative Neuroscience" },
+                { q: "Assess your ability to analyze complex, high-dimensional neural or behavioral data.", skill: "Complex Neural Data Analysis" },
+                { q: "How well can you critically evaluate the existing literature to identify gaps and shape your research?", skill: "Critical Literature Evaluation" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-marine-biology": {
+            name: "Ph.D. in Marine Biology",
+            questions: [
+                { q: "How skilled are you at designing and conducting independent, logistically complex marine field research?", skill: "Independent Marine Fieldwork" },
+                { q: "Rate your expertise in advanced analytical techniques for marine ecology, genetics, or physiology.", skill: "Advanced Analytical Skills" },
+                { q: "How strong is your ability to analyze spatial and temporal data to understand marine processes?", skill: "Marine Data Analysis" },
+                { q: "Assess your capacity to generate original research that contributes to marine conservation or management.", skill: "Conservation-Relevant Research" },
+                { q: "How proficient are you in scientific writing, grant proposal development, and communicating with diverse stakeholders?", skill: "Scientific & Public Communication" }
+            ],
+            requiredLevel: 5
+        },
+        // --- Ph.D. (Engineering & Technology) ---
+        "pg-phd-mechanical-engineering": {
+            name: "Ph.D. in Mechanical Engineering",
+            questions: [
+                { q: "How strong is your ability to conduct independent research that pushes the boundaries of your mechanical sub-discipline?", skill: "Independent Research" },
+                { q: "Rate your mastery of advanced theoretical analysis, computational modeling (FEA/CFD), and/or experimental techniques.", skill: "Advanced Analytical/Experimental Skills" },
+                { q: "How skilled are you at identifying a novel engineering problem and developing an innovative solution?", skill: "Innovative Problem Solving" },
+                { q: "Assess your proficiency in writing high-quality research papers for top engineering journals.", skill: "Scholarly Publication" },
+                { q: "How deep is your fundamental understanding of the core principles governing your research area?", skill: "Fundamental Understanding" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-electrical-engineering": {
+            name: "Ph.D. in Electrical Engineering",
+            questions: [
+                { q: "How strong is your ability to formulate and solve a novel research problem in your area of electrical engineering?", skill: "Novel Problem Formulation" },
+                { q: "Rate your expertise in advanced simulation tools, hardware design, or theoretical modeling.", skill: "Advanced Technical Expertise" },
+                { q: "How deep is your mathematical foundation for advanced analysis in your field?", skill: "Advanced Mathematical Aptitude" },
+                { q: "Assess your ability to create new technologies, algorithms, or systems that advance the state-of-the-art.", skill: "Technological Innovation" },
+                { q: "How skilled are you at disseminating your research through top-tier conferences and journals?", skill: "High-Impact Dissemination" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-civil-engineering": {
+            name: "Ph.D. in Civil Engineering",
+            questions: [
+                { q: "How strong is your ability to identify and research a critical infrastructure or environmental challenge?", skill: "Critical Problem Research" },
+                { q: "Rate your mastery of advanced computational modeling, large-scale experimental testing, or field monitoring.", skill: "Advanced Analytical/Experimental Skills" },
+                { q: "How skilled are you in developing innovative materials, designs, or methodologies in civil engineering?", skill: "Innovative Methodologies" },
+                { q: "Assess your ability to generate research that can influence professional codes, standards, and practices.", skill: "Practice-Informing Research" },
+                { q: "How proficient are you in writing scholarly articles and comprehensive technical reports?", skill: "Technical & Scholarly Writing" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-computer-science-engineering": {
+            name: "Ph.D. in Computer Science & Engineering",
+            questions: [
+                { q: "How strong is your ability to identify a significant, unsolved problem and propose a novel computational solution?", skill: "Novel Problem Solving" },
+                { q: "Rate your expertise in designing, implementing, and evaluating complex software or hardware systems.", skill: "Complex System Design" },
+                { q: "How deep is your theoretical and mathematical understanding of your research area?", skill: "Theoretical Depth" },
+                { q: "Assess your skill in conducting rigorous empirical experiments and analyzing their performance.", skill: "Rigorous Experimentation" },
+                { q: "How proficient are you at writing and publishing research in top-tier computer science venues?", skill: "Top-Tier Publication" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-electronics-communication-engineering": {
+            name: "Ph.D. in Electronics & Communication Engineering",
+            questions: [
+                { q: "How skilled are you at inventing novel algorithms, circuits, or systems in your ECE sub-field?", skill: "Invention & Innovation" },
+                { q: "Rate your mastery of advanced design/simulation tools (e.g., Cadence, HFSS, MATLAB) and/or experimental characterization.", skill: "Advanced Tool Mastery" },
+                { q: "How deep is your grasp of the underlying physics and mathematics of your research topic?", skill: "Fundamental Principles" },
+                { q: "Assess your ability to conduct independent research that results in significant advancements.", skill: "Independent Advancement" },
+                { q: "How strong is your ability to publish in leading IEEE journals and conferences?", skill: "High-Impact Publication" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-information-technology-engg": {
+            name: "Ph.D. in Information Technology (Engg.)",
+            questions: [
+                { q: "How strong is your ability to architect and research novel, large-scale IT systems and applications?", skill: "IT Systems Architecture" },
+                { q: "Rate your expertise in a specific IT domain like cloud computing, data engineering, or enterprise systems.", skill: "Domain Expertise" },
+                { q: "How skilled are you at designing and conducting empirical research on the performance and usability of IT solutions?", skill: "Empirical IT Research" },
+                { q: "Assess your ability to contribute new knowledge to the management and application of information technology.", skill: "Knowledge Contribution" },
+                { q: "How proficient are you at analyzing the socio-technical implications of new IT innovations?", skill: "Socio-Technical Analysis" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-architecture": {
+            name: "Ph.D. in Architecture",
+            questions: [
+                { q: "How strong is your ability to formulate an original research question that contributes to architectural theory, history, or technology?", skill: "Original Research Framing" },
+                { q: "Rate your proficiency in advanced research methodologies specific to architecture (e.g., historical, qualitative, simulation).", skill: "Architectural Research Methods" },
+                { q: "How deep is your critical and theoretical understanding of the field?", skill: "Critical & Theoretical Depth" },
+                { q: "Assess your ability to produce a dissertation of publishable quality that advances architectural discourse.", skill: "Scholarly Contribution" },
+                { q: "How skilled are you at synthesizing ideas from diverse fields (art, technology, social science) into your research?", skill: "Interdisciplinary Synthesis" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-planning": {
+            name: "Ph.D. in Planning",
+            questions: [
+                { q: "How deep is your mastery of planning theory and its application to urban, regional, or environmental issues?", skill: "Planning Theory Mastery" },
+                { q: "Rate your expertise in advanced quantitative and/or qualitative research methods for analyzing spatial and social data.", skill: "Advanced Research Methods" },
+                { q: "How skilled are you at framing a research problem that addresses a critical issue in planning practice or policy?", skill: "Policy-Relevant Research" },
+                { q: "Assess your ability to conduct independent research that generates new knowledge for the planning field.", skill: "Knowledge Generation" },
+                { q: "How strong is your ability to write for both academic and professional planning audiences?", skill: "Versatile Communication" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-robotics": {
+            name: "Ph.D. in Robotics",
+            questions: [
+                { q: "How strong is your ability to conceive and develop novel robotic systems, algorithms, or theories?", skill: "Robotics Innovation" },
+                { q: "Rate your mastery of advanced mathematics (kinematics, dynamics, control theory) and programming (C++/Python, ROS).", skill: "Advanced Technical Skills" },
+                { q: "How skilled are you in integrating perception, control, and planning in a complex robotic system?", skill: "Systems Integration" },
+                { q: "Assess your ability to design and conduct rigorous experiments to validate your robot's performance.", skill: "Rigorous Experimentation" },
+                { q: "How proficient are you at publishing your work in top robotics conferences (e.g., ICRA, IROS)?", skill: "Top-Tier Publication" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-artificial-intelligence-engg": {
+            name: "Ph.D. in Artificial Intelligence (Engg.)",
+            questions: [
+                { q: "How strong is your ability to invent new AI/ML algorithms or create novel applications of existing ones?", skill: "Algorithmic Innovation" },
+                { q: "Rate your deep theoretical understanding of a subfield of AI (e.g., NLP, computer vision, reinforcement learning).", skill: "Deep Theoretical Understanding" },
+                { q: "How proficient are you with the mathematical foundations of AI, including probability, statistics, and optimization?", skill: "Mathematical Foundations" },
+                { q: "Assess your skill in designing and executing large-scale experiments to prove the efficacy of your models.", skill: "Large-Scale Experimentation" },
+                { q: "How adept are you at writing and publishing in premier AI venues (e.g., NeurIPS, ICML)?", skill: "Premier Publication" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-machine-learning-engg": {
+            name: "Ph.D. in Machine Learning (Engg.)",
+            questions: [
+                { q: "How strong is your ability to develop new machine learning models and prove their theoretical properties?", skill: "Model Development & Theory" },
+                { q: "Rate your mastery of the mathematical underpinnings of ML, particularly probability, statistics, and optimization.", skill: "Mathematical Mastery" },
+                { q: "How skilled are you at implementing and scaling ML algorithms for large, complex datasets?", skill: "Implementation & Scaling" },
+                { q: "Assess your capacity to identify a fundamental research problem and make a significant contribution to the ML community.", skill: "Fundamental Contribution" },
+                { q: "How proficient are you at empirical validation and rigorous benchmarking of your research?", skill: "Rigorous Empirical Validation" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-data-science-engg": {
+            name: "Ph.D. in Data Science (Engg.)",
+            questions: [
+                { q: "How skilled are you at developing and applying novel computational and statistical methods to complex, real-world data?", skill: "Novel Method Development" },
+                { q: "Rate your expertise across the full data science pipeline: data engineering, modeling, interpretation, and deployment.", skill: "Full Pipeline Expertise" },
+                { q: "How strong is your ability to frame an important domain-specific problem as a tractable data science research question?", skill: "Domain Problem Framing" },
+                { q: "Assess your ability to manage and analyze massive, unstructured datasets using modern big data technologies.", skill: "Big Data Management" },
+                { q: "How effective are you at communicating complex data-driven insights to both technical and non-technical audiences?", skill: "Insight Communication" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-cybersecurity-engg": {
+            name: "Ph.D. in Cybersecurity (Engg.)",
+            questions: [
+                { q: "How strong is your ability to discover new vulnerabilities or design novel defensive systems?", skill: "Novel Security Research" },
+                { q: "Rate your deep technical understanding of a cybersecurity specialization (e.g., network security, cryptography, systems security).", skill: "Deep Specialization" },
+                { q: "How skilled are you at formal methods and rigorous analysis to prove the security properties of a system?", skill: "Formal Security Analysis" },
+                { q: "Assess your ability to think like an adversary to anticipate and counter new attack vectors.", skill: "Adversarial Thinking" },
+                { q: "How proficient are you at publishing in top-tier security conferences (e.g., CCS, USENIX Security)?", skill: "Top-Tier Security Publication" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-materials-science-engg": {
+            name: "Ph.D. in Materials Science (Engg.)",
+            questions: [
+                { q: "How skilled are you at designing and conducting research to establish novel structure-property-processing relationships?", skill: "Materials Paradigm Research" },
+                { q: "Rate your expertise with a wide array of advanced material synthesis and characterization techniques.", skill: "Advanced Characterization" },
+                { q: "How strong is your ability to use theoretical and computational modeling to predict material behavior?", skill: "Computational Materials Science" },
+                { q: "Assess your capacity to create new materials or processes that address a significant technological need.", skill: "Materials Innovation" },
+                { q: "How proficient are you in writing high-impact scientific papers in the materials science field?", skill: "High-Impact Publication" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-energy-engineering": {
+            name: "Ph.D. in Energy Engineering",
+            questions: [
+                { q: "How strong is your ability to conduct original research on novel energy conversion, storage, or efficiency technologies?", skill: "Energy Technology Innovation" },
+                { q: "Rate your expertise in advanced energy system modeling, simulation, and techno-economic analysis.", skill: "Advanced System Modeling" },
+                { q: "How deep is your fundamental understanding of thermodynamics, transport phenomena, and materials science in energy contexts?", skill: "Fundamental Energy Science" },
+                { q: "Assess your skill in designing and executing experiments to validate new energy technologies.", skill: "Experimental Validation" },
+                { q: "How proficient are you at analyzing the policy and economic implications of your energy research?", skill: "Policy & Economic Analysis" }
+            ],
+            requiredLevel: 5
+        },
+        // --- Ph.D. (Management) ---
+        "pg-phd-finance": {
+            name: "Ph.D. in Finance",
+            questions: [
+                { q: "How deep is your mastery of financial economic theory, asset pricing, and corporate finance?", skill: "Advanced Finance Theory" },
+                { q: "Rate your proficiency in advanced econometric and statistical methods for financial data analysis.", skill: "Financial Econometrics" },
+                { q: "How skilled are you at developing a novel, testable hypothesis that contributes to the finance literature?", skill: "Original Hypothesis Generation" },
+                { q: "Assess your ability to work with large financial datasets and conduct rigorous empirical research.", skill: "Empirical Research Skills" },
+                { q: "How strong is your ability to write scholarly research papers for top finance journals?", skill: "Scholarly Writing" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-marketing": {
+            name: "Ph.D. in Marketing",
+            questions: [
+                { q: "How deep is your understanding of marketing theory, consumer behavior, and marketing strategy?", skill: "Advanced Marketing Theory" },
+                { q: "Rate your expertise in quantitative modeling or qualitative/ethnographic research methods for marketing.", skill: "Advanced Research Methods" },
+                { q: "How skilled are you at formulating a research question that addresses a significant gap in marketing knowledge?", skill: "Research Question Formulation" },
+                { q: "Assess your ability to design and execute studies that generate new insights into marketing phenomena.", skill: "Original Insight Generation" },
+                { q: "How proficient are you at writing academic papers for premier marketing journals?", skill: "Premier Journal Writing" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-human-resource-management-hrm": {
+            name: "Ph.D. in Human Resource Management (HRM)",
+            questions: [
+                { q: "How deep is your mastery of theories in organizational behavior, HRM, and industrial relations?", skill: "Advanced OB/HRM Theory" },
+                { q: "Rate your proficiency in advanced quantitative and qualitative research methods for studying workplace issues.", skill: "Advanced Research Methods" },
+                { q: "How skilled are you at developing an original research stream that contributes to the field?", skill: "Original Research Stream" },
+                { q: "Assess your ability to collect and analyze complex data from organizations and employees.", skill: "Organizational Data Analysis" },
+                { q: "How strong is your ability to write theoretically-grounded and empirically-rigorous research papers?", skill: "Rigorous Academic Writing" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-operations-management": {
+            name: "Ph.D. in Operations Management",
+            questions: [
+                { q: "How strong is your expertise in stochastic modeling, optimization, and game theory?", skill: "Advanced OR/MS Methods" },
+                { q: "Rate your ability to develop sophisticated mathematical models for operational problems.", skill: "Mathematical Modeling" },
+                { q: "How skilled are you at using empirical methods to analyze operational data and test theories?", skill: "Empirical Operations" },
+                { q: "Assess your ability to identify and solve a novel research problem in supply chain, manufacturing, or service operations.", skill: "Novel Problem Solving" },
+                { q: "How proficient are you at writing and publishing in top-tier operations management journals?", skill: "Top-Tier Publication" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-business-analytics": {
+            name: "Ph.D. in Business Analytics",
+            questions: [
+                { q: "How deep is your knowledge of machine learning, statistics, and optimization methods?", skill: "Advanced Analytical Methods" },
+                { q: "Rate your ability to develop new analytical methodologies for business problems.", skill: "Methodological Development" },
+                { q: "How skilled are you at working with large, complex datasets and applying appropriate analytical tools?", skill: "Complex Data Handling" },
+                { q: "Assess your ability to frame a business problem as a research question and make a significant contribution.", skill: "Business Research Framing" },
+                { q: "How strong is your ability to bridge the gap between technical methods and managerial insights in your writing?", skill: "Bridging Communication" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-international-business": {
+            name: "Ph.D. in International Business",
+            questions: [
+                { q: "How deep is your mastery of theories related to internationalization, MNEs, and the global business environment?", skill: "IB Theory Mastery" },
+                { q: "Rate your proficiency in research methods for conducting cross-national and comparative studies.", skill: "Cross-National Research" },
+                { q: "How skilled are you at formulating research questions that address key challenges in global business?", skill: "Global Research Questions" },
+                { q: "Assess your ability to collect and analyze complex international data.", skill: "International Data Analysis" },
+                { q: "How strong is your ability to publish research in leading international business journals?", skill: "Leading IB Publication" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-healthcare-management": {
+            name: "Ph.D. in Healthcare Management",
+            questions: [
+                { q: "How strong is your theoretical foundation in health economics, policy, and organizational behavior?", skill: "Healthcare Theory" },
+                { q: "Rate your expertise in using advanced quantitative or qualitative methods to research healthcare systems.", skill: "Health Services Research" },
+                { q: "How skilled are you at designing research that can inform healthcare policy and practice?", skill: "Policy-Relevant Research" },
+                { q: "Assess your ability to work with complex healthcare datasets while adhering to privacy regulations.", skill: "Healthcare Data Analysis" },
+                { q: "How proficient are you in writing for high-impact health management and policy journals?", skill: "High-Impact Publication" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-agri-business-management": {
+            name: "Ph.D. in Agri-Business Management",
+            questions: [
+                { q: "How deep is your knowledge of agricultural economics, policy, and supply chain management theory?", skill: "Agribusiness Theory" },
+                { q: "Rate your proficiency in econometric and other research methods for the agri-food sector.", skill: "Agri-Sector Research Methods" },
+                { q: "How skilled are you at identifying and researching critical issues facing the global food system?", skill: "Critical Issue Identification" },
+                { q: "Assess your ability to conduct original empirical research using agricultural data.", skill: "Empirical Agri-Research" },
+                { q: "How strong is your ability to generate insights that are relevant to both academia and industry/policy?", skill: "Academia-Industry Bridge" }
+            ],
+            requiredLevel: 5
+        },
+        // --- Ph.D. (Law) ---
+        "pg-phd-constitutional-law": {
+            name: "Ph.D. in Constitutional Law",
+            questions: [
+                { q: "How strong is your ability to develop an original thesis that makes a significant contribution to constitutional theory or jurisprudence?", skill: "Original Legal Thesis" },
+                { q: "Rate your mastery of comparative constitutional law and legal research methodologies.", skill: "Comparative & Methodological Mastery" },
+                { q: "How skilled are you at engaging in deep theoretical and philosophical analysis of constitutional principles?", skill: "Theoretical & Philosophical Analysis" },
+                { q: "Assess your ability to conduct extensive doctrinal and archival research.", skill: "Doctrinal & Archival Research" },
+                { q: "How proficient are you at writing a book-length scholarly work of exceptional quality?", skill: "Scholarly Legal Writing" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-corporate-law": {
+            name: "Ph.D. in Corporate Law",
+            questions: [
+                { q: "How strong is your ability to formulate an original research thesis on a complex issue of corporate governance or law?", skill: "Original Thesis Formulation" },
+                { q: "Rate your expertise in law and economics or other interdisciplinary approaches to corporate law.", skill: "Interdisciplinary Legal Approach" },
+                { q: "How skilled are you at analyzing statutes, case law, and financial data to support your legal arguments?", skill: "Complex Legal & Financial Analysis" },
+                { q: "Assess your ability to contribute new knowledge to the academic debates in corporate law.", skill: "Knowledge Contribution" },
+                { q: "How proficient are you at producing scholarly writing suitable for top law reviews?", skill: "Law Review Publication" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-criminal-law": {
+            name: "Ph.D. in Criminal Law",
+            questions: [
+                { q: "How deep is your theoretical and jurisprudential understanding of criminal law and justice?", skill: "Jurisprudential Depth" },
+                { q: "Rate your ability to conduct original research that critically examines criminal law doctrine, policy, or practice.", skill: "Critical Legal Research" },
+                { q: "How skilled are you in using interdisciplinary methods (e.g., from criminology, sociology) in your legal research?", skill: "Interdisciplinary Research" },
+                { q: "Assess your ability to develop a novel argument that advances our understanding of criminal law.", skill: "Novel Legal Argument" },
+                { q: "How strong is your capacity for producing a major, publishable scholarly work?", skill: "Major Scholarly Work" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-environmental-law": {
+            name: "Ph.D. in Environmental Law",
+            questions: [
+                { q: "How strong is your ability to research and write a doctoral thesis on a cutting-edge issue of environmental law and policy?", skill: "Cutting-Edge Thesis Research" },
+                { q: "Rate your expertise in the doctrines of international and comparative environmental law.", skill: "Int'l & Comparative Law" },
+                { q: "How skilled are you at analyzing the intersection of science, economics, and law in environmental regulation?", skill: "Interdisciplinary Analysis" },
+                { q: "Assess your ability to make an original contribution to the theory or practice of environmental law.", skill: "Original Contribution" },
+                { q: "How proficient are you at producing scholarship that can influence policy and legal reform?", skill: "Policy-Influencing Scholarship" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-human-rights-law": {
+            name: "Ph.D. in Human Rights Law",
+            questions: [
+                { q: "How deep is your theoretical and philosophical grasp of international human rights law?", skill: "Theoretical & Philosophical Grasp" },
+                { q: "Rate your ability to conduct original research on the functioning and impact of human rights institutions and norms.", skill: "Original HR Research" },
+                { q: "How skilled are you in employing comparative and interdisciplinary methods in your research?", skill: "Comparative Methodologies" },
+                { q: "Assess your ability to develop a novel thesis that contributes significantly to human rights scholarship.", skill: "Significant Contribution" },
+                { q: "How strong is your writing for producing a major work that engages with complex human rights challenges?", skill: "Advanced Scholarly Writing" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-intellectual-property-law-ipr": {
+            name: "Ph.D. in Intellectual Property Law (IPR)",
+            questions: [
+                { q: "How strong is your ability to formulate an original research thesis on a complex and evolving area of IP law?", skill: "Original IP Thesis" },
+                { q: "Rate your expertise in the theoretical foundations of IP and its intersection with technology and economics.", skill: "Theoretical Foundations" },
+                { q: "How skilled are you at conducting comparative legal research on IP regimes across different jurisdictions?", skill: "Comparative IP Research" },
+                { q: "Assess your ability to contribute new theoretical insights or policy recommendations to the IP field.", skill: "Theoretical/Policy Contribution" },
+                { q: "How proficient are you in writing high-level scholarship for specialized IP law journals?", skill: "Specialized Publication" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-international-law": {
+            name: "Ph.D. in International Law",
+            questions: [
+                { q: "How deep is your mastery of the theory, history, and doctrine of public international law?", skill: "Mastery of Int'l Law" },
+                { q: "Rate your ability to conduct original research on fundamental questions of international legal order.", skill: "Fundamental Research" },
+                { q: "How skilled are you at analyzing state practice, treaties, and international jurisprudence to develop a novel legal argument?", skill: "Novel Legal Argumentation" },
+                { q: "Assess your ability to write a dissertation that makes a substantial contribution to the field.", skill: "Substantial Contribution" },
+                { q: "How strong is your engagement with interdisciplinary perspectives, such as international relations theory?", skill: "Interdisciplinary Engagement" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-tax-law": {
+            name: "Ph.D. in Tax Law",
+            questions: [
+                { q: "How strong is your ability to conduct original research on complex issues of domestic or international tax law and policy?", skill: "Original Tax Research" },
+                { q: "Rate your expertise in the economic analysis of tax law.", skill: "Economic Analysis of Law" },
+                { q: "How skilled are you at detailed analysis of tax statutes, treaties, and complex financial structures?", skill: "Detailed Statutory Analysis" },
+                { q: "Assess your ability to develop a doctoral thesis that offers significant new insights or policy solutions.", skill: "Significant Insight" },
+                { q: "How proficient are you at writing high-level, technical scholarship for specialized tax journals?", skill: "Technical Scholarly Writing" }
+            ],
+            requiredLevel: 5
+        },
+        // --- MD/MS/MDS Degrees ---
+        "pg-md-general-medicine": {
+            name: "MD in General Medicine",
+            questions: [
+                { q: "How strong is your ability to diagnose complex, multi-system diseases and atypical presentations?", skill: "Advanced Diagnostic Acumen" },
+                { q: "Rate your skill in managing critically ill patients and complex chronic conditions.", skill: "Complex Case Management" },
+                { q: "How deep is your knowledge of advanced therapeutics, pharmacology, and evidence-based medicine?", skill: "Advanced Therapeutics" },
+                { q: "Assess your ability to synthesize information from multiple sources to make critical clinical decisions.", skill: "Clinical Decision Making" },
+                { q: "How well do you lead a medical team and communicate with patients and families in stressful situations?", skill: "Leadership & Communication" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-md-pediatrics": {
+            name: "MD in Pediatrics",
+            questions: [
+                { q: "How strong is your diagnostic skill for rare and complex pediatric and neonatal conditions?", skill: "Advanced Pediatric Diagnosis" },
+                { q: "Rate your proficiency in managing pediatric emergencies and critically ill children.", skill: "Pediatric Critical Care" },
+                { q: "How deep is your knowledge of developmental milestones, genetics, and pediatric pharmacology?", skill: "Specialized Pediatric Knowledge" },
+                { q: "Assess your ability to communicate effectively and empathetically with children and anxious parents.", skill: "Family Communication" },
+                { q: "How skilled are you in performing specialized pediatric procedures?", skill: "Pediatric Procedural Skills" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-md-dermatology": {
+            name: "MD in Dermatology",
+            questions: [
+                { q: "How strong is your ability to visually diagnose a wide range of rare and complex skin conditions?", skill: "Advanced Visual Diagnosis" },
+                { q: "Rate your expertise in dermatopathology and clinicopathological correlation.", skill: "Dermatopathology" },
+                { q: "How skilled are you in advanced dermatological procedures, including surgery and laser treatments?", skill: "Procedural Dermatology" },
+                { q: "Assess your knowledge of systemic diseases with cutaneous manifestations.", skill: "Systemic Dermatology" },
+                { q: "How deep is your understanding of immunodermatology and advanced medical therapies?", skill: "Advanced Therapeutics" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-md-pathology": {
+            name: "MD in Pathology",
+            questions: [
+                { q: "How sharp is your microscopic diagnostic skill in histopathology and cytopathology?", skill: "Microscopic Diagnosis" },
+                { q: "Rate your ability to correlate morphological findings with molecular and clinical data for an integrated diagnosis.", skill: "Integrated Diagnosis" },
+                { q: "How deep is your knowledge of molecular pathology and its application in diagnostics?", skill: "Molecular Pathology" },
+                { q: "Assess your proficiency in laboratory management, quality control, and autopsy procedures.", skill: "Lab Management & QC" },
+                { q: "How strong is your ability to provide clear and decisive reports that guide clinical management?", skill: "Clinical Reporting" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-md-microbiology": {
+            name: "MD in Microbiology",
+            questions: [
+                { q: "How strong is your ability to rapidly identify rare and emerging infectious agents?", skill: "Infectious Agent Identification" },
+                { q: "Rate your expertise in advanced molecular diagnostic techniques and antimicrobial susceptibility testing.", skill: "Molecular Diagnostics" },
+                { q: "How skilled are you in managing hospital infection control and epidemiology?", skill: "Infection Control" },
+                { q: "Assess your ability to guide clinicians on the appropriate use of antibiotics.", skill: "Antimicrobial Stewardship" },
+                { q: "How deep is your knowledge of immunology and virology?", skill: "Immunology & Virology" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-md-anesthesiology": {
+            name: "MD in Anesthesiology",
+            questions: [
+                { q: "How strong is your ability to manage anesthesia for high-risk patients and complex surgeries (e.g., cardiac, neuro)?", skill: "High-Risk Anesthesia" },
+                { q: "Rate your skill in advanced airway management and regional anesthesia techniques.", skill: "Advanced Procedural Skills" },
+                { q: "How proficient are you in managing critical care and pain medicine?", skill: "Critical Care & Pain Mgt." },
+                { q: "Assess your ability to make rapid, life-saving decisions during intraoperative emergencies.", skill: "Crisis Management" },
+                { q: "How deep is your understanding of advanced pharmacology and physiology?", skill: "Advanced Pharmacology" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-md-radiology": {
+            name: "MD in Radiology",
+            questions: [
+                { q: "How strong is your ability to interpret complex and subtle findings across all imaging modalities (CT, MRI, US)?", skill: "Advanced Image Interpretation" },
+                { q: "Rate your knowledge of advanced imaging physics and protocols.", skill: "Imaging Physics" },
+                { q: "How skilled are you in performing and interpreting specialized procedures, including interventional radiology?", skill: "Interventional Skills" },
+                { q: "Assess your ability to provide precise, clinically relevant reports that directly influence patient management.", skill: "Clinical Reporting" },
+                { q: "How deep is your multi-system anatomical and pathological knowledge?", skill: "Cross-Sectional Anatomy" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-md-psychiatry": {
+            name: "MD in Psychiatry",
+            questions: [
+                { q: "How skilled are you in diagnosing and managing complex psychiatric disorders, including treatment-resistant cases?", skill: "Complex Case Management" },
+                { q: "Rate your expertise in various psychotherapeutic modalities.", skill: "Psychotherapy Expertise" },
+                { q: "How deep is your knowledge of psychopharmacology and neurobiology of mental illness?", skill: "Advanced Psychopharmacology" },
+                { q: "Assess your ability to handle psychiatric emergencies and manage risk.", skill: "Emergency Psychiatry" },
+                { q: "How strong are your empathy and communication skills for building therapeutic alliances?", skill: "Therapeutic Alliance" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-md-community-medicine": {
+            name: "MD in Community Medicine",
+            questions: [
+                { q: "How skilled are you in designing and conducting epidemiological studies and public health research?", skill: "Epidemiological Research" },
+                { q: "Rate your expertise in biostatistics and using statistical software for health data analysis.", skill: "Biostatistics" },
+                { q: "How strong is your ability to plan, implement, and evaluate large-scale public health programs?", skill: "Public Health Program Mgt." },
+                { q: "Assess your skills in health policy analysis and health administration.", skill: "Health Policy & Admin" },
+                { q: "How effective are you at health promotion and communicating with diverse communities?", skill: "Health Promotion" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-md-ayurveda": {
+            name: "MD (Ayurveda)",
+            questions: [
+                { q: "How deep is your understanding of the classical Ayurvedic Samhitas and their commentaries?", skill: "Samhita Mastery" },
+                { q: "Rate your ability to diagnose complex conditions using advanced Ayurvedic principles and methods.", skill: "Advanced Nidan" },
+                { q: "How skilled are you in formulating and managing complex treatment protocols (Chikitsa) for chronic diseases?", skill: "Complex Chikitsa" },
+                { q: "Assess your aptitude for conducting clinical or literary research in Ayurveda according to modern standards.", skill: "Ayurvedic Research" },
+                { q: "How proficient are you in your chosen specialization (e.g., Kayachikitsa, Panchakarma)?", skill: "Specialization Expertise" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-md-homeopathy": {
+            name: "MD (Homeopathy)",
+            questions: [
+                { q: "How deep is your mastery of homeopathic philosophy, Organon, and Materia Medica?", skill: "Philosophical & Materia Medica Mastery" },
+                { q: "Rate your skill in complex case taking, repertorization, and miasmatic analysis.", skill: "Advanced Case Analysis" },
+                { q: "How skilled are you at managing chronic and complex cases with a long-term perspective?", skill: "Chronic Case Management" },
+                { q: "Assess your ability to conduct and critique research in homeopathy.", skill: "Homeopathic Research" },
+                { q: "How strong is your ability to differentiate between remedies with subtle distinctions?", skill: "Remedy Differentiation" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-md-unani": {
+            name: "MD (Unani)",
+            questions: [
+                { q: "How deep is your knowledge of classical Unani texts and the principles of Mizaj (temperament)?", skill: "Unani Foundational Texts" },
+                { q: "Rate your diagnostic skills based on Nabz (pulse), Baul (urine), and other Unani methods.", skill: "Advanced Unani Diagnosis" },
+                { q: "How skilled are you in Ilaj-bil-Tadbeer (regimental therapy) and the formulation of complex compound drugs?", skill: "Advanced Therapeutics" },
+                { q: "Assess your aptitude for conducting research that validates or explores Unani concepts.", skill: "Unani Research Aptitude" },
+                { q: "How proficient are you in your Unani specialization (e.g., Moalajat, Ilmul Advia)?", skill: "Specialization Proficiency" }
+            ],
+            requiredLevel: 5
+        },
+        // --- MS Degrees ---
+        "pg-ms-general-surgery": {
+            name: "MS in General Surgery",
+            questions: [
+                { q: "How strong is your ability to make critical decisions in surgical emergencies and trauma cases?", skill: "Surgical Decision Making" },
+                { q: "Rate your proficiency in performing a wide range of open and laparoscopic surgical procedures independently.", skill: "Surgical Skill & Autonomy" },
+                { q: "How deep is your knowledge of surgical anatomy, pathology, and critical care?", skill: "Advanced Surgical Science" },
+                { q: "Assess your skill in pre-operative planning and post-operative management of complex cases.", skill: "Perioperative Management" },
+                { q: "How well do you handle the stress of the operating room and lead a surgical team?", skill: "OR Leadership" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-ms-orthopaedics": {
+            name: "MS in Orthopaedics",
+            questions: [
+                { q: "How skilled are you in managing complex trauma, including polytrauma and fractures with complications?", skill: "Complex Trauma Management" },
+                { q: "Rate your proficiency in performing major orthopedic surgeries like joint replacements and spine surgery.", skill: "Advanced Surgical Skills" },
+                { q: "How deep is your understanding of biomechanics and its application to orthopedic treatments?", skill: "Biomechanics" },
+                { q: "Assess your ability to accurately interpret complex orthopedic imaging (X-rays, CT, MRI).", skill: "Radiographic Interpretation" },
+                { q: "How strong is your ability to manage post-operative rehabilitation and long-term patient outcomes?", skill: "Rehabilitation Planning" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-ms-ophthalmology": {
+            name: "MS in Ophthalmology",
+            questions: [
+                { q: "How strong is your diagnostic skill for rare and complex ophthalmic diseases?", skill: "Advanced Ophthalmic Diagnosis" },
+                { q: "Rate your microsurgical skill for procedures like phacoemulsification, retinal, and corneal surgeries.", skill: "Microsurgical Skill" },
+                { q: "How proficient are you in interpreting advanced imaging like OCT, FFA, and visual fields?", skill: "Advanced Imaging" },
+                { q: "Assess your ability to manage ophthalmic emergencies and trauma.", skill: "Emergency Ophthalmology" },
+                { q: "How deep is your knowledge of optics, refraction, and neuro-ophthalmology?", skill: "Ophthalmic Subspecialties" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-ms-ent": {
+            name: "MS in ENT",
+            questions: [
+                { q: "How skilled are you in performing advanced endoscopic sinus surgery and otological procedures?", skill: "Advanced Surgical Skills (ENT)" },
+                { q: "Rate your ability to diagnose and manage complex disorders of the head, neck, and skull base.", skill: "Head & Neck Surgery" },
+                { q: "How proficient are you in interpreting audiological and vestibular function tests?", skill: "Audiology Interpretation" },
+                { q: "Assess your skill in airway management and tracheostomy procedures.", skill: "Airway Management" },
+                { q: "How deep is your anatomical knowledge of the complex head and neck region?", skill: "Surgical Anatomy" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-ms-obstetrics-gynaecology": {
+            name: "MS in Obstetrics & Gynaecology",
+            questions: [
+                { q: "How skilled are you in managing high-risk pregnancies and obstetric emergencies?", skill: "High-Risk Obstetrics" },
+                { q: "Rate your proficiency in major gynecological surgeries, both open and laparoscopic.", skill: "Advanced Gynecological Surgery" },
+                { q: "How deep is your knowledge of reproductive endocrinology, infertility, and gynecologic oncology?", skill: "OBGYN Subspecialties" },
+                { q: "Assess your ability to make critical decisions during labor and delivery.", skill: "Intrapartum Decision Making" },
+                { q: "How strong are your counseling and communication skills for sensitive women's health issues?", skill: "Patient Counseling" }
+            ],
+            requiredLevel: 5
+        },
+        // --- MDS Degrees ---
+        "pg-mds-orthodontics": {
+            name: "MDS in Orthodontics",
+            questions: [
+                { q: "How strong is your ability to diagnose and create treatment plans for complex malocclusions and craniofacial anomalies?", skill: "Complex Diagnosis & Planning" },
+                { q: "Rate your expertise in various orthodontic techniques, including fixed appliances, aligners, and surgical orthodontics.", skill: "Advanced Appliance Mechanics" },
+                { q: "How proficient are you in cephalometric analysis and 3D imaging interpretation?", skill: "Advanced Diagnostics" },
+                { q: "Assess your understanding of growth and development and its impact on treatment.", skill: "Growth & Development" },
+                { q: "How skilled are you in managing interdisciplinary cases with other dental and medical specialists?", skill: "Interdisciplinary Management" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-mds-oral-maxillofacial-surgery": {
+            name: "MDS in Oral and Maxillofacial Surgery",
+            questions: [
+                { q: "How strong is your proficiency in major surgical procedures like trauma, orthognathic surgery, and oncology?", skill: "Major Maxillofacial Surgery" },
+                { q: "Rate your skill in managing medical emergencies and providing anesthesia in a clinical setting.", skill: "Anesthesia & Emergency Mgt." },
+                { q: "How deep is your knowledge of surgical anatomy, pathology, and principles of surgery?", skill: "Surgical Foundations" },
+                { q: "Assess your ability to manage complex dental implant cases and bone grafting.", skill: "Advanced Implantology" },
+                { q: "How skilled are you in inpatient management and collaborating with other medical teams?", skill: "Inpatient & Team Management" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-mds-periodontics": {
+            name: "MDS in Periodontics",
+            questions: [
+                { q: "How skilled are you in performing advanced periodontal surgeries, including flap surgery and bone/soft tissue grafting?", skill: "Advanced Perio Surgery" },
+                { q: "Rate your expertise in the diagnosis and management of complex and aggressive forms of periodontal disease.", skill: "Complex Disease Management" },
+                { q: "How proficient are you in the surgical placement of dental implants?", skill: "Surgical Implantology" },
+                { q: "Assess your understanding of the interplay between periodontal health and systemic diseases.", skill: "Perio-Systemic Link" },
+                { q: "How strong is your ability to develop long-term maintenance plans for complex periodontal cases?", skill: "Long-Term Maintenance" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-mds-prosthodontics": {
+            name: "MDS in Prosthodontics",
+            questions: [
+                { q: "How skilled are you in full mouth rehabilitation and managing complex occlusal problems?", skill: "Full Mouth Rehabilitation" },
+                { q: "Rate your expertise in advanced prosthodontics, including maxillofacial prosthetics and implant-supported prostheses.", skill: "Advanced Prosthodontics" },
+                { q: "How deep is your knowledge of dental materials, biomechanics, and occlusion?", skill: "Dental Materials & Biomechanics" },
+                { q: "Assess your aesthetic sense and skill in creating highly natural-looking restorations.", skill: "Aesthetic Dentistry" },
+                { q: "How proficient are you in detailed treatment planning and coordinating with other specialists?", skill: "Interdisciplinary Planning" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-mds-pedodontics": {
+            name: "MDS in Pedodontics",
+            questions: [
+                { q: "How skilled are you in managing the behavior of very young, anxious, or special needs children?", skill: "Advanced Behavior Management" },
+                { q: "Rate your expertise in pediatric endodontics, pulp therapy, and stainless steel crowns.", skill: "Pediatric Restorative Skills" },
+                { q: "How proficient are you in managing dental trauma and space management in children?", skill: "Trauma & Space Management" },
+                { q: "Assess your ability to provide preventive dental care and counsel parents effectively.", skill: "Preventive Counseling" },
+                { q: "How deep is your understanding of child psychology and growth and development?", skill: "Child Psychology" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-mds-oral-pathology-microbiology": {
+            name: "MDS in Oral Pathology and Microbiology",
+            questions: [
+                { q: "How strong is your microscopic diagnostic skill for a wide range of oral and maxillofacial diseases?", skill: "Microscopic Diagnosis" },
+                { q: "Rate your ability to correlate clinical findings with histopathology for a definitive diagnosis.", skill: "Clinicopathological Correlation" },
+                { q: "How deep is your knowledge of molecular pathology and immunohistochemistry in oral diseases?", skill: "Molecular Oral Pathology" },
+                { q: "Assess your expertise in oral microbiology and its role in disease.", skill: "Oral Microbiology" },
+                { q: "How proficient are you at conducting research and writing scientific papers in oral pathology?", skill: "Research & Writing" }
+            ],
+            requiredLevel: 5
+        },
+        // --- Other Doctoral & Masters ---
+        "pg-pharmd-post-baccalaureate": {
+            name: "Doctor of Pharmacy (Pharm.D.) - Post Baccalaureate",
+            questions: [
+                { q: "How strong is your ability to provide advanced clinical pharmacy services and therapeutic drug monitoring?", skill: "Advanced Clinical Pharmacy" },
+                { q: "Rate your skill in identifying and resolving complex drug-related problems in patients.", skill: "Drug Therapy Problem Solving" },
+                { q: "How deep is your knowledge of pharmacokinetics and evidence-based medicine?", skill: "Pharmacokinetics & EBM" },
+                { q: "Assess your ability to function as an integral part of a multidisciplinary healthcare team.", skill: "Interprofessional Collaboration" },
+                { q: "How proficient are you in patient counseling and drug information services?", skill: "Patient Counseling" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-mvsc": {
+            name: "Master of Veterinary Science (MVSc)",
+            questions: [
+                { q: "How deep is your specialized knowledge in a veterinary discipline (e.g., surgery, medicine, pathology)?", skill: "Veterinary Specialization" },
+                { q: "Rate your proficiency in advanced diagnostic or surgical procedures within your specialty.", skill: "Advanced Clinical Skills" },
+                { q: "How skilled are you at designing and conducting veterinary research?", skill: "Veterinary Research" },
+                { q: "Assess your ability to critically analyze and apply findings from veterinary literature.", skill: "Critical Literature Review" },
+                { q: "How strong is your ability to manage complex cases and contribute new knowledge to the field?", skill: "Complex Case Management" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-dm-super-speciality": {
+            name: "DM - Doctorate of Medicine (Super Speciality)",
+            questions: [
+                { q: "How deep is your expertise in a highly specialized medical field like cardiology, neurology, or oncology?", skill: "Super Speciality Expertise" },
+                { q: "Rate your proficiency in performing advanced diagnostic and therapeutic procedures specific to your field.", skill: "Advanced Procedural Skills" },
+                { q: "How skilled are you at managing the most complex and critically ill patients within your specialty?", skill: "Complex Case Management" },
+                { q: "Assess your ability to lead clinical research and contribute to the advancement of your specialty.", skill: "Clinical Research Leadership" },
+                { q: "How strong is your command of the cutting-edge literature and latest treatment guidelines?", skill: "Cutting-Edge Knowledge" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-mch-super-speciality": {
+            name: "M.Ch - Master of Chirurgiae (Super Speciality)",
+            questions: [
+                { q: "How high is your proficiency and autonomy in performing complex super-specialty surgeries (e.g., cardiac, neuro, plastics)?", skill: "Advanced Surgical Autonomy" },
+                { q: "Rate your ability to make critical, high-stakes decisions in the operating room.", skill: "Critical Surgical Judgment" },
+                { q: "How deep is your knowledge of the intricate surgical anatomy and pathophysiology of your field?", skill: "Advanced Surgical Science" },
+                { q: "Assess your skill in managing complex pre- and post-operative care for super-specialty patients.", skill: "Complex Perioperative Care" },
+                { q: "How committed are you to surgical innovation and advancing the standards of your field?", skill: "Surgical Innovation" }
+            ],
+            requiredLevel: 5
+        },
+        // --- Ph.D. (Design, Social Work, Pharma) ---
+        "pg-phd-product-design": {
+            name: "Ph.D. in Product Design",
+            questions: [
+                { q: "How strong is your ability to formulate a research thesis that advances design theory or methodology?", skill: "Design Theory Contribution" },
+                { q: "Rate your expertise in advanced design research methods, including ethnographic and user-centered approaches.", skill: "Advanced Design Research" },
+                { q: "How skilled are you at synthesizing knowledge from technology, human factors, and business to inform design research?", skill: "Interdisciplinary Synthesis" },
+                { q: "Assess your ability to create and test design artifacts as a form of research and knowledge generation.", skill: "Research through Design" },
+                { q: "How proficient are you in writing scholarly papers that contribute to the academic discourse in design?", skill: "Scholarly Design Writing" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-graphic-design": {
+            name: "Ph.D. in Graphic Design",
+            questions: [
+                { q: "How deep is your theoretical and historical knowledge of visual communication?", skill: "Visual Communication Theory" },
+                { q: "Rate your ability to conduct original research on the role, practice, or impact of graphic design.", skill: "Original Design Research" },
+                { q: "How skilled are you in using qualitative or quantitative methods to investigate design questions?", skill: "Design Research Methods" },
+                { q: "Assess your capacity to write a dissertation that makes a significant contribution to design scholarship.", skill: "Scholarly Contribution" },
+                { q: "How strong is your critical thinking about the social and cultural implications of design?", skill: "Critical Design Thinking" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-fashion-design": {
+            name: "Ph.D. in Fashion Design",
+            questions: [
+                { q: "How strong is your ability to frame a doctoral research project that explores fashion from a theoretical, historical, or cultural perspective?", skill: "Fashion Research Framing" },
+                { q: "Rate your expertise in research methodologies relevant to fashion studies.", skill: "Fashion Research Methods" },
+                { q: "How deep is your engagement with fashion theory and its relationship with broader cultural theories?", skill: "Fashion Theory" },
+                { q: "Assess your ability to combine practice-led research with traditional scholarly writing.", skill: "Practice-Led Research" },
+                { q: "How original is your potential contribution to the academic field of fashion studies?", skill: "Original Contribution" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-industrial-design": {
+            name: "Ph.D. in Industrial Design",
+            questions: [
+                { q: "How strong is your ability to conduct research that advances the knowledge base of industrial design?", skill: "Advancing ID Knowledge" },
+                { q: "Rate your expertise in a specific research area like sustainable design, design for manufacturing, or user interaction.", skill: "Research Specialization" },
+                { q: "How skilled are you at employing rigorous research methods to investigate design problems?", skill: "Rigorous Research Methods" },
+                { q: "Assess your capacity to generate and disseminate new design theories, frameworks, or models.", skill: "Theory Generation" },
+                { q: "How proficient are you in writing for both academic and professional design audiences?", skill: "Versatile Writing" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-social-work": {
+            name: "Ph.D. in Social Work",
+            questions: [
+                { q: "How deep is your mastery of social work theory and its application to a specific social problem?", skill: "Social Work Theory" },
+                { q: "Rate your expertise in advanced quantitative and/or qualitative research methods for social inquiry.", skill: "Advanced Social Research" },
+                { q: "How skilled are you at designing and conducting independent research that can inform social policy and practice?", skill: "Policy-Relevant Research" },
+                { q: "Assess your ability to contribute original knowledge to the field of social work.", skill: "Original Knowledge Contribution" },
+                { q: "How strong is your scholarly writing and your potential for a career in academia and research?", skill: "Academic Potential" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-public-health": {
+            name: "Ph.D. in Public Health",
+            questions: [
+                { q: "How strong is your ability to independently design and lead a major public health research study?", skill: "Independent Research Lead" },
+                { q: "Rate your mastery of advanced epidemiological and biostatistical methods.", skill: "Advanced Epi/Biostats" },
+                { q: "How skilled are you at developing a novel research question that addresses a critical public health gap?", skill: "Novel Research Question" },
+                { q: "Assess your ability to secure research funding through grant writing.", skill: "Grant Writing" },
+                { q: "How proficient are you at publishing your research in high-impact public health journals?", skill: "High-Impact Publication" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-physical-education": {
+            name: "Ph.D. in Physical Education",
+            questions: [
+                { q: "How deep is your theoretical knowledge in an area like exercise physiology, biomechanics, or sport pedagogy?", skill: "Specialized Theoretical Knowledge" },
+                { q: "Rate your expertise in designing and conducting original research in a laboratory or applied setting.", skill: "Original Research Design" },
+                { q: "How skilled are you with advanced statistical analysis of human performance data?", skill: "Advanced Data Analysis" },
+                { q: "Assess your ability to contribute new knowledge to the science of physical education and sport.", skill: "Knowledge Contribution" },
+                { q: "How proficient are you at scholarly writing for publication in peer-reviewed journals?", skill: "Scholarly Writing" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-pharmaceutics": {
+            name: "Ph.D. in Pharmaceutics",
+            questions: [
+                { q: "How strong is your ability to design and develop novel drug delivery systems?", skill: "Novel Drug Delivery Design" },
+                { q: "Rate your expertise in advanced characterization techniques for pharmaceutical formulations.", skill: "Advanced Characterization" },
+                { q: "How skilled are you at conducting research in pharmacokinetics and biopharmaceutics?", skill: "PK/PD Research" },
+                { q: "Assess your capacity for independent, innovative research that can lead to patents and publications.", skill: "Innovative Research" },
+                { q: "How deep is your understanding of the physical chemistry and material science of drug formulation?", skill: "Physiochemical Foundations" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-pharmacology-pharma": {
+            name: "Ph.D. in Pharmacology (Pharma)",
+            questions: [
+                { q: "How skilled are you at designing and conducting experiments to investigate drug mechanisms of action?", skill: "Mechanistic Research Design" },
+                { q: "Rate your mastery of in vitro and in vivo pharmacological techniques.", skill: "Advanced Pharmacological Techniques" },
+                { q: "How strong is your ability to analyze and interpret complex pharmacological data?", skill: "Complex Data Interpretation" },
+                { q: "Assess your capacity to make an original contribution to the understanding of drug action or toxicology.", skill: "Original Contribution" },
+                { q: "How deep is your knowledge of molecular biology, biochemistry, and physiology?", skill: "Interdisciplinary Foundations" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-pharmaceutical-analysis": {
+            name: "Ph.D. in Pharmaceutical Analysis",
+            questions: [
+                { q: "How strong is your ability to develop and validate novel, highly sensitive analytical methods for drugs?", skill: "Novel Method Development" },
+                { q: "Rate your expertise in a wide range of advanced analytical instrumentation (e.g., LC-MS/MS, NMR).", skill: "Advanced Instrumentation" },
+                { q: "How skilled are you at troubleshooting complex analytical problems?", skill: "Complex Troubleshooting" },
+                { q: "Assess your deep understanding of separation science, spectroscopy, and quality control principles.", skill: "Analytical Theory" },
+                { q: "How proficient are you in applying your methods to complex matrices like biological fluids?", skill: "Bioanalysis" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-pharmacognosy": {
+            name: "Ph.D. in Pharmacognosy",
+            questions: [
+                { q: "How skilled are you at isolating and structurally elucidating novel bioactive compounds from natural sources?", skill: "Natural Product Chemistry" },
+                { q: "Rate your expertise in chromatographic and spectroscopic techniques for natural product analysis.", skill: "Advanced Analytical Techniques" },
+                { q: "How strong is your ability to design and conduct research on the biological activity of medicinal plants?", skill: "Bioactivity Research" },
+                { q: "Assess your knowledge of ethnobotany, phytochemistry, and herbal drug standardization.", skill: "Core Pharmacognosy" },
+                { q: "How original can your research contribution be to the field of natural drug discovery?", skill: "Original Drug Discovery" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-phd-pharmacy-practice": {
+            name: "Ph.D. in Pharmacy Practice",
+            questions: [
+                { q: "How skilled are you at designing and conducting pharmacoepidemiology or health outcomes research?", skill: "Outcomes Research Design" },
+                { q: "Rate your expertise in analyzing large healthcare databases and clinical trial data.", skill: "Large Database Analysis" },
+                { q: "How strong is your ability to evaluate the clinical and economic impact of pharmaceutical services?", skill: "Pharmacoeconomics" },
+                { q: "Assess your ability to conduct research that can influence pharmacy practice and health policy.", skill: "Practice-Informing Research" },
+                { q: "How proficient are you in the methodologies of clinical research and biostatistics?", skill: "Clinical Research Methods" }
+            ],
+            requiredLevel: 5
+        },
+        // --- Post-Doctoral Fellowships ---
+        "pg-post-doctoral-fellowships-overview": {
+            name: "Post-Doctoral Fellowships Overview",
+            questions: [
+                { q: "How strong is your track record of publications from your Ph.D. research?", skill: "Publication Record" },
+                { q: "Rate your ability to define and propose an independent and innovative research project.", skill: "Independent Research Design" },
+                { q: "How skilled are you at writing competitive grant and fellowship applications?", skill: "Grant Writing Aptitude" },
+                { q: "Assess your potential for becoming an independent principal investigator and research leader.", skill: "Leadership Potential" },
+                { q: "How strong are your presentation skills for sharing your work at international conferences?", skill: "International Communication" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-fellowship-serb-npdf": {
+            name: "SERB National Post-Doctoral Fellowship (N-PDF)",
+            questions: [
+                { q: "How strong is your Ph.D. research and publication record in a science or engineering field?", skill: "PhD Publication Record" },
+                { q: "Rate your ability to formulate a high-quality, original research proposal with a clear project plan.", skill: "Original Research Proposal" },
+                { q: "How well does your proposed research align with the expertise of your chosen mentor and host institution?", skill: "Mentor & Institutional Fit" },
+                { q: "Assess your potential to work independently and produce high-impact publications.", skill: "Independence & Impact" },
+                { q: "How strong is the novelty and scientific merit of your proposed research?", skill: "Scientific Novelty" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-fellowship-icssr": {
+            name: "ICSSR Post-Doctoral Fellowship",
+            questions: [
+                { q: "How significant and original is your proposed research topic in the social sciences?", skill: "Originality in Social Science" },
+                { q: "Rate your ability to craft a theoretically-grounded and methodologically-sound research proposal.", skill: "Methodological Soundness" },
+                { q: "How strong is your Ph.D. work and its potential to be expanded into a major publication?", skill: "Publication Potential" },
+                { q: "Assess your ability to contribute new knowledge to a major area of social science research.", skill: "Knowledge Contribution" },
+                { q: "How well-articulated is the societal relevance and policy implications of your research?", skill: "Societal Relevance" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-fellowship-ugc-dskothari": {
+            name: "UGC D. S. Kothari Postdoctoral Fellowship",
+            questions: [
+                { q: "How strong is your academic record and the quality of your Ph.D. thesis?", skill: "Academic & Thesis Quality" },
+                { q: "Rate your ability to propose a well-defined and innovative research project in science or humanities.", skill: "Innovative Research Plan" },
+                { q: "How well have you identified a suitable mentor and justified the choice of host institution?", skill: "Mentor Justification" },
+                { q: "Assess your potential for independent research and future academic leadership.", skill: "Leadership Potential" },
+                { q: "How strong is your publication record relative to your field and career stage?", skill: "Publication Record" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-fellowship-csir-ra": {
+            name: "CSIR Research Associateship (CSIR-RA)",
+            questions: [
+                { q: "How strong is your research background and publication record in a field relevant to CSIR labs?", skill: "Relevant Publication Record" },
+                { q: "Rate your ability to propose an original research project that aligns with CSIR's mission.", skill: "Mission-Aligned Research" },
+                { q: "How deep is your expertise in your specialized area of science or technology?", skill: "Specialized Expertise" },
+                { q: "Assess your potential to conduct high-quality, independent research within a CSIR laboratory.", skill: "Independent Research Potential" },
+                { q: "How innovative is your research proposal and its potential for scientific or technological impact?", skill: "Innovation & Impact" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-fellowship-dbt-ra": {
+            name: "DBT Research Associateship (DBT-RA)",
+            questions: [
+                { q: "How strong is your Ph.D. research and publication record in biotechnology and life sciences?", skill: "Biotech Publication Record" },
+                { q: "Rate your ability to formulate a cutting-edge research proposal in a high-priority area for DBT.", skill: "Cutting-Edge Proposal" },
+                { q: "How skilled are you in advanced biotechnological techniques relevant to your proposed work?", skill: "Advanced Technical Skills" },
+                { q: "Assess your potential to work independently and drive a research project to publication.", skill: "Research Independence" },
+                { q: "How strong is the novelty and potential impact of your proposed research?", skill: "Novelty & Impact" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-fellowship-icmr": {
+            name: "ICMR Postdoctoral Fellowship",
+            questions: [
+                { q: "How strong is your research background in biomedical science, public health, or a related field?", skill: "Biomedical Research Background" },
+                { q: "Rate your ability to propose a research project with high relevance to India's health priorities.", skill: "National Health Relevance" },
+                { q: "How rigorous and well-designed is your research methodology?", skill: "Methodological Rigor" },
+                { q: "Assess your potential to become an independent researcher in health sciences.", skill: "Independent Health Researcher" },
+                { q: "How strong is your publication track record in reputable, peer-reviewed journals?", skill: "Publication Record" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-fellowship-ramanujan": {
+            name: "Ramanujan Fellowship",
+            questions: [
+                { q: "How outstanding is your academic and publication record from your Ph.D. and post-doc work abroad?", skill: "Outstanding International Record" },
+                { q: "Rate your ability to propose a highly ambitious and innovative research program to establish in India.", skill: "Ambitious Research Program" },
+                { q: "How strong is your potential to become a future leader in your scientific field?", skill: "Scientific Leadership Potential" },
+                { q: "Assess the international significance and competitiveness of your proposed research.", skill: "International Significance" },
+                { q: "How clear is your vision for setting up an independent research group?", skill: "Independent Group Vision" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-fellowship-tata-innovation": {
+            name: "Tata Innovation Fellowship",
+            questions: [
+                { q: "How strong is your track record of innovative research with a clear potential for application or commercialization?", skill: "Innovative & Applied Research" },
+                { q: "Rate your ability to lead a major, high-risk, high-reward research project.", skill: "High-Risk Project Leadership" },
+                { q: "How significant is the potential impact of your research on healthcare, agriculture, or energy?", skill: "Potential for Major Impact" },
+                { q: "Assess your creativity and out-of-the-box thinking.", skill: "Innovative Thinking" },
+                { q: "How clear is your plan to translate your research findings into a tangible product or solution?", skill: "Translation Plan" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-fellowship-fulbright-nehru": {
+            name: "Fulbright-Nehru Postdoctoral Research Fellowships (USA)",
+            questions: [
+                { q: "How strong is your academic record and the quality of your Ph.D. research?", skill: "Academic Excellence" },
+                { q: "Rate your ability to propose a compelling, well-defined research project that requires resources or expertise in the U.S.", skill: "Compelling U.S.-based Project" },
+                { q: "How clear and feasible is your project methodology and timeline?", skill: "Feasibility & Methodology" },
+                { q: "Assess your potential to serve as a cultural ambassador and contribute to India-U.S. understanding.", skill: "Cultural Ambassadorship" },
+                { q: "How significant is the potential contribution of your research to both India and the U.S.?", skill: "Mutual Benefit" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-fellowship-university-specific": {
+            name: "University-Specific Fellowships",
+            questions: [
+                { q: "How well does your research profile and proposed project align with the specific research strengths of the host university/department?", skill: "Strategic Alignment" },
+                { q: "Rate your ability to write a highly tailored proposal that speaks directly to the interests of the funding department.", skill: "Tailored Proposal Writing" },
+                { q: "How strong a case can you make for why this specific university is the ideal place for your research?", skill: "Justification of Choice" },
+                { q: "Assess your potential to collaborate with specific faculty members and contribute to the university's research environment.", skill: "Collaborative Potential" },
+                { q: "How strong is your independent research record and academic potential compared to other applicants?", skill: "Competitive Profile" }
+            ],
+            requiredLevel: 5
+        },
+        "pg-fellowship-industry-sponsored": {
+            name: "Industry-Sponsored Postdoctoral Research",
+            questions: [
+                { q: "How well does your research expertise align with the R&D goals of the sponsoring company?", skill: "Industry R&D Alignment" },
+                { q: "Rate your ability to conduct goal-oriented research with clear, tangible outcomes and timelines.", skill: "Goal-Oriented Research" },
+                { q: "How strong is your capacity for innovation and problem-solving in an applied, industrial context?", skill: "Applied Innovation" },
+                { q: "Assess your ability to work collaboratively in a corporate R&D team and handle proprietary information.", skill: "Corporate Collaboration" },
+                { q: "How skilled are you at communicating research progress and results to a business audience?", skill: "Business Communication" }
+            ],
+            requiredLevel: 5
+        }
+    };
+</script>
+
+</body>
+</html>

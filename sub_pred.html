@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentence Structure: Subject & Predicate</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            /* Blue and white gridline background */
+            background-color: #f0f8ff; 
+            background-image: 
+                repeating-linear-gradient(to right, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 30px),
+                repeating-linear-gradient(to bottom, #d4e7f5 0px, #d4e7f5 1px, transparent 1px, transparent 30px);
+            background-size: 30px 30px;
+        }
+
+        /* Header Styling */
+        header {
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        header h1 {
+            display: inline-block;
+            background-color: #0056b3;
+            color: white;
+            padding: 20px 40px;
+            border: 3px solid white;
+            border-radius: 15px;
+            /* 3D Box Effect */
+            box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.4), inset 2px 2px 5px rgba(255, 255, 255, 0.3);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-size: 2.2em;
+            margin: 0;
+        }
+
+        /* Main Container for Two-Column Layout */
+        .container {
+            display: flex;
+            max-width: 1300px;
+            margin: 20px auto;
+            background: #ffffff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.15);
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        /* Left Navigation Column */
+        .nav-column {
+            flex: 1;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+            background-color: #f8f9fa;
+        }
+
+        .nav-column ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            position: sticky;
+            top: 20px; /* Makes the nav stick on scroll */
+        }
+
+        .nav-column li a {
+            display: block;
+            padding: 12px 15px;
+            text-decoration: none;
+            color: #0056b3;
+            border-radius: 5px;
+            margin-bottom: 8px;
+            font-weight: bold;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .nav-column li a:hover,
+        .nav-column li a.active {
+            background-color: #0056b3;
+            color: #fff;
+        }
+
+        /* Right Content Column */
+        .content-column {
+            flex: 3;
+            padding: 25px 35px;
+            height: 80vh; /* Set a height to enable scrolling */
+            overflow-y: auto; /* Enable vertical scrollbar */
+        }
+
+        .content-section {
+            display: none;
+        }
+        
+        .content-section.active {
+            display: block;
+        }
+        
+        h2 {
+            font-size: 1.8em;
+            color: #0056b3;
+            border-bottom: 3px solid #0056b3;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        
+        h3 {
+            font-size: 1.4em;
+            color: #333;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        
+        .example-list {
+            list-style-type: decimal;
+            padding-left: 20px;
+        }
+
+        .example-list li {
+            margin-bottom: 15px;
+        }
+        
+        .subject {
+            background-color: #d4e7f5; /* Light blue */
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+        
+        .predicate {
+            background-color: #fff2cc; /* Light yellow */
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+        
+        .note {
+            font-style: italic;
+            color: #555;
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-left: 4px solid #0056b3;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>SENTENCE STRUCTURE: SUBJECT & PREDICATE</h1>
+    </header>
+
+    <div class="container">
+        <nav class="nav-column">
+            <ul>
+                <li><a href="#definition" class="nav-link active">Definition</a></li>
+                <li><a href="#identify" class="nav-link">How to Identify</a></li>
+                <li><a href="#examples" class="nav-link">Examples by Type</a></li>
+                <li><a href="#unusual-position" class="nav-link">Unusual Subject Position</a></li>
+            </ul>
+        </nav>
+
+        <main class="content-column">
+            <!-- DEFINITION SECTION -->
+            <section id="definition" class="content-section active">
+                <h2>Definition</h2>
+                <p>Every complete sentence is made of two essential parts: a subject and a predicate.</p>
+                <ul>
+                    <li>The <strong>SUBJECT</strong> tells us **what or whom** the sentence is about. It is the person, place, thing, or idea that performs an action or is described.</li>
+                    <li>The <strong>PREDICATE</strong> tells us **what the subject is doing or what the subject is**. It always contains the verb and includes all the words that complete the thought.</li>
+                </ul>
+                <h3>10 Examples:</h3>
+                <ol class="example-list">
+                    <li><span class="subject">The dog</span> <span class="predicate">barked loudly.</span></li>
+                    <li><span class="subject">She</span> <span class="predicate">is a talented artist.</span></li>
+                    <li><span class="subject">My favorite book</span> <span class="predicate">has a blue cover.</span></li>
+                    <li><span class="subject">Running every morning</span> <span class="predicate">is good for your health.</span></li>
+                    <li><span class="subject">The students and their teacher</span> <span class="predicate">watched the documentary.</span></li>
+                    <li><span class="subject">He</span> <span class="predicate">solved the puzzle quickly.</span></li>
+                    <li><span class="subject">The sun</span> <span class="predicate">sets in the west.</span></li>
+                    <li><span class="subject">To learn a new language</span> <span class="predicate">requires dedication.</span></li>
+                    <li><span class="subject">That old house on the corner</span> <span class="predicate">looks spooky.</span></li>
+                    <li><span class="subject">We</span> <span class="predicate">are studying for the competitive exam.</span></li>
+                </ol>
+            </section>
+            
+            <section id="identify" class="content-section">
+                <h2>How to Identify Subject and Predicate</h2>
+                <p>Follow this simple 3-step process to correctly identify the subject of any sentence.</p>
+                
+                <h3>Step 1: Find the Verb</h3>
+                <p>First, locate the verb (the action or state-of-being word) in the sentence.</p>
+                
+                <h3>Step 2: Ask the Question</h3>
+                <p>Next, ask the question **"Who or What + [the verb]?"**</p>
+
+                <h3>Step 3: Find the Subject</h3>
+                <p>The answer to your question is the **Complete Subject**. Everything else in the sentence is the **Complete Predicate**.</p>
+                
+                <div class="note">
+                    <p><strong>Example Analysis:</strong></p>
+                    <p><strong>Sentence:</strong> The big, brown dog chased the cat.</p>
+                    <ol>
+                        <li><strong>Find the Verb:</strong> chased</li>
+                        <li><strong>Ask the Question:</strong> Who or What chased?</li>
+                        <li><strong>Answer/Subject:</strong> The big, brown dog</li>
+                    </ol>
+                    <p>Therefore:</p>
+                    <p><span class="subject">The big, brown dog</span> is the Subject.</p>
+                    <p><span class="predicate">chased the cat</span> is the Predicate.</p>
+                </div>
+            </section>
+
+            <section id="examples" class="content-section">
+                <h2>Examples by Sentence Type</h2>
+                
+                <h3>1. Simple Sentences</h3>
+                <ol class="example-list">
+                    <li><span class="subject">The car</span> <span class="predicate">stopped suddenly.</span></li>
+                    <li><span class="subject">My little brother</span> <span class="predicate">is sleeping.</span></li>
+                    <li><span class="subject">Birds</span> <span class="predicate">fly.</span></li>
+                    <li><span class="subject">The sun</span> <span class="predicate">shines brightly.</span></li>
+                    <li><span class="subject">Our team</span> <span class="predicate">won the game.</span></li>
+                    <li><span class="subject">She</span> <span class="predicate">laughed at the joke.</span></li>
+                    <li><span class="subject">The old clock</span> <span class="predicate">ticked loudly.</span></li>
+                    <li><span class="subject">He</span> <span class="predicate">is a doctor.</span></li>
+                    <li><span class="subject">The flowers in the garden</span> <span class="predicate">are beautiful.</span></li>
+                    <li><span class="subject">We</span> <span class="predicate">arrived late.</span></li>
+                </ol>
+
+                <h3>2. With Compound Subjects (more than one subject)</h3>
+                <ol class="example-list">
+                    <li><span class="subject">The students and their teacher</span> <span class="predicate">went on a field trip.</span></li>
+                    <li><span class="subject">My brother and I</span> <span class="predicate">play chess together.</span></li>
+                    <li><span class="subject">The book and the movie</span> <span class="predicate">were both excellent.</span></li>
+                    <li><span class="subject">Cats and dogs</span> <span class="predicate">are popular pets.</span></li>
+                    <li><span class="subject">John, Mary, and David</span> <span class="predicate">are on the same team.</span></li>
+                    <li><span class="subject">The manager and his assistant</span> <span class="predicate">attended the meeting.</span></li>
+                    <li><span class="subject">Hard work and dedication</span> <span class="predicate">lead to success.</span></li>
+                    <li><span class="subject">Neither the players nor the coach</span> <span class="predicate">was happy with the result.</span></li>
+                    <li><span class="subject">Either the blue shirt or the green one</span> <span class="predicate">will match these trousers.</span></li>
+                    <li><span class="subject">The sun, the moon, and the stars</span> <span class="predicate">are celestial bodies.</span></li>
+                </ol>
+                
+                <h3>3. With Compound Predicates (more than one verb)</h3>
+                <ol class="example-list">
+                    <li><span class="subject">She</span> <span class="predicate">tripped and fell on the ice.</span></li>
+                    <li><span class="subject">He</span> <span class="predicate">studied for the test and passed with high marks.</span></li>
+                    <li><span class="subject">The dog</span> <span class="predicate">barked and wagged its tail.</span></li>
+                    <li><span class="subject">My friend</span> <span class="predicate">called me and invited me to the party.</span></li>
+                    <li><span class="subject">We</span> <span class="predicate">will go to the store and buy some groceries.</span></li>
+                    <li><span class="subject">The author</span> <span class="predicate">writes novels and teaches at the university.</span></li>
+                    <li><span class="subject">The chef</span> <span class="predicate">prepared the meal and decorated the plate.</span></li>
+                    <li><span class="subject">I</span> <span class="predicate">woke up, stretched, and got out of bed.</span></li>
+                    <li><span class="subject">The company</span> <span class="predicate">designed, manufactured, and sold the new product.</span></li>
+                    <li><span class="subject">She</span> <span class="predicate">sings in the choir and plays the piano.</span></li>
+                </ol>
+                
+                <h3>4. Questions (Inverted Order)</h3>
+                <p class="note">To find the subject, first rearrange the question into a statement.</p>
+                <ol class="example-list">
+                    <li><strong>Question:</strong> <span class="predicate">Are</span> <span class="subject">you</span> <span class="predicate">coming to the party?</span><br><strong>Statement:</strong> <span class="subject">You</span> <span class="predicate">are coming to the party.</span></li>
+                    <li><strong>Question:</strong> <span class="predicate">Did</span> <span class="subject">he</span> <span class="predicate">finish his homework?</span><br><strong>Statement:</strong> <span class="subject">He</span> <span class="predicate">did finish his homework.</span></li>
+                    <li><strong>Question:</strong> <span class="predicate">Will</span> <span class="subject">the train</span> <span class="predicate">arrive on time?</span><br><strong>Statement:</strong> <span class="subject">The train</span> <span class="predicate">will arrive on time.</span></li>
+                    <li><strong>Question:</strong> <span class="predicate">Have</span> <span class="subject">they</span> <span class="predicate">seen the movie?</span><br><strong>Statement:</strong> <span class="subject">They</span> <span class="predicate">have seen the movie.</span></li>
+                    <li><strong>Question:</strong> <span class="predicate">Is</span> <span class="subject">your brother</span> <span class="predicate">a doctor?</span><br><strong>Statement:</strong> <span class="subject">Your brother</span> <span class="predicate">is a doctor.</span></li>
+                    <li><strong>Question:</strong> <span class="predicate">What did</span> <span class="subject">she</span> <span class="predicate">say?</span><br><strong>Statement:</strong> <span class="subject">She</span> <span class="predicate">did say what.</span></li>
+                    <li><strong>Question:</strong> <span class="predicate">Where are</span> <span class="subject">my keys</span><span class="predicate">?</span><br><strong>Statement:</strong> <span class="subject">My keys</span> <span class="predicate">are where.</span></li>
+                    <li><strong>Question:</strong> <span class="predicate">Can</span> <span class="subject">you</span> <span class="predicate">help me?</span><br><strong>Statement:</strong> <span class="subject">You</span> <span class="predicate">can help me.</span></li>
+                    <li><strong>Question:</strong> <span class="predicate">Was</span> <span class="subject">the test</span> <span class="predicate">difficult?</span><br><strong>Statement:</strong> <span class="subject">The test</span> <span class="predicate">was difficult.</span></li>
+                    <li><strong>Question:</strong> <span class="predicate">Who</span> <span class="predicate">broke the window?</span><br><strong>Statement:</strong> <span class="subject">Who</span> <span class="predicate">broke the window.</span> (Here, 'Who' is the subject)</li>
+                </ol>
+                
+                <h3>5. Commands (Implied Subject)</h3>
+                <p class="note">In commands, the subject is almost always an unstated "You".</p>
+                <ol class="example-list">
+                    <li><span class="subject">(You)</span> <span class="predicate">Close the door.</span></li>
+                    <li><span class="subject">(You)</span> <span class="predicate">Please be quiet.</span></li>
+                    <li><span class="subject">(You)</span> <span class="predicate">Do your homework.</span></li>
+                    <li><span class="subject">(You)</span> <span class="predicate">Watch your step.</span></li>
+                    <li><span class="subject">(You)</span> <span class="predicate">Stop talking.</span></li>
+                    <li><span class="subject">(You)</span> <span class="predicate">Listen carefully to the instructions.</span></li>
+                    <li><span class="subject">(You)</span> <span class="predicate">Turn left at the next signal.</span></li>
+                    <li><span class="subject">(You)</span> <span class="predicate">Don't forget to call me.</span></li>
+                    <li><span class="subject">(You)</span> <span class="predicate">Help me with this box.</span></li>
+                    <li><span class="subject">(You)</span> <span class="predicate">Read the chapter thoroughly.</span></li>
+                </ol>
+            </section>
+            
+            <section id="unusual-position" class="content-section">
+                <h2>Examples of Unusual Subject Position</h2>
+                <p>In some sentences, especially those used for literary effect or emphasis, the subject does not appear at the beginning. The "Who or What + Verb" question is essential for finding it.</p>
+                
+                <h3>1. Sentences beginning with a prepositional phrase</h3>
+                <ol class="example-list">
+                    <li><strong>Sentence:</strong> On top of the tree, <span class="predicate">lives</span> <span class="subject">a sparrow</span>.<br><strong>Analysis:</strong> Who or what lives? → a sparrow.</li>
+                    <li><strong>Sentence:</strong> Around the corner <span class="predicate">came</span> <span class="subject">the speeding car</span>.</li>
+                    <li><strong>Sentence:</strong> Down the street <span class="predicate">marched</span> <span class="subject">the soldiers</span>.</li>
+                    <li><strong>Sentence:</strong> In the middle of the room <span class="predicate">stood</span> <span class="subject">a large, wooden table</span>.</li>
+                    <li><strong>Sentence:</strong> From the ashes <span class="predicate">rose</span> <span class="subject">the phoenix</span>.</li>
+                </ol>
+                
+                <h3>2. Sentences beginning with "Here" or "There"</h3>
+                 <p class="note">In sentences starting with 'Here' or 'There', the subject usually follows the verb.</p>
+                <ol class="example-list">
+                    <li><strong>Sentence:</strong> There <span class="predicate">are</span> <span class="subject">ten books</span> <span class="predicate">on the shelf</span>.<br><strong>Analysis:</strong> Who or what are on the shelf? → ten books.</li>
+                    <li><strong>Sentence:</strong> Here <span class="predicate">is</span> <span class="subject">your ticket</span>.</li>
+                    <li><strong>Sentence:</strong> There <span class="predicate">goes</span> <span class="subject">my chance</span> <span class="predicate">of winning</span>.</li>
+                    <li><strong>Sentence:</strong> Here <span class="predicate">comes</span> <span class="subject">the bride</span>.</li>
+                    <li><strong>Sentence:</strong> There <span class="predicate">were</span> <span class="subject">many people</span> <span class="predicate">at the concert</span>.</li>
+                </ol>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const contentSections = document.querySelectorAll('.content-section');
+            const contentColumn = document.querySelector('.content-column');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+
+                    navLinks.forEach(nav => nav.classList.remove('active'));
+                    contentSections.forEach(section => section.classList.remove('active'));
+
+                    this.classList.add('active');
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        targetSection.classList.add('active');
+                        contentColumn.scrollTop = 0; // Scroll to top of content area on click
+                    }
+                });
+            });
+            // Auto-activate the first link on page load
+            document.querySelector('.nav-link').classList.add('active');
+            document.querySelector('.content-section').classList.add('active');
+        });
+    </script>
+
+</body>
+</html>
